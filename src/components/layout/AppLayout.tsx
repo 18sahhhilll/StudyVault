@@ -17,8 +17,8 @@ import {
 import { useTheme } from '@/hooks/useTheme';
 
 interface AppLayoutProps {
-  currentTab: 'dashboard' | 'subjects' | 'important' | 'revision';
-  onSelectTab: (tab: 'dashboard' | 'subjects' | 'important' | 'revision') => void;
+  currentTab: 'dashboard' | 'subjects' | 'papers' | 'important' | 'revision';
+  onSelectTab: (tab: 'dashboard' | 'subjects' | 'papers' | 'important' | 'revision') => void;
   onOpenSearch: () => void;
   completedCount: number;
   totalQuestions: number;
@@ -44,6 +44,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
   const navigationItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { id: 'subjects', label: 'Subjects', icon: Compass },
+    { id: 'papers', label: 'Solved PYQs', icon: GraduationCap },
     { id: 'important', label: 'Question Bank', icon: HelpCircle },
     { id: 'revision', label: 'Revision Mode', icon: FileText },
   ] as const;

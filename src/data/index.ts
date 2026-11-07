@@ -72,3 +72,5 @@ export function searchQuestions(query: string) {
     );
   });
 }
+
+export * from './papers';

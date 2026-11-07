@@ -6,12 +6,13 @@ import { SubjectDetailView } from '@/components/subjects/SubjectDetailView';
 import { UnitReadingView } from '@/components/questions/UnitReadingView';
 import { ImportantQuestionsView } from '@/components/questions/ImportantQuestionsView';
 import { RevisionView } from '@/components/revision/RevisionView';
+import { QuestionPapersView } from '@/components/papers/QuestionPapersView';
 import { SearchModal } from '@/components/common/SearchModal';
 import { useStudyProgress } from '@/hooks/useStudyProgress';
 import { getSubjectById, getUnitById } from '@/data';
 
 export function App() {
-  const [currentTab, setCurrentTab] = useState<'dashboard' | 'subjects' | 'important' | 'revision'>('dashboard');
+  const [currentTab, setCurrentTab] = useState<'dashboard' | 'subjects' | 'papers' | 'important' | 'revision'>('dashboard');
   const [searchModalOpen, setSearchModalOpen] = useState(false);
 
   // Drilldown states for Subjects / Units / Questions reading
@@ -92,6 +93,7 @@ export function App() {
           onNavigateQuestion={handleOpenQuestion}
           onNavigateImportant={() => setCurrentTab('important')}
           onNavigateRevision={() => setCurrentTab('revision')}
+          onNavigatePapers={() => setCurrentTab('papers')}
         />
       );
     }
@@ -144,6 +146,15 @@ export function App() {
         <SubjectsView
           onSelectSubject={handleOpenSubject}
           getSubjectStats={getSubjectStats}
+        />
+      );
+    }
+
+    if (currentTab === 'papers') {
+      return (
+        <QuestionPapersView
+          onNavigateQuestion={handleOpenQuestion}
+          onNavigateUnit={handleOpenUnit}
         />
       );
     }

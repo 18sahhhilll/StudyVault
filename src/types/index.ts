@@ -172,3 +172,45 @@ export interface UserProgress {
   notesByQuestionId: Record<string, string>;
   updatedAt: string;
 }
+
+export interface PYQSubQuestion {
+  subNumber: string; // e.g. "Q1(a)", "Q1(b)"
+  text: string; // Exact paper question text
+  marks: number;
+  unitNumber: number;
+  unitTitle: string;
+  mappedQuestionId: string; // references e.g. "daa-u3-q11"
+  mappedUnitId: string; // e.g. "unit-3"
+  mappedSubjectId: string; // e.g. "daa"
+}
+
+export interface PYQMainQuestion {
+  questionNumber: string; // "Q1", "Q2", "Q3", etc.
+  subQuestions: PYQSubQuestion[];
+  totalMarks: number;
+}
+
+export interface PYQPair {
+  pairNumber: number; // 1, 2, 3, 4
+  pairTitle: string; // e.g. "Unit 3: Greedy Method & Dynamic Programming"
+  unitNumber: number;
+  mainQuestion: PYQMainQuestion;
+  orQuestion: PYQMainQuestion;
+}
+
+export interface QuestionPaper {
+  id: string; // e.g. "daa-april-2023"
+  subjectId: string; // "daa"
+  subjectName: string; // "Design and Analysis of Algorithms"
+  subjectCode: string; // "410241"
+  pattern: string; // "2019 Pattern"
+  semester: string; // "Semester VII"
+  monthYear: string; // "April / May 2023"
+  paperCode: string; // "[6004]-480A"
+  paperSubCode?: string; // "P3147"
+  examType: 'End Semester' | 'In Semester';
+  maxMarks: number; // 70
+  duration: string; // "2½ Hours"
+  instructions: string[];
+  pairs: PYQPair[];
+}

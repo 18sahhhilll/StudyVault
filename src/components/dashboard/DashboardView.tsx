@@ -11,7 +11,8 @@ import {
   HelpCircle,
   FileText,
   Clock,
-  Compass
+  Compass,
+  GraduationCap
 } from 'lucide-react';
 import { allSubjects, getAllQuestions } from '@/data';
 import { ImportanceBadge } from '@/components/common/ImportanceBadge';
@@ -32,6 +33,7 @@ interface DashboardViewProps {
   onNavigateQuestion: (subjectId: string, unitId: string, questionId: string) => void;
   onNavigateImportant: () => void;
   onNavigateRevision: () => void;
+  onNavigatePapers?: () => void;
 }
 
 export const DashboardView: React.FC<DashboardViewProps> = ({
@@ -45,6 +47,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   onNavigateQuestion,
   onNavigateImportant,
   onNavigateRevision,
+  onNavigatePapers,
 }) => {
   const allQuestions = getAllQuestions();
   const totalUnits = allSubjects.reduce((acc, s) => acc + s.units.length, 0);
@@ -79,6 +82,15 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
 
           <div className="flex flex-wrap sm:flex-nowrap gap-3 shrink-0">
+            {onNavigatePapers && (
+              <button
+                onClick={onNavigatePapers}
+                className="px-4 py-2.5 rounded-lg text-xs sm:text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 shadow-sm transition-colors flex items-center gap-2"
+              >
+                <GraduationCap className="w-4 h-4" />
+                <span>Solved PYQs</span>
+              </button>
+            )}
             <button
               onClick={onNavigateImportant}
               className="px-4 py-2.5 rounded-lg text-xs sm:text-sm font-medium bg-academic-900 dark:bg-white text-white dark:text-academic-900 hover:bg-academic-800 dark:hover:bg-academic-100 shadow-sm transition-colors flex items-center gap-2"
