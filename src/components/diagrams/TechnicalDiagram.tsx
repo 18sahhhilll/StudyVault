@@ -61,6 +61,15 @@ import {
   TSPReducedMatrixDiagram,
   KnapsackBranchBoundDiagram
 } from './daa/DAAUnit4Diagrams';
+import {
+  AmortizedStackDiagram,
+  BinaryCounterDiagram,
+  ComplexityClassesDiagram,
+  RandomizedAlgorithmsDiagram,
+  TSP2ApproxDiagram,
+  EmbeddedSchedulerDiagram,
+  EmbeddedInsertionSortDiagram
+} from './daa/DAAUnit5Diagrams';
 
 interface TechnicalDiagramProps {
   diagram: DiagramData;
@@ -635,6 +644,27 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
 
       case 'knapsack-branch-bound-tree':
         return <KnapsackBranchBoundDiagram />;
+
+      case 'amortized-stack-multipop':
+        return <AmortizedStackDiagram />;
+
+      case 'binary-counter-amortized':
+        return <BinaryCounterDiagram />;
+
+      case 'complexity-classes-euler':
+        return <ComplexityClassesDiagram />;
+
+      case 'randomized-algorithms-hierarchy':
+        return <RandomizedAlgorithmsDiagram />;
+
+      case 'tsp-metric-2approximation':
+        return <TSP2ApproxDiagram />;
+
+      case 'embedded-scheduler-queues':
+        return <EmbeddedSchedulerDiagram />;
+
+      case 'embedded-insertion-sort':
+        return <EmbeddedInsertionSortDiagram />;
 
       default:
         return (
