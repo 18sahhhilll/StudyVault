@@ -44,6 +44,33 @@ export interface WorkedStep {
   };
 }
 
+export interface NumericalStep {
+  stepNumber: number;
+  title: string;
+  explanation: string;
+  formula?: string; // LaTeX formula
+  substitution?: string; // Values substituted into formula
+  calculation?: string; // Step arithmetic / work
+  result?: string; // Intermediate or final value with units
+  tip?: string; // Exam tip or common pitfall
+  table?: {
+    headers: string[];
+    rows: (string | number)[][];
+  };
+}
+
+export interface NumericalSolution {
+  problemSummary: string;
+  givenData: { label: string; value: string }[];
+  toFind: string[];
+  steps: NumericalStep[];
+  finalAnswer: {
+    label: string;
+    value: string;
+    interpretation?: string;
+  };
+}
+
 export interface DiagramData {
   id: string;
   title: string;
@@ -88,6 +115,7 @@ export interface Question {
   sections: AnswerSection[];
   diagrams?: DiagramData[];
   tables?: ComparisonTable[];
+  numericalSolution?: NumericalSolution;
   examples?: string[];
   summary: string[]; // 4-5 line exam summary box
   keyPoints: string[]; // Important keywords / exam bullet points

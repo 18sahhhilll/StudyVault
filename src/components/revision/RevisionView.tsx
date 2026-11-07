@@ -33,6 +33,7 @@ export const RevisionView: React.FC<RevisionViewProps> = ({ onSelectQuestion }) 
   const activeUnit = subject.units.find((u) => u.id === selectedUnitId) || subject.units[0];
 
   const faqsInUnit = activeUnit.questions.filter((q) => q.importance === 'Frequently Asked');
+  const numericalQuestionsInUnit = activeUnit.questions.filter((q) => q.numericalSolution);
 
   return (
     <div className="space-y-8 animate-in fade-in duration-200">
@@ -137,6 +138,49 @@ export const RevisionView: React.FC<RevisionViewProps> = ({ onSelectQuestion }) 
           ))}
         </div>
       </div>
+
+      {/* Interactive Solved Numericals in Unit */}
+      {numericalQuestionsInUnit.length > 0 && (
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-base sm:text-lg font-bold text-academic-900 dark:text-academic-100 font-sans flex items-center gap-2">
+              <Calculator className="w-5 h-5 text-indigo-600" />
+              <span>Interactive Solved Numericals ({numericalQuestionsInUnit.length})</span>
+            </h2>
+            <span className="text-xs font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-800 px-2.5 py-0.5 rounded-full">
+              Click-to-Solve
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {numericalQuestionsInUnit.map((q) => (
+              <div
+                key={q.id}
+                onClick={() => onSelectQuestion(subject.id, activeUnit.id, q.id)}
+                className="p-4 rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50/40 via-white to-white dark:from-indigo-950/20 dark:via-academic-900 dark:to-academic-900 shadow-xs hover:border-indigo-400 dark:hover:border-indigo-700 transition-all cursor-pointer group space-y-2"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">
+                    Unit {activeUnit.unitNumber} • Q{q.qNumber} ({q.marks} Marks)
+                  </span>
+                  <span className="text-xs font-medium text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                    <span>Solve Step-by-Step</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+                <h3 className="text-sm font-bold text-academic-900 dark:text-academic-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">
+                  {q.shortTitle}
+                </h3>
+                {q.numericalSolution && (
+                  <p className="text-xs text-academic-600 dark:text-academic-400 line-clamp-2">
+                    {q.numericalSolution.problemSummary}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* High-Yield Key Definitions Glossary */}
       <div className="space-y-4">

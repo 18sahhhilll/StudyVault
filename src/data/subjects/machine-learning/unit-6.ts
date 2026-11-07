@@ -772,6 +772,72 @@ export const unit6Data: Unit = {
           svgType: 'cnn-padding'
         }
       ],
+      numericalSolution: {
+        problemSummary: 'Calculate output feature map spatial dimensions for a 32x32 input image convolved with a 5x5 filter across Valid, Same, and Full padding.',
+        givenData: [
+          { label: 'Input Width (W)', value: '32 pixels' },
+          { label: 'Input Height (H)', value: '32 pixels' },
+          { label: 'Filter Size (F)', value: '5 x 5' },
+          { label: 'Stride (S)', value: '1 (and 2)' }
+        ],
+        toFind: [
+          'Universal Dimension Formula: W_out = ⌊(W - F + 2P)/S⌋ + 1',
+          'Output size under Valid Padding (P = 0)',
+          'Required padding P and output size under Same Padding (W_out = W)',
+          'Output size under Full Padding (P = F - 1)',
+          'Output size under Same Padding with Stride S = 2'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'State Universal CNN Output Dimension Formula',
+            explanation: 'The spatial output dimensions (width and height) of a 2D convolution layer are dictated by input dimension W, filter size F, padding P, and stride S.',
+            formula: 'W_{out} = \\left\\lfloor \\frac{W - F + 2P}{S} \\right\\rfloor + 1',
+            result: 'Universal Dimension Equation established',
+            tip: 'Always state the floor bracket ⌊ ⌋ in university exams to account for fractional stride steps.'
+          },
+          {
+            stepNumber: 2,
+            title: 'Case 1: Calculate Output for Valid Padding (P = 0, S = 1)',
+            explanation: 'Under Valid Padding, no border pixels are added (P = 0). The filter strictly slides within the bounds of the original 32x32 image.',
+            formula: 'W_{valid} = \\frac{W - F + 2(0)}{S} + 1',
+            substitution: 'W_{valid} = \\frac{32 - 5 + 0}{1} + 1 = 27 + 1 = 28',
+            result: '28 x 28 feature map',
+            tip: 'Notice that without padding, 4 spatial pixels (F - 1 = 5 - 1 = 4) are permanently lost from width and height in a single convolution layer!'
+          },
+          {
+            stepNumber: 3,
+            title: 'Case 2: Derive Required Padding for Same Padding (W_out = W, S = 1)',
+            explanation: 'To maintain identical spatial dimensions (W_out = 32), set W_out = W in the formula and solve for P.',
+            formula: 'W = \\frac{W - F + 2P}{1} + 1 \\implies 2P = F - 1 \\implies P = \\frac{F - 1}{2}',
+            substitution: 'P = \\frac{5 - 1}{2} = \\frac{4}{2} = 2 \\text{ pixels of zero padding on all sides}',
+            calculation: 'W_{same} = \\frac{32 - 5 + 2(2)}{1} + 1 = \\frac{32 - 5 + 4}{1} + 1 = \\frac{31}{1} + 1 = 32',
+            result: 'Padding P = 2 pixels ==> Output = 32 x 32 feature map',
+            tip: 'Same padding requires odd-sized filter kernels (3x3, 5x5, 7x7) so that (F - 1) is cleanly divisible by 2.'
+          },
+          {
+            stepNumber: 4,
+            title: 'Case 3: Calculate Output for Full Padding (P = F - 1, S = 1)',
+            explanation: 'Full padding allows the filter kernel to just graze the outermost border pixels of the image with a single pixel overlap, maximizing boundary coverage.',
+            formula: 'P_{full} = F - 1 = 5 - 1 = 4 \\text{ pixels}',
+            substitution: 'W_{full} = \\frac{32 - 5 + 2(4)}{1} + 1 = \\frac{32 - 5 + 8}{1} + 1 = 35 + 1 = 36',
+            result: 'Padding P = 4 pixels ==> Output = 36 x 36 feature map'
+          },
+          {
+            stepNumber: 5,
+            title: 'Case 4: Same Padding with Downsampling Stride S = 2',
+            explanation: 'When stride S = 2 is used alongside Same Padding (P = 2), the spatial resolution is halved.',
+            formula: 'W_{strided} = \\left\\lfloor \\frac{32 - 5 + 2(2)}{2} \\right\\rfloor + 1 = \\left\\lfloor \\frac{31}{2} \\right\\rfloor + 1 = 15 + 1 = 16',
+            result: '16 x 16 feature map',
+            tip: 'Strided convolutions (S = 2) with same padding act as trainable downsamplers, replacing traditional pooling layers.'
+          }
+        ],
+        finalAnswer: {
+          label: 'Spatial Dimensions Across Padding Schemes',
+          value: 'Valid (P=0): 28x28  |  Same (P=2): 32x32  |  Full (P=4): 36x36',
+          interpretation: 'For input 32x32 and filter 5x5: Valid padding shrinks the feature map to 28x28. Adding P = 2 zeros symmetrically (Same padding) preserves the exact 32x32 size, preventing feature shrinkage across deep CNN layers.'
+        }
+      },
       summary: [
         'Padding surrounds input borders with zeros before convolution to control output dimensions.',
         'Prevents progressive spatial shrinkage, enabling very deep neural network architectures.',

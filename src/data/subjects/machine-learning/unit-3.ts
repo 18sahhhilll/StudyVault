@@ -1128,6 +1128,92 @@ export const unit3Data: Unit = {
           ]
         }
       ],
+      numericalSolution: {
+        problemSummary: 'Find the Linear Regression Equation Y = aX + b for RAM capacity vs cost and predict cost for 32 GB RAM.',
+        givenData: [
+          { label: 'Sample size (n)', value: '4' },
+          { label: 'X (Memory in GB)', value: '[2, 4, 8, 16]' },
+          { label: 'Y (Cost in $)', value: '[12, 16, 28, 62]' },
+          { label: 'Target input X_new', value: '32 GB' }
+        ],
+        toFind: [
+          'Sums: ∑X, ∑Y, ∑XY, and ∑X²',
+          'Slope parameter (a) and Intercept parameter (b)',
+          'Fitted Regression Line: Y = aX + b',
+          'Forecasted cost for 32 GB RAM'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Construct Calculation Table & Compute Sums',
+            explanation: 'Tabulate each sample point and calculate product XY and square X² to aggregate the necessary normal equation sums.',
+            table: {
+              headers: ['Sample', 'X (GB)', 'Y ($)', 'XY', 'X²'],
+              rows: [
+                ['1', '2', '12', '24', '4'],
+                ['2', '4', '16', '64', '16'],
+                ['3', '8', '28', '224', '64'],
+                ['4', '16', '62', '992', '256'],
+                ['Total Sums', '∑X = 30', '∑Y = 118', '∑XY = 1304', '∑X² = 340']
+              ]
+            },
+            result: '∑X = 30, ∑Y = 118, ∑XY = 1304, ∑X² = 340',
+            tip: 'Always double-check the final row sum before plugging into slope equations; an error here cascades through all subsequent marks.'
+          },
+          {
+            stepNumber: 2,
+            title: 'Compute Sample Means (x̄ and ȳ)',
+            explanation: 'Divide the respective column sums by sample size n = 4 to find the centroid coordinates of the data.',
+            formula: '\\bar{X} = \\frac{\\sum X}{n}, \\quad \\bar{Y} = \\frac{\\sum Y}{n}',
+            substitution: '\\bar{X} = \\frac{30}{4} = 7.5 \\text{ GB}, \\quad \\bar{Y} = \\frac{118}{4} = 29.5 \\text{ \\$}',
+            result: 'x̄ = 7.5 GB, ȳ = 29.5 $',
+            tip: 'The regression line is guaranteed to pass through the centroid point (x̄, ȳ).'
+          },
+          {
+            stepNumber: 3,
+            title: 'Calculate Slope Parameter (a)',
+            explanation: 'Apply the standard least-squares normal equation for slope a.',
+            formula: 'a = \\frac{n\\sum XY - (\\sum X)(\\sum Y)}{n\\sum X^2 - (\\sum X)^2}',
+            substitution: 'a = \\frac{4(1304) - (30)(118)}{4(340) - (30)^2}',
+            calculation: 'Numerator = 5216 - 3540 = 1676\nDenominator = 1360 - 900 = 460\na = 1676 / 460 = 3.6435 ≈ 3.643',
+            result: 'a = 3.643 $/GB',
+            tip: 'Watch out: (∑X)² is 30² = 900, which is totally different from ∑X² = 340!'
+          },
+          {
+            stepNumber: 4,
+            title: 'Calculate Y-Intercept Parameter (b)',
+            explanation: 'Substitute the computed slope a and sample means x̄, ȳ into the centroid equation b = ȳ - a·x̄.',
+            formula: 'b = \\bar{Y} - a\\bar{X}',
+            substitution: 'b = 29.5 - (3.6435 \\times 7.5) = 29.5 - 27.326',
+            calculation: 'b = 2.174 $',
+            result: 'b = 2.174 $',
+            tip: 'A positive intercept indicates the base manufacturing and packaging cost independent of memory capacity.'
+          },
+          {
+            stepNumber: 5,
+            title: 'Formulate Fitted Line of Regression',
+            explanation: 'Combine the derived slope a and intercept b into the linear predictor formula.',
+            formula: 'Y = aX + b',
+            substitution: 'Y = 3.643 X + 2.174',
+            result: 'Y = 3.643X + 2.174',
+            tip: 'State units clearly: X is in Gigabytes (GB) and Y is in US Dollars ($).'
+          },
+          {
+            stepNumber: 6,
+            title: 'Predict Cost for 32 GB RAM Module',
+            explanation: 'Plug the query value X = 32 into the fitted regression equation to extrapolate the forecasted price.',
+            formula: 'Y_{pred} = 3.643(32) + 2.174',
+            calculation: '3.643 \\times 32 = 116.576\n116.576 + 2.174 = 118.75 $',
+            result: '$118.75 (or $118.77 with unrounded floats)',
+            tip: 'Always provide a brief concluding remark explaining whether this extrapolation is reliable.'
+          }
+        ],
+        finalAnswer: {
+          label: 'Fitted Regression Model & Predicted Cost',
+          value: 'Y = 3.643X + 2.174  ==>  Cost(32 GB) ≈ $118.75',
+          interpretation: 'For every additional 1 GB of RAM capacity, cost increases by approximately $3.64. The predicted cost for a 32 GB RAM module is $118.75.'
+        }
+      },
       summary: [
         'Computed sums: ∑X = 30, ∑Y = 118, ∑XY = 1304, ∑X² = 340.',
         'Slope a = 1676 / 460 = 3.643; Intercept b = 2.174.',
@@ -1196,6 +1282,87 @@ export const unit3Data: Unit = {
           ]
         }
       ],
+      numericalSolution: {
+        problemSummary: 'Derive linear regression line y = ax + b for 5 months of expenditure and forecast month 6 expenditure.',
+        givenData: [
+          { label: 'Sample count (n)', value: '5 months' },
+          { label: 'x (Months)', value: '[1, 2, 3, 4, 5]' },
+          { label: 'y (Expenditure)', value: '[12, 19, 29, 37, 45]' },
+          { label: 'Target forecast', value: 'Month x = 6' }
+        ],
+        toFind: [
+          'Sums: ∑x, ∑y, ∑xy, ∑x²',
+          'Slope rate a (expenditure increase per month)',
+          'Base intercept b',
+          'Forecasted expenditure at x = 6'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Build Summations Table',
+            explanation: 'Construct the product and squares columns for the integer months x = 1 to 5.',
+            table: {
+              headers: ['Month (x)', 'Expenditure (y)', 'xy', 'x²'],
+              rows: [
+                ['1', '12', '12', '1'],
+                ['2', '19', '38', '4'],
+                ['3', '29', '87', '9'],
+                ['4', '37', '148', '16'],
+                ['5', '45', '225', '25'],
+                ['Total', '∑x = 15', '∑y = 142', '∑xy = 510', '∑x² = 55']
+              ]
+            },
+            result: '∑x = 15, ∑y = 142, ∑xy = 510, ∑x² = 55',
+            tip: 'Since x is sequential from 1 to 5, ∑x = 15 and ∑x² = 55 can be quickly verified using n(n+1)/2 and n(n+1)(2n+1)/6.'
+          },
+          {
+            stepNumber: 2,
+            title: 'Compute Sample Means (x̄ and ȳ)',
+            explanation: 'Calculate the average month and average monthly expenditure.',
+            formula: '\\bar{x} = \\frac{\\sum x}{n} = \\frac{15}{5} = 3.0, \\quad \\bar{y} = \\frac{\\sum y}{n} = \\frac{142}{5} = 28.4',
+            result: 'x̄ = 3.0, ȳ = 28.4'
+          },
+          {
+            stepNumber: 3,
+            title: 'Compute Slope Rate (a)',
+            explanation: 'Substitute sums into the slope formula to determine monthly growth.',
+            formula: 'a = \\frac{n\\sum xy - (\\sum x)(\\sum y)}{n\\sum x^2 - (\\sum x)^2}',
+            substitution: 'a = \\frac{5(510) - (15)(142)}{5(55) - (15)^2}',
+            calculation: 'Numerator = 2550 - 2130 = 420\nDenominator = 275 - 225 = 50\na = 420 / 50 = 8.4 units/month',
+            result: 'a = 8.4 units/month',
+            tip: 'The positive slope indicates that expenditure is growing steadily at 8.4 units per month.'
+          },
+          {
+            stepNumber: 4,
+            title: 'Compute Baseline Intercept (b)',
+            explanation: 'Find the starting base cost b using the centroid formula.',
+            formula: 'b = \\bar{y} - a\\bar{x}',
+            substitution: 'b = 28.4 - 8.4(3.0) = 28.4 - 25.2 = 3.2',
+            result: 'b = 3.2 units'
+          },
+          {
+            stepNumber: 5,
+            title: 'Formulate Prediction Line',
+            explanation: 'Combine slope and intercept into the complete linear forecasting model.',
+            formula: 'y = 8.4x + 3.2',
+            result: 'y = 8.4x + 3.2'
+          },
+          {
+            stepNumber: 6,
+            title: 'Forecast Month 6 Expenditure',
+            explanation: 'Evaluate the equation at x = 6 to forecast future expenditure.',
+            formula: 'y(6) = 8.4(6) + 3.2',
+            calculation: '8.4 \\times 6 = 50.4\n50.4 + 3.2 = 53.6 units',
+            result: '53.6 units',
+            tip: 'Box this final numerical value on your exam answer sheet for full credit.'
+          }
+        ],
+        finalAnswer: {
+          label: 'Fitted Equation & 6th Month Expenditure',
+          value: 'y = 8.4x + 3.2  ==>  y(6) = 53.6 units',
+          interpretation: 'Monthly expenditure increases by 8.4 units each month. The forecasted expenditure for Month 6 is 53.6 units.'
+        }
+      },
       summary: [
         'Sums: ∑x = 15, ∑y = 142, ∑xy = 510, ∑x² = 55.',
         'Slope a = 8.4, Intercept b = 3.2 ==> y = 8.4x + 3.2.',
@@ -1328,6 +1495,76 @@ export const unit3Data: Unit = {
           ]
         }
       ],
+      numericalSolution: {
+        problemSummary: 'Find the standard least squares linear regression line Y = aX + b for X = [1, 2, 3, 4] and Y = [3, 4, 5, 7].',
+        givenData: [
+          { label: 'Sample size (n)', value: '4' },
+          { label: 'X values', value: '[1, 2, 3, 4]' },
+          { label: 'Y values', value: '[3, 4, 5, 7]' }
+        ],
+        toFind: [
+          'Calculated sums: ∑X, ∑Y, ∑XY, ∑X²',
+          'Slope parameter (a)',
+          'Y-intercept parameter (b)',
+          'Final equation of best fit line Y = aX + b'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Tabulate Coordinates & Compute Required Sums',
+            explanation: 'Create a 4-row computation table with columns for X, Y, product XY, and squared X².',
+            table: {
+              headers: ['Pair', 'X', 'Y', 'XY', 'X²'],
+              rows: [
+                ['1', '1', '3', '3', '1'],
+                ['2', '2', '4', '8', '4'],
+                ['3', '3', '5', '15', '9'],
+                ['4', '4', '7', '28', '16'],
+                ['Total Sums', '∑X = 10', '∑Y = 19', '∑XY = 54', '∑X² = 30']
+              ]
+            },
+            result: '∑X = 10, ∑Y = 19, ∑XY = 54, ∑X² = 30'
+          },
+          {
+            stepNumber: 2,
+            title: 'Compute Sample Means (x̄ and ȳ)',
+            explanation: 'Divide column totals by sample size n = 4 to locate the dataset centroid.',
+            formula: '\\bar{X} = \\frac{10}{4} = 2.5, \\quad \\bar{Y} = \\frac{19}{4} = 4.75',
+            result: 'x̄ = 2.5, ȳ = 4.75'
+          },
+          {
+            stepNumber: 3,
+            title: 'Calculate Slope (a) via Normal Equations',
+            explanation: 'Substitute sums into the standard least squares slope formula.',
+            formula: 'a = \\frac{n\\sum XY - (\\sum X)(\\sum Y)}{n\\sum X^2 - (\\sum X)^2}',
+            substitution: 'a = \\frac{4(54) - (10)(19)}{4(30) - (10)^2}',
+            calculation: 'Numerator = 216 - 190 = 26\nDenominator = 120 - 100 = 20\na = 26 / 20 = 1.30',
+            result: 'a = 1.30',
+            tip: 'Denominator is always n∑X² - (∑X)², not n∑X² - ∑X².'
+          },
+          {
+            stepNumber: 4,
+            title: 'Calculate Y-Intercept (b)',
+            explanation: 'Substitute slope a = 1.30 and centroids x̄ = 2.5, ȳ = 4.75 into b = ȳ - a·x̄.',
+            formula: 'b = \\bar{Y} - a\\bar{X}',
+            substitution: 'b = 4.75 - 1.30(2.5) = 4.75 - 3.25 = 1.50',
+            result: 'b = 1.50'
+          },
+          {
+            stepNumber: 5,
+            title: 'State Final Best Fit Regression Line',
+            explanation: 'Combine slope and intercept into the final exam format.',
+            formula: 'Y = 1.3X + 1.5',
+            result: 'Y = 1.3X + 1.5',
+            tip: 'Verify quickly: when X = 1, Y_pred = 1.3(1) + 1.5 = 2.8 (close to actual Y = 3).'
+          }
+        ],
+        finalAnswer: {
+          label: 'Fitted Best Fit Line',
+          value: 'Y = 1.3X + 1.5',
+          interpretation: 'For every unit increase in X, Y increases by 1.3. The baseline value when X = 0 is 1.5.'
+        }
+      },
       summary: [
         'Sums: ∑X = 10, ∑Y = 19, ∑XY = 54, ∑X² = 30.',
         'Slope a = 26 / 20 = 1.3; Intercept b = 4.75 - 3.25 = 1.5.',

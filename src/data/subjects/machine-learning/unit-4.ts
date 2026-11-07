@@ -295,6 +295,84 @@ export const unit4Data: Unit = {
           ]
         }
       ],
+      numericalSolution: {
+        problemSummary: 'Use K-Nearest Neighbours (K = 3) to predict Pass/Fail outcome for a student with Physics = 6, Chemistry = 8.',
+        givenData: [
+          { label: 'Hyperparameter K', value: '3' },
+          { label: 'Query Point (P₀, C₀)', value: '(6, 8)' },
+          { label: 'Distance Metric', value: 'Euclidean distance (L2 norm)' },
+          { label: 'Training Size', value: '5 student records' }
+        ],
+        toFind: [
+          'Euclidean distance from query point (6, 8) to all 5 training points',
+          'Ascending distance ranking of instances',
+          'Selection of top K = 3 nearest neighbors',
+          'Majority voting decision for Pass vs Fail'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Recall Euclidean Distance Formula',
+            explanation: 'In 2D feature space (Physics and Chemistry marks), the Euclidean distance between candidate (P_i, C_i) and query point (P₀, C₀) is given by the Pythagorean theorem.',
+            formula: 'd_i = \\sqrt{(P_i - P_0)^2 + (C_i - C_0)^2} = \\sqrt{(P_i - 6)^2 + (C_i - 8)^2}',
+            tip: 'Always state the distance formula before plugging in values for each candidate in university exams.'
+          },
+          {
+            stepNumber: 2,
+            title: 'Calculate Distance to Each Training Instance',
+            explanation: 'Compute the squared differences for both features, sum them, and take the square root for each of the 5 students.',
+            table: {
+              headers: ['Student', 'Physics (P)', 'Chemistry (C)', 'Working (ΔP² + ΔC²)', 'Distance d'],
+              rows: [
+                ['Student 1', '4', '3', '(4-6)² + (3-8)² = 4 + 25 = 29', '√29 ≈ 5.39'],
+                ['Student 2', '6', '7', '(6-6)² + (7-8)² = 0 + 1 = 1', '√1 = 1.00'],
+                ['Student 3', '7', '8', '(7-6)² + (8-8)² = 1 + 0 = 1', '√1 = 1.00'],
+                ['Student 4', '5', '5', '(5-6)² + (5-8)² = 1 + 9 = 10', '√10 ≈ 3.16'],
+                ['Student 5', '8', '8', '(8-6)² + (8-8)² = 4 + 0 = 4', '√4 = 2.00']
+              ]
+            },
+            result: 'Distances: [5.39, 1.00, 1.00, 3.16, 2.00]',
+            tip: 'Keep both exact radical form (√29, √10) and decimal approximations (5.39, 3.16) for clarity.'
+          },
+          {
+            stepNumber: 3,
+            title: 'Rank Candidates by Proximity',
+            explanation: 'Sort the training candidates in ascending order of distance d to determine the closest neighbors.',
+            table: {
+              headers: ['Rank', 'Student', 'Distance d', 'Label / Outcome'],
+              rows: [
+                ['1 (Tie)', 'Student 2 (6, 7)', '1.00', 'Pass'],
+                ['2 (Tie)', 'Student 3 (7, 8)', '1.00', 'Pass'],
+                ['3', 'Student 5 (8, 8)', '2.00', 'Pass'],
+                ['4', 'Student 4 (5, 5)', '3.16', 'Fail'],
+                ['5', 'Student 1 (4, 3)', '5.39', 'Fail']
+              ]
+            },
+            result: 'Top 3 nearest: Student 2 (d=1.00), Student 3 (d=1.00), Student 5 (d=2.00)'
+          },
+          {
+            stepNumber: 4,
+            title: 'Select Top-K Neighbours (K = 3)',
+            explanation: 'Extract the first K = 3 records from the sorted proximity ranking table.',
+            calculation: 'Neighbor 1: Student 2 -> Distance = 1.00 -> Outcome = PASS\nNeighbor 2: Student 3 -> Distance = 1.00 -> Outcome = PASS\nNeighbor 3: Student 5 -> Distance = 2.00 -> Outcome = PASS',
+            result: 'Three neighbors selected: All 3 have label PASS',
+            tip: 'If there had been a tie for the 3rd rank, state your tie-breaking rule (e.g., picking the point with lower index or smallest single-feature difference).'
+          },
+          {
+            stepNumber: 5,
+            title: 'Majority Voting & Final Prediction',
+            explanation: 'Count the class votes among the 3 nearest neighbors and assign the majority class to the query student.',
+            calculation: 'Votes for PASS: 3\nVotes for FAIL: 0\nMajority Winner: PASS (100% consensus)',
+            result: 'Predicted Class: PASS',
+            tip: 'Always state the vote breakdown explicitly (e.g. 3 : 0) rather than just stating the final label.'
+          }
+        ],
+        finalAnswer: {
+          label: 'KNN (K = 3) Prediction',
+          value: 'PASS (Unanimous 3-0 Majority Vote)',
+          interpretation: 'The student with marks (Physics=6, Chemistry=8) is nearest to three successful candidates with minimal distances of 1.00, 1.00, and 2.00. Therefore, the predicted classification is PASS.'
+        }
+      },
       summary: [
         'Calculated Euclidean distances from (6, 8): 5.39, 1.00, 1.00, 3.16, 2.00.',
         'Top 3 neighbours are students with distances 1.00, 1.00, and 2.00.',
@@ -1434,6 +1512,73 @@ export const unit4Data: Unit = {
           ]
         }
       ],
+      numericalSolution: {
+        problemSummary: 'Compute Macro-Average Precision, Recall, and F1-Score for an asymmetric 4-Class (A, B, C, D) Confusion Matrix with 230 samples.',
+        givenData: [
+          { label: 'Classes', value: '4 (A, B, C, D)' },
+          { label: 'Total Samples', value: '230' },
+          { label: 'Actual Counts (Row Totals)', value: 'A:200, B:10, C:10, D:10' },
+          { label: 'Predicted Counts (Col Totals)', value: 'A:100, B:91, C:18, D:21' },
+          { label: 'Diagonal True Positives', value: 'TP_A=100, TP_B=9, TP_C=8, TP_D=9' }
+        ],
+        toFind: [
+          'True Positives (TP) along main diagonal for each class',
+          'Per-Class Precision = TP / Column Total',
+          'Per-Class Recall = TP / Row Total',
+          'Per-Class F1-Score = 2PR / (P + R)',
+          'Macro Precision, Macro Recall, and Macro F1 (arithmetic means)'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Identify True Positives along the Diagonal',
+            explanation: 'The diagonal cells where the actual class equals the predicted class represent the True Positives (TP) for classes A, B, C, and D.',
+            calculation: 'Class A: Row A, Col A = 100 (TP_A)\nClass B: Row B, Col B = 9 (TP_B)\nClass C: Row C, Col C = 8 (TP_C)\nClass D: Row D, Col D = 9 (TP_D)\nTotal Correct Predictions = 100 + 9 + 8 + 9 = 126',
+            result: 'TP_A = 100, TP_B = 9, TP_C = 8, TP_D = 9',
+            tip: 'Diagonal entries are always the sole numerator in every class Precision and Recall calculation.'
+          },
+          {
+            stepNumber: 2,
+            title: 'Calculate Per-Class Precision (P_i = TP_i / Col_Total)',
+            explanation: 'Precision measures how many of the items predicted as class i were actually class i. Divide each TP by its corresponding column total.',
+            formula: 'P_i = \\frac{\\text{TP}_i}{\\sum_{\\text{row}} \\text{Pred}_i}',
+            calculation: 'P_A = 100 / 100 = 1.000 (100%)\nP_B = 9 / 91 ≈ 0.0989 (9.89%)\nP_C = 8 / 18 ≈ 0.4444 (44.44%)\nP_D = 9 / 21 ≈ 0.4286 (42.86%)',
+            result: 'P_A = 1.000, P_B = 0.099, P_C = 0.444, P_D = 0.429',
+            tip: 'Notice that Class B has a very low precision (0.099) because the model predicted B 91 times, but only 9 were correct!'
+          },
+          {
+            stepNumber: 3,
+            title: 'Calculate Per-Class Recall (R_i = TP_i / Row_Total)',
+            explanation: 'Recall measures the fraction of actual ground truth instances of class i successfully captured by the model. Divide each TP by its corresponding row total.',
+            formula: 'R_i = \\frac{\\text{TP}_i}{\\sum_{\\text{col}} \\text{Actual}_i}',
+            calculation: 'R_A = 100 / 200 = 0.500 (50%)\nR_B = 9 / 10 = 0.900 (90%)\nR_C = 8 / 10 = 0.800 (80%)\nR_D = 9 / 10 = 0.900 (90%)',
+            result: 'R_A = 0.500, R_B = 0.900, R_C = 0.800, R_D = 0.900',
+            tip: 'Class A has the lowest recall (0.500) because out of 200 actual A instances, only 100 were retrieved.'
+          },
+          {
+            stepNumber: 4,
+            title: 'Calculate Per-Class F1-Scores',
+            explanation: 'Compute the harmonic mean of Precision and Recall for each of the four individual classes.',
+            formula: 'F1_i = \\frac{2 \\times P_i \\times R_i}{P_i + R_i}',
+            calculation: 'F1_A = 2(1.0)(0.5) / (1.0 + 0.5) = 1.0 / 1.5 = 0.667\nF1_B = 2(0.0989)(0.9) / (0.0989 + 0.9) = 0.178 / 0.9989 ≈ 0.178\nF1_C = 2(0.4444)(0.8) / (0.4444 + 0.8) = 0.711 / 1.2444 ≈ 0.571\nF1_D = 2(0.4286)(0.9) / (0.4286 + 0.9) = 0.771 / 1.3286 ≈ 0.581',
+            result: 'F1_A = 0.667, F1_B = 0.178, F1_C = 0.571, F1_D = 0.581'
+          },
+          {
+            stepNumber: 5,
+            title: 'Compute Macro-Average Precision, Recall, and F1',
+            explanation: 'In macro-averaging, sum the metric across all K = 4 classes and divide by 4. Each class carries equal 25% weight regardless of sample distribution.',
+            formula: '\\text{Macro } M = \\frac{1}{K} \\sum_{i=1}^K M_i',
+            calculation: 'Macro Precision = (1.000 + 0.0989 + 0.4444 + 0.4286) / 4 = 1.9719 / 4 = 0.4930 (49.3%)\nMacro Recall = (0.500 + 0.900 + 0.800 + 0.900) / 4 = 3.100 / 4 = 0.7750 (77.5%)\nMacro F1 = (0.667 + 0.178 + 0.571 + 0.581) / 4 = 1.997 / 4 = 0.4993 (49.9%)',
+            result: 'Macro Precision = 0.493, Macro Recall = 0.775, Macro F1 = 0.499',
+            tip: 'Macro-averaging heavily penalizes low performance on minority classes (like Class B precision = 0.099), making it ideal for imbalanced dataset diagnosis.'
+          }
+        ],
+        finalAnswer: {
+          label: 'Final Macro Metrics Across 4 Classes',
+          value: 'Macro Precision = 0.493 | Macro Recall = 0.775 | Macro F1 = 0.499',
+          interpretation: 'Across all 4 classes equally weighted, the model exhibits high macro recall (77.5%) but modest macro precision (49.3%) due to false alarms in class B.'
+        }
+      },
       summary: [
         'Diagonal values represent TP: TP_A=100, TP_B=9, TP_C=8, TP_D=9.',
         'Precision = TP / Column Total; Recall = TP / Row Total.',

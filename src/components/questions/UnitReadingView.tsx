@@ -14,13 +14,15 @@ import {
   Save,
   Check,
   Search,
-  ListFilter
+  ListFilter,
+  Calculator
 } from 'lucide-react';
 import { Unit, Question, Subject } from '@/types';
 import { ImportanceBadge } from '@/components/common/ImportanceBadge';
 import { MarksBadge } from '@/components/common/MarksBadge';
 import { MathRenderer } from '@/components/diagrams/MathRenderer';
 import { TechnicalDiagram } from '@/components/diagrams/TechnicalDiagram';
+import { StepByStepSolver } from '@/components/numericals/StepByStepSolver';
 
 interface UnitReadingViewProps {
   subject: Subject;
@@ -202,6 +204,12 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                       Q{q.qNumber}
                     </span>
                     <MarksBadge marks={q.marks} />
+                    {q.numericalSolution && (
+                      <span className="text-[9px] font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-1 py-0.5 rounded flex items-center gap-0.5" title="Step-by-step Numerical Solver Available">
+                        <Calculator className="w-2.5 h-2.5" />
+                        <span>Solved</span>
+                      </span>
+                    )}
                     {q.importance === 'Frequently Asked' && (
                       <span className="text-[9px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 px-1 rounded">
                         FAQ
@@ -241,6 +249,12 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                 category={currentQuestion.importance}
                 occurrenceCount={currentQuestion.occurrenceCount}
               />
+              {currentQuestion.numericalSolution && (
+                <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 flex items-center gap-1 shadow-sm">
+                  <Calculator className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                  <span>Step-by-Step Numerical</span>
+                </span>
+              )}
             </div>
 
             <div className="flex items-center gap-2">
@@ -303,6 +317,13 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
             <p className="text-sm sm:text-base text-academic-800 dark:text-academic-200 leading-relaxed font-sans">
               {currentQuestion.definition}
             </p>
+          </div>
+        )}
+
+        {/* Interactive Step-by-Step Numerical Solver */}
+        {currentQuestion.numericalSolution && (
+          <div className="space-y-2">
+            <StepByStepSolver solution={currentQuestion.numericalSolution} />
           </div>
         )}
 
