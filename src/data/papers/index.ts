@@ -1,8 +1,10 @@
 import { QuestionPaper } from '@/types';
 import { daaQuestionPapers } from './daa-papers';
+import { blockchainQuestionPapers } from './blockchain-papers';
 
 export const allQuestionPapers: QuestionPaper[] = [
-  ...daaQuestionPapers
+  ...daaQuestionPapers,
+  ...blockchainQuestionPapers
 ];
 
 export function getPapersBySubjectId(subjectId: string): QuestionPaper[] {
