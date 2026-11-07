@@ -52,6 +52,15 @@ import {
   OBSTDiagram,
   ActivitySelectionDiagram
 } from './daa/DAADiagrams';
+import {
+  BacktrackingStateSpaceTreeDiagram,
+  NQueensChessboardDiagram,
+  GraphColoringDiagram,
+  SubsetSumTreeDiagram,
+  BranchBoundStrategiesDiagram,
+  TSPReducedMatrixDiagram,
+  KnapsackBranchBoundDiagram
+} from './daa/DAAUnit4Diagrams';
 
 interface TechnicalDiagramProps {
   diagram: DiagramData;
@@ -605,6 +614,27 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
 
       case 'activity-selection-timeline':
         return <ActivitySelectionDiagram />;
+
+      case 'backtracking-state-space-tree':
+        return <BacktrackingStateSpaceTreeDiagram />;
+
+      case 'nqueens-chessboard-visual':
+        return <NQueensChessboardDiagram />;
+
+      case 'graph-coloring-graph-tree':
+        return <GraphColoringDiagram />;
+
+      case 'subset-sum-state-tree':
+        return <SubsetSumTreeDiagram />;
+
+      case 'branch-bound-lc-tree':
+        return <BranchBoundStrategiesDiagram />;
+
+      case 'tsp-reduced-matrix-flow':
+        return <TSPReducedMatrixDiagram />;
+
+      case 'knapsack-branch-bound-tree':
+        return <KnapsackBranchBoundDiagram />;
 
       default:
         return (
