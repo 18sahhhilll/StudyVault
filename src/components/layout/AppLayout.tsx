@@ -218,10 +218,34 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
         )}
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto min-w-0 p-4 sm:p-6 lg:p-10 max-w-7xl mx-auto w-full">
+        <main className="flex-1 overflow-y-auto min-w-0 p-3.5 sm:p-6 lg:p-10 max-w-7xl mx-auto w-full pb-24 lg:pb-10">
           {children}
         </main>
       </div>
+
+      {/* Floating Mobile Bottom Navigation Bar */}
+      <nav aria-label="Mobile Navigation" className="fixed bottom-0 left-0 right-0 z-30 lg:hidden bg-white/95 dark:bg-academic-900/95 backdrop-blur-md border-t border-academic-200 dark:border-academic-800 px-2 py-1.5 flex items-center justify-around shadow-lg">
+        {navigationItems.map((item) => {
+          const Icon = item.icon;
+          const active = currentTab === item.id;
+          return (
+            <button
+              key={item.id}
+              onClick={() => onSelectTab(item.id)}
+              className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-lg text-[10px] font-medium transition-all ${
+                active
+                  ? 'text-blue-600 dark:text-blue-400 font-bold'
+                  : 'text-academic-500 hover:text-academic-800 dark:hover:text-academic-200'
+              }`}
+            >
+              <div className={`p-1 rounded-md transition-colors ${active ? 'bg-blue-100/70 dark:bg-blue-950/70' : ''}`}>
+                <Icon className={`w-4 h-4 ${active ? 'stroke-[2.5]' : 'stroke-[1.75]'}`} />
+              </div>
+              <span className="mt-0.5 leading-none">{item.label}</span>
+            </button>
+          );
+        })}
+      </nav>
 
       {/* Reset Confirmation Modal */}
       {showResetConfirm && (

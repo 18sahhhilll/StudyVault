@@ -23,7 +23,8 @@ export const MathRenderer: React.FC<MathRendererProps> = ({ math, block = false,
   if (block) {
     return (
       <div
-        className={`my-3 p-3 overflow-x-auto rounded-lg bg-academic-100/60 dark:bg-academic-900/60 border border-academic-200/70 dark:border-academic-800/70 text-center font-mono text-sm sm:text-base ${className}`}
+        className={`my-3 p-2.5 sm:p-3 overflow-x-auto max-w-full rounded-lg bg-academic-100/60 dark:bg-academic-900/60 border border-academic-200/70 dark:border-academic-800/70 text-center font-mono text-xs sm:text-base ${className}`}
+        style={{ WebkitOverflowScrolling: 'touch' }}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     );
@@ -31,7 +32,7 @@ export const MathRenderer: React.FC<MathRendererProps> = ({ math, block = false,
 
   return (
     <span
-      className={`inline-block font-mono text-[0.95em] ${className}`}
+      className={`inline-block font-mono text-[0.95em] max-w-full align-middle ${className}`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

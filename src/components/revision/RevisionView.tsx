@@ -243,7 +243,7 @@ export const RevisionView: React.FC<RevisionViewProps> = ({ onSelectQuestion }) 
         </p>
 
         <div className="overflow-x-auto rounded-xl border border-academic-200 dark:border-academic-800 bg-white dark:bg-academic-900 shadow-sm">
-          <table className="w-full text-left text-xs sm:text-sm">
+          <table className="w-full min-w-[480px] text-left text-xs sm:text-sm">
             <thead className="bg-academic-50 dark:bg-academic-800/80 text-academic-700 dark:text-academic-200 font-semibold border-b border-academic-200 dark:border-academic-700">
               <tr>
                 <th className="p-3 font-semibold">University Paper</th>

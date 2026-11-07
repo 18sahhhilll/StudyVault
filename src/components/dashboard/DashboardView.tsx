@@ -128,7 +128,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <div className="text-2xl font-bold font-mono text-academic-900 dark:text-academic-100">
             {allSubjects.length}
           </div>
-          <p className="text-[11px] text-academic-400 mt-1">Machine Learning</p>
+          <p className="text-[11px] text-academic-400 mt-1">{allSubjects.map((s) => s.code).join(' & ')}</p>
         </div>
 
         <div className="p-4 rounded-xl border border-academic-200 dark:border-academic-800 bg-white dark:bg-academic-900 shadow-sm">
@@ -141,7 +141,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <div className="text-2xl font-bold font-mono text-academic-900 dark:text-academic-100">
             {totalUnits}
           </div>
-          <p className="text-[11px] text-academic-400 mt-1">Units III, IV, and V</p>
+          <p className="text-[11px] text-academic-400 mt-1">Across {allSubjects.length} subjects</p>
         </div>
 
         <div className="p-4 rounded-xl border border-academic-200 dark:border-academic-800 bg-white dark:bg-academic-900 shadow-sm">

@@ -120,7 +120,7 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
         </div>
 
         {/* Dropdown Filters */}
-        <div className="flex flex-wrap items-center gap-2.5 text-xs">
+        <div className="grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-2.5 text-xs">
           {/* Subject Filter */}
           <select
             value={selectedSubject}
@@ -128,7 +128,7 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
               setSelectedSubject(e.target.value);
               setSelectedUnit('all');
             }}
-            className="px-3 py-1.5 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none"
+            className="w-full sm:w-auto px-3 py-2 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none text-xs"
           >
             <option value="all">All Subjects ({allSubjects.length})</option>
             {allSubjects.map((s) => (
@@ -142,7 +142,7 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
           <select
             value={selectedUnit}
             onChange={(e) => setSelectedUnit(e.target.value)}
-            className="px-3 py-1.5 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none"
+            className="w-full sm:w-auto px-3 py-2 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none text-xs"
           >
             <option value="all">All Units</option>
             {availableUnits.map((u, idx) => (
@@ -156,7 +156,7 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
           <select
             value={selectedImportance}
             onChange={(e) => setSelectedImportance(e.target.value)}
-            className="px-3 py-1.5 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none"
+            className="w-full sm:w-auto px-3 py-2 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none text-xs"
           >
             <option value="all">All Importance Categories</option>
             <option value="Frequently Asked">Frequently Asked (Top Priority)</option>
@@ -170,7 +170,7 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
           <select
             value={selectedMarks}
             onChange={(e) => setSelectedMarks(e.target.value)}
-            className="px-3 py-1.5 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none"
+            className="w-full sm:w-auto px-3 py-2 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none text-xs"
           >
             <option value="all">All Marks Allocation</option>
             <option value="4">4 Marks</option>
@@ -184,7 +184,7 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value as any)}
-            className="px-3 py-1.5 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none"
+            className="w-full sm:w-auto px-3 py-2 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none text-xs"
           >
             <option value="all">All Status</option>
             <option value="pending">Pending Only</option>
@@ -194,7 +194,7 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
           {/* Bookmarked toggle */}
           <button
             onClick={() => setBookmarkedOnly(!bookmarkedOnly)}
-            className={`px-3 py-1.5 rounded-lg border transition-colors flex items-center gap-1.5 font-medium ${
+            className={`w-full sm:w-auto justify-center px-3.5 py-2 rounded-lg border transition-colors flex items-center gap-1.5 font-medium ${
               bookmarkedOnly
                 ? 'bg-amber-500 text-white border-amber-600'
                 : 'border-academic-200 dark:border-academic-700 text-academic-600 dark:text-academic-400 hover:bg-academic-50 dark:hover:bg-academic-800'

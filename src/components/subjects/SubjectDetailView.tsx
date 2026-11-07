@@ -76,7 +76,7 @@ export const SubjectDetailView: React.FC<SubjectDetailViewProps> = ({
             </p>
           </div>
 
-          <div className="p-4 rounded-xl border border-academic-200 dark:border-academic-800 bg-academic-50/70 dark:bg-academic-950/50 min-w-[220px] shrink-0 text-right">
+          <div className="p-4 rounded-xl border border-academic-200 dark:border-academic-800 bg-academic-50/70 dark:bg-academic-950/50 min-w-[220px] shrink-0 text-left md:text-right w-full md:w-auto">
             <span className="text-xs font-medium text-academic-500 block mb-1">Subject Completion</span>
             <div className="text-2xl font-bold font-mono text-academic-900 dark:text-academic-100">
               {subjectStats.percentage}%

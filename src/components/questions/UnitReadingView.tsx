@@ -15,7 +15,8 @@ import {
   Check,
   Search,
   ListFilter,
-  Calculator
+  Calculator,
+  X
 } from 'lucide-react';
 import { Unit, Question, Subject } from '@/types';
 import { ImportanceBadge } from '@/components/common/ImportanceBadge';
@@ -55,6 +56,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
   const [sidebarSearch, setSidebarSearch] = useState('');
   const [userNote, setUserNote] = useState('');
   const [noteSavedFeedback, setNoteSavedFeedback] = useState(false);
+  const [mobileQuestionsOpen, setMobileQuestionsOpen] = useState(false);
 
   const currentQuestionIndex = unit.questions.findIndex((q) => q.id === activeQuestionId);
   const currentQuestion: Question =
@@ -106,9 +108,176 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
   const isBookmarked = bookmarkedQuestionIds.includes(currentQuestion.id);
 
   return (
-    <div className="flex flex-col lg:flex-row gap-6 items-start animate-in fade-in duration-200">
-      {/* Left Sidebar: Unit Questions Navigation */}
-      <aside className="w-full lg:w-80 shrink-0 bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 p-4 lg:sticky lg:top-20 max-h-[85vh] flex flex-col shadow-sm">
+    <div className="flex flex-col lg:flex-row gap-6 items-start animate-in fade-in duration-200 w-full">
+      {/* Mobile Sticky Quick Switcher Header (Visible only on mobile/tablet) */}
+      <div className="w-full lg:hidden bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 p-2.5 shadow-xs flex items-center justify-between gap-2 sticky top-14 z-20">
+        <button
+          onClick={onBackToSubject}
+          className="p-2 rounded-lg text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 bg-academic-50 dark:bg-academic-800 transition-colors shrink-0"
+          title="Back to Subject"
+        >
+          <ArrowLeft className="w-4 h-4" />
+        </button>
+
+        <button
+          onClick={() => setMobileQuestionsOpen(true)}
+          className="flex-1 min-w-0 flex items-center justify-between px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 text-xs font-semibold text-blue-900 dark:text-blue-200 truncate"
+        >
+          <span className="truncate">
+            U{unit.unitNumber}: Q{currentQuestion.qNumber} of {unit.questions.length}
+          </span>
+          <span className="flex items-center gap-1 text-[11px] text-blue-600 dark:text-blue-400 font-normal shrink-0 ml-1.5 bg-white/70 dark:bg-blue-900/60 px-1.5 py-0.5 rounded">
+            <ListFilter className="w-3 h-3" />
+            <span>List</span>
+          </span>
+        </button>
+
+        <div className="flex items-center gap-1 shrink-0">
+          <button
+            onClick={handlePrev}
+            disabled={currentQuestionIndex === 0}
+            className="p-2 rounded-lg border border-academic-200 dark:border-academic-800 text-academic-700 dark:text-academic-300 disabled:opacity-30 disabled:cursor-not-allowed bg-academic-50 dark:bg-academic-800"
+            title="Previous Question"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={currentQuestionIndex === unit.questions.length - 1}
+            className="p-2 rounded-lg border border-academic-200 dark:border-academic-800 text-academic-700 dark:text-academic-300 disabled:opacity-30 disabled:cursor-not-allowed bg-academic-50 dark:bg-academic-800"
+            title="Next Question"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Slide-Over Drawer for Question List */}
+      {mobileQuestionsOpen && (
+        <div className="fixed inset-0 z-50 flex lg:hidden">
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+            onClick={() => setMobileQuestionsOpen(false)}
+          />
+          <div className="relative w-4/5 max-w-sm bg-white dark:bg-academic-900 shadow-2xl h-full flex flex-col p-4 animate-in slide-in-from-left duration-200 z-10">
+            <div className="flex items-center justify-between pb-3 border-b border-academic-100 dark:border-academic-800">
+              <div>
+                <h3 className="text-sm font-bold text-academic-900 dark:text-academic-100">
+                  Unit {unit.unitNumber}: {unit.shortTitle}
+                </h3>
+                <span className="text-[11px] text-academic-400 font-mono">
+                  {unit.questions.filter((q) => completedQuestionIds.includes(q.id)).length} of {unit.questions.length} Solved
+                </span>
+              </div>
+              <button
+                onClick={() => setMobileQuestionsOpen(false)}
+                className="p-1 rounded-lg text-academic-400 hover:text-academic-700 dark:hover:text-academic-200"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Search and Filters inside Mobile Drawer */}
+            <div className="py-2.5 space-y-2 border-b border-academic-100 dark:border-academic-800">
+              <div className="relative">
+                <Search className="w-3.5 h-3.5 text-academic-400 absolute left-2.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={sidebarSearch}
+                  onChange={(e) => setSidebarSearch(e.target.value)}
+                  placeholder="Filter unit questions..."
+                  className="w-full pl-8 pr-2 py-1 text-xs rounded-md bg-academic-50 dark:bg-academic-950 border border-academic-200 dark:border-academic-800 text-academic-800 dark:text-academic-200 outline-none"
+                />
+              </div>
+
+              <div className="flex items-center gap-1 text-[11px] overflow-x-auto pb-1">
+                {[
+                  { id: 'all', label: 'All' },
+                  { id: 'faq', label: 'FAQs' },
+                  { id: 'pending', label: 'Pending' },
+                  { id: 'bookmarked', label: 'Saved' },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setFilterMode(tab.id as any)}
+                    className={`px-2 py-0.5 rounded text-[10px] font-medium transition-colors ${
+                      filterMode === tab.id
+                        ? 'bg-academic-900 dark:bg-white text-white dark:text-academic-900 font-semibold'
+                        : 'text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 bg-academic-100/50 dark:bg-academic-800/50'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Questions List in Drawer */}
+            <div className="overflow-y-auto flex-1 divide-y divide-academic-100 dark:divide-academic-800/50 pt-1 space-y-0.5 pr-1">
+              {filteredQuestions.map((q) => {
+                const active = q.id === currentQuestion.id;
+                const completed = completedQuestionIds.includes(q.id);
+                const bookmarked = bookmarkedQuestionIds.includes(q.id);
+                return (
+                  <div
+                    key={q.id}
+                    onClick={() => {
+                      onSelectQuestion(q.id);
+                      setMobileQuestionsOpen(false);
+                    }}
+                    className={`p-2.5 rounded-lg text-left cursor-pointer transition-all flex items-start gap-2.5 group ${
+                      active
+                        ? 'bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 shadow-xs'
+                        : 'hover:bg-academic-50 dark:hover:bg-academic-800/50'
+                    }`}
+                  >
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onToggleCompleted(q.id);
+                      }}
+                      className={`mt-0.5 shrink-0 ${
+                        completed
+                          ? 'text-emerald-600 dark:text-emerald-400'
+                          : 'text-academic-300 dark:text-academic-700 hover:text-academic-500'
+                      }`}
+                    >
+                      <CheckCircle2 className="w-4 h-4" />
+                    </button>
+
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap mb-1">
+                        <span className={`text-[10px] font-mono font-bold ${active ? 'text-blue-700 dark:text-blue-300' : 'text-academic-500'}`}>
+                          Q{q.qNumber}
+                        </span>
+                        <MarksBadge marks={q.marks} />
+                        {q.numericalSolution && (
+                          <span className="text-[9px] font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-1 py-0.5 rounded flex items-center gap-0.5">
+                            <Calculator className="w-2.5 h-2.5" />
+                            <span>Solved</span>
+                          </span>
+                        )}
+                        {q.importance === 'Frequently Asked' && (
+                          <span className="text-[9px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 px-1 rounded">
+                            FAQ
+                          </span>
+                        )}
+                        {bookmarked && <Bookmark className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />}
+                      </div>
+                      <h4 className={`text-xs font-medium line-clamp-2 leading-snug ${active ? 'text-blue-950 dark:text-blue-100 font-semibold' : 'text-academic-700 dark:text-academic-300'}`}>
+                        {q.shortTitle || q.title}
+                      </h4>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop Left Sidebar: Unit Questions Navigation (Sticky, Hidden on mobile) */}
+      <aside className="hidden lg:flex w-80 shrink-0 bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 p-4 lg:sticky lg:top-20 max-h-[85vh] flex-col shadow-sm">
         {/* Back and Unit Info */}
         <div className="pb-3 border-b border-academic-100 dark:border-academic-800 space-y-1">
           <button
@@ -236,7 +405,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
       </aside>
 
       {/* Main Reading Area (Digital Notebook / Textbook Design) */}
-      <main className="flex-1 min-w-0 bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 shadow-sm overflow-hidden p-6 sm:p-10 space-y-8">
+      <main className="flex-1 min-w-0 bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 shadow-sm overflow-hidden p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 w-full">
         {/* Top Header & Actions */}
         <div className="space-y-4 pb-6 border-b border-academic-100 dark:border-academic-800">
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -386,8 +555,8 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
 
               {/* Table rendering */}
               {sec.table && (
-                <div className="my-4 overflow-x-auto rounded-lg border border-academic-200 dark:border-academic-800">
-                  <table className="w-full text-left text-xs sm:text-sm">
+                <div className="my-4 overflow-x-auto -mx-1 sm:mx-0 rounded-lg border border-academic-200 dark:border-academic-800 shadow-xs">
+                  <table className="w-full min-w-[480px] text-left text-xs sm:text-sm">
                     <thead className="bg-academic-50 dark:bg-academic-800/80 text-academic-700 dark:text-academic-200 font-semibold border-b border-academic-200 dark:border-academic-700">
                       <tr>
                         {sec.table.headers.map((h, i) => (

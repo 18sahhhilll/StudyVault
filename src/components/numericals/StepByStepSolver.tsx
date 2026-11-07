@@ -66,48 +66,48 @@ export const StepByStepSolver: React.FC<StepByStepSolverProps> = ({ solution }) 
   return (
     <div className="rounded-xl border-2 border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-b from-indigo-50/50 via-white to-white dark:from-indigo-950/20 dark:via-academic-900 dark:to-academic-900 shadow-md overflow-hidden transition-all">
       {/* Top Header */}
-      <div className="p-4 sm:p-5 border-b border-indigo-100 dark:border-indigo-900/50 bg-white/70 dark:bg-academic-900/80 backdrop-blur-sm">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center shadow-sm">
-              <Calculator className="w-5 h-5" />
+      <div className="p-3.5 sm:p-5 border-b border-indigo-100 dark:border-indigo-900/50 bg-white/70 dark:bg-academic-900/80 backdrop-blur-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-start sm:items-center gap-2.5">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center shadow-sm shrink-0 mt-0.5 sm:mt-0">
+              <Calculator className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
                   Interactive Numerical Solver
                 </span>
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
                   Exam Step-by-Step
                 </span>
               </div>
-              <h4 className="text-sm sm:text-base font-bold text-academic-900 dark:text-academic-100 mt-0.5">
+              <h4 className="text-xs sm:text-base font-bold text-academic-900 dark:text-academic-100 mt-0.5 leading-snug">
                 {solution.problemSummary}
               </h4>
             </div>
           </div>
 
           {/* Mode Switcher */}
-          <div className="flex items-center gap-1.5 p-1 rounded-lg bg-academic-100 dark:bg-academic-800 text-xs">
+          <div className="flex items-center self-stretch sm:self-auto gap-1 p-1 rounded-lg bg-academic-100 dark:bg-academic-800 text-xs">
             <button
               onClick={() => setViewMode('step-by-step')}
-              className={`px-3 py-1 rounded-md font-medium transition-all ${
+              className={`flex-1 sm:flex-initial px-3 py-1 rounded-md font-medium text-center transition-all ${
                 viewMode === 'step-by-step'
-                  ? 'bg-white dark:bg-academic-700 text-indigo-700 dark:text-indigo-300 shadow-sm'
+                  ? 'bg-white dark:bg-academic-700 text-indigo-700 dark:text-indigo-300 shadow-sm font-semibold'
                   : 'text-academic-600 dark:text-academic-400 hover:text-academic-900'
               }`}
             >
-              Step-by-Step Mode
+              Step-by-Step
             </button>
             <button
               onClick={handleRevealAll}
-              className={`px-3 py-1 rounded-md font-medium transition-all ${
+              className={`flex-1 sm:flex-initial px-3 py-1 rounded-md font-medium text-center transition-all ${
                 viewMode === 'all-steps'
-                  ? 'bg-white dark:bg-academic-700 text-indigo-700 dark:text-indigo-300 shadow-sm'
+                  ? 'bg-white dark:bg-academic-700 text-indigo-700 dark:text-indigo-300 shadow-sm font-semibold'
                   : 'text-academic-600 dark:text-academic-400 hover:text-academic-900'
               }`}
             >
-              Show All Steps
+              All Steps
             </button>
           </div>
         </div>
@@ -328,11 +328,11 @@ export const StepByStepSolver: React.FC<StepByStepSolverProps> = ({ solution }) 
             )}
 
             {/* Navigation Buttons for Step-by-Step */}
-            <div className="pt-4 border-t border-academic-100 dark:border-academic-800 flex items-center justify-between gap-3">
+            <div className="pt-4 border-t border-academic-100 dark:border-academic-800 flex flex-col sm:flex-row items-center justify-between gap-3">
               <button
                 onClick={handlePrevStep}
                 disabled={isFirstStep}
-                className={`px-4 py-2 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors ${
+                className={`w-full sm:w-auto justify-center px-4 py-2.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors ${
                   isFirstStep
                     ? 'opacity-40 cursor-not-allowed bg-academic-100 dark:bg-academic-800 text-academic-400'
                     : 'bg-white dark:bg-academic-800 border border-academic-200 dark:border-academic-700 text-academic-700 dark:text-academic-200 hover:bg-academic-50'
@@ -342,31 +342,31 @@ export const StepByStepSolver: React.FC<StepByStepSolverProps> = ({ solution }) 
                 <span>Previous Step</span>
               </button>
 
-              <div className="flex items-center gap-2">
+              <div className="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-2">
                 <button
                   onClick={handleReset}
-                  className="px-3 py-2 rounded-lg text-xs font-medium text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 transition-colors flex items-center gap-1"
+                  className="px-3 py-2.5 rounded-lg text-xs font-medium text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 transition-colors flex items-center gap-1"
                   title="Reset to Step 1"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">Reset</span>
+                  <span>Reset</span>
                 </button>
 
                 {!isLastStep ? (
                   <button
                     onClick={handleNextStep}
-                    className="px-5 py-2 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm flex items-center gap-1.5 transition-all transform active:scale-95"
+                    className="flex-1 sm:flex-initial justify-center px-5 py-2.5 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm flex items-center gap-1.5 transition-all transform active:scale-95"
                   >
-                    <span>Next Step ({currentStepIndex + 2}/{totalSteps})</span>
+                    <span>Next ({currentStepIndex + 2}/{totalSteps})</span>
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 ) : (
                   <button
                     onClick={handleRevealAll}
-                    className="px-5 py-2 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm flex items-center gap-1.5 transition-all"
+                    className="flex-1 sm:flex-initial justify-center px-5 py-2.5 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm flex items-center gap-1.5 transition-all"
                   >
                     <Sparkles className="w-4 h-4" />
-                    <span>View Complete Solution</span>
+                    <span>Complete Solution</span>
                   </button>
                 )}
               </div>

@@ -46,9 +46,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   const results = searchQuestions(query);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-4 sm:pt-20 px-2.5 sm:px-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-150">
       <div
-        className="w-full max-w-2xl bg-white dark:bg-academic-900 rounded-xl shadow-2xl border border-academic-200 dark:border-academic-800 overflow-hidden flex flex-col max-h-[75vh]"
+        className="w-full max-w-2xl bg-white dark:bg-academic-900 rounded-xl shadow-2xl border border-academic-200 dark:border-academic-800 overflow-hidden flex flex-col max-h-[88vh] sm:max-h-[75vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Search Input Bar */}
