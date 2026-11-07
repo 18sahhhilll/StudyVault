@@ -32,13 +32,35 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
   const allQuestions = getAllQuestions();
 
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedSubject, setSelectedSubject] = useState<string>('all');
   const [selectedUnit, setSelectedUnit] = useState<string>('all');
   const [selectedImportance, setSelectedImportance] = useState<string>('all');
   const [selectedMarks, setSelectedMarks] = useState<string>('all');
   const [selectedStatus, setSelectedStatus] = useState<'all' | 'completed' | 'pending'>('all');
   const [bookmarkedOnly, setBookmarkedOnly] = useState<boolean>(false);
 
+  // Available units based on selected subject
+  const availableUnits = React.useMemo(() => {
+    if (selectedSubject === 'all') {
+      const unitsMap = new Map<string, { id: string; label: string }>();
+      allSubjects.forEach((s) => {
+        s.units.forEach((u) => {
+          const key = `${s.id}-${u.id}`;
+          unitsMap.set(key, { id: u.id, label: `${s.code} U${u.unitNumber}: ${u.shortTitle}` });
+        });
+      });
+      return Array.from(unitsMap.values());
+    }
+    const foundSubject = allSubjects.find((s) => s.id === selectedSubject);
+    return foundSubject
+      ? foundSubject.units.map((u) => ({ id: u.id, label: `Unit ${u.unitNumber}: ${u.shortTitle}` }))
+      : [];
+  }, [selectedSubject]);
+
   const filteredQuestions = allQuestions.filter((q) => {
+    // Subject filter
+    if (selectedSubject !== 'all' && q.subject.id !== selectedSubject) return false;
+
     // Search
     const matchesSearch =
       q.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -99,6 +121,23 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
 
         {/* Dropdown Filters */}
         <div className="flex flex-wrap items-center gap-2.5 text-xs">
+          {/* Subject Filter */}
+          <select
+            value={selectedSubject}
+            onChange={(e) => {
+              setSelectedSubject(e.target.value);
+              setSelectedUnit('all');
+            }}
+            className="px-3 py-1.5 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none"
+          >
+            <option value="all">All Subjects ({allSubjects.length})</option>
+            {allSubjects.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.name} ({s.code})
+              </option>
+            ))}
+          </select>
+
           {/* Unit Filter */}
           <select
             value={selectedUnit}
@@ -106,9 +145,11 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
             className="px-3 py-1.5 rounded-lg border border-academic-200 dark:border-academic-700 bg-white dark:bg-academic-800 text-academic-800 dark:text-academic-200 outline-none"
           >
             <option value="all">All Units</option>
-            <option value="unit-3">Unit III: Regression</option>
-            <option value="unit-4">Unit IV: Classification</option>
-            <option value="unit-5">Unit V: Unsupervised</option>
+            {availableUnits.map((u, idx) => (
+              <option key={idx} value={u.id}>
+                {u.label}
+              </option>
+            ))}
           </select>
 
           {/* Importance Category Filter */}
@@ -133,7 +174,10 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
           >
             <option value="all">All Marks Allocation</option>
             <option value="4">4 Marks</option>
+            <option value="5">5 Marks</option>
             <option value="6">6 Marks</option>
+            <option value="8">8 Marks</option>
+            <option value="10">10 Marks</option>
           </select>
 
           {/* Status Filter */}
@@ -167,7 +211,8 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
         <span>
           Showing <strong>{filteredQuestions.length}</strong> of {allQuestions.length} questions
         </span>
-        {(selectedUnit !== 'all' ||
+        {(selectedSubject !== 'all' ||
+          selectedUnit !== 'all' ||
           selectedImportance !== 'all' ||
           selectedMarks !== 'all' ||
           selectedStatus !== 'all' ||
@@ -175,6 +220,7 @@ export const ImportantQuestionsView: React.FC<ImportantQuestionsViewProps> = ({
           searchQuery) && (
           <button
             onClick={() => {
+              setSelectedSubject('all');
               setSelectedUnit('all');
               setSelectedImportance('all');
               setSelectedMarks('all');

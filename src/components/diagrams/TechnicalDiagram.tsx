@@ -1,6 +1,36 @@
 import React, { useState } from 'react';
 import { Maximize2, Minimize2, ZoomIn, Info } from 'lucide-react';
 import { DiagramData } from '@/types';
+import {
+  ByzantineGeneralsDiagram,
+  IotaTangleDiagram,
+  BlockchainTypesDiagram,
+  CordaArchitectureDiagram,
+  HyperledgerFabricDiagram,
+  PoWvsPoSDiagram
+} from './blockchain/BlockchainPlatformsDiagrams';
+import {
+  BitcoinMiningWorkflowDiagram,
+  CryptoWalletsDiagram,
+  CustodialVsNonCustodialDiagram,
+  CoinVsTokenDiagram,
+  ZerocashProofDiagram
+} from './blockchain/CryptoWalletsDiagrams';
+import {
+  EthereumStackDiagram,
+  SmartContractLifecycleDiagram,
+  GasExecutionDiagram,
+  EVMArchitectureDiagram,
+  SwarmStorageDiagram,
+  WhisperMessagingDiagram
+} from './blockchain/EthereumSolidityDiagrams';
+import {
+  SupplyChainDiagram,
+  DigitalIdentityDiagram,
+  HealthcareEHRDiagram,
+  P2PEnergyTradingDiagram,
+  BlockchainVotingDiagram
+} from './blockchain/CaseStudiesDiagrams';
 
 interface TechnicalDiagramProps {
   diagram: DiagramData;
@@ -426,6 +456,82 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
             <text x="75" y="228" className="text-[11px] fill-academic-600 dark:fill-academic-400">MinPts = 4: Core points have ≥ 4 neighbours inside search radius ε</text>
           </svg>
         );
+
+      // Blockchain Unit 3: Platforms & Consensus
+      case 'byzantine-problem':
+      case 'byzantine-generals':
+        return <ByzantineGeneralsDiagram onHover={setHoveredElement} />;
+
+      case 'iota-tangle':
+        return <IotaTangleDiagram onHover={setHoveredElement} />;
+
+      case 'blockchain-types':
+        return <BlockchainTypesDiagram onHover={setHoveredElement} />;
+
+      case 'corda-architecture':
+        return <CordaArchitectureDiagram onHover={setHoveredElement} />;
+
+      case 'hyperledger-architecture':
+        return <HyperledgerFabricDiagram onHover={setHoveredElement} />;
+
+      case 'pow-vs-pos':
+        return <PoWvsPoSDiagram onHover={setHoveredElement} />;
+
+      case 'bitcoin-lifecycle':
+      case 'bitcoin-mining':
+      case 'mining-flow':
+      case 'pow-block':
+        return <BitcoinMiningWorkflowDiagram onHover={setHoveredElement} />;
+
+      // Blockchain Unit 4: Cryptocurrencies & Wallets
+      case 'crypto-wallets':
+        return <CryptoWalletsDiagram onHover={setHoveredElement} />;
+
+      case 'custodial-vs-noncustodial':
+        return <CustodialVsNonCustodialDiagram onHover={setHoveredElement} />;
+
+      case 'coin-vs-token':
+      case 'btc-vs-eth':
+        return <CoinVsTokenDiagram onHover={setHoveredElement} />;
+
+      case 'zerocash-proof':
+        return <ZerocashProofDiagram onHover={setHoveredElement} />;
+
+      // Blockchain Unit 5: Ethereum & Solidity
+      case 'ethereum-stack':
+      case 'consensus-types':
+        return <EthereumStackDiagram onHover={setHoveredElement} />;
+
+      case 'smart-contract-lifecycle':
+        return <SmartContractLifecycleDiagram onHover={setHoveredElement} />;
+
+      case 'gas-execution':
+        return <GasExecutionDiagram onHover={setHoveredElement} />;
+
+      case 'evm-architecture':
+        return <EVMArchitectureDiagram onHover={setHoveredElement} />;
+
+      case 'swarm-storage':
+        return <SwarmStorageDiagram onHover={setHoveredElement} />;
+
+      case 'whisper-messaging':
+        return <WhisperMessagingDiagram onHover={setHoveredElement} />;
+
+      // Blockchain Unit 6: Case Studies
+      case 'supply-chain-blockchain':
+        return <SupplyChainDiagram onHover={setHoveredElement} />;
+
+      case 'digital-identity-blockchain':
+        return <DigitalIdentityDiagram onHover={setHoveredElement} />;
+
+      case 'healthcare-ehr-blockchain':
+        return <HealthcareEHRDiagram onHover={setHoveredElement} />;
+
+      case 'p2p-energy-trading':
+        return <P2PEnergyTradingDiagram onHover={setHoveredElement} />;
+
+      case 'blockchain-voting':
+        return <BlockchainVotingDiagram onHover={setHoveredElement} />;
 
       default:
         return (

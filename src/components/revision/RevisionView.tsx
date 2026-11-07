@@ -18,8 +18,17 @@ interface RevisionViewProps {
 }
 
 export const RevisionView: React.FC<RevisionViewProps> = ({ onSelectQuestion }) => {
-  const subject = allSubjects[0]; // Machine Learning
+  const [selectedSubjectId, setSelectedSubjectId] = useState<string>(allSubjects[0].id);
+  const subject = allSubjects.find((s) => s.id === selectedSubjectId) || allSubjects[0];
   const [selectedUnitId, setSelectedUnitId] = useState<string>(subject.units[0].id);
+
+  const handleSubjectChange = (subjectId: string) => {
+    setSelectedSubjectId(subjectId);
+    const sub = allSubjects.find((s) => s.id === subjectId);
+    if (sub && sub.units.length > 0) {
+      setSelectedUnitId(sub.units[0].id);
+    }
+  };
 
   const activeUnit = subject.units.find((u) => u.id === selectedUnitId) || subject.units[0];
 
@@ -39,6 +48,24 @@ export const RevisionView: React.FC<RevisionViewProps> = ({ onSelectQuestion }) 
         <p className="text-sm text-academic-500 mt-1">
           Rapidly review key definitions, core mathematical formulas, comparison tables, and high-frequency exam questions before entering the exam hall.
         </p>
+      </div>
+
+      {/* Subject Switcher */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-1">
+        {allSubjects.map((s) => (
+          <button
+            key={s.id}
+            onClick={() => handleSubjectChange(s.id)}
+            className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center gap-2 ${
+              selectedSubjectId === s.id
+                ? 'bg-academic-900 text-white dark:bg-academic-100 dark:text-academic-900 shadow-sm'
+                : 'bg-academic-100 dark:bg-academic-800/80 text-academic-600 dark:text-academic-400 hover:bg-academic-200 dark:hover:bg-academic-700'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>{s.name} ({s.code})</span>
+          </button>
+        ))}
       </div>
 
       {/* Unit Selector Tabs */}
