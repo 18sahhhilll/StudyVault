@@ -70,6 +70,15 @@ import {
   EmbeddedSchedulerDiagram,
   EmbeddedInsertionSortDiagram
 } from './daa/DAAUnit5Diagrams';
+import {
+  MultithreadedDAGDiagram,
+  RaceConditionDiagram,
+  ParallelMatrixMultDiagram,
+  ParallelMergeSortDiagram,
+  DistributedBFSDiagram,
+  DistributedGHSMSTDiagram,
+  RabinKarpRollingHashDiagram
+} from './daa/DAAUnit6Diagrams';
 
 interface TechnicalDiagramProps {
   diagram: DiagramData;
@@ -665,6 +674,27 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
 
       case 'embedded-insertion-sort':
         return <EmbeddedInsertionSortDiagram />;
+
+      case 'multithreaded-dag-model':
+        return <MultithreadedDAGDiagram />;
+
+      case 'race-condition-visual':
+        return <RaceConditionDiagram />;
+
+      case 'parallel-matrix-multiplication':
+        return <ParallelMatrixMultDiagram />;
+
+      case 'parallel-merge-sort-pipeline':
+        return <ParallelMergeSortDiagram />;
+
+      case 'distributed-bfs-tree':
+        return <DistributedBFSDiagram />;
+
+      case 'distributed-ghs-mst':
+        return <DistributedGHSMSTDiagram />;
+
+      case 'rabin-karp-rolling-hash':
+        return <RabinKarpRollingHashDiagram />;
 
       default:
         return (
