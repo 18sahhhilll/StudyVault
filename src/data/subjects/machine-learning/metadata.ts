@@ -12,6 +12,7 @@ export const machineLearningMetadata: Omit<Subject, 'units'> = {
   syllabusOverview: [
     'Unit III: Supervised Learning — Regression (Bias-Variance, Linear, Ridge, Lasso, Gradient Descent, Evaluation Metrics)',
     'Unit IV: Supervised Learning — Classification (KNN, SVM, Ensembles: Bagging, Boosting, Random Forest, AdaBoost, Multiclass, Metrics)',
-    'Unit V: Unsupervised Learning (K-Means, K-Medoids, Hierarchical, DBSCAN, OPTICS, DENCLUE, Outlier Analysis: LOF, iForest, Spectral Clustering, Validation)'
+    'Unit V: Unsupervised Learning (K-Means, K-Medoids, Hierarchical, DBSCAN, OPTICS, DENCLUE, Outlier Analysis: LOF, iForest, Spectral Clustering, Validation)',
+    'Unit VI: Introduction to Neural Networks (Activation Functions, Perceptrons, MLP, Backpropagation, RBF, FLANN, RNN, CNN, Padding, Recommendation Systems)'
   ]
 };

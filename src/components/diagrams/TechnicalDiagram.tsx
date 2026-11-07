@@ -31,6 +31,18 @@ import {
   P2PEnergyTradingDiagram,
   BlockchainVotingDiagram
 } from './blockchain/CaseStudiesDiagrams';
+import {
+  ActivationFunctionsDiagram,
+  ArtificialNeuronDiagram,
+  MLPArchitectureDiagram,
+  BackpropFlowDiagram,
+  RBFNetworkDiagram,
+  FLANNArchitectureDiagram,
+  RNNUnfoldedDiagram,
+  CNNPipelineDiagram,
+  MaxPoolingDiagram,
+  CNNPaddingDiagram
+} from './ml/NeuralNetworksDiagrams';
 
 interface TechnicalDiagramProps {
   diagram: DiagramData;
@@ -532,6 +544,37 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
 
       case 'blockchain-voting':
         return <BlockchainVotingDiagram onHover={setHoveredElement} />;
+
+      // Machine Learning Unit 6: Neural Networks
+      case 'activation-functions':
+        return <ActivationFunctionsDiagram onHover={setHoveredElement} />;
+
+      case 'artificial-neuron':
+        return <ArtificialNeuronDiagram onHover={setHoveredElement} />;
+
+      case 'mlp-architecture':
+        return <MLPArchitectureDiagram onHover={setHoveredElement} />;
+
+      case 'backprop-flow':
+        return <BackpropFlowDiagram onHover={setHoveredElement} />;
+
+      case 'rbf-network':
+        return <RBFNetworkDiagram onHover={setHoveredElement} />;
+
+      case 'flann-architecture':
+        return <FLANNArchitectureDiagram onHover={setHoveredElement} />;
+
+      case 'rnn-unfolded':
+        return <RNNUnfoldedDiagram onHover={setHoveredElement} />;
+
+      case 'cnn-pipeline':
+        return <CNNPipelineDiagram onHover={setHoveredElement} />;
+
+      case 'max-pooling':
+        return <MaxPoolingDiagram onHover={setHoveredElement} />;
+
+      case 'cnn-padding':
+        return <CNNPaddingDiagram onHover={setHoveredElement} />;
 
       default:
         return (
