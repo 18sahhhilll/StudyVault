@@ -575,34 +575,15 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                           <td className="p-3 font-medium text-academic-900 dark:text-academic-100 whitespace-nowrap">
                             {row.parameter}
                           </td>
-                          <td className="p-3 text-academic-700 dark:text-academic-300">
-                            {row.col1}
-                          </td>
-                          {row.col2 !== undefined && (
-                            <td className="p-3 text-academic-700 dark:text-academic-300">
-                              {row.col2}
-                            </td>
-                          )}
-                          {row.col3 !== undefined && (
-                            <td className="p-3 text-academic-700 dark:text-academic-300">
-                              {row.col3}
-                            </td>
-                          )}
-                          {row.col4 !== undefined && (
-                            <td className="p-3 text-academic-700 dark:text-academic-300">
-                              {row.col4}
-                            </td>
-                          )}
-                          {row.col5 !== undefined && (
-                            <td className="p-3 text-academic-700 dark:text-academic-300">
-                              {row.col5}
-                            </td>
-                          )}
-                          {row.col6 !== undefined && (
-                            <td className="p-3 text-academic-700 dark:text-academic-300">
-                              {row.col6}
-                            </td>
-                          )}
+                          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((colNum) => {
+                            const val = row[`col${colNum}`];
+                            if (val === undefined) return null;
+                            return (
+                              <td key={colNum} className="p-3 text-academic-700 dark:text-academic-300">
+                                {val}
+                              </td>
+                            );
+                          })}
                         </tr>
                       ))}
                     </tbody>

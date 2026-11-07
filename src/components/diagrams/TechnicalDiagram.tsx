@@ -43,6 +43,15 @@ import {
   MaxPoolingDiagram,
   CNNPaddingDiagram
 } from './ml/NeuralNetworksDiagrams';
+import {
+  GreedyStrategyDiagram,
+  FractionalKnapsackDiagram,
+  JobSequencingDiagram,
+  PrincipleOfOptimalityDiagram,
+  MatrixChainDiagram,
+  OBSTDiagram,
+  ActivitySelectionDiagram
+} from './daa/DAADiagrams';
 
 interface TechnicalDiagramProps {
   diagram: DiagramData;
@@ -575,6 +584,27 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
 
       case 'cnn-padding':
         return <CNNPaddingDiagram onHover={setHoveredElement} />;
+
+      case 'greedy-strategy-flow':
+        return <GreedyStrategyDiagram />;
+
+      case 'knapsack-fractional-visual':
+        return <FractionalKnapsackDiagram />;
+
+      case 'job-scheduling-timeline':
+        return <JobSequencingDiagram />;
+
+      case 'dp-principle-optimality':
+        return <PrincipleOfOptimalityDiagram />;
+
+      case 'mcm-pyramid-grid':
+        return <MatrixChainDiagram />;
+
+      case 'obst-tree-diagram':
+        return <OBSTDiagram />;
+
+      case 'activity-selection-timeline':
+        return <ActivitySelectionDiagram />;
 
       default:
         return (

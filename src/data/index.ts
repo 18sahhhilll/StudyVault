@@ -1,10 +1,12 @@
 import { Subject, Unit, Question } from '@/types';
 import { machineLearningSubject } from './subjects/machine-learning';
 import { blockchainSubject } from './subjects/blockchain-technology';
+import { daaSubject } from './subjects/daa';
 
 export const allSubjects: Subject[] = [
   machineLearningSubject,
-  blockchainSubject
+  blockchainSubject,
+  daaSubject
 ];
 
 export function getSubjectById(subjectId: string): Subject | undefined {
