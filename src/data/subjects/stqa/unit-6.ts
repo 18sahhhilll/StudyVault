@@ -17,7 +17,7 @@ export const unit6Data: Unit = {
   ],
   "questionPaperIndex": [
     {
-      "paper": "April 2023 ([6004]-491)",
+      "paper": "May 2023 ([6004]-491)",
       "qMain": "Q7(a) Six Sigma (6M), Q7(b) Flowchart vs Histogram (6M), Q7(c) Good Quality Parameters (5M)",
       "qOr": "Q8(a) Maintain SQA (6M), Q8(b) SQA Task Goals & Metrics (6M), Q8(c) Defect Removal Effectiveness (5M)"
     },
@@ -27,17 +27,17 @@ export const unit6Data: Unit = {
       "qOr": "Q8(a) Flowcharts, Run & Control Charts (6M), Q8(b) Achieve Software Quality (6M), Q8(c) SQA Goals & Metrics (5M)"
     },
     {
-      "paper": "April 2024 ([6263]-92)",
+      "paper": "May 2024 ([6263]-92)",
       "qMain": "Q7(a) Activities for High Quality (8M), Q7(b) Six Sigma (6M), Q7(c) Histogram, Flowchart, Control Chart (3M)",
       "qOr": "Q8(a) ISO 9000 Standard (6M), Q8(b) SQA Plan (5M), Q8(c) Ishikawa Basic Tools (6M)"
     },
     {
-      "paper": "May 2024 ([6404]-92)",
+      "paper": "May 2025 ([6406]-92)",
       "qMain": "Q7(a) Six Sigma (6M), Q7(b) Maintain SQA (6M), Q7(c) Defect Removal Effectiveness (5M)",
       "qOr": "Q8(a) Flowchart vs Histogram (6M), Q8(b) Total Quality Management (6M), Q8(c) Run vs Control Charts (5M)"
     },
     {
-      "paper": "Nov 2024 ([6584]-102)",
+      "paper": "Nov 2025 ([6584]-102)",
       "qMain": "Q7(a) Maintain SQA (5M), Q7(b) Flowchart & Histogram (6M), Q7(c) Six Sigma (6M)",
       "qOr": "Q8(a) ISO 9000 Standard (5M), Q8(b) Histogram, Flowchart, Control Chart (6M), Q8(c) High Quality Activities (6M)"
     }
@@ -112,17 +112,17 @@ export const unit6Data: Unit = {
       "occurrenceCount": 3,
       "papersAsked": [
         {
-          "paper": "April 2023",
+          "paper": "May 2023",
           "questionNo": "Q8(a)",
           "marks": 6
         },
         {
-          "paper": "May 2024",
+          "paper": "May 2025",
           "questionNo": "Q7(b)",
           "marks": 6
         },
         {
-          "paper": "Nov 2024",
+          "paper": "Nov 2025",
           "questionNo": "Q7(a)",
           "marks": 5
         }
@@ -176,7 +176,7 @@ export const unit6Data: Unit = {
       "occurrenceCount": 2,
       "papersAsked": [
         {
-          "paper": "April 2023",
+          "paper": "May 2023",
           "questionNo": "Q8(b)",
           "marks": 6
         },
@@ -250,12 +250,12 @@ export const unit6Data: Unit = {
       "occurrenceCount": 2,
       "papersAsked": [
         {
-          "paper": "April 2023",
+          "paper": "May 2023",
           "questionNo": "Q8(c)",
           "marks": 5
         },
         {
-          "paper": "May 2024",
+          "paper": "May 2025",
           "questionNo": "Q7(c)",
           "marks": 5
         }
@@ -324,7 +324,7 @@ export const unit6Data: Unit = {
       "occurrenceCount": 4,
       "papersAsked": [
         {
-          "paper": "April 2023",
+          "paper": "May 2023",
           "questionNo": "Q7(c)",
           "marks": 5
         },
@@ -334,12 +334,12 @@ export const unit6Data: Unit = {
           "marks": 6
         },
         {
-          "paper": "April 2024",
+          "paper": "May 2024",
           "questionNo": "Q7(a)",
           "marks": 8
         },
         {
-          "paper": "Nov 2024",
+          "paper": "Nov 2025",
           "questionNo": "Q8(c)",
           "marks": 6
         }
@@ -395,22 +395,22 @@ export const unit6Data: Unit = {
       "occurrenceCount": 4,
       "papersAsked": [
         {
-          "paper": "April 2023",
+          "paper": "May 2023",
           "questionNo": "Q7(a)",
-          "marks": 6
-        },
-        {
-          "paper": "April 2024",
-          "questionNo": "Q7(b)",
           "marks": 6
         },
         {
           "paper": "May 2024",
+          "questionNo": "Q7(b)",
+          "marks": 6
+        },
+        {
+          "paper": "May 2025",
           "questionNo": "Q7(a)",
           "marks": 6
         },
         {
-          "paper": "Nov 2024",
+          "paper": "Nov 2025",
           "questionNo": "Q7(c)",
           "marks": 6
         }
@@ -484,7 +484,7 @@ export const unit6Data: Unit = {
           "marks": 6
         },
         {
-          "paper": "April 2024",
+          "paper": "May 2024",
           "questionNo": "Q8(c)",
           "marks": 6
         }
@@ -532,17 +532,17 @@ export const unit6Data: Unit = {
       "occurrenceCount": 3,
       "papersAsked": [
         {
-          "paper": "April 2023",
+          "paper": "May 2023",
           "questionNo": "Q7(b)",
           "marks": 6
         },
         {
-          "paper": "May 2024",
+          "paper": "May 2025",
           "questionNo": "Q8(a)",
           "marks": 6
         },
         {
-          "paper": "Nov 2024",
+          "paper": "Nov 2025",
           "questionNo": "Q7(b)",
           "marks": 6
         }
@@ -638,17 +638,17 @@ export const unit6Data: Unit = {
           "marks": 6
         },
         {
-          "paper": "April 2024",
+          "paper": "May 2024",
           "questionNo": "Q7(c)",
           "marks": 3
         },
         {
-          "paper": "May 2024",
+          "paper": "May 2025",
           "questionNo": "Q8(c)",
           "marks": 5
         },
         {
-          "paper": "Nov 2024",
+          "paper": "Nov 2025",
           "questionNo": "Q8(b)",
           "marks": 6
         }
@@ -749,7 +749,7 @@ export const unit6Data: Unit = {
           "marks": 6
         },
         {
-          "paper": "May 2024",
+          "paper": "May 2025",
           "questionNo": "Q8(b)",
           "marks": 6
         }
@@ -805,12 +805,12 @@ export const unit6Data: Unit = {
       "occurrenceCount": 2,
       "papersAsked": [
         {
-          "paper": "April 2024",
+          "paper": "May 2024",
           "questionNo": "Q8(a)",
           "marks": 6
         },
         {
-          "paper": "Nov 2024",
+          "paper": "Nov 2025",
           "questionNo": "Q8(a)",
           "marks": 5
         }
