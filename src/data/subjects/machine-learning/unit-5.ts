@@ -426,14 +426,26 @@ export const unit5Data: Unit = {
           }
         },
         {
-          title: '2. Cluster Linkage Criteria',
+          title: '2. Cluster Linkage Criteria (2-Column Comparison)',
           table: {
-            headers: ['Linkage Criterion', 'Mathematical Distance Definition', 'Behavioral Characteristic'],
+            headers: ['Linkage Criterion & Distance Definition', 'Behavioral Characteristic & Sensitivity to Outliers'],
             rows: [
-              { parameter: 'Single Linkage (Min)', col1: 'min { d(x, y) : x ∈ A, y ∈ B }', col2: 'Nearest neighbours; can form long elongated chains (chaining effect).' },
-              { parameter: 'Complete Linkage (Max)', col1: 'max { d(x, y) : x ∈ A, y ∈ B }', col2: 'Furthest neighbours; generates compact, tight spherical clusters.' },
-              { parameter: 'Average Linkage', col1: '(1 / |A||B|) ∑∑ d(x, y)', col2: 'Average of all pairwise distances; balanced compromise.' },
-              { parameter: 'Centroid Linkage', col1: 'd(m_A, m_B)', col2: 'Distance between cluster mean centroids; good for small clusters.' }
+              {
+                parameter: 'Single Linkage (Minimum Distance): min { d(x, y) : x ∈ A, y ∈ B }',
+                col1: 'Merges clusters based on the two closest points; can handle non-elliptical shapes, but suffers from chaining effect (drawing long stringy clusters connected by noise points).'
+              },
+              {
+                parameter: 'Complete Linkage (Maximum Distance): max { d(x, y) : x ∈ A, y ∈ B }',
+                col1: 'Merges clusters based on the two furthest points; generates tight, compact, spherical clusters; resistant to chaining, but highly sensitive to extreme outliers.'
+              },
+              {
+                parameter: 'Average Linkage: (1 / |A||B|) ∑∑ d(x, y)',
+                col1: 'Merges clusters based on average distance between all pairs of points; balanced compromise between single and complete linkage; relatively robust against outliers.'
+              },
+              {
+                parameter: 'Centroid Linkage: d(m_A, m_B)',
+                col1: 'Calculates the Euclidean distance between cluster centroid vectors; computationally fast, but can produce non-monotonic dendrogram reversals.'
+              }
             ]
           }
         },
@@ -660,13 +672,22 @@ export const unit5Data: Unit = {
           ]
         },
         {
-          title: '4. Summary Comparison Table',
+          title: '4. Summary Comparison Table (2-Column Format)',
           table: {
-            headers: ['Technique', 'Core Underlying Principle', 'Parameters', 'Varying Density Handling'],
+            headers: ['Density-Based Algorithm & Core Principle', 'Key Parameters & Varying Density Handling'],
             rows: [
-              { parameter: 'DBSCAN', col1: 'Core point region expansion via fixed radius', col2: 'ε (eps) and MinPts', col3: 'Poor (fails when cluster densities differ)' },
-              { parameter: 'OPTICS', col1: 'Reachability distance ordering & reachability plot', col2: 'MinPts and max ε', col3: 'Excellent (valleys represent multi-density clusters)' },
-              { parameter: 'DENCLUE', col1: 'Sum of Gaussian kernels & density attractor climbing', col2: 'σ (influence width) and ξ (noise cutoff)', col3: 'Good (handles complex non-linear shapes smoothly)' }
+              {
+                parameter: 'DBSCAN (Density-Based Spatial Clustering of Applications with Noise)',
+                col1: 'Expands clusters around core points that have at least MinPts within radius ε; uses fixed ε and MinPts; fails on datasets with varying densities because a single global radius cannot fit both sparse and dense clusters simultaneously.'
+              },
+              {
+                parameter: 'OPTICS (Ordering Points To Identify Clustering Structure)',
+                col1: 'Constructs an augmented cluster ordering using core distance and reachability distance; uses MinPts and max ε; successfully handles clusters of varying densities because valleys of different depths in the reachability plot reveal clusters at all density scales.'
+              },
+              {
+                parameter: 'DENCLUE (DENsity-based CLUstEring)',
+                col1: 'Employs kernel density estimation (KDE) where points climb density gradients using Gaussian influence functions to discover density attractors; uses bandwidth σ and noise cutoff ξ; excels at finding arbitrary non-linear cluster boundaries with mathematical rigor.'
+              }
             ]
           }
         }
@@ -815,13 +836,22 @@ export const unit5Data: Unit = {
           ]
         },
         {
-          title: '3. Numerical Score Interpretation',
+          title: '3. Numerical Score Interpretation (2-Column Format)',
           table: {
-            headers: ['LOF Value Range', 'Physical Meaning', 'Categorization'],
+            headers: ['LOF Value Range', 'Physical Meaning & Outlier Classification'],
             rows: [
-              { parameter: 'LOF ≈ 1.0', col1: 'Point has comparable density to its neighbours.', col2: 'Normal Inlier Point' },
-              { parameter: 'LOF < 1.0', col1: 'Point lies in a denser region than its neighbours.', col2: 'Dense Core Inlier' },
-              { parameter: 'LOF >> 1.0 (e.g. > 1.5)', col1: 'Point is in a significantly sparser region than its neighbours.', col2: 'Outlier (Anomaly)' }
+              {
+                parameter: 'LOF ≈ 1.0 (Close to 1)',
+                col1: 'The data point has approximately the same density as its local surrounding neighbors; classified as a Normal Inlier Point.'
+              },
+              {
+                parameter: 'LOF < 1.0 (Less than 1)',
+                col1: 'The data point resides in a cluster region that is denser than its surrounding neighbors; classified as a Dense Core Inlier Point.'
+              },
+              {
+                parameter: 'LOF >> 1.0 (Significantly greater than 1, e.g. > 1.5)',
+                col1: 'The data point resides in a significantly sparser region than its surrounding neighbors; classified as a Definite Outlier (Anomaly).'
+              }
             ]
           }
         }
@@ -898,13 +928,22 @@ export const unit5Data: Unit = {
           ]
         },
         {
-          title: '4. Score Interpretation',
+          title: '4. Score Interpretation (2-Column Format)',
           table: {
-            headers: ['Score s(x, n)', 'Expected Path Length E[h(x)]', 'Classification'],
+            headers: ['Isolation Anomaly Score s(x, n)', 'Tree Path Length & Outlier Classification'],
             rows: [
-              { parameter: 's → 1.0 (s ≥ 0.6)', col1: 'E[h(x)] → 0 (very short path length)', col2: 'Definite Anomaly / Outlier' },
-              { parameter: 's < 0.5', col1: 'E[h(x)] approaches c(n) (long path length)', col2: 'Normal Inlier Point' },
-              { parameter: 's ≈ 0.5', col1: 'Uniform average path lengths across sample', col2: 'No distinct anomalies in sample' }
+              {
+                parameter: 'Score s → 1.0 (s ≥ 0.6)',
+                col1: 'Very short expected tree path length E[h(x)] → 0; isolated near root with very few random partition cuts; classified as a Definite Anomaly / Outlier.'
+              },
+              {
+                parameter: 'Score s < 0.5',
+                col1: 'Normal tree path length approaching expected average c(n); requires many recursive cuts deep into the tree to isolate; classified as a Normal Inlier Point.'
+              },
+              {
+                parameter: 'Score s ≈ 0.5',
+                col1: 'Uniform path lengths across the entire sample; indicates that the dataset does not contain distinctly separable anomalies.'
+              }
             ]
           }
         }
@@ -1241,12 +1280,24 @@ export const unit5Data: Unit = {
         {
           title: '2. Extrinsic Metrics (Ground Truth Available for Benchmark)',
           table: {
-            headers: ['Metric Name', 'Mathematical Concept', 'Best Score'],
+            headers: ['Extrinsic Cluster Metric & Concept', 'What It Evaluates & Ideal Score'],
             rows: [
-              { parameter: 'Homogeneity', col1: 'Each cluster contains only instances from a single ground-truth class: 1 - H(C|K)/H(C)', col2: '1.0' },
-              { parameter: 'Completeness', col1: 'All instances of a given class are grouped into the same cluster: 1 - H(K|C)/H(K)', col2: '1.0' },
-              { parameter: 'Rand Index (RI)', col1: 'Percentage of point pairs correctly grouped together or apart: (a + b) / (n choose 2)', col2: '1.0' },
-              { parameter: 'Adjusted Rand Index (ARI)', col1: 'Rand Index adjusted for chance agreement; ranges from -1 to +1', col2: '1.0' }
+              {
+                parameter: 'Homogeneity Score: 1 - H(C|K)/H(C)',
+                col1: 'Measures whether each cluster contains only data points that are members of a single class; satisfies criteria when clusters are pure; ideal score is 1.0.'
+              },
+              {
+                parameter: 'Completeness Score: 1 - H(K|C)/H(K)',
+                col1: 'Measures whether all data points that are members of a given class are grouped together in the same cluster; ideal score is 1.0.'
+              },
+              {
+                parameter: 'Rand Index (RI): (a + b) / (n choose 2)',
+                col1: 'Measures the percentage of point pairs correctly grouped together in the same cluster or correctly separated into different clusters; ideal score is 1.0.'
+              },
+              {
+                parameter: 'Adjusted Rand Index (ARI)',
+                col1: 'Calculates the Rand Index adjusted for random chance groupings; yields values from -1 (worse than random) to +1 (perfect clustering match); ideal score is 1.0.'
+              }
             ]
           }
         }

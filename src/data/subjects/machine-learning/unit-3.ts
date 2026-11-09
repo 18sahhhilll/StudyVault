@@ -76,24 +76,27 @@ export const unit3Data: Unit = {
         { paper: 'Paper 5', questionNo: 'Q2(a)', notes: 'First part; Ridge part covered in Q8' }
       ],
       syllabusTopics: ['Regression', 'Linear Regression', 'Least Squares'],
-      definition: 'Regression is a supervised learning technique used to determine the mathematical relationship between a dependent continuous variable (y) and one or more independent variables (x).',
+      definition: 'Linear Regression is a supervised Machine Learning algorithm used to predict a continuous numerical value by establishing a linear relationship between dependent and independent variables.',
       sections: [
         {
-          title: '1. Regression Fundamentals',
+          title: '1. Definition and Simple Explanation',
           content: [
-            'Target variable (output) is always a continuous real number (e.g., house price, temperature, stock value, salary).',
-            'Independent variables (inputs) can be continuous or discrete predictors.',
-            'Regression vs Classification: Regression predicts continuous quantities, while Classification predicts discrete categorical labels (e.g., Yes/No, Spam/Not Spam).'
+            'Definition: Linear Regression is a supervised machine learning algorithm that models the linear relationship between a continuous dependent target variable (y) and one or more independent predictor features (x).',
+            'In simple words:',
+            'Linear Regression finds the straight-line relationship between input features and output values and uses that relationship to predict new continuous numerical values.'
           ]
         },
         {
-          title: '2. Linear Regression Model',
+          title: '2. Mathematical Formulation & Equation',
           content: [
-            'Models the target y as a linear combination of input x through a best-fit straight line.',
-            'Univariate (Simple) Linear Regression Equation: y = mx + b or h_θ(x) = θ₀ + θ₁x',
-            'm (or θ₁) represents the slope: the rate of change in y per unit increase in x.',
-            'b (or θ₀) represents the intercept: the baseline value of y when x = 0.',
-            'Multivariate (Multiple) Linear Regression: y = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ for n predictor features.'
+            'Simple Linear Regression fits a straight line with one independent variable:',
+            'Equation: y = mx + b  (or h_θ(x) = θ₀ + θ₁x)',
+            'Where each term means:',
+            '• y = Dependent variable (the value we want to predict).',
+            '• x = Independent variable (the input feature).',
+            '• m (or θ₁) = Slope: represents the change in y for every 1-unit increase in x.',
+            '• b (or θ₀) = Intercept: represents the baseline value of y when x is 0.',
+            'Multiple Linear Regression extends this to multiple input features: y = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ + ε.'
           ],
           formulas: [
             { name: 'Simple Linear Regression Line', latex: 'y = mx + b \\quad \\Longleftrightarrow \\quad h_\\theta(x) = \\theta_0 + \\theta_1 x' },
@@ -101,12 +104,33 @@ export const unit3Data: Unit = {
           ]
         },
         {
-          title: '3. Real-World Practical Example',
+          title: '3. Concrete Relatable Example (Study Hours vs Exam Marks)',
           content: [
-            'Study Hours (x) vs Exam Score (y):',
-            'Suppose training data yields the best-fit line: y = 10 + 8x.',
-            'If a student studies for 5 hours (x = 5), predicted score is y = 10 + 8(5) = 50 marks.',
-            'Applications: Housing price prediction from floor area, GDP forecasting, sales projections based on advertising budget.'
+            'Suppose we want to predict a student examination marks based on the number of hours they study.',
+            'If the trained regression model produces the line:',
+            'y = 10 + 8x',
+            'Where:',
+            '• x = Number of study hours.',
+            '• y = Predicted examination marks.',
+            '• 10 = Intercept (baseline marks scored even with 0 study hours).',
+            '• 8 = Slope (each additional hour of study increases predicted marks by 8).',
+            'If a student studies for 5 hours (x = 5):',
+            'y = 10 + 8(5) = 10 + 40 = 50 marks.',
+            'Therefore, the predicted marks are 50.'
+          ]
+        },
+        {
+          title: '4. Advantages, Limitations, and Applications',
+          content: [
+            'Advantages:',
+            '• Simple to understand, interpret, and explain to non-technical stakeholders.',
+            '• Fast to train and computationally efficient even on large datasets.',
+            '• Highly effective when the underlying data relationship is linear.',
+            'Limitations:',
+            '• Assumes strict linearity between features and target (underfits curved patterns).',
+            '• Highly sensitive to extreme outlier points which pull the line away from the true trend.',
+            '• Vulnerable to multicollinearity when independent features are strongly correlated.',
+            'Real-World Applications: House price prediction from square footage, employee salary estimation from years of experience, and sales revenue forecasting from advertising budget.'
           ]
         }
       ],
@@ -147,48 +171,57 @@ export const unit3Data: Unit = {
         { paper: 'Paper 3', questionNo: 'Q1(b)', marks: 6 }
       ],
       syllabusTopics: ['Regression Models', 'Polynomial Regression', 'Ridge', 'Lasso', 'Logistic Regression'],
-      definition: 'Regression models encompass a family of statistical and machine learning algorithms designed to capture linear, non-linear, regularized, and probabilistic relationships between input variables and targets.',
+      definition: 'Regression models are supervised learning algorithms used to establish mathematical relationships between input predictor variables and a continuous target variable.',
       sections: [
         {
-          title: '1. Model Taxonomies and Characteristics',
+          title: '1. What are Regression Models?',
           content: [
-            'Different regression models are selected based on linearity of data, number of features, presence of multicollinearity, and nature of the target output.'
-          ],
+            'Definition: Regression models are statistical algorithms that estimate the relationships between one or more independent variables (features) and a continuous dependent variable (outcome).',
+            'In simple words:',
+            'Regression models help us answer quantitative questions like "What will the price be?", "How much revenue will be earned?", or "What temperature will be recorded?".'
+          ]
+        },
+        {
+          title: '2. Primary Types of Regression Models (2-Column Comparison)',
           table: {
-            headers: ['Model', 'Mathematical Representation', 'When Used / Core Strengths'],
+            headers: ['Regression Model & Formula', 'When Used, Core Behavior & Real-World Example'],
             rows: [
               {
-                parameter: 'Linear Regression',
-                col1: 'y = β₀ + β₁x (Simple) or y = β₀ + ∑βᵢxᵢ (Multiple)',
-                col2: 'Linear relationship between features and continuous target.',
-                col3: 'Standard baseline, highly interpretable coefficients.'
+                parameter: 'Simple Linear Regression: y = β₀ + β₁x',
+                col1: 'Used when a single input feature has a straight-line relationship with continuous target; e.g., predicting student marks based on study hours.'
               },
               {
-                parameter: 'Polynomial Regression',
-                col1: 'y = θ₀ + θ₁x + θ₂x² + ... + θ_d x^d',
-                col2: 'Curved, non-linear physical relationships where linear models underfit.',
-                col3: 'Higher flexibility; risk of severe overfitting at higher degrees.'
+                parameter: 'Multiple Linear Regression: y = β₀ + ∑ βᵢxᵢ',
+                col1: 'Used when multiple input features together influence a continuous target; e.g., predicting house prices using size, rooms, and location rating.'
               },
               {
-                parameter: 'Ridge Regression (L2)',
-                col1: 'Cost = SSE + λ∑βⱼ²',
-                col2: 'High multicollinearity, many correlated features; shrinks coefficients without zeroing.',
-                col3: 'Prevents overfitting, closed-form analytical solution available.'
+                parameter: 'Polynomial Regression: y = θ₀ + θ₁x + θ₂x² + ... + θ_d x^d',
+                col1: 'Used when data patterns are curved and non-linear; fits curves by adding powers of features, but risks severe overfitting at high degrees.'
               },
               {
-                parameter: 'Lasso Regression (L1)',
-                col1: 'Cost = SSE + λ∑|βⱼ|',
-                col2: 'High-dimensional data where only few features are significant; performs feature selection.',
-                col3: 'Sets redundant coefficients exactly to zero.'
+                parameter: 'Ridge Regression (L2): Cost = SSE + λ ∑ βⱼ²',
+                col1: 'Used when independent features are highly correlated (multicollinearity); shrinks weights toward zero without removing any feature.'
               },
               {
-                parameter: 'Logistic Regression',
-                col1: 'p = 1 / (1 + e^(-z)), ln(p / (1 - p)) = β₀ + ∑βᵢxᵢ',
-                col2: 'Categorical target prediction (Binary: 0/1; Multinomial: classes; Ordinal: ranked).',
-                col3: 'Outputs calibrated probability scores between 0 and 1.'
+                parameter: 'Lasso Regression (L1): Cost = SSE + λ ∑ |βⱼ|',
+                col1: 'Used for high-dimensional data with many redundant features; shrinks unimportant weights to exact zero (0.0) to perform automatic feature selection.'
+              },
+              {
+                parameter: 'Logistic Regression: p = 1 / (1 + e^(-z))',
+                col1: 'Used for categorical classification outcomes (0 or 1); transforms linear combinations through the sigmoid function to output calibrated probabilities.'
               }
             ]
           }
+        },
+        {
+          title: '3. How to Choose the Right Regression Model',
+          content: [
+            '• If data is simple and linear: Use Simple or Multiple Linear Regression.',
+            '• If data shows curved trends: Use Polynomial Regression (keep degree d low to avoid overfitting).',
+            '• If features are highly correlated: Use Ridge Regression (L2) to stabilize coefficient estimates.',
+            '• If there are hundreds of features and many are irrelevant: Use Lasso Regression (L1) to eliminate useless features.',
+            '• If the target is categorical (Yes/No, Pass/Fail): Use Logistic Regression.'
+          ]
         }
       ],
       diagrams: [
@@ -409,13 +442,30 @@ export const unit3Data: Unit = {
           ]
         },
         {
-          title: '2. Diagnostic Interpretations',
+          title: '2. Direct 2-Column Comparison: Training Error vs Generalization Error',
           table: {
-            headers: ['Training Error', 'Generalization (Test) Error', 'Diagnostic State'],
+            headers: ['Training Error', 'Generalization (Test) Error'],
             rows: [
-              { parameter: 'High', col1: 'High', col2: 'Underfitting (High Bias)' },
-              { parameter: 'Very Low', col1: 'High (Large Gap)', col2: 'Overfitting (High Variance)' },
-              { parameter: 'Low', col1: 'Low (Minimal Gap)', col2: 'Optimal Generalization (Ideal Model)' }
+              {
+                parameter: 'Calculated directly on the training dataset that the model used to fit its parameters.',
+                col1: 'Calculated on completely fresh, unseen testing data drawn from the real world.'
+              },
+              {
+                parameter: 'Monotonically decreases towards zero as model complexity or training iterations increase.',
+                col1: 'Follows a U-shaped curve: decreases initially, reaches an optimal minimum, then climbs rapidly due to overfitting.'
+              },
+              {
+                parameter: 'Low training error does NOT guarantee that the model will perform well on future real-world predictions.',
+                col1: 'Low generalization error confirms that the model has learned true underlying patterns and will succeed in production.'
+              },
+              {
+                parameter: 'Very high training error indicates Underfitting (the model is too simple to capture even basic trends).',
+                col1: 'Very high test error combined with near-zero training error indicates Overfitting (model memorized training noise).'
+              },
+              {
+                parameter: 'Analogy: A student scoring 100% on homework questions they have already memorized.',
+                col1: 'Analogy: The same student taking an unseen final examination covering new problems.'
+              }
             ]
           }
         }
@@ -895,13 +945,26 @@ export const unit3Data: Unit = {
           ]
         },
         {
-          title: '2. Advantages and Limitations',
+          title: '2. Direct 2-Column Comparison: Advantages vs Limitations of SGD',
           table: {
-            headers: ['Key Strengths', 'Key Limitations'],
+            headers: ['Key Advantages of SGD', 'Key Limitations of SGD'],
             rows: [
-              { parameter: 'Fast Updates', col1: 'Instantaneous computation per step; no waiting for millions of rows.', col2: 'Noisy gradient estimates cause erratic zig-zag convergence.' },
-              { parameter: 'Memory Efficient', col1: 'Processes instances sequentially; ideal for streaming and big data.', col2: 'Never settles at the absolute stationary minimum without learning rate decay.' },
-              { parameter: 'Escapes Saddles', col1: 'High gradient variance dislodges parameters from shallow local minima.', col2: 'Highly sensitive to feature scaling; requires careful learning rate tuning.' }
+              {
+                parameter: 'Computation is instantaneous per step because it calculates the gradient on only one single row at a time.',
+                col1: 'Noisy gradient estimates cause erratic zig-zag oscillations that make the convergence path unstable.'
+              },
+              {
+                parameter: 'Extremely memory efficient; runs comfortably on large datasets or streaming data that do not fit in RAM.',
+                col1: 'Never settles permanently at the global minimum without a gradually decaying learning rate schedule.'
+              },
+              {
+                parameter: 'Stochastic fluctuations and noise help the parameters dislodge and jump out of shallow local minima.',
+                col1: 'Highly sensitive to feature scaling and requires careful tuning of the initial learning rate.'
+              },
+              {
+                parameter: 'Enables online and incremental learning where new data samples arrive continuously in real time.',
+                col1: 'Cannot take full advantage of highly parallelized GPU/SIMD vector math compared to batch processing.'
+              }
             ]
           }
         }
@@ -1025,15 +1088,30 @@ export const unit3Data: Unit = {
           ]
         },
         {
-          title: '2. Summary of Primary Regression Metrics',
+          title: '2. Direct 2-Column Comparison of Primary Regression Metrics',
           table: {
-            headers: ['Metric Name', 'Formula', 'Core Characteristic & Best Value'],
+            headers: ['Evaluation Metric & Formula', 'Core Characteristic, Sensitivity & Ideal Value'],
             rows: [
-              { parameter: 'Mean Absolute Error (MAE)', col1: '(1/N) ∑ |yᵢ - ŷᵢ|', col2: 'Average linear error in target units; robust against outliers; best: 0' },
-              { parameter: 'Mean Squared Error (MSE)', col1: '(1/N) ∑ (yᵢ - ŷᵢ)²', col2: 'Penalizes large errors heavily; squared units; smooth differentiable loss; best: 0' },
-              { parameter: 'Root Mean Squared Error (RMSE)', col1: '√[(1/N) ∑ (yᵢ - ŷᵢ)²]', col2: 'Same units as target y; sensitive to outliers; standard error reporting; best: 0' },
-              { parameter: 'Coefficient of Determination (R²)', col1: '1 - [SS_res / SS_tot]', col2: 'Fraction of total variance explained by model; scale-free (0 to 1); best: 1.0' },
-              { parameter: 'Adjusted R²', col1: '1 - [(1 - R²)(N - 1)/(N - p - 1)]', col2: 'Penalizes addition of non-informative predictor features p; best: 1.0' }
+              {
+                parameter: 'Mean Absolute Error (MAE): (1/N) ∑ |yᵢ - ŷᵢ|',
+                col1: 'Calculates the average linear error magnitude in original target units; robust against outliers; ideal score is 0.'
+              },
+              {
+                parameter: 'Mean Squared Error (MSE): (1/N) ∑ (yᵢ - ŷᵢ)²',
+                col1: 'Squares errors to heavily penalize large mistakes; outputs squared units; smooth differentiable loss for optimization; ideal score is 0.'
+              },
+              {
+                parameter: 'Root Mean Squared Error (RMSE): √MSE',
+                col1: 'Restores measurement scale back to original target units while retaining heavy penalties on large blunders; ideal score is 0.'
+              },
+              {
+                parameter: 'Coefficient of Determination (R²): 1 - [SS_res / SS_tot]',
+                col1: 'Measures the proportion of total variance explained by the model compared to guessing the mean; dimensionless ratio (0 to 1); ideal score is 1.0.'
+              },
+              {
+                parameter: 'Adjusted R²: 1 - [(1 - R²)(N - 1)/(N - p - 1)]',
+                col1: 'Penalizes the addition of useless predictor features p to prevent misleading artificial inflation of R²; ideal score is 1.0.'
+              }
             ]
           }
         }

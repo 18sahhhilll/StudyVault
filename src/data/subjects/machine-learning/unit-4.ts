@@ -224,27 +224,49 @@ export const unit4Data: Unit = {
         { paper: 'Paper 5', questionNo: 'Q3(c)', marks: 6 }
       ],
       syllabusTopics: ['Euclidean Distance', 'Manhattan Distance', 'Minkowski Distance', 'Hamming Distance'],
-      definition: 'Distance metrics quantify the geometric dissimilarity between feature vectors, forming the core measurement mechanism used by KNN to identify nearest neighbours.',
+      definition: 'Distance metrics are mathematical functions used in Machine Learning to quantify the geometric dissimilarity or closeness between two data points in an n-dimensional feature space.',
       sections: [
         {
-          title: '1. Metric Formulations & Properties',
+          title: '1. What are Distance Metrics in KNN?',
+          content: [
+            'Definition: Distance metrics calculate the numerical distance between the feature vector of an unlabelled query point and all stored training samples.',
+            'In simple words:',
+            'Distance metrics tell the KNN algorithm which training examples are closest neighbors so it can make an accurate majority-vote prediction.',
+            'Crucial Requirement: All continuous features must be normalized (e.g., Min-Max scaling or Z-score standardization) before computing distances so that large-scale features do not overpower small-scale features.'
+          ]
+        },
+        {
+          title: '2. Four Primary Distance Metrics in KNN (2-Column Comparison)',
           table: {
-            headers: ['Metric Name', 'Formula', 'Characteristics & Applications'],
+            headers: ['Distance Metric & Mathematical Formula', 'Core Properties, Geometry & Best Used When'],
             rows: [
-              { parameter: 'Euclidean (L2 norm)', col1: '√[∑(xᵢ - yᵢ)²]', col2: 'Straight-line geometric distance. Most common for continuous numerical data.' },
-              { parameter: 'Manhattan / City-block (L1 norm)', col1: '∑|xᵢ - yᵢ|', col2: 'Sum of absolute coordinate differences. Preferred for grid-like or high-dimensional data.' },
-              { parameter: 'Minkowski (Lp norm)', col1: '[∑|xᵢ - yᵢ|^p]^(1/p)', col2: 'Generalized metric. When p = 1 ==> Manhattan; when p = 2 ==> Euclidean.' },
-              { parameter: 'Hamming Distance', col1: '∑ I(xᵢ ≠ yᵢ)', col2: 'Counts number of mismatched positions. Used for categorical, boolean, or textual data.' }
+              {
+                parameter: 'Euclidean Distance (L2 norm): d(x, y) = √[ ∑(xᵢ - yᵢ)² ]',
+                col1: 'Calculates the straight-line shortest distance between two points; standard default choice for continuous numerical features; highly sensitive to unscaled features and extreme outliers.'
+              },
+              {
+                parameter: 'Manhattan Distance (L1 norm / City-Block): d(x, y) = ∑ |xᵢ - yᵢ|',
+                col1: 'Calculates distance traveled along grid-like right-angle city blocks (sum of absolute coordinate differences); more robust to outliers than Euclidean; preferred for high-dimensional or grid-based data.'
+              },
+              {
+                parameter: 'Minkowski Distance (Lp norm): d(x, y) = [ ∑ |xᵢ - yᵢ|^p ]^(1/p)',
+                col1: 'Generalized vector distance metric parameterized by p; when p = 1, it becomes Manhattan distance; when p = 2, it becomes Euclidean distance.'
+              },
+              {
+                parameter: 'Hamming Distance: d(x, y) = ∑ I(xᵢ ≠ yᵢ)',
+                col1: 'Calculates the total count of positions where two vectors differ; specifically designed for categorical attributes, text comparison, and binary/boolean bitstrings.'
+              }
             ]
           }
         },
         {
-          title: '2. Calculation Example',
+          title: '3. Step-by-Step Concrete Numerical Example',
           content: [
-            'Given vectors x = (1, 2) and y = (4, 6):',
-            'Euclidean: √[(4-1)² + (6-2)²] = √[9 + 16] = √25 = 5.0',
-            'Manhattan: |4-1| + |6-2| = 3 + 4 = 7.0',
-            'Minkowski (p = 3): (|3|³ + |4|³)^(1/3) = (27 + 64)^(1/3) = 91^(1/3) = 4.50'
+            'Given two 2D student exam coordinate points: Student A = (1, 2) and Student B = (4, 6):',
+            '• Euclidean Distance: d = √[(4 - 1)² + (6 - 2)²] = √[3² + 4²] = √[9 + 16] = √25 = 5.0 units.',
+            '• Manhattan Distance: d = |4 - 1| + |6 - 2| = 3 + 4 = 7.0 units.',
+            '• Minkowski Distance (for p = 3): d = [|3|³ + |4|³]^(1/3) = [27 + 64]^(1/3) = (91)^(1/3) ≈ 4.50 units.',
+            '• Hamming Distance (Binary vectors: A = 1011, B = 1110): Positions 2 and 4 differ ==> Hamming Distance = 2.'
           ]
         }
       ],
@@ -490,14 +512,26 @@ export const unit4Data: Unit = {
           ]
         },
         {
-          title: '2. Standard Kernel Functions',
+          title: '2. Standard SVM Kernel Functions (2-Column Comparison)',
           table: {
-            headers: ['Kernel Type', 'Mathematical Formula', 'Characteristics and Use Cases'],
+            headers: ['SVM Kernel & Mathematical Formula', 'Core Properties, Geometry & Best Used When'],
             rows: [
-              { parameter: 'Linear Kernel', col1: 'K(x, z) = x · z', col2: 'No projection; used when data is already linearly separable or feature count is large (e.g., text categorization).' },
-              { parameter: 'Polynomial Kernel', col1: 'K(x, z) = (x · z + c)^d', col2: 'Captures feature interaction terms up to degree d; good for image classification and curved boundaries.' },
-              { parameter: 'Radial Basis Function (RBF / Gaussian)', col1: 'K(x, z) = exp(-γ ||x - z||²)', col2: 'Most popular; projects into infinite-dimensional Hilbert space; handles highly complex non-linear structures.' },
-              { parameter: 'Sigmoid Kernel', col1: 'K(x, z) = tanh(α x · z + c)', col2: 'Originates from neural network activation; behaves similarly to a two-layer perceptron.' }
+              {
+                parameter: 'Linear Kernel: K(x, z) = x · z',
+                col1: 'Computes simple dot product with zero coordinate projection; fastest to train; best when features are already linearly separable or when feature dimension is very large (e.g., text document classification, spam filtering).'
+              },
+              {
+                parameter: 'Polynomial Kernel: K(x, z) = (x · z + c)^d',
+                col1: 'Projects data into a finite higher-dimensional space capturing interaction features up to degree d; best for image classification, curved physical boundaries, and handwriting recognition.'
+              },
+              {
+                parameter: 'Radial Basis Function (RBF / Gaussian): K(x, z) = exp(-γ ||x - z||²)',
+                col1: 'Implicitly projects inputs into an infinite-dimensional Hilbert space based on Euclidean distance decay; the standard default kernel for complex, non-linear classification problems; tuned via hyperparameter γ.'
+              },
+              {
+                parameter: 'Sigmoid Kernel: K(x, z) = tanh(α x · z + c)',
+                col1: 'Applies hyperbolic tangent activation function; behaves similarly to a two-layer multi-layer perceptron neural network; used mainly in specialized neural-network-compatible SVM architectures.'
+              }
             ]
           }
         }
@@ -1236,16 +1270,34 @@ export const unit4Data: Unit = {
       definition: 'A comprehensive suite of quantitative statistical metrics and validation protocols used to assess the discriminative power, calibration, and generalization performance of classification models.',
       sections: [
         {
-          title: '1. The Core Metrics Suite',
+          title: '1. The Core Metrics Suite (2-Column Comparison)',
           table: {
-            headers: ['Metric Name', 'Mathematical Formula', 'Conceptual Interpretation'],
+            headers: ['Classification Metric & Formula', 'What It Measures, Focus & Best Use Case'],
             rows: [
-              { parameter: 'Accuracy', col1: '(TP + TN) / (TP + TN + FP + FN)', col2: 'Overall fraction of correct predictions across all classes.' },
-              { parameter: 'Precision', col1: 'TP / (TP + FP)', col2: 'Reliability of positive calls: "Of all flagged positives, how many are truly positive?"' },
-              { parameter: 'Recall (Sensitivity)', col1: 'TP / (TP + FN)', col2: 'Coverage of true positives: "Of all actual positive cases, how many did we capture?"' },
-              { parameter: 'Specificity (TNR)', col1: 'TN / (TN + FP)', col2: 'Coverage of true negatives: "Of all actual negatives, how many were correctly cleared?"' },
-              { parameter: 'F1-Score', col1: '2 · (Precision · Recall) / (Precision + Recall)', col2: 'Harmonic mean of precision and recall; balanced single metric.' },
-              { parameter: 'ROC-AUC', col1: 'Area Under Curve (TPR vs FPR)', col2: 'Threshold-independent discrimination capacity across all possible cutoffs.' }
+              {
+                parameter: 'Accuracy: (TP + TN) / (TP + TN + FP + FN)',
+                col1: 'Measures overall percentage of correct predictions across all classes; suitable only for balanced datasets; highly misleading for skewed data due to the accuracy paradox.'
+              },
+              {
+                parameter: 'Precision: TP / (TP + FP)',
+                col1: 'Measures reliability of positive predictions ("Out of all cases flagged positive, how many are truly positive?"); critical when false positives are expensive (e.g., email spam filter, fraud alert blocking legitimate cards).'
+              },
+              {
+                parameter: 'Recall (Sensitivity): TP / (TP + FN)',
+                col1: 'Measures completeness of positive detection ("Out of all actual positive cases, how many did the model catch?"); critical when missing a positive is catastrophic (e.g., cancer diagnosis, bank loan default, airport security).'
+              },
+              {
+                parameter: 'Specificity (True Negative Rate): TN / (TN + FP)',
+                col1: 'Measures the proportion of actual negative cases correctly identified as negative ("Out of all healthy patients, how many were correctly cleared?").'
+              },
+              {
+                parameter: 'F1-Score: 2 · (Precision · Recall) / (Precision + Recall)',
+                col1: 'Calculates the harmonic mean of Precision and Recall; provides a single balanced metric that penalizes extreme imbalances between precision and recall; ideal for evaluating models on imbalanced data.'
+              },
+              {
+                parameter: 'ROC-AUC: Area Under ROC Curve (TPR vs FPR)',
+                col1: 'Measures overall discrimination power across all possible probability thresholds; completely threshold-independent (1.0 is perfect classification, 0.5 is random guessing).'
+              }
             ]
           }
         },
