@@ -108,6 +108,34 @@ export const unit6Data: Unit = {
             '• Hyperbolic Tangent (Tanh): f(v) = tanh(v) = (e^v - e^(-v)) / (e^v + e^(-v)), with derivative f\'(v) = 1 - f^2(v). Squashes inputs into (-1, 1). Being zero-centered allows gradients to update in both positive and negative directions, converging faster than Sigmoid.',
             '• Rectified Linear Unit (ReLU): f(v) = max(0, v), with derivative f\'(v) = 1 for v > 0, and 0 for v < 0. The modern standard for hidden layers. Avoids vanishing gradients for positive activations and computes with ultra-fast CPU/GPU efficiency.'
           ]
+        },
+        {
+          title: '3. Difference Between Sigmoid and ReLU Activation Functions (2-Column Format)',
+          table: {
+            headers: ['Sigmoid Activation Function', 'ReLU (Rectified Linear Unit)'],
+            rows: [
+              {
+                parameter: 'Formula: σ(z) = 1 / (1 + e^(-z)), squashing output values strictly between (0, 1).',
+                col1: 'Formula: f(z) = max(0, z), outputting 0 for negative inputs and z for positive inputs.'
+              },
+              {
+                parameter: 'Suffers severely from the Vanishing Gradient problem on deep networks as gradients plateau near 0.',
+                col1: 'Completely immune to vanishing gradients for all positive activations (constant derivative of 1).'
+              },
+              {
+                parameter: 'Computationally heavy because it requires calculating exponential powers (e^(-z)).',
+                col1: 'Computationally ultra-fast and lightweight (simple conditional check max(0, z)).'
+              },
+              {
+                parameter: 'Non-zero centered: output is always strictly positive, causing zigzagging weight updates.',
+                col1: 'Produces sparse representations by deactivating neurons with negative inputs to save computation.'
+              },
+              {
+                parameter: 'Best used in the final output layer of binary classification models to output probability scores.',
+                col1: 'The universal gold-standard default for hidden layers in modern deep neural networks.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -117,17 +145,6 @@ export const unit6Data: Unit = {
           caption: 'Visual contrast illustrating the smooth (0,1) curve of Sigmoid, zero-centered (-1,1) S-curve of Tanh, and the ramp max(0,v) geometry of ReLU.',
           type: 'svg-interactive',
           svgType: 'activation-functions'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Function', 'Mathematical Range', 'Core Advantages', 'Key Limitations / Disadvantages'],
-          rows: [
-            { parameter: 'Sigmoid', col1: '(0, 1)', col2: 'Smooth, continuous probabilistic output for classification', col3: 'Vanishing gradient problem; outputs are strictly positive (not zero-centered)' },
-            { parameter: 'Tanh', col1: '(-1, 1)', col2: 'Zero-centered outputs; stronger gradients than Sigmoid; faster convergence', col3: 'Still suffers from vanishing gradients at extreme positive and negative saturation tails' },
-            { parameter: 'ReLU', col1: '[0, ∞)', col2: 'Extremely fast computation; completely avoids vanishing gradients for v > 0', col3: 'Dying ReLU problem: neurons stuck at 0 never activate if weights become excessively negative' },
-            { parameter: 'Linear', col1: '(-∞, ∞)', col2: 'Preserves output magnitude in continuous regression tasks', col3: 'Cannot model non-linear decision surfaces; multi-layer stacks collapse into single linear layer' }
-          ]
         }
       ],
       summary: [
@@ -182,6 +199,34 @@ export const unit6Data: Unit = {
             'where η is the learning rate, t is the true target label, and y is the predicted output.',
             'The Fatal XOR Limitation: A single-layer perceptron can only separate patterns that are linearly separable by a single straight hyperplane. It completely fails on non-linearly separable problems like the XOR logic function, which led to the first AI winter until multi-layer networks emerged.'
           ]
+        },
+        {
+          title: '3. Biological Neuron vs Artificial Neuron Analogy (2-Column Format)',
+          table: {
+            headers: ['Biological Neuron Component', 'Artificial Neuron Equivalent'],
+            rows: [
+              {
+                parameter: 'Soma (Cell body): Gathers and integrates electrical signals received from surrounding dendrites.',
+                col1: 'Summing Junction (Σ): Numerically sums up all incoming weighted inputs (Σ w_i · x_i) plus bias offset.'
+              },
+              {
+                parameter: 'Dendrites: Tree-like branches that act as receptive input lines collecting incoming signals.',
+                col1: 'Input Lines (x_1, x_2, ..., x_n): Vector of incoming numerical feature values representing data.'
+              },
+              {
+                parameter: 'Synapses: Chemical junctions connecting neurons that amplify or attenuate signal transmission strength.',
+                col1: 'Synaptic Weights (w_1, w_2, ..., w_n): Real-valued multipliers that scale the importance of each input.'
+              },
+              {
+                parameter: 'Axon: Long nerve fiber that carries the generated action potential impulse away to downstream cells.',
+                col1: 'Output Signal: Computed numerical result passed forward to the next layer or final prediction.'
+              },
+              {
+                parameter: 'Firing Threshold: Physical threshold of membrane potential that must be exceeded to trigger an impulse.',
+                col1: 'Activation Function & Bias: Mathematical threshold that decides whether and by how much the neuron fires.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -191,18 +236,6 @@ export const unit6Data: Unit = {
           caption: 'Diagram showing input vector x_i, synaptic weights w_i, bias b, summing junction Σ, activation transfer function f(v), and output y.',
           type: 'svg-interactive',
           svgType: 'artificial-neuron'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Biological Neuron Component', 'Artificial Neuron Equivalent', 'Biological & Computational Role'],
-          rows: [
-            { parameter: 'Soma (Cell Body)', col1: 'Summing Junction (Σ) / Node', col2: 'Integrates and aggregates all incoming electrical potential signals' },
-            { parameter: 'Dendrites', col1: 'Input lines (x_1, x_2, ..., x_n)', col2: 'Receptive fibres that receive input signals from upstream neurons' },
-            { parameter: 'Synapses', col1: 'Synaptic Weights (w_1, w_2, ..., w_n)', col2: 'Chemical junctions that scale signal strength (excitatory or inhibitory)' },
-            { parameter: 'Axon', col1: 'Output transmission line', col2: 'Conducts the activated output pulse forward to subsequent neurons' },
-            { parameter: 'Firing Threshold', col1: 'Bias (b) / Activation Threshold', col2: 'Determines whether the integrated sum exceeds the action potential trigger' }
-          ]
         }
       ],
       summary: [
@@ -381,6 +414,34 @@ export const unit6Data: Unit = {
             '• Stage 1 (Unsupervised): Determine the cluster centers μ_j and widths σ_j of hidden neurons using unsupervised k-means clustering.',
             '• Stage 2 (Supervised): Determine the output layer weights w_j directly using linear Least Squares / Moore-Penrose Pseudo-inverse in a single closed-form step without iterative epochs.'
           ]
+        },
+        {
+          title: '3. Difference Between Radial Basis Function (RBF) and Multilayer Perceptron (MLP) (2-Column Format)',
+          table: {
+            headers: ['Radial Basis Function (RBF) Network', 'Multilayer Perceptron (MLP)'],
+            rows: [
+              {
+                parameter: 'Strictly fixed to exactly ONE hidden layer of radially symmetric Gaussian units.',
+                col1: 'Can possess one, two, or many hidden layers (enabling deep neural network architectures).'
+              },
+              {
+                parameter: 'Local approximation: Hidden units activate only when the input vector is close to their prototype center μ_j.',
+                col1: 'Global approximation: Sigmoidal/ReLU units partition the entire input space using hyperplanes.'
+              },
+              {
+                parameter: 'Hidden activation is non-linear based on Euclidean distance: φ(X) = exp(-||X - μ||² / 2σ²).',
+                col1: 'Hidden activation is non-linear based on the inner dot product of inputs and weights: f(Wᵀ X + b).'
+              },
+              {
+                parameter: 'Output layer units are strictly linear weighted summations.',
+                col1: 'Output layer units can be linear, Sigmoid, or Softmax non-linear activation functions.'
+              },
+              {
+                parameter: 'Extremely fast training: Two-stage learning (K-Means for centers + Least Squares for output weights).',
+                col1: 'Slow iterative training: End-to-end backpropagation gradient descent taking many epochs to converge.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -390,18 +451,6 @@ export const unit6Data: Unit = {
           caption: 'Diagram showing Input Layer, single Hidden Layer of localized Gaussian RBF units φ_j(X), and linear output summation unit Σ.',
           type: 'svg-interactive',
           svgType: 'rbf-network'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Comparison Attribute', 'Radial Basis Function (RBF) Network', 'Multilayer Perceptron (MLP)'],
-          rows: [
-            { parameter: 'Number of Hidden Layers', col1: 'Strictly exactly ONE hidden layer', col2: 'Can possess one or many hidden layers (deep networks)' },
-            { parameter: 'Approximation Type', col1: 'Local approximation: units activate only when input is close to center μ_j', col2: 'Global approximation: sigmoidal units partition entire input space across hyperplanes' },
-            { parameter: 'Hidden Unit Activation', col1: 'Non-linear function based on Euclidean distance: ||X - μ||', col2: 'Non-linear function based on inner product of inputs and weights: W^T X + b' },
-            { parameter: 'Output Layer Unit', col1: 'Strictly linear summation units', col2: 'Can be linear or non-linear activation units' },
-            { parameter: 'Training Speed & Convergence', col1: 'Extremely fast: 2-stage training (k-means clustering + least squares)', col2: 'Slow: iterative backpropagation requiring hundreds of epochs' }
-          ]
         }
       ],
       summary: [
@@ -452,6 +501,30 @@ export const unit6Data: Unit = {
             '3. No Local Minima Trapping: The error surface of a single layer with convex loss functions is strictly convex, eliminating the risk of getting trapped in sub-optimal local minima.',
             '4. Zero Hidden Hyperparameter Guesswork: Completely eliminates the need to empirically tune the number of hidden layers or number of hidden neurons.'
           ]
+        },
+        {
+          title: '3. Difference Between Feedforward Network (FFN) and Backpropagation (BPN) (2-Column Format)',
+          table: {
+            headers: ['Feedforward Network (FFN)', 'Backpropagation Network (BPN)'],
+            rows: [
+              {
+                parameter: 'Structural network architecture where connections flow strictly in one direction (input → output).',
+                col1: 'Specific supervised training algorithm that uses gradient descent to adjust weights by propagating errors backward.'
+              },
+              {
+                parameter: 'Signals travel strictly forward; there are zero backward feedback loops or recurrent cycles.',
+                col1: 'Signals first pass forward to produce predictions, then error signals pass backward from output to input.'
+              },
+              {
+                parameter: 'Can be single-layer (Simple Perceptron) or multi-layer (MLP).',
+                col1: 'Requires at least one or more hidden layers so error gradients can be propagated through intermediate weights.'
+              },
+              {
+                parameter: 'Describes network topology; can be trained with various learning rules (Delta, Hebbian, Genetic algorithms).',
+                col1: 'Describes a training method; strictly computes the derivative of the loss function using the calculus chain rule.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -461,17 +534,6 @@ export const unit6Data: Unit = {
           caption: 'Diagram showing input vector X passed through a Functional Expansion Block Φ(X), followed by a single summing junction Σ and activation function.',
           type: 'svg-interactive',
           svgType: 'flann-architecture'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Comparison Parameter', 'Feedforward Network (FFN)', 'Backpropagation Network (BPN)'],
-          rows: [
-            { parameter: 'Conceptual Definition', col1: 'Structural topological class where connections flow strictly in one direction (input to output)', col2: 'A specific supervised gradient descent training algorithm applied to multilayer networks' },
-            { parameter: 'Signal Directionality', col1: 'Signals move strictly forward; zero feedback loops or cycles exist', col2: 'Signals move forward to produce output; error gradients move backward to update weights' },
-            { parameter: 'Hidden Layer Presence', col1: 'Can be single-layer (Perceptron) or multi-layer (MLP)', col2: 'Must possess at least one or more hidden layers to propagate error deltas' },
-            { parameter: 'Learning Rule', col1: 'Describes topology; can utilize any learning rule (Hebbian, Delta, Perceptron)', col2: 'Strictly uses gradient descent on mean squared error via the calculus chain rule' }
-          ]
         }
       ],
       summary: [
@@ -694,20 +756,42 @@ export const unit6Data: Unit = {
             'Spatial vs Temporal: CNNs treat inputs as fixed-size spatial tensors where relationships depend on spatial proximity (pixels). RNNs treat inputs as dynamic temporal vectors where order and timing define meaning.',
             'Parallelization: CNNs parallelize easily on GPUs across pixels and filters. Standard RNNs suffer from a sequential bottleneck where step t strictly depends on step t-1.'
           ]
-        }
-      ],
-      tables: [
+        },
         {
-          headers: ['Comparison Attribute', 'Convolutional Neural Network (CNN)', 'Recurrent Neural Network (RNN)'],
-          rows: [
-            { parameter: 'Primary Application Domain', col1: 'Spatial / Grid data (Images, Video frames, 2D signals)', col2: 'Sequential / Temporal data (Text, Audio, Time-series)' },
-            { parameter: 'Network Architecture Topology', col1: 'Feedforward architecture without cycles or recurrent memory loops', col2: 'Contains recurrent feedback loops that feed prior state into next step' },
-            { parameter: 'Input Data Dimensions', col1: 'Fixed-size multidimensional tensors (Height x Width x Channels)', col2: 'Variable-length sequential vectors (x_1, x_2, ..., x_t)' },
-            { parameter: 'Foundational Mechanism', col1: 'Convolution & Pooling using shared spatial filter kernels', col2: 'Hidden memory state (h_t) updated iteratively across time steps' },
-            { parameter: 'Training Algorithm', col1: 'Standard Backpropagation via gradient descent', col2: 'Backpropagation Through Time (BPTT)' },
-            { parameter: 'GPU Parallel Processing', col1: 'Highly parallelizable across image patches and filters', col2: 'Strictly sequential; step t must wait for step t-1 computation' },
-            { parameter: 'Typical Real-World Uses', col1: 'Face recognition, autonomous driving vision, tumor segmentation', col2: 'Machine translation, speech-to-text, sentiment analysis, stock prediction' }
-          ]
+          title: '2. Difference Between CNN and RNN (2-Column Format)',
+          table: {
+            headers: ['Convolutional Neural Network (CNN)', 'Recurrent Neural Network (RNN)'],
+            rows: [
+              {
+                parameter: 'Designed specifically for spatial 2D/3D grid data such as images, video frames, and satellite maps.',
+                col1: 'Designed specifically for sequential and temporal data such as text, speech, audio, and time-series.'
+              },
+              {
+                parameter: 'Strict feedforward architecture with zero internal feedback loops or recurrent cycles.',
+                col1: 'Contains recurrent feedback loops where current hidden state h_t depends on previous hidden state h_{t-1}.'
+              },
+              {
+                parameter: 'Requires fixed-size multidimensional tensors (Height × Width × Channels) as input.',
+                col1: 'Naturally accepts variable-length sequences (x_1, x_2, ..., x_t) of different durations.'
+              },
+              {
+                parameter: 'Core mechanism is spatial filtering (convolution) and downsampling (pooling) with shared kernel weights.',
+                col1: 'Core mechanism is temporal memory recurrence that maintains state context across sequential steps.'
+              },
+              {
+                parameter: 'Trained using standard backpropagation gradient descent.',
+                col1: 'Trained using Backpropagation Through Time (BPTT) unrolled across temporal steps.'
+              },
+              {
+                parameter: 'Highly parallelizable on GPUs across pixels, patches, and feature maps.',
+                col1: 'Inherently sequential bottleneck; computation at time step t must wait for step t-1 to finish.'
+              },
+              {
+                parameter: 'Typical applications: Facial recognition, medical X-ray diagnosis, object detection in self-driving cars.',
+                col1: 'Typical applications: Language translation, speech recognition, chatbot text generation, stock forecasting.'
+              }
+            ]
+          }
         }
       ],
       summary: [
@@ -889,18 +973,38 @@ export const unit6Data: Unit = {
             'Advantages: Delivers high serendipity (recommends novel, unexpected discoveries from different domains).',
             'Limitations: Suffers from the user cold-start problem: cannot make accurate recommendations for newly registered users who have not yet submitted ratings.'
           ]
-        }
-      ],
-      tables: [
+        },
         {
-          headers: ['Comparison Dimension', 'Content-Based Filtering', 'Personalized (Collaborative Filtering)'],
-          rows: [
-            { parameter: 'Basis of Suggestion', col1: 'Item metadata features, keywords, tags, and descriptive genre attributes', col2: 'Historical user rating overlaps, interaction logs, and community behavior' },
-            { parameter: 'Community Dependency', col1: 'Completely independent of other users; models each user in isolation', col2: 'Strictly requires an active community of overlapping user ratings' },
-            { parameter: 'New Item Cold-Start', col1: 'No problem: new items can be suggested immediately based on metadata', col2: 'Severe: new items cannot be recommended until other users rate them' },
-            { parameter: 'New User Cold-Start', col1: 'Moderate: requires a few initial user attribute selections', col2: 'Severe: requires substantial user rating history to find peer neighbors' },
-            { parameter: 'Diversity & Serendipity', col1: 'Low: prone to overspecialization and narrow filter bubbles', col2: 'High: discovers surprising, novel items across diverse categories' }
-          ]
+          title: '2. Difference Between Content-Based and Collaborative Filtering (2-Column Format)',
+          table: {
+            headers: ['Content-Based Filtering', 'Collaborative Filtering'],
+            rows: [
+              {
+                parameter: 'Recommends items based on item metadata features, genre tags, descriptions, and keywords matching user profile.',
+                col1: 'Recommends items based on past ratings and behavioral patterns of other similar users in the community.'
+              },
+              {
+                parameter: 'Completely independent of other users; builds a private preference profile for each user in isolation.',
+                col1: 'Requires a large active community of users; cannot work without overlapping rating patterns.'
+              },
+              {
+                parameter: 'Handles New Item Cold-Start easily: A brand-new movie can be recommended immediately from its genre/director tags.',
+                col1: 'Suffers from New Item Cold-Start: A brand-new movie cannot be recommended until other users have watched and rated it.'
+              },
+              {
+                parameter: 'Handles New User Cold-Start with moderate effort: requires only a quick initial questionnaire of favorite genres.',
+                col1: 'Severe New User Cold-Start: Cannot recommend anything until the new user rates a substantial number of items.'
+              },
+              {
+                parameter: 'Prone to overspecialization (filter bubble): Recommends only items very similar to what the user already consumed.',
+                col1: 'Provides high serendipity and diversity: Can recommend surprising new genres that similar users loved.'
+              },
+              {
+                parameter: 'Algorithm examples: TF-IDF text matching, Cosine Similarity on item feature vectors.',
+                col1: 'Algorithm examples: User-User collaborative filtering, Item-Item collaborative filtering, Matrix Factorization (SVD).'
+              }
+            ]
+          }
         }
       ],
       summary: [

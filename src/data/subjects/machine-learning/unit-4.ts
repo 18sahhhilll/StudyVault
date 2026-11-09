@@ -171,13 +171,28 @@ export const unit4Data: Unit = {
         {
           title: '1. Advantages & Disadvantages Matrix',
           table: {
-            headers: ['Category', 'Advantages (Strengths)', 'Disadvantages (Weaknesses)'],
+            headers: ['Advantages of KNN (Strengths)', 'Disadvantages of KNN (Weaknesses)'],
             rows: [
-              { parameter: 'Training Phase', col1: 'Zero training time (O(1)); new data can be appended instantly without retraining.', col2: 'Extremely slow prediction time (O(N·D)); computes distance to every single training point.' },
-              { parameter: 'Mathematical Assumptions', col1: 'Completely non-parametric; makes no assumptions about class boundaries or distributions.', col2: 'Sensitive to irrelevant features and scale; requires strict feature scaling.' },
-              { parameter: 'Versatility', col1: 'Naturally handles multiclass classification and regression (by averaging neighbours).', col2: 'Suffers from the Curse of Dimensionality; distance metrics break down in high-dimensional space.' },
-              { parameter: 'Memory & Storage', col1: 'Easy to parallelize across distributed nodes.', col2: 'High memory footprint; entire dataset must remain resident in RAM.' },
-              { parameter: 'Data Distribution', col1: 'Adapts well to local patterns; decision boundary can be arbitrarily complex.', col2: 'Biased toward majority class on imbalanced datasets.' }
+              {
+                parameter: 'Zero training time: As a lazy learner (O(1) training), new data points can be appended instantly without retraining.',
+                col1: 'Extremely slow testing time: During prediction (O(N·D)), it must compute distances to every single point in the training set.'
+              },
+              {
+                parameter: 'Completely non-parametric: Makes zero assumptions about the underlying distribution or geometric shape of class boundaries.',
+                col1: 'Highly sensitive to feature scale: Inaccurate if features are not strictly normalized (e.g., using Min-Max or Standard scaling).'
+              },
+              {
+                parameter: 'Naturally handles both multiclass classification and regression simply by taking a majority vote or local average.',
+                col1: 'Suffers severely from the Curse of Dimensionality: In high dimensions, all distances become equal, ruining accuracy.'
+              },
+              {
+                parameter: 'Highly flexible: Easily captures complex, non-linear, irregular decision boundaries that linear models miss.',
+                col1: 'High memory footprint: The entire dataset must permanently reside in RAM for inference.'
+              },
+              {
+                parameter: 'Simple to understand and implement: Requires tuning only a single primary hyperparameter (K, the number of neighbors).',
+                col1: 'Vulnerable to class imbalance: Heavily biased toward the majority class if one class outnumbers another.'
+              }
             ]
           }
         }
@@ -550,11 +565,24 @@ export const unit4Data: Unit = {
         {
           title: '3. SVR vs Ordinary Linear Regression',
           table: {
-            headers: ['Comparative Dimension', 'Linear Regression (OLS)', 'Support Vector Regression (SVR)'],
+            headers: ['Linear Regression (OLS)', 'Support Vector Regression (SVR)'],
             rows: [
-              { parameter: 'Loss Function', col1: 'Squared error applied to all points', col2: 'ε-insensitive linear loss (small errors ignored)' },
-              { parameter: 'Outlier Sensitivity', col1: 'High (squaring exaggerates outlier impact)', col2: 'Robust (bounded penalty, controlled by C and ε)' },
-              { parameter: 'Non-Linear Capabilities', col1: 'Requires manual polynomial terms', col2: 'Natively handled via non-linear Kernels (RBF)' }
+              {
+                parameter: 'Uses Ordinary Least Squares (squared error loss), which penalizes every single deviation from the line.',
+                col1: 'Uses an ε-insensitive loss tube; errors smaller than margin ε are completely ignored with zero penalty.'
+              },
+              {
+                parameter: 'Highly sensitive to outliers because squaring large errors pulls the entire line towards anomalous points.',
+                col1: 'Highly robust against outliers because penalties are linear outside the tube and bounded by parameter C.'
+              },
+              {
+                parameter: 'Fundamentally linear; modeling non-linear relationships requires manually engineering polynomial features.',
+                col1: 'Natively models complex non-linear curves using the Kernel Trick (e.g. RBF or Polynomial kernels).'
+              },
+              {
+                parameter: 'Every single data point in the dataset equally determines the slope and intercept of the line.',
+                col1: 'Determined exclusively by Support Vectors (points that lie on or outside the margin tube boundary).'
+              }
             ]
           }
         }
@@ -740,15 +768,32 @@ export const unit4Data: Unit = {
         {
           title: '3. Comprehensive Bagging vs Boosting Comparison Table',
           table: {
-            headers: ['Comparative Aspect', 'Bagging (e.g., Random Forest)', 'Boosting (e.g., AdaBoost, XGBoost)'],
+            headers: ['Bagging (e.g., Random Forest)', 'Boosting (e.g., AdaBoost, XGBoost)'],
             rows: [
-              { parameter: 'Training Architecture', col1: 'Parallel & Independent', col2: 'Sequential & Adaptive (dependent on previous step)' },
-              { parameter: 'Sampling Strategy', col1: 'Random bootstrap sampling with replacement', col2: 'Re-weighted dataset emphasizing misclassified points' },
-              { parameter: 'Sample Weights', col1: 'Equal weight for all observations', col2: 'Higher weights for harder, misclassified samples' },
-              { parameter: 'Voting Mechanism', col1: 'Equal voting power across all models', col2: 'Weighted vote based on model accuracy (stage weight α)' },
-              { parameter: 'Primary Objective', col1: 'Reduce Variance (prevents overfitting)', col2: 'Reduce Bias (turns weak learners into strong learner)' },
-              { parameter: 'Base Model Capacity', col1: 'Complex, high-variance models (deep trees)', col2: 'Simple, high-bias weak models (decision stumps)' },
-              { parameter: 'Susceptibility to Noise', col1: 'Robust to noise and outliers', col2: 'Highly sensitive to noise (tends to overfit outliers)' }
+              {
+                parameter: 'Base models are trained in parallel and completely independently of each other.',
+                col1: 'Base models are trained sequentially in a chain, where each new model learns from previous errors.'
+              },
+              {
+                parameter: 'Uses random bootstrap sampling with replacement; each model receives a random slice of data.',
+                col1: 'Uses adaptive sample re-weighting; difficult, misclassified points receive progressively higher weights.'
+              },
+              {
+                parameter: 'Every model has equal voting power in the final ensemble (simple majority vote or averaging).',
+                col1: 'Models receive weighted voting power (stage weight α) based on their individual accuracy.'
+              },
+              {
+                parameter: 'Primary objective is to reduce Variance and prevent overfitting on complex base trees.',
+                col1: 'Primary objective is to reduce Bias and convert shallow weak learners into one powerful master model.'
+              },
+              {
+                parameter: 'Base models are typically deep, expressive, high-variance decision trees.',
+                col1: 'Base models are typically shallow, simple, high-bias weak models (like 1-split decision stumps).'
+              },
+              {
+                parameter: 'Highly robust against noise and outliers because errors are smoothed across independent trees.',
+                col1: 'Sensitive to noise and outliers because it continuously obsesses over hard-to-fit noisy points.'
+              }
             ]
           }
         }
@@ -928,14 +973,32 @@ export const unit4Data: Unit = {
         {
           title: '1. Comparative Analysis Table',
           table: {
-            headers: ['Comparative Parameter', 'Binary Classification', 'Multiclass Classification'],
+            headers: ['Binary Classification', 'Multiclass Classification'],
             rows: [
-              { parameter: 'Number of Target Classes', col1: 'Exactly two (e.g., 0/1, Positive/Negative)', col2: 'Three or more (e.g., Cat/Dog/Bird, Digits 0-9)' },
-              { parameter: 'Output Representation', col1: 'Single probability score p (or sign ±1)', col2: 'Probability vector over C classes (via Softmax)' },
-              { parameter: 'Typical Real-World Examples', col1: 'Spam Detection (Spam / Ham), Disease diagnosis (Sick / Healthy)', col2: 'Handwritten digit recognition (0-9), Iris flower species (3 classes)' },
-              { parameter: 'Standard Algorithms', col1: 'Logistic Regression, Binary SVM, Perceptron', col2: 'Naive Bayes, Decision Trees, Random Forest, Softmax Regression' },
-              { parameter: 'Extension Strategies', col1: 'Native foundation for most algorithms', col2: 'Binary algorithms require decomposition (One-vs-All, One-vs-One)' },
-              { parameter: 'Evaluation Metrics', col1: 'Accuracy, Precision, Recall, F1, ROC-AUC', col2: 'Confusion Matrix (C×C), Macro/Micro-averaged Precision, Recall, F1' }
+              {
+                parameter: 'Categorizes instances into exactly two mutually exclusive classes (e.g., 0 vs 1, Sick vs Healthy).',
+                col1: 'Categorizes instances into three or more distinct classes (e.g., Cat vs Dog vs Bird, Digits 0 to 9).'
+              },
+              {
+                parameter: 'Outputs a single probability score P(y=1) (via Sigmoid function σ(z)) or a sign ±1.',
+                col1: 'Outputs a probability distribution vector across all C classes (via Softmax function).'
+              },
+              {
+                parameter: 'Real-world examples: Spam filter (Spam vs Inbox), Loan approval (Approve vs Reject).',
+                col1: 'Real-world examples: Handwritten digit recognition (0–9), Blood group diagnosis (A, B, AB, O).'
+              },
+              {
+                parameter: 'Native algorithms: Logistic Regression, Binary Support Vector Machines, Simple Perceptron.',
+                col1: 'Native algorithms: Decision Trees, Random Forests, Softmax Regression, Naive Bayes.'
+              },
+              {
+                parameter: 'Directly creates a single separating decision boundary between two classes.',
+                col1: 'Binary classifiers can be extended using One-vs-Rest (OvR) or One-vs-One (OvO) strategies.'
+              },
+              {
+                parameter: 'Evaluated using standard 2×2 Confusion Matrix, ROC-AUC, Precision, Recall, and F1-score.',
+                col1: 'Evaluated using C×C Confusion Matrix and Micro-averaged or Macro-averaged Precision, Recall, and F1.'
+              }
             ]
           }
         }
@@ -1005,11 +1068,28 @@ export const unit4Data: Unit = {
         {
           title: '4. Summary Comparison Table',
           table: {
-            headers: ['Decomposition Strategy', 'Number of Models for N Classes', 'Training Data per Model', 'Decision Rule'],
+            headers: ['One-vs-All (OvA / One-vs-Rest)', 'One-vs-One (OvO)'],
             rows: [
-              { parameter: 'One-vs-All (OvA)', col1: 'N (e.g., 10 for N = 10)', col2: 'Entire dataset (imbalanced)', col3: 'Argmax confidence score' },
-              { parameter: 'One-vs-One (OvO)', col1: 'N(N - 1)/2 (e.g., 45 for N = 10)', col2: 'Subset of 2 classes only (balanced)', col3: 'Max voting tally' },
-              { parameter: 'ECOC', col1: 'L (codeword length)', col2: 'Structured multi-class partitions', col3: 'Minimum Hamming distance' }
+              {
+                parameter: 'Trains exactly N binary models for an N-class problem (e.g., 10 models for 10 classes).',
+                col1: 'Trains N(N - 1) / 2 binary models for an N-class problem (e.g., 45 models for 10 classes).'
+              },
+              {
+                parameter: 'Each model is trained on the entire dataset, classifying one target class against all other combined classes.',
+                col1: 'Each model is trained only on a small subset containing two classes (Class i vs Class j), ignoring all other data.'
+              },
+              {
+                parameter: 'Training sets are heavily imbalanced because 1 class faces the combined volume of all other N - 1 classes.',
+                col1: 'Training sets remain balanced because each classifier only distinguishes between two individual classes.'
+              },
+              {
+                parameter: 'Final decision is made by selecting the class whose classifier produces the highest probability score (argmax).',
+                col1: 'Final decision is made by a majority voting tournament where all pairwise models cast a vote and the winner takes all.'
+              },
+              {
+                parameter: 'Faster training when N is large because only N models are constructed, but each model sees the full dataset.',
+                col1: 'Each individual model trains very fast due to smaller pairwise subsets, but evaluation overhead grows quadratically O(N²).'
+              }
             ]
           }
         }
@@ -1405,12 +1485,24 @@ export const unit4Data: Unit = {
         {
           title: '2. Effect of the Value of K',
           table: {
-            headers: ['Evaluation Parameter', 'K is Large (e.g., K = N, LOOCV)', 'K is Small (e.g., K = 2)'],
+            headers: ['When K is Large (e.g., K = 10 or K = N)', 'When K is Small (e.g., K = 2)'],
             rows: [
-              { parameter: 'Training Set Size per Fold', col1: 'Very large (~100% of data; N-1 points)', col2: 'Small (only 50% of data for K = 2)' },
-              { parameter: 'Bias of Performance Estimate', col1: 'Low Bias (trained on almost full dataset)', col2: 'High Bias (underestimates model capability due to smaller data)' },
-              { parameter: 'Variance of Performance Estimate', col1: 'High Variance (training sets are almost identical, highly correlated)', col2: 'Low Variance (training sets are largely distinct)' },
-              { parameter: 'Computational Overhead', col1: 'Extremely high (must train N complete models)', col2: 'Very cheap and fast (trains only 2 models)' }
+              {
+                parameter: 'Training set size per fold is very large (~90% to 100% of available data), closely mimicking full production training.',
+                col1: 'Training set size per fold is small (only 50% of data for K = 2), leaving half the dataset unused per model.'
+              },
+              {
+                parameter: 'Low Bias: The performance estimate accurately reflects true model capability without underestimation.',
+                col1: 'High Bias: Significantly underestimates true model capability because models are trained on severely reduced data.'
+              },
+              {
+                parameter: 'Higher Variance in evaluation estimates because training folds share ~90% of the same samples and are highly correlated.',
+                col1: 'Lower Variance in evaluation estimates because the two training subsets have zero overlap.'
+              },
+              {
+                parameter: 'High computational cost: Requires training and evaluating K separate models (e.g. 10 or N complete training runs).',
+                col1: 'Very fast and low computational cost: Requires training only 2 models total.'
+              }
             ]
           }
         },

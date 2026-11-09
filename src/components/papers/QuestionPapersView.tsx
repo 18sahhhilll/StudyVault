@@ -596,14 +596,14 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                                                             key={rIdx}
                                                             className="hover:bg-academic-50/50 dark:hover:bg-academic-800/30"
                                                           >
-                                                            <td className="p-2.5 font-medium text-academic-900 dark:text-academic-100">
+                                                            <td className={`p-2.5 font-medium text-academic-900 dark:text-academic-100 ${sec.table?.headers.length === 2 ? 'align-top leading-relaxed min-w-[200px]' : ''}`}>
                                                               {row.parameter}
                                                             </td>
                                                             {[1, 2, 3, 4, 5, 6, 7, 8].map((colNum) => {
                                                               const val = row[`col${colNum}`];
                                                               if (val === undefined) return null;
                                                               return (
-                                                                <td key={colNum} className="p-2.5 text-academic-600 dark:text-academic-400">
+                                                                <td key={colNum} className={`p-2.5 text-academic-600 dark:text-academic-400 ${sec.table?.headers.length === 2 ? 'align-top leading-relaxed min-w-[200px]' : ''}`}>
                                                                   {val}
                                                                 </td>
                                                               );

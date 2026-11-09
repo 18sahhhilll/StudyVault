@@ -242,14 +242,32 @@ export const unit3Data: Unit = {
         {
           title: '2. Comparative Analysis Table',
           table: {
-            headers: ['Evaluation Aspect', 'Overfitting (High Variance)', 'Underfitting (High Bias)'],
+            headers: ['Overfitting (High Variance)', 'Underfitting (High Bias)'],
             rows: [
-              { parameter: 'Model Complexity', col1: 'Excessively high (e.g. 15th degree polynomial, deep tree)', col2: 'Excessively low (e.g. constant horizontal line or linear on curve)' },
-              { parameter: 'Training Error', col1: 'Extremely low (approaching 0)', col2: 'High' },
-              { parameter: 'Testing / Generalization Error', col1: 'Significantly higher than training error (large gap)', col2: 'High (close to training error)' },
-              { parameter: 'Bias vs Variance', col1: 'Low Bias, High Variance', col2: 'High Bias, Low Variance' },
-              { parameter: 'Feature Ratio', col1: 'Too many features relative to sample size', col2: 'Too few or non-informative features' },
-              { parameter: 'Remedy', col1: 'Regularize (L1/L2), prune, add data, cross-validate, drop features', col2: 'Add polynomial features, increase model capacity, decrease λ' }
+              {
+                parameter: 'The model is excessively complex (e.g. 15th-degree polynomial or deep tree) with far too many parameters.',
+                col1: 'The model is overly simplistic (e.g. a flat line trying to fit a curved pattern) with too few parameters.'
+              },
+              {
+                parameter: 'Training error is near zero because the model memorizes every single training sample including random noise.',
+                col1: 'Training error is very high because the model cannot even capture the basic trend in the training data.'
+              },
+              {
+                parameter: 'Testing error is very high; the model fails dramatically when given new, unseen real-world data.',
+                col1: 'Testing error is also very high, closely matching the poor performance on training data.'
+              },
+              {
+                parameter: 'Exhibits Low Bias and High Variance (it is overly sensitive to slight fluctuations in the training set).',
+                col1: 'Exhibits High Bias and Low Variance (it makes rigid assumptions that ignore real data patterns).'
+              },
+              {
+                parameter: 'Happens when there are too many features relative to the number of available training samples.',
+                col1: 'Happens when features are missing, insufficient, or non-informative for the task.'
+              },
+              {
+                parameter: 'Fixed by: Applying L1/L2 regularization, pruning decision trees, gathering more data, and dropping noisy features.',
+                col1: 'Fixed by: Adding polynomial features, using more complex algorithms, and decreasing regularization penalty (λ).'
+              }
             ]
           }
         },
@@ -325,13 +343,28 @@ export const unit3Data: Unit = {
         {
           title: '3. Comparative Summary Strategy',
           table: {
-            headers: ['Factor', 'Strategy for Underfitting', 'Strategy for Overfitting'],
+            headers: ['Techniques to Fix Underfitting (High Bias)', 'Techniques to Fix Overfitting (High Variance)'],
             rows: [
-              { parameter: 'Number of Features', col1: 'Increase (feature engineering)', col2: 'Decrease (feature selection, Lasso)' },
-              { parameter: 'Model Capacity', col1: 'Increase complexity (higher degree)', col2: 'Simplify model (pruning, shallower)' },
-              { parameter: 'Regularization Penalty (λ)', col1: 'Decrease λ', col2: 'Increase λ' },
-              { parameter: 'Training Iterations', col1: 'Train longer', col2: 'Implement Early Stopping' },
-              { parameter: 'Dataset Size', col1: 'More features matter more than rows', col2: 'Collect more training data' }
+              {
+                parameter: 'Increase the number of features by engineering new domain-specific variables and interaction terms.',
+                col1: 'Decrease the number of features using Lasso (L1) regularization or dropping noisy, irrelevant variables.'
+              },
+              {
+                parameter: 'Increase model complexity by using higher-degree polynomials, deeper trees, or non-linear algorithms.',
+                col1: 'Reduce model complexity by pruning decision trees, setting max depth limits, or using simpler models.'
+              },
+              {
+                parameter: 'Decrease or remove regularization penalty (reduce λ) to give the model freedom to learn patterns.',
+                col1: 'Increase regularization penalty (increase λ in Ridge/Lasso) to heavily penalize large, erratic weights.'
+              },
+              {
+                parameter: 'Train for more epochs and ensure gradient descent has enough iterations to converge properly.',
+                col1: 'Use early stopping to halt training as soon as validation error begins to rise.'
+              },
+              {
+                parameter: 'Adding more data alone will NOT help if the model architecture is fundamentally too weak to learn.',
+                col1: 'Collect more training data or use data augmentation to expose the model to diverse examples.'
+              }
             ]
           }
         }
@@ -445,12 +478,28 @@ export const unit3Data: Unit = {
         {
           title: '3. Bias vs Variance Comparison Table',
           table: {
-            headers: ['Criterion', 'Bias', 'Variance'],
+            headers: ['Bias (Systematic Error)', 'Variance (Random Error)'],
             rows: [
-              { parameter: 'Underlying Nature', col1: 'Systematic error from oversimplified assumptions', col2: 'Random error from excessive sensitivity to training samples' },
-              { parameter: 'Associated Failure', col1: 'Underfitting (poor training and testing accuracy)', col2: 'Overfitting (flawless training, poor testing accuracy)' },
-              { parameter: 'Low-Value Algorithms', col1: 'Decision Trees, k-NN, SVM, Random Forest', col2: 'Linear Regression, Logistic Regression, Naive Bayes' },
-              { parameter: 'High-Value Algorithms', col1: 'Linear Regression, Simple models', col2: 'Deep Neural Nets, Unpruned Trees, 1-NN' }
+              {
+                parameter: 'Systematic error that comes from oversimplified, rigid assumptions in the learning algorithm.',
+                col1: 'Random error that comes from excessive sensitivity to small fluctuations in the training data.'
+              },
+              {
+                parameter: 'Directly causes Underfitting (poor accuracy on both training and test datasets).',
+                col1: 'Directly causes Overfitting (flawless accuracy on training, but terrible accuracy on test data).'
+              },
+              {
+                parameter: 'High Bias models include: Linear Regression, Logistic Regression, and Naive Bayes.',
+                col1: 'High Variance models include: Deep Neural Networks, Unpruned Decision Trees, and 1-Nearest Neighbor.'
+              },
+              {
+                parameter: 'The model is too rigid; adding more training samples does not fix the underlying mistakes.',
+                col1: 'The model changes drastically whenever trained on a slightly different subset of data.'
+              },
+              {
+                parameter: 'Remedy: Increase model complexity, engineer new features, and decrease regularization penalty (λ).',
+                col1: 'Remedy: Collect more training data, apply L1/L2 regularization, and prune complex trees.'
+              }
             ]
           }
         }
@@ -556,22 +605,25 @@ export const unit3Data: Unit = {
         { paper: 'Paper 5', questionNo: 'Q2(a)', notes: 'Second part (Ridge)' }
       ],
       syllabusTopics: ['Lasso Regression', 'Ridge Regression', 'L1 Regularization', 'L2 Regularization', 'Feature Selection'],
-      definition: 'Ridge and Lasso regression are regularized extensions of ordinary least squares that introduce penalty terms on coefficient magnitudes to restrict overfitting, lower variance, and manage multicollinearity.',
+      definition: 'Ridge Regression (L2) and Lasso Regression (L1) are regularization techniques that prevent overfitting in linear models by adding a penalty on large weights.',
       sections: [
         {
-          title: '1. Why Regularization is Needed',
+          title: '1. What is Regularization and Why is it Needed?',
           content: [
-            'Ordinary Least Squares (OLS) can overfit dramatically when predictors are correlated (multicollinearity) or when feature count p approaches sample size n.',
-            'Regularization imposes a shrinkage budget penalty on coefficient size, introducing a small amount of bias to achieve a drastic drop in variance.'
+            'Regularization is a technique used in Machine Learning to stop a model from overfitting.',
+            'Overfitting happens when a model tries to memorize every small detail and random noise in the training data, causing it to fail on new real-world data.',
+            'In Simple Words:',
+            'When a model overfits, its weights (coefficients) become unnaturally large and unstable. Regularization adds a penalty on large weights to keep the model simple, smooth, and balanced.'
           ]
         },
         {
           title: '2. Ridge Regression (L2 Regularization)',
           content: [
-            'Adds penalty proportional to the sum of squared coefficient magnitudes: λ∑βⱼ².',
-            'Shrinks coefficients smoothly toward zero, but never drives any coefficient to absolute zero.',
-            'Maintains all original features in the model equation.',
-            'Excels when dealing with multicollinearity (highly correlated features share weights).',
+            'Adds a penalty proportional to the sum of squared weights: λ ∑ βⱼ².',
+            'In Simple Words:',
+            'Ridge Regression reduces the values of large weights so no single feature dominates the model. It pulls weights close to zero, but never makes them exactly zero. All features stay in the equation.',
+            'Real-World Example (House Price Prediction):',
+            'Suppose you predict house prices using Area, Bedrooms, and Location Rating. If Area and Bedrooms are correlated, standard regression gives them huge unstable weights. Ridge Regression shrinks these weights evenly so the prediction is steady and reliable.',
             'Analytical closed-form solution: β_ridge = (XᵀX + λI)⁻¹ XᵀY.'
           ],
           formulas: [
@@ -582,25 +634,49 @@ export const unit3Data: Unit = {
           title: '3. Lasso Regression (L1 Regularization)',
           content: [
             'Lasso stands for Least Absolute Shrinkage and Selection Operator.',
-            'Adds penalty proportional to the sum of absolute values of coefficients: λ∑|βⱼ|.',
-            'Because the L1 constraint region possesses sharp corners on the coordinate axes, optimization contours frequently strike these corners, forcing coefficients to exactly zero.',
-            'Performs automatic feature selection by dropping redundant variables.'
+            'Adds a penalty proportional to the sum of absolute values of weights: λ ∑ |βⱼ|.',
+            'In Simple Words:',
+            'Lasso shrinks weights just like Ridge. But Lasso can shrink unimportant weights all the way to absolute zero (0.0). When a weight becomes zero, that feature is completely removed from the model. Thus, Lasso does automatic feature selection.',
+            'Real-World Example (House Price with Useless Features):',
+            'Suppose you also included Door Color and Owner Age in the house dataset. Lasso sets the weights of Door Color and Owner Age to exactly zero (0.0), automatically throwing them out of the formula and keeping only Area and Bedrooms.'
           ],
           formulas: [
             { name: 'Lasso Cost Function', latex: 'J_{\\text{Lasso}}(\\beta) = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 + \\lambda \\sum_{j=1}^{p}|\\beta_j|' }
           ]
         },
         {
-          title: '4. Comprehensive Ridge vs Lasso Comparison Table',
+          title: '4. Difference Between Ridge and Lasso Regression (2-Column Format)',
           table: {
-            headers: ['Comparative Criterion', 'Ridge Regression (L2)', 'Lasso Regression (L1)'],
+            headers: ['Ridge Regression (L2)', 'Lasso Regression (L1)'],
             rows: [
-              { parameter: 'Penalty Mathematical Term', col1: 'λ ∑ βⱼ² (Squared L2 norm)', col2: 'λ ∑ |βⱼ| (Absolute L1 norm)' },
-              { parameter: 'Geometric Constraint Shape', col1: 'Spherical / Circular smooth boundary', col2: 'Diamond / Rhombus with sharp axes corners' },
-              { parameter: 'Sparsity & Feature Selection', col1: 'No (all coefficients remain non-zero)', col2: 'Yes (sets non-essential weights to 0)' },
-              { parameter: 'Behavior with Multicollinearity', col1: 'Groups correlated features and shrinks together', col2: 'Arbitrarily selects one and zeroes others' },
-              { parameter: 'Closed-Form Analytical Solution', col1: 'Yes: (XᵀX + λI)⁻¹XᵀY', col2: 'No (solved via coordinate descent)' },
-              { parameter: 'Best Practical Use Case', col1: 'Many dense features with small-to-moderate effects', col2: 'Sparse data where only few features matter' }
+              {
+                parameter: 'Adds a penalty equal to the sum of squared weights (λ ∑ βⱼ²) to the cost function.',
+                col1: 'Adds a penalty equal to the sum of absolute values of weights (λ ∑ |βⱼ|) to the cost function.'
+              },
+              {
+                parameter: 'Shrinks weights smoothly close to zero, but never makes any weight exactly zero.',
+                col1: 'Shrinks weights and can force unimportant weights to become exactly zero (0.0).'
+              },
+              {
+                parameter: 'Does not perform feature selection; all original features are retained in the final equation.',
+                col1: 'Performs automatic feature selection; features with zero weights are completely removed.'
+              },
+              {
+                parameter: 'Has a smooth, circular constraint boundary where error contours touch curves, keeping weights non-zero.',
+                col1: 'Has a sharp diamond constraint boundary with pointed corners on axes, easily forcing weights to zero.'
+              },
+              {
+                parameter: 'Handles multicollinearity by sharing weights and shrinking correlated features together.',
+                col1: 'Handles multicollinearity by arbitrarily picking one correlated feature and zeroing out the rest.'
+              },
+              {
+                parameter: 'Has a direct closed-form analytical matrix formula: β = (XᵀX + λI)⁻¹ XᵀY.',
+                col1: 'Has no closed-form formula; it must be calculated iteratively using coordinate descent.'
+              },
+              {
+                parameter: 'Best used when you have many features and almost all of them contribute to the outcome.',
+                col1: 'Best used when you have many features, but suspect only a small subset really matters.'
+              }
             ]
           }
         }
@@ -738,14 +814,32 @@ export const unit3Data: Unit = {
         {
           title: '3. Comparative Analysis: Batch GD vs SGD vs Mini-Batch GD',
           table: {
-            headers: ['Characteristic', 'Batch Gradient Descent', 'Stochastic Gradient Descent (SGD)'],
+            headers: ['Batch Gradient Descent', 'Stochastic Gradient Descent (SGD)'],
             rows: [
-              { parameter: 'Data per Parameter Update', col1: 'Entire training set (all m samples)', col2: 'Single randomly sampled training instance' },
-              { parameter: 'Computation Speed per Step', col1: 'Slow for large datasets (high latency)', col2: 'Extremely fast per iteration' },
-              { parameter: 'Trajectory to Minimum', col1: 'Direct, deterministic, smooth path', col2: 'Noisy, erratic zig-zag trajectory' },
-              { parameter: 'Memory Requirement', col1: 'Requires entire dataset resident in memory', col2: 'Minimal RAM footprint (ideal for streaming data)' },
-              { parameter: 'Local Minima Escape', col1: 'Can get trapped in local saddle points', col2: 'Inherent stochastic noise helps jump out of sub-optimal valleys' },
-              { parameter: 'Convergence Nature', col1: 'Reaches exact minimum of convex functions', col2: 'Fluctuates around the minimum (requires decay schedule)' }
+              {
+                parameter: 'Uses the entire training dataset (all m samples) to compute the gradient at every single step.',
+                col1: 'Uses only a single randomly chosen training sample to compute the gradient at each step.'
+              },
+              {
+                parameter: 'Computation is very slow per step on large datasets because it processes all rows every iteration.',
+                col1: 'Computation is instantaneous per step because it only evaluates one single row at a time.'
+              },
+              {
+                parameter: 'Follows a smooth, direct, deterministic path straight down toward the cost minimum.',
+                col1: 'Follows a noisy, oscillating zig-zag path that bounces around but trends toward the minimum.'
+              },
+              {
+                parameter: 'Requires loading the entire dataset into RAM, which is infeasible for massive big-data applications.',
+                col1: 'Requires minimal RAM footprint because only one data point needs to be in memory at any instant.'
+              },
+              {
+                parameter: 'Can easily get permanently stuck in local minima or flat saddle points on complex loss surfaces.',
+                col1: 'Random noise in individual sample steps helps it escape shallow local minima into better regions.'
+              },
+              {
+                parameter: 'Reaches the exact minimum smoothly on convex error surfaces.',
+                col1: 'Fluctuates around the minimum and needs a decreasing learning rate schedule to settle down.'
+              }
             ]
           }
         }

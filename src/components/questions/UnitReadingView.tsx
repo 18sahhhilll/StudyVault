@@ -610,14 +610,14 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                           key={rIdx}
                           className="hover:bg-academic-50/50 dark:hover:bg-academic-800/30 transition-colors"
                         >
-                          <td className="p-3 font-medium text-academic-900 dark:text-academic-100 whitespace-nowrap">
+                          <td className={`p-3 font-medium text-academic-900 dark:text-academic-100 ${(sec.table?.headers?.length ?? 0) > 2 ? 'whitespace-nowrap' : 'align-top leading-relaxed min-w-[220px]'}`}>
                             {row.parameter}
                           </td>
                           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((colNum) => {
                             const val = row[`col${colNum}`];
                             if (val === undefined) return null;
                             return (
-                              <td key={colNum} className="p-3 text-academic-700 dark:text-academic-300">
+                              <td key={colNum} className={`p-3 text-academic-700 dark:text-academic-300 ${sec.table?.headers?.length === 2 ? 'align-top leading-relaxed min-w-[220px]' : ''}`}>
                                 {val}
                               </td>
                             );

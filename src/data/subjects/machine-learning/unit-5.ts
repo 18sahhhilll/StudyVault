@@ -343,12 +343,24 @@ export const unit5Data: Unit = {
         {
           title: '3. K-Means vs K-Medoids Comparison',
           table: {
-            headers: ['Comparative Feature', 'K-Means', 'K-Medoids (PAM)'],
+            headers: ['K-Means Clustering', 'K-Medoids Clustering (PAM)'],
             rows: [
-              { parameter: 'Cluster Center', col1: 'Arithmetic Mean (frequently not an actual data point)', col2: 'Actual observed data point (Medoid)' },
-              { parameter: 'Sensitivity to Outliers', col1: 'Very High (outliers drag centroid locations)', col2: 'Very Low (robust to extreme values and noise)' },
-              { parameter: 'Applicable Data Types', col1: 'Continuous numerical features only', col2: 'Numerical, categorical, or arbitrary distance matrices' },
-              { parameter: 'Computational Complexity', col1: 'O(N·K·t) (very fast, scales to large data)', col2: 'O(K·(N - K)²·t) (computationally heavy on large N)' }
+              {
+                parameter: 'Cluster centers are calculated as artificial mathematical means (centroids), which usually do not exist in the dataset.',
+                col1: 'Cluster centers are represented by actual observed data points (medoids) chosen directly from the dataset.'
+              },
+              {
+                parameter: 'Extremely sensitive to outliers; extreme values pull and distort the centroid locations.',
+                col1: 'Highly robust against outliers and noise; isolated extreme points cannot distort an actual medoid.'
+              },
+              {
+                parameter: 'Restricted strictly to continuous numerical features because arithmetic means cannot be computed on categories.',
+                col1: 'Works with numerical, categorical, or arbitrary pairwise dissimilarity matrices (e.g. Manhattan, cosine distance).'
+              },
+              {
+                parameter: 'Computationally fast and scales to large datasets: O(N·K·t) linear time complexity.',
+                col1: 'Computationally heavy on large datasets: O(K·(N - K)²·t) due to testing all pairwise point swaps.'
+              }
             ]
           }
         }
@@ -392,11 +404,24 @@ export const unit5Data: Unit = {
             'Divisive (DIANA - Top-Down): Starts with all points contained within a single grand cluster. Successively splits clusters into smaller partitions until every point forms its own cluster.'
           ],
           table: {
-            headers: ['Parameter', 'Agglomerative (AGNES)', 'Divisive (DIANA)'],
+            headers: ['Agglomerative Clustering (AGNES)', 'Divisive Clustering (DIANA)'],
             rows: [
-              { parameter: 'Approach Direction', col1: 'Bottom-up merging', col2: 'Top-down splitting' },
-              { parameter: 'Initial State', col1: 'N clusters (each point separate)', col2: '1 single cluster (all points together)' },
-              { parameter: 'Strength', col1: 'Excels at identifying small, tight clusters', col2: 'Excels at identifying broad, large clusters' }
+              {
+                parameter: 'Bottom-up strategy: Starts with every data point in its own individual single-element cluster.',
+                col1: 'Top-down strategy: Starts with all data points grouped together into one single giant cluster.'
+              },
+              {
+                parameter: 'At each iterative step, greedily merges the two closest clusters together until one root cluster remains.',
+                col1: 'At each iterative step, recursively splits the most heterogeneous cluster into two until every point is isolated.'
+              },
+              {
+                parameter: 'Excels at identifying small, fine-grained, compact local clusters in the data.',
+                col1: 'Excels at discovering broad, large global patterns and major data divisions.'
+              },
+              {
+                parameter: 'Computationally simpler (O(N²)) and by far the most commonly used hierarchical technique.',
+                col1: 'Computationally expensive (O(2^N) worst-case without heuristics) and rarely used in practice.'
+              }
             ]
           }
         },
@@ -465,15 +490,36 @@ export const unit5Data: Unit = {
         {
           title: '1. Comparative Analysis Matrix',
           table: {
-            headers: ['Comparative Dimension', 'Hierarchical Clustering', 'K-Means Clustering'],
+            headers: ['Hierarchical Clustering', 'K-Means Clustering'],
             rows: [
-              { parameter: 'Structural Output', col1: 'Multi-level nested tree hierarchy (Dendrogram)', col2: 'Flat, single-level disjoint partitions' },
-              { parameter: 'Cluster Count K', col1: 'Not required upfront; decided post-hoc by cutting tree', col2: 'K must be strictly specified prior to execution' },
-              { parameter: 'Determinism', col1: 'Deterministic (identical dendrogram every run)', col2: 'Stochastic (results depend on random centroid seeds)' },
-              { parameter: 'Computational Complexity', col1: 'High: O(N²) to O(N³) time and O(N²) memory', col2: 'Low: O(N·K·t) time and O(N) memory' },
-              { parameter: 'Reversibility of Steps', col1: 'Irreversible (merges/splits cannot be undone)', col2: 'Reversible (points freely change clusters each pass)' },
-              { parameter: 'Cluster Geometry', col1: 'Handles non-spherical shapes (via Single Linkage)', col2: 'Strictly restricted to spherical, equal-sized clusters' },
-              { parameter: 'Data Types', col1: 'Any distance or dissimilarity matrix', col2: 'Numerical only (requires continuous arithmetic means)' }
+              {
+                parameter: 'Produces a multi-level nested tree hierarchy (dendrogram) showing all cluster relationships at various granularities.',
+                col1: 'Produces a flat, single-level partitioning of data into disjoint groups with no hierarchical structure.'
+              },
+              {
+                parameter: 'Does not require specifying the number of clusters K upfront; K is chosen by cutting the dendrogram tree post-hoc.',
+                col1: 'Strictly requires the user to specify the exact number of clusters K before training begins.'
+              },
+              {
+                parameter: 'Completely deterministic: Running the algorithm on the same dataset always produces the exact same dendrogram.',
+                col1: 'Stochastic: Final cluster partitions vary depending on the initial random centroid seed placement.'
+              },
+              {
+                parameter: 'High computational cost: O(N²) to O(N³) time and O(N²) memory, restricting it to small-to-medium datasets.',
+                col1: 'Low computational cost: O(N·K·t) time and O(N) memory, scaling easily to millions of records.'
+              },
+              {
+                parameter: 'Irreversible steps: Merges or splits made in earlier iterations can never be revisited or undone.',
+                col1: 'Reversible assignments: Data points can freely migrate between different clusters at each iterative pass.'
+              },
+              {
+                parameter: 'Can discover arbitrary, non-spherical cluster geometries (e.g., using Single Linkage).',
+                col1: 'Strictly restricted to finding spherical, convex, blob-like clusters of similar sizes.'
+              },
+              {
+                parameter: 'Accepts any distance or dissimilarity matrix (works on text, categorical, and non-Euclidean data).',
+                col1: 'Requires continuous numerical features to calculate arithmetic mean centroids.'
+              }
             ]
           }
         }
@@ -1024,14 +1070,28 @@ export const unit5Data: Unit = {
         {
           title: '1. Comparison Matrix',
           table: {
-            headers: ['Comparative Criterion', 'K-Means Clustering', 'Spectral Clustering'],
+            headers: ['K-Means Clustering', 'Spectral Clustering'],
             rows: [
-              { parameter: 'Underlying Concept', col1: 'Centroid-based distance minimization (compactness)', col2: 'Graph connectivity and spectral graph partitioning' },
-              { parameter: 'Input Requirement', col1: 'Continuous numerical coordinate vectors', col2: 'Pairwise affinity / similarity matrix (coordinates optional)' },
-              { parameter: 'Cluster Geometry', col1: 'Strictly convex, spherical, circular clusters', col2: 'Arbitrary, complex, non-convex shapes (rings, spirals)' },
-              { parameter: 'Mathematical Space', col1: 'Operates directly in original input feature space ℝⁿ', col2: 'Transforms data into low-dimensional Laplacian eigenspace' },
-              { parameter: 'Computational Complexity', col1: 'Linear in samples: O(N·K·t); extremely fast', col2: 'Cubic in samples: O(N³) due to eigen-decomposition' },
-              { parameter: 'Scalability', col1: 'Scales to millions of instances', col2: 'Restricted to small-to-moderate datasets' }
+              {
+                parameter: 'Centroid-based distance minimization: Clusters points by minimizing Euclidean distances to cluster centers.',
+                col1: 'Graph connectivity partitioning: Clusters points based on affinity graph cut theory and Laplacian eigenvectors.'
+              },
+              {
+                parameter: 'Strictly restricted to convex, spherical, blob-like clusters; fails completely on rings or nested shapes.',
+                col1: 'Flawlessly identifies complex, arbitrary, non-convex shapes (like concentric circles and interlocking spirals).'
+              },
+              {
+                parameter: 'Operates directly in the original continuous coordinate feature space ℝⁿ.',
+                col1: 'Projects data into a low-dimensional graph Laplacian eigenspace before applying final clustering.'
+              },
+              {
+                parameter: 'Computationally linear: O(N·K·t), running very fast and scaling seamlessly to millions of data points.',
+                col1: 'Computationally cubic: O(N³) due to eigen-decomposition, restricting it to smaller datasets.'
+              },
+              {
+                parameter: 'Requires continuous numerical coordinate vectors as input.',
+                col1: 'Requires only a pairwise similarity/affinity matrix (actual spatial coordinates are not required).'
+              }
             ]
           }
         }
@@ -1232,12 +1292,24 @@ export const unit5Data: Unit = {
         {
           title: '1. Machine Learning Evaluation Meaning (Core Syllabus Focus)',
           table: {
-            headers: ['Comparative Dimension', 'Intrinsic Evaluation Methods', 'Extrinsic Evaluation Methods'],
+            headers: ['Intrinsic Evaluation (Unsupervised)', 'Extrinsic Evaluation (Supervised Benchmark)'],
             rows: [
-              { parameter: 'Ground Truth Labels', col1: 'Completely unneeded (evaluates unlabelled data)', col2: 'Strictly required (needs prior class labels)' },
-              { parameter: 'Evaluation Basis', col1: 'Geometric cluster compactness (cohesion) and separation', col2: 'Mathematical agreement between clusters and true classes' },
-              { parameter: 'Primary Metrics', col1: 'Silhouette Coefficient, Davies-Bouldin, Calinski-Harabasz, WCSS', col2: 'Homogeneity, Completeness, V-Measure, Rand Index, ARI' },
-              { parameter: 'Real-World Application', col1: 'Standard operational clustering on unlabelled real data', col2: 'Benchmarking and testing new clustering algorithms on research datasets' }
+              {
+                parameter: 'Completely unsupervised: Evaluates clustering quality without needing any ground-truth class labels.',
+                col1: 'Supervised benchmarking: Strictly requires prior known ground-truth class labels for evaluation.'
+              },
+              {
+                parameter: 'Judges clusters based on internal geometric properties: cluster compactness (cohesion) and distance between clusters (separation).',
+                col1: 'Judges clusters based on mathematical agreement (overlap) between assigned clusters and true class categories.'
+              },
+              {
+                parameter: 'Primary metrics: Silhouette Coefficient, Davies-Bouldin Index, Calinski-Harabasz Score, WCSS (Inertia).',
+                col1: 'Primary metrics: Adjusted Rand Index (ARI), Normalized Mutual Information (NMI), Homogeneity, Completeness, V-Measure.'
+              },
+              {
+                parameter: 'Used in real-world production environments where data arrives unlabelled and unsupervised.',
+                col1: 'Used in research and model development on benchmark datasets with known labels to compare algorithms.'
+              }
             ]
           }
         },
@@ -1295,11 +1367,24 @@ export const unit5Data: Unit = {
         {
           title: '2. Comparative Difference: Micro vs Macro',
           table: {
-            headers: ['Comparative Aspect', 'Micro-Average', 'Macro-Average'],
+            headers: ['Micro-Average Evaluation', 'Macro-Average Evaluation'],
             rows: [
-              { parameter: 'Weighting Level', col1: 'Sample-weighted (each sample has equal influence)', col2: 'Class-weighted (each class has equal influence)' },
-              { parameter: 'Impact of Majority Class', col1: 'Dominated by large majority classes', col2: 'Equalized across small minority and large majority classes' },
-              { parameter: 'Best Practical Use', col1: 'When overall per-instance classification accuracy is paramount', col2: 'When performance on rare minority classes is critical' }
+              {
+                parameter: 'Sample-weighted: Pools all True Positives, False Positives, and False Negatives across all classes first, giving every sample equal weight.',
+                col1: 'Class-weighted: Calculates the metric (e.g. Precision) independently for each class first, then takes the unweighted average across classes.'
+              },
+              {
+                parameter: 'Dominated by large majority classes; high performance on a common class hides terrible performance on rare classes.',
+                col1: 'Treats all classes as equally important regardless of class size, protecting rare minority classes from being ignored.'
+              },
+              {
+                parameter: 'Best used when overall per-instance prediction throughput matters most.',
+                col1: 'Best used when small, rare classes are critical (e.g., rare cancer diagnosis, fraud detection).'
+              },
+              {
+                parameter: 'In single-label multiclass classification, Micro-Precision = Micro-Recall = Micro-F1 = Accuracy.',
+                col1: 'Macro-F1 can be very low even if overall accuracy is 95%, if the model fails on an infrequent class.'
+              }
             ]
           }
         }
