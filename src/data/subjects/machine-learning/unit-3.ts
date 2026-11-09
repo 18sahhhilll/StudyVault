@@ -1067,52 +1067,130 @@ export const unit3Data: Unit = {
         { paper: 'Paper 2', questionNo: 'Q2(a)', notes: 'Specifically focused on R²' }
       ],
       syllabusTopics: ['MAE', 'MSE', 'RMSE', 'R-Squared', 'Adjusted R2'],
-      definition: 'MAE calculates the mean magnitude of absolute errors; RMSE calculates the square root of mean squared errors penalizing outliers; R² quantifies the proportion of target variance explained by the regression line relative to a baseline mean predictor.',
+      definition: 'In Machine Learning, MAE, RMSE and R² are evaluation metrics used to measure the performance of a regression model. They tell us how accurately a model predicts values and how close predictions are to actual target observations.',
       sections: [
         {
-          title: '1. Metric Formulations & Theoretical Differences',
+          title: '1. What are MAE, RMSE, and R² (Evaluation Metrics)?',
           content: [
-            'MAE = (1/N)∑|yᵢ - ŷᵢ|: Measures average magnitude of errors without direction. Intuitive, robust against outliers, expressed in original target units.',
-            'RMSE = √[(1/N)∑(yᵢ - ŷᵢ)²]: Gives disproportionate weight to large errors due to squaring. Ideal when large errors are especially catastrophic.',
-            'R² = 1 - (SS_res / SS_tot): Dimensionless score usually between 0 and 1. R² = 1 indicates perfect fit; R² = 0 indicates model performs no better than predicting target mean ȳ.'
-          ],
-          formulas: [
-            { name: 'Mean Absolute Error', latex: '\\text{MAE} = \\frac{1}{N}\\sum_{i=1}^{N}|y_i - \\hat{y}_i|' },
-            { name: 'Root Mean Squared Error', latex: '\\text{RMSE} = \\sqrt{\\frac{1}{N}\\sum_{i=1}^{N}(y_i - \\hat{y}_i)^2}' },
-            { name: 'R-Squared Formula', latex: 'R^2 = 1 - \\frac{SS_{\\text{res}}}{SS_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}' }
+            'In Machine Learning, MAE, RMSE and R² are evaluation metrics used to measure the performance of a regression model.',
+            'They help us understand how accurately a model predicts values and diagnose whether predictions have small or catastrophic errors.'
           ]
         },
         {
-          title: '2. Complete Worked Numerical Demonstration',
+          title: '2. MAE (Mean Absolute Error)',
           content: [
-            'Using the regression line ŷ = 1.3x + 1.5 fitted on dataset: x = [1, 2, 3, 4], y = [3, 4, 5, 7]. Sample count N = 4.'
+            'Definition: MAE is the average of the absolute differences between actual values and predicted values.',
+            'In simple words:',
+            'MAE tells us how far the model predictions are from the actual values on average, without worrying about whether the prediction was too high or too low.',
+            'Formula: MAE = (1/n) * Σ |yᵢ - ŷᵢ|',
+            'Concrete Example:',
+            '• Actual house price = 100, Predicted house price = 90 ==> Error = |100 - 90| = 10.',
+            '• If another prediction has Error = 6, average error across the two is (10 + 6) / 2 = 8.',
+            'Advantages:',
+            '• Easy to understand and calculate for both engineers and non-technical stakeholders.',
+            '• Less sensitive to large outlier errors because mistakes are not squared.',
+            '• Lower MAE indicates better model performance (0 is perfect).'
+          ],
+          formulas: [
+            { name: 'MAE Formula', latex: '\\text{MAE} = \\frac{1}{n}\\sum_{i=1}^{n}|y_i - \\hat{y}_i|' }
+          ]
+        },
+        {
+          title: '3. RMSE (Root Mean Square Error)',
+          content: [
+            'Definition: RMSE is the square root of the average of squared differences between actual and predicted values.',
+            'In simple words:',
+            'RMSE measures prediction errors while giving much heavier importance and penalties to large mistakes.',
+            'Formula: RMSE = √[ (1/n) * Σ (yᵢ - ŷᵢ)² ]',
+            'Concrete Example:',
+            '• An error of 2 units contributes 2² = 4 to the sum.',
+            '• A blunder of 10 units contributes 10² = 100 to the sum (25 times more impact for a 5x larger error!).',
+            'Advantages:',
+            '• Heavily penalizes large prediction errors, making it critical for medical, finance, and safety systems.',
+            '• Useful for measuring model accuracy in real-world engineering applications.',
+            '• Expressed in the exact same measurement unit as the target variable (due to the square root).',
+            '• Lower RMSE indicates better model performance (0 is perfect).'
+          ],
+          formulas: [
+            { name: 'RMSE Formula', latex: '\\text{RMSE} = \\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2}' }
+          ]
+        },
+        {
+          title: '4. R² (R-Squared / Coefficient of Determination)',
+          content: [
+            'Definition: R² is a statistical measure that tells us how well a regression model explains the variation in the actual data.',
+            'In simple words:',
+            'R² tells us what percentage of the variation in the output is successfully captured and explained by the model compared to simply guessing the average.',
+            'Formula: R² = 1 - (SS_res / SS_tot)',
+            'Where:',
+            '• SS_res = Sum of squared errors (residuals) = Σ (yᵢ - ŷᵢ)²',
+            '• SS_tot = Total sum of squares from the mean = Σ (yᵢ - ȳ)²',
+            'Concrete Example:',
+            'If R² = 0.80, it means the model explains 80% of the variation in the target variable, while 20% remains unexplained random noise.'
+          ],
+          formulas: [
+            { name: 'R-Squared Formula', latex: 'R^2 = 1 - \\frac{SS_{\\text{res}}}{SS_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}' }
           ],
           table: {
-            headers: ['x', 'Actual y', 'Predicted ŷ', 'Residual e = y - ŷ', '|e|', 'e²'],
+            headers: ['R² Value', 'Meaning & Model Quality'],
             rows: [
-              { parameter: 'Sample 1', col1: '1', col2: '3', col3: '2.8', col4: '+0.2', col5: '0.2', col6: '0.04' },
-              { parameter: 'Sample 2', col1: '2', col2: '4', col3: '4.1', col4: '-0.1', col5: '0.1', col6: '0.01' },
-              { parameter: 'Sample 3', col1: '3', col2: '5', col3: '5.4', col4: '-0.4', col5: '0.4', col6: '0.16' },
-              { parameter: 'Sample 4', col1: '4', col2: '7', col3: '6.7', col4: '+0.3', col5: '0.3', col6: '0.09' },
-              { parameter: 'Totals', col1: '∑ = 10', col2: '∑ = 19 (ȳ = 4.75)', col3: '-', col4: '∑ = 0.0', col5: '∑ = 1.0', col6: 'SS_res = 0.30' }
+              { parameter: '1.0', col1: 'Perfect prediction: Model hits every actual data point with zero error.' },
+              { parameter: '0.9', col1: 'Very good fit: 90% of data variation is captured by the model.' },
+              { parameter: '0.8', col1: 'Good fit: Reliable predictor for practical deployment.' },
+              { parameter: '0.5', col1: 'Moderate fit: Captures general direction but leaves 50% unexplained.' },
+              { parameter: '0.0', col1: 'No improvement: Performs no better than simply predicting the mean (ȳ).' },
+              { parameter: 'Negative (< 0)', col1: 'Worse than predicting the mean: Model predictions are severely inaccurate.' }
             ]
           }
         },
         {
-          title: '3. Metric Computations for Worked Example',
+          title: '5. Direct 2-Column Difference: MAE vs RMSE',
+          table: {
+            headers: ['MAE (Mean Absolute Error)', 'RMSE (Root Mean Square Error)'],
+            rows: [
+              { parameter: 'MAE calculates the simple average of absolute differences without squaring.', col1: 'RMSE squares all errors before averaging and then takes the square root.' },
+              { parameter: 'Treats all errors proportionally (an error of 10 is simply 5 times an error of 2).', col1: 'Gives disproportionately heavier penalties to large mistakes (error of 10 counts 25 times more).' },
+              { parameter: 'Robust and less sensitive to extreme outliers.', col1: 'Highly sensitive to outliers—a single huge blunder inflates the entire RMSE.' },
+              { parameter: 'Absolute value function has non-differentiable sharp corner at error = 0.', col1: 'Smooth and mathematically differentiable everywhere, making it ideal for gradient descent.' },
+              { parameter: 'Best used when all errors carry equal operational risk.', col1: 'Best used when large errors are dangerous or catastrophic (e.g., flight trajectory, medical dosage).' }
+            ]
+          }
+        },
+        {
+          title: '6. Quick Comparison: MAE vs RMSE vs R²',
+          table: {
+            headers: ['Metric Name & Type', 'What It Measures, Sensitivity & Ideal Score'],
+            rows: [
+              { parameter: 'Mean Absolute Error (MAE) [Absolute Error Metric]', col1: 'Measures average magnitude of prediction errors in original units; robust to outliers; lower is better (0 is ideal).' },
+              { parameter: 'Root Mean Square Error (RMSE) [Quadratic Error Metric]', col1: 'Measures prediction error giving heavy penalties to large mistakes; in original units; lower is better (0 is ideal).' },
+              { parameter: 'R-Squared (R²) [Goodness-of-Fit Ratio]', col1: 'Measures proportion of output variation explained by the model; dimensionless (0 to 1); higher is better (1.0 is ideal).' }
+            ]
+          }
+        },
+        {
+          title: '7. Easy Way to Remember (Fast Exam Memory Hook)',
           content: [
-            'MAE = 1.0 / 4 = 0.25',
-            'MSE = 0.30 / 4 = 0.075',
-            'RMSE = √(0.075) = 0.274',
-            'Total Sum of Squares SS_tot: (3 - 4.75)² + (4 - 4.75)² + (5 - 4.75)² + (7 - 4.75)² = 3.0625 + 0.5625 + 0.0625 + 5.0625 = 8.75',
-            'R² = 1 - (0.30 / 8.75) = 1 - 0.0343 = 0.9657 (The model explains 96.57% of total variance in y).'
+            '• MAE: How much error does the model make on average in plain numbers?',
+            '• RMSE: How much error does the model make, giving heavy punishment to large mistakes?',
+            '• R²: How well does the model explain the variation in data compared to guessing the average?'
+          ]
+        },
+        {
+          title: '8. Worked Numerical Verification (For 6-Mark Exam Answers)',
+          content: [
+            'Dataset: x = [1, 2, 3, 4], Actual y = [3, 4, 5, 7]. Regression line ŷ = 1.3x + 1.5. N = 4.',
+            '• Predicted ŷ: [2.8, 4.1, 5.4, 6.7]',
+            '• Absolute Errors |y - ŷ|: [0.2, 0.1, 0.4, 0.3] ==> Sum = 1.0 ==> MAE = 1.0 / 4 = 0.25',
+            '• Squared Errors (y - ŷ)²: [0.04, 0.01, 0.16, 0.09] ==> Sum (SS_res) = 0.30 ==> RMSE = √(0.30 / 4) = 0.274',
+            '• Total Variation from Mean ȳ (4.75): SS_tot = 8.75 ==> R² = 1 - (0.30 / 8.75) = 0.9657 (Explains 96.57% of data variance).'
           ]
         }
       ],
       summary: [
-        'MAE computes average absolute error; RMSE penalizes large errors and retains target scale.',
-        'R² = 1 - (SS_res / SS_tot) reflects proportion of variance explained by predictors.',
-        'Worked demonstration verified: MAE = 0.25, RMSE = 0.274, R² = 0.9657.'
+        'MAE measures average absolute error without penalizing outliers.',
+        'RMSE penalizes large errors heavily and is expressed in target units.',
+        'R² measures the percentage of data variance explained (0 to 1; 1 is perfect, < 0 is worse than mean).',
+        'Memory hook: MAE = average error, RMSE = punished large blunders, R² = percentage explained.'
       ],
       keyPoints: [
         'Formula derivation and units comparison',
@@ -1148,11 +1226,31 @@ export const unit3Data: Unit = {
           ]
         },
         {
-          title: '2. Illustrative Example',
+          title: '2. Direct 2-Column Difference: RMSE vs MSE',
+          table: {
+            headers: ['Root Mean Square Error (RMSE)', 'Mean Squared Error (MSE)'],
+            rows: [
+              { parameter: 'Calculates the square root of mean squared errors: RMSE = √MSE.', col1: 'Calculates the raw mean of squared errors without taking a square root: MSE = (1/n) Σ (y - ŷ)².' },
+              { parameter: 'Measured in the exact same units as the target variable (e.g., dollars, meters, kg).', col1: 'Measured in squared units (e.g., dollars², meters², kg²), which lacks physical intuition.' },
+              { parameter: 'Easy to interpret and explain directly to business clients and project managers.', col1: 'Difficult for humans to interpret because squared numbers are unnaturally large.' },
+              { parameter: 'Directly comparable against the dataset mean (ȳ) or MAE.', col1: 'Cannot be directly compared to dataset mean because units do not match.' },
+              { parameter: 'Preferred for model evaluation, executive reporting, and paper publications.', col1: 'Preferred as the mathematical loss function during gradient descent because its derivative is simpler.' }
+            ]
+          }
+        },
+        {
+          title: '3. Illustrative Concrete Example',
           content: [
-            'Errors on two predictions: e₁ = 2, e₂ = 4.',
-            'MSE = (2² + 4²) / 2 = (4 + 16) / 2 = 10 ($²). "10 squared dollars" has no intuitive meaning to clients.',
-            'RMSE = √10 = 3.16 ($). A manager immediately understands that predictions miss the true mark by roughly $3.16.'
+            'Suppose we are predicting product delivery cost ($). Errors on two test shipments: e₁ = $2, e₂ = $4.',
+            '• MSE = (2² + 4²) / 2 = (4 + 16) / 2 = 10 ($²). "10 squared dollars" makes no physical sense to a customer.',
+            '• RMSE = √10 = $3.16. A manager immediately understands that predictions miss the true delivery cost by about $3.16 on average.'
+          ]
+        },
+        {
+          title: '4. Easy Way to Remember',
+          content: [
+            '• MSE: Math-friendly loss function, but outputs weird squared units (dollars²).',
+            '• RMSE: The square root fix that converts the error back into normal human units (dollars).'
           ]
         }
       ],
