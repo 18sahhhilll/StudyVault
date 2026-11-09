@@ -164,53 +164,40 @@ export const unit3Data: Unit = {
         },
         {
           "title": "2. Exhaustive Comparison",
-          "content": [],
+          "content": [
+            "In Simple Words:",
+            "Black Box testing is like testing a car as a driver: you press the accelerator pedal and verify if the car accelerates smoothly without caring how the engine cylinders ignite.",
+            "White Box testing is like testing a car as an automotive engineer: you open the hood, inspect the spark plugs, wires, and fuel injectors with the engine running to ensure every line of code executes properly."
+          ],
           "table": {
             "headers": [
-              "Parameter",
-              "Black Box Testing",
-              "White Box Testing"
+              "Black Box Testing (Specification-Based)",
+              "White Box Testing (Structure-Based)"
             ],
             "rows": [
               {
-                "parameter": "Definition",
-                "col1": "Tests functionality without internal code knowledge.",
-                "col2": "Tests internal structures and logic with full source code visibility."
+                "parameter": "Testing Scope: Evaluates external system functionality against specified requirements without any access to internal source code.",
+                "col1": "Testing Scope: Evaluates internal code logic, branches, loops, data flows, and exception conditions with full source code visibility."
               },
               {
-                "parameter": "Alternative Names",
-                "col1": "Functional Testing, Behavioral Testing, Closed-box Testing",
-                "col2": "Structural Testing, Glass-box Testing, Clear-box Testing"
+                "parameter": "Alternative Industry Names: Commonly known as Functional Testing, Behavioral Testing, or Closed-Box Testing.",
+                "col1": "Alternative Industry Names: Commonly known as Structural Testing, Glass-Box Testing, or Clear-Box Testing."
               },
               {
-                "parameter": "Focus",
-                "col1": "Validates WHAT the system does against requirements.",
-                "col2": "Validates HOW the code executes, testing all internal paths."
+                "parameter": "Tester Profile: Conducted by dedicated QA test engineers, business analysts, and end-users without requiring programming skills.",
+                "col1": "Tester Profile: Conducted by software developers and white-box test specialists with deep programming and architecture expertise."
               },
               {
-                "parameter": "Code Access",
-                "col1": "Not required or accessible (hidden from tester).",
-                "col2": "Mandatory; tester requires complete access to source code."
+                "parameter": "Primary Testing Levels: Executed predominantly during System Testing and User Acceptance Testing (UAT).",
+                "col1": "Primary Testing Levels: Executed predominantly during Unit Testing and Module Integration Testing."
               },
               {
-                "parameter": "Programming Knowledge",
-                "col1": "Not required (conducted by QA, end-users, business analysts).",
-                "col2": "Mandatory (conducted by developers and white-box test engineers)."
+                "parameter": "Test Design Techniques: Uses Boundary Value Analysis (BVA), Equivalence Class Partitioning (ECP), Decision Tables, and State Transitions.",
+                "col1": "Test Design Techniques: Uses Statement Coverage, Branch Coverage, Condition Coverage, Path Coverage, and Cyclomatic Complexity."
               },
               {
-                "parameter": "Testing Level",
-                "col1": "Mainly System Testing, Acceptance Testing (UAT).",
-                "col2": "Mainly Unit Testing, Component Testing, Integration."
-              },
-              {
-                "parameter": "Design Techniques",
-                "col1": "BVA, Equivalence Partitioning, Decision Tables, State Transition.",
-                "col2": "Statement Coverage, Branch Coverage, Path Coverage, Loop Coverage."
-              },
-              {
-                "parameter": "Defect Types Caught",
-                "col1": "Missing requirements, usability issues, interface discrepancies.",
-                "col2": "Infinite loops, logic errors, dead code, memory leaks, pointer faults."
+                "parameter": "Types of Defects Uncovered: Detects missing requirements, usability defects, integration mismatches, and behavioral deviations.",
+                "col1": "Types of Defects Uncovered: Detects memory leaks, infinite loops, dead/unreachable code, pointer errors, and logic syntax flaws."
               }
             ]
           }
@@ -279,30 +266,25 @@ export const unit3Data: Unit = {
           "content": [],
           "table": {
             "headers": [
-              "Aspect",
-              "White Box Testing",
-              "Grey Box Testing"
+              "White Box Testing (Full Code Access)",
+              "Grey Box Testing (Partial Internal Knowledge)"
             ],
             "rows": [
               {
-                "parameter": "Source Code Knowledge",
-                "col1": "Complete and deep source code access.",
-                "col2": "Partial knowledge (DB schema, architecture diagrams, APIs)."
+                "parameter": "Internal Source Code Knowledge: Requires 100% transparent access to internal source code, control flow graphs, and class implementations.",
+                "col1": "Internal Source Code Knowledge: Operates with partial internal architectural knowledge (database schemas, data flow diagrams, API specs) without full code access."
               },
               {
-                "parameter": "Tester Profile",
-                "col1": "Developers and white-box test engineers.",
-                "col2": "Technical QA engineers and integration testers."
+                "parameter": "Primary Tester Role: Conducted primarily by core software developers and specialized white-box automation engineers.",
+                "col1": "Primary Tester Role: Conducted by technical QA engineers and integration testers bridging developers and business teams."
               },
               {
-                "parameter": "Perspective",
-                "col1": "Internal code-level execution view.",
-                "col2": "User/client workflow informed by internal architecture."
+                "parameter": "Execution Perspective: Focuses purely on low-level structural code paths, conditional logic branches, and runtime variables.",
+                "col1": "Execution Perspective: Focuses on high-level user workflows informed by underlying database tables and backend web services."
               },
               {
-                "parameter": "Core Techniques",
-                "col1": "Control flow graphs, Cyclomatic complexity, mutation testing.",
-                "col2": "Matrix testing, API validation, SQL injection tests, Orthogonal arrays."
+                "parameter": "Core Test Design Methods: Employs Statement Coverage, Branch Coverage, Path Coverage, and Mutation Testing.",
+                "col1": "Core Test Design Methods: Employs Matrix Testing, API endpoints validation, SQL injection probes, and Orthogonal Array testing."
               }
             ]
           }
@@ -480,30 +462,25 @@ export const unit3Data: Unit = {
           "content": [],
           "table": {
             "headers": [
-              "Parameter",
-              "System Testing",
-              "Acceptance Testing"
+              "System Testing (Technical Compliance)",
+              "Acceptance Testing (User & Business Acceptance)"
             ],
             "rows": [
               {
-                "parameter": "Objective",
-                "col1": "Validate compliance with Technical Requirements (SRS).",
-                "col2": "Validate compliance with Business Needs & User Acceptance Criteria."
+                "parameter": "Core Testing Objective: Validates complete end-to-end integration and compliance against the technical System Requirements Specification (SRS).",
+                "col1": "Core Testing Objective: Validates fitness for real-world business use against user expectations and business acceptance criteria."
               },
               {
-                "parameter": "Conducted By",
-                "col1": "Professional QA and Testing engineers.",
-                "col2": "Clients, end-users, product owners, business analysts."
+                "parameter": "Conducted By: Executed by dedicated professional QA and independent system testing teams.",
+                "col1": "Conducted By: Executed by clients, business analysts, product owners, and selected real-world end-users (Alpha/Beta testing)."
               },
               {
-                "parameter": "Environment",
-                "col1": "QA Staging environment simulating production.",
-                "col2": "Client environment, field deployment, or actual production."
+                "parameter": "Execution Environment: Executed on a dedicated staging/test environment configured to simulate production hardware.",
+                "col1": "Execution Environment: Executed directly in the client production or pre-production environment with real customer data."
               },
               {
-                "parameter": "Execution Timing",
-                "col1": "Performed after integration testing.",
-                "col2": "Final formal testing phase before production deployment."
+                "parameter": "Execution Lifecycle Stage: Performed immediately after Integration Testing before handing the software to the client.",
+                "col1": "Execution Lifecycle Stage: The final formal gatekeeper phase of testing prior to official commercial release or sign-off."
               }
             ]
           }
@@ -558,43 +535,32 @@ export const unit3Data: Unit = {
         },
         {
           "title": "2. Tabular Comparison",
-          "content": [],
+          "content": [
+            "In Simple Words:",
+            "Functional testing tests WHAT the system does (e.g. clicking the Pay button transfers money).",
+            "Non-functional testing tests HOW WELL the system does it (e.g. can 50,000 users click Pay at the exact same second without crashing the server?)."
+          ],
           "table": {
             "headers": [
-              "Criteria",
-              "Functional Testing",
-              "Non-Functional Testing"
+              "Functional Testing (WHAT the system does)",
+              "Non-Functional Testing (HOW WELL the system performs)"
             ],
             "rows": [
               {
-                "parameter": "Focus",
-                "col1": "WHAT the system does (features and actions).",
-                "col2": "HOW WELL the system performs (quality attributes)."
+                "parameter": "Primary Testing Focus: Evaluates functional behaviors, features, actions, inputs, and business rules (WHAT the application does).",
+                "col1": "Primary Testing Focus: Evaluates non-functional quality attributes such as performance, load, security, and scalability (HOW WELL it runs)."
               },
               {
-                "parameter": "Basis",
-                "col1": "Functional requirements, use cases, user stories.",
-                "col2": "Non-functional SLAs, performance criteria, security policies."
+                "parameter": "Input Specification Basis: Validated directly against business functional requirements, use cases, and user stories.",
+                "col1": "Input Specification Basis: Validated against Service Level Agreements (SLAs), performance criteria, and security benchmarks."
               },
               {
-                "parameter": "Execution Order",
-                "col1": "Executed first (features must work before tuning).",
-                "col2": "Executed after baseline functional stability is established."
+                "parameter": "Execution Priority: Must be executed first to ensure core business functions work before optimizing performance.",
+                "col1": "Execution Priority: Executed after functional stability is achieved to optimize user experience and system endurance."
               },
               {
-                "parameter": "Manual Testing",
-                "col1": "Very easily performed manually or with automation.",
-                "col2": "Difficult manually; requires specialized simulation tools."
-              },
-              {
-                "parameter": "Standard Tools",
-                "col1": "Selenium, Cypress, Playwright, Postman, JUnit.",
-                "col2": "Apache JMeter, LoadRunner, OWASP ZAP, Burp Suite."
-              },
-              {
-                "parameter": "Examples",
-                "col1": "Unit, Integration, System, Sanity, Regression testing.",
-                "col2": "Load, Stress, Performance, Security, Usability, Recovery testing."
+                "parameter": "Representative Examples: Unit Testing, Integration Testing, Smoke Testing, User Acceptance Testing (UAT).",
+                "col1": "Representative Examples: Load Testing, Stress Testing, Penetration Security Testing, Usability Testing, Disaster Recovery."
               }
             ]
           }
@@ -811,38 +777,32 @@ export const unit3Data: Unit = {
         },
         {
           "title": "2. Static vs Dynamic Comparison",
-          "content": [],
+          "content": [
+            "In Simple Words:",
+            "Static testing is reviewing the code or blueprints with your eyes without running the program (like proofreading a book before printing).",
+            "Dynamic testing is compiling and running the code on a computer with real inputs (like test-driving the car on the road)."
+          ],
           "table": {
             "headers": [
-              "Parameter",
-              "Static Testing",
-              "Dynamic Testing"
+              "Static Testing (Verification without Code Execution)",
+              "Dynamic Testing (Validation with Code Execution)"
             ],
             "rows": [
               {
-                "parameter": "Code Execution",
-                "col1": "Code is NOT executed.",
-                "col2": "Code is compiled and executed."
+                "parameter": "Code Execution Requirement: Source code is NOT executed; software artifacts are reviewed and analyzed statically.",
+                "col1": "Code Execution Requirement: Source code MUST be compiled and executed on a machine using live test inputs."
               },
               {
-                "parameter": "Core Nature",
-                "col1": "Verification (\"Building product right?\").",
-                "col2": "Validation (\"Building the right product?\")."
+                "parameter": "Verification vs Validation: Represents Verification ('Are we building the product right?') by evaluating documents and code syntax.",
+                "col1": "Represents Validation ('Are we building the right product?') by evaluating dynamic runtime outputs."
               },
               {
-                "parameter": "When Performed",
-                "col1": "Early in SDLC (requirements, design, code).",
-                "col2": "Later in SDLC after executable builds exist."
+                "parameter": "Defects Prevented vs Detected: Prevents defect propagation into later phases by catching flaws early in requirements and design.",
+                "col1": "Detects active runtime defects such as crashes, incorrect outputs, memory leaks, and interface bottlenecks."
               },
               {
-                "parameter": "Defects Found",
-                "col1": "Requirement flaws, syntax bugs, dead code, standards violations.",
-                "col2": "Runtime crashes, memory leaks, calculation bugs, performance bottlenecks."
-              },
-              {
-                "parameter": "Cost to Fix",
-                "col1": "Very low (preventive).",
-                "col2": "Higher (requires debugging and regression cycles)."
+                "parameter": "Techniques & Tools: Informal Reviews, Technical Walkthroughs, Formal Fagan Inspections, and Static Code Analyzers (SonarQube).",
+                "col1": "Techniques & Tools: Boundary Value Analysis, Equivalence Partitioning, Stress Testing, Unit Testing (JUnit), and Dynamic Profilers."
               }
             ]
           }
@@ -914,28 +874,32 @@ export const unit3Data: Unit = {
         },
         {
           "title": "3. Comparison: Adhoc vs Exploratory",
-          "content": [],
+          "content": [
+            "In Simple Words:",
+            "Adhoc testing is random unplanned poking around like an impatient child playing with buttons (monkey testing).",
+            "Exploratory testing is an experienced detective exploring a crime scene without a fixed script, simultaneously learning, designing, and executing intelligent tests."
+          ],
           "table": {
             "headers": [
-              "Parameter",
-              "Adhoc Testing",
-              "Exploratory Testing"
+              "Adhoc Testing (Unplanned & Random)",
+              "Exploratory Testing (Charter-Guided & Simultaneous Learning)"
             ],
             "rows": [
               {
-                "parameter": "Planning & Mission",
-                "col1": "Completely unplanned and random.",
-                "col2": "Guided by structured time-boxed Test Charters."
+                "parameter": "Planning & Structure: Completely unplanned, spontaneous, and unstructured; tester pokes around randomly without a goal.",
+                "col1": "Planning & Structure: Guided by structured time-boxed Test Charters defining specific missions, focus areas, and boundary tactics."
               },
               {
-                "parameter": "Documentation",
-                "col1": "None (no notes or scripts).",
-                "col2": "Session notes, bug logs, and findings recorded."
+                "parameter": "Documentation: Zero formal documentation or recorded test design before, during, or after testing.",
+                "col1": "Documentation: Lightweight session logs, test notes, defect captures, and coverage metrics recorded during the session."
               },
               {
-                "parameter": "Discipline",
-                "col1": "Unstructured trial-and-error.",
-                "col2": "Disciplined simultaneous learning and test design."
+                "parameter": "Tester Skill Level: Can be performed by anyone without deep domain knowledge (often called monkey testing).",
+                "col1": "Tester Skill Level: Requires highly skilled test detectives who simultaneously learn, design tests, and execute them in real time."
+              },
+              {
+                "parameter": "Reproducibility: Very low; when a defect is found, tracing the exact sequence of chaotic actions can be difficult.",
+                "col1": "Reproducibility: High; session notes and screen captures document the precise path taken to trigger the bug."
               }
             ]
           }

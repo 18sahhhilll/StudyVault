@@ -576,35 +576,25 @@ export const unit6Data: Unit = {
           "content": [],
           "table": {
             "headers": [
-              "Parameter",
-              "Flowchart",
-              "Histogram"
+              "Flowchart (Process Map & Logic Branches)",
+              "Histogram (Statistical Frequency Distribution)"
             ],
             "rows": [
               {
-                "parameter": "Primary Purpose",
-                "col1": "Maps the sequential path, actions, and decisions of a process.",
-                "col2": "Displays frequency distribution and statistical variance of data."
+                "parameter": "Primary Purpose: Visually maps the sequential flow of activities, procedural steps, and decision points in a process.",
+                "col1": "Primary Purpose: Displays the frequency distribution, central tendency, and statistical variance of continuous numerical data."
               },
               {
-                "parameter": "Data Type Handled",
-                "col1": "Qualitative process steps, tasks, logic branches, handoffs.",
-                "col2": "Quantitative numerical measurements (durations, defect counts)."
+                "parameter": "Data Handled: Qualitative, procedural, and logical pathways connecting operations.",
+                "col1": "Data Handled: Quantitative continuous numerical measurements (e.g. response times, defect counts, fix durations)."
               },
               {
-                "parameter": "Visual Structure",
-                "col1": "Connected geometric symbols (rectangles, diamonds, arrows).",
-                "col2": "Vertical adjacent bars grouped into interval bins."
+                "parameter": "Visual Geometry: Connected geometric symbols: ovals (start/end), rectangles (actions), and diamonds (decision branches).",
+                "col1": "Visual Geometry: Adjacent vertical bars where bar heights reflect the count of data points falling into interval bins."
               },
               {
-                "parameter": "Key SQA Use Case",
-                "col1": "Documenting bug lifecycle and release deployment processes.",
-                "col2": "Analyzing defect resolution time and server response latency distributions."
-              },
-              {
-                "parameter": "Mathematical Analysis",
-                "col1": "None (logical and procedural sequence).",
-                "col2": "Computes mean, median, standard deviation, and distribution curves."
+                "parameter": "SQA Application: Documenting software release pipelines, bug lifecycles, and code change approval procedures.",
+                "col1": "SQA Application: Analyzing server API response latency distributions and developer defect resolution turnaround times."
               }
             ]
           }

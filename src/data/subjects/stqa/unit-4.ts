@@ -318,43 +318,36 @@ export const unit4Data: Unit = {
         },
         {
           "title": "2. Tabular Comparison",
-          "content": [],
+          "content": [
+            "In Simple Words:",
+            "Quality Assurance (QA) is like wearing clean gloves and following hygiene procedures in a bakery kitchen to PREVENT dirty bread from being baked in the first place (Process-oriented).",
+            "Quality Control (QC) is like inspecting the baked bread loaves before selling them to DETECT and throw away burnt loaves (Product-oriented)."
+          ],
           "table": {
             "headers": [
-              "Comparison Parameter",
-              "Quality Assurance (QA)",
-              "Quality Control (QC)"
+              "Quality Assurance (QA - Process Oriented)",
+              "Quality Control (QC - Product Oriented)"
             ],
             "rows": [
               {
-                "parameter": "Orientation",
-                "col1": "Process-oriented (improving development/testing processes).",
-                "col2": "Product-oriented (verifying specific deliverables)."
+                "parameter": "Focus & Orientation: Process-oriented; establishes, manages, and improves engineering processes to PREVENT defects.",
+                "col1": "Focus & Orientation: Product-oriented; inspects, tests, and verifies the actual software deliverable to DETECT defects."
               },
               {
-                "parameter": "Approach",
-                "col1": "Proactive (prevents defects before they occur).",
-                "col2": "Reactive (detects defects in existing work products)."
+                "parameter": "Timing & Activity: Proactive strategy executed continuously throughout all development phases (audits, training, process design).",
+                "col1": "Timing & Activity: Reactive strategy executed after a build is generated to catch defects before customer release."
               },
               {
-                "parameter": "Primary Goal",
-                "col1": "Ensure the development process is capable of quality output.",
-                "col2": "Identify and fix defects in the built product."
+                "parameter": "Verification vs Validation: Represents Verification ('Are we building the software right using proper processes?').",
+                "col1": "Represents Validation ('Did we build the right software that operates correctly?')."
               },
               {
-                "parameter": "Core Techniques",
-                "col1": "Process audits, quality standards (ISO/CMMI), training, checklists.",
-                "col2": "Code reviews, inspections, unit/system testing."
+                "parameter": "Responsibility: The entire organizational team, management, process engineers, and development leads.",
+                "col1": "Responsibility: Dedicated testing teams, QA analysts, and inspection review committees."
               },
               {
-                "parameter": "Nature",
-                "col1": "Managerial and organizational framework.",
-                "col2": "Operational and execution activity."
-              },
-              {
-                "parameter": "Focus Question",
-                "col1": "\"Are we following the right processes correctly?\" (Verification)",
-                "col2": "\"Does the product meet requirements without bugs?\" (Validation)"
+                "parameter": "Representative Techniques: Quality audits, CMMI process appraisals, development plan reviews, coding standard enforcement.",
+                "col1": "Representative Techniques: Black-box testing, white-box testing, dynamic regression runs, code inspections."
               }
             ]
           }
@@ -1122,35 +1115,25 @@ export const unit4Data: Unit = {
           "content": [],
           "table": {
             "headers": [
-              "Parameter",
-              "ISO 9001",
-              "CMM / CMMI"
+              "ISO 9001 Standard (Binary Baseline Certification)",
+              "Capability Maturity Model (CMM / CMMI - 5-Level Maturity)"
             ],
             "rows": [
               {
-                "parameter": "Scope",
-                "col1": "Generic across all industries (manufacturing, services, IT).",
-                "col2": "Specifically engineered for software development and engineering."
+                "parameter": "Industry Scope: Generic international standard applicable across all industries (manufacturing, construction, healthcare, software).",
+                "col1": "Industry Scope: Specialized engineering process model designed specifically for software engineering and systems development."
               },
               {
-                "parameter": "Evaluation Type",
-                "col1": "Binary certification (Certified vs Non-Certified).",
-                "col2": "Graduated rating across 5 maturity levels (Level 1 to Level 5)."
+                "parameter": "Certification Grading: Binary Pass/Fail certification (an organization is either ISO 9001 certified or not).",
+                "col1": "Certification Grading: Graduated 5-level maturity rating (Level 1 Initial up to Level 5 Optimizing)."
               },
               {
-                "parameter": "Philosophy",
-                "col1": "Establishes a minimum acceptable baseline for quality.",
-                "col2": "Provides a continuous roadmap for progressive engineering excellence."
+                "parameter": "Underlying Philosophy: Establishes a formal baseline for quality management processes to ensure consistent output.",
+                "col1": "Underlying Philosophy: Outlines a progressive evolutionary roadmap for continuous process improvement and statistical control."
               },
               {
-                "parameter": "Assessment",
-                "col1": "Audited strictly by external accredited registrars.",
-                "col2": "Appraised by certified lead appraisers or self-assessment."
-              },
-              {
-                "parameter": "Audit Frequency",
-                "col1": "Recertification and surveillance audits every 3 years.",
-                "col2": "Organizational baseline capability rating."
+                "parameter": "Assessment Mechanism: Audited strictly by independent third-party accredited registrars every 3 years.",
+                "col1": "Assessment Mechanism: Appraised by certified Lead Appraisers using Standard CMMI Appraisal Method for Process Improvement (SCAMPI)."
               }
             ]
           }

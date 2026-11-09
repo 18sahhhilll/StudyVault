@@ -126,48 +126,40 @@ export const unit5Data: Unit = {
         },
         {
           "title": "2. Tabular Comparison",
-          "content": [],
+          "content": [
+            "In Simple Words:",
+            "Manual testing is like washing dishes by hand one by one with a sponge: it takes time and you get tired, but it is easy to start immediately.",
+            "Automation testing is like buying and programming a dishwasher: it takes effort and money to set up, but once running, it cleans hundreds of dishes automatically every single day without getting tired."
+          ],
           "table": {
             "headers": [
-              "Parameter",
-              "Manual Testing",
-              "Automation Testing"
+              "Manual Testing (Human-Driven)",
+              "Automation Testing (Tool & Script-Driven)"
             ],
             "rows": [
               {
-                "parameter": "Definition",
-                "col1": "Human tester executes test cases step-by-step manually.",
-                "col2": "Software tools execute scripted test cases automatically."
+                "parameter": "Execution Execution Mechanism: Human tester manually executes test cases step-by-step through the user interface.",
+                "col1": "Execution Execution Mechanism: Software automation frameworks (Selenium, Cypress) execute scripted test code automatically."
               },
               {
-                "parameter": "Execution Speed",
-                "col1": "Slow, sequential, subject to human operator fatigue.",
-                "col2": "Extremely fast, parallel execution across distributed nodes."
+                "parameter": "Execution Speed & Throughput: Slower sequential execution; vulnerable to human fatigue, oversight, and cognitive slowdown.",
+                "col1": "Execution Speed & Throughput: Ultra-fast parallel execution across multiple browsers, virtual machines, and cloud containers."
               },
               {
-                "parameter": "Initial Investment",
-                "col1": "Low initial cost (no expensive automation tools needed).",
-                "col2": "High initial investment in tool licenses, framework design, and training."
+                "parameter": "Initial Investment: Low initial cost; requires zero investment in automation licenses, frameworks, or engineers.",
+                "col1": "Initial Investment: High upfront cost in hiring automation specialists, designing frameworks, and configuring CI/CD pipelines."
               },
               {
-                "parameter": "Long-Term ROI",
-                "col1": "Linear cost increase as regression suites grow.",
-                "col2": "Exponential ROI over time due to reusable scripts in CI/CD."
+                "parameter": "Long-Term Return on Investment (ROI): Linear cost increase as regression suites expand with new application features.",
+                "col1": "Long-Term Return on Investment (ROI): High exponential ROI over time because tests can be rerun thousands of times for free."
               },
               {
-                "parameter": "Exploratory & Adhoc",
-                "col1": "Ideal for exploratory, usability, and adhoc testing.",
-                "col2": "Incapable of exploratory testing (tests only what is scripted)."
+                "parameter": "Exploratory & Usability Suitability: The gold standard for exploratory testing, visual aesthetics, user empathy, and adhoc testing.",
+                "col1": "Exploratory & Usability Suitability: Ineffective for visual usability and exploratory testing; tests strictly what was programmed."
               },
               {
-                "parameter": "Reliability & Accuracy",
-                "col1": "Prone to human error, oversight, and cognitive fatigue.",
-                "col2": "Deterministic, precise, and atom-level consistent."
-              },
-              {
-                "parameter": "Regression Testing",
-                "col1": "Tedious, time-consuming, and impractical for large systems.",
-                "col2": "Ideal for continuous regression testing on every build."
+                "parameter": "Continuous Regression in CI/CD: Tedious, slow, and impossible to execute on every commit during rapid agile release cycles.",
+                "col1": "Continuous Regression in CI/CD: Perfectly integrated into CI/CD pipelines, automatically running full regression tests on every push."
               }
             ]
           }
