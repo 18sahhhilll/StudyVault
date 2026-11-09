@@ -262,6 +262,21 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                             FAQ
                           </span>
                         )}
+                        {q.occurrenceCount > 1 ? (
+                          <span
+                            className="text-[9px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-1 py-0.5 rounded border border-amber-200/50"
+                            title={`Appeared ${q.occurrenceCount} times in university papers`}
+                          >
+                            {q.occurrenceCount}x
+                          </span>
+                        ) : q.occurrenceCount === 1 ? (
+                          <span
+                            className="text-[9px] text-academic-500 bg-academic-100 dark:bg-academic-800 px-1 py-0.5 rounded"
+                            title="Appeared once in university papers"
+                          >
+                            1x
+                          </span>
+                        ) : null}
                         {bookmarked && <Bookmark className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />}
                       </div>
                       <h4 className={`text-xs font-medium line-clamp-2 leading-snug ${active ? 'text-blue-950 dark:text-blue-100 font-semibold' : 'text-academic-700 dark:text-academic-300'}`}>
@@ -308,25 +323,33 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
             />
           </div>
 
-          <div className="flex items-center gap-1 text-[11px] overflow-x-auto pb-1">
-            {[
-              { id: 'all', label: 'All' },
-              { id: 'faq', label: 'FAQs' },
-              { id: 'pending', label: 'Pending' },
-              { id: 'bookmarked', label: 'Saved' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setFilterMode(tab.id as any)}
-                className={`px-2 py-0.5 rounded text-[10px] font-medium transition-colors ${
-                  filterMode === tab.id
-                    ? 'bg-academic-900 dark:bg-white text-white dark:text-academic-900 font-semibold'
-                    : 'text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 bg-academic-100/50 dark:bg-academic-800/50'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          <div className="flex items-center justify-between gap-1 text-[11px] overflow-x-auto pb-1">
+            <div className="flex items-center gap-1">
+              {[
+                { id: 'all', label: 'All' },
+                { id: 'faq', label: 'FAQs' },
+                { id: 'pending', label: 'Pending' },
+                { id: 'bookmarked', label: 'Saved' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setFilterMode(tab.id as any)}
+                  className={`px-2 py-0.5 rounded text-[10px] font-medium transition-colors ${
+                    filterMode === tab.id
+                      ? 'bg-academic-900 dark:bg-white text-white dark:text-academic-900 font-semibold'
+                      : 'text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 bg-academic-100/50 dark:bg-academic-800/50'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <span
+              className="text-[9px] font-mono font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 px-1.5 py-0.5 rounded shrink-0 border border-rose-200/40"
+              title="Questions arranged in descending order of frequency (Most occurring university PYQs first)"
+            >
+              Frequency ↓
+            </span>
           </div>
         </div>
 
@@ -384,6 +407,21 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                         FAQ
                       </span>
                     )}
+                    {q.occurrenceCount > 1 ? (
+                      <span
+                        className="text-[9px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-1 py-0.5 rounded border border-amber-200/50"
+                        title={`Appeared ${q.occurrenceCount} times in university papers`}
+                      >
+                        {q.occurrenceCount}x
+                      </span>
+                    ) : q.occurrenceCount === 1 ? (
+                      <span
+                        className="text-[9px] text-academic-500 bg-academic-100 dark:bg-academic-800 px-1 py-0.5 rounded"
+                        title="Appeared once in university papers"
+                      >
+                        1x
+                      </span>
+                    ) : null}
                     {bookmarked && (
                       <Bookmark className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
                     )}
