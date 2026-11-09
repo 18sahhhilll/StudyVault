@@ -1663,39 +1663,21 @@ export const daaUnit4Data: Unit = {
           ]
         },
         {
-          title: '4. Summary Comparison Table',
+          title: '4. Summary Comparison Table (2-Column Format)',
           table: {
-            headers: ['Parameter', 'FIFO B&B', 'LIFO B&B', 'Least-Cost (LC) B&B'],
+            headers: ['Branch and Bound Search Strategy', 'Data Structure, E-Node Selection, Memory & Pruning Efficiency'],
             rows: [
               {
-                parameter: 'Data Structure',
-                col1: 'Queue (FIFO)',
-                col2: 'Stack (LIFO)',
-                col3: 'Priority Queue (Min-Heap)'
+                parameter: 'FIFO Branch and Bound (Queue / BFS)',
+                col1: 'Uses a First-In-First-Out Queue; explores nodes level-by-level in Breadth-First Search order; selects the oldest live node as next E-Node; high memory O(b^d); blind search with large node expansions.'
               },
               {
-                parameter: 'Search Strategy',
-                col1: 'Breadth-First Search (BFS)',
-                col2: 'D-Search (Depth Search)',
-                col3: 'Heuristic Best-First Search'
+                parameter: 'LIFO Branch and Bound (Stack / D-Search)',
+                col1: 'Uses a Last-In-First-Out Stack; dives down branches in D-search order; selects the most recently generated node as next E-Node; low memory O(n); risks wandering deep into sub-optimal branches.'
               },
               {
-                parameter: 'Next E-Node Selection',
-                col1: 'First inserted live node in queue',
-                col2: 'Most recently inserted node on stack',
-                col3: 'Live node with minimum cost c^(x)'
-              },
-              {
-                parameter: 'Memory Usage',
-                col1: 'High (proportional to branch factor^d)',
-                col2: 'Low (proportional to tree height O(n))',
-                col3: 'Moderate to High (stores live fringe in heap)'
-              },
-              {
-                parameter: 'Node Expansions',
-                col1: 'Large (explores all nodes at depth < d)',
-                col2: 'Variable (can dive down bad branches)',
-                col3: 'Minimal (guided directly by heuristic)'
+                parameter: 'Least-Cost Branch and Bound (LCBB / Min-Heap)',
+                col1: 'Uses a Priority Queue (Min-Heap); guided by heuristic cost estimate c^(x) = g(x) + h(x); always expands the node with lowest estimated cost; expands minimal total nodes directly toward the optimal goal.'
               }
             ]
           }

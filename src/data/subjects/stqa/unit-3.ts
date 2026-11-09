@@ -354,44 +354,37 @@ export const unit3Data: Unit = {
           ]
         },
         {
-          "title": "3. Comparison of Integration Strategies",
+          "title": "3. Direct 2-Column Comparison: Top-Down vs Bottom-Up Integration Testing",
           "content": [],
           "table": {
             "headers": [
-              "Approach",
-              "Direction",
-              "Test Harness Needed",
-              "Key Advantage",
-              "Key Disadvantage"
+              "Top-Down Integration Testing (Uses Stubs)",
+              "Bottom-Up Integration Testing (Uses Drivers)"
             ],
             "rows": [
               {
-                "parameter": "Big Bang",
-                "col1": "All at once",
-                "col2": "None",
-                "col3": "Simple for tiny applications.",
-                "col4": "Debugging is chaotic; defect localization is very difficult."
+                "parameter": "Integration begins from the top of the control hierarchy (main module) and progressively moves downward toward child modules.",
+                "col1": "Integration begins from lowest-level atomic utility modules at the bottom and progressively moves upward toward parent control modules."
               },
               {
-                "parameter": "Top-Down",
-                "col1": "Top to bottom",
-                "col2": "Stubs (dummy called functions)",
-                "col3": "Early architectural verification and demo prototype.",
-                "col4": "Algorithmic modules tested late; stub overhead is high."
+                "parameter": "Requires Stubs (dummy called routines) to simulate missing lower-level child functions that are not yet developed.",
+                "col1": "Requires Drivers (dummy calling test harnesses) to simulate missing higher-level parent functions to invoke child modules."
               },
               {
-                "parameter": "Bottom-Up",
-                "col1": "Bottom to top",
-                "col2": "Drivers (dummy calling harnesses)",
-                "col3": "Core utility routines and calculations verified early.",
-                "col4": "System-level UI and architectural flaws caught late."
+                "parameter": "Major architectural, decision-logic, and system control flow flaws are discovered very early in the testing cycle.",
+                "col1": "Low-level data-processing routines, calculation algorithms, and database/hardware drivers are verified and hardened first."
               },
               {
-                "parameter": "Sandwich",
-                "col1": "Both toward middle layer",
-                "col2": "Both Stubs and Drivers",
-                "col3": "Parallel testing; balances architectural and utility focus.",
-                "col4": "Higher coordination complexity."
+                "parameter": "An early working prototype or skeleton system can be demonstrated to clients and project stakeholders.",
+                "col1": "A working system demo cannot be presented until the final top-level control module is integrated at the very end."
+              },
+              {
+                "parameter": "Writing stubs can be complex and labor-intensive because stubs must simulate realistic return data structures.",
+                "col1": "Writing test drivers is relatively simple because drivers merely invoke functions with test input parameters."
+              },
+              {
+                "parameter": "Best suited when high-level user flows and overall architectural design carry the primary operational risk.",
+                "col1": "Best suited for computational systems, object-oriented libraries, and embedded device controller modules."
               }
             ]
           }

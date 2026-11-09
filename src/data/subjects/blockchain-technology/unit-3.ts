@@ -720,18 +720,34 @@ export const blockchainUnit3Data: Unit = {
       definition: 'Consensus algorithms are mathematical protocols designed to achieve agreement on distributed ledgers, categorized based on computational proof, stake ownership, randomized delay, or voting rounds.',
       sections: [
         {
-          title: '1. Major Consensus Algorithms Catalog',
+          title: '1. Major Consensus Algorithms Catalog (2-Column Format)',
           table: {
-            headers: ['Algorithm', 'Underlying Working Idea', 'Flagship Example'],
+            headers: ['Consensus Algorithm Name', 'Underlying Working Principle & Flagship Example'],
             rows: [
-              { parameter: 'Proof of Work (PoW)', col1: 'Solve computationally intensive cryptographic puzzle', col2: 'Bitcoin, Litecoin' },
-              { parameter: 'Proof of Stake (PoS)', col1: 'Lock cryptocurrency as collateral; lottery proportional to stake', col2: 'Ethereum, Cardano, Solana' },
-              { parameter: 'Delegated Proof of Stake (DPoS)', col1: 'Coin holders vote for a small committee of trusted block producers', col2: 'EOS, Tron, Steem' },
-              { parameter: 'Proof of Elapsed Time (PoET)', col1: 'Random wait timers executed inside trusted hardware (Intel SGX)', col2: 'Hyperledger Sawtooth' },
-              { parameter: 'Proof of Activity (PoA)', col1: 'Hybrid: PoW miners mine empty header, PoS validators sign it', col2: 'Decred' },
-              { parameter: 'Proof of Burn (PoB)', col1: 'Permanently destroy coins to an unspendable address to earn mining rights', col2: 'Slimcoin, Factom' },
-              { parameter: 'Proof of Authority (PoA)', col1: 'Pre-vetted, identified institutions serve as block validators', col2: 'VeChain, Binance Smart Chain' },
-              { parameter: 'Practical Byzantine Fault Tolerance (PBFT)', col1: 'Multi-round message voting (Pre-prepare, Prepare, Commit)', col2: 'Zilliqa, Hyperledger Fabric' }
+              {
+                parameter: 'Proof of Work (PoW)',
+                col1: 'Miners compete to solve a computationally demanding cryptographic puzzle (SHA-256); first to find a valid nonce broadcasts the block and earns coinbase reward; flagship examples: Bitcoin, Litecoin, Monero.'
+              },
+              {
+                parameter: 'Proof of Stake (PoS)',
+                col1: 'Validators deposit and lock native cryptocurrency as financial stake collateral; pseudo-random selection proportional to locked stake selects block proposers; slashing penalizes dishonest behavior; flagship examples: Ethereum, Cardano, Solana.'
+              },
+              {
+                parameter: 'Delegated Proof of Stake (DPoS)',
+                col1: 'Coin holders vote with their tokens to elect a small council of trusted delegates (e.g., 21 block producers) who validate blocks in round-robin turns; achieves high throughput; flagship examples: EOS, Tron.'
+              },
+              {
+                parameter: 'Proof of Elapsed Time (PoET)',
+                col1: 'Each node requests a cryptographically guaranteed random wait timer inside a Trusted Execution Environment (Intel SGX); the node whose sleep timer expires first wakes up and publishes the block; flagship example: Hyperledger Sawtooth.'
+              },
+              {
+                parameter: 'Proof of Authority (PoA)',
+                col1: 'Pre-vetted, legally identified and trusted institutions serve as designated block validators; eliminates mining waste and achieves high speed for enterprise chains; flagship examples: VeChain, Binance Smart Chain.'
+              },
+              {
+                parameter: 'Practical Byzantine Fault Tolerance (PBFT)',
+                col1: 'Nodes exchange 3 rounds of voting messages (Pre-prepare, Prepare, Commit); reaches deterministic finality and tolerates up to f Byzantine nodes out of 3f+1 total nodes; flagship examples: Hyperledger Fabric, Zilliqa.'
+              }
             ]
           }
         },

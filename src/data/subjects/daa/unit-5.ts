@@ -179,27 +179,21 @@ export const daaUnit5Data: Unit = {
           ]
         },
         {
-          title: '2. The Three Methods of Amortized Analysis',
+          title: '2. The Three Methods of Amortized Analysis (2-Column Format)',
           table: {
-            headers: ['Method', 'Core Concept', 'Mathematical Formulation', 'Characteristics'],
+            headers: ['Amortized Analysis Method & Formula', 'Core Working Principle, Credit/Energy Mechanism & Operation Cost'],
             rows: [
               {
-                parameter: '1. Aggregate Analysis',
-                col1: 'Determine an upper bound T(n) on the total cost of any sequence of n operations, then divide by n.',
-                col2: 'Amortized Cost = T(n) / n',
-                col3: 'All operation types are assigned the exact same uniform amortized cost, regardless of operation type.'
+                parameter: '1. Aggregate Method: Amortized Cost = T(n) / n',
+                col1: 'Finds an upper bound T(n) on the total cost of any arbitrary sequence of n operations, then divides by n; assigns the exact same uniform average cost to all operation types regardless of individual operation complexity.'
               },
               {
-                parameter: '2. Accounting Method',
-                col1: 'Assign differing amortized charges (c^_i) to operations. Cheap operations pay more than actual cost; excess is stored as credit.',
-                col2: 'Sum_{i=1}^n c^_i >= Sum_{i=1}^n c_i (Total credit >= 0)',
-                col3: 'Credit is stored on specific individual data structure objects to prepay for their future expensive handling.'
+                parameter: '2. Accounting (Banker) Method: ∑ c^_i ≥ ∑ c_i',
+                col1: 'Assigns customized amortized charges c^_i to different operations; cheap operations are overcharged and the surplus is deposited as credit coins on specific data items to prepay for their future expensive processing.'
               },
               {
-                parameter: '3. Potential Method',
-                col1: 'Abstracts accumulated prepaid credit into overall system potential energy Φ(D) associated with the entire data structure.',
-                col2: 'c^_i = c_i + Φ(D_i) - Φ(D_{i-1})',
-                col3: 'Most flexible and mathematically rigorous method; uses telescoping sum to bound total cost.'
+                parameter: '3. Potential (Physicist) Method: c^_i = c_i + Φ(D_i) - Φ(D_{i-1})',
+                col1: 'Abstracts accumulated credit into the overall potential energy Φ(D) of the entire data structure; uses a telescoping sum to mathematically guarantee that the total amortized cost upper bounds the true total execution cost.'
               }
             ]
           }
