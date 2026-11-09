@@ -330,17 +330,17 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                   </div>
 
                   {/* Expand/Collapse All Buttons */}
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
                     <button
                       onClick={expandAll}
-                      className="px-3 py-1 rounded-lg text-xs font-medium bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 hover:bg-blue-100 border border-blue-200/50 transition-colors flex items-center gap-1.5"
+                      className="flex-1 sm:flex-none justify-center px-3 py-1.5 sm:py-1 rounded-lg text-xs font-medium bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 hover:bg-blue-100 border border-blue-200/50 transition-colors flex items-center gap-1.5"
                     >
                       <Eye className="w-3.5 h-3.5" />
-                      Expand All Solutions
+                      Expand All
                     </button>
                     <button
                       onClick={collapseAll}
-                      className="px-3 py-1 rounded-lg text-xs font-medium bg-academic-100 dark:bg-academic-800 text-academic-600 dark:text-academic-400 hover:bg-academic-200 transition-colors flex items-center gap-1.5"
+                      className="flex-1 sm:flex-none justify-center px-3 py-1.5 sm:py-1 rounded-lg text-xs font-medium bg-academic-100 dark:bg-academic-800 text-academic-600 dark:text-academic-400 hover:bg-academic-200 transition-colors flex items-center gap-1.5"
                     >
                       <EyeOff className="w-3.5 h-3.5" />
                       Collapse All
@@ -364,13 +364,13 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                         className="rounded-xl border border-academic-200 dark:border-academic-800 bg-white dark:bg-academic-950/40 shadow-xs overflow-hidden"
                       >
                         {/* Section Header with Pair Title & Unit Indicator */}
-                        <div className="px-4 py-3 bg-academic-50 dark:bg-academic-900 border-b border-academic-200 dark:border-academic-800 flex flex-wrap items-center justify-between gap-3">
-                          <div className="flex items-center gap-2.5">
-                            <span className="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center">
+                        <div className="px-3.5 sm:px-4 py-3 bg-academic-50 dark:bg-academic-900 border-b border-academic-200 dark:border-academic-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <span className="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
                               U{pair.unitNumber}
                             </span>
-                            <div>
-                              <h3 className="text-sm font-bold text-academic-900 dark:text-academic-100">
+                            <div className="min-w-0">
+                              <h3 className="text-xs sm:text-sm font-bold text-academic-900 dark:text-academic-100 truncate">
                                 {pair.pairTitle}
                               </h3>
                               <p className="text-[11px] text-academic-500">
@@ -380,7 +380,7 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                           </div>
 
                           {/* Main vs OR Toggle Switch */}
-                          <div className="flex items-center p-1 rounded-lg bg-academic-200/80 dark:bg-academic-800 text-xs font-semibold">
+                          <div className="flex items-center justify-center p-1 rounded-lg bg-academic-200/80 dark:bg-academic-800 text-xs font-semibold w-full sm:w-auto">
                             <button
                               onClick={() =>
                                 setPairActiveChoice((prev) => ({
@@ -388,15 +388,15 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                                   [pair.pairNumber]: 'main',
                                 }))
                               }
-                              className={`px-3 py-1 rounded-md transition-all ${
+                              className={`flex-1 sm:flex-none px-3 py-1.5 sm:py-1 rounded-md transition-all text-center ${
                                 activeChoice === 'main'
-                                  ? 'bg-white dark:bg-academic-900 text-blue-600 dark:text-blue-400 shadow-xs'
+                                  ? 'bg-white dark:bg-academic-900 text-blue-600 dark:text-blue-400 shadow-xs font-bold'
                                   : 'text-academic-600 dark:text-academic-400 hover:text-academic-900'
                               }`}
                             >
                               {pair.mainQuestion.questionNumber} ({pair.mainQuestion.totalMarks}M)
                             </button>
-                            <span className="px-1.5 text-academic-400 font-bold text-[10px]">OR</span>
+                            <span className="px-2 text-academic-400 font-bold text-[10px]">OR</span>
                             <button
                               onClick={() =>
                                 setPairActiveChoice((prev) => ({
@@ -404,9 +404,9 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                                   [pair.pairNumber]: 'or',
                                 }))
                               }
-                              className={`px-3 py-1 rounded-md transition-all ${
+                              className={`flex-1 sm:flex-none px-3 py-1.5 sm:py-1 rounded-md transition-all text-center ${
                                 activeChoice === 'or'
-                                  ? 'bg-white dark:bg-academic-900 text-blue-600 dark:text-blue-400 shadow-xs'
+                                  ? 'bg-white dark:bg-academic-900 text-blue-600 dark:text-blue-400 shadow-xs font-bold'
                                   : 'text-academic-600 dark:text-academic-400 hover:text-academic-900'
                               }`}
                             >
@@ -416,7 +416,7 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                         </div>
 
                         {/* Questions List for Active Choice */}
-                        <div className="p-4 sm:p-5 space-y-5 divide-y divide-academic-100 dark:divide-academic-800/80">
+                        <div className="p-3.5 sm:p-5 space-y-5 divide-y divide-academic-100 dark:divide-academic-800/80">
                           {activeQuestionData.subQuestions.map((subQ, idx) => {
                             const subKey = `${pair.pairNumber}-${subQ.subNumber}`;
                             const isExpanded = !!expandedSolutions[subKey];
@@ -433,17 +433,17 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                               >
                                 {/* Question Header Row */}
                                 <div className="space-y-3">
-                                  <div className="flex items-start justify-between gap-3">
-                                    <div className="flex items-start gap-2.5">
+                                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                                    <div className="flex items-start gap-2.5 flex-1 min-w-0">
                                       <span className="font-mono font-extrabold text-sm text-blue-600 dark:text-blue-400 shrink-0 mt-0.5">
                                         {subQ.subNumber}
                                       </span>
-                                      <div className="space-y-1">
-                                        <p className="text-sm sm:text-base font-semibold text-academic-900 dark:text-academic-100 leading-snug whitespace-pre-line">
+                                      <div className="space-y-1.5 flex-1 min-w-0">
+                                        <p className="text-sm sm:text-base font-semibold text-academic-900 dark:text-academic-100 leading-relaxed whitespace-pre-line break-words">
                                           {subQ.text}
                                         </p>
                                         <div className="flex flex-wrap items-center gap-2 pt-1">
-                                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200/60">
+                                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border border-amber-200/60 whitespace-nowrap">
                                             [{subQ.marks} Marks]
                                           </span>
                                           <span className="text-[11px] text-academic-500">
@@ -456,10 +456,10 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                                     {/* Expand Solution Button */}
                                     <button
                                       onClick={() => toggleSolution(subKey)}
-                                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold shrink-0 transition-all duration-150 flex items-center gap-1.5 ${
+                                      className={`w-full sm:w-auto px-4 py-2 sm:py-1.5 rounded-lg text-xs font-semibold shrink-0 transition-all duration-150 flex items-center justify-center sm:justify-start gap-1.5 ${
                                         isExpanded
                                           ? 'bg-blue-600 text-white shadow-xs'
-                                          : 'bg-academic-100 dark:bg-academic-800 text-academic-700 dark:text-academic-300 hover:bg-academic-200 dark:hover:bg-academic-700'
+                                          : 'bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/60 hover:bg-blue-100 dark:hover:bg-blue-900/80'
                                       }`}
                                     >
                                       <span>{isExpanded ? 'Hide Solution' : 'View Solved Solution'}</span>
@@ -473,13 +473,13 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
 
                                   {/* Solution Content Area (Expanded) */}
                                   {isExpanded && (
-                                    <div className="mt-4 p-4 sm:p-6 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/20 dark:bg-blue-950/20 space-y-6 transition-all duration-200">
+                                    <div className="mt-4 p-3.5 sm:p-6 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/20 dark:bg-blue-950/20 space-y-6 transition-all duration-200">
                                       {fullQuestion ? (
                                         <>
                                           {/* Solution Banner */}
-                                          <div className="flex items-center justify-between pb-3 border-b border-blue-200/60 dark:border-blue-900/60">
+                                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-blue-200/60 dark:border-blue-900/60">
                                             <div className="flex items-center gap-2">
-                                              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                                              <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
                                               <span className="text-xs font-bold text-academic-800 dark:text-academic-200 uppercase tracking-wider">
                                                 Complete Examination Answer
                                               </span>
@@ -492,7 +492,7 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                                                   subQ.mappedQuestionId
                                                 )
                                               }
-                                              className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+                                              className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1 self-start sm:self-auto"
                                             >
                                               <span>Open in Unit Reader</span>
                                               <ExternalLink className="w-3 h-3" />
