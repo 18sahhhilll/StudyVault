@@ -174,17 +174,30 @@ export const blockchainUnit4Data: Unit = {
             'Intermediary Disintermediation: Transactions settle directly peer-to-peer without commercial bank clearance delays or wire commissions.',
             'Public Verifiability: Transaction data is cryptographically signed, hashed, and visible on public blockchain explorers.'
           ]
-        }
-      ],
-      tables: [
+        },
         {
-          headers: ['Dimension', 'Advantages of Cryptocurrencies', 'Disadvantages & Inherent Risks'],
-          rows: [
-            { parameter: 'Governance', col1: 'Decentralized; immune to arbitrary political debasement and censorship', col2: 'Lack of investor regulation, statutory protections, and deposit insurance' },
-            { parameter: 'Transactions', col1: 'High speed, borderless 24/7/365 settlement with minimal intermediary fees', col2: 'Volatile network fees (gas spikes) during peak transaction congestion' },
-            { parameter: 'Security', col1: 'High cryptographic security; impossible to counterfeit or duplicate', col2: 'Permanent key loss risk: losing private keys results in irreversible loss of assets' },
-            { parameter: 'Market Stability', col1: 'Deflationary hedge, financial inclusion, programmable smart economy', col2: 'Extreme price volatility, speculative market bubbles, and exchange hacks' }
-          ]
+          title: '3. Advantages vs Disadvantages of Cryptocurrencies (2-Column Format)',
+          table: {
+            headers: ['Advantages of Cryptocurrencies', 'Disadvantages & Inherent Risks'],
+            rows: [
+              {
+                parameter: 'Decentralized Sovereignty: Immune to government hyperinflation, political asset freezing, and arbitrary banking censorship.',
+                col1: 'Extreme Price Volatility: Rapid speculative price fluctuations make stable daily commerce and budgeting challenging.'
+              },
+              {
+                parameter: 'Frictionless Global Remittance: Borderless cross-border transfers settle in minutes 24/7 with minimal transaction fees.',
+                col1: 'Irreversible Transactions: Mistakes, typo addresses, and stolen funds cannot be refunded or reversed by any support desk.'
+              },
+              {
+                parameter: 'Universal Financial Inclusion: Anyone with an internet connection can create a wallet without banking history or credit approval.',
+                col1: 'Digital Literacy Barrier: Requires understanding private keys, seed phrases, gas fees, and avoiding phishing scams.'
+              },
+              {
+                parameter: 'Cryptographic Transparency: Transactions are immutably auditable on public ledgers, eliminating corporate accounting fraud.',
+                col1: 'Regulatory Uncertainty: Vulnerable to sudden government crackdowns, tax policy shifts, and banking bans.'
+              }
+            ]
+          }
         }
       ],
       summary: [
@@ -237,20 +250,6 @@ export const blockchainUnit4Data: Unit = {
           caption: 'Classification hierarchy separating Native Layer-1 Coins, Smart Contract Tokens, Pegged Stablecoins, and Centralized CBDCs.',
           type: 'svg-interactive',
           svgType: 'coin-vs-token'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Cryptocurrency', 'Ticker', 'Launch', 'Architecture / Consensus', 'Core Role & Distinguishing Features'],
-          rows: [
-            { parameter: 'Bitcoin', col1: 'BTC', col2: '2009', col3: 'PoW (SHA-256)', col4: 'Pioneering digital gold; store of value; 21 million hard supply cap' },
-            { parameter: 'Ethereum', col1: 'ETH', col2: '2015', col3: 'PoS (Validator Staking)', col4: 'Turing-complete world computer; platform for smart contracts and DApps' },
-            { parameter: 'Tether', col1: 'USDT', col2: '2014', col3: 'Fiat-Collateralized Token', col4: 'Leading stablecoin pegged 1:1 to USD; essential trading liquidity provider' },
-            { parameter: 'Ripple', col1: 'XRP', col2: '2012', col3: 'Ripple Protocol Consensus', col4: 'Enterprise real-time settlement protocol connecting international banking institutions' },
-            { parameter: 'Binance Coin', col1: 'BNB', col2: '2017', col3: 'PoSA (BNB Smart Chain)', col4: 'Exchange utility token powering trading fee discounts and BNB Smart Chain gas' },
-            { parameter: 'Solana', col1: 'SOL', col2: '2020', col3: 'Proof of History + PoS', col4: 'High-throughput web-scale blockchain supporting 65,000+ TPS with sub-second finality' },
-            { parameter: 'Zcash', col1: 'ZEC', col2: '2016', col3: 'Equihash PoW + zk-SNARKs', col4: 'Privacy-centric cryptocurrency offering mathematically shielded private transactions' }
-          ]
         }
       ],
       summary: [
@@ -351,6 +350,34 @@ export const blockchainUnit4Data: Unit = {
             'Total Privacy: Shields the sender, receiver, and transaction amount simultaneously.',
             'Practical Application: Formed the foundation for Zcash (ZEC), launched in 2016 with transparent and shielded transaction modes.'
           ]
+        },
+        {
+          title: '3. Difference Between Zerocoin and Zerocash Protocols (2-Column Format)',
+          table: {
+            headers: ['Zerocoin Protocol (2013)', 'Zerocash Protocol (2014)'],
+            rows: [
+              {
+                parameter: 'Architecture: Built as a proposed privacy extension / add-on protocol intended for the Bitcoin network.',
+                col1: 'Architecture: Engineered as a standalone, ground-up independent cryptocurrency protocol (launched as Zcash / ZEC).'
+              },
+              {
+                parameter: 'Cryptographic Primitive: Uses RSA Accumulators and basic zero-knowledge proofs to mint and spend anonymous coins.',
+                col1: 'Cryptographic Primitive: Uses zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge).'
+              },
+              {
+                parameter: 'Privacy Scope: Breaks the transaction link between sender and receiver, but transaction amounts remain public.',
+                col1: 'Privacy Scope: Complete total shield: hides sender address, receiver address, transaction amount, and account balances.'
+              },
+              {
+                parameter: 'Supported Amounts: Restricted strictly to fixed denominations (e.g. minting exactly 1 BTC or 10 BTC batches).',
+                col1: 'Supported Amounts: Supports arbitrary custom fractional transaction amounts (e.g. sending 0.00342 ZEC).'
+              },
+              {
+                parameter: 'Proof Size & Verification: Heavy proof size (~45 KB per proof) resulting in slow cryptographic verification times.',
+                col1: 'Proof Size & Verification: Ultra-compact proof size (~288 bytes) enabling lightning-fast millisecond verification.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -360,19 +387,6 @@ export const blockchainUnit4Data: Unit = {
           caption: 'Visual contrast between Zerocoin\'s burn-and-mint link breaker and Zerocash\'s zero-knowledge shielded transactions hiding sender, receiver, and value.',
           type: 'svg-interactive',
           svgType: 'zerocash-proof'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Evaluation Parameter', 'Zerocoin (2013)', 'Zerocash (2014)'],
-          rows: [
-            { parameter: 'Architecture', col1: 'Extension / add-on protocol designed for Bitcoin', col2: 'Standalone independent cryptocurrency protocol (Zcash)' },
-            { parameter: 'Cryptographic Primitive', col1: 'RSA Accumulators + Zero-Knowledge Proofs', col2: 'zk-SNARKs (Succinct Zero-Knowledge Proofs)' },
-            { parameter: 'Information Obfuscated', col1: 'Breaks transaction link between sender and receiver only', col2: 'Hides sender address, receiver address, and transaction amount' },
-            { parameter: 'Transacted Amounts', col1: 'Fixed denominations only (e.g. 1 BTC, 10 BTC)', col2: 'Arbitrary custom transaction amounts supported' },
-            { parameter: 'Proof Size & Speed', col1: 'Large proof size (~45 KB), slow verification time', col2: 'Ultra-compact proof (~288 bytes), millisecond verification' },
-            { parameter: 'Setup Ceremony', col1: 'Standard cryptographic assumptions', col2: 'Requires initial trusted cryptographic parameter setup ceremony' }
-          ]
         }
       ],
       summary: [
@@ -419,18 +433,34 @@ export const blockchainUnit4Data: Unit = {
             'Fiat Stablecoins: Tether (USDT) and USD Coin (USDC) issued on Ethereum and other chains to represent digitized US dollars.',
             'Governance Tokens: Uniswap (UNI) granting protocol voting rights over decentralized exchange parameters.'
           ]
-        }
-      ],
-      tables: [
+        },
         {
-          headers: ['Evaluation Parameter', 'Cryptocurrency Coin', 'Cryptographic Token'],
-          rows: [
-            { parameter: 'Underlying Blockchain', col1: 'Operates on its own native, independent Layer-1 blockchain', col2: 'Constructed on top of an existing host blockchain platform' },
-            { parameter: 'Creation Mechanism', col1: 'Minted via protocol consensus rules (PoW mining or PoS staking)', col2: 'Generated and distributed through smart contract deployment' },
-            { parameter: 'Core Utility', col1: 'Primary medium of exchange, store of value, and network gas fees', col2: 'DApp service access, protocol governance, and asset tokenization' },
-            { parameter: 'Infrastructure Overhead', col1: 'High: requires bootstrapping nodes, validators, and security', col2: 'Low: leverages host chain infrastructure, tooling, and wallets' },
-            { parameter: 'Examples', col1: 'Bitcoin (BTC), Ether (ETH), Solana (SOL), Litecoin (LTC)', col2: 'Uniswap (UNI), Chainlink (LINK), Tether (USDT), Shiba Inu (SHIB)' }
-          ]
+          title: '3. Difference Between Cryptocurrency Coin and Cryptographic Token (2-Column Format)',
+          table: {
+            headers: ['Cryptocurrency Coin (Native Layer-1)', 'Cryptographic Token (Layer-2 / Smart Contract)'],
+            rows: [
+              {
+                parameter: 'Blockchain Layer: Operates on its own native, independent Layer-1 blockchain ledger (e.g. Bitcoin, Ethereum, Solana).',
+                col1: 'Blockchain Layer: Created on top of an existing host blockchain using smart contract token standards (e.g. ERC-20, BEP-20).'
+              },
+              {
+                parameter: 'Creation Mechanism: Minted at protocol level via core consensus rules (Proof of Work block rewards or Proof of Stake validation).',
+                col1: 'Creation Mechanism: Created and distributed programmatically by deploying a smart contract (e.g. a 50-line Solidity contract).'
+              },
+              {
+                parameter: 'Gas & Transaction Fees: Used directly as the fundamental native currency to pay gas/network fees across the entire blockchain.',
+                col1: 'Gas & Transaction Fees: Cannot be used alone to pay gas; transactions still require the host chain\'s native coin (e.g. ETH for USDT).'
+              },
+              {
+                parameter: 'Infrastructure & Security: Requires bootstrapping an independent peer-to-peer network, node infrastructure, and consensus security.',
+                col1: 'Infrastructure & Security: Inherits the full established security, decentralization, and validator power of the underlying host chain.'
+              },
+              {
+                parameter: 'Benchmark Examples: Bitcoin (BTC), Ether (ETH), Solana (SOL), Cardano (ADA), Litecoin (LTC).',
+                col1: 'Benchmark Examples: Tether (USDT on Ethereum), Uniswap (UNI), Chainlink (LINK), Basic Attention Token (BAT).'
+              }
+            ]
+          }
         }
       ],
       summary: [
@@ -594,6 +624,38 @@ export const blockchainUnit4Data: Unit = {
             'Custodial Model: Operates like a conventional bank. User assets are pooled into internal company hot/cold wallets, with customer balances maintained on centralized internal database ledgers. Authenticated via standard email, password, and SMS/app 2FA.',
             'Non-Custodial Model: True decentralized self-custody. The user generates and controls a 12-to-24 word BIP-39 mnemonic seed phrase locally on their device, interacting directly with the blockchain.'
           ]
+        },
+        {
+          title: '3. Difference Between Custodial and Non-Custodial Wallets (2-Column Format)',
+          table: {
+            headers: ['Custodial Wallets (Third-Party Controlled)', 'Non-Custodial Wallets (Self-Custody)'],
+            rows: [
+              {
+                parameter: 'Private Key Ownership: Private keys are held and managed by a centralized third-party custodian (e.g. Binance, Coinbase).',
+                col1: 'Private Key Ownership: The user exclusively holds and controls their own private keys and 12/24-word secret seed phrase.'
+              },
+              {
+                parameter: 'Asset Control & Sovereignty: Limited sovereignty; the custodian can freeze balances, enforce withdrawal limits, or halt trading.',
+                col1: 'Absolute Financial Sovereignty: Uncensored control; no third party, bank, or government can freeze funds or block transactions.'
+              },
+              {
+                parameter: 'Account Password Recovery: Easy recovery through traditional web login: password reset links, email verification, and KYC helpdesk.',
+                col1: 'Zero Recovery Helpdesk: Recoverable strictly through the seed phrase; if you lose the seed phrase, funds are permanently lost forever.'
+              },
+              {
+                parameter: 'Security Threat Profile: Vulnerable to centralized exchange hacks, rogue employee theft, and corporate bankruptcy (e.g. FTX collapse).',
+                col1: 'Security Threat Profile: Immune to corporate insolvency; vulnerable only to individual user mistakes (phishing links, malware, stolen seed).'
+              },
+              {
+                parameter: 'Regulatory KYC & Privacy: Strict mandatory identity submission: government passport, national ID card, and face scans.',
+                col1: 'Zero KYC Anonymity: Pseudonymous; anyone can generate a brand-new wallet in seconds without submitting personal identification.'
+              },
+              {
+                parameter: 'Web3 & DApp Connectivity: Restricted; cannot directly interact with decentralized DeFi protocols, DEXs, or NFT marketplaces.',
+                col1: 'Native Web3 Integration: Seamless one-click connection to DeFi protocols, decentralized exchanges (Uniswap), and NFT platforms.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -603,20 +665,6 @@ export const blockchainUnit4Data: Unit = {
           caption: 'Visual contrast between centralized custodial exchange databases and decentralized non-custodial self-sovereign key control.',
           type: 'svg-interactive',
           svgType: 'custodial-vs-noncustodial'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Evaluation Parameter', 'Custodial Wallets', 'Non-Custodial (Self-Custody) Wallets'],
-          rows: [
-            { parameter: 'Key Custody & Ownership', col1: 'Third-party exchange / company controls private keys', col2: 'User holds private keys / 12-word seed phrase exclusively' },
-            { parameter: 'Asset Control & Sovereignty', col1: 'Limited; exchange can freeze, restrict, or delay withdrawals', col2: 'Absolute sovereignty; transactions cannot be blocked by third parties' },
-            { parameter: 'Account Recovery', col1: 'Simple; password reset via email support and KYC identity verification', col2: 'Only possible via the 12-word seed phrase; no support desk can recover lost keys' },
-            { parameter: 'Vulnerability Profile', col1: 'Centralized server hacks, internal fraud, corporate insolvency', col2: 'Individual user errors: phishing, malware, lost mnemonic seed backup' },
-            { parameter: 'KYC & Privacy', col1: 'Strict government ID verification (KYC/AML) required', col2: 'Pseudonymous; no identity paperwork needed to create an address' },
-            { parameter: 'Web3 & DApp Access', col1: 'Restricted; cannot directly interact with decentralized smart contracts', col2: 'Full native interaction with Web3, Uniswap, OpenSea, and DApps' },
-            { parameter: 'Prominent Examples', col1: 'Coinbase Exchange, Binance.com, Kraken, WazirX accounts', col2: 'MetaMask, Trust Wallet, Ledger Nano, Trezor, Phantom' }
-          ]
         }
       ],
       summary: [
@@ -654,19 +702,38 @@ export const blockchainUnit4Data: Unit = {
             'Hot Wallets: Functions like a physical cash wallet in your pocket. Used for daily spending and active DApp interactions. Because the private key resides on an internet-connected device, it is continuously exposed to remote attack vectors (trojans, phishing, clipboard hijackers).',
             'Cold Wallets: Functions like an underground bank vault. Private keys are generated and stored offline on dedicated hardware chips or physical paper. Transactions are signed offline, making remote internet hacks technically impossible.'
           ]
-        }
-      ],
-      tables: [
+        },
         {
-          headers: ['Evaluation Parameter', 'Hot Wallet Storage', 'Cold Wallet Storage'],
-          rows: [
-            { parameter: 'Internet Connectivity', col1: 'Continuously or frequently connected to the internet', col2: 'Completely isolated offline (air-gapped or dedicated hardware)' },
-            { parameter: 'Cyber Hack Exposure', col1: 'Vulnerable to remote malware, phishing sites, and keyloggers', col2: 'Immune to remote online hacks; requires physical device theft' },
-            { parameter: 'Transaction Usability', col1: 'Instantaneous; 1-click execution for daily trading and DeFi', col2: 'Requires physical device connection, PIN input, and button confirmation' },
-            { parameter: 'Cost to Acquire', col1: 'Almost universally free to download and use', col2: 'Hardware wallets cost $60 - $200; paper wallets require secure printing' },
-            { parameter: 'Appropriate Asset Scale', col1: 'Small balances for daily trading, gas fees, and active DApps', col2: 'Substantial long-term savings, life savings, institutional reserves' },
-            { parameter: 'Representative Examples', col1: 'MetaMask browser extension, Trust Wallet app, Exodus desktop', col2: 'Ledger Nano S/X, Trezor Model T, Keystone, Paper printout' }
-          ]
+          title: '3. Difference Between Hot Wallet and Cold Wallet Storage (2-Column Format)',
+          table: {
+            headers: ['Hot Wallet Storage (Online / Connected)', 'Cold Wallet Storage (Offline / Air-Gapped)'],
+            rows: [
+              {
+                parameter: 'Internet Connectivity: Continuously or frequently connected to the internet on smartphones, browsers, or PCs.',
+                col1: 'Internet Connectivity: Completely offline and air-gapped; private keys never touch an internet-connected operating system.'
+              },
+              {
+                parameter: 'Cyber Attack Exposure: Vulnerable to remote online threats: malware, browser keyloggers, clipboard hijacking, and phishing sites.',
+                col1: 'Cyber Attack Exposure: Physically immune to remote internet hacks; private keys are isolated inside a secure cryptographic element.'
+              },
+              {
+                parameter: 'Transaction Convenience: Instantaneous 1-click execution; ideal for fast day-trading, decentralized finance (DeFi), and minting NFTs.',
+                col1: 'Transaction Convenience: Slower signing process requiring physical USB/Bluetooth connection, manual PIN entry, and physical button presses.'
+              },
+              {
+                parameter: 'Acquisition Cost: 100% free software: freely downloadable as mobile apps, desktop software, or browser extensions.',
+                col1: 'Acquisition Cost: Requires purchasing dedicated hardware devices costing \$60 to \$250 (e.g. Ledger, Trezor).'
+              },
+              {
+                parameter: 'Recommended Asset Scale: Best used as a digital "pocket wallet" for small spending balances and active gas fees.',
+                col1: 'Recommended Asset Scale: Best used as a digital "bank vault" for substantial long-term wealth, life savings, and treasury reserves.'
+              },
+              {
+                parameter: 'Benchmark Examples: MetaMask browser extension, Phantom wallet, Trust Wallet mobile app, Exodus desktop.',
+                col1: 'Benchmark Examples: Ledger Nano S/X, Trezor Model One/Safe 3, Keystone 3 Pro, secure paper wallets.'
+              }
+            ]
+          }
         }
       ],
       summary: [
@@ -821,22 +888,38 @@ export const blockchainUnit4Data: Unit = {
             'Regulatory Stance: Coinbase prioritized alignment with US regulators (SEC, FinCEN) from inception. Binance originated with a globally distributed model (Cayman Islands, UAE) to achieve massive international liquidity.',
             'Native Token Architecture: Binance created Binance Coin (BNB), which powers transaction fee discounts and functions as the gas token of the BNB Chain. Coinbase does not have an exchange token, maintaining direct public stock equity (NASDAQ: COIN).'
           ]
-        }
-      ],
-      tables: [
+        },
         {
-          headers: ['Evaluation Parameter', 'Coinbase', 'Binance'],
-          rows: [
-            { parameter: 'Founding Year & Leadership', col1: '2012 by Brian Armstrong and Fred Ehrsam', col2: '2017 by Changpeng Zhao (CZ)' },
-            { parameter: 'Corporate Base & Listing', col1: 'United States (publicly listed on NASDAQ: COIN)', col2: 'Registered in Cayman Islands / UAE (global footprint)' },
-            { parameter: 'Global Trading Volume', col1: 'Second largest globally; leading US institutional volume', col2: 'Dominant global leader; represents 40-50% of global trading volume' },
-            { parameter: 'Primary Target Audience', col1: 'Beginners, retail investors, and US institutional corporations', col2: 'Active traders, crypto natives, derivative traders, global markets' },
-            { parameter: 'Asset Variety', col1: '~250+ strictly vetted digital currencies', col2: '350+ to 600+ diverse altcoins, futures pairs, and staking pools' },
-            { parameter: 'Fee Structure', col1: 'Higher retail spread + fee (0.5% - 1.5%); lower on Advanced Trade', col2: 'Industry-leading low trading fees (0.1% or lower with BNB discount)' },
-            { parameter: 'Native Ecosystem Token', col1: 'None (no native exchange utility token)', col2: 'Binance Coin (BNB) — powers fee discounts and BNB Smart Chain' },
-            { parameter: 'Proprietary Wallet', col1: 'Coinbase Wallet (multi-chain self-custody extension & app)', col2: 'Binance Web3 Wallet / Binance Chain Wallet' },
-            { parameter: 'Regulatory Standing', col1: 'High compliance; licensed money transmitter in all US states', col2: 'Historic regulatory actions (2021 UK FCA warnings, 2023 US DOJ settlement)' }
-          ]
+          title: '3. Difference Between Coinbase and Binance Exchanges (2-Column Format)',
+          table: {
+            headers: ['Coinbase Exchange', 'Binance Exchange'],
+            rows: [
+              {
+                parameter: 'Founding & Corporate Base: Founded in 2012 by Brian Armstrong in the US; publicly traded on NASDAQ (COIN).',
+                col1: 'Founding & Corporate Base: Founded in 2017 by Changpeng Zhao (CZ) in China/Japan, now operating with global decentralized entities.'
+              },
+              {
+                parameter: 'Target Audience: Tailored for retail beginners and risk-averse institutional corporations seeking clean, licensed interfaces.',
+                col1: 'Target Audience: Tailored for aggressive day-traders, crypto-native degens, and global derivative/futures traders.'
+              },
+              {
+                parameter: 'Fee Structure: Higher retail fees (~0.5% to 1.5% spread fees on basic app; lower tiered maker/taker on Advanced Trade).',
+                col1: 'Fee Structure: Industry-leading low trading fees (0.1% baseline spot fees, further discounted by 25% when paying with BNB).'
+              },
+              {
+                parameter: 'Asset Selection & Variety: Conservative catalog of ~250+ strictly vetted digital currencies complying with US SEC regulations.',
+                col1: 'Asset Selection & Variety: Massive global catalog of 500+ cryptocurrencies, futures contracts, leveraged tokens, and new listings.'
+              },
+              {
+                parameter: 'Native Ecosystem Utility Token: No native exchange coin; relies purely on traditional corporate equity on NASDAQ.',
+                col1: 'Native Ecosystem Utility Token: BNB (Binance Coin), powering fee discounts and functioning as the gas coin of BNB Smart Chain.'
+              },
+              {
+                parameter: 'Regulatory Compliance: Heavy regulatory alignment; holds FinCEN money transmitter licenses in all 50 US states and NY BitLicense.',
+                col1: 'Regulatory Compliance: Faced severe historic regulatory scrutiny (2023 US DOJ \$4.3B plea settlement and global licensing overhauls).'
+              }
+            ]
+          }
         }
       ],
       summary: [
@@ -874,20 +957,34 @@ export const blockchainUnit4Data: Unit = {
             'MetaMask: Built by Consensys as the pioneering Ethereum-first wallet. It is the de facto benchmark tool for Ethereum and EVM smart contract developers, deeply integrated into developer suites like Remix, Hardhat, and Truffle.',
             'Coinbase Wallet: Engineered by Coinbase as a multi-chain consumer-facing gateway. Beyond Ethereum and EVM chains, it natively supports non-EVM blockchains such as Bitcoin, Solana, and Dogecoin within a unified interface.'
           ]
-        }
-      ],
-      tables: [
+        },
         {
-          headers: ['Evaluation Parameter', 'MetaMask', 'Coinbase Wallet'],
-          rows: [
-            { parameter: 'Parent Organization', col1: 'Consensys (founded 2014; launched 2016)', col2: 'Coinbase Global, Inc. (launched 2018)' },
-            { parameter: 'Source Code Model', col1: 'Historically open-source (now source-available / commercial restrictions)', col2: 'Proprietary / closed-source' },
-            { parameter: 'Underlying Chain Support', col1: 'Exclusively Ethereum and EVM-compatible chains (Polygon, BSC, Arbitrum)', col2: 'Broad multi-chain: Bitcoin (BTC), Solana (SOL), plus all EVM chains' },
-            { parameter: 'Key Custody & Backup', col1: 'Self-custody via 12-word BIP-39 mnemonic seed phrase only', col2: 'Self-custody via 12-word seed phrase + optional encrypted cloud backup' },
-            { parameter: 'Developer Ecosystem', col1: 'Universal industry standard for smart contract sandboxes (Remix, Truffle)', col2: 'Consumer oriented; growing developer SDK (Coinbase Wallet SDK)' },
-            { parameter: 'Exchange Integration', col1: 'Neutral; connects multiple third-party DEX aggregators and ramps', col2: 'Direct 1-click fiat transfer integration with Coinbase exchange accounts' },
-            { parameter: 'Platform Availability', col1: 'Browser extension (Chrome, Firefox, Brave) and iOS/Android app', col2: 'Standalone mobile app (iOS/Android) and Chrome desktop extension' }
-          ]
+          title: '3. Difference Between MetaMask and Coinbase Wallet (2-Column Format)',
+          table: {
+            headers: ['MetaMask Wallet', 'Coinbase Wallet'],
+            rows: [
+              {
+                parameter: 'Developer & Company: Developed by Consensys (founded by Ethereum co-founder Joseph Lubin in 2016).',
+                col1: 'Developer & Company: Developed by Coinbase Global, Inc. as their standalone self-custody flagship wallet.'
+              },
+              {
+                parameter: 'Blockchain Ecosystem Support: Focused on Ethereum and EVM-compatible Layer-2 networks (Arbitrum, Optimism, Polygon, BSC).',
+                col1: 'Blockchain Ecosystem Support: Native multi-chain out of the box: supports Bitcoin (BTC), Solana (SOL), and all EVM networks.'
+              },
+              {
+                parameter: 'Seed Phrase Backup: Standard BIP-39 12-word mnemonic seed phrase; user must write it down manually on paper.',
+                col1: 'Seed Phrase Backup: Offers standard 12-word seed phrase plus optional encrypted cloud backup (Google Drive / iCloud).'
+              },
+              {
+                parameter: 'Smart Contract Developer Adoption: The undisputed universal gold standard for Web3 developers testing on Remix IDE and Hardhat.',
+                col1: 'Smart Contract Developer Adoption: Focused primarily on end-consumer UX with direct Coinbase exchange fiat onboarding.'
+              },
+              {
+                parameter: 'Exchange Alignment: Vendor-neutral; uses third-party decentralized swap aggregators without pushing a specific centralized exchange.',
+                col1: 'Exchange Alignment: Direct deep-linking with Coinbase exchange accounts, enabling seamless instant fiat-to-crypto purchasing.'
+              }
+            ]
+          }
         }
       ],
       summary: [

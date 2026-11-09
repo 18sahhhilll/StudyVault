@@ -195,17 +195,38 @@ export const blockchainUnit3Data: Unit = {
       sections: [
         {
           title: '1. Comparative Analysis Matrix',
+          content: [
+            'In Simple Words:',
+            'Bitcoin is like a secure digital gold vault with a calculator that only adds and subtracts account balances.',
+            'Ethereum is like a global decentralized supercomputer where anyone can run programs, games, banking apps, and digital organizations without any central server.'
+          ],
           table: {
-            headers: ['Comparative Feature', 'Bitcoin (BTC)', 'Ethereum (ETH)'],
+            headers: ['Bitcoin (BTC - Digital Gold)', 'Ethereum (ETH - World Computer)'],
             rows: [
-              { parameter: 'Primary Purpose', col1: 'Digital cash, store of value ("Digital Gold")', col2: 'Programmable platform for smart contracts & DApps' },
-              { parameter: 'Creator & Launch Year', col1: 'Satoshi Nakamoto (2009)', col2: 'Vitalik Buterin (2013 proposal, 2015 launch)' },
-              { parameter: 'Native Coin', col1: 'BTC (Bitcoin)', col2: 'ETH (Ether)' },
-              { parameter: 'Consensus Mechanism', col1: 'Proof of Work (PoW via SHA-256)', col2: 'Proof of Stake (PoS, formerly PoW)' },
-              { parameter: 'Average Block Interval', col1: '~10 minutes', col2: '~12 seconds' },
-              { parameter: 'Total Coin Supply', col1: 'Strictly capped at 21,000,000 BTC', col2: 'No hard cap (dynamic burn via EIP-1559)' },
-              { parameter: 'Smart Contract Capability', col1: 'Very limited (non-Turing complete Script)', col2: 'Full Turing-complete support (Solidity, Vyper)' },
-              { parameter: 'Virtual Machine', col1: 'None (script engine)', col2: 'Ethereum Virtual Machine (EVM)' }
+              {
+                parameter: 'Primary Purpose: Built strictly as peer-to-peer electronic cash and a decentralized store of value ("Digital Gold").',
+                col1: 'Primary Purpose: Built as a generalized global programmable state machine executing smart contracts and DApps.'
+              },
+              {
+                parameter: 'Creator & Launch: Invented anonymously by Satoshi Nakamoto in 2008 and launched in January 2009.',
+                col1: 'Creator & Launch: Proposed by Vitalik Buterin in late 2013 and officially launched in July 2015.'
+              },
+              {
+                parameter: 'Native Coin: BTC (Bitcoin), divided into 100,000,000 Satoshis, strictly capped at 21,000,000 total coins.',
+                col1: 'Native Coin: ETH (Ether), divided into 10¹⁸ Wei, with no hard cap (dynamic burn via EIP-1559 fee burning).'
+              },
+              {
+                parameter: 'Consensus Mechanism: Relies permanently on Proof of Work (PoW via SHA-256) secured by computational hashing power.',
+                col1: 'Consensus Mechanism: Uses Proof of Stake (PoS via Beacon Chain) secured by 32 ETH financial validator stakes.'
+              },
+              {
+                parameter: 'Block Generation Interval: Averages ~10 minutes per block with automatic difficulty adjustment every 2,016 blocks.',
+                col1: 'Block Generation Interval: Averages ~12 seconds per block divided into 32-slot epochs.'
+              },
+              {
+                parameter: 'Programmability: Uses a simple, restrictive, non-Turing complete Script language without loops to avoid infinite execution.',
+                col1: 'Programmability: Runs a Turing-complete Ethereum Virtual Machine (EVM) supporting loops and rich logic via Solidity.'
+              }
             ]
           }
         }
@@ -594,15 +615,38 @@ export const blockchainUnit3Data: Unit = {
       sections: [
         {
           title: '1. Comparative Analysis Matrix',
+          content: [
+            'In Simple Words:',
+            'A permissionless blockchain is like the open public internet: anyone can join, read, write, or run a server anonymously without asking for permission.',
+            'A permissioned blockchain is like a secure corporate intranet: only verified employees with registered ID badges can log in and see the company records.'
+          ],
           table: {
-            headers: ['Parameter', 'Permissionless (Public)', 'Permissioned (Private / Consortium)'],
+            headers: ['Permissionless Blockchain (Public)', 'Permissioned Blockchain (Private / Consortium)'],
             rows: [
-              { parameter: 'Participation Access', col1: 'Open to anyone globally without approval', col2: 'Restricted; requires vetting and digital certificate' },
-              { parameter: 'User Identity', col1: 'Pseudonymous (wallet addresses)', col2: 'Known, authenticated (KYC / X.509 certs)' },
-              { parameter: 'Throughput & Speed', col1: 'Slow (due to massive global consensus)', col2: 'Fast (trusted validator set, minimal latency)' },
-              { parameter: 'Cryptocurrency Token', col1: 'Mandatory (rewards miners and deters spam)', col2: 'Not required (incentives governed by contracts)' },
-              { parameter: 'Consensus Algorithms', col1: 'PoW, PoS, DPoS (Proof of Burn)', col2: 'Raft, PBFT, IBFT, PoET' },
-              { parameter: 'Governance', col1: 'Community consensus / Hard & soft forks', col2: 'Defined by corporate board / consortium contract' }
+              {
+                parameter: 'Access & Participation: Completely open to anyone worldwide; anyone can download a node, read data, and submit transactions.',
+                col1: 'Access & Participation: Strictly restricted to vetted participants authorized by an administrator using digital certificates (X.509).'
+              },
+              {
+                parameter: 'Participant Identity: Pseudonymous; participants are known only by alphanumeric cryptographic wallet addresses.',
+                col1: 'Participant Identity: Known and strictly authenticated; every organization and user passes regulatory identity KYC verification.'
+              },
+              {
+                parameter: 'Transaction Speed & Throughput: Slower throughput (~7 to 30 TPS) because consensus must coordinate across thousands of global nodes.',
+                col1: 'Transaction Speed & Throughput: High performance (1,000 to 20,000+ TPS) because validation runs among a compact set of trusted nodes.'
+              },
+              {
+                parameter: 'Cryptocurrency Token Requirement: Mandatory native coin (BTC, ETH) to reward miners/validators and prevent spam.',
+                col1: 'Cryptocurrency Token Requirement: Completely optional; operation costs and validator obligations are governed by legal agreements.'
+              },
+              {
+                parameter: 'Consensus Algorithms: Requires heavy trustless consensus like Proof of Work (PoW) or Proof of Stake (PoS) to fight Sybil attacks.',
+                col1: 'Consensus Algorithms: Uses fast crash-fault or BFT algorithms like Raft, PBFT, IBFT, or Istanbul BFT.'
+              },
+              {
+                parameter: 'Governance & Control: Decentralized community governance; upgrades require broad social consensus or hard/soft forks.',
+                col1: 'Governance & Control: Centralized or consortium governance managed by designated board members and legal enterprise agreements.'
+              }
             ]
           }
         }
@@ -817,14 +861,32 @@ export const blockchainUnit3Data: Unit = {
         {
           title: '2. Proof of Work vs Proof of Stake Comparison Table',
           table: {
-            headers: ['Comparative Dimension', 'Proof of Work (PoW)', 'Proof of Stake (PoS)'],
+            headers: ['Proof of Work (PoW)', 'Proof of Stake (PoS)'],
             rows: [
-              { parameter: 'Block Creator', col1: 'Miner (competes with computing hardware)', col2: 'Validator (locks up cryptocurrency collateral)' },
-              { parameter: 'Resource Required', col1: 'High electricity & specialized ASIC hardware', col2: 'Native cryptocurrency tokens' },
-              { parameter: 'Energy Consumption', col1: 'Enormous (~99.9% higher than PoS)', col2: 'Minimal (eco-friendly, 99.95% reduction)' },
-              { parameter: 'Attacker Deterrence', col1: 'Must control > 50% of global mining hashrate', col2: 'Must own > 33% to 51% of total staked token supply' },
-              { parameter: 'Penalties for Bad Behavior', col1: 'Wasted electricity cost', col2: 'Direct financial confiscation (Slashing of stake)' },
-              { parameter: 'Transaction Speed', col1: 'Slower block intervals (e.g. 10 minutes)', col2: 'Faster block slots (e.g. 12 seconds)' }
+              {
+                parameter: 'Block Creator: Chosen through a computational race among Miners competing with specialized hardware (ASICs/GPUs).',
+                col1: 'Block Creator: Chosen pseudorandomly among Validators who lock up cryptocurrency collateral as a financial security bond.'
+              },
+              {
+                parameter: 'Resource Consumed: Consumes massive amounts of electrical power and hardware depreciation to calculate hashes.',
+                col1: 'Resource Consumed: Consumes zero extra electricity; requires holding and locking native cryptocurrency coins in a staking contract.'
+              },
+              {
+                parameter: 'Environmental Impact: Massive carbon footprint; consumes as much electricity annually as entire European countries.',
+                col1: 'Environmental Impact: Ultra-green and eco-friendly; cuts blockchain energy consumption by over 99.95%.'
+              },
+              {
+                parameter: 'Attacker Deterrence: An attacker must purchase and control over 51% of global physical computing hashrate (51% Hash Attack).',
+                col1: 'Attacker Deterrence: An attacker must acquire and risk over 51% of all staked tokens in the world (Economic 51% Attack).'
+              },
+              {
+                parameter: 'Malicious Penalty: If a miner acts dishonestly, they only forfeit their spent electrical energy.',
+                col1: 'Malicious Penalty: Direct financial destruction; protocol Slashing immediately burns and confiscates the attacker\'s staked tokens.'
+              },
+              {
+                parameter: 'Transaction Latency: Slower block intervals (e.g. 10 minutes in Bitcoin) to prevent excessive stale/orphan blocks.',
+                col1: 'Transaction Latency: Ultra-fast block intervals (e.g. 12-second slots in Ethereum) with deterministic finality epochs.'
+              }
             ]
           }
         }

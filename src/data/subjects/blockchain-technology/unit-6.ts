@@ -80,27 +80,6 @@ export const blockchainUnit6Data: Unit = {
           ]
         }
       ],
-      tables: [
-        {
-          headers: ['Domain / Sector', 'Operational Mechanism & Value Delivered'],
-          rows: [
-            { parameter: 'Money Transfers', col1: 'Instantaneous international remittances cutting 3-5 day bank settlement cycles and eliminating wire fees' },
-            { parameter: 'Capital Markets', col1: 'Real-time clearing and atomic settlement of securities, bonds, and tokenized real-world assets' },
-            { parameter: 'Peer-to-Peer Lending', col1: 'Smart contracts automate collateralized lending, interest accrual, and programmatic liquidation' },
-            { parameter: 'Parametric Insurance', col1: 'Smart contracts trigger automated instant claim payouts upon verified weather or flight delay oracle data' },
-            { parameter: 'Real Estate & Land', col1: 'Verifies property provenance, eliminates fraudulent double-selling of deeds, and streamlines escrow' },
-            { parameter: 'Self-Sovereign Identity', col1: 'Eliminates centralized databases; citizens control access to credentials via zero-knowledge proofs' },
-            { parameter: 'Cryptographic Voting', col1: 'Guarantees one-person-one-vote, prevents double voting, and enables transparent cryptographic auditing' },
-            { parameter: 'Government Benefits', col1: 'Direct benefit transfers without bureaucratic leakage, intermediary skimming, or phantom beneficiaries' },
-            { parameter: 'Healthcare EHR', col1: 'Interoperable, patient-controlled medical records sharing between hospitals, diagnostic labs, and insurers' },
-            { parameter: 'Intellectual Property', col1: 'Verifiable provenance for digital art, software licenses, and automated ongoing artist royalties' },
-            { parameter: 'Supply Chain Tracking', col1: 'Real-time tracing of goods from raw material origins through logistics to end-consumer retail' },
-            { parameter: 'Secure IoT Networks', col1: 'Decentralized device authentication and automated machine-to-machine micropayment settlements' },
-            { parameter: 'P2P Energy Trading', col1: 'Decentralized microgrids enabling solar-equipped households to trade energy directly with neighbors' },
-            { parameter: 'Decentralized Storage', col1: 'Tamper-proof, chunked, and encrypted file hosting without relying on single cloud monopolies' }
-          ]
-        }
-      ],
       summary: [
         'Blockchain has expanded from cryptocurrency cash into a universal multi-party trust infrastructure.',
         'Core sectors include remittances, supply chains, healthcare records, digital identity, and voting.',
@@ -265,21 +244,6 @@ export const blockchainUnit6Data: Unit = {
           ]
         }
       ],
-      tables: [
-        {
-          headers: ['Public Sector Domain', 'Application Mechanism & Civic Value'],
-          rows: [
-            { parameter: 'Land Titling & Deeds', col1: 'Eliminates fraudulent land sales and property boundary disputes by recording deeds as immutable on-chain assets' },
-            { parameter: 'Civil Registries', col1: 'Digital issuance of birth, marriage, and death certificates without manual visits to government offices' },
-            { parameter: 'Public Procurement', col1: 'Publicly visible smart contracts automate tender bidding, eliminating bid rigging and corrupt contractor selection' },
-            { parameter: 'Welfare Direct Transfers', col1: 'Smart contracts automate student scholarships, pensions, and farmer subsidies directly to digital wallets' },
-            { parameter: 'Automated Tax Compliance', col1: 'Real-time VAT and payroll tax reconciliation that matches invoices automatically and prevents tax evasion' },
-            { parameter: 'Smart City Infrastructure', col1: 'Peer-to-peer municipal coordination of water distribution, smart street lighting, waste disposal, and EV charging' },
-            { parameter: 'Academic Credentials', col1: 'Universities publish cryptographic diploma hashes on-chain, stopping fake degree scandals' },
-            { parameter: 'Vaccination Records', col1: 'Tamper-proof vaccination credentials enabling secure public health tracking and international travel' }
-          ]
-        }
-      ],
       summary: [
         'Blockchain transforms government from paper-heavy bureaucracies into transparent digital services.',
         'Core applications include land registration, civil records, public procurement, welfare, and taxation.',
@@ -363,16 +327,6 @@ export const blockchainUnit6Data: Unit = {
           content: [
             'Paper-Heavy Inefficiencies: Global trade finance still relies on physical couriers sending paper Bills of Lading and Letters of Credit between buyers, sellers, carriers, and banks, requiring up to 20 days to settle.',
             'Business Benefits: Operational simplification, automated regulatory compliance, real-time liquidity, and point-to-point atomic settlement.'
-          ]
-        }
-      ],
-      tables: [
-        {
-          headers: ['Solution / Consortium', 'Participating Institutions', 'Architectural Function & Impact'],
-          rows: [
-            { parameter: 'we.trade Platform', col1: 'Consortium of 12+ European banks (HSBC, Deutsche Bank, Santander) built on Hyperledger Fabric', col2: 'Digitizes entire trade finance lifecycle. Smart contracts automatically release payments when logistics carriers log customs clearance, reducing trade settlement from 10 days to under 1 day.' },
-            { parameter: 'ANZ Bank Guarantees', col1: 'ANZ, Westpac, and shopping center operator Scentre Group', col2: 'Replaces paper commercial bank property lease guarantees with an immutable distributed ledger, eliminating document forgery and manual paper archiving.' },
-            { parameter: 'Central Bank RTGS', col1: 'Project Jasper, Project Ubin, Reserve Bank pilots', col2: 'Real-time Gross Settlement on distributed ledgers allowing commercial banks to settle inter-bank obligations continuously rather than in end-of-day batches.' }
           ]
         }
       ],
@@ -571,6 +525,30 @@ export const blockchainUnit6Data: Unit = {
             'Vulnerabilities in Conventional Elections: Paper voting requires expensive manual counting and risks physical ballot stuffing. Centralized electronic voting machines (EVMs) can suffer from proprietary software flaws and lack transparent public auditability.',
             'Blockchain Value: Provides mathematical proof of election integrity: One person = One vote, zero double-voting, tamper-proof ballot storage, and real-time verifiable tallies.'
           ]
+        },
+        {
+          title: '3. Key Benefits vs Implementation Challenges of Blockchain Voting (2-Column Format)',
+          table: {
+            headers: ['Key Benefits of Blockchain Voting', 'Critical Implementation Challenges'],
+            rows: [
+              {
+                parameter: 'Remote Voter Accessibility: Enables secure, borderless voting from smartphones, dramatically increasing participation for overseas citizens and disabled voters.',
+                col1: 'Digital Divide & Inequity: Severely marginalizes rural citizens lacking smartphones, reliable high-speed internet, or digital literacy.'
+              },
+              {
+                parameter: 'Tamper-Proof Ballot Integrity: Cryptographically impossible for corrupted election officials to inject fake ballots, swap choices, or destroy physical vote records.',
+                col1: 'Endpoint Malware Vulnerability: Voter smartphones infected with spyware, keyloggers, or trojans can compromise or alter votes before encryption.'
+              },
+              {
+                parameter: 'Instant Verifiable Auditability: Near-instantaneous automated tallies verifiable by independent observers using cryptographic Merkle proofs.',
+                col1: 'Scalability & Network Congestion: Handling tens of millions of nationwide votes simultaneously within narrow polling hours creates severe blockchain congestion.'
+              },
+              {
+                parameter: 'Zero-Knowledge Privacy: Zero-Knowledge proofs (zk-SNARKs) verify that a citizen is eligible to vote without revealing their individual ballot choice.',
+                col1: 'Coercion & Vote-Buying Risk: Remote smartphone voting lacks the isolated secrecy of a voting booth, exposing voters to extortion or forced vote selling.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -580,18 +558,6 @@ export const blockchainUnit6Data: Unit = {
           caption: 'Diagram showing biometric citizen verification, anonymous ballot generation via zero-knowledge proofs, immutable block hashing, and transparent public tallying.',
           type: 'svg-interactive',
           svgType: 'blockchain-voting'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Evaluation Aspect', 'Key Benefits Delivered', 'Critical Implementation Challenges'],
-          rows: [
-            { parameter: 'Voter Accessibility', col1: 'Remote, borderless voting from smartphones, dramatically increasing participation for overseas citizens', col2: 'Digital Divide: marginalizes citizens lacking smartphones, high-speed internet, or digital literacy' },
-            { parameter: 'Integrity & Tamper Resistance', col1: 'Cryptographically impossible for corrupted officials to add fake ballots, alter choices, or destroy votes', col2: 'Endpoint Security: voter smartphones infected with malware or spyware can alter the vote before encryption' },
-            { parameter: 'Auditability & Speed', col1: 'Near-instantaneous automatic tallies with mathematically verifiable cryptographic proofs', col2: 'Scalability: processing tens of millions of nationwide votes simultaneously within short poll windows' },
-            { parameter: 'Privacy & Coercion Resistance', col1: 'Zero-knowledge proofs verify voter eligibility while shielding the specific candidate choice', col2: 'Coercion & Vote-Buying: remote voting lacks the physical privacy of an isolated polling booth, allowing voter intimidation' },
-            { parameter: 'Public Trust & Legal Status', col1: 'Eliminates suspicions of partisan election commissions or backroom tally tampering', col2: 'Legal acceptance, judicial precedent, and non-technical voter comprehension require extensive time to establish' }
-          ]
         }
       ],
       summary: [

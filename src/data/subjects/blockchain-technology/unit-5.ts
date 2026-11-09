@@ -88,6 +88,34 @@ export const blockchainUnit5Data: Unit = {
             'Turing-Complete Execution: Ethereum introduces the Ethereum Virtual Machine (EVM), a Turing-complete state machine capable of executing arbitrary computational logic, loops, and conditions.',
             'Account-Based Architecture: Replaces Bitcoin\'s Unspent Transaction Output (UTXO) model with an intuitive Account model maintaining explicit account balances, nonces, and persistent contract storage.'
           ]
+        },
+        {
+          title: '3. Difference Between Bitcoin and Ethereum (2-Column Format)',
+          table: {
+            headers: ['Bitcoin (Digital Gold / Money)', 'Ethereum (World Computer / DApps)'],
+            rows: [
+              {
+                parameter: 'Core Vision: Engineered strictly as peer-to-peer electronic cash and a censorship-resistant digital store of value.',
+                col1: 'Core Vision: Engineered as a generalized, programmable decentralized world computer executing smart contracts.'
+              },
+              {
+                parameter: 'Scripting Capability: Uses non-Turing complete Script with no loops to prevent infinite execution and ensure predictability.',
+                col1: 'Scripting Capability: Turing-complete execution environment (EVM) capable of running complex loops, logic, and state transitions.'
+              },
+              {
+                parameter: 'Block Time & Latency: ~10 minutes per block with difficulty adjusted every 2,016 blocks (~2 weeks).',
+                col1: 'Block Time & Latency: ~12 seconds per block slot, organized into 32-slot epochs with deterministic finality.'
+              },
+              {
+                parameter: 'Total Supply Cap: Hard-coded strictly at 21,000,000 BTC with quadrennial halving cycles.',
+                col1: 'Total Supply Cap: No absolute hard cap; supply dynamics governed by issuance minus EIP-1559 base fee burning.'
+              },
+              {
+                parameter: 'State Model: Uses the Unspent Transaction Output (UTXO) accounting model.',
+                col1: 'State Model: Uses the Account-based state transition model with global World State tries.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -97,20 +125,6 @@ export const blockchainUnit5Data: Unit = {
           caption: 'Hierarchical architectural stack showing Level 1 (EVM Runtime) up through Level 5 (Decentralized End-User Applications).',
           type: 'svg-interactive',
           svgType: 'ethereum-stack'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Evaluation Parameter', 'Traditional Cryptocurrency (Bitcoin)', 'Ethereum Platform'],
-          rows: [
-            { parameter: 'Core Purpose & Vision', col1: 'Peer-to-peer electronic cash, digital gold, store of value', col2: 'Decentralized platform for programmable smart contracts & DApps' },
-            { parameter: 'Programmability', col1: 'Extremely restricted; stateless non-Turing-complete Scripting', col2: 'Fully Turing-complete programming via Solidity, Vyper, and EVM' },
-            { parameter: 'State Architecture', col1: 'UTXO (Unspent Transaction Output) graph model', col2: 'Account-based model (EOAs and Smart Contract Accounts)' },
-            { parameter: 'Block Creation Interval', col1: 'Approximately 10 minutes per block', col2: 'Approximately 12 seconds per slot (PoS)' },
-            { parameter: 'Computational Fuel', col1: 'No program execution engine required; miners receive BTC fee', col2: 'Gas (paid in Ether) meters computational steps to prevent infinite loops' },
-            { parameter: 'Consensus Mechanism', col1: 'Proof of Work (SHA-256 hashrate mining)', col2: 'Proof of Stake (validator staking of 32 ETH; upgraded via The Merge)' },
-            { parameter: 'Ecosystem Use Cases', col1: 'Monetary payments, remittances, wealth preservation', col2: 'DeFi protocols, DAOs, NFTs, decentralized identity, supply chain' }
-          ]
         }
       ],
       summary: [
@@ -245,19 +259,6 @@ export const blockchainUnit5Data: Unit = {
           ]
         }
       ],
-      tables: [
-        {
-          headers: ['Evaluation Parameter', 'Ethereum Mainnet', 'Ethereum Testnet (e.g. Sepolia)', 'Private / Local Network (e.g. Ganache)'],
-          rows: [
-            { parameter: 'Primary Purpose', col1: 'Live production transactions and real economic value', col2: 'Pre-production testing, security auditing, and staging', col3: 'Internal enterprise operations, local rapid development' },
-            { parameter: 'Ether Economic Value', col1: 'Real monetary value traded on global exchanges', col2: 'Completely free; obtained from public test faucets', col3: 'Simulated; zero real-world monetary value' },
-            { parameter: 'Network Access', col1: 'Public and permissionless; anyone can read and write', col2: 'Public; anyone can connect and test', col3: 'Private and permissioned; restricted to approved nodes' },
-            { parameter: 'Financial Risk Profile', col1: 'High: bugs or failed transactions cost real money', col2: 'Zero: deployment and execution cost fake test tokens', col3: 'Zero: completely isolated internal environment' },
-            { parameter: 'Consensus Engine', col1: 'Proof of Stake (validators staking 32 ETH)', col2: 'Proof of Stake or Proof of Authority (permissioned validators)', col3: 'Instantaneous in-memory mining or Clique (PoA)' },
-            { parameter: 'Prominent Examples', col1: 'Ethereum Mainnet (Chain ID: 1)', col2: 'Sepolia, Holesky, Goerli (deprecated)', col3: 'Ganache, Hardhat node, Hyperledger Besu, Quorum' }
-          ]
-        }
-      ],
       summary: [
         'Mainnet is the production network with real monetary value and high financial stakes.',
         'Testnets (Sepolia) provide risk-free staging with free faucet test ETH.',
@@ -308,6 +309,30 @@ export const blockchainUnit5Data: Unit = {
             'Step 3: When the municipal title registry oracle verifies deed transfer, the contract automatically releases 50 ETH to the seller and digital deed to the buyer.',
             'Step 4: If conditions are not fulfilled within 30 days, funds are automatically refunded to the buyer.'
           ]
+        },
+        {
+          title: '3. Benefits vs Limitations of Smart Contracts (2-Column Format)',
+          table: {
+            headers: ['Benefits of Smart Contracts', 'Limitations & Inherent Drawbacks'],
+            rows: [
+              {
+                parameter: 'Autonomous Execution: Executes automatically when conditions are met without requiring human intervention or escrow agents.',
+                col1: 'Code Immutability Risk: If code contains vulnerabilities (e.g. Reentrancy), funds can be drained and code cannot be easily patched.'
+              },
+              {
+                parameter: 'Elimination of Intermediaries: Removes expensive lawyers, brokers, and escrow fees, drastically reducing operational costs.',
+                col1: 'The Oracle Problem: Contracts cannot natively read real-world data (e.g. flight delays, stock prices) without external oracle networks.'
+              },
+              {
+                parameter: 'Instant Settlement Speed: Transactions and state changes settle in seconds across the network rather than taking days.',
+                col1: 'Gas Price Volatility: Complex code execution consumes substantial computational gas, becoming costly during peak traffic.'
+              },
+              {
+                parameter: 'Mathematical Transparency: All terms, parameters, and payout logic are publicly verifiable on-chain by all parties.',
+                col1: 'Legal Enforcement Gap: Traditional courts often lack clear frameworks for arbitrating automated decentralized smart contract disputes.'
+              }
+            ]
+          }
         }
       ],
       diagrams: [
@@ -317,17 +342,6 @@ export const blockchainUnit5Data: Unit = {
           caption: 'Complete lifecycle showing Solidity source authoring, compilation to EVM bytecode and ABI, deployment transaction signing, and autonomous on-chain execution.',
           type: 'svg-interactive',
           svgType: 'smart-contract-lifecycle'
-        }
-      ],
-      tables: [
-        {
-          headers: ['Dimension', 'Benefits of Smart Contracts', 'Limitations & Drawbacks'],
-          rows: [
-            { parameter: 'Speed & Cost', col1: 'Instantaneous execution; zero intermediary lawyer or escrow commissions', col2: 'Gas costs can be expensive during periods of network congestion' },
-            { parameter: 'Trust & Autonomy', col1: 'Trustless; no counterparty risk of payment refusal or bad-faith default', col2: 'Oracle Problem: vulnerable if external real-world data feeds are spoofed' },
-            { parameter: 'Accuracy & Security', col1: 'Deterministic execution; human processing errors and ambiguity eliminated', col2: 'Code Immutability: bugs or vulnerabilities in code cannot be patched easily' },
-            { parameter: 'Legal Enforcement', col1: 'Automatic mathematical self-execution without relying on courts', col2: 'Difficulty codifying subjective human legal clauses (e.g. "good faith")' }
-          ]
         }
       ],
       summary: [
@@ -474,16 +488,6 @@ export const blockchainUnit5Data: Unit = {
             'Step 4: Compile Code — Run the Solidity compiler (solc). Outputs: (a) EVM Bytecode (raw opcodes for execution) and (b) ABI JSON (metadata specifying function signatures and data types).',
             'Step 5: Sign and Deploy — Construct a contract creation transaction (recipient address 0x0) carrying the bytecode in its data payload. Sign via MetaMask and broadcast to nodes.',
             'Step 6: Interact and Test — Once confirmed by validators, verify source code on block explorers (Etherscan) and test functions via frontend Web3 interfaces.'
-          ]
-        }
-      ],
-      tables: [
-        {
-          headers: ['Development Mode', 'Primary Tools', 'Key Features & Workflow'],
-          rows: [
-            { parameter: 'Online Cloud Mode', col1: 'Remix Web IDE (remix.ethereum.org)', col2: 'Browser-based; zero installation; built-in static analysis, debugger, and 1-click MetaMask injection' },
-            { parameter: 'Offline CLI Mode', col1: 'Hardhat, Truffle Suite, Foundry', col2: 'Local CLI frameworks with automated testing pipelines in Mocha/Chai, scriptable migrations, and plugin ecosystems' },
-            { parameter: 'Local Test Blockchains', col1: 'Ganache CLI / GUI, Hardhat Network', col2: 'Instantaneous local in-memory blockchain running on port 8545 with 10 pre-funded test accounts' }
           ]
         }
       ],
@@ -745,26 +749,50 @@ contract SimpleStorage {
     }
 }`
           }
-        }
-      ],
-      tables: [
-        {
-          headers: ['Evaluation Parameter', 'Externally Owned Account (EOA)', 'Contract Account'],
-          rows: [
-            { parameter: 'Governing Authority', col1: 'Private cryptographic key controlled by a human user', col2: 'Immutable smart contract code deployed on the blockchain' },
-            { parameter: 'Associated Code', col1: 'None (contains balance and transaction nonce only)', col2: 'Contains EVM bytecode and dedicated persistent storage trie' },
-            { parameter: 'Transaction Initiation', col1: 'Can actively create and initiate transactions', col2: 'Passive; only executes in response to incoming calls/transactions' },
-            { parameter: 'Creation Overhead', col1: 'Completely free; generated mathematically locally', col2: 'Requires gas fee to deploy contract bytecode on-chain' },
-            { parameter: 'Account State Tuple', col1: '(nonce, balance, emptyStorageRoot, emptyCodeHash)', col2: '(nonce, balance, storageRoot, codeHash)' }
-          ]
         },
         {
-          headers: ['Evaluation Parameter', 'Full Node', 'Light Node (SPV)'],
-          rows: [
-            { parameter: 'Ledger Storage', col1: 'Stores complete blockchain history and global state trie', col2: 'Stores only block headers; requests state proofs from full nodes' },
-            { parameter: 'Transaction Verification', col1: 'Independently executes and validates every block and state transition', col2: 'Relies on full nodes for cryptographic Merkle proofs' },
-            { parameter: 'Hardware Demands', col1: 'High (requires 1-2 TB SSD, 16+ GB RAM, high bandwidth)', col2: 'Minimal (can run on mobile phones, browser extensions, IoT)' }
-          ]
+          title: '3. Difference Between Externally Owned Accounts (EOA) and Contract Accounts (CA) (2-Column Format)',
+          table: {
+            headers: ['Externally Owned Account (EOA)', 'Smart Contract Account (CA)'],
+            rows: [
+              {
+                parameter: 'Governing Authority: Controlled directly by a human user holding a private cryptographic key.',
+                col1: 'Governing Authority: Controlled entirely by its immutable smart contract code deployed on the blockchain.'
+              },
+              {
+                parameter: 'Associated Executable Code: Contains zero code (stores only account balance and nonce counter).',
+                col1: 'Associated Executable Code: Houses compiled EVM bytecode and persistent internal storage variables.'
+              },
+              {
+                parameter: 'Transaction Initiation: Can autonomously initiate new transactions and deploy contracts to the blockchain.',
+                col1: 'Transaction Initiation: Cannot initiate transactions on its own; acts only when triggered by an incoming call from an EOA.'
+              },
+              {
+                parameter: 'Creation Cost: Completely free to create offline locally without spending any gas.',
+                col1: 'Creation Cost: Incurs gas fees to deploy and store the contract code on the distributed state trie.'
+              }
+            ]
+          }
+        },
+        {
+          title: '4. Difference Between Full Node and Light Node (2-Column Format)',
+          table: {
+            headers: ['Full Node (Archive / Validating)', 'Light Node (SPV Client)'],
+            rows: [
+              {
+                parameter: 'Ledger Storage: Stores the complete blockchain history and full global state Merkle Patricia trie.',
+                col1: 'Ledger Storage: Stores only lightweight 80-byte block headers; requests state proofs on demand.'
+              },
+              {
+                parameter: 'Verification Autonomy: Fully validates and re-executes every transaction, block, and contract state transition locally.',
+                col1: 'Verification Autonomy: Relies trustlessly on full nodes for cryptographic Merkle inclusion proofs (SPV validation).'
+              },
+              {
+                parameter: 'Hardware Requirements: High (requires 1-2 TB SSD storage, 16+ GB RAM, and constant high-speed bandwidth).',
+                col1: 'Hardware Requirements: Minimal (runs seamlessly on smartphones, laptops, browser extensions, and IoT hardware).'
+              }
+            ]
+          }
         }
       ],
       summary: [
