@@ -109,8 +109,8 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 items-start animate-in fade-in duration-200 w-full">
-      {/* Mobile Sticky Quick Switcher Header (Visible only on mobile/tablet) */}
-      <div className="w-full lg:hidden bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 p-2.5 shadow-xs flex items-center justify-between gap-2 sticky top-14 z-20">
+      {/* Mobile Quick Switcher Header (Visible only on mobile/tablet) */}
+      <div className="w-full lg:hidden bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 p-2.5 shadow-xs flex items-center justify-between gap-2">
         <button
           onClick={onBackToSubject}
           className="p-2 rounded-lg text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 bg-academic-50 dark:bg-academic-800 transition-colors shrink-0"
@@ -726,7 +726,14 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
           </button>
 
           <div className="text-center">
-            <span className="text-xs font-mono text-academic-400">
+            <button
+              onClick={() => setMobileQuestionsOpen(true)}
+              className="lg:hidden text-xs font-mono text-blue-600 dark:text-blue-400 font-semibold hover:underline flex items-center gap-1 justify-center py-1.5 px-2.5 rounded-md bg-blue-50 dark:bg-blue-950/60 border border-blue-200/60 dark:border-blue-900/60"
+            >
+              <ListFilter className="w-3.5 h-3.5" />
+              <span>Q{currentQuestion.qNumber} / {unit.questions.length} (List)</span>
+            </button>
+            <span className="hidden lg:inline text-xs font-mono text-academic-400">
               Q{currentQuestion.qNumber} of {unit.questions.length}
             </span>
           </div>
