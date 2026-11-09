@@ -698,28 +698,33 @@ export const daaUnit5Data: Unit = {
       sections: [
         {
           title: '1. In-Depth Comparison: Average-Case vs. Amortized Analysis',
+          content: [
+            'In Simple Words:',
+            'Average-Case Analysis assumes the user is friendly and enters random normal data (like guessing average rain in a year).',
+            'Amortized Analysis assumes an evil adversary is attacking you with worst-case data, but shows that expensive steps happen so rarely that the average cost per operation is still cheap (like buying an annual bus pass: one expensive payment gives 365 free rides).'
+          ],
           table: {
-            headers: ['Parameter', 'Average-Case Analysis', 'Amortized Analysis'],
+            headers: ['Average-Case Analysis (Probabilistic)', 'Amortized Analysis (Guaranteed Sequence Average)'],
             rows: [
               {
-                parameter: 'Underlying Concept',
-                col1: 'Probabilistic expectation over all possible random inputs.',
-                col2: 'Deterministic average over an entire sequence of operations.'
+                parameter: 'Calculates the probabilistic mathematical expectation over all possible random inputs.',
+                col1: 'Calculates the deterministic average time taken per operation over an entire worst-case sequence of operations.'
               },
               {
-                parameter: 'Input Distribution',
-                col1: 'Requires assuming a specific probability distribution (e.g., uniform random inputs).',
-                col2: 'No assumptions about input distribution. Analyzes the absolute worst-case sequence.'
+                parameter: 'Requires assuming a specific probability distribution of inputs (e.g., assuming inputs arrive uniformly at random).',
+                col1: 'Requires zero probability assumptions; analyzes the absolute worst-case sequence crafted by an adversary.'
               },
               {
-                parameter: 'Worst-Case Guarantee',
-                col1: 'No guarantee: an adversarial or atypical input can trigger worst-case performance on every step.',
-                col2: 'Guaranteed: the average cost per operation holds even under malicious adversarial sequences.'
+                parameter: 'No worst-case guarantee: an unlucky or adversarial input can trigger the worst-case time on every single operation.',
+                col1: 'Guaranteed: the bound is an absolute upper limit on total runtime divided by n, impossible to violate.'
               },
               {
-                parameter: 'Context',
-                col1: 'Applied to standalone algorithms on single inputs (e.g., QuickSort average time O(n log n)).',
-                col2: 'Applied to data structures executing sequences of operations with state persistence (e.g., dynamic arrays, stacks).'
+                parameter: 'Evaluates the expected behavior of a single isolated operation on average input data.',
+                col1: 'Evaluates a sequence of n operations, recognizing that an expensive operation prepaid future operations.'
+              },
+              {
+                parameter: 'Classic example: QuickSort runs in average-case O(n log n), but an adversarial sorted list forces worst-case O(n²).',
+                col1: 'Classic example: Dynamic Array (std::vector push_back) has amortized O(1) time, even though array doubling costs O(n).'
               }
             ]
           }
@@ -851,23 +856,29 @@ export const daaUnit5Data: Unit = {
       sections: [
         {
           title: '1. Tractable vs. Intractable Problems',
+          content: [
+            'In Simple Words:',
+            'Tractable problems are easy problems that computers can solve quickly even for massive datasets (like sorting a billion numbers in seconds).',
+            'Intractable problems are hard problems where trying to find the exact optimal answer would take longer than the age of the universe as soon as n > 50 (like checking every possible delivery route on a map).'
+          ],
           table: {
-            headers: ['Characteristic', 'Tractable Problems', 'Intractable Problems'],
+            headers: ['Tractable Problems (Polynomial Time - P Class)', 'Intractable Problems (Exponential Time - NP-Hard)'],
             rows: [
               {
-                parameter: 'Definition',
-                col1: 'Solvable in polynomial time O(n^k) where k is a constant.',
-                col2: 'Cannot be solved in polynomial time; worst-case lower bound is exponential.'
+                parameter: 'Solvable by deterministic algorithms in polynomial time: O(n^k) where k is a constant (e.g. O(n), O(n log n), O(n²)).',
+                col1: 'Cannot be solved in polynomial time; worst-case complexity grows exponentially: O(2^n), O(3^n), or O(n!).'
               },
               {
-                parameter: 'Scalability',
-                col1: 'Feasible to solve for large input sizes n (e.g., n = 1,000,000).',
-                col2: 'Infeasible for even moderate input sizes (e.g., n > 50 becomes intractable).'
+                parameter: 'Highly scalable: feasible to compute solutions efficiently for large input sizes (e.g., n = 10,000,000 items).',
+                col1: 'Practically infeasible for moderate input sizes: computing exact solutions for n > 50 requires millions of years.'
               },
               {
-                parameter: 'Examples',
-                col1: 'Sorting, Searching, Minimum Spanning Tree (Prim/Kruskal), Shortest Paths (Dijkstra).',
-                col2: 'Traveling Salesperson Problem (TSP), 0/1 Knapsack, Hamiltonian Cycle, Graph Coloring.'
+                parameter: 'Benchmark problems: Sorting algorithms, Binary Search, Minimum Spanning Trees (Prim/Kruskal), Dijkstra Shortest Path.',
+                col1: 'Benchmark problems: Traveling Salesperson Problem (TSP), 0/1 Knapsack, Hamiltonian Cycle, Vertex Cover, Graph Coloring.'
+              },
+              {
+                parameter: 'Practical engineering solution: Solved directly to exact optimality using standard algorithm design paradigms.',
+                col1: 'Practical engineering solution: Solved using Approximation Algorithms or Heuristics to find near-optimal answers quickly.'
               }
             ]
           }
@@ -1172,33 +1183,33 @@ export const daaUnit5Data: Unit = {
       sections: [
         {
           title: '1. Comprehensive Comparison Table',
+          content: [
+            'In Simple Words:',
+            'A Las Vegas algorithm is like an honest student: it always gives the 100% correct answer, but you never know how many minutes it will take to finish.',
+            'A Monte Carlo algorithm is like a student answering under a strict 10-second timer: it always finishes on time, but there is a tiny chance its answer might be incorrect (which you can shrink to almost zero by repeating it).'
+          ],
           table: {
-            headers: ['Parameter', 'Las Vegas Algorithm', 'Monte Carlo Algorithm'],
+            headers: ['Las Vegas Randomized Algorithm', 'Monte Carlo Randomized Algorithm'],
             rows: [
               {
-                parameter: 'Correctness Guarantee',
-                col1: '100% Guaranteed. The algorithm NEVER produces an incorrect result.',
-                col2: 'Probabilistic. The algorithm may produce an incorrect answer with probability ≤ ε.'
+                parameter: '100% Guaranteed Correctness: The algorithm NEVER produces an incorrect result; if it returns an answer, it is guaranteed correct.',
+                col1: 'Probabilistic Correctness: The algorithm may produce an incorrect answer with a bounded error probability (e.g. error ≤ ε).'
               },
               {
-                parameter: 'Execution Time',
-                col1: 'Random Variable. Execution time varies from run to run on the exact same input.',
-                col2: 'Deterministic / Bounded. Execution time is fixed or bounded by a strict polynomial time limit.'
+                parameter: 'Execution time is a random variable: Runtime varies between different runs on the exact same input data.',
+                col1: 'Execution time is strictly bounded: Runs within a predictable, deterministic polynomial time limit.'
               },
               {
-                parameter: 'Primary Objective',
-                col1: 'Accelerate average runtime while maintaining absolute correctness.',
-                col2: 'Obtain an answer quickly for intractable problems where exact verification is hard.'
+                parameter: 'Primary goal is accelerating average execution speed while preserving uncompromising exactness.',
+                col1: 'Primary goal is obtaining an answer quickly when exact deterministic algorithms are too slow.'
               },
               {
-                parameter: 'Error Reduction Technique',
-                col1: 'Not applicable (no error occurs).',
-                col2: 'Repeated Independent Trials. Running k times reduces error probability exponentially to ε^k.'
+                parameter: 'Error amplification is not applicable because the algorithm produces zero incorrect answers.',
+                col1: 'Error probability can be driven arbitrarily close to 0 by running k independent trials (error shrinks to ε^k).'
               },
               {
-                parameter: 'Representative Examples',
-                col1: 'Randomized QuickSort (expected O(n log n)), Randomized Selection (QuickSelect), Finding duplicate elements.',
-                col2: 'Miller-Rabin Primality Testing, Fermat Primality Test, Karger’s Min-Cut Algorithm.'
+                parameter: 'Classic examples: Randomized QuickSort (pivot chosen randomly), Randomized Selection (QuickSelect).',
+                col1: 'Classic examples: Miller-Rabin Primality Testing, Monte Carlo Pi estimation, Karger\'s Min-Cut algorithm.'
               }
             ]
           }
@@ -1850,28 +1861,33 @@ export const daaUnit5Data: Unit = {
         },
         {
           title: '3. Fixed Priority vs. Dynamic Priority Scheduling',
+          content: [
+            'In Simple Words:',
+            'Rate Monotonic Scheduling (RMS) gives permanent VIP status to frequent tasks: if a task repeats often, it always gets highest priority.',
+            'Earliest Deadline First (EDF) gives priority to urgency: whichever task is closest to missing its deadline right now gets the CPU first.'
+          ],
           table: {
-            headers: ['Parameter', 'Fixed Priority (Rate Monotonic - RMS)', 'Dynamic Priority (Earliest Deadline First - EDF)'],
+            headers: ['Rate Monotonic Scheduling (RMS - Fixed Priority)', 'Earliest Deadline First (EDF - Dynamic Priority)'],
             rows: [
               {
-                parameter: 'Priority Assignment',
-                col1: 'Assigned statically at design time. Priorities remain constant throughout execution.',
-                col2: 'Assigned dynamically at run time based on approaching deadlines.'
+                parameter: 'Priorities are assigned statically at design time and remain fixed and constant throughout system execution.',
+                col1: 'Priorities are assigned dynamically at runtime and change continuously based on which deadline is approaching fastest.'
               },
               {
-                parameter: 'Scheduling Rule',
-                col1: 'Tasks with shorter periods (higher frequencies) are assigned higher fixed priorities.',
-                col2: 'The task whose deadline is closest to current time is assigned highest priority.'
+                parameter: 'Scheduling rule: Tasks with shorter periods (higher repetition frequencies) are given higher priority.',
+                col1: 'Scheduling rule: The task whose absolute deadline is nearest to the current clock time is given highest priority.'
               },
               {
-                parameter: 'CPU Utilization Limit',
-                col1: 'Bounded by Liu-Layland bound: U <= n(2^{1/n} - 1) ≈ 69.3% for large n.',
-                col2: 'Can achieve 100% theoretical CPU utilization: U <= 1.0.'
+                parameter: 'Maximum CPU utilization is bounded by the Liu-Layland limit: U ≤ n(2^(1/n) - 1) ≈ 69.3% for large numbers of tasks.',
+                col1: 'Achieves 100% optimal theoretical CPU utilization (U ≤ 1.0), squeezing full performance out of the processor.'
               },
               {
-                parameter: 'Implementation Complexity',
-                col1: 'Very simple, deterministic, low CPU overhead. Ideal for small microcontrollers.',
-                col2: 'Higher runtime overhead to continuously track deadlines and reorder queues.'
+                parameter: 'Extremely lightweight and simple to implement in Real-Time Operating Systems with minimal runtime scheduler overhead.',
+                col1: 'Moderate overhead: Requires dynamically re-evaluating and sorting deadline queues at every scheduling event.'
+              },
+              {
+                parameter: 'Predictable under overload: High-priority critical tasks are guaranteed to meet deadlines while low-priority tasks drop.',
+                col1: 'Vulnerable to the domino effect under overload: One delayed task can cause cascading missed deadlines across all tasks.'
               }
             ]
           }

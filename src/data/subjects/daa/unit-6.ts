@@ -964,28 +964,37 @@ export const daaUnit6Data: Unit = {
         },
         {
           title: '2. Synchronous vs Asynchronous Models',
+          content: [
+            'In Simple Words:',
+            'A Synchronous Network is like a marching band: everyone steps at the exact same beat of a shared drum, and messages arrive within a fixed round.',
+            'An Asynchronous Network is like an email group chat: messages travel at unpredictable speeds and arrive whenever they arrive; nodes react only when they receive a message.'
+          ],
           table: {
-            headers: ['Parameter', 'Synchronous Network Model', 'Asynchronous Network Model'],
+            headers: ['Synchronous Network Model', 'Asynchronous Network Model'],
             rows: [
               {
-                parameter: 'Execution Mode',
-                col1: 'Lock-step rounds (Round 1, Round 2, ...)',
-                col2: 'Event-driven; triggers on message arrival'
+                parameter: 'Operates in synchronized lock-step rounds: Every node sends messages, receives messages, and updates state simultaneously.',
+                col1: 'Operates completely event-driven: Each node acts independently and executes only when an incoming message arrives.'
               },
               {
-                parameter: 'Message Delay',
-                col1: 'Bounded; arrives before end of round',
-                col2: 'Arbitrary, unpredictable, but finite'
+                parameter: 'Message delivery delay is strictly bounded: A message sent in round r is guaranteed to arrive before round r + 1 starts.',
+                col1: 'Message delay is arbitrary and unpredictable: Messages are guaranteed to arrive eventually, but with zero time bounds.'
               },
               {
-                parameter: 'Coordination',
-                col1: 'Implicit via round numbers',
-                col2: 'Explicit via acknowledgments and waves'
+                parameter: 'Coordination is implicit: All processors share knowledge of the current round number without needing extra signaling.',
+                col1: 'Coordination requires explicit handshakes: Nodes must send confirmation acknowledgments and synchronization waves.'
               },
               {
-                parameter: 'Time Complexity',
-                col1: 'Number of elapsed rounds',
-                col2: 'Normalized delay units (longest link delay = 1)'
+                parameter: 'Time complexity is measured directly by the total number of synchronized rounds executed until completion.',
+                col1: 'Time complexity is measured in normalized time units, assuming the slowest message across any link takes at most 1 unit.'
+              },
+              {
+                parameter: 'Failure detection is simple: If an expected message does not arrive by the end of a round, the node has crashed.',
+                col1: 'Failure detection is impossible: By the FLP Impossibility Theorem, a node cannot tell if a peer crashed or is just slow.'
+              },
+              {
+                parameter: 'Real-world example: SIMD multi-core processors, tightly coupled cluster supercomputers with synchronized clock cycles.',
+                col1: 'Real-world example: The global Internet, peer-to-peer distributed networks, cloud microservices communicating over HTTP.'
               }
             ]
           }
@@ -1065,22 +1074,19 @@ export const daaUnit6Data: Unit = {
         {
           title: '3. Complexity Analysis',
           table: {
-            headers: ['Metric', 'Synchronous Model', 'Layered Asynchronous Model'],
+            headers: ['Synchronous BFS Model', 'Layered Asynchronous BFS Model'],
             rows: [
               {
-                parameter: 'Time Complexity',
-                col1: 'Theta(D) rounds',
-                col2: 'Theta(D^2) time units'
+                parameter: 'Completes in exactly Θ(D) rounds, where D is the network diameter, because level exploration expands by 1 hop every round.',
+                col1: 'Requires Θ(D²) time units because each layer must send an acknowledgment wave back to the source before the next layer starts.'
               },
               {
-                parameter: 'Message Complexity',
-                col1: 'Theta(E) messages',
-                col2: 'O(E + V * D) messages'
+                parameter: 'Extremely efficient message complexity: Exchanges exactly Θ(E) messages because edges are traversed in locked lock-step.',
+                col1: 'Higher message complexity: Exchanges O(E + V · D) messages due to layered synchronization waves and acknowledgment signals.'
               },
               {
-                parameter: 'Lower Bound',
-                col1: 'Omega(D) time (cannot reach distance D faster)',
-                col2: 'Omega(E) messages (every edge explored at least once)'
+                parameter: 'Requires zero explicit synchronization messages to prevent out-of-order exploration of deep levels.',
+                col1: 'Strictly requires layer coordination messages to ensure level d nodes are completely explored before level d+1 nodes fire.'
               }
             ]
           }

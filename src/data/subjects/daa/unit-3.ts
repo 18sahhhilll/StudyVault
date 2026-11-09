@@ -1203,17 +1203,50 @@ export const daaUnit3Data: Unit = {
       sections: [
         {
           title: '1. Exhaustive Comparison Matrix',
+          content: [
+            'In Simple Words:',
+            'The Greedy Method is like taking the fastest shortcut you see right in front of you at every crossroad without looking at the whole map.',
+            'Dynamic Programming is like looking at the entire map, writing down the best paths in a notebook so you never repeat work, and finding the true shortest route to your final destination.',
+            '',
+            'Real-World Example (Coin Change Problem):',
+            '• Giving change for ₹37 using Indian currency (₹20, ₹10, ₹5, ₹2): Greedy immediately picks ₹20 + ₹10 + ₹5 + ₹2 = 4 coins (optimal).',
+            '• But with unusual denominations (e.g. ₹1, ₹3, ₹4) to make ₹6: Greedy picks ₹4 + ₹1 + ₹1 (3 coins), whereas Dynamic Programming checks combinations and finds ₹3 + ₹3 (2 coins)!'
+          ],
           table: {
-            headers: ['Parameter', 'Greedy Method', 'Dynamic Programming Strategy'],
+            headers: ['Greedy Method', 'Dynamic Programming Strategy'],
             rows: [
-              { parameter: 'Decision Approach', col1: 'Makes one choice at a time based on a local heuristic. Never reconsiders.', col2: 'Examines all possible subproblem choices and picks the globally optimal one.' },
-              { parameter: 'Feasibility', col1: 'A set of feasible solutions is generated, and the best candidate is picked at each step.', col2: 'No separate feasible candidate set; table iteratively accumulates global feasibility.' },
-              { parameter: 'Optimality Guarantee', col1: 'Does not always guarantee a global optimum unless the greedy choice property holds.', col2: 'Guaranteed to find the globally optimal solution if the principle of optimality holds.' },
-              { parameter: 'Recursion & Direction', col1: 'Top-down sequential progression without backtracking or recursion.', col2: 'Bottom-up tabulation (or top-down with memoization) solving overlapping subproblems.' },
-              { parameter: 'Memoization', col1: 'No memoization needed. Intermediate states are not stored.', col2: 'Crucial. Table (array/matrix) stores subproblem solutions to prevent recomputation.' },
-              { parameter: 'Subproblem Independence', col1: 'Subproblems must be independent after the greedy choice is made.', col2: 'Subproblems overlap extensively and share common sub-subproblems.' },
-              { parameter: 'Time Complexity', col1: 'Generally faster: O(n) or O(n log n).', col2: 'Slower due to table filling: O(n²), O(n³), or O(nW).' },
-              { parameter: 'Classic Examples', col1: 'Fractional Knapsack, Huffman Coding, Kruskal/Prim MST, Dijkstra.', col2: '0/1 Knapsack, Matrix Chain Multiplication, OBST, Floyd-Warshall.' }
+              {
+                parameter: 'Makes an irrevocable local choice at each step based on immediate best gain; never reconsiders or re-evaluates earlier decisions.',
+                col1: 'Examines all possible subproblem choices comprehensively and chooses the combination that guarantees global optimality.'
+              },
+              {
+                parameter: 'Feasibility is checked at every single step; an element is added to the solution only if it maintains feasibility right now.',
+                col1: 'Feasibility is built iteratively across subproblems, combining subproblem solutions to maintain overall global constraints.'
+              },
+              {
+                parameter: 'Does not always guarantee a global optimum; works only if the problem possesses the strict Greedy Choice Property.',
+                col1: 'Guaranteed to find the globally optimal solution provided the problem satisfies Bellman\'s Principle of Optimality.'
+              },
+              {
+                parameter: 'Top-down sequential progression that moves forward without backtracking or recursive subproblem caching.',
+                col1: 'Bottom-up tabulation (or top-down with memoization) that systematically solves and stores overlapping subproblems.'
+              },
+              {
+                parameter: 'Zero memoization required; intermediate subproblem solutions are not stored in memory.',
+                col1: 'Memoization is essential; stores subproblem solutions in an array/matrix table to prevent exponential recomputations.'
+              },
+              {
+                parameter: 'Requires subproblems to remain completely independent after the greedy choice is committed.',
+                col1: 'Thrives on overlapping subproblems where the same smaller subproblems are shared across many larger subproblems.'
+              },
+              {
+                parameter: 'Generally very fast with lower time complexity: typically O(n) or O(n log n).',
+                col1: 'Computationally heavier due to table filling: polynomial complexities such as O(n²), O(n³), or pseudo-polynomial O(n·W).'
+              },
+              {
+                parameter: 'Classic benchmark problems: Fractional Knapsack, Huffman Coding, Kruskal\'s & Prim\'s MST, Dijkstra\'s Shortest Path.',
+                col1: 'Classic benchmark problems: 0/1 Knapsack, Matrix Chain Multiplication, Optimal BST (OBST), Floyd-Warshall All-Pairs Shortest Path.'
+              }
             ]
           }
         },

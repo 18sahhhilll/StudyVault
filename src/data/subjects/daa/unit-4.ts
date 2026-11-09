@@ -176,33 +176,33 @@ export const daaUnit4Data: Unit = {
         },
         {
           title: '3. Explicit vs. Implicit Constraints',
+          content: [
+            'In Simple Words:',
+            'Explicit constraints are the simple rules about what values an individual variable is allowed to hold (like a queen can only sit on columns 1 through 8).',
+            'Implicit constraints are the complex puzzle rules about how the variables must work together (like two queens must not attack each other on the board).'
+          ],
           table: {
-            headers: ['Parameter', 'Explicit Constraints', 'Implicit Constraints'],
+            headers: ['Explicit Constraints', 'Implicit Constraints'],
             rows: [
               {
-                parameter: 'Definition',
-                col1: 'Rules that restrict each element x_i to take values only from a given finite candidate set S_i.',
-                col2: 'Rules that determine which tuples in the solution space actually satisfy the problem criterion function.'
+                parameter: 'Rules that restrict each individual variable x_i to take values only from a given finite candidate set S_i (e.g. x_i ∈ {1, 2, ..., n}).',
+                col1: 'Rules that determine which combinations of variables in the solution space actually satisfy the core problem requirements.'
               },
               {
-                parameter: 'Scope',
-                col1: 'Depends strictly on the variable definitions, independent of specific problem instance values.',
-                col2: 'Depends on the specific relationships and interactions between multiple tuple variables.'
+                parameter: 'Depends purely on the isolated variable definitions, independent of specific problem instance values or other variables.',
+                col1: 'Depends strictly on mutual interactions, mathematical equations, and relationships connecting multiple tuple variables.'
               },
               {
-                parameter: 'Example in 8-Queens',
-                col1: 'x_i in {1, 2, 3, 4, 5, 6, 7, 8} for each row i in {1..8}. Total solution space = 8^8 tuples.',
-                col2: 'No two queens on same column (x_i != x_j) and no two queens on same diagonal (|x_i - x_j| != |i - j|).'
+                parameter: 'Example in 8-Queens: Each queen x_i must be placed in a column from {1, 2, 3, 4, 5, 6, 7, 8} on row i (total space = 8⁸ tuples).',
+                col1: 'Example in 8-Queens: No two queens can attack each other: no shared column (x_i ≠ x_j) and no shared diagonal (|x_i - x_j| ≠ |i - j|).'
               },
               {
-                parameter: 'Example in Sum of Subsets',
-                col1: 'x_i in {0, 1} indicating whether item w_i is excluded (0) or included (1).',
-                col2: 'The sum of selected weights must equal target M: sum(w_i * x_i) = M.'
+                parameter: 'Example in Sum of Subsets: x_i ∈ {0, 1}, indicating whether an element w_i is excluded (0) or included (1).',
+                col1: 'Example in Sum of Subsets: The total sum of chosen elements must strictly equal the target value M: ∑ w_i · x_i = M.'
               },
               {
-                parameter: 'Pruning Action',
-                col1: 'Restricts the domain of branches generated at each node.',
-                col2: 'Used by bounding functions to terminate search along unpromising paths.'
+                parameter: 'Restricts the branching factor by defining the total possible children a node can spawn in the state space tree.',
+                col1: 'Used by bounding functions to detect dead ends early and kill unpromising branches before wasting computing time.'
               }
             ]
           }
@@ -387,42 +387,27 @@ export const daaUnit4Data: Unit = {
         {
           title: '1. In-Depth Parameter Comparison Table',
           table: {
-            headers: ['Comparison Parameter', 'Greedy Algorithmic Strategy', 'Dynamic Programming Strategy'],
+            headers: ['Greedy Algorithmic Strategy', 'Dynamic Programming Strategy'],
             rows: [
               {
-                parameter: 'i) Feasibility',
-                col1: 'Feasibility is checked at every single step using a feasibility function before admitting a candidate element into the solution set. Once an infeasible choice is rejected, it is never reconsidered.',
-                col2: 'Feasibility is evaluated collectively across subproblems. Solutions to subproblems are combined only if their combined constraints satisfy overall global feasibility requirements.'
+                parameter: 'Feasibility is checked at every single step before admitting a choice; once an infeasible option is rejected, it is never reconsidered.',
+                col1: 'Feasibility is evaluated collectively across subproblems; partial answers are merged only if combined constraints meet global rules.'
               },
               {
-                parameter: 'ii) Optimality',
-                col1: 'Constructs a locally optimal choice at each step hoping it yields a global optimum. Does NOT guarantee global optimality for all problems (fails for 0/1 Knapsack).',
-                col2: 'Guarantees global optimality provided the problem satisfies Bellman’s Principle of Optimality and possesses optimal substructure.'
+                parameter: 'Constructs a locally optimal choice at each step hoping it yields a global optimum; fails for problems like 0/1 Knapsack.',
+                col1: 'Guarantees global optimality provided the problem satisfies Bellman\'s Principle of Optimality and has optimal substructure.'
               },
               {
-                parameter: 'iii) Recursion',
-                col1: 'Typically implemented iteratively via simple loops (e.g., sorting followed by single-pass selection). No backward recursive dependence across subproblems.',
-                col2: 'Inherently formulated as a recursive relation expressing optimal value of larger problem in terms of smaller overlapping subproblems.'
+                parameter: 'Iterative or top-down progression that never revisits previous steps, never backtracks, and never reconsiders decisions.',
+                col1: 'Systematically solves overlapping subproblems through bottom-up tabular loops or top-down memoized recursion.'
               },
               {
-                parameter: 'iv) Memorization / Caching',
-                col1: 'Does not require memoization or table storage. Operates with O(1) or O(n) auxiliary space as decisions are made greedily on the fly.',
-                col2: 'Extensively requires memoization (Top-Down with caching) or tabular storage (Bottom-Up DP table) to prevent recomputing overlapping subproblems.'
+                parameter: 'Zero memoization required: intermediate states are never stored because choices are committed permanently.',
+                col1: 'Memoization is essential: stores subproblem results in tables (arrays/matrices) to eliminate duplicate recomputations.'
               },
               {
-                parameter: 'v) Time Complexity',
-                col1: 'Significantly faster, typically O(n log n) dominated by initial sorting, or O(n) for linear scans (e.g., Fractional Knapsack O(n log n)).',
-                col2: 'Slower due to full subproblem evaluation, typically pseudo-polynomial or polynomial: O(n * W) for Knapsack, O(n^3) for MCM, O(n^2) for OBST.'
-              },
-              {
-                parameter: 'vi) Decision Reversibility',
-                col1: 'Irrevocable: once a decision is made, it can never be changed or backtracked.',
-                col2: 'Exhaustive: all possibilities at each stage are evaluated and optimal choice is remembered.'
-              },
-              {
-                parameter: 'vii) Classic Applications',
-                col1: 'Fractional Knapsack, Kruskal MST, Prim MST, Dijkstra Shortest Path, Huffman Coding, Job Sequencing with Deadlines.',
-                col2: '0/1 Knapsack, Matrix Chain Multiplication (MCM), Optimal Binary Search Trees (OBST), All-Pairs Shortest Path (Floyd-Warshall).'
+                parameter: 'Generally very fast with lower time complexity: typically O(n) or O(n log n) driven by sorting candidates once.',
+                col1: 'Higher polynomial time complexity: O(n²), O(n³), or pseudo-polynomial O(n·W) due to filling dynamic programming matrices.'
               }
             ]
           }
@@ -1549,33 +1534,33 @@ export const daaUnit4Data: Unit = {
       sections: [
         {
           title: '1. Branch and Bound vs. Backtracking',
+          content: [
+            'In Simple Words:',
+            'Backtracking is like exploring a maze with a flashlight going deep down one hallway, and walking backward as soon as you hit a dead end (Depth-First Search).',
+            'Branch and Bound is like sending a team of drones to inspect all possible exits from above at once, calculating the estimated path cost for each, and immediately killing paths that are already too expensive (Best-First / FIFO Search).'
+          ],
           table: {
-            headers: ['Characteristic', 'Backtracking', 'Branch and Bound'],
+            headers: ['Backtracking Algorithm', 'Branch and Bound Algorithm'],
             rows: [
               {
-                parameter: 'Problem Class',
-                col1: 'Primarily Decision and Enumeration problems (find any/all solutions).',
-                col2: 'Primarily Optimization problems (find the minimum or maximum cost solution).'
+                parameter: 'Primarily used for Decision Problems (does a solution exist?) and Enumeration Problems (find all valid configurations).',
+                col1: 'Primarily used for Optimization Problems (find the single minimum cost or maximum profit solution).'
               },
               {
-                parameter: 'Tree Traversal',
-                col1: 'Strictly Depth-First Search (DFS) with recursive/stack mechanism.',
-                col2: 'Flexible: Breadth-First Search (FIFO), D-search (LIFO), or Best-First (Least Cost).'
+                parameter: 'Strictly searches the state space tree using Depth-First Search (DFS) with a LIFO stack or system recursion.',
+                col1: 'Explores the state space tree using Breadth-First Search (FIFO queue) or Best-First Search (Least-Cost priority queue).'
               },
               {
-                parameter: 'Node Generation',
-                col1: 'Generates one child at a time; current node remains E-node until explored.',
-                col2: 'Generates all children of current E-node at once (branching).'
+                parameter: 'Generates one child at a time; the current node remains the expanding E-node until its descendants are explored.',
+                col1: 'Generates all children of the current E-node simultaneously at once (branching step).'
               },
               {
-                parameter: 'Pruning Mechanism',
-                col1: 'Uses constraint feasibility bounding functions B(x_1..x_k).',
-                col2: 'Compares estimated lower bound c^(x) against best-known global upper bound u.'
+                parameter: 'Pruning uses constraint feasibility bounding functions B(x_1..x_k) that immediately kill dead ends violating problem rules.',
+                col1: 'Pruning uses mathematical lower bounds c^(x) compared against the best-known upper bound u to discard suboptimal paths.'
               },
               {
-                parameter: 'Memory Requirement',
-                col1: 'Low: O(n) bounded by maximum tree depth.',
-                col2: 'High: Exponential in worst-case to store all live nodes in priority queue.'
+                parameter: 'Low memory requirement: O(n) space complexity bounded strictly by the maximum path depth of the tree.',
+                col1: 'High memory requirement: Exponential in the worst case to store all generated live nodes in the priority queue / list.'
               }
             ]
           }
@@ -2333,47 +2318,39 @@ export const daaUnit4Data: Unit = {
         {
           title: '1. Exhaustive Comparison: Backtracking vs. Branch and Bound',
           table: {
-            headers: ['Parameter', 'Backtracking Algorithmic Strategy', 'Branch and Bound Algorithmic Strategy'],
+            headers: ['Backtracking Algorithmic Strategy', 'Branch and Bound Algorithmic Strategy'],
             rows: [
               {
-                parameter: '1. Primary Objective',
-                col1: 'Used predominantly for Decision Problems (is there a solution?) and Enumeration Problems (find all solutions).',
-                col2: 'Used predominantly for Optimization Problems (find the single solution that maximizes or minimizes an objective function).'
+                parameter: 'Used predominantly for Decision Problems (is there a solution?) and Enumeration Problems (find all solutions).',
+                col1: 'Used predominantly for Optimization Problems (find the single solution that maximizes or minimizes an objective function).'
               },
               {
-                parameter: '2. Search Technique',
-                col1: 'Strictly Depth-First Search (DFS). Explores as deeply as possible along each branch before backtracking.',
-                col2: 'Does not use DFS. Uses Breadth-First Search (FIFO), D-search (LIFO), or Best-First Search (Least Cost Search).'
+                parameter: 'Strictly searches using Depth-First Search (DFS), exploring as deeply as possible along each branch before backtracking.',
+                col1: 'Does not use DFS; explores using Breadth-First Search (FIFO), D-search (LIFO), or Best-First Search (Least Cost Search).'
               },
               {
-                parameter: '3. Data Structure',
-                col1: 'Uses a Stack (explicit or via system recursion call stack).',
-                col2: 'Uses a Queue (FIFO), Stack (LIFO), or Priority Queue / Min-Heap (LCBB).'
+                parameter: 'Uses an explicit Stack or relies on the internal system recursion call stack.',
+                col1: 'Uses a Queue (FIFO), Stack (LIFO), or Priority Queue / Min-Heap (Least-Cost Branch and Bound).'
               },
               {
-                parameter: '4. State Tree Exploration',
-                col1: 'The state space tree is searched until a feasible solution is obtained or all branches are exhausted.',
-                col2: 'The state space tree is pruned dynamically; does not need complete exploration if bounds guarantee suboptimality.'
+                parameter: 'The state space tree is searched until a feasible solution is found or all possible branches are exhausted.',
+                col1: 'The state space tree is pruned dynamically using cost bounds without needing complete tree exploration.'
               },
               {
-                parameter: '5. Pruning Mechanism',
-                col1: 'Uses bounding functions B_k(x_1..x_k) checking problem constraints to prune infeasible paths.',
-                col2: 'Uses mathematical lower bounds c^(x) and upper bounds u to kill suboptimal live nodes.'
+                parameter: 'Uses bounding functions B_k(x_1..x_k) that check problem constraints to prune infeasible paths early.',
+                col1: 'Uses mathematical lower bounds c^(x) and upper bounds u to kill live nodes that cannot beat the current best solution.'
               },
               {
-                parameter: '6. Node Expansion',
-                col1: 'Generates one child at a time. The current node remains an E-node until all its descendants are explored.',
-                col2: 'Generates all children of the E-node simultaneously, turning the current node into a dead node immediately.'
+                parameter: 'Generates one child at a time; the current node remains an active E-node until all its descendants are examined.',
+                col1: 'Generates all children of the current E-node simultaneously at once before selecting the next best live node.'
               },
               {
-                parameter: '7. Memory Consumption',
-                col1: 'Very low: proportional to maximum depth of tree O(n).',
-                col2: 'Very high: proportional to the number of active live nodes stored in the priority queue (can be exponential).'
+                parameter: 'Extremely efficient memory usage: O(n) linear space complexity, storing only the active path from root to leaf.',
+                col1: 'Heavy memory consumption: Exponential worst-case space to maintain all unexpanded live nodes in RAM.'
               },
               {
-                parameter: '8. Classic Applications',
-                col1: 'n-Queens Problem, Graph m-Coloring, Hamiltonian Cycle, Sum of Subsets.',
-                col2: 'Traveling Salesperson Problem (TSP), 0/1 Knapsack, Job Sequencing with Penalties, 15-Puzzle.'
+                parameter: 'Classic benchmark applications: N-Queens Problem, Graph Coloring (m-colorability), Hamiltonian Cycle, Sum of Subsets.',
+                col1: 'Classic benchmark applications: 0/1 Knapsack (LCBB), Traveling Salesperson Problem (TSP via Reduced Matrix), Assignment Problem.'
               }
             ]
           }
