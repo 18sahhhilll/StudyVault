@@ -12,9 +12,12 @@ import {
   RotateCcw,
   BookOpen,
   BrainCircuit,
-  GraduationCap
+  GraduationCap,
+  ArrowLeft,
+  ChevronRight
 } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
+import { AppRoute, BreadcrumbItem } from '@/utils/navigation';
 
 interface AppLayoutProps {
   currentTab: 'dashboard' | 'subjects' | 'papers' | 'important' | 'revision';
@@ -24,6 +27,10 @@ interface AppLayoutProps {
   totalQuestions: number;
   overallPercentage: number;
   onResetProgress: () => void;
+  canNavigateBack?: boolean;
+  onNavigateBack?: () => void;
+  breadcrumbs?: BreadcrumbItem[];
+  onNavigateRoute?: (route: AppRoute) => void;
   children: React.ReactNode;
 }
 
@@ -35,6 +42,10 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
   totalQuestions,
   overallPercentage,
   onResetProgress,
+  canNavigateBack,
+  onNavigateBack,
+  breadcrumbs,
+  onNavigateRoute,
   children,
 }) => {
   const { theme, toggleTheme } = useTheme();
@@ -52,11 +63,23 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
   return (
     <div className="min-h-screen bg-academic-50 dark:bg-academic-950 text-academic-900 dark:text-academic-100 flex flex-col font-sans selection:bg-blue-500/20 selection:text-blue-700 dark:selection:text-blue-300">
       {/* Top Mobile Bar */}
-      <header className="lg:hidden h-14 border-b border-academic-200 dark:border-academic-800 bg-white dark:bg-academic-900 px-4 flex items-center justify-between sticky top-0 z-30">
-        <div className="flex items-center space-x-2.5">
+      <header className="lg:hidden h-14 border-b border-academic-200 dark:border-academic-800 bg-white dark:bg-academic-900 px-3 sm:px-4 flex items-center justify-between sticky top-0 z-30">
+        <div className="flex items-center space-x-1.5 sm:space-x-2">
+          {canNavigateBack && onNavigateBack && (
+            <button
+              onClick={onNavigateBack}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-academic-200 dark:border-academic-800 bg-academic-50 dark:bg-academic-800/80 text-academic-700 dark:text-academic-200 hover:text-academic-900 dark:hover:text-white transition-colors text-xs font-semibold"
+              aria-label="Back to previous page"
+              title="Back"
+            >
+              <ArrowLeft className="w-3.5 h-3.5 text-academic-600 dark:text-academic-300" />
+              <span>Back</span>
+            </button>
+          )}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-1.5 rounded-lg text-academic-600 dark:text-academic-300 hover:bg-academic-100 dark:hover:bg-academic-800"
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -220,6 +243,54 @@ export const AppLayout: React.FC<AppLayoutProps> = ({
 
         {/* Main Content Area */}
         <main className="flex-1 overflow-y-auto min-w-0 p-3.5 sm:p-6 lg:p-10 max-w-7xl mx-auto w-full pb-24 lg:pb-10">
+          {/* Top Content Header Bar with Back Button & Breadcrumbs */}
+          {canNavigateBack && onNavigateBack && (
+            <div className="mb-4 sm:mb-6 flex flex-wrap items-center justify-between gap-3 animate-in fade-in duration-150">
+              <div className="flex items-center gap-3 flex-wrap">
+                <button
+                  type="button"
+                  onClick={onNavigateBack}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-academic-200 dark:border-academic-800 bg-white dark:bg-academic-900 text-academic-700 dark:text-academic-300 hover:text-academic-900 dark:hover:text-white hover:bg-academic-50 dark:hover:bg-academic-800 shadow-xs text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                  aria-label="Back to previous page"
+                  title="Back"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5 text-academic-500 dark:text-academic-400" />
+                  <span>Back</span>
+                </button>
+
+                {breadcrumbs && breadcrumbs.length > 1 && (
+                  <nav aria-label="Breadcrumbs" className="hidden sm:flex items-center gap-1.5 text-xs text-academic-500 dark:text-academic-400">
+                    {breadcrumbs.map((crumb, idx) => {
+                      const isLast = idx === breadcrumbs.length - 1;
+                      return (
+                        <div key={idx} className="flex items-center gap-1.5">
+                          {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-academic-400/80 shrink-0" />}
+                          {isLast ? (
+                            <span
+                              className="font-semibold text-academic-900 dark:text-academic-100 max-w-[260px] truncate"
+                              title={crumb.label}
+                            >
+                              {crumb.label}
+                            </span>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => onNavigateRoute?.(crumb.route)}
+                              className="hover:text-academic-900 dark:hover:text-white transition-colors max-w-[200px] truncate underline-offset-2 hover:underline"
+                              title={crumb.label}
+                            >
+                              {crumb.label}
+                            </button>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </nav>
+                )}
+              </div>
+            </div>
+          )}
+
           {children}
         </main>
       </div>

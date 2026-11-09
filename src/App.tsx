@@ -9,16 +9,28 @@ import { RevisionView } from '@/components/revision/RevisionView';
 import { QuestionPapersView } from '@/components/papers/QuestionPapersView';
 import { SearchModal } from '@/components/common/SearchModal';
 import { useStudyProgress } from '@/hooks/useStudyProgress';
+import { useNavigationRouter } from '@/hooks/useNavigationRouter';
 import { getSubjectById, getUnitById } from '@/data';
 
 export function App() {
-  const [currentTab, setCurrentTab] = useState<'dashboard' | 'subjects' | 'papers' | 'important' | 'revision'>('dashboard');
   const [searchModalOpen, setSearchModalOpen] = useState(false);
 
-  // Drilldown states for Subjects / Units / Questions reading
-  const [selectedSubjectId, setSelectedSubjectId] = useState<string | null>(null);
-  const [selectedUnitId, setSelectedUnitId] = useState<string | null>(null);
-  const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null);
+  const {
+    currentRoute,
+    breadcrumbs,
+    canNavigateBack,
+    navigateTo,
+    navigateBack,
+    openSubject,
+    openUnit,
+    openQuestion,
+    selectTab,
+  } = useNavigationRouter();
+
+  const currentTab = currentRoute.tab;
+  const selectedSubjectId = currentRoute.subjectId || null;
+  const selectedUnitId = currentRoute.unitId || null;
+  const activeQuestionId = currentRoute.questionId || null;
 
   const {
     progress,
@@ -37,41 +49,28 @@ export function App() {
 
   // Navigation handlers
   const handleOpenSubject = (subjectId: string) => {
-    setSelectedSubjectId(subjectId);
-    setSelectedUnitId(null);
-    setActiveQuestionId(null);
-    setCurrentTab('subjects');
+    openSubject(subjectId);
   };
 
   const handleOpenUnit = (subjectId: string, unitId: string) => {
-    const subject = getSubjectById(subjectId);
-    const unit = subject?.units.find((u) => u.id === unitId);
+    openUnit(subjectId, unitId);
+    const unit = getUnitById(subjectId, unitId);
     if (unit && unit.questions.length > 0) {
-      setSelectedSubjectId(subjectId);
-      setSelectedUnitId(unitId);
-      setActiveQuestionId(unit.questions[0].id);
       recordLastStudied(subjectId, unitId, unit.questions[0].id);
-      setCurrentTab('subjects');
     }
   };
 
   const handleOpenQuestion = (subjectId: string, unitId: string, questionId: string) => {
-    setSelectedSubjectId(subjectId);
-    setSelectedUnitId(unitId);
-    setActiveQuestionId(questionId);
+    openQuestion(subjectId, unitId, questionId);
     recordLastStudied(subjectId, unitId, questionId);
-    setCurrentTab('subjects');
   };
 
   const handleBackToSubject = () => {
-    setActiveQuestionId(null);
-    setSelectedUnitId(null);
+    navigateBack();
   };
 
   const handleBackToSubjectsList = () => {
-    setSelectedSubjectId(null);
-    setSelectedUnitId(null);
-    setActiveQuestionId(null);
+    navigateBack();
   };
 
   // Render content according to active route & tab
@@ -91,9 +90,9 @@ export function App() {
           onNavigateSubject={handleOpenSubject}
           onNavigateUnit={handleOpenUnit}
           onNavigateQuestion={handleOpenQuestion}
-          onNavigateImportant={() => setCurrentTab('important')}
-          onNavigateRevision={() => setCurrentTab('revision')}
-          onNavigatePapers={() => setCurrentTab('papers')}
+          onNavigateImportant={() => selectTab('important')}
+          onNavigateRevision={() => selectTab('revision')}
+          onNavigatePapers={() => selectTab('papers')}
         />
       );
     }
@@ -112,10 +111,7 @@ export function App() {
               completedQuestionIds={progress.completedQuestionIds}
               bookmarkedQuestionIds={progress.bookmarkedQuestionIds}
               notesByQuestionId={progress.notesByQuestionId}
-              onSelectQuestion={(qId) => {
-                setActiveQuestionId(qId);
-                recordLastStudied(subject.id, unit.id, qId);
-              }}
+              onSelectQuestion={(qId) => handleOpenQuestion(subject.id, unit.id, qId)}
               onToggleCompleted={toggleCompleted}
               onToggleBookmarked={toggleBookmarked}
               onSaveNote={saveQuestionNote}
@@ -181,20 +177,16 @@ export function App() {
   return (
     <AppLayout
       currentTab={currentTab}
-      onSelectTab={(tab) => {
-        setCurrentTab(tab);
-        // Reset sub-drilldowns when switching major tabs
-        if (tab !== 'subjects') {
-          setSelectedSubjectId(null);
-          setSelectedUnitId(null);
-          setActiveQuestionId(null);
-        }
-      }}
+      onSelectTab={selectTab}
       onOpenSearch={() => setSearchModalOpen(true)}
       completedCount={completedCount}
       totalQuestions={totalQuestions}
       overallPercentage={overallPercentage}
       onResetProgress={resetAllProgress}
+      canNavigateBack={canNavigateBack}
+      onNavigateBack={navigateBack}
+      breadcrumbs={breadcrumbs}
+      onNavigateRoute={(route) => navigateTo(route)}
     >
       {renderContent()}
 
