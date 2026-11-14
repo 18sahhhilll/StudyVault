@@ -1045,7 +1045,7 @@ export const unit3Data: Unit = {
           title: 'Least Squares Residual Errors & Best-Fit Line',
           caption: 'Visual depiction of vertical dashed residual offsets e_i between observations and the least-squares regression line.',
           type: 'svg-interactive',
-          svgType: 'least-squares'
+          svgType: 'linear-regression'
         }
       ],
       summary: [
