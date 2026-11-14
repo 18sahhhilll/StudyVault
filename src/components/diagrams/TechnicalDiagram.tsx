@@ -693,8 +693,542 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
       case 'distributed-ghs-mst':
         return <DistributedGHSMSTDiagram />;
 
+
       case 'rabin-karp-rolling-hash':
         return <RabinKarpRollingHashDiagram />;
+
+      // ── ML Unit 3 missing diagrams ───────────────────────────────────────
+      case 'regression-types':
+        return (
+          <svg viewBox="0 0 500 240" className="w-full h-auto select-none">
+            <text x="80" y="20" textAnchor="middle" className="text-xs font-bold fill-blue-600 dark:fill-blue-400">Linear</text>
+            <line x1="20" y1="200" x2="140" y2="60" stroke="#3b82f6" strokeWidth="2.5"/>
+            {[[25,195],[50,170],[75,145],[100,110],[130,70]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="4" fill="#3b82f6"/>)}
+            <text x="210" y="20" textAnchor="middle" className="text-xs font-bold fill-purple-600 dark:fill-purple-400">Polynomial</text>
+            <path d="M165,190 Q220,50 290,130 Q330,180 350,70" fill="none" stroke="#9333ea" strokeWidth="2.5"/>
+            {[[170,185],[200,100],[240,80],[280,130],[320,160],[345,80]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="4" fill="#9333ea"/>)}
+            <text x="390" y="20" textAnchor="middle" className="text-xs font-bold fill-emerald-600 dark:fill-emerald-400">Multiple</text>
+            <line x1="370" y1="190" x2="490" y2="70" stroke="#10b981" strokeWidth="2.5"/>
+            {[[375,185],[400,160],[430,130],[460,100],[480,80]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="4" fill="#10b981"/>)}
+            <text x="80" y="225" textAnchor="middle" className="text-[10px] fill-academic-500">ŷ = ax + b</text>
+            <text x="250" y="225" textAnchor="middle" className="text-[10px] fill-academic-500">ŷ = aₙxⁿ+...+b</text>
+            <text x="430" y="225" textAnchor="middle" className="text-[10px] fill-academic-500">ŷ = b₀+b₁x₁+b₂x₂</text>
+          </svg>
+        );
+
+      case 'generalization-error':
+        return (
+          <svg viewBox="0 0 500 280" className="w-full h-auto select-none">
+            <line x1="50" y1="230" x2="460" y2="230" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            <line x1="50" y1="30" x2="50" y2="230" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            <text x="240" y="258" textAnchor="middle" className="text-xs fill-academic-500">Model Complexity →</text>
+            <text x="18" y="135" textAnchor="middle" className="text-xs fill-academic-500" transform="rotate(-90,18,135)">Error →</text>
+            <path d="M60,60 Q180,100 350,210 L440,215" fill="none" stroke="#3b82f6" strokeWidth="2.5"/>
+            <path d="M60,180 Q200,80 300,70 Q380,65 440,120" fill="none" stroke="#ef4444" strokeWidth="2.5"/>
+            <line x1="285" y1="30" x2="285" y2="230" stroke="#10b981" strokeWidth="1.5" strokeDasharray="5 3"/>
+            <text x="290" y="45" className="text-[10px] font-semibold fill-emerald-600">Optimal</text>
+            <line x1="60" y1="265" x2="90" y2="265" stroke="#3b82f6" strokeWidth="2.5"/>
+            <text x="95" y="269" className="text-[10px] fill-academic-600 dark:fill-academic-300">Training Error</text>
+            <line x1="220" y1="265" x2="250" y2="265" stroke="#ef4444" strokeWidth="2.5"/>
+            <text x="255" y="269" className="text-[10px] fill-academic-600 dark:fill-academic-300">Generalisation Error</text>
+          </svg>
+        );
+
+      case 'batch-vs-sgd':
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { label: 'Batch GD', color: '#3b82f6', desc: 'Uses ALL samples each step. Smooth convergence, expensive per step.', path: 'M60,180 Q140,100 240,60' },
+              { label: 'Stochastic GD', color: '#ef4444', desc: 'Uses ONE random sample per step. Noisy path, fast updates.', path: 'M60,180 Q80,160 100,140 Q110,120 95,100 Q120,85 150,90 Q170,70 200,65 Q220,55 240,60' },
+            ].map(({label,color,desc,path},idx)=>(
+              <div key={label} className="rounded-lg border border-academic-200 dark:border-academic-800 p-3">
+                <p className="text-xs font-bold mb-2" style={{color}}>{label}</p>
+                <svg viewBox="0 0 300 220" className="w-full h-auto">
+                  <ellipse cx="240" cy="60" rx="50" ry="30" fill="none" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 2"/>
+                  <ellipse cx="240" cy="60" rx="30" ry="18" fill="none" stroke="#94a3b8" strokeWidth="1" strokeDasharray="3 2"/>
+                  <ellipse cx="240" cy="60" rx="12" ry="7" fill="none" stroke={color} strokeWidth="1.5" strokeDasharray="3 2"/>
+                  <defs><marker id={`arr-sgd${idx}`} markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill={color}/></marker></defs>
+                  <path d={path} fill="none" stroke={color} strokeWidth="2.5" markerEnd={`url(#arr-sgd${idx})`}/>
+                  <circle cx="60" cy="180" r="5" fill={color}/>
+                  <text x="68" y="184" className="text-[10px] fill-academic-500">Start</text>
+                  <circle cx="240" cy="60" r="5" fill="#10b981"/>
+                  <text x="248" y="64" className="text-[10px] fill-emerald-600">Min</text>
+                </svg>
+                <p className="text-[10px] text-academic-500 dark:text-academic-400 mt-1">{desc}</p>
+              </div>
+            ))}
+          </div>
+        );
+
+      // ── ML Unit 4 missing diagrams ───────────────────────────────────────
+      case 'kernel-trick':
+        return (
+          <svg viewBox="0 0 520 240" className="w-full h-auto select-none">
+            <text x="100" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">Input Space ℝ²</text>
+            {[[40,80],[60,120],[80,70],[100,110],[120,90],[140,75]].map(([x,y],i)=><circle key={`b${i}`} cx={x} cy={y} r="6" fill="#3b82f6"/>)}
+            {[[55,160],[80,180],[100,165],[115,175],[135,155],[155,170]].map(([x,y],i)=><circle key={`r${i}`} cx={x} cy={y} r="6" fill="#ef4444"/>)}
+            <text x="100" y="210" textAnchor="middle" className="text-[10px] fill-academic-500">Not separable</text>
+            <defs><marker id="arr-kt" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#8b5cf6"/></marker></defs>
+            <line x1="200" y1="120" x2="300" y2="120" stroke="#8b5cf6" strokeWidth="2.5" markerEnd="url(#arr-kt)"/>
+            <text x="250" y="110" textAnchor="middle" className="text-xs font-bold fill-purple-600">φ(x)</text>
+            <text x="250" y="135" textAnchor="middle" className="text-[10px] fill-academic-500">kernel trick</text>
+            <text x="420" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">Feature Space ℝⁿ</text>
+            {[[330,70],[360,80],[380,65],[410,75],[440,60],[460,80]].map(([x,y],i)=><circle key={`b2${i}`} cx={x} cy={y} r="6" fill="#3b82f6"/>)}
+            {[[330,160],[360,175],[385,155],[415,170],[440,160],[460,175]].map(([x,y],i)=><circle key={`r2${i}`} cx={x} cy={y} r="6" fill="#ef4444"/>)}
+            <line x1="310" y1="115" x2="490" y2="115" stroke="#10b981" strokeWidth="2.5" strokeDasharray="6 3"/>
+            <text x="420" y="210" textAnchor="middle" className="text-[10px] fill-emerald-600">Linearly separable ✓</text>
+          </svg>
+        );
+
+      case 'svr-tube':
+        return (
+          <svg viewBox="0 0 500 280" className="w-full h-auto select-none">
+            <line x1="40" y1="250" x2="470" y2="250" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            <line x1="40" y1="250" x2="40" y2="20" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            <path d="M60,210 Q200,100 440,120" fill="#3b82f6" fillOpacity="0.12" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 3"/>
+            <path d="M60,160 Q200,50 440,70" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="4 3"/>
+            <path d="M60,185 Q200,75 440,95" fill="none" stroke="#ef4444" strokeWidth="2.5"/>
+            <text x="380" y="68" className="text-xs font-bold fill-red-600">f(x)</text>
+            <defs><marker id="arr-svr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6366f1"/></marker></defs>
+            <line x1="300" y1="105" x2="300" y2="140" stroke="#6366f1" strokeWidth="2" markerEnd="url(#arr-svr)"/>
+            <text x="307" y="128" className="text-xs font-bold fill-indigo-600">ε</text>
+            {[[100,175],[180,100],[260,100],[350,110]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="5" fill="#10b981"/>)}
+            {[[140,55],[320,145]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="5" fill="#ef4444"/>)}
+            <text x="250" y="268" textAnchor="middle" className="text-[10px] fill-academic-500">ε-tube: predictions within tube incur no loss</text>
+          </svg>
+        );
+
+      case 'ensemble-concept':
+        return (
+          <svg viewBox="0 0 500 280" className="w-full h-auto select-none">
+            <defs><marker id="arr-ec" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#94a3b8"/></marker></defs>
+            <rect x="10" y="110" width="80" height="50" rx="6" className="fill-blue-50 dark:fill-blue-950 stroke-blue-400" strokeWidth="1.5"/>
+            <text x="50" y="132" textAnchor="middle" className="text-[10px] font-bold fill-blue-700 dark:fill-blue-300">Training</text>
+            <text x="50" y="148" textAnchor="middle" className="text-[10px] fill-blue-600">Data</text>
+            {[60,130,200].map((y,i)=>(<line key={i} x1="90" y1="135" x2="150" y2={y} stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arr-ec)"/>))}
+            {[{y:40,label:'Model 1',c:'#8b5cf6'},{y:110,label:'Model 2',c:'#3b82f6'},{y:180,label:'Model 3',c:'#06b6d4'}].map(({y,label,c})=>(
+              <g key={label}>
+                <rect x="150" y={y} width="90" height="40" rx="6" fill={c} fillOpacity="0.15" stroke={c} strokeWidth="1.5"/>
+                <text x="195" y={y+16} textAnchor="middle" className="text-[10px] font-semibold" fill={c}>{label}</text>
+                <text x="195" y={y+30} textAnchor="middle" className="text-[9px] fill-academic-500">(weak learner)</text>
+                <line x1="240" y1={y+20} x2="300" y2="140" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arr-ec)"/>
+              </g>
+            ))}
+            <rect x="300" y="105" width="90" height="60" rx="6" className="fill-emerald-50 dark:fill-emerald-950 stroke-emerald-500" strokeWidth="2"/>
+            <text x="345" y="130" textAnchor="middle" className="text-[10px] font-bold fill-emerald-700 dark:fill-emerald-300">Aggregate</text>
+            <text x="345" y="145" textAnchor="middle" className="text-[9px] fill-emerald-600">(Vote / Avg)</text>
+            <line x1="390" y1="135" x2="440" y2="135" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arr-ec)"/>
+            <rect x="440" y="110" width="55" height="50" rx="6" className="fill-amber-50 dark:fill-amber-950 stroke-amber-400" strokeWidth="1.5"/>
+            <text x="467" y="132" textAnchor="middle" className="text-[10px] font-bold fill-amber-700 dark:fill-amber-300">Final</text>
+            <text x="467" y="148" textAnchor="middle" className="text-[9px] fill-amber-600">Pred.</text>
+            <text x="250" y="260" textAnchor="middle" className="text-[10px] fill-academic-500 dark:fill-academic-400">N weak learners combined → 1 strong prediction</text>
+          </svg>
+        );
+
+      case 'ensemble-types':
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {[
+              { title: 'Bagging', color: '#3b82f6', desc: 'Parallel learners on bootstrap samples. Reduces variance. e.g. Random Forest', icon: '⊕' },
+              { title: 'Boosting', color: '#f59e0b', desc: 'Sequential learners. Each corrects prior. Reduces bias. e.g. AdaBoost, XGBoost', icon: '→' },
+              { title: 'Stacking', color: '#8b5cf6', desc: 'Meta-learner combines base models predictions from multiple different algorithms.', icon: '◇' },
+            ].map(({title,color,desc,icon})=>(
+              <div key={title} className="rounded-lg border p-3 text-center space-y-2" style={{borderColor:color}}>
+                <div className="text-2xl">{icon}</div>
+                <p className="text-sm font-bold" style={{color}}>{title}</p>
+                <p className="text-[10px] text-academic-500 dark:text-academic-400">{desc}</p>
+              </div>
+            ))}
+          </div>
+        );
+
+      case 'bagging-boosting':
+        return (
+          <svg viewBox="0 0 520 200" className="w-full h-auto select-none">
+            <defs><marker id="arr-bb" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#94a3b8"/></marker></defs>
+            <text x="120" y="18" textAnchor="middle" className="text-xs font-bold fill-blue-600 dark:fill-blue-400">BAGGING (Parallel)</text>
+            <rect x="10" y="30" width="70" height="35" rx="4" className="fill-blue-50 dark:fill-blue-950 stroke-blue-400" strokeWidth="1.5"/>
+            <text x="45" y="52" textAnchor="middle" className="text-[9px] fill-blue-700 dark:fill-blue-300">Training Data</text>
+            {[{y:30,label:'BS₁'},{y:80,label:'BS₂'},{y:130,label:'BS₃'}].map(({y,label})=>(
+              <g key={label}>
+                <line x1="80" y1="47" x2="110" y2={y+17} stroke="#93c5fd" strokeWidth="1.5" markerEnd="url(#arr-bb)"/>
+                <rect x="110" y={y} width="80" height="30" rx="4" fill="#bfdbfe" stroke="#3b82f6" strokeWidth="1"/>
+                <text x="150" y={y+19} textAnchor="middle" className="text-[9px] fill-blue-800">{label}</text>
+              </g>
+            ))}
+            <line x1="190" y1="80" x2="225" y2="80" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arr-bb)"/>
+            <rect x="225" y="62" width="60" height="35" rx="4" className="fill-emerald-50 dark:fill-emerald-950 stroke-emerald-500" strokeWidth="1.5"/>
+            <text x="255" y="82" textAnchor="middle" className="text-[9px] font-bold fill-emerald-700">Vote/Avg</text>
+            <line x1="310" y1="10" x2="310" y2="190" stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="4 3" className="dark:stroke-academic-700"/>
+            <text x="415" y="18" textAnchor="middle" className="text-xs font-bold fill-amber-600 dark:fill-amber-400">BOOSTING (Sequential)</text>
+            {[{y:30,label:'M₁'},{y:85,label:'M₂'},{y:140,label:'M₃'}].map(({y,label},i)=>(
+              <g key={label}>
+                <rect x="330" y={y} width="55" height="35" rx="4" fill="#fef3c7" stroke="#f59e0b" strokeWidth="1.5"/>
+                <text x="357" y={y+22} textAnchor="middle" className="text-[9px] font-bold fill-amber-800">{label}</text>
+                {i < 2 && <line x1="357" y1={y+35} x2="357" y2={y+55} stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arr-bb)"/>}
+              </g>
+            ))}
+            <rect x="410" y="155" width="90" height="30" rx="4" fill="#d1fae5" stroke="#10b981" strokeWidth="1.5"/>
+            <text x="455" y="174" textAnchor="middle" className="text-[9px] font-bold fill-emerald-700">Final H(x)</text>
+          </svg>
+        );
+
+      case 'random-forest':
+        return (
+          <svg viewBox="0 0 520 270" className="w-full h-auto select-none">
+            <defs><marker id="arr-rf" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#94a3b8"/></marker></defs>
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-emerald-700 dark:fill-emerald-300">Random Forest Architecture</text>
+            <rect x="210" y="25" width="100" height="35" rx="6" fill="#dcfce7" stroke="#16a34a" strokeWidth="2"/>
+            <text x="260" y="47" textAnchor="middle" className="text-[10px] font-bold fill-green-800">Training Dataset</text>
+            {[{x:60,c:'#3b82f6'},{x:180,c:'#8b5cf6'},{x:300,c:'#f59e0b'},{x:410,c:'#ef4444'}].map(({x,c},i)=>(
+              <g key={i}>
+                <line x1="260" y1="60" x2={x+40} y2="90" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arr-rf)"/>
+                <rect x={x} y="90" width="80" height="22" rx="4" fill={c} fillOpacity="0.15" stroke={c} strokeWidth="1"/>
+                <text x={x+40} y="105" textAnchor="middle" className="text-[9px]" fill={c}>Bootstrap {i+1}</text>
+                <line x1={x+40} y1="112" x2={x+40} y2="128" stroke={c} strokeWidth="2"/>
+                <polygon points={`${x+40},128 ${x+15},175 ${x+65},175`} fill={c} fillOpacity="0.2" stroke={c} strokeWidth="1.5"/>
+                <text x={x+40} y="168" textAnchor="middle" className="text-[9px] font-bold" fill={c}>Tree {i+1}</text>
+                <line x1={x+40} y1="175" x2="260" y2="210" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arr-rf)"/>
+              </g>
+            ))}
+            <rect x="185" y="210" width="150" height="40" rx="6" fill="#fef9c3" stroke="#ca8a04" strokeWidth="2"/>
+            <text x="260" y="228" textAnchor="middle" className="text-[10px] font-bold fill-yellow-800">Majority Vote / Mean</text>
+            <text x="260" y="265" textAnchor="middle" className="text-[9px] fill-academic-500">Random feature subset at each split reduces tree correlation</text>
+          </svg>
+        );
+
+      case 'adaboost-pipeline':
+        return (
+          <svg viewBox="0 0 520 200" className="w-full h-auto select-none">
+            <defs><marker id="arr-ab" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b"/></marker></defs>
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-amber-600 dark:fill-amber-400">AdaBoost Iterative Weight Update</text>
+            {[{x:10,iter:'t=1',acc:'70%'},{x:135,iter:'t=2',acc:'78%'},{x:260,iter:'t=3',acc:'85%'},{x:385,iter:'Final',acc:'~92%'}].map(({x,iter,acc},i)=>(
+              <g key={i}>
+                <rect x={x} y={35} width={110} height={80} rx="4" fill="none" stroke="#f59e0b" strokeWidth="1.5"/>
+                <text x={x+55} y={30} textAnchor="middle" className="text-[9px] font-bold fill-amber-700 dark:fill-amber-300">{iter}</text>
+                <rect x={x+10} y={50} width={90} height={30} rx="4" fill="#fef3c7" stroke="#f59e0b" strokeWidth="1"/>
+                <text x={x+55} y={69} textAnchor="middle" className="text-[9px] font-semibold fill-amber-800">h_t: {acc}</text>
+                {i < 3 && (
+                  <line x1={x+110} y1={75} x2={x+135} y2={75} stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arr-ab)"/>
+                )}
+                {i === 3 && (
+                  <>
+                    <text x={x+55} y={130} textAnchor="middle" className="text-[9px] font-bold fill-emerald-700">Strong H(x)</text>
+                    <text x={x+55} y={144} textAnchor="middle" className="text-[9px] fill-emerald-600">∑αₜhₜ(x)</text>
+                  </>
+                )}
+              </g>
+            ))}
+            <text x="260" y="185" textAnchor="middle" className="text-[9px] fill-academic-500 dark:fill-academic-400">Misclassified samples get higher weight → next learner focuses on them</text>
+          </svg>
+        );
+
+      case 'binary-multiclass':
+        return (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              {title:'Binary Classification',color:'#3b82f6',classes:['Class A (spam)','Class B (not spam)'],desc:'2 classes. Output: single sigmoid neuron / threshold.'},
+              {title:'Multi-class Classification',color:'#8b5cf6',classes:['Class 1','Class 2','Class 3','Class 4'],desc:'N classes. Softmax output with N neurons. OvR or OvO strategy.'},
+            ].map(({title,color,classes,desc})=>(
+              <div key={title} className="rounded-lg border p-3 space-y-2" style={{borderColor:color}}>
+                <p className="text-xs font-bold" style={{color}}>{title}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {classes.map((c,i)=><span key={i} className="text-[10px] px-2 py-0.5 rounded-full border" style={{borderColor:color,color}}>{c}</span>)}
+                </div>
+                <p className="text-[10px] text-academic-500 dark:text-academic-400">{desc}</p>
+              </div>
+            ))}
+          </div>
+        );
+
+      case 'imbalance-bars':
+        return (
+          <svg viewBox="0 0 500 240" className="w-full h-auto select-none">
+            <text x="250" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">Class Imbalance Problem</text>
+            <text x="100" y="40" textAnchor="middle" className="text-[10px] fill-academic-500">Imbalanced Dataset</text>
+            <rect x="40" y="50" width="60" height="140" rx="4" fill="#3b82f6" fillOpacity="0.8"/>
+            <text x="70" y="200" textAnchor="middle" className="text-[9px] fill-blue-700 dark:fill-blue-300">Class 0</text>
+            <text x="70" y="45" textAnchor="middle" className="text-[9px] fill-blue-800 font-bold">950</text>
+            <rect x="130" y="175" width="60" height="15" rx="4" fill="#ef4444" fillOpacity="0.8"/>
+            <text x="160" y="200" textAnchor="middle" className="text-[9px] fill-red-700 dark:fill-red-300">Class 1</text>
+            <text x="160" y="170" textAnchor="middle" className="text-[9px] fill-red-800 font-bold">50</text>
+            <text x="250" y="125" textAnchor="middle" className="text-xs font-bold fill-emerald-600">SMOTE /</text>
+            <text x="250" y="140" textAnchor="middle" className="text-xs font-bold fill-emerald-600">Oversample →</text>
+            <text x="390" y="40" textAnchor="middle" className="text-[10px] fill-academic-500">Balanced Dataset</text>
+            <rect x="330" y="80" width="60" height="110" rx="4" fill="#3b82f6" fillOpacity="0.8"/>
+            <text x="360" y="200" textAnchor="middle" className="text-[9px] fill-blue-700 dark:fill-blue-300">Class 0</text>
+            <rect x="420" y="80" width="60" height="110" rx="4" fill="#ef4444" fillOpacity="0.8"/>
+            <text x="450" y="200" textAnchor="middle" className="text-[9px] fill-red-700 dark:fill-red-300">Class 1</text>
+            <text x="390" y="225" textAnchor="middle" className="text-[9px] fill-academic-500">Synthetic minority oversampling</text>
+          </svg>
+        );
+
+      case 'precision-recall':
+        return (
+          <svg viewBox="0 0 500 270" className="w-full h-auto select-none">
+            <text x="250" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">Precision vs Recall Trade-off (PR Curve)</text>
+            <line x1="60" y1="230" x2="460" y2="230" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            <line x1="60" y1="30" x2="60" y2="230" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            {[0,0.25,0.5,0.75,1.0].map((v,i)=>(
+              <g key={i}>
+                <text x={60+i*100} y="244" textAnchor="middle" className="text-[9px] fill-academic-500">{v}</text>
+                <text x="50" y={230-i*50} textAnchor="end" className="text-[9px] fill-academic-500">{v}</text>
+              </g>
+            ))}
+            <text x="260" y="258" textAnchor="middle" className="text-xs fill-academic-500">Recall →</text>
+            <text x="22" y="135" textAnchor="middle" className="text-xs fill-academic-500" transform="rotate(-90,22,135)">Precision ↑</text>
+            <path d="M60,30 Q160,35 260,80 Q360,140 460,230" fill="none" stroke="#6366f1" strokeWidth="2.5"/>
+            <line x1="60" y1="30" x2="460" y2="230" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="5 3"/>
+            <text x="380" y="150" className="text-[9px] fill-academic-400">Random</text>
+            <path d="M60,30 Q160,35 260,80 Q360,140 460,230 L460,230 L60,230 Z" fill="#6366f1" fillOpacity="0.08"/>
+            <text x="210" y="175" className="text-[10px] font-bold fill-indigo-600">AUC-PR</text>
+          </svg>
+        );
+
+      case 'kfold-cv':
+        return (
+          <svg viewBox="0 0 520 220" className="w-full h-auto select-none">
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">K-Fold Cross Validation (K=5)</text>
+            {[0,1,2,3,4].map(fold=>(
+              <g key={fold}>
+                <text x="30" y={48+fold*35} className="text-[9px] fill-academic-500">Fold {fold+1}</text>
+                {[0,1,2,3,4].map(block=>(
+                  <rect key={block} x={60+block*90} y={33+fold*35} width="86" height="26" rx="4"
+                    fill={block===fold?'#6366f1':'#bfdbfe'} stroke={block===fold?'#4f46e5':'#93c5fd'}
+                    strokeWidth="1.5" fillOpacity={block===fold?1:0.6}/>
+                ))}
+                {[0,1,2,3,4].map(block=>(
+                  <text key={block} x={60+block*90+43} y={33+fold*35+17} textAnchor="middle"
+                    className="text-[9px] font-semibold"
+                    fill={block===fold?'white':'#1e40af'}>
+                    {block===fold?'Valid':'Train'}
+                  </text>
+                ))}
+              </g>
+            ))}
+            <text x="260" y="210" textAnchor="middle" className="text-[9px] fill-academic-500 dark:fill-academic-400">Each fold serves as validation once → average metrics for robust estimate</text>
+          </svg>
+        );
+
+      // ── ML Unit 5 missing diagrams ───────────────────────────────────────
+      case 'kmeans-flow':
+        return (
+          <svg viewBox="0 0 520 180" className="w-full h-auto select-none">
+            <defs><marker id="arr-km" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#94a3b8"/></marker></defs>
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">K-Means Algorithm Flow</text>
+            {[
+              {x:10,label:'1. Init\nK centroids',c:'#8b5cf6'},
+              {x:120,label:'2. Assign\nnearest',c:'#3b82f6'},
+              {x:235,label:'3. Recompute\ncentroids',c:'#f59e0b'},
+              {x:350,label:'4. Converged?',c:'#10b981'},
+              {x:460,label:'Done!',c:'#6366f1'},
+            ].map(({x,label,c},i)=>(
+              <g key={i}>
+                <rect x={x} y="35" width="100" height="60" rx="8" fill={c} fillOpacity="0.15" stroke={c} strokeWidth="2"/>
+                {label.split('\n').map((line,j)=>(
+                  <text key={j} x={x+50} y={65+j*14} textAnchor="middle" className="text-[9px] font-semibold" fill={c}>{line}</text>
+                ))}
+                {i < 4 && <line x1={x+100} y1="65" x2={x+120} y2="65" stroke="#94a3b8" strokeWidth="1.5" markerEnd="url(#arr-km)"/>}
+              </g>
+            ))}
+            <path d="M400,95 Q400,145 237,145 Q155,145 155,95" fill="none" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4 2" markerEnd="url(#arr-km)"/>
+            <text x="285" y="162" textAnchor="middle" className="text-[9px] fill-red-500">No (repeat)</text>
+          </svg>
+        );
+
+      case 'kmeans-numerical':
+        return (
+          <svg viewBox="0 0 520 240" className="w-full h-auto select-none">
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">K-Means Cluster Assignment (K=2)</text>
+            {[
+              {ox:20,title:'Step 1: Init',c1:'#3b82f6',c2:'#ef4444'},
+              {ox:195,title:'Step 2: Assign',c1:'#3b82f6',c2:'#ef4444'},
+              {ox:365,title:'Step 3: Update',c1:'#3b82f6',c2:'#ef4444'},
+            ].map(({ox,title,c1,c2},si)=>(
+              <g key={si}>
+                <rect x={ox} y="25" width="155" height="185" rx="6" className="fill-academic-50 dark:fill-academic-900 stroke-academic-200 dark:stroke-academic-700" strokeWidth="1"/>
+                <text x={ox+77} y="42" textAnchor="middle" className="text-[9px] font-bold fill-academic-700 dark:fill-academic-300">{title}</text>
+                {[[20,70],[35,55],[55,75],[30,90]].map(([px,py],j)=>(
+                  <circle key={j} cx={ox+px} cy={py+25} r="5" fill={c1} fillOpacity="0.8"/>
+                ))}
+                {[[90,100],[110,115],[100,90],[120,105]].map(([px,py],j)=>(
+                  <circle key={j} cx={ox+px} cy={py+25} r="5" fill={c2} fillOpacity="0.8"/>
+                ))}
+                <text cx={ox+35} cy={si<2?80:72} className="text-base font-bold" fill={c1}>
+                  <tspan x={ox+35} y={si<2?80:72}>✕</tspan>
+                </text>
+                <text className="text-[9px]" fill={c1} x={ox+40} y={si<2?82:74}>C₁</text>
+                <text cx={ox+105} cy={si<2?130:122} className="text-base font-bold" fill={c2}>
+                  <tspan x={ox+105} y={si<2?130:122}>✕</tspan>
+                </text>
+                <text className="text-[9px]" fill={c2} x={ox+110} y={si<2?132:124}>C₂</text>
+              </g>
+            ))}
+            <text x="260" y="230" textAnchor="middle" className="text-[9px] fill-academic-500">Centroids shift each iteration until assignments stop changing (convergence)</text>
+          </svg>
+        );
+
+      case 'optics-reachability':
+        return (
+          <svg viewBox="0 0 500 240" className="w-full h-auto select-none">
+            <text x="250" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">OPTICS Reachability Plot</text>
+            <line x1="50" y1="200" x2="460" y2="200" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            <line x1="50" y1="30" x2="50" y2="200" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            <text x="255" y="220" textAnchor="middle" className="text-xs fill-academic-500">Points (ordered by OPTICS)</text>
+            <text x="18" y="120" textAnchor="middle" className="text-xs fill-academic-500" transform="rotate(-90,18,120)">Reachability →</text>
+            {[180,150,45,38,55,42,50,170,180,50,42,55,175,185,45,38,52,185].map((h,i)=>(
+              <rect key={i} x={60+i*22} y={200-h} width="18" height={h} rx="1"
+                fill={h>150?'#ef4444':h>100?'#f59e0b':'#3b82f6'} fillOpacity="0.75"/>
+            ))}
+            <rect x="93" y="185" width="88" height="14" rx="3" fill="#bfdbfe" fillOpacity="0.5"/>
+            <text x="137" y="195" textAnchor="middle" className="text-[9px] fill-blue-700">Cluster 1</text>
+            <rect x="247" y="185" width="88" height="14" rx="3" fill="#bfdbfe" fillOpacity="0.5"/>
+            <text x="291" y="195" textAnchor="middle" className="text-[9px] fill-blue-700">Cluster 2</text>
+            <text x="250" y="232" textAnchor="middle" className="text-[9px] fill-academic-500">Valleys = dense clusters; peaks = cluster boundaries or noise</text>
+          </svg>
+        );
+
+      case 'outlier-scatter':
+        return (
+          <svg viewBox="0 0 500 250" className="w-full h-auto select-none">
+            <text x="250" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">Outlier Detection: Scatter Plot View</text>
+            <line x1="40" y1="220" x2="460" y2="220" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            <line x1="40" y1="20" x2="40" y2="220" stroke="currentColor" strokeWidth="1.5" className="text-academic-600 dark:text-academic-400"/>
+            {[[100,170],[120,155],[140,165],[115,185],[135,148],[110,170],[150,160],[125,178]].map(([x,y],i)=>(
+              <circle key={i} cx={x} cy={y} r="6" fill="#3b82f6" fillOpacity="0.7"/>
+            ))}
+            {[[280,95],[300,85],[315,105],[295,75],[330,90],[310,100]].map(([x,y],i)=>(
+              <circle key={i} cx={x} cy={y} r="6" fill="#3b82f6" fillOpacity="0.7"/>
+            ))}
+            <circle cx="420" cy="45" r="8" fill="#ef4444" stroke="#dc2626" strokeWidth="2"/>
+            <text x="432" y="40" className="text-[10px] font-bold fill-red-600">Outlier</text>
+            <circle cx="60" cy="55" r="8" fill="#ef4444" stroke="#dc2626" strokeWidth="2"/>
+            <text x="72" y="50" className="text-[10px] font-bold fill-red-600">Outlier</text>
+            <circle cx="400" cy="200" r="8" fill="#f59e0b" stroke="#d97706" strokeWidth="2"/>
+            <text x="412" y="195" className="text-[10px] font-bold fill-amber-600">Anomaly</text>
+            <circle cx="60" cy="238" r="5" fill="#3b82f6"/>
+            <text x="70" y="241" className="text-[9px] fill-academic-600 dark:fill-academic-300">Normal</text>
+            <circle cx="170" cy="238" r="5" fill="#ef4444"/>
+            <text x="180" y="241" className="text-[9px] fill-academic-600 dark:fill-academic-300">Global Outlier</text>
+            <circle cx="300" cy="238" r="5" fill="#f59e0b"/>
+            <text x="310" y="241" className="text-[9px] fill-academic-600 dark:fill-academic-300">Anomaly</text>
+          </svg>
+        );
+
+      case 'lof-density':
+        return (
+          <svg viewBox="0 0 520 250" className="w-full h-auto select-none">
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">LOF: Local Outlier Factor</text>
+            {[[80,150],[100,135],[120,155],[95,170],[110,145]].map(([x,y],i)=>(
+              <g key={i}>
+                <circle cx={x} cy={y} r="6" fill="#3b82f6" fillOpacity="0.8"/>
+                <circle cx={x} cy={y} r="20" fill="none" stroke="#93c5fd" strokeWidth="1" strokeDasharray="3 2"/>
+              </g>
+            ))}
+            <text x="100" y="200" textAnchor="middle" className="text-[9px] fill-blue-600">Dense region A</text>
+            <text x="100" y="212" textAnchor="middle" className="text-[9px] fill-blue-500">LOF ≈ 1 (normal)</text>
+            {[[280,110],[330,90],[310,140],[360,120]].map(([x,y],i)=>(
+              <g key={i}>
+                <circle cx={x} cy={y} r="6" fill="#8b5cf6" fillOpacity="0.8"/>
+                <circle cx={x} cy={y} r="40" fill="none" stroke="#c4b5fd" strokeWidth="1" strokeDasharray="3 2"/>
+              </g>
+            ))}
+            <text x="320" y="192" textAnchor="middle" className="text-[9px] fill-purple-600">Sparse region B</text>
+            <text x="320" y="204" textAnchor="middle" className="text-[9px] fill-purple-500">LOF ≈ 1 (normal)</text>
+            <circle cx="460" cy="70" r="8" fill="#ef4444" stroke="#dc2626" strokeWidth="2"/>
+            <circle cx="460" cy="70" r="80" fill="none" stroke="#fca5a5" strokeWidth="1.5" strokeDasharray="4 3"/>
+            <text x="460" y="158" textAnchor="middle" className="text-[9px] font-bold fill-red-600">{'LOF >> 1'}</text>
+            <text x="460" y="170" textAnchor="middle" className="text-[9px] fill-red-500">(Outlier!)</text>
+            <text x="260" y="235" textAnchor="middle" className="text-[9px] fill-academic-500">LOF compares local density of a point to its neighbours' densities</text>
+          </svg>
+        );
+
+      case 'isolation-forest':
+        return (
+          <svg viewBox="0 0 520 240" className="w-full h-auto select-none">
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">Isolation Forest: Anomaly Score</text>
+            {[
+              {ox:30,label:'Normal point',cuts:4,c:'#3b82f6'},
+              {ox:280,label:'Anomaly',cuts:1,c:'#ef4444'},
+            ].map(({ox,label,cuts,c})=>(
+              <g key={label}>
+                <text x={ox+110} y="38" textAnchor="middle" className="text-[9px] font-bold" fill={c}>{label} ({cuts} cut{cuts>1?'s':''})</text>
+                {Array.from({length:cuts}).map((_,i)=>(
+                  <g key={i}>
+                    <rect x={ox+20+i*25} y={45+i*28} width={160-i*25} height="22" rx="4"
+                      fill={c} fillOpacity={0.12+i*0.1} stroke={c} strokeWidth="1"/>
+                    <text x={ox+100} y={60+i*28} textAnchor="middle" className="text-[9px]" fill={c}>Split {i+1}</text>
+                  </g>
+                ))}
+                <circle cx={ox+110} cy={45+cuts*28+16} r="8" fill={c} fillOpacity="0.9"/>
+                <text x={ox+110} y={45+cuts*28+36} textAnchor="middle" className="text-[9px]" fill={c}>Isolated!</text>
+                <rect x={ox+30} y={150} width="160" height="30" rx="4" fill={c} fillOpacity="0.15" stroke={c} strokeWidth="1.5"/>
+                <text x={ox+110} y={169} textAnchor="middle" className="text-[9px] font-semibold" fill={c}>Score: {cuts===1?'~0.9 (anomaly)':'~0.4 (normal)'}</text>
+              </g>
+            ))}
+            <text x="260" y="225" textAnchor="middle" className="text-[9px] fill-academic-500 dark:fill-academic-400">Anomalies need fewer random cuts to isolate → shorter path = anomaly</text>
+          </svg>
+        );
+
+      case 'spectral-cut':
+        return (
+          <svg viewBox="0 0 520 250" className="w-full h-auto select-none">
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">Spectral Clustering: Graph Cut</text>
+            {[[80,95],[120,75],[110,125],[150,105],[90,135]].map(([x,y],i)=>(
+              <g key={i}>
+                <circle cx={x} cy={y} r="10" fill="#3b82f6" fillOpacity="0.8" stroke="#1d4ed8" strokeWidth="1.5"/>
+                <text x={x} y={y+4} textAnchor="middle" className="text-[9px] fill-white font-bold">{i+1}</text>
+              </g>
+            ))}
+            {[[80,95,120,75],[120,75,110,125],[110,125,150,105],[80,95,90,135],[90,135,150,105]].map(([x1,y1,x2,y2],i)=>(
+              <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#93c5fd" strokeWidth="2.5"/>
+            ))}
+            {[[330,85],[370,65],[380,115],[340,135],[410,95]].map(([x,y],i)=>(
+              <g key={i}>
+                <circle cx={x} cy={y} r="10" fill="#ef4444" fillOpacity="0.8" stroke="#b91c1c" strokeWidth="1.5"/>
+                <text x={x} y={y+4} textAnchor="middle" className="text-[9px] fill-white font-bold">{i+6}</text>
+              </g>
+            ))}
+            {[[330,85,370,65],[370,65,380,115],[380,115,340,135],[340,135,410,95],[330,85,410,95]].map(([x1,y1,x2,y2],i)=>(
+              <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#fca5a5" strokeWidth="2.5"/>
+            ))}
+            <line x1="150" y1="105" x2="330" y2="85" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="5 3"/>
+            <text x="240" y="88" textAnchor="middle" className="text-[9px] fill-academic-500">min-cut</text>
+            <rect x="60" y="168" width="390" height="45" rx="6" className="fill-academic-100 dark:fill-academic-800"/>
+            <text x="255" y="188" textAnchor="middle" className="text-[9px] font-bold fill-academic-700 dark:fill-academic-300">L = D − A  (Graph Laplacian)</text>
+            <text x="255" y="204" textAnchor="middle" className="text-[9px] fill-academic-500">Eigen-decompose L → embed in k-dim → K-Means</text>
+            <text x="255" y="232" textAnchor="middle" className="text-[9px] fill-academic-500 dark:fill-academic-400">Works for non-convex / irregularly shaped clusters</text>
+          </svg>
+        );
+
+      case 'silhouette-concept':
+        return (
+          <svg viewBox="0 0 520 250" className="w-full h-auto select-none">
+            <text x="260" y="18" textAnchor="middle" className="text-xs font-bold fill-academic-700 dark:fill-academic-300">Silhouette Score Concept</text>
+            {[[80,115],[100,100],[120,125],[95,140],[110,105]].map(([x,y],i)=>(
+              <circle key={i} cx={x} cy={y} r="7" fill="#3b82f6" fillOpacity="0.8"/>
+            ))}
+            <text x="100" y="162" textAnchor="middle" className="text-[9px] font-bold fill-blue-700">Cluster A</text>
+            <circle cx="130" cy="113" r="9" fill="#8b5cf6" stroke="#6d28d9" strokeWidth="2"/>
+            <text x="130" y="117" textAnchor="middle" className="text-[8px] fill-white font-bold">P</text>
+            <defs>
+              <marker id="arr-sil-a" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#3b82f6"/></marker>
+              <marker id="arr-sil-b" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#ef4444"/></marker>
+            </defs>
+            <line x1="130" y1="113" x2="100" y2="117" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr-sil-a)"/>
+            <text x="108" y="103" className="text-[9px] fill-blue-700">a(i)</text>
+            {[[320,105],[340,90],[360,115],[335,130],[355,100]].map(([x,y],i)=>(
+              <circle key={i} cx={x} cy={y} r="7" fill="#ef4444" fillOpacity="0.8"/>
+            ))}
+            <text x="345" y="155" textAnchor="middle" className="text-[9px] font-bold fill-red-600">Cluster B</text>
+            <line x1="130" y1="113" x2="320" y2="105" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="5 3" markerEnd="url(#arr-sil-b)"/>
+            <text x="225" y="98" textAnchor="middle" className="text-[9px] fill-red-600">b(i)</text>
+            <rect x="50" y="170" width="420" height="55" rx="6" className="fill-academic-100 dark:fill-academic-800"/>
+            <text x="260" y="190" textAnchor="middle" className="text-[10px] font-bold fill-academic-700 dark:fill-academic-300">s(i) = [b(i) − a(i)] / max(a(i), b(i))</text>
+            <text x="260" y="206" textAnchor="middle" className="text-[9px] fill-academic-500">a(i) = avg intra-cluster dist | b(i) = avg dist to nearest other cluster</text>
+            <text x="260" y="230" textAnchor="middle" className="text-[9px] fill-academic-500 dark:fill-academic-400">s→+1 well-clustered | s→0 boundary | s→−1 mis-clustered</text>
+          </svg>
+        );
 
       default:
         return (
