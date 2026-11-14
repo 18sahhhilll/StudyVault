@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:answer": "node scripts/generate_answer.js",
+    "compare:models": "node scripts/compare_models.js"
   },
   "dependencies": {
     "katex": "^0.16.11",

@@ -503,7 +503,7 @@ export const QuestionPapersView: React.FC<QuestionPapersViewProps> = ({
                                           {fullQuestion.definition && (
                                             <div className="p-3.5 rounded-lg bg-white dark:bg-academic-900 border border-academic-200 dark:border-academic-800 text-xs sm:text-sm text-academic-800 dark:text-academic-200 leading-relaxed">
                                               <strong className="text-blue-600 dark:text-blue-400 font-semibold block mb-1">
-                                                Core Definition:
+                                                Definition:
                                               </strong>
                                               {fullQuestion.definition}
                                             </div>

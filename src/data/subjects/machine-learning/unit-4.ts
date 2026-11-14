@@ -72,7 +72,7 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 1,
       title: 'Explain K-Nearest Neighbour (KNN) Algorithm with Example',
-      shortTitle: 'KNN Algorithm Architecture & Working Example',
+      shortTitle: 'KNN Algorithm & Example',
       marks: 6,
       importance: 'Frequently Asked',
       occurrenceCount: 2,
@@ -81,74 +81,76 @@ export const unit4Data: Unit = {
         { paper: 'Paper 3', questionNo: 'Q4(a)', marks: 6 }
       ],
       syllabusTopics: ['K-Nearest Neighbour', 'Lazy Learner', 'Euclidean Distance', 'Majority Voting'],
-      definition: 'K-Nearest Neighbour (KNN) is a supervised, instance-based, non-parametric lazy learning algorithm that assigns an unseen query instance to the majority class among its K closest training points based on a distance metric.',
+      definition: 'K-Nearest Neighbour (KNN) is a simple, supervised Machine Learning algorithm used for classification and regression. It predicts the class of a new data point based on the majority class of its K closest neighbours.',
       sections: [
         {
-          title: '1. Core Characteristics of KNN',
+          title: '1. How the KNN Algorithm Works',
           content: [
-            'Lazy Learner: No explicit training or model parameter abstraction phase; simply memorizes the training data. All computational work occurs during inference.',
-            'Non-Parametric: Makes no assumptions regarding the underlying probability distribution of data.',
-            'Instance-Based: Decisions are made purely through localized point-to-point geometric similarity.',
-            'Choice of K: Odd values (3, 5, 7) are conventionally chosen for binary classification to prevent voting deadlocks.'
-          ]
-        },
-        {
-          title: '2. Step-by-Step Algorithmic Protocol',
-          content: [
-            '1. Choose parameter K (number of neighbours).',
-            '2. Compute distance (usually Euclidean) between the test point x₀ and every point in the training set.',
-            '3. Sort training points by ascending distance to identify the K nearest neighbours.',
-            '4. Tally the class frequencies among these K neighbours.',
-            '5. Assign the query instance to the class with the highest frequency count (majority vote).'
+            'KNN is a lazy learner (instance-based learner), meaning it does not build a model during training. It memorizes the training data and performs calculations when a new prediction is requested.',
+            'Step 1: Choose the value of K (number of nearest neighbours, usually an odd number like 3 or 5).',
+            'Step 2: Calculate the distance between the query data point and all training data points using a distance metric (such as Euclidean distance).',
+            'Step 3: Sort the calculated distances in ascending order.',
+            'Step 4: Select the first K data points with the smallest distances.',
+            'Step 5: Count how many neighbours belong to each class.',
+            'Step 6: Assign the majority class as the final prediction for the new data point.'
           ],
           formulas: [
-            { name: 'Euclidean Distance Formula', latex: 'd(x, x\') = \\sqrt{\\sum_{i=1}^{n}(x_i - x\'_i)^2}' }
+            {
+              name: 'Euclidean Distance Formula',
+              latex: 'd(x, y) = \\sqrt{\\sum_{i=1}^{n} (x_i - y_i)^2}'
+            }
           ]
         },
         {
-          title: '3. Illustrative Worked Example (Pass / Fail)',
+          title: '2. Practical Example of KNN (Pass / Fail Prediction)',
           content: [
-            'Internal & External exam scores (scale 1-10); classify new student x₀ = (3, 7) with K = 3.'
+            'Suppose we want to predict whether a student will Pass or Fail based on Internal marks (scale 1-10) and External marks (scale 1-10).',
+            'Let K = 3, and the new student has Internal = 3 and External = 7.',
+            'We compute the Euclidean distance from the new student (3, 7) to each student in the training set:',
+            '- S1 (7, 7): Distance = sqrt((7-3)^2 + (7-7)^2) = sqrt(16 + 0) = 4.00 (Pass)',
+            '- S2 (7, 4): Distance = sqrt((7-3)^2 + (4-7)^2) = sqrt(16 + 9) = 5.00 (Pass)',
+            '- S3 (3, 4): Distance = sqrt((3-3)^2 + (4-7)^2) = sqrt(0 + 9) = 3.00 (Fail)',
+            '- S4 (1, 4): Distance = sqrt((1-3)^2 + (4-7)^2) = sqrt(4 + 9) = 3.61 (Fail)'
           ],
           table: {
             headers: ['Student', 'Internal', 'External', 'Status', 'Distance to (3, 7)'],
             rows: [
-              { parameter: 'S1', col1: '7', col2: '7', col3: 'Pass', col4: '√[(7-3)² + (7-7)²] = √16 = 4.00' },
-              { parameter: 'S2', col1: '7', col2: '4', col3: 'Pass', col4: '√[(7-3)² + (4-7)²] = √[16+9] = 5.00' },
-              { parameter: 'S3', col1: '3', col2: '4', col3: 'Fail', col4: '√[(3-3)² + (4-7)²] = √9 = 3.00' },
-              { parameter: 'S4', col1: '1', col2: '4', col3: 'Fail', col4: '√[(1-3)² + (4-7)²] = √[4+9] = 3.61' }
+              { parameter: 'S3', col1: '3', col2: '4', col3: 'Fail', col4: '3.00 (Closest)' },
+              { parameter: 'S4', col1: '1', col2: '4', col3: 'Fail', col4: '3.61 (2nd Closest)' },
+              { parameter: 'S1', col1: '7', col2: '7', col3: 'Pass', col4: '4.00 (3rd Closest)' },
+              { parameter: 'S2', col1: '7', col2: '4', col3: 'Pass', col4: '5.00' }
             ]
           }
         },
         {
-          title: '4. Decision Computation',
+          title: '3. Final Classification Decision',
           content: [
-            'The 3 nearest points are S3 (dist = 3.00, Fail), S4 (dist = 3.61, Fail), and S1 (dist = 4.00, Pass).',
-            'Voting score: Fail = 2 votes, Pass = 1 vote.',
-            'Final Classification: The new student is predicted as FAIL.'
+            'The 3 nearest neighbours to (3, 7) are S3 (Fail), S4 (Fail), and S1 (Pass).',
+            'Votes tally: Fail = 2 votes, Pass = 1 vote.',
+            'Result: By majority voting, the new student is predicted to FAIL.'
           ]
         }
       ],
       diagrams: [
         {
           id: 'diag-knn-decision',
-          title: 'KNN Decision Boundary & Radius (K = 3)',
-          caption: 'Query star point surrounded by dashed search radius enclosing 2 Triangles (Class A) and 1 Square (Class B).',
+          title: 'KNN Decision Boundary (K = 3)',
+          caption: 'Query star point surrounded by search radius enclosing 2 Fail points and 1 Pass point.',
           type: 'svg-interactive',
           svgType: 'knn-decision'
         }
       ],
       summary: [
-        'KNN classifies instances based on majority vote among its K nearest neighbours.',
-        'Lazy learner with zero training time, highly intuitive and non-parametric.',
-        'Features must be scaled before distance computation to avoid scale dominance.',
-        'Odd K values are selected to avoid ties in two-class problems.'
+        'KNN classifies a new instance using the majority vote of its K closest neighbours.',
+        'It is a lazy learner: zero training time, all computation occurs at test time.',
+        'Euclidean distance is the most common metric used.',
+        'Choosing an odd value of K prevents tie votes in two-class problems.'
       ],
       keyPoints: [
-        'Instance-based / lazy learning',
+        'Lazy / Instance-based learning',
         'Euclidean distance metric',
         'Majority voting rule',
-        'Sensitivity to feature normalization'
+        'Odd K selection'
       ]
     },
     {
@@ -162,51 +164,50 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q3(b)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q3(b)', marks: 6 }
+        { paper: 'Paper 4', questionNo: 'Q4(c)', marks: 6 },
+        { paper: 'Paper 6', questionNo: 'Q4(c)', marks: 6 }
       ],
-      syllabusTopics: ['KNN Pros and Cons', 'Curse of Dimensionality', 'Inference Latency'],
-      definition: 'A balanced critique of KNN, highlighting its simplicity and adaptability against computational inefficiencies, memory overhead, and vulnerability to high dimensions.',
+      syllabusTopics: ['KNN Pros & Cons', 'Lazy Learning', 'Computational Complexity', 'Curse of Dimensionality'],
+      definition: 'K-Nearest Neighbour (KNN) is an intuitive non-parametric algorithm that memorizes training data and predicts based on distance, offering great simplicity alongside noticeable computational limitations.',
       sections: [
         {
-          title: '1. Advantages & Disadvantages Matrix',
+          title: '1. Advantages and Disadvantages of KNN',
+          content: [
+            'The key strengths and limitations of the KNN algorithm in university examinations are summarized below:'
+          ],
           table: {
             headers: ['Advantages of KNN (Strengths)', 'Disadvantages of KNN (Weaknesses)'],
             rows: [
               {
-                parameter: 'Zero training time: As a lazy learner (O(1) training), new data points can be appended instantly without retraining.',
-                col1: 'Extremely slow testing time: During prediction (O(N·D)), it must compute distances to every single point in the training set.'
+                parameter: 'Simple to understand and implement: Requires no complex mathematical model assumptions or iterative training.',
+                col1: 'Slow prediction speed: Every prediction requires computing distances to all training points, which is slow for large datasets.'
               },
               {
-                parameter: 'Completely non-parametric: Makes zero assumptions about the underlying distribution or geometric shape of class boundaries.',
-                col1: 'Highly sensitive to feature scale: Inaccurate if features are not strictly normalized (e.g., using Min-Max or Standard scaling).'
+                parameter: 'Zero training time: As a lazy learner, new training data can be added immediately without retraining.',
+                col1: 'High memory usage: The entire training dataset must be permanently stored in memory (RAM).'
               },
               {
-                parameter: 'Naturally handles both multiclass classification and regression simply by taking a majority vote or local average.',
-                col1: 'Suffers severely from the Curse of Dimensionality: In high dimensions, all distances become equal, ruining accuracy.'
+                parameter: 'Handles non-linear data well: Naturally adapts to complex decision boundaries without needing linear separation.',
+                col1: 'Sensitive to feature scale: Inaccurate if features are not normalized, as large numbers dominate distance calculations.'
               },
               {
-                parameter: 'Highly flexible: Easily captures complex, non-linear, irregular decision boundaries that linear models miss.',
-                col1: 'High memory footprint: The entire dataset must permanently reside in RAM for inference.'
-              },
-              {
-                parameter: 'Simple to understand and implement: Requires tuning only a single primary hyperparameter (K, the number of neighbors).',
-                col1: 'Vulnerable to class imbalance: Heavily biased toward the majority class if one class outnumbers another.'
+                parameter: 'Versatile: Can be applied to both classification (majority vote) and regression (average of neighbours).',
+                col1: 'Curse of Dimensionality: Distance metrics lose meaning in high dimensions, causing accuracy to degrade.'
               }
             ]
           }
         }
       ],
       summary: [
-        'KNN is simple, assumption-free, and handles multiclass data natively.',
-        'Major drawbacks: high inference latency, massive storage requirements, vulnerability to the curse of dimensionality.',
-        'Feature scaling and careful choice of K are critical to acceptable performance.'
+        'Advantages: Zero training time, simple to implement, handles non-linear boundaries.',
+        'Disadvantages: High memory footprint, slow testing time, sensitive to feature scaling.',
+        'Best suited for small, clean datasets with scaled numerical features.'
       ],
       keyPoints: [
-        'Zero training vs Heavy prediction latency',
-        'Curse of dimensionality impact',
-        'RAM storage bottleneck',
-        'Vulnerability to unscaled features and class imbalance'
+        'Zero training time',
+        'Slow prediction time O(N)',
+        'Feature scaling requirement',
+        'Curse of dimensionality'
       ]
     },
     {
@@ -429,62 +430,61 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 5,
       title: 'SVM Terms: Separating Hyperplane and Margin',
-      shortTitle: 'Support Vector Machine Hyperplanes & Margins',
+      shortTitle: 'SVM Hyperplane & Margin',
       marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q4(c)', marks: 6 }
+        { paper: 'Paper 1', questionNo: 'Q4(b)', marks: 6 },
+        { paper: 'Paper 3', questionNo: 'Q4(b)', marks: 6 }
       ],
-      syllabusTopics: ['Support Vector Machine', 'Separating Hyperplane', 'Margin Maximization', 'Support Vectors'],
-      definition: 'Support Vector Machine (SVM) is a maximum-margin linear classifier that identifies the optimal separating hyperplane that maximizes the geometric margin (empty corridor) separating positive and negative classes.',
+      syllabusTopics: ['SVM', 'Separating Hyperplane', 'Margin', 'Support Vectors'],
+      definition: 'Support Vector Machine (SVM) is a supervised learning algorithm that finds an optimal decision boundary (hyperplane) to separate different classes with the maximum possible margin.',
       sections: [
         {
-          title: '1. Separating Hyperplane',
+          title: '1. Important Terms in Support Vector Machine',
           content: [
-            'A hyperplane is a decision boundary that partitions a feature space into two distinct regions: w·x + b = 0.',
-            'In 2D it is a straight line; in 3D a flat plane; in n-dimensional space an (n-1)-dimensional affine subspace.',
-            'Classification decision rule: sign(w·x + b). Points with w·x + b > 0 belong to class +1; points with w·x + b < 0 belong to class -1.',
-            'While infinitely many separating hyperplanes exist, SVM uniquely seeks the optimal hyperplane that provides the maximum margin.'
-          ],
-          formulas: [
-            { name: 'Hyperplane Equation', latex: 'w \\cdot x + b = 0' }
+            '1. Hyperplane: A decision boundary that separates data points of different classes. In 2D space it is a line, in 3D it is a plane, and in higher dimensions it is a hyperplane (w^T x + b = 0).',
+            '2. Margin: The distance between the separating hyperplane and the closest data points of any class.',
+            '3. Support Vectors: The data points that lie closest to the decision boundary. Only these points determine the position and orientation of the hyperplane.',
+            '4. Optimal (Maximum Margin) Hyperplane: The unique hyperplane that leaves the maximum distance to the nearest training points of each class. A larger margin provides better generalization on unseen data.'
           ]
         },
         {
-          title: '2. Margin and Support Vectors',
+          title: '2. Mathematical Formulation of Margin',
           content: [
-            'Margin: The shortest perpendicular distance between the decision hyperplane and the closest data points of either class.',
-            'Mathematical Margin Width: 2 / ||w||. Maximizing the margin is mathematically equivalent to minimizing (1/2)||w||² subject to yᵢ(w·xᵢ + b) ≥ 1.',
-            'Support Vectors: The critical training instances located directly on the margin boundaries w·x + b = ±1. If any non-support vector is moved or deleted, the decision boundary remains completely unaffected.',
-            'Hard vs Soft Margin: Hard margin strictly forbids training errors (requires linearly separable data); Soft margin introduces slack variables ξᵢ and penalty parameter C to tolerate outliers.'
+            'The linear hyperplane is defined by: w^T x + b = 0',
+            'The total margin width between the positive and negative margin boundaries is: M = 2 / ||w||',
+            'Maximizing the margin width is mathematically equivalent to minimizing 1/2 ||w||^2 subject to y_i (w^T x_i + b) >= 1.'
           ],
           formulas: [
-            { name: 'Margin Width Formula', latex: '\\text{Margin Width} = \\frac{2}{\\|w\\|}' },
-            { name: 'Optimization Problem', latex: '\\min_{w, b} \\frac{1}{2}\\|w\\|^2 \\quad \\text{subject to} \\quad y_i(w\\cdot x_i + b) \\ge 1, \\; \\forall i' }
+            {
+              name: 'Margin Width Formula',
+              latex: '\\text{Margin Width } M = \\frac{2}{\\|w\\|}'
+            }
           ]
         }
       ],
       diagrams: [
         {
-          id: 'diag-svm-margin',
-          title: 'SVM Maximum Margin Hyperplane & Support Vectors',
-          caption: 'Optimal hyperplane w·x + b = 0 flanked by dashed margin boundaries w·x + b = ±1 with width 2/||w||, resting upon support vectors.',
+          id: 'diag-svm-hyperplane',
+          title: 'SVM Separating Hyperplane, Margin, and Support Vectors',
+          caption: 'Optimal hyperplane maximizing the margin between positive and negative support vectors.',
           type: 'svg-interactive',
-          svgType: 'svm-margin'
+          svgType: 'svm-hyperplane'
         }
       ],
       summary: [
-        'Separating hyperplane w·x + b = 0 partitions classes in n-dimensional space.',
-        'Margin is the corridor width 2/||w|| between the hyperplane and closest data points.',
-        'SVM maximizes this margin, guaranteeing superior generalization and minimal overfitting.',
-        'Support vectors are the critical points on the boundary that define the entire model.'
+        'Hyperplane is the decision boundary separating classes.',
+        'Margin is the distance between the hyperplane and the nearest data points.',
+        'Support vectors are the critical points that define the margin.',
+        'SVM maximizes the margin width (2 / ||w||) to reduce overfitting.'
       ],
       keyPoints: [
-        'Decision boundary equation w·x + b = 0',
-        'Margin formula 2 / ||w||',
-        'Support vectors role in boundary construction',
-        'Hard vs Soft margin (parameter C)'
+        'Separating Hyperplane',
+        'Margin Maximization',
+        'Support Vectors',
+        'Margin Width = 2 / ||w||'
       ]
     },
     {
@@ -493,68 +493,60 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 6,
       title: 'Kernel Methods Suitable for SVM',
-      shortTitle: 'SVM Kernel Methods & Non-Linear Mapping',
+      shortTitle: 'Kernel Methods in SVM',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 5', questionNo: 'Q3(a)', marks: 6 }
+        { paper: 'Paper 4', questionNo: 'Q4(b)', marks: 6 },
+        { paper: 'Paper 6', questionNo: 'Q4(b)', marks: 6 }
       ],
-      syllabusTopics: ['Kernel Trick', 'Non-linear SVM', 'RBF Kernel', 'Polynomial Kernel'],
-      definition: 'Kernel methods allow SVM to solve non-linearly separable classification tasks by implicitly projecting input vectors into a higher-dimensional feature space where linear separation becomes feasible, without explicitly computing high-dimensional coordinates.',
+      syllabusTopics: ['Kernel Trick', 'Linear Kernel', 'Polynomial Kernel', 'RBF Kernel', 'Sigmoid Kernel'],
+      definition: 'Kernel methods are mathematical functions that allow SVM to classify non-linearly separable data by mapping it into a higher-dimensional space where it becomes linearly separable.',
       sections: [
         {
-          title: '1. The Kernel Trick',
+          title: '1. What is the Kernel Trick?',
           content: [
-            'When data cannot be linearly separated in original input space ℝⁿ, we map it to higher-dimensional space ℝᵐ (where m >> n) using mapping function Φ(x).',
-            'In the dual formulation of SVM, data points enter solely via inner dot products Φ(x)·Φ(z).',
-            'Kernel Trick: A kernel function K(x, z) directly computes this inner product in original space: K(x, z) = Φ(x)·Φ(z). This avoids the prohibitive computational cost of explicitly calculating high-dimensional coordinates.'
+            'When data cannot be separated by a straight line or flat hyperplane in its original space, we project it into a higher-dimensional space.',
+            'The Kernel Trick computes the relationship (inner product) between points in higher dimensions directly using original coordinates: K(x, z) = phi(x)^T phi(z).',
+            'This avoids explicitly computing the expensive high-dimensional coordinates, saving substantial computational time and memory.'
           ]
         },
         {
-          title: '2. Standard SVM Kernel Functions (2-Column Comparison)',
-          table: {
-            headers: ['SVM Kernel & Mathematical Formula', 'Core Properties, Geometry & Best Used When'],
-            rows: [
-              {
-                parameter: 'Linear Kernel: K(x, z) = x · z',
-                col1: 'Computes simple dot product with zero coordinate projection; fastest to train; best when features are already linearly separable or when feature dimension is very large (e.g., text document classification, spam filtering).'
-              },
-              {
-                parameter: 'Polynomial Kernel: K(x, z) = (x · z + c)^d',
-                col1: 'Projects data into a finite higher-dimensional space capturing interaction features up to degree d; best for image classification, curved physical boundaries, and handwriting recognition.'
-              },
-              {
-                parameter: 'Radial Basis Function (RBF / Gaussian): K(x, z) = exp(-γ ||x - z||²)',
-                col1: 'Implicitly projects inputs into an infinite-dimensional Hilbert space based on Euclidean distance decay; the standard default kernel for complex, non-linear classification problems; tuned via hyperparameter γ.'
-              },
-              {
-                parameter: 'Sigmoid Kernel: K(x, z) = tanh(α x · z + c)',
-                col1: 'Applies hyperbolic tangent activation function; behaves similarly to a two-layer multi-layer perceptron neural network; used mainly in specialized neural-network-compatible SVM architectures.'
-              }
-            ]
-          }
+          title: '2. Commonly Used Kernels in SVM',
+          content: [
+            '1. Linear Kernel: Used when data is already linearly separable. Fast and simple. Formula: K(x, z) = x^T z.',
+            '2. Polynomial Kernel: Computes polynomial relationships up to degree d. Captures feature interactions. Formula: K(x, z) = (x^T z + c)^d.',
+            '3. Radial Basis Function (RBF / Gaussian) Kernel: Maps data into an infinite-dimensional space. The most popular default choice for non-linear data. Formula: K(x, z) = exp(-gamma * ||x - z||^2).',
+            '4. Sigmoid Kernel: Mimics a two-layer neural network. Formula: K(x, z) = tanh(alpha * x^T z + c).'
+          ],
+          formulas: [
+            { name: 'Linear Kernel', latex: 'K(x, z) = x^T z' },
+            { name: 'Polynomial Kernel', latex: 'K(x, z) = (x^T z + c)^d' },
+            { name: 'RBF Kernel', latex: 'K(x, z) = \\exp(-\\gamma \\|x - z\\|^2)' }
+          ]
         }
       ],
       diagrams: [
         {
           id: 'diag-kernel-trick',
-          title: 'Kernel Trick: 1D Non-Separable to 2D Linearly Separable',
-          caption: 'Non-separable 1D points transformed via z = x² into a 2D parabola where a flat linear hyperplane cleanly separates classes.',
+          title: 'Kernel Trick: 2D Non-Linear to 3D Linear Separation',
+          caption: 'Non-linearly separable concentric rings in 2D mapped into 3D where a flat plane separates them cleanly.',
           type: 'svg-interactive',
           svgType: 'kernel-trick'
         }
       ],
       summary: [
-        'Kernel trick projects non-separable data into high dimensions where linear hyperplanes work.',
-        'Computes dot products implicitly: K(x, z) = Φ(x)·Φ(z) without coordinate explosion.',
-        'RBF (Gaussian) kernel is the standard choice; tuned via parameters C and γ using cross-validation.'
+        'Kernel methods enable SVM to handle non-linearly separable data.',
+        'The Kernel Trick computes inner products in high dimensions without explicit mapping.',
+        'Common kernels: Linear, Polynomial, RBF (Gaussian), and Sigmoid.',
+        'RBF is the most widely used kernel for general non-linear classification.'
       ],
       keyPoints: [
-        'Inner dot product computation',
-        'Linear, Polynomial, RBF, Sigmoid kernels',
-        'Parameter γ and C tuning',
-        'Implicit high-dimensional mapping'
+        'Kernel Trick',
+        'Implicit high-dimensional mapping',
+        'RBF / Gaussian Kernel',
+        'Computational efficiency'
       ]
     },
     {
@@ -563,83 +555,77 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 7,
       title: 'Explain with Example the Variant of SVM: Support Vector Regression (SVR)',
-      shortTitle: 'Support Vector Regression (SVR) & ε-Insensitive Tube',
+      shortTitle: 'Support Vector Regression (SVR)',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q3(a)', marks: 6 }
+        { paper: 'Paper 4', questionNo: 'Q3(b)', marks: 6 },
+        { paper: 'Paper 6', questionNo: 'Q3(b)', marks: 6 }
       ],
-      syllabusTopics: ['Support Vector Regression', 'ε-Insensitive Loss', 'Slack Variables'],
-      definition: 'Support Vector Regression (SVR) adapts SVM principles to continuous target prediction by fitting a function within an ε-insensitive tube, completely ignoring errors below threshold ε while penalizing deviations outside the tube.',
+      syllabusTopics: ['SVR', 'Epsilon-tube', 'Slack Variables', 'Loss Function'],
+      definition: 'Support Vector Regression (SVR) is an adaptation of SVM for regression problems that predicts continuous numerical values instead of discrete classes.',
       sections: [
         {
-          title: '1. Mechanism of the ε-Insensitive Tube',
+          title: '1. How Support Vector Regression (SVR) Works',
           content: [
-            'Unlike ordinary least squares which penalizes every minor deviation, SVR defines an ε-tube around predicted function f(x) = w·x + b.',
-            'Errors inside the tube (|y - f(x)| ≤ ε) incur zero penalty.',
-            'Deviations outside the tube (|y - f(x)| > ε) are penalized linearly using slack variables ξᵢ and ξᵢ* weighted by hyperparameter C.',
-            'Points lying on or outside the tube boundary act as the support vectors that dictate the regression line.'
-          ],
-          formulas: [
-            {
-              name: 'SVR Optimization Formulation',
-              latex: '\\min_{w, b, \\xi, \\xi^*} \\frac{1}{2}\\|w\\|^2 + C\\sum_{i=1}^{n}(\\xi_i + \\xi_i^*) \\quad \\text{s.t.} \\quad |y_i - (w\\cdot x_i + b)| \\le \\varepsilon + \\xi_i'
-            }
+            'Unlike traditional regression that tries to minimize error for every single point, SVR defines an epsilon-insensitive tube (margin of tolerance) around the regression line.',
+            '1. Points within distance epsilon from the line carry ZERO penalty (loss = 0).',
+            '2. Only data points outside the epsilon-tube are penalized with error distances (slack variables xi).',
+            '3. SVR balances finding a flat regression line with minimizing errors outside the tube, controlled by regularization parameter C.',
+            '4. Points on or outside the tube boundaries act as the support vectors.'
           ]
         },
         {
-          title: '2. Concrete Example (Real Estate Appraisal)',
-          content: [
-            'Predicting house price with tolerance ε = $10,000.',
-            'Case 1: Actual price = $305,000, Predicted price = $300,000. Error is $5,000. Because $5,000 ≤ ε, error is ignored (zero loss).',
-            'Case 2: Actual price = $325,000, Predicted price = $300,000. Error is $25,000. Only the excess ($25,000 - $10,000 = $15,000) is penalized.'
-          ]
-        },
-        {
-          title: '3. SVR vs Ordinary Linear Regression',
+          title: '2. Difference Between Linear Regression (OLS) and SVR',
           table: {
             headers: ['Linear Regression (OLS)', 'Support Vector Regression (SVR)'],
             rows: [
               {
-                parameter: 'Uses Ordinary Least Squares (squared error loss), which penalizes every single deviation from the line.',
-                col1: 'Uses an ε-insensitive loss tube; errors smaller than margin ε are completely ignored with zero penalty.'
+                parameter: 'Squares all prediction errors (squared error loss), making it very sensitive to outliers.',
+                col1: 'Uses epsilon-insensitive loss; ignores errors smaller than epsilon, making it robust to outliers.'
               },
               {
-                parameter: 'Highly sensitive to outliers because squaring large errors pulls the entire line towards anomalous points.',
-                col1: 'Highly robust against outliers because penalties are linear outside the tube and bounded by parameter C.'
+                parameter: 'All training data points equally influence the fitted regression line.',
+                col1: 'Only points on or outside the margin boundaries (support vectors) influence the model.'
               },
               {
-                parameter: 'Fundamentally linear; modeling non-linear relationships requires manually engineering polynomial features.',
-                col1: 'Natively models complex non-linear curves using the Kernel Trick (e.g. RBF or Polynomial kernels).'
-              },
-              {
-                parameter: 'Every single data point in the dataset equally determines the slope and intercept of the line.',
-                col1: 'Determined exclusively by Support Vectors (points that lie on or outside the margin tube boundary).'
+                parameter: 'Can only model linear patterns unless manual polynomial features are created.',
+                col1: 'Natively models complex non-linear curves using kernel functions (such as RBF).'
               }
             ]
           }
+        },
+        {
+          title: '3. Practical Example of SVR',
+          content: [
+            'Suppose we are predicting House Prices based on square footage.',
+            'We set an allowable error margin epsilon = $5,000.',
+            'If an actual house price is $200,000 and the model predicts $203,000 (error = $3,000), SVR treats this error as 0 because it falls within the $5,000 tolerance tube.',
+            'If a luxury house has an extreme price of $900,000 (outlier), SVR applies a bounded penalty rather than squaring the huge error, preventing the regression line from being skewed.'
+          ]
         }
       ],
       diagrams: [
         {
           id: 'diag-svr-tube',
-          title: 'Support Vector Regression with ε-Insensitive Tube',
-          caption: 'Fitted regression line surrounded by dashed ±ε tube; support vectors lie on and outside the tube boundaries.',
+          title: 'SVR Epsilon-Insensitive Tube',
+          caption: 'Regression line with symmetric +/- epsilon boundary tube; points inside carry zero loss.',
           type: 'svg-interactive',
           svgType: 'svr-tube'
         }
       ],
       summary: [
-        'SVR fits continuous targets inside a margin of tolerance called the ε-insensitive tube.',
-        'Errors within ±ε of the prediction line are completely ignored.',
-        'Points outside the tube become support vectors, providing robustness against minor noise and outliers.'
+        'SVR applies SVM principles to continuous numerical prediction.',
+        'It uses an epsilon-tube where errors within tolerance carry zero loss.',
+        'Much more robust to outliers than Ordinary Least Squares regression.',
+        'Non-linear relationships can be modeled using kernel functions.'
       ],
       keyPoints: [
-        'ε-insensitive loss function',
-        'Slack variables ξᵢ and ξᵢ*',
-        'Regularization parameter C balance',
-        'Robustness compared to Ordinary Least Squares'
+        'Epsilon-insensitive tube',
+        'Support vectors define regression curve',
+        'Robust to outliers',
+        'Kernel support for non-linear regression'
       ]
     },
     {
@@ -648,7 +634,7 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 8,
       title: 'What is Ensemble Learning? Why is it Used? (with example)',
-      shortTitle: 'Ensemble Learning Architecture & Rationale',
+      shortTitle: 'Ensemble Learning & Applications',
       marks: 6,
       importance: 'Frequently Asked',
       occurrenceCount: 4,
@@ -658,54 +644,68 @@ export const unit4Data: Unit = {
         { paper: 'Paper 4', questionNo: 'Q3(a)', marks: 6 },
         { paper: 'Paper 6', questionNo: 'Q3(b)', notes: 'First part' }
       ],
-      syllabusTopics: ['Ensemble Learning', 'Weak Learners', 'Variance Reduction', 'Bias Reduction'],
-      definition: 'Ensemble learning is a meta-algorithmic framework that strategically combines multiple individual models (weak learners) to produce a unified predictive model that achieves superior accuracy and robustness compared to any constituent model.',
+      syllabusTopics: ['Ensemble Learning', 'Weak Learners', 'Majority Voting', 'Averaging'],
+      definition: 'Ensemble Learning is a Machine Learning technique that combines multiple individual models to produce a more accurate and reliable prediction.',
       sections: [
         {
-          title: '1. Foundational Rationale (Wisdom of the Crowd)',
+          title: '1. What is Ensemble Learning?',
           content: [
-            'Core Premise: A collective group of moderately performing, uncorrelated weak learners can combine into an exceptional strong learner.',
-            'Statistical Reason: Independent errors made by diverse individual models tend to cancel each other out during aggregation.',
-            'Computational Reason: Combining multiple searches from different initializations reduces the risk of getting stuck in sub-optimal local minima.',
-            'Representational Reason: An ensemble expands the effective hypothesis space, forming complex decision boundaries beyond the capacity of a single learner.'
+            'Instead of depending on a single model, Ensemble Learning combines the predictions of multiple models to get a better final result.',
+            'The individual models are called weak learners or base models.',
+            'When combined, they form a strong learner that outperforms any single model.'
           ]
         },
         {
-          title: '2. Concrete Real-World Example',
+          title: '2. Why is Ensemble Learning Used?',
           content: [
-            'Medical Diagnostics: 5 independent classifiers evaluate whether a tumor biopsy is malignant.',
-            'Classifiers 1, 2, 4, 5 predict "Malignant"; Classifier 3 predicts "Benign".',
-            'Majority voting yields "Malignant" (4:1 vote). The isolated error of model 3 does not compromise patient diagnosis.'
+            'Ensemble Learning is used for the following reasons:',
+            '1. Improves Accuracy: Combining multiple models produces more accurate predictions than individual models.',
+            '2. Reduces Errors: Errors made by individual models tend to cancel each other out when combined.',
+            '3. Reduces Overfitting: Techniques like Bagging reduce variance and help the model perform better on unseen data.',
+            '4. Improves Reliability: Combining different models makes final predictions more stable and less sensitive to noisy data.'
           ]
         },
         {
-          title: '3. Primary Ensemble Categories',
+          title: '3. Example of Ensemble Learning',
           content: [
-            'Bagging (Parallel): Reduces variance; e.g., Random Forest.',
-            'Boosting (Sequential): Reduces bias; e.g., AdaBoost, Gradient Boosting, XGBoost.',
-            'Stacking (Hierarchical): Heterogeneous base learners combined via a meta-learning model.'
-          ]
+            'Suppose five Machine Learning models are used to predict whether a medical biopsy tumor is Malignant or Benign.',
+            'Out of five models, four predict Malignant and one predicts Benign.',
+            'Using majority voting, the final prediction is Malignant.',
+            'Therefore, Ensemble Learning combines the predictions of multiple models to produce a robust final decision.'
+          ],
+          table: {
+            headers: ['Model', 'Prediction'],
+            rows: [
+              { parameter: 'Model 1', col1: 'Malignant' },
+              { parameter: 'Model 2', col1: 'Malignant' },
+              { parameter: 'Model 3', col1: 'Benign' },
+              { parameter: 'Model 4', col1: 'Malignant' },
+              { parameter: 'Model 5', col1: 'Malignant' }
+            ]
+          }
         }
       ],
       diagrams: [
         {
           id: 'diag-ensemble-concept',
           title: 'Ensemble Learning Architecture',
-          caption: 'Training dataset routed into parallel base models whose independent predictions are aggregated via voting or averaging.',
+          caption: 'Training data feeds multiple base models whose outputs are combined via voting or averaging to form the final prediction.',
           type: 'svg-interactive',
           svgType: 'ensemble-concept'
         }
       ],
       summary: [
-        'Ensemble learning aggregates multiple weak models into a highly accurate single predictor.',
-        'Reduces variance (Bagging) or reduces bias (Boosting) while providing error-cancellation robustness.',
-        'Widely used in winning competitive machine learning solutions (Random Forest, XGBoost).'
+        'Ensemble Learning combines multiple Machine Learning models.',
+        'It improves prediction accuracy and reliability.',
+        'It reduces errors and protects against overfitting.',
+        'Majority voting is a simple and common way to combine predictions.',
+        'Random Forest and AdaBoost are popular examples of Ensemble Learning.'
       ],
       keyPoints: [
-        'Weak learner to Strong learner paradigm',
-        'Variance and bias reduction mechanisms',
-        'Majority voting and averaging aggregators',
-        'Independence of constituent models'
+        'Combining multiple models',
+        'Weak learners to strong learner',
+        'Majority voting / averaging',
+        'Higher accuracy and reliability'
       ]
     },
     {
@@ -768,65 +768,48 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 10,
       title: 'Explain Bagging and Boosting. Differentiate between Bagging and Boosting',
-      shortTitle: 'Bagging vs Boosting In-Depth Comparison',
+      shortTitle: 'Bagging vs Boosting',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q3(b)', notes: 'Differentiate' },
-        { paper: 'Paper 3', questionNo: 'Q4(c)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q3(a)', notes: 'Differentiate' }
+        { paper: 'Paper 4', questionNo: 'Q3(a)', marks: 6 },
+        { paper: 'Paper 6', questionNo: 'Q3(a)', marks: 6 }
       ],
-      syllabusTopics: ['Bagging', 'Boosting', 'Bootstrap Aggregation', 'Variance vs Bias'],
-      definition: 'Bagging is a parallel ensemble approach that averages independent base models trained on bootstrap subsets to minimize variance; Boosting is a sequential ensemble approach that trains learners iteratively on re-weighted data to minimize bias.',
+      syllabusTopics: ['Bagging', 'Boosting', 'Variance Reduction', 'Bias Reduction'],
+      definition: 'Bagging and Boosting are the two most popular ensemble learning techniques used to combine multiple base models to produce a single superior predictive model.',
       sections: [
         {
-          title: '1. Mechanism of Bagging (Bootstrap Aggregating)',
+          title: '1. Explanation of Bagging and Boosting',
           content: [
-            '1. Generate B bootstrap datasets from original data (random sampling with replacement, containing ~63.2% unique instances).',
-            '2. Train an independent, fully-grown high-variance model (e.g., deep decision tree) on each bootstrap set in parallel.',
-            '3. Combine predictions: Majority voting for classification, arithmetic averaging for regression.',
-            'Outcome: Effectively reduces model variance while maintaining low bias.'
+            'Bagging (Bootstrap Aggregating): Multiple base models are trained independently in parallel on random bootstrap subsets of training data (sampling with replacement). The final prediction is obtained by averaging (for regression) or majority voting (for classification). Example: Random Forest.',
+            'Boosting: Base models are trained sequentially in a series. Each new model focuses on correcting the errors made by previous models by assigning higher weights to misclassified samples. Example: AdaBoost, Gradient Boosting, XGBoost.'
           ]
         },
         {
-          title: '2. Mechanism of Boosting',
-          content: [
-            '1. Initialize all training instances with equal weights wᵢ = 1/N.',
-            '2. Train a weak base learner (e.g., 1-split decision stump).',
-            '3. Increase weights of misclassified instances; decrease weights of correctly classified instances.',
-            '4. Train next learner on re-weighted data, focusing on previously failed instances.',
-            '5. Repeat sequentially; combine models using weighted majority voting based on each model\'s individual accuracy.'
-          ]
-        },
-        {
-          title: '3. Comprehensive Bagging vs Boosting Comparison Table',
+          title: '2. Difference between Bagging and Boosting',
           table: {
             headers: ['Bagging (e.g., Random Forest)', 'Boosting (e.g., AdaBoost, XGBoost)'],
             rows: [
               {
-                parameter: 'Base models are trained in parallel and completely independently of each other.',
-                col1: 'Base models are trained sequentially in a chain, where each new model learns from previous errors.'
+                parameter: 'Models are trained in parallel and independently of each other.',
+                col1: 'Models are trained sequentially, where each model depends on the performance of earlier models.'
               },
               {
-                parameter: 'Uses random bootstrap sampling with replacement; each model receives a random slice of data.',
-                col1: 'Uses adaptive sample re-weighting; difficult, misclassified points receive progressively higher weights.'
+                parameter: 'Primary goal is to reduce variance and prevent overfitting.',
+                col1: 'Primary goal is to reduce bias and increase prediction accuracy.'
               },
               {
-                parameter: 'Every model has equal voting power in the final ensemble (simple majority vote or averaging).',
-                col1: 'Models receive weighted voting power (stage weight α) based on their individual accuracy.'
+                parameter: 'Uses complex base models with high variance (e.g., fully grown deep decision trees).',
+                col1: 'Uses simple weak learners with high bias (e.g., shallow decision stumps).'
               },
               {
-                parameter: 'Primary objective is to reduce Variance and prevent overfitting on complex base trees.',
-                col1: 'Primary objective is to reduce Bias and convert shallow weak learners into one powerful master model.'
+                parameter: 'All training samples and models have equal voting weight in final aggregation.',
+                col1: 'Misclassified samples get higher weight in next rounds, and models with lower error get higher voting weight.'
               },
               {
-                parameter: 'Base models are typically deep, expressive, high-variance decision trees.',
-                col1: 'Base models are typically shallow, simple, high-bias weak models (like 1-split decision stumps).'
-              },
-              {
-                parameter: 'Highly robust against noise and outliers because errors are smoothed across independent trees.',
-                col1: 'Sensitive to noise and outliers because it continuously obsesses over hard-to-fit noisy points.'
+                parameter: 'Robust against noise and outliers; rarely overfits.',
+                col1: 'Can be sensitive to noisy data and outliers if tuned improperly.'
               }
             ]
           }
@@ -835,23 +818,23 @@ export const unit4Data: Unit = {
       diagrams: [
         {
           id: 'diag-bagging-boosting',
-          title: 'Architectural Comparison: Bagging vs Boosting',
-          caption: 'Parallel training flow of Bagging compared to sequential error-reweighting feedback pipeline of Boosting.',
+          title: 'Bagging vs Boosting Flow Comparison',
+          caption: 'Side-by-side architecture: Parallel training on bootstrap subsets (Bagging) vs Sequential error-weighted updates (Boosting).',
           type: 'svg-interactive',
           svgType: 'bagging-boosting'
         }
       ],
       summary: [
-        'Bagging builds parallel models on bootstrap samples; reduces variance (Random Forest).',
-        'Boosting builds sequential models on re-weighted data; reduces bias (AdaBoost).',
-        'Bagging models hold equal votes; Boosting weights votes by learner performance.',
-        'Bagging handles noise well; Boosting can overfit on outliers.'
+        'Bagging trains models in parallel to reduce variance (e.g., Random Forest).',
+        'Boosting trains models sequentially to reduce bias (e.g., AdaBoost).',
+        'Bagging weights all models equally; Boosting assigns weights based on accuracy.',
+        'Both methods dramatically outperform individual weak learners.'
       ],
       keyPoints: [
-        'Parallel vs Sequential execution',
-        'Bootstrap sampling vs Adaptive re-weighting',
-        'Variance reduction vs Bias reduction',
-        'Equal vs Weighted voting power'
+        'Bagging = Parallel, Variance reduction',
+        'Boosting = Sequential, Bias reduction',
+        'Sample re-weighting in Boosting',
+        'Bootstrap aggregation in Bagging'
       ]
     },
     {
@@ -860,44 +843,47 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 11,
       title: 'Explain Random Forest Algorithm with Example (with diagram)',
-      shortTitle: 'Random Forest Algorithm Architecture & Workflow',
+      shortTitle: 'Random Forest Algorithm & Example',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q4(b)(i)', marks: 6 },
-        { paper: 'Paper 2', questionNo: 'Q4(a)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q4(c)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q3(b)', notes: 'Random Forest part' }
+        { paper: 'Paper 1', questionNo: 'Q3(a)', marks: 6 },
+        { paper: 'Paper 3', questionNo: 'Q3(a)', marks: 6 }
       ],
-      syllabusTopics: ['Random Forest', 'Bagging', 'Feature Subspace Sampling', 'Out-of-Bag Error'],
-      definition: 'Random Forest is a supervised ensemble algorithm that constructs a collection of unpruned decision trees using bootstrap aggregation combined with random feature subspace sampling, aggregating individual predictions via majority voting or averaging.',
+      syllabusTopics: ['Random Forest', 'Bootstrapping', 'Feature Randomness', 'Out-of-Bag Error'],
+      definition: 'Random Forest is an ensemble learning algorithm that builds a forest of multiple decision trees using bootstrap aggregation and random feature selection, combining their predictions to achieve high accuracy and prevent overfitting.',
       sections: [
         {
-          title: '1. Two Pillars of Randomness in Random Forest',
+          title: '1. How Random Forest Works (Step-by-Step)',
           content: [
-            '1. Bootstrap Sampling (Row Bagging): Each tree is trained on a distinct random sample of N records drawn with replacement from the training set.',
-            '2. Random Feature Subspace (Column Bagging): At each split in a tree, only a random subset of m features (typically m = √M for classification, m = M/3 for regression) is considered rather than all M features.',
-            'Why Feature Randomization Matters: Decorrelates the trees. If one dominant feature exists, ordinary bagging produces similar splits across all trees; random feature selection forces diverse decision structures.'
+            'Step 1 (Bootstrap Sampling): Create B subsets of size N from the original dataset by sampling with replacement.',
+            'Step 2 (Feature Randomness): At each split in every tree, randomly select a subset of m features (typically m = sqrt(total features)) rather than considering all features.',
+            'Step 3 (Tree Construction): Train an unpruned decision tree on each bootstrap sample.',
+            'Step 4 (Aggregation): For a new test sample, pass it through all B trees:',
+            '- For Classification: Take the majority vote among all trees.',
+            '- For Regression: Compute the numerical average of all tree predictions.'
           ]
         },
         {
-          title: '2. Algorithmic Protocol',
+          title: '2. Practical Example of Random Forest',
           content: [
-            '1. For b = 1 to B (number of trees):',
-            '   a. Draw a bootstrap sample Z* of size N from training data.',
-            '   b. Grow a decision tree T_b to the terminal leaves without pruning.',
-            '   c. At each candidate node split: Select m random features from M, pick best split among m.',
-            '2. Output ensemble prediction: Majority vote (classification) or mean average (regression).'
+            'Suppose a bank builds a Random Forest with 100 decision trees to predict whether a Loan Application should be Approved or Rejected.',
+            'A customer applies with specific Credit Score, Income, and Loan Amount values.',
+            'The customer data is evaluated by all 100 trees independently:',
+            '- 85 trees predict "Approved"',
+            '- 15 trees predict "Rejected"',
+            'Final Decision: By majority vote (85:15), the loan is APPROVED.',
+            'Why it works: Even if a few individual trees make mistakes due to noisy data, the majority consensus provides an accurate, dependable decision.'
           ]
         },
         {
-          title: '3. Practical Banking Loan Approval Example',
+          title: '3. Key Advantages of Random Forest',
           content: [
-            'Features: Age, Income, Credit Score, Job Tenure, Existing Debt.',
-            'A bank builds 100 decision trees on randomized customer data slices.',
-            'When a new loan applicant arrives: 72 trees predict "Approve", 28 trees predict "Reject".',
-            'By majority vote (72% > 50%), the loan is approved.'
+            '1. High Accuracy: Consistently delivers superior performance on complex tabular datasets.',
+            '2. Prevents Overfitting: Averaging across diverse uncorrelated trees significantly reduces variance.',
+            '3. Handles Missing Values: Effectively estimates missing data while maintaining prediction quality.',
+            '4. Feature Importance: Automatically calculates which features contribute most to predictions.'
           ]
         }
       ],
@@ -905,21 +891,22 @@ export const unit4Data: Unit = {
         {
           id: 'diag-random-forest',
           title: 'Random Forest Architecture & Majority Voting',
-          caption: 'Original dataset sampled into bootstrap subsets with random feature splits across Tree 1, Tree 2, Tree 3 leading to final voting.',
+          caption: 'Dataset split into bootstrap subsets, each building an independent decision tree, aggregated by majority vote.',
           type: 'svg-interactive',
           svgType: 'random-forest'
         }
       ],
       summary: [
-        'Random Forest = Bagging + Deep Decision Trees + Random Feature Subspace Sampling.',
-        'Decorrelating trees sharply reduces variance without increasing bias.',
-        'Extremely robust, handles missing values, resistant to overfitting, but less interpretable than single trees.'
+        'Random Forest combines multiple decision trees using Bagging and random feature selection.',
+        'Feature randomness (m = sqrt(D)) decorrelates individual trees.',
+        'Final prediction uses majority voting (classification) or averaging (regression).',
+        'Solves the overfitting problem of individual decision trees.'
       ],
       keyPoints: [
-        'Bootstrap sampling with replacement',
-        'Random feature subset size m = √M',
-        'Decorrelation of individual trees',
-        'Majority voting / Averaging aggregation'
+        'Bootstrap Aggregation',
+        'Feature randomness m = sqrt(D)',
+        'Majority voting aggregation',
+        'Variance reduction'
       ]
     },
     {
@@ -997,41 +984,38 @@ export const unit4Data: Unit = {
       shortTitle: 'Binary vs Multiclass Classification',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 3', questionNo: 'Q3(a)', marks: 6 }
+        { paper: 'Paper 4', questionNo: 'Q4(a)', marks: 6 },
+        { paper: 'Paper 6', questionNo: 'Q4(a)', marks: 6 }
       ],
-      syllabusTopics: ['Binary Classification', 'Multiclass Classification', 'Taxonomy'],
-      definition: 'Binary classification categorizes instances into exactly one of two mutually exclusive classes; Multiclass classification assigns instances to one of three or more distinct classes.',
+      syllabusTopics: ['Binary Classification', 'Multiclass Classification', 'Softmax', 'Sigmoid'],
+      definition: 'Classification is a supervised machine learning task where algorithms categorize data into distinct groups, categorized by the number of possible output target labels.',
       sections: [
         {
-          title: '1. Comparative Analysis Table',
+          title: '1. Comparison between Binary and Multiclass Classification',
           table: {
             headers: ['Binary Classification', 'Multiclass Classification'],
             rows: [
               {
-                parameter: 'Categorizes instances into exactly two mutually exclusive classes (e.g., 0 vs 1, Sick vs Healthy).',
-                col1: 'Categorizes instances into three or more distinct classes (e.g., Cat vs Dog vs Bird, Digits 0 to 9).'
+                parameter: 'Categorizes input data into exactly 2 mutually exclusive classes (e.g., 0 or 1, Yes or No).',
+                col1: 'Categorizes input data into 3 or more distinct classes (e.g., Cat, Dog, Bird).'
               },
               {
-                parameter: 'Outputs a single probability score P(y=1) (via Sigmoid function σ(z)) or a sign ±1.',
-                col1: 'Outputs a probability distribution vector across all C classes (via Softmax function).'
+                parameter: 'Uses the Sigmoid function to output a single probability score P(y=1).',
+                col1: 'Uses the Softmax function to output a probability distribution across all classes summing to 1.'
               },
               {
-                parameter: 'Real-world examples: Spam filter (Spam vs Inbox), Loan approval (Approve vs Reject).',
-                col1: 'Real-world examples: Handwritten digit recognition (0–9), Blood group diagnosis (A, B, AB, O).'
+                parameter: 'A single decision boundary (hyperplane) separates the two classes.',
+                col1: 'Multiple decision boundaries are required to separate the various class regions.'
               },
               {
-                parameter: 'Native algorithms: Logistic Regression, Binary Support Vector Machines, Simple Perceptron.',
-                col1: 'Native algorithms: Decision Trees, Random Forests, Softmax Regression, Naive Bayes.'
+                parameter: 'Evaluated using a standard 2x2 confusion matrix (TP, FP, TN, FN).',
+                col1: 'Evaluated using a KxK confusion matrix with Macro, Micro, and Weighted averages.'
               },
               {
-                parameter: 'Directly creates a single separating decision boundary between two classes.',
-                col1: 'Binary classifiers can be extended using One-vs-Rest (OvR) or One-vs-One (OvO) strategies.'
-              },
-              {
-                parameter: 'Evaluated using standard 2×2 Confusion Matrix, ROC-AUC, Precision, Recall, and F1-score.',
-                col1: 'Evaluated using C×C Confusion Matrix and Micro-averaged or Macro-averaged Precision, Recall, and F1.'
+                parameter: 'Example: Email Spam Detection (Spam or Not Spam).',
+                col1: 'Example: Handwritten Digit Recognition (recognizing digits 0 through 9).'
               }
             ]
           }
@@ -1040,22 +1024,22 @@ export const unit4Data: Unit = {
       diagrams: [
         {
           id: 'diag-binary-multiclass',
-          title: 'Decision Boundaries: Binary vs Multiclass',
-          caption: 'Single linear boundary dividing 2 classes versus intersecting boundaries partitioning 3 distinct class zones.',
+          title: 'Binary vs Multiclass Decision Boundaries',
+          caption: 'Single linear boundary separating 2 classes vs Multiple boundaries separating 3 classes.',
           type: 'svg-interactive',
           svgType: 'binary-multiclass'
         }
       ],
       summary: [
-        'Binary classification selects between 2 classes; Multiclass selects one from > 2 classes.',
-        'Multiclass problems are more complex and require decomposition for naturally binary models like SVM.',
-        'Evaluation extends to C×C confusion matrices and Macro/Micro averaging.'
+        'Binary classification predicts one of two classes using Sigmoid output.',
+        'Multiclass classification predicts one of three or more classes using Softmax output.',
+        'Binary uses a single decision boundary; Multiclass uses multiple boundaries.'
       ],
       keyPoints: [
-        '2 classes vs > 2 classes',
-        'Sigmoid vs Softmax activation',
-        'Native multiclass vs Decomposed binary models',
-        'Macro vs Micro evaluation extensions'
+        'Binary: 2 classes, Sigmoid function',
+        'Multiclass: 3+ classes, Softmax function',
+        'Single boundary vs Multiple boundaries',
+        '2x2 matrix vs KxK matrix'
       ]
     },
     {
@@ -1064,81 +1048,77 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 14,
       title: 'What is Multiclass Classification? Explain the Variants of Multiclass Classification',
-      shortTitle: 'Multiclass Classification Variants (OvA, OvO, ECOC)',
+      shortTitle: 'Multiclass Classification Variants (OvA vs OvO)',
       marks: 6,
-      importance: 'Frequently Asked',
+      importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q3(c)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'Paper 1', questionNo: 'Q4(a)', marks: 6 },
+        { paper: 'Paper 3', questionNo: 'Q4(a)', marks: 6 }
       ],
-      syllabusTopics: ['Multiclass Classification', 'One-vs-All', 'One-vs-One', 'ECOC'],
-      definition: 'Multiclass classification variants are architectural decomposition schemes that transform a complex multi-class problem into a set of simpler binary classification tasks solvable by standard binary learners.',
+      syllabusTopics: ['Multiclass Classification', 'One-vs-All (OvA)', 'One-vs-One (OvO)'],
+      definition: 'Multiclass classification is the problem of categorizing input samples into one of three or more distinct classes.',
       sections: [
         {
-          title: '1. One-vs-All (OvA) / One-vs-Rest (OvR)',
+          title: '1. What is Multiclass Classification?',
           content: [
-            'Principle: For N classes, train N separate binary classifiers. Classifier k treats class k as positive (+1) and all remaining N - 1 classes combined as negative (-1).',
-            'Inference: Run all N classifiers on query point x; select the class whose classifier produces the highest confidence score / probability.',
-            'Pros & Cons: Requires only N models (computationally fast); but individual training sets are heavily imbalanced (1 class vs N-1 classes).'
+            'In multiclass classification, each input data point belongs to exactly one class out of K possible classes (where K >= 3).',
+            'Some algorithms (like Decision Trees, KNN, and Naive Bayes) naturally support multiple classes.',
+            'Other algorithms (like standard binary SVM and Logistic Regression) require decomposition techniques to handle multiclass data.'
           ]
         },
         {
-          title: '2. One-vs-One (OvO) / All-vs-All (AvA)',
+          title: '2. Variants of Multiclass Classification',
           content: [
-            'Principle: Build a binary classifier for every unique pair of classes. Total models = N(N - 1) / 2. Each classifier is trained exclusively on data from its two assigned classes.',
-            'Inference: Query point is submitted to all N(N - 1)/2 classifiers. Each model casts a vote for one class; the class receiving the highest cumulative votes wins.',
-            'Pros & Cons: Subsets are small and balanced (fast training per model); but total model count explodes quadratically (for 10 classes = 45 models; for 100 classes = 4,950 models).'
+            'There are two primary decomposition strategies:',
+            '1. One-vs-All (OvA) / One-vs-Rest (OvR):',
+            '- Trains K separate binary classifiers for K classes.',
+            '- Each classifier is trained to distinguish one specific class from all other (K-1) classes combined.',
+            '- During prediction, the query point is evaluated by all K classifiers. The class whose classifier outputs the highest confidence score is selected.',
+            '- Total classifiers needed = K.',
+            '2. One-vs-One (OvO):',
+            '- Trains a binary classifier for every unique pair of classes.',
+            '- During prediction, all classifiers evaluate the query point and cast a vote.',
+            '- The class with the most pairwise votes is chosen as the final prediction.',
+            '- Total classifiers needed = K(K - 1) / 2.'
           ]
         },
         {
-          title: '3. Error-Correcting Output Codes (ECOC)',
-          content: [
-            'Principle: Assigns each class a unique binary codeword of length L. Train L binary classifiers, one for each bit column.',
-            'Inference: Running all L classifiers produces an output bit string. Assign to the class whose predetermined codeword has the shortest Hamming distance to the prediction.',
-            'Pros: Redundant code design enables error-correction even if several individual classifiers predict incorrectly.'
-          ]
-        },
-        {
-          title: '4. Summary Comparison Table',
+          title: '3. Comparison between One-vs-All (OvA) and One-vs-One (OvO)',
           table: {
-            headers: ['One-vs-All (OvA / One-vs-Rest)', 'One-vs-One (OvO)'],
+            headers: ['One-vs-All (OvA / OvR)', 'One-vs-One (OvO)'],
             rows: [
               {
-                parameter: 'Trains exactly N binary models for an N-class problem (e.g., 10 models for 10 classes).',
-                col1: 'Trains N(N - 1) / 2 binary models for an N-class problem (e.g., 45 models for 10 classes).'
+                parameter: 'Number of classifiers: Trains K classifiers (e.g., 4 classifiers for 4 classes).',
+                col1: 'Number of classifiers: Trains K(K-1)/2 classifiers (e.g., 6 classifiers for 4 classes).'
               },
               {
-                parameter: 'Each model is trained on the entire dataset, classifying one target class against all other combined classes.',
-                col1: 'Each model is trained only on a small subset containing two classes (Class i vs Class j), ignoring all other data.'
+                parameter: 'Dataset size per model: Each classifier is trained on the entire dataset.',
+                col1: 'Dataset size per model: Each classifier is trained only on data from the two selected classes (smaller datasets).'
               },
               {
-                parameter: 'Training sets are heavily imbalanced because 1 class faces the combined volume of all other N - 1 classes.',
-                col1: 'Training sets remain balanced because each classifier only distinguishes between two individual classes.'
+                parameter: 'Class imbalance: Severe class imbalance occurs because 1 class is compared against (K-1) merged classes.',
+                col1: 'Class imbalance: Balanced training because only 2 classes are compared at a time.'
               },
               {
-                parameter: 'Final decision is made by selecting the class whose classifier produces the highest probability score (argmax).',
-                col1: 'Final decision is made by a majority voting tournament where all pairwise models cast a vote and the winner takes all.'
-              },
-              {
-                parameter: 'Faster training when N is large because only N models are constructed, but each model sees the full dataset.',
-                col1: 'Each individual model trains very fast due to smaller pairwise subsets, but evaluation overhead grows quadratically O(N²).'
+                parameter: 'Prediction rule: Selects the class with the highest probability/confidence score.',
+                col1: 'Prediction rule: Selects the class with the highest number of pairwise votes.'
               }
             ]
           }
         }
       ],
       summary: [
-        'Multiclass decomposition transforms C classes into binary sub-problems.',
-        'One-vs-All trains C models (fast, imbalanced subsets).',
-        'One-vs-One trains C(C-1)/2 pairwise models (balanced, quadratic scaling).',
-        'ECOC uses binary codeword mapping with built-in error correction.'
+        'Multiclass classification handles problems with 3 or more target classes.',
+        'One-vs-All (OvA) trains K classifiers; chooses the highest confidence score.',
+        'One-vs-One (OvO) trains K(K-1)/2 classifiers; chooses by majority pairwise vote.',
+        'OvA is faster to train; OvO avoids synthetic class imbalance.'
       ],
       keyPoints: [
-        'OvA: N models, argmax confidence',
-        'OvO: N(N-1)/2 models, majority voting',
-        'ECOC Hamming distance error correction',
-        'Computational scaling tradeoffs'
+        'K >= 3 classes',
+        'One-vs-All (OvA) = K models',
+        'One-vs-One (OvO) = K(K-1)/2 models',
+        'Confidence score vs Voting'
       ]
     },
     {
@@ -1147,58 +1127,61 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 15,
       title: 'Handling Imbalanced Data in Multiclass Classification',
-      shortTitle: 'Handling Class Imbalance in Multiclass Classification',
+      shortTitle: 'Handling Imbalanced Data',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 3', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'Paper 4', questionNo: 'Q4(b)', marks: 6 },
+        { paper: 'Paper 6', questionNo: 'Q4(b)', marks: 6 }
       ],
-      syllabusTopics: ['Class Imbalance', 'SMOTE', 'Cost-Sensitive Learning', 'Resampling'],
-      definition: 'Techniques to mitigate severe class distribution skew where majority classes overwhelm minority classes, rendering standard accuracy misleading and biasing model predictions toward the majority.',
+      syllabusTopics: ['Class Imbalance', 'Resampling', 'SMOTE', 'Cost-Sensitive Learning'],
+      definition: 'Class imbalance occurs when some classes have substantially fewer training examples than others, biasing models toward predicting only the majority classes.',
       sections: [
         {
-          title: '1. The Problem of Class Imbalance',
+          title: '1. Why Class Imbalance is a Problem',
           content: [
-            'In applications like fraud detection or rare disease diagnosis, negative cases may constitute 99% of data.',
-            'Accuracy Paradox: A naive model predicting "Negative" 100% of the time achieves 99% accuracy while having zero real-world utility.',
-            'Standard loss functions assume equal class distributions and treat all misclassifications identically.'
+            'Standard Machine Learning algorithms assume balanced class distributions.',
+            'If 95% of emails are legitimate and 5% are spam, a naive model predicting "Legitimate" for every email achieves 95% accuracy while completely failing to detect spam.',
+            'Therefore, standard Accuracy becomes misleading, and special handling techniques are required.'
           ]
         },
         {
-          title: '2. Remediation Strategies',
+          title: '2. Techniques to Handle Class Imbalance',
           content: [
-            '1. Data-Level Resampling:',
-            '   - Random Under-sampling: Remove instances from majority classes (risk of discarding informative samples).',
-            '   - Random Over-sampling: Duplicate minority instances (risk of overfitting).',
-            '   - SMOTE (Synthetic Minority Over-sampling Technique): Synthesizes new minority instances along line segments connecting existing k-nearest minority neighbours.',
-            '2. Algorithm-Level Modifications:',
-            '   - Cost-Sensitive Learning: Assign higher misclassification penalty C_minority >> C_majority in the loss objective.',
-            '   - Class Weighting: Automatically scale weights inversely proportional to class frequencies.',
-            '3. Metric Selection:',
-            '   - Discard raw Accuracy. Prioritize Precision, Recall, F1-Score, PR-AUC, and Macro-averaged F1.'
+            '1. Resampling Methods:',
+            '- Random Undersampling: Randomly discards instances from the majority class until classes are balanced (risk: loses valuable data).',
+            '- Random Oversampling: Duplicates instances from the minority class (risk: can cause overfitting).',
+            '- SMOTE (Synthetic Minority Over-sampling Technique): Synthesizes new minority examples by interpolating between neighboring minority points.',
+            '2. Algorithmic Methods:',
+            '- Cost-Sensitive Learning: Assigns a higher penalty (loss weight) to misclassifications of minority classes.',
+            '- Balanced Class Weights: Many libraries (e.g. scikit-learn) automatically scale loss inversely proportional to class frequencies.',
+            '3. Using Appropriate Evaluation Metrics:',
+            '- Never rely on raw Accuracy.',
+            '- Use Precision, Recall, Macro-F1 Score, and Precision-Recall AUC (PR-AUC) to measure minority class performance.'
           ]
         }
       ],
       diagrams: [
         {
           id: 'diag-imbalance-bars',
-          title: 'Balanced vs Imbalanced Class Distributions',
-          caption: 'Visual contrast between equal class partitions and a skewed distribution with severe minority representation.',
+          title: 'Class Imbalance & SMOTE Balancing',
+          caption: 'Severe 950 vs 50 class skew rebalanced to equal distributions using synthetic oversampling.',
           type: 'svg-interactive',
           svgType: 'imbalance-bars'
         }
       ],
       summary: [
-        'Class imbalance causes models to ignore rare minority instances while displaying falsely high accuracy.',
-        'Remedies: Data resampling (SMOTE synthesis), cost-sensitive loss weighting, stratified cross-validation.',
-        'Always evaluate imbalanced multiclass models using Precision, Recall, and Macro-F1 rather than Accuracy.'
+        'Class imbalance biases models toward the majority class.',
+        'Resampling techniques include Undersampling, Oversampling, and SMOTE.',
+        'Cost-sensitive learning penalizes minority class errors more heavily.',
+        'Evaluate models using Precision, Recall, and F1-score instead of Accuracy.'
       ],
       keyPoints: [
-        'Accuracy paradox on skewed data',
+        'Majority vs Minority class skew',
         'SMOTE synthetic oversampling',
-        'Cost-sensitive loss weighting',
-        'Macro-F1 and Precision-Recall metrics'
+        'Cost-sensitive weighting',
+        'Macro-F1 evaluation'
       ]
     },
     {
@@ -1258,68 +1241,62 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 17,
       title: 'Methods for Evaluating Classification Models / Metrics for Evaluating Classifier Performance',
-      shortTitle: 'Comprehensive Classification Evaluation Framework',
+      shortTitle: 'Classifier Evaluation Metrics',
       marks: 6,
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q3(a)', marks: 6 },
+        { paper: 'Paper 1', questionNo: 'Q3(c)', marks: 6 },
         { paper: 'Paper 3', questionNo: 'Q3(c)', marks: 6 }
       ],
-      syllabusTopics: ['Classification Metrics', 'Confusion Matrix', 'ROC-AUC', 'Cross-Validation'],
-      definition: 'A comprehensive suite of quantitative statistical metrics and validation protocols used to assess the discriminative power, calibration, and generalization performance of classification models.',
+      syllabusTopics: ['Model Evaluation', 'Confusion Matrix', 'Accuracy', 'Precision', 'Recall', 'F1-Score'],
+      definition: 'Evaluation metrics are quantitative measures used to evaluate how accurately and reliably a classification model performs on unseen test data.',
       sections: [
         {
-          title: '1. The Core Metrics Suite (2-Column Comparison)',
-          table: {
-            headers: ['Classification Metric & Formula', 'What It Measures, Focus & Best Use Case'],
-            rows: [
-              {
-                parameter: 'Accuracy: (TP + TN) / (TP + TN + FP + FN)',
-                col1: 'Measures overall percentage of correct predictions across all classes; suitable only for balanced datasets; highly misleading for skewed data due to the accuracy paradox.'
-              },
-              {
-                parameter: 'Precision: TP / (TP + FP)',
-                col1: 'Measures reliability of positive predictions ("Out of all cases flagged positive, how many are truly positive?"); critical when false positives are expensive (e.g., email spam filter, fraud alert blocking legitimate cards).'
-              },
-              {
-                parameter: 'Recall (Sensitivity): TP / (TP + FN)',
-                col1: 'Measures completeness of positive detection ("Out of all actual positive cases, how many did the model catch?"); critical when missing a positive is catastrophic (e.g., cancer diagnosis, bank loan default, airport security).'
-              },
-              {
-                parameter: 'Specificity (True Negative Rate): TN / (TN + FP)',
-                col1: 'Measures the proportion of actual negative cases correctly identified as negative ("Out of all healthy patients, how many were correctly cleared?").'
-              },
-              {
-                parameter: 'F1-Score: 2 · (Precision · Recall) / (Precision + Recall)',
-                col1: 'Calculates the harmonic mean of Precision and Recall; provides a single balanced metric that penalizes extreme imbalances between precision and recall; ideal for evaluating models on imbalanced data.'
-              },
-              {
-                parameter: 'ROC-AUC: Area Under ROC Curve (TPR vs FPR)',
-                col1: 'Measures overall discrimination power across all possible probability thresholds; completely threshold-independent (1.0 is perfect classification, 0.5 is random guessing).'
-              }
-            ]
-          }
+          title: '1. Primary Classification Evaluation Metrics',
+          content: [
+            '1. Confusion Matrix: A tabular summary comparing actual class labels against predicted class labels (TP, FP, TN, FN).',
+            '2. Accuracy: Ratio of total correct predictions to total predictions: (TP + TN) / Total. Effective for balanced datasets.',
+            '3. Precision: Fraction of positive predictions that are truly positive: TP / (TP + FP). Critical when False Positives are costly (e.g., spam detection).',
+            '4. Recall (Sensitivity): Fraction of actual positive instances found by the model: TP / (TP + FN). Critical when False Negatives are dangerous (e.g., disease detection).',
+            '5. F1-Score: Harmonic mean of Precision and Recall: 2 * (Precision * Recall) / (Precision + Recall). Balances both metrics.'
+          ],
+          formulas: [
+            { name: 'Accuracy', latex: '\\text{Accuracy} = \\frac{TP + TN}{TP + TN + FP + FN}' },
+            { name: 'Precision', latex: '\\text{Precision} = \\frac{TP}{TP + FP}' },
+            { name: 'Recall', latex: '\\text{Recall} = \\frac{TP}{TP + FN}' },
+            { name: 'F1-Score', latex: 'F1 = 2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}}' }
+          ]
         },
         {
-          title: '2. Validation Protocols',
+          title: '2. Validation Methods',
           content: [
-            'Hold-Out Validation: Train/Test split (e.g., 80/20). Fast, but sensitive to sample splitting variance.',
-            'K-Fold Cross-Validation: Splits data into K equal folds; trains on K-1, tests on 1, repeated K times. Reports mean score.',
-            'Stratified K-Fold: Ensures each fold preserves exact population class proportions (essential for imbalanced data).'
+            'Holdout Method: Splits dataset into 70% training and 30% testing.',
+            'K-Fold Cross-Validation: Splits data into K equal folds, iteratively training on K-1 folds and testing on the remaining fold to calculate an unbiased average performance score.'
           ]
         }
       ],
+      diagrams: [
+        {
+          id: 'diag-precision-recall',
+          title: 'Precision-Recall Curve & Trade-Off',
+          caption: 'PR curve demonstrating the inverse trade-off between Precision and Recall across classification thresholds.',
+          type: 'svg-interactive',
+          svgType: 'precision-recall'
+        }
+      ],
       summary: [
-        'Classification evaluation relies on the confusion matrix (TP, TN, FP, FN).',
-        'Primary metrics: Accuracy, Precision, Recall, F1-Score, Specificity, and ROC-AUC.',
-        'Validation protocols: Train/Test split, K-Fold CV, Stratified K-Fold CV.'
+        'Accuracy measures overall correctness but fails on imbalanced data.',
+        'Precision measures how clean positive predictions are.',
+        'Recall measures how many real positives were captured.',
+        'F1-score provides a single balanced score combining Precision and Recall.'
       ],
       keyPoints: [
-        'Confusion matrix baseline',
-        'Precision vs Recall vs Specificity formulas',
-        'Harmonic mean in F1 score',
-        'Stratified K-Fold cross-validation'
+        'Confusion Matrix',
+        'Accuracy = (TP + TN) / Total',
+        'Precision = TP / (TP + FP)',
+        'Recall = TP / (TP + FN)',
+        'F1 Harmonic Mean'
       ]
     },
     {
@@ -1328,61 +1305,54 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 18,
       title: 'Short Note on Importance of Confusion Matrix',
-      shortTitle: 'Importance of the Confusion Matrix',
+      shortTitle: 'Importance of Confusion Matrix',
       marks: 4,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q4(b)', marks: 4 }
+        { paper: 'Paper 4', questionNo: 'Q3(c)', marks: 4 },
+        { paper: 'Paper 6', questionNo: 'Q3(c)', marks: 4 }
       ],
-      syllabusTopics: ['Confusion Matrix', 'TP', 'TN', 'FP', 'FN'],
-      definition: 'A Confusion Matrix is a tabular representation that compares actual ground truth class labels against predicted model outputs, forming the mathematical foundation for all classification metrics.',
+      syllabusTopics: ['Confusion Matrix', 'True Positives', 'False Positives', 'Type I and Type II Errors'],
+      definition: 'A Confusion Matrix is a tabular representation used to evaluate the performance of a classification model by comparing actual target values against model predictions.',
       sections: [
         {
-          title: '1. Binary Matrix Structure',
+          title: '1. Structure of a 2x2 Confusion Matrix',
           content: [
-            'True Positive (TP): Actual Positive correctly predicted as Positive.',
-            'True Negative (TN): Actual Negative correctly predicted as Negative.',
-            'False Positive (FP - Type I Error): Actual Negative incorrectly predicted as Positive (false alarm).',
-            'False Negative (FN - Type II Error): Actual Positive incorrectly predicted as Negative (missed case).'
+            'A binary confusion matrix contains four fundamental outcomes:',
+            '1. True Positive (TP): Model correctly predicted Positive (e.g., patient has disease and model predicts disease).',
+            '2. True Negative (TN): Model correctly predicted Negative (e.g., healthy person predicted healthy).',
+            '3. False Positive (FP / Type I Error): Model incorrectly predicted Positive (e.g., healthy person predicted as diseased).',
+            '4. False Negative (FN / Type II Error): Model incorrectly predicted Negative (e.g., sick patient predicted healthy).'
           ],
           table: {
-            headers: ['-', 'Predicted Positive (+)', 'Predicted Negative (-)'],
+            headers: ['Actual \\ Predicted', 'Predicted Positive', 'Predicted Negative'],
             rows: [
-              { parameter: 'Actual Positive (+)', col1: 'True Positive (TP)', col2: 'False Negative (FN) [Type II Error]' },
-              { parameter: 'Actual Negative (-)', col1: 'False Positive (FP) [Type I Error]', col2: 'True Negative (TN)' }
+              { parameter: 'Actual Positive', col1: 'True Positive (TP)', col2: 'False Negative (FN) [Type II Error]' },
+              { parameter: 'Actual Negative', col1: 'False Positive (FP) [Type I Error]', col2: 'True Negative (TN)' }
             ]
           }
         },
         {
-          title: '2. Why the Confusion Matrix is Indispensable',
+          title: '2. Why the Confusion Matrix is Important',
           content: [
-            '1. Detailed Error Profiling: Reveals not just error counts, but the exact nature of mistakes (Type I vs Type II).',
-            '2. Asymmetric Error Costs: In medical diagnosis, a False Negative (missed cancer) is far more catastrophic than a False Positive (extra biopsy).',
-            '3. Foundation for Advanced Metrics: Accuracy, Precision, Recall, Specificity, and F1 all derive directly from matrix cells.',
-            '4. Invaluable for Multiclass Diagnosis: In C×C matrices, off-diagonal cells immediately expose which classes are frequently confused with each other.'
+            '1. Reveals Error Types: Unlike raw accuracy, it clearly differentiates between Type I (FP) and Type II (FN) errors.',
+            '2. Essential for Metric Computation: Precision, Recall, Specificity, and F1-score are all directly computed from its values.',
+            '3. Critical for High-Stakes Applications: In medical diagnosis or fraud detection, False Negatives carry much higher costs than False Positives.'
           ]
         }
       ],
-      diagrams: [
-        {
-          id: 'diag-confusion-matrix',
-          title: 'Confusion Matrix Architecture & Error Types',
-          caption: '2x2 contingency table illustrating True Positives, True Negatives, False Positives (Type I), and False Negatives (Type II).',
-          type: 'svg-interactive',
-          svgType: 'confusion-matrix'
-        }
-      ],
       summary: [
-        'The confusion matrix maps actual vs predicted labels into TP, TN, FP, and FN.',
-        'Distinguishes between Type I (False Positive) and Type II (False Negative) errors.',
-        'Crucial for asymmetric cost problems (medical diagnosis, fraud, security).'
+        'A Confusion Matrix tabulates actual vs predicted classes.',
+        'Distinguishes between Type I (FP) and Type II (FN) errors.',
+        'Forms the basis for calculating Precision, Recall, and F1-score.',
+        'Essential for evaluating models on imbalanced datasets.'
       ],
       keyPoints: [
-        'TP, TN, FP, FN cell definitions',
-        'Type I vs Type II error classification',
-        'Asymmetric real-world error costs',
-        'Base for all derived classification metrics'
+        'True Positive (TP) & True Negative (TN)',
+        'False Positive (Type I) & False Negative (Type II)',
+        'Foundation for Precision and Recall',
+        'Reveals hidden classification errors'
       ]
     },
     {
@@ -1391,58 +1361,56 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 19,
       title: 'Explain Accuracy, Precision, Recall and F-Score',
-      shortTitle: 'Accuracy, Precision, Recall & F-Score Explained',
+      shortTitle: 'Accuracy, Precision, Recall & F-Score',
       marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
       papersAsked: [
+        { paper: 'Paper 4', questionNo: 'Q4(b)', marks: 6 },
         { paper: 'Paper 6', questionNo: 'Q4(b)', marks: 6 }
       ],
-      syllabusTopics: ['Accuracy', 'Precision', 'Recall', 'F-Score', 'Metrics'],
-      definition: 'Comprehensive mathematical breakdown of the four pillars of classification evaluation, detailing formulas, intuitive meanings, and appropriate application contexts.',
+      syllabusTopics: ['Accuracy', 'Precision', 'Recall', 'F-Score', 'Harmonic Mean'],
+      definition: 'Accuracy, Precision, Recall, and F-Score are the four foundational metrics used to measure the performance and error characteristics of classification models.',
       sections: [
         {
-          title: '1. Mathematical Formulations & Interpretations',
+          title: '1. Definitions and Formulas',
           content: [
-            'Accuracy = (TP + TN) / Total: Percentage of total correct decisions. Valid only when class distributions are roughly equal.',
-            'Precision = TP / (TP + FP): Fraction of positive predictions that were accurate. Critical when False Positives carry high cost (e.g., spam filter marking legitimate business email as spam).',
-            'Recall (Sensitivity) = TP / (TP + FN): Fraction of actual positive instances successfully detected. Critical when False Negatives carry high cost (e.g., failing to detect infectious virus).',
-            'F1-Score = 2·(Precision·Recall) / (Precision + Recall): Harmonic mean ensuring balanced performance. A high F1 is only possible if both precision and recall are simultaneously strong.'
+            '1. Accuracy: Measures the overall proportion of correct predictions out of all predictions made.',
+            'Formula: Accuracy = (TP + TN) / (TP + TN + FP + FN)',
+            '2. Precision: Measures how many of the positively predicted instances are actually positive.',
+            'Formula: Precision = TP / (TP + FP)',
+            '3. Recall (Sensitivity): Measures how many of the actual positive instances were successfully identified by the model.',
+            'Formula: Recall = TP / (TP + FN)',
+            '4. F-Score (F1-Score): The harmonic mean of Precision and Recall, providing a single balanced metric.',
+            'Formula: F1 = 2 * (Precision * Recall) / (Precision + Recall)'
           ],
           formulas: [
             { name: 'Accuracy', latex: '\\text{Accuracy} = \\frac{TP + TN}{TP + TN + FP + FN}' },
             { name: 'Precision', latex: '\\text{Precision} = \\frac{TP}{TP + FP}' },
             { name: 'Recall', latex: '\\text{Recall} = \\frac{TP}{TP + FN}' },
-            { name: 'F1-Score', latex: 'F_1 = 2\\cdot \\frac{\\text{Precision} \\cdot \\text{Recall}}{\\text{Precision} + \\text{Recall}} = \\frac{2TP}{2TP + FP + FN}' }
+            { name: 'F1-Score', latex: 'F1 = 2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}}' }
           ]
         },
         {
-          title: '2. Worked Calculation Example',
+          title: '2. When to Use Each Metric',
           content: [
-            'Given evaluation counts: TP = 40, FP = 10, FN = 20, TN = 30. Total = 100.'
-          ],
-          table: {
-            headers: ['Metric', 'Formula Substitution', 'Computed Score'],
-            rows: [
-              { parameter: 'Accuracy', col1: '(40 + 30) / 100', col2: '70 / 100 = 0.700 (70.0%)' },
-              { parameter: 'Precision', col1: '40 / (40 + 10)', col2: '40 / 50 = 0.800 (80.0%)' },
-              { parameter: 'Recall', col1: '40 / (40 + 20)', col2: '40 / 60 = 0.667 (66.7%)' },
-              { parameter: 'F1-Score', col1: '2 · (0.800 · 0.667) / (0.800 + 0.667)', col2: '1.067 / 1.467 = 0.727 (72.7%)' }
-            ]
-          }
+            '- Use Precision when False Positives are costly: e.g., Spam detection (do not classify important emails as spam).',
+            '- Use Recall when False Negatives are dangerous: e.g., Cancer detection or Fraud detection (never miss a sick patient).',
+            '- Use F1-Score when you need a balance between Precision and Recall, especially on imbalanced datasets.'
+          ]
         }
       ],
       summary: [
-        'Accuracy = Correct / Total (fails on imbalanced data).',
-        'Precision = TP / (TP + FP) (minimizes false alarms).',
-        'Recall = TP / (TP + FN) (minimizes missed detections).',
-        'F1-Score is the harmonic mean balancing Precision and Recall.'
+        'Accuracy is overall correctness, but misleading on imbalanced data.',
+        'Precision penalizes False Positives (false alarms).',
+        'Recall penalizes False Negatives (missed cases).',
+        'F1-score is the harmonic mean balancing Precision and Recall.'
       ],
       keyPoints: [
-        'Formulas for Accuracy, Precision, Recall, F1',
-        'Harmonic mean mathematical property',
-        'Cost of FP vs Cost of FN in practice',
-        'Standard 100-sample worked verification'
+        'Accuracy = (TP + TN) / Total',
+        'Precision = TP / (TP + FP)',
+        'Recall = TP / (TP + FN)',
+        'F1 = Harmonic mean of P and R'
       ]
     },
     {
@@ -1451,63 +1419,60 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 20,
       title: 'Relation between Precision and Recall (with example)',
-      shortTitle: 'Precision-Recall Trade-off & Decision Thresholds',
+      shortTitle: 'Precision-Recall Relationship',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 6', questionNo: 'Q3(c)', marks: 6 }
+        { paper: 'Paper 1', questionNo: 'Q4(a)', marks: 6 },
+        { paper: 'Paper 3', questionNo: 'Q4(a)', marks: 6 }
       ],
-      syllabusTopics: ['Precision-Recall Tradeoff', 'Decision Threshold', 'PR Curve'],
-      definition: 'Precision and Recall exist in an inherent inverse mathematical trade-off governed by the classification decision threshold: adjusting the threshold to increase one metric inevitably degrades the other.',
+      syllabusTopics: ['Precision-Recall Trade-Off', 'Decision Threshold', 'PR Curve'],
+      definition: 'Precision and Recall share an inverse relationship known as the Precision-Recall trade-off; increasing one metric typically causes the other metric to decrease.',
       sections: [
         {
-          title: '1. Mechanism of the Decision Threshold',
+          title: '1. The Precision-Recall Trade-Off',
           content: [
-            'Probabilistic classifiers output p(y = 1 | x). The default decision boundary is threshold θ = 0.50.',
-            'Raising the Threshold (e.g., θ = 0.80): The model only flags positive if extremely confident. False Positives plummet ==> Precision increases. However, many borderline positives are missed ==> Recall decreases.',
-            'Lowering the Threshold (e.g., θ = 0.20): The model becomes aggressive in flagging positives. Missed cases drop ==> Recall increases. However, false alarms multiply ==> Precision decreases.'
+            'Classification models output a probability score between 0 and 1. A threshold (default = 0.5) decides whether a prediction is positive.',
+            '1. Lowering the threshold (e.g. from 0.5 to 0.2):',
+            '- The model classifies cases as positive more easily.',
+            '- Catches almost all real positive cases -> Recall increases.',
+            '- Also catches more false alarms (False Positives) -> Precision decreases.',
+            '2. Raising the threshold (e.g. from 0.5 to 0.8):',
+            '- The model only predicts positive when very confident.',
+            '- Minimizes false alarms -> Precision increases.',
+            '- Misses borderline positive cases (False Negatives) -> Recall decreases.'
           ]
         },
         {
-          title: '2. Concrete Numerical Demonstration (Spam Classifier, 60 Actual Spam Emails)',
-          table: {
-            headers: ['Decision Threshold', 'TP', 'FP', 'FN', 'Precision: TP/(TP+FP)', 'Recall: TP/(TP+FN)'],
-            rows: [
-              { parameter: 'Low Threshold (0.30)', col1: '55', col2: '30', col3: '5', col4: '55 / 85 = 0.647', col5: '55 / 60 = 0.917' },
-              { parameter: 'Medium Threshold (0.50)', col1: '40', col2: '10', col3: '20', col4: '40 / 50 = 0.800', col5: '40 / 60 = 0.667' },
-              { parameter: 'High Threshold (0.80)', col1: '25', col2: '2', col3: '35', col4: '25 / 27 = 0.926', col5: '25 / 60 = 0.417' }
-            ]
-          }
-        },
-        {
-          title: '3. Domain Selection Criteria',
+          title: '2. Practical Example (Airport Security Metal Detector)',
           content: [
-            'Prioritize High Precision: Spam filtering (losing a critical client contract to spam is disastrous), YouTube video recommendation.',
-            'Prioritize High Recall: Cancer screening (missing a tumor is fatal), airport weapons screening, fraud monitoring.'
+            'Consider an airport security metal detector screening passengers for weapons:',
+            '- Scenario A (High Recall, Low Precision): The sensitivity threshold is set very low. The detector beeps for belt buckles, coins, and keys. It catches 100% of weapons (Recall = 1.0), but generates many false alarms (Low Precision).',
+            '- Scenario B (High Precision, Low Recall): The threshold is set very high. It only beeps for heavy metal objects. Every beep is a confirmed weapon (Precision = 1.0), but small pocket knives might slip through unnoticed (Low Recall).'
           ]
         }
       ],
       diagrams: [
         {
           id: 'diag-precision-recall',
-          title: 'Precision-Recall Inverse Trade-off Curve',
-          caption: 'Visualizing the non-linear inverse trade-off curve across low, medium, and high classification probability thresholds.',
+          title: 'Precision-Recall Trade-off Curve',
+          caption: 'Inverse relationship between Precision and Recall governed by decision threshold adjustment.',
           type: 'svg-interactive',
           svgType: 'precision-recall'
         }
       ],
       summary: [
-        'Precision and Recall exhibit an inverse relationship driven by the decision threshold.',
-        'High threshold = High Precision, Low Recall (few false alarms, misses marginal cases).',
-        'Low threshold = High Recall, Low Precision (catches all positives, generates false alarms).',
-        'Threshold is tuned based on real-world cost asymmetry of Type I vs Type II errors.'
+        'Precision and Recall have an inverse trade-off.',
+        'Lowering the threshold increases Recall but lowers Precision.',
+        'Raising the threshold increases Precision but lowers Recall.',
+        'The F1-score helps find the optimal threshold balance.'
       ],
       keyPoints: [
-        'Decision threshold parameter θ',
-        'Inverse mathematical relationship',
-        'Spam filter (Precision) vs Cancer screening (Recall)',
-        'Precision-Recall curve visualization'
+        'Inverse mathematical trade-off',
+        'Decision threshold control',
+        'Airport metal detector example',
+        'F1-score balance'
       ]
     },
     {
@@ -1516,78 +1481,80 @@ export const unit4Data: Unit = {
       subjectId: 'machine-learning',
       qNumber: 21,
       title: 'K-Fold Cross-Validation: Effect of Large and Small K; How to Choose K',
-      shortTitle: 'K-Fold Cross-Validation & Parameter K Selection',
+      shortTitle: 'K-Fold Cross-Validation & K Selection',
       marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 6', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'Paper 1', questionNo: 'Q3(c)', marks: 6 },
+        { paper: 'Paper 3', questionNo: 'Q3(c)', marks: 6 }
       ],
-      syllabusTopics: ['K-Fold Cross-Validation', 'LOOCV', 'Bias-Variance of Estimator', 'Stratified K-Fold'],
-      definition: 'K-Fold Cross-Validation is a resampling evaluation methodology that partitions data into K equal folds, sequentially testing on each fold while training on the remaining K - 1 folds to provide an unbiased estimate of generalization error.',
+      syllabusTopics: ['K-Fold Cross-Validation', 'Resampling', 'Bias-Variance Tradeoff in K', 'Choice of K'],
+      definition: 'K-Fold Cross-Validation is a resampling procedure that partitions a dataset into K equal subsets (folds) to evaluate a model generalizability on unseen data.',
       sections: [
         {
-          title: '1. Protocol of K-Fold Cross-Validation',
+          title: '1. How K-Fold Cross-Validation Works',
           content: [
-            '1. Randomly shuffle and split dataset into K equal-sized folds.',
-            '2. For i = 1 to K: Hold out fold i as validation set; train model on remaining K - 1 folds; compute validation score Sᵢ.',
-            '3. Aggregate scores: Overall CV Performance = (1/K) ∑ Sᵢ.'
+            'Step 1: Partition the training dataset randomly into K equal-sized folds.',
+            'Step 2: For each of the K iterations, select 1 fold as the validation/test set and train the model on the remaining K-1 folds.',
+            'Step 3: Calculate the evaluation metric (e.g. accuracy or error) on the validation fold.',
+            'Step 4: Repeat K times so every fold is used as the validation set exactly once.',
+            'Step 5: Compute the average performance score across all K iterations as the final model evaluation score.'
           ]
         },
         {
-          title: '2. Effect of the Value of K',
+          title: '2. Effect of Choosing Small vs Large K',
           table: {
-            headers: ['When K is Large (e.g., K = 10 or K = N)', 'When K is Small (e.g., K = 2)'],
+            headers: ['Small K (e.g., K = 2 or 3)', 'Large K (e.g., K = 10 or K = N [LOOCV])'],
             rows: [
               {
-                parameter: 'Training set size per fold is very large (~90% to 100% of available data), closely mimicking full production training.',
-                col1: 'Training set size per fold is small (only 50% of data for K = 2), leaving half the dataset unused per model.'
+                parameter: 'Computation: Very fast; trains only 2 or 3 models.',
+                col1: 'Computation: Slow; requires training 10 or N separate models.'
               },
               {
-                parameter: 'Low Bias: The performance estimate accurately reflects true model capability without underestimation.',
-                col1: 'High Bias: Significantly underestimates true model capability because models are trained on severely reduced data.'
+                parameter: 'Training size: Uses only 50% to 66% of data for training each round.',
+                col1: 'Training size: Uses 90% (or N-1 samples) for training, closer to full dataset size.'
               },
               {
-                parameter: 'Higher Variance in evaluation estimates because training folds share ~90% of the same samples and are highly correlated.',
-                col1: 'Lower Variance in evaluation estimates because the two training subsets have zero overlap.'
+                parameter: 'Bias: High bias; underestimates true model performance due to small training sets.',
+                col1: 'Bias: Low bias; estimates performance very accurately.'
               },
               {
-                parameter: 'High computational cost: Requires training and evaluating K separate models (e.g. 10 or N complete training runs).',
-                col1: 'Very fast and low computational cost: Requires training only 2 models total.'
+                parameter: 'Variance: Low variance between fold predictions.',
+                col1: 'Variance: High variance; training sets across folds are nearly identical.'
               }
             ]
           }
         },
         {
-          title: '3. Guidelines for Choosing K',
+          title: '3. How to Choose K in Practice',
           content: [
-            'Standard Empirical Choice: K = 5 or K = 10 offers the optimal balance between bias, variance, and computational expense.',
-            'Small Datasets: Use large K (or Leave-One-Out CV) to ensure sufficient data is available for model training.',
-            'Massive Datasets: Use K = 3 or K = 5 (or simple train/val/test holdout) to bound training time.',
-            'Classification Tasks: Always use Stratified K-Fold to maintain identical class ratios across every fold.'
+            'Empirical Rule: K = 5 or K = 10 is the standard choice in machine learning.',
+            'Why K = 10 is preferred: Extensive empirical research shows K = 10 achieves the ideal compromise between low bias, manageable variance, and acceptable computation time.'
           ]
         }
       ],
       diagrams: [
         {
           id: 'diag-kfold-cv',
-          title: '5-Fold Cross-Validation Split Protocol',
-          caption: 'Grid of 5 sequential iterations showing 4 green training folds and 1 red rotating test fold per round.',
+          title: '5-Fold Cross-Validation Protocol',
+          caption: 'Dataset split into 5 folds with rotating validation fold across 5 training iterations.',
           type: 'svg-interactive',
           svgType: 'kfold-cv'
         }
       ],
       summary: [
-        'K-Fold CV splits data into K folds, rotating the test fold across K iterations.',
-        'Large K (LOOCV) = Low bias, high variance, heavy computation.',
-        'Small K = High bias, low variance, fast computation.',
-        'K = 5 or 10 is the standard sweet spot; use Stratified K-Fold for classification.'
+        'K-Fold CV splits data into K subsets and rotates the validation fold.',
+        'Averages performance across K iterations for an unbiased evaluation.',
+        'Small K: Fast but higher bias.',
+        'Large K: Low bias but slower and higher variance.',
+        'K = 5 or 10 is the universally recommended standard.'
       ],
       keyPoints: [
-        'K-Fold resampling protocol',
-        'Large K (LOOCV) vs Small K tradeoffs',
-        'Bias-Variance trade-off of the estimator',
-        'K = 5 / 10 empirical rule and Stratification'
+        'K equal partitions',
+        'Train on K-1, validate on 1',
+        'Averaged validation score',
+        'Standard choice K = 5 or 10'
       ]
     },
     {

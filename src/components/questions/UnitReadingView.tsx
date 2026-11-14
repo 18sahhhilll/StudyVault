@@ -518,9 +518,9 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
         {/* Question Definition / Core Answer Lead */}
         {currentQuestion.definition && (
           <div className="p-4 sm:p-5 rounded-xl bg-academic-50 dark:bg-academic-950/60 border-l-4 border-l-blue-600 border border-academic-200 dark:border-academic-800">
-            <h3 className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1.5">
-              1. Definition / Core Concept
-            </h3>
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider block mb-1">
+              Definition
+            </span>
             <p className="text-sm sm:text-base text-academic-800 dark:text-academic-200 leading-relaxed font-sans">
               {currentQuestion.definition}
             </p>
@@ -636,7 +636,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
         {currentQuestion.diagrams && currentQuestion.diagrams.length > 0 && (
           <div className="space-y-4 pt-4 border-t border-academic-100 dark:border-academic-800">
             <h3 className="text-xs font-bold text-academic-500 uppercase tracking-wider">
-              Technical Architecture & Visual Representation
+              Diagram
             </h3>
             {currentQuestion.diagrams.map((diag) => (
               <TechnicalDiagram key={diag.id} diagram={diag} />
@@ -644,12 +644,12 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
           </div>
         )}
 
-        {/* 4-5 Line Exam Summary Box */}
+        {/* Exam Quick Revision Box */}
         {currentQuestion.summary.length > 0 && (
           <div className="p-5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/60 space-y-2">
             <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 dark:text-emerald-300 uppercase tracking-wider">
               <Sparkles className="w-4 h-4 text-emerald-600" />
-              <span>Exam Revision Summary (Revise in 4–5 Lines)</span>
+              <span>Quick Revision</span>
             </div>
             <ul className="space-y-1.5 text-xs sm:text-sm text-emerald-900 dark:text-emerald-200 font-sans leading-relaxed">
               {currentQuestion.summary.map((line, idx) => (
@@ -666,7 +666,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
         {currentQuestion.keyPoints.length > 0 && (
           <div className="p-5 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 space-y-2">
             <div className="text-xs font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider">
-              Key Keywords & High-Yield Exam Takeaways
+              Key Points
             </div>
             <div className="flex flex-wrap gap-2 pt-1">
               {currentQuestion.keyPoints.map((point, idx) => (
