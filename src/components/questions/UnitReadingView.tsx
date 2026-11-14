@@ -527,6 +527,18 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
           </div>
         )}
 
+        {/* Technical Diagrams (Positioned directly under Definition, before detailed section explanation) */}
+        {currentQuestion.diagrams && currentQuestion.diagrams.length > 0 && (
+          <div className="space-y-4 pt-2">
+            <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+              <span>Diagram & Visual Architecture</span>
+            </div>
+            {currentQuestion.diagrams.map((diag) => (
+              <TechnicalDiagram key={diag.id} diagram={diag} />
+            ))}
+          </div>
+        )}
+
         {/* Interactive Step-by-Step Numerical Solver */}
         {currentQuestion.numericalSolution && (
           <div className="space-y-2">
@@ -631,18 +643,6 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
             </div>
           ))}
         </div>
-
-        {/* Technical Diagrams (Positioned directly beside/under explanation) */}
-        {currentQuestion.diagrams && currentQuestion.diagrams.length > 0 && (
-          <div className="space-y-4 pt-4 border-t border-academic-100 dark:border-academic-800">
-            <h3 className="text-xs font-bold text-academic-500 uppercase tracking-wider">
-              Diagram
-            </h3>
-            {currentQuestion.diagrams.map((diag) => (
-              <TechnicalDiagram key={diag.id} diagram={diag} />
-            ))}
-          </div>
-        )}
 
         {/* Exam Quick Revision Box */}
         {currentQuestion.summary.length > 0 && (

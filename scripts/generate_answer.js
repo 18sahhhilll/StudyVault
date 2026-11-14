@@ -45,8 +45,115 @@ export const CONFIG = {
   openaiApiKey: process.env.OPENAI_API_KEY || '',
 };
 
+// Function to detect whether a question explicitly or implicitly requires a diagram
+export function detectDiagramRequirement(questionText, marks = 6) {
+  const text = questionText.toLowerCase();
+
+  // 1. Explicit indicators
+  const explicitKeywords = [
+    'neat diagram',
+    'draw a diagram',
+    'draw and explain',
+    'explain with diagram',
+    'explain with a diagram',
+    'suitable diagram',
+    'architecture',
+    'system architecture',
+    'block diagram',
+    'flowchart',
+    'flow chart',
+    'lifecycle',
+    'life cycle',
+    'workflow',
+    'process diagram',
+    'circuit diagram',
+    'network diagram',
+    'data flow diagram',
+    'uml diagram',
+    'component diagram',
+    'working with diagram',
+    'structure and working'
+  ];
+
+  const hasExplicit = explicitKeywords.some(kw => text.includes(kw));
+
+  // 2. Implicit indicators (essential technical topics where visual architecture is mandatory)
+  const implicitTopics = [
+    { pattern: /selenium\s+webdriver/i, type: 'selenium-webdriver-architecture', name: 'Selenium WebDriver Architecture' },
+    { pattern: /selenium\s+grid/i, type: 'selenium-grid-architecture', name: 'Selenium Grid Hub & Node Architecture' },
+    { pattern: /selenium\s+rc/i, type: 'selenium-rc-architecture', name: 'Selenium RC Architecture' },
+    { pattern: /automated\s+testing\s+(process|lifecycle|framework)/i, type: 'automated-testing-lifecycle', name: 'Automated Testing Lifecycle Flowchart' },
+    { pattern: /waterfall\s+model/i, type: 'waterfall-model', name: 'Waterfall Model Lifecycle' },
+    { pattern: /cnn\s+architecture|convolutional\s+neural\s+network/i, type: 'cnn-architecture', name: 'CNN Architecture' },
+    { pattern: /working\s+of.*neural\s+network|neural\s+network.*working/i, type: 'neural-network-working', name: 'Neural Network Layer Structure' },
+    { pattern: /svm.*(hyperplane|margin)|separating\s+hyperplane/i, type: 'svm-hyperplane', name: 'SVM Hyperplane & Margin' },
+    { pattern: /kernel\s+(trick|method)/i, type: 'kernel-trick', name: 'Kernel Trick Transformation' },
+    { pattern: /random\s+forest/i, type: 'random-forest', name: 'Random Forest Architecture' },
+    { pattern: /k-means\s+(clustering|flow|steps)/i, type: 'kmeans-flow', name: 'K-Means Iterative Flowchart' }
+  ];
+
+  const matchedTopic = implicitTopics.find(t => t.pattern.test(text));
+
+  // 3. Negative filters (questions that explicitly do NOT need a diagram)
+  const isPureDefinition = /^(define|what is)\s+(regression|supervised learning|unsupervised learning)/i.test(text);
+  const isPureAdvantages = /advantages\s+of\s+automation/i.test(text);
+
+  if (isPureDefinition || isPureAdvantages) {
+    return { required: false, reason: 'Pure conceptual definition/advantages question' };
+  }
+
+  if (hasExplicit) {
+    return {
+      required: true,
+      reason: 'Explicit diagram request in question',
+      matchedTopic: matchedTopic ? matchedTopic.type : 'custom'
+    };
+  }
+
+  if (matchedTopic && marks >= 4) {
+    return {
+      required: true,
+      reason: `Implicit requirement for ${matchedTopic.name}`,
+      matchedTopic: matchedTopic.type
+    };
+  }
+
+  return { required: false, reason: 'No diagram required' };
+}
+
 // System Prompt enforcing the Golden Rule & SPPU BE Computer Engineering exam criteria
-export const EXAM_SYSTEM_PROMPT = `
+export function buildSystemPrompt(questionText, marks = 6) {
+  const diagCheck = detectDiagramRequirement(questionText, marks);
+
+  let diagramDirective = '';
+  if (diagCheck.required) {
+    diagramDirective = `
+CRITICAL REQUIREMENT - DIAGRAM MANDATORY FOR THIS QUESTION:
+This question requires a diagram (${diagCheck.reason}).
+1. You MUST include a "diagrams" array with an accurate, labelled technical diagram.
+2. Structure the answer specifically as follows:
+   - "definition": Short introductory concept.
+   - "diagrams": [
+       {
+         "id": "diag-${diagCheck.matchedTopic || 'visual'}",
+         "title": "Clear Diagram Title",
+         "caption": "Concise technical description of the diagram and components.",
+         "type": "svg-interactive",
+         "svgType": "${diagCheck.matchedTopic || 'custom'}"
+       }
+     ]
+   - "sections": The written sections MUST directly describe and match the diagram!
+     - Every major component, block, or phase shown in the diagram MUST be explained in the EXACT SAME SEQUENCE and with the EXACT SAME LABELS as in the diagram.
+     - Number the phases/components identically.
+`;
+  } else {
+    diagramDirective = `
+DIAGRAM DIRECTIVE:
+A diagram is NOT mandatory for this question (${diagCheck.reason}). Do NOT generate a "diagrams" array. Provide a clean, concise, direct written answer.
+`;
+  }
+
+  return `
 You are an expert Computer Engineering professor writing model exam answers for Savitribai Phule Pune University (SPPU) BE Computer Engineering students.
 
 THE GOLDEN RULE:
@@ -55,6 +162,8 @@ Do not follow a rigid fixed template for every question.
 Do not convert answers into bloated multi-page essays.
 Do not add unnecessary sections like "Foundational Rationale", "Statistical Reasoning", "Computational Reasoning", "Representational Reasoning", or "Meta-algorithmic framework".
 The question itself must strictly dictate the structure and contents.
+
+${diagramDirective}
 
 LANGUAGE & VOCABULARY RULES:
 - Use simple, clear, professional English.
@@ -67,50 +176,29 @@ LANGUAGE & VOCABULARY RULES:
 MARKS-BASED LENGTH:
 - 2-3 marks: Direct definition and 2-3 important points (concise).
 - 4-5 marks: Definition, explanation, and clear points/example.
-- 6-8 marks: Clear definition, working/steps, 2-column comparison or simple practical example, and quick revision.
+- 6-8 marks: Clear definition, diagram if required, working/steps, and quick revision.
 - 10 marks: Comprehensive answer with all requested parts.
-
-QUESTION ADAPTATION:
-- "What is X? Why is it used? (with example)":
-  1. What is X? (Definition + In simple words)
-  2. Why is X used? (Numbered direct reasons)
-  3. Practical Example (e.g. 5 models voting on tumor diagnosis)
-  4. Quick Revision (4-5 bullet points)
-- "Differentiate between X and Y":
-  1. Brief 1-line introduction
-  2. Direct 2-column comparison table (Parameter/Feature vs Comparison points)
-  3. Brief conclusion if helpful
-- "Explain X with an example":
-  1. Definition & simple explanation
-  2. Working / Step-by-step algorithm
-  3. Concrete practical example with step-by-step resolution
-  4. Quick Revision
-- "Write a short note on X":
-  1. Definition
-  2. Working / Key characteristics
-  3. Applications or types
-  4. Quick Revision
 
 JSON OUTPUT FORMAT:
 You must output ONLY valid JSON matching this structure:
 {
   "definition": "Clear, simple 1-2 sentence definition",
+  ${diagCheck.required ? `"diagrams": [
+    {
+      "id": "diag-${diagCheck.matchedTopic || 'visual'}",
+      "title": "Diagram Title",
+      "caption": "Concise diagram explanation",
+      "type": "svg-interactive",
+      "svgType": "${diagCheck.matchedTopic || 'custom'}"
+    }
+  ],` : ''}
   "sections": [
     {
-      "title": "Section Title",
+      "title": "1. Section Title (Matching Diagram if present)",
       "content": [
         "Point 1",
         "Point 2"
-      ],
-      "formulas": [
-        { "name": "Formula Name", "latex": "\\\\text{LaTeX formula}" }
-      ],
-      "table": {
-        "headers": ["Col 1", "Col 2"],
-        "rows": [
-          { "parameter": "Row 1", "col1": "Val 1" }
-        ]
-      }
+      ]
     }
   ],
   "summary": [
@@ -126,22 +214,24 @@ You must output ONLY valid JSON matching this structure:
   ]
 }
 `;
+}
 
 /**
  * Call Gemini REST API
  */
-async function callGemini(prompt, model = CONFIG.model, apiKey = CONFIG.geminiApiKey) {
+async function callGemini(prompt, model = CONFIG.model, apiKey = CONFIG.geminiApiKey, marks = 6) {
   if (!apiKey) {
     throw new Error('GEMINI_API_KEY is not set in environment or .env');
   }
 
+  const systemPrompt = buildSystemPrompt(prompt, marks);
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
   
   const body = {
     contents: [
       {
         role: 'user',
-        parts: [{ text: `${EXAM_SYSTEM_PROMPT}\n\nTask:\n${prompt}` }]
+        parts: [{ text: `${systemPrompt}\n\nTask:\n${prompt}` }]
       }
     ],
     generationConfig: {
@@ -173,17 +263,18 @@ async function callGemini(prompt, model = CONFIG.model, apiKey = CONFIG.geminiAp
 /**
  * Call OpenAI REST API
  */
-async function callOpenAI(prompt, model = CONFIG.model, apiKey = CONFIG.openaiApiKey) {
+async function callOpenAI(prompt, model = CONFIG.model, apiKey = CONFIG.openaiApiKey, marks = 6) {
   if (!apiKey) {
     throw new Error('OPENAI_API_KEY is not set in environment or .env');
   }
 
+  const systemPrompt = buildSystemPrompt(prompt, marks);
   const url = 'https://api.openai.com/v1/chat/completions';
 
   const body = {
     model: model,
     messages: [
-      { role: 'system', content: EXAM_SYSTEM_PROMPT },
+      { role: 'system', content: systemPrompt },
       { role: 'user', content: prompt }
     ],
     temperature: 0.2,
@@ -228,9 +319,9 @@ export async function generateAnswer(questionPrompt, options = {}) {
   while (retries > 0) {
     try {
       if (provider === 'openai') {
-        return await callOpenAI(questionPrompt, model, options.apiKey || CONFIG.openaiApiKey);
+        return await callOpenAI(questionPrompt, model, options.apiKey || CONFIG.openaiApiKey, options.marks || 6);
       } else {
-        return await callGemini(questionPrompt, model, options.apiKey || CONFIG.geminiApiKey);
+        return await callGemini(questionPrompt, model, options.apiKey || CONFIG.geminiApiKey, options.marks || 6);
       }
     } catch (err) {
       console.warn(`[AnswerGenerator] Attempt failed: ${err.message}`);

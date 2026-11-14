@@ -1230,6 +1230,283 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
           </svg>
         );
 
+      case 'automated-testing-lifecycle':
+        return (
+          <svg viewBox="0 0 540 340" className="w-full h-auto select-none">
+            <defs>
+              <marker id="arr-atl" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#3b82f6" />
+              </marker>
+              <linearGradient id="grad-atl" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.1" />
+                <stop offset="100%" stopColor="#2563eb" stopOpacity="0.2" />
+              </linearGradient>
+            </defs>
+            <rect x="10" y="10" width="520" height="320" rx="8" className="fill-academic-50 dark:fill-academic-900 stroke-academic-200 dark:stroke-academic-800" strokeWidth="1" />
+            <text x="270" y="32" textAnchor="middle" className="text-xs font-bold fill-academic-900 dark:fill-academic-100">Automated Testing Lifecycle Framework (ATLM)</text>
+
+            {[
+              { num: 'Phase 1', title: 'Feasibility Analysis', desc: 'ROI, candidate test cases, manual cost', y: 48, col: '#3b82f6' },
+              { num: 'Phase 2', title: 'Tool Selection', desc: 'Evaluate commercial vs open-source tools', y: 92, col: '#2563eb' },
+              { num: 'Phase 3', title: 'Framework Design', desc: 'Modular, Data-Driven, Hybrid, POM architecture', y: 136, col: '#1d4ed8' },
+              { num: 'Phase 4', title: 'Proof of Concept (POC)', desc: 'Prototype on core workflows to verify feasibility', y: 180, col: '#4f46e5' },
+              { num: 'Phase 5', title: 'Develop Framework', desc: 'Reusable libraries, configs, reporting engine', y: 224, col: '#4338ca' },
+              { num: 'Phase 6', title: 'Scripting, Execution & Maintenance', desc: 'CI/CD pipeline runs, defect logging, script updates', y: 268, col: '#10b981' }
+            ].map((p, i, arr) => (
+              <g key={i}>
+                <rect x="70" y={p.y} width="400" height="36" rx="6" className="fill-white dark:fill-academic-800 stroke-academic-300 dark:stroke-academic-700" strokeWidth="1.5" />
+                <rect x="70" y={p.y} width="95" height="36" rx="6" fill={p.col} fillOpacity="0.15" />
+                <text x="117" y={p.y + 22} textAnchor="middle" className="text-[10px] font-bold" fill={p.col}>{p.num}</text>
+                <text x="180" y={p.y + 16} className="text-[10px] font-bold fill-academic-900 dark:fill-academic-100">{p.title}</text>
+                <text x="180" y={p.y + 28} className="text-[8.5px] fill-academic-500">{p.desc}</text>
+                {i < arr.length - 1 && (
+                  <line x1="270" y1={p.y + 36} x2="270" y2={p.y + 44} stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr-atl)" />
+                )}
+              </g>
+            ))}
+            <text x="270" y="322" textAnchor="middle" className="text-[8.5px] fill-academic-400">Sequential engineering workflow: each phase deliverables feed directly into the next phase</text>
+          </svg>
+        );
+
+      case 'selenium-webdriver-architecture':
+        return (
+          <svg viewBox="0 0 540 280" className="w-full h-auto select-none">
+            <defs>
+              <marker id="arr-swd" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#3b82f6" />
+              </marker>
+            </defs>
+            <rect x="10" y="10" width="520" height="260" rx="8" className="fill-academic-50 dark:fill-academic-900 stroke-academic-200 dark:stroke-academic-800" strokeWidth="1" />
+            <text x="270" y="30" textAnchor="middle" className="text-xs font-bold fill-academic-900 dark:fill-academic-100">Selenium WebDriver 4-Layer Architecture</text>
+
+            {/* Layer 1: Client Libraries */}
+            <rect x="25" y="50" width="105" height="180" rx="6" className="fill-white dark:fill-academic-800 stroke-blue-500" strokeWidth="1.5" />
+            <text x="77" y="70" textAnchor="middle" className="text-[10px] font-bold fill-blue-600 dark:fill-blue-400">Layer 1: Client</text>
+            <text x="77" y="84" textAnchor="middle" className="text-[9px] font-semibold fill-academic-700 dark:fill-academic-300">Language Bindings</text>
+            {['Java', 'Python', 'C#', 'Ruby', 'JavaScript'].map((lang, idx) => (
+              <rect key={idx} x="35" y={100 + idx * 24} width="85" height="18" rx="4" className="fill-blue-50 dark:fill-blue-950/60 stroke-blue-200 dark:stroke-blue-800" strokeWidth="1">
+                <title>{lang}</title>
+              </rect>
+            ))}
+            {['Java', 'Python', 'C#', 'Ruby', 'JavaScript'].map((lang, idx) => (
+              <text key={idx} x="77" y={113 + idx * 24} textAnchor="middle" className="text-[9px] font-medium fill-academic-800 dark:fill-academic-200">{lang}</text>
+            ))}
+
+            {/* Protocol Arrow 1 */}
+            <line x1="130" y1="140" x2="160" y2="140" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr-swd)" />
+            <line x1="160" y1="150" x2="135" y2="150" stroke="#64748b" strokeWidth="1.5" strokeDasharray="3 2" markerEnd="url(#arr-swd)" />
+
+            {/* Layer 2: Protocol */}
+            <rect x="165" y="75" width="100" height="130" rx="6" className="fill-amber-50 dark:fill-amber-950/40 stroke-amber-500" strokeWidth="1.5" />
+            <text x="215" y="98" textAnchor="middle" className="text-[10px] font-bold fill-amber-700 dark:fill-amber-400">Layer 2: Protocol</text>
+            <text x="215" y="115" textAnchor="middle" className="text-[9px] font-semibold fill-academic-800 dark:fill-academic-200">JSON Wire /</text>
+            <text x="215" y="128" textAnchor="middle" className="text-[9px] font-bold fill-amber-600">W3C WebDriver</text>
+            <text x="215" y="150" textAnchor="middle" className="text-[8px] fill-academic-500">Standard HTTP</text>
+            <text x="215" y="162" textAnchor="middle" className="text-[8px] fill-academic-500">REST Requests</text>
+            <text x="215" y="174" textAnchor="middle" className="text-[8px] fill-academic-500">& JSON Responses</text>
+
+            {/* Protocol Arrow 2 */}
+            <line x1="265" y1="140" x2="295" y2="140" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr-swd)" />
+            <line x1="295" y1="150" x2="270" y2="150" stroke="#64748b" strokeWidth="1.5" strokeDasharray="3 2" markerEnd="url(#arr-swd)" />
+
+            {/* Layer 3: Browser Drivers */}
+            <rect x="300" y="50" width="105" height="180" rx="6" className="fill-white dark:fill-academic-800 stroke-purple-500" strokeWidth="1.5" />
+            <text x="352" y="70" textAnchor="middle" className="text-[10px] font-bold fill-purple-600 dark:fill-purple-400">Layer 3: Drivers</text>
+            <text x="352" y="84" textAnchor="middle" className="text-[9px] font-semibold fill-academic-700 dark:fill-academic-300">Browser Drivers</text>
+            {[
+              { d: 'ChromeDriver', p: 'port 9515' },
+              { d: 'GeckoDriver', p: 'port 4444' },
+              { d: 'msedgedriver', p: 'port 9515' },
+              { d: 'SafariDriver', p: 'builtin' }
+            ].map((dr, idx) => (
+              <g key={idx}>
+                <rect x="310" y={100 + idx * 30} width="85" height="24" rx="4" className="fill-purple-50 dark:fill-purple-950/60 stroke-purple-200 dark:stroke-purple-800" strokeWidth="1" />
+                <text x="352" y={113 + idx * 30} textAnchor="middle" className="text-[8.5px] font-medium fill-academic-800 dark:fill-academic-200">{dr.d}</text>
+                <text x="352" y={122 + idx * 30} textAnchor="middle" className="text-[7.5px] fill-academic-400 font-mono">{dr.p}</text>
+              </g>
+            ))}
+
+            {/* Arrow 3 */}
+            <line x1="405" y1="140" x2="425" y2="140" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr-swd)" />
+
+            {/* Layer 4: Real Browsers */}
+            <rect x="430" y="50" width="90" height="180" rx="6" className="fill-white dark:fill-academic-800 stroke-emerald-500" strokeWidth="1.5" />
+            <text x="475" y="70" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600 dark:fill-emerald-400">Layer 4</text>
+            <text x="475" y="84" textAnchor="middle" className="text-[9px] font-semibold fill-academic-700 dark:fill-academic-300">Real Browsers</text>
+            {['Chrome', 'Firefox', 'Edge', 'Safari'].map((br, idx) => (
+              <g key={idx}>
+                <rect x="438" y={100 + idx * 30} width="74" height="24" rx="4" className="fill-emerald-50 dark:fill-emerald-950/60 stroke-emerald-200 dark:stroke-emerald-800" strokeWidth="1" />
+                <text x="475" y={116 + idx * 30} textAnchor="middle" className="text-[8.5px] font-bold fill-academic-800 dark:fill-academic-200">{br}</text>
+              </g>
+            ))}
+
+            <text x="270" y="255" textAnchor="middle" className="text-[8.5px] fill-academic-500">Direct native OS level communication bypassing the browser JavaScript sandbox</text>
+          </svg>
+        );
+
+      case 'selenium-grid-architecture':
+        return (
+          <svg viewBox="0 0 540 280" className="w-full h-auto select-none">
+            <defs>
+              <marker id="arr-grid" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#3b82f6" />
+              </marker>
+            </defs>
+            <rect x="10" y="10" width="520" height="260" rx="8" className="fill-academic-50 dark:fill-academic-900 stroke-academic-200 dark:stroke-academic-800" strokeWidth="1" />
+            <text x="270" y="30" textAnchor="middle" className="text-xs font-bold fill-academic-900 dark:fill-academic-100">Selenium Grid Hub and Node Architecture</text>
+
+            {/* Test Client Machine */}
+            <rect x="25" y="90" width="100" height="100" rx="6" className="fill-white dark:fill-academic-800 stroke-blue-500" strokeWidth="1.5" />
+            <text x="75" y="115" textAnchor="middle" className="text-[10px] font-bold fill-blue-600 dark:fill-blue-400">Test Client</text>
+            <text x="75" y="130" textAnchor="middle" className="text-[8.5px] fill-academic-600 dark:fill-academic-400">TestNG / JUnit</text>
+            <text x="75" y="145" textAnchor="middle" className="text-[8.5px] fill-academic-600 dark:fill-academic-400">Parallel Runners</text>
+            <text x="75" y="165" textAnchor="middle" className="text-[7.5px] font-mono fill-academic-400">RemoteWebDriver</text>
+
+            {/* Arrow to Hub */}
+            <line x1="125" y1="140" x2="175" y2="140" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr-grid)" />
+            <text x="150" y="132" textAnchor="middle" className="text-[8px] font-mono fill-academic-500">HTTP/JSON</text>
+
+            {/* Hub Central Server */}
+            <rect x="180" y="65" width="130" height="150" rx="8" className="fill-indigo-50 dark:fill-indigo-950/60 stroke-indigo-600" strokeWidth="2" />
+            <text x="245" y="90" textAnchor="middle" className="text-xs font-bold fill-indigo-700 dark:fill-indigo-300">Central HUB</text>
+            <text x="245" y="105" textAnchor="middle" className="text-[9px] font-mono fill-indigo-600">Port: 4444</text>
+            <rect x="195" y="115" width="100" height="24" rx="4" className="fill-white dark:fill-academic-800 stroke-indigo-200 dark:stroke-indigo-800" strokeWidth="1" />
+            <text x="245" y="130" textAnchor="middle" className="text-[8.5px] font-medium fill-academic-800 dark:fill-academic-200">Router & Session Queue</text>
+            <rect x="195" y="145" width="100" height="24" rx="4" className="fill-white dark:fill-academic-800 stroke-indigo-200 dark:stroke-indigo-800" strokeWidth="1" />
+            <text x="245" y="160" textAnchor="middle" className="text-[8.5px] font-medium fill-academic-800 dark:fill-academic-200">Distributor / Node Map</text>
+            <rect x="195" y="175" width="100" height="24" rx="4" className="fill-white dark:fill-academic-800 stroke-indigo-200 dark:stroke-indigo-800" strokeWidth="1" />
+            <text x="245" y="190" textAnchor="middle" className="text-[8.5px] font-medium fill-academic-800 dark:fill-academic-200">Event Bus</text>
+
+            {/* Arrows from Hub to Nodes */}
+            <line x1="310" y1="100" x2="355" y2="75" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#arr-grid)" />
+            <line x1="310" y1="140" x2="355" y2="140" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#arr-grid)" />
+            <line x1="310" y1="180" x2="355" y2="205" stroke="#3b82f6" strokeWidth="1.5" markerEnd="url(#arr-grid)" />
+
+            {/* Nodes */}
+            {/* Node 1: Windows */}
+            <rect x="360" y="45" width="155" height="55" rx="6" className="fill-white dark:fill-academic-800 stroke-emerald-500" strokeWidth="1.5" />
+            <text x="437" y="63" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600 dark:fill-emerald-400">Node 1 (Windows 11)</text>
+            <text x="437" y="78" textAnchor="middle" className="text-[8.5px] fill-academic-600 dark:fill-academic-400">Chrome v120 + Edge v120</text>
+            <text x="437" y="90" textAnchor="middle" className="text-[7.5px] font-mono fill-academic-400">ChromeDriver / msedgedriver</text>
+
+            {/* Node 2: Linux */}
+            <rect x="360" y="112" width="155" height="55" rx="6" className="fill-white dark:fill-academic-800 stroke-emerald-500" strokeWidth="1.5" />
+            <text x="437" y="130" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600 dark:fill-emerald-400">Node 2 (Linux Ubuntu)</text>
+            <text x="437" y="145" textAnchor="middle" className="text-[8.5px] fill-academic-600 dark:fill-academic-400">Firefox (GeckoDriver) + Headless</text>
+            <text x="437" y="157" textAnchor="middle" className="text-[7.5px] font-mono fill-academic-400">Dockerized Container</text>
+
+            {/* Node 3: macOS */}
+            <rect x="360" y="180" width="155" height="55" rx="6" className="fill-white dark:fill-academic-800 stroke-emerald-500" strokeWidth="1.5" />
+            <text x="437" y="198" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600 dark:fill-emerald-400">Node 3 (macOS Sonoma)</text>
+            <text x="437" y="213" textAnchor="middle" className="text-[8.5px] fill-academic-600 dark:fill-academic-400">Safari + Chrome</text>
+            <text x="437" y="225" textAnchor="middle" className="text-[7.5px] font-mono fill-academic-400">safaridriver</text>
+
+            <text x="270" y="255" textAnchor="middle" className="text-[8.5px] fill-academic-500">Hub distributes tests in parallel to remote Nodes matching desired capabilities (OS, Browser, Version)</text>
+          </svg>
+        );
+
+      case 'waterfall-model':
+        return (
+          <svg viewBox="0 0 540 280" className="w-full h-auto select-none">
+            <defs>
+              <marker id="arr-wf" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#3b82f6" />
+              </marker>
+            </defs>
+            <rect x="10" y="10" width="520" height="260" rx="8" className="fill-academic-50 dark:fill-academic-900 stroke-academic-200 dark:stroke-academic-800" strokeWidth="1" />
+            <text x="270" y="30" textAnchor="middle" className="text-xs font-bold fill-academic-900 dark:fill-academic-100">Classical Waterfall Model of Software Development</text>
+
+            {[
+              { phase: '1. Requirements Analysis', desc: 'SRS document, feasibility, scope definition', x: 25, y: 48, col: '#2563eb' },
+              { phase: '2. System Design', desc: 'High-Level & Low-Level Design (HLD/LLD), Architecture', x: 95, y: 82, col: '#3b82f6' },
+              { phase: '3. Implementation (Coding)', desc: 'Module programming, Unit testing by developers', x: 165, y: 116, col: '#4f46e5' },
+              { phase: '4. Testing & Verification', desc: 'Integration, System, and Acceptance (UAT) testing', x: 235, y: 150, col: '#7c3aed' },
+              { phase: '5. Deployment', desc: 'Release to production environment / customer installation', x: 305, y: 184, col: '#059669' },
+              { phase: '6. Maintenance', desc: 'Bug fixes, patches, performance updates, enhancements', x: 375, y: 218, col: '#10b981' }
+            ].map((st, idx, arr) => (
+              <g key={idx}>
+                <rect x={st.x} y={st.y} width="150" height="30" rx="5" fill={st.col} fillOpacity="0.15" stroke={st.col} strokeWidth="1.5" />
+                <text x={st.x + 75} y={st.y + 14} textAnchor="middle" className="text-[9px] font-bold fill-academic-900 dark:fill-academic-100">{st.phase}</text>
+                <text x={st.x + 75} y={st.y + 24} textAnchor="middle" className="text-[7.5px] fill-academic-500">{st.desc}</text>
+                {idx < arr.length - 1 && (
+                  <path
+                    d={`M ${st.x + 150} ${st.y + 15} H ${arr[idx+1].x + 75} V ${arr[idx+1].y - 2}`}
+                    fill="none"
+                    stroke="#3b82f6"
+                    strokeWidth="1.5"
+                    markerEnd="url(#arr-wf)"
+                  />
+                )}
+              </g>
+            ))}
+            <text x="270" y="262" textAnchor="middle" className="text-[8.5px] fill-academic-400">Linear sequential flow: subsequent phases begin strictly upon sign-off and completion of previous phase</text>
+          </svg>
+        );
+
+      case 'neural-network-working':
+        return (
+          <svg viewBox="0 0 540 280" className="w-full h-auto select-none">
+            <defs>
+              <marker id="arr-nn" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#3b82f6" />
+              </marker>
+            </defs>
+            <rect x="10" y="10" width="520" height="260" rx="8" className="fill-academic-50 dark:fill-academic-900 stroke-academic-200 dark:stroke-academic-800" strokeWidth="1" />
+            <text x="270" y="30" textAnchor="middle" className="text-xs font-bold fill-academic-900 dark:fill-academic-100">Feedforward Artificial Neural Network Architecture</text>
+
+            {/* Connections Input to Hidden */}
+            {[[80, 80], [80, 140], [80, 200]].map(([x1, y1], i) =>
+              [[270, 70], [270, 120], [270, 170], [270, 220]].map(([x2, y2], j) => (
+                <line key={`ih-${i}-${j}`} x1={x1 + 18} y1={y1} x2={x2 - 18} y2={y2} stroke="#94a3b8" strokeWidth="1" strokeOpacity="0.6" />
+              ))
+            )}
+
+            {/* Connections Hidden to Output */}
+            {[[270, 70], [270, 120], [270, 170], [270, 220]].map(([x1, y1], i) =>
+              [[450, 140]].map(([x2, y2], j) => (
+                <line key={`ho-${i}-${j}`} x1={x1 + 18} y1={y1} x2={x2 - 18} y2={y2} stroke="#3b82f6" strokeWidth="1.5" strokeOpacity="0.8" />
+              ))
+            )}
+
+            {/* Input Layer */}
+            <text x="80" y="52" textAnchor="middle" className="text-[10px] font-bold fill-blue-600">Input Layer</text>
+            {[
+              { label: 'x₁', y: 80, name: 'Feature 1' },
+              { label: 'x₂', y: 140, name: 'Feature 2' },
+              { label: 'x₃', y: 200, name: 'Feature 3' }
+            ].map((node, idx) => (
+              <g key={idx}>
+                <circle cx="80" cy={node.y} r="18" className="fill-blue-100 dark:fill-blue-950 stroke-blue-500" strokeWidth="2" />
+                <text x="80" y={node.y + 4} textAnchor="middle" className="text-xs font-bold fill-blue-700 dark:fill-blue-300">{node.label}</text>
+                <text x="40" y={node.y + 4} textAnchor="end" className="text-[8px] fill-academic-400">{node.name}</text>
+              </g>
+            ))}
+
+            {/* Hidden Layer */}
+            <text x="270" y="45" textAnchor="middle" className="text-[10px] font-bold fill-purple-600">Hidden Layer</text>
+            {[
+              { label: 'h₁', y: 70 },
+              { label: 'h₂', y: 120 },
+              { label: 'h₃', y: 170 },
+              { label: 'h₄', y: 220 }
+            ].map((node, idx) => (
+              <g key={idx}>
+                <circle cx="270" cy={node.y} r="18" className="fill-purple-100 dark:fill-purple-950 stroke-purple-500" strokeWidth="2" />
+                <text x="270" y={node.y + 4} textAnchor="middle" className="text-xs font-bold fill-purple-700 dark:fill-purple-300">{node.label}</text>
+              </g>
+            ))}
+            <text x="270" y="252" textAnchor="middle" className="text-[8px] font-mono fill-academic-500">z = Σ wᵢxᵢ + b | a = σ(z)</text>
+
+            {/* Output Layer */}
+            <text x="450" y="105" textAnchor="middle" className="text-[10px] font-bold fill-emerald-600">Output Layer</text>
+            <circle cx="450" cy="140" r="18" className="fill-emerald-100 dark:fill-emerald-950 stroke-emerald-500" strokeWidth="2" />
+            <text x="450" y="144" textAnchor="middle" className="text-xs font-bold fill-emerald-700 dark:fill-emerald-300">ŷ</text>
+            <text x="495" y="144" className="text-[8px] fill-academic-400">Prediction</text>
+
+            <text x="270" y="270" textAnchor="middle" className="text-[8.5px] fill-academic-400">Forward pass: input features multiplied by weight matrices, summed with bias, and transformed by non-linear activations</text>
+          </svg>
+        );
+
       default:
         return (
           <div className="p-6 text-center text-academic-500 bg-academic-100 dark:bg-academic-900 rounded-lg">

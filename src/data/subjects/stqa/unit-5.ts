@@ -289,16 +289,25 @@ export const unit5Data: Unit = {
         "POC Framework"
       ],
       "definition": "The Automated Testing Process is a structured engineering lifecycle comprising Feasibility Analysis, Tool Selection, Framework Design, Proof of Concept (POC), Script Development, Execution, and Maintenance.",
+      "diagrams": [
+        {
+          "id": "diag-automated-testing-lifecycle",
+          "title": "Automated Testing Lifecycle Framework (ATLM)",
+          "caption": "Sequential 6-phase engineering lifecycle: Feasibility Analysis -> Tool Selection -> Framework Design -> Proof of Concept -> Script Development -> Execution & Maintenance.",
+          "type": "svg-interactive",
+          "svgType": "automated-testing-lifecycle"
+        }
+      ],
       "sections": [
         {
-          "title": "1. Phases of the Automated Testing Process",
+          "title": "1. Explanation of Lifecycle Phases (Matching Diagram)",
           "content": [
-            "Phase 1: Test Automation Feasibility Analysis: Review application technology, identify candidate test cases, analyze third-party controls, and establish automation ROI justification.",
-            "Phase 2: Appropriate Tool Selection: Evaluate commercial vs open-source tools matching project budget, tech stack, and team programming capabilities.",
-            "Phase 3: Evaluate Suitable Framework: Select architecture (Modular, Data-driven, Keyword-driven, Page Object Model, or Hybrid).",
-            "Phase 4: Build Proof of Concept (POC): Implement an end-to-end prototype on core workflows to prove tool viability and assess device/browser compatibility.",
-            "Phase 5: Develop Automation Framework: Build reusable libraries, configuration managers, test data readers, reporting engines, and CI/CD connectors.",
-            "Phase 6: Develop Test Scripts, Execute, and Analyze: Write version-controlled automation scripts, integrate with build pipeline (Jenkins/GitHub Actions), execute runs, and log defect tickets automatically."
+            "Phase 1: Test Automation Feasibility Analysis - Review application technology, identify candidate test cases (high volume, regression, repetitive flows), analyze third-party controls, and establish automation ROI justification.",
+            "Phase 2: Appropriate Tool Selection - Evaluate commercial vs open-source tools matching project budget, tech stack, and team programming capabilities.",
+            "Phase 3: Evaluate Suitable Framework - Select architecture (Modular, Data-driven, Keyword-driven, Page Object Model, or Hybrid).",
+            "Phase 4: Build Proof of Concept (POC) - Implement an end-to-end prototype on core workflows to prove tool viability and assess device/browser compatibility.",
+            "Phase 5: Develop Automation Framework - Build reusable libraries, configuration managers, test data readers, reporting engines, and CI/CD connectors.",
+            "Phase 6: Develop Test Scripts, Execute, and Maintain - Write version-controlled automation scripts, integrate with build pipeline (Jenkins/GitHub Actions), execute runs, log defect tickets, and update scripts when UI changes."
           ]
         }
       ],
@@ -606,6 +615,15 @@ export const unit5Data: Unit = {
         "WebDriver Architecture",
         "Native Browser Automation"
       ],
+      "diagrams": [
+        {
+          "id": "diag-selenium-webdriver-architecture",
+          "title": "Selenium WebDriver 4-Layer Architecture",
+          "caption": "4-layer direct communication architecture: Client Libraries -> W3C WebDriver Protocol -> Browser Drivers -> Real Browsers.",
+          "type": "svg-interactive",
+          "svgType": "selenium-webdriver-architecture"
+        }
+      ],
       "definition": "Selenium WebDriver is a programmatic web automation framework that controls browsers natively by sending commands directly to browser-specific drivers over HTTP (W3C standard), bypassing JavaScript injection proxies.",
       "sections": [
         {
@@ -717,6 +735,15 @@ export const unit5Data: Unit = {
         "Selenium Grid",
         "Hub and Node Architecture",
         "Parallel Testing"
+      ],
+      "diagrams": [
+        {
+          "id": "diag-selenium-grid-architecture",
+          "title": "Selenium Grid Hub and Node Architecture",
+          "caption": "Central Hub distributing parallel test suites across heterogeneous OS and browser Nodes.",
+          "type": "svg-interactive",
+          "svgType": "selenium-grid-architecture"
+        }
       ],
       "definition": "Selenium Grid is a distributed testing tool that coordinates parallel execution of Selenium test suites across multiple remote machines, operating systems, and browsers simultaneously.",
       "sections": [

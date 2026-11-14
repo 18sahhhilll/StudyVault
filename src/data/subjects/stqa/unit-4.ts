@@ -714,6 +714,15 @@ export const unit4Data: Unit = {
         "Waterfall Model",
         "SDLC Models"
       ],
+      "diagrams": [
+        {
+          "id": "diag-waterfall-model",
+          "title": "Classical Waterfall Model of Software Development",
+          "caption": "Sequential software development phases with phase-end reviews and feedback loops.",
+          "type": "svg-interactive",
+          "svgType": "waterfall-model"
+        }
+      ],
       "definition": "The Waterfall Model is a classic linear-sequential SDLC model where progress flows downwards through distinct phases (Requirements, Design, Coding, Testing, Deployment, Maintenance) with no phase overlap.",
       "sections": [
         {
