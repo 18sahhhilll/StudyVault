@@ -311,28 +311,22 @@ export const blockchainUnit5Data: Unit = {
           ]
         },
         {
-          title: '3. Benefits vs Limitations of Smart Contracts (2-Column Format)',
-          table: {
-            headers: ['Benefits of Smart Contracts', 'Limitations & Inherent Drawbacks'],
-            rows: [
-              {
-                parameter: 'Autonomous Execution: Executes automatically when conditions are met without requiring human intervention or escrow agents.',
-                col1: 'Code Immutability Risk: If code contains vulnerabilities (e.g. Reentrancy), funds can be drained and code cannot be easily patched.'
-              },
-              {
-                parameter: 'Elimination of Intermediaries: Removes expensive lawyers, brokers, and escrow fees, drastically reducing operational costs.',
-                col1: 'The Oracle Problem: Contracts cannot natively read real-world data (e.g. flight delays, stock prices) without external oracle networks.'
-              },
-              {
-                parameter: 'Instant Settlement Speed: Transactions and state changes settle in seconds across the network rather than taking days.',
-                col1: 'Gas Price Volatility: Complex code execution consumes substantial computational gas, becoming costly during peak traffic.'
-              },
-              {
-                parameter: 'Mathematical Transparency: All terms, parameters, and payout logic are publicly verifiable on-chain by all parties.',
-                col1: 'Legal Enforcement Gap: Traditional courts often lack clear frameworks for arbitrating automated decentralized smart contract disputes.'
-              }
-            ]
-          }
+          title: '3. Key Benefits of Smart Contracts',
+          content: [
+            '1. Autonomous and Trustless Execution: Code triggers and executes automatically when predefined conditions are satisfied without middlemen.',
+            '2. High Speed and Efficiency: Automation eliminates manual paper processing, agent delays, and administrative approvals.',
+            '3. Intermediary Cost Elimination: Removes broker, lawyer, and escrow agent commissions.',
+            '4. Cryptographic Security and Auditability: Bytecode is publicly verified and cannot be unilaterally altered by either party.'
+          ]
+        },
+        {
+          title: '4. Limitations and Inherent Drawbacks of Smart Contracts',
+          content: [
+            '1. Immutable Bugs and Vulnerabilities: Flaws in deployed code cannot be edited; hackers can drain funds irrevocably (e.g. DAO reentrancy attack).',
+            '2. The Oracle Problem: Smart contracts cannot natively read off-chain data without trusting external data feeds (Oracles).',
+            '3. Execution Gas Costs: Network congestion on platforms like Ethereum leads to volatile and high gas execution fees.',
+            '4. Legal Ambiguity: Code execution is not always aligned with standard territorial contractual laws.'
+          ]
         }
       ],
       diagrams: [

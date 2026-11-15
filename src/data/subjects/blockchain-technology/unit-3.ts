@@ -812,16 +812,20 @@ export const blockchainUnit3Data: Unit = {
           ]
         },
         {
-          title: '2. Advantages and Disadvantages',
-          table: {
-            headers: ['Strengths of PoW', 'Weaknesses / Limitations of PoW'],
-            rows: [
-              { parameter: 'Battle-Tested Security', col1: 'Unbroken security track record since 2009 in Bitcoin.', col2: 'Massive electricity consumption (comparable to whole nations).' },
-              { parameter: 'Sybil Resistance', col1: 'Cannot forge votes without expending real physical energy.', col2: 'Low transaction throughput (Bitcoin limited to ~7 TPS).' },
-              { parameter: 'Decentralized Entry', col1: 'Anyone with hardware can join permissionlessly.', col2: 'Hardware centralization in massive ASIC mining farms.' },
-              { parameter: 'Byzantine Resolution', col1: 'Robust game-theoretic economic security.', col2: 'Risk of 51% attack if a pool commands majority hashpower.' }
-            ]
-          }
+          title: '2. Strengths of Proof of Work (PoW)',
+          content: [
+            '1. Battle-Tested Security: Proof of Work has secured the Bitcoin network continuously since 2009 without a single consensus-level compromise.',
+            '2. Completely Decentralized and Objective: Anyone can independently compute and verify the longest proof-of-work chain without trusting central coordinators.',
+            '3. Strong Sybil Resistance: Requires massive physical hardware capital and electricity, making attacks economically irrational.'
+          ]
+        },
+        {
+          title: '3. Limitations of Proof of Work (PoW)',
+          content: [
+            '1. Massive Energy Consumption: Specialized miners consume terawatt-hours of electricity globally for computational hashing.',
+            '2. Centralization via Mining Pools: A few dominant mining pool operators control more than 51% of global network hashrate.',
+            '3. Low Transaction Throughput: Fixed block sizes and long confirmation intervals limit throughput to approximately 7 transactions per second (TPS).'
+          ]
         }
       ],
       diagrams: [

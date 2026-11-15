@@ -527,28 +527,22 @@ export const blockchainUnit6Data: Unit = {
           ]
         },
         {
-          title: '3. Key Benefits vs Implementation Challenges of Blockchain Voting (2-Column Format)',
-          table: {
-            headers: ['Key Benefits of Blockchain Voting', 'Critical Implementation Challenges'],
-            rows: [
-              {
-                parameter: 'Remote Voter Accessibility: Enables secure, borderless voting from smartphones, dramatically increasing participation for overseas citizens and disabled voters.',
-                col1: 'Digital Divide & Inequity: Severely marginalizes rural citizens lacking smartphones, reliable high-speed internet, or digital literacy.'
-              },
-              {
-                parameter: 'Tamper-Proof Ballot Integrity: Cryptographically impossible for corrupted election officials to inject fake ballots, swap choices, or destroy physical vote records.',
-                col1: 'Endpoint Malware Vulnerability: Voter smartphones infected with spyware, keyloggers, or trojans can compromise or alter votes before encryption.'
-              },
-              {
-                parameter: 'Instant Verifiable Auditability: Near-instantaneous automated tallies verifiable by independent observers using cryptographic Merkle proofs.',
-                col1: 'Scalability & Network Congestion: Handling tens of millions of nationwide votes simultaneously within narrow polling hours creates severe blockchain congestion.'
-              },
-              {
-                parameter: 'Zero-Knowledge Privacy: Zero-Knowledge proofs (zk-SNARKs) verify that a citizen is eligible to vote without revealing their individual ballot choice.',
-                col1: 'Coercion & Vote-Buying Risk: Remote smartphone voting lacks the isolated secrecy of a voting booth, exposing voters to extortion or forced vote selling.'
-              }
-            ]
-          }
+          title: '3. Key Benefits of Blockchain Voting',
+          content: [
+            '1. Immutable Ballot Trail: Cast votes are permanently encrypted and appended to the distributed ledger, preventing tally manipulation.',
+            '2. Universal End-to-End Verifiability: Voters can cryptographically verify that their ballot was recorded and counted correctly.',
+            '3. Rapid Automated Tallying: Smart contracts immediately calculate final election outcomes without manual recount disputes.',
+            '4. Remote Participation: Authorized voters can cast ballots securely from any location, improving voter turnout.'
+          ]
+        },
+        {
+          title: '4. Critical Implementation Challenges of Blockchain Voting',
+          content: [
+            '1. Voter Coercion and Vote Selling: Remote voting lacks the physical privacy of a voting booth, exposing voters to coercion.',
+            '2. Client Device Compromise: Malware on voter smartphones or laptops can alter ballot votes before on-chain submission.',
+            '3. Secret Ballot vs Verification Trade-off: Hiding voter identity while enabling individual auditability requires complex zero-knowledge proofs.',
+            '4. Throughput at National Scale: Processing tens of millions of concurrent cryptographic proofs strains public blockchain capacity.'
+          ]
         }
       ],
       diagrams: [

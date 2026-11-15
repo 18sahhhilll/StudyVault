@@ -176,28 +176,22 @@ export const blockchainUnit4Data: Unit = {
           ]
         },
         {
-          title: '3. Advantages vs Disadvantages of Cryptocurrencies (2-Column Format)',
-          table: {
-            headers: ['Advantages of Cryptocurrencies', 'Disadvantages & Inherent Risks'],
-            rows: [
-              {
-                parameter: 'Decentralized Sovereignty: Immune to government hyperinflation, political asset freezing, and arbitrary banking censorship.',
-                col1: 'Extreme Price Volatility: Rapid speculative price fluctuations make stable daily commerce and budgeting challenging.'
-              },
-              {
-                parameter: 'Frictionless Global Remittance: Borderless cross-border transfers settle in minutes 24/7 with minimal transaction fees.',
-                col1: 'Irreversible Transactions: Mistakes, typo addresses, and stolen funds cannot be refunded or reversed by any support desk.'
-              },
-              {
-                parameter: 'Universal Financial Inclusion: Anyone with an internet connection can create a wallet without banking history or credit approval.',
-                col1: 'Digital Literacy Barrier: Requires understanding private keys, seed phrases, gas fees, and avoiding phishing scams.'
-              },
-              {
-                parameter: 'Cryptographic Transparency: Transactions are immutably auditable on public ledgers, eliminating corporate accounting fraud.',
-                col1: 'Regulatory Uncertainty: Vulnerable to sudden government crackdowns, tax policy shifts, and banking bans.'
-              }
-            ]
-          }
+          title: '3. Advantages of Cryptocurrencies',
+          content: [
+            '1. Decentralization: Operates without central banks, financial institutions, or government intermediaries.',
+            '2. Global and 24/7 Availability: Peer-to-peer cross-border payments settle without international banking delays or cutoff hours.',
+            '3. Transparency and Immutability: Public ledger records are cryptographically secured and cannot be secretly modified.',
+            '4. Financial Self-Custody: Users hold their own cryptographic private keys without relying on third-party custodial banks.'
+          ]
+        },
+        {
+          title: '4. Disadvantages and Inherent Risks of Cryptocurrencies',
+          content: [
+            '1. High Price Volatility: Speculative market dynamics cause steep price swings that hinder everyday commerce.',
+            '2. Irreversible Transactions: Mistyped recipient addresses or fraudulent transactions cannot be recalled or refunded.',
+            '3. Regulatory Uncertainty: Fluctuating governmental policies and potential bans create adoption and compliance friction.',
+            '4. Permanent Key Loss Risk: Forgetting private keys or losing seed phrases results in irreversible, total loss of assets.'
+          ]
         }
       ],
       summary: [

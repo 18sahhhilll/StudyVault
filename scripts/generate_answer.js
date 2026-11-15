@@ -45,6 +45,55 @@ export const CONFIG = {
   openaiApiKey: process.env.OPENAI_API_KEY || '',
 };
 
+// Function to detect formatting requirements based on question intent
+export function detectFormatRequirement(questionText, marks = 6) {
+  const text = questionText.toLowerCase();
+
+  const isComparison = /differentiate|compare\b|distinguish|vs\b|difference\s+between/i.test(text);
+  const isAdvDisadv = /advantages\s+(and|&)\s+disadvantages|benefits\s+(and|&)\s+limitations|strengths\s+(and|&)\s+limitations|pros\s+(and|&)\s+cons/i.test(text);
+  const isFeatures = /features\s+of|characteristics\s+of/i.test(text);
+  const isApps = /applications\s+of|uses\s+of|importance\s+of|objectives\s+of/i.test(text);
+  const isProcess = /working\s+of|process\s+of|lifecycle\s+of|algorithm/i.test(text);
+
+  if (isComparison) {
+    return {
+      type: 'comparison-table',
+      tableAllowed: true,
+      description: 'Direct comparison table between concepts'
+    };
+  }
+
+  if (isAdvDisadv) {
+    return {
+      type: 'separate-numbered-lists',
+      tableAllowed: false,
+      description: 'Separate headings with numbered points (NO TABLE ALLOWED)'
+    };
+  }
+
+  if (isFeatures || isApps) {
+    return {
+      type: 'numbered-points',
+      tableAllowed: false,
+      description: 'Headings followed by numbered points (NO TABLE ALLOWED)'
+    };
+  }
+
+  if (isProcess) {
+    return {
+      type: 'sequential-steps',
+      tableAllowed: false,
+      description: 'Numbered steps in sequence'
+    };
+  }
+
+  return {
+    type: 'standard-points',
+    tableAllowed: false,
+    description: 'Standard descriptive answer'
+  };
+}
+
 // Function to detect whether a question explicitly or implicitly requires a diagram
 export function detectDiagramRequirement(questionText, marks = 6) {
   const text = questionText.toLowerCase();
@@ -124,6 +173,7 @@ export function detectDiagramRequirement(questionText, marks = 6) {
 // System Prompt enforcing the Golden Rule & SPPU BE Computer Engineering exam criteria
 export function buildSystemPrompt(questionText, marks = 6) {
   const diagCheck = detectDiagramRequirement(questionText, marks);
+  const formatCheck = detectFormatRequirement(questionText, marks);
 
   let diagramDirective = '';
   if (diagCheck.required) {
@@ -153,6 +203,25 @@ A diagram is NOT mandatory for this question (${diagCheck.reason}). Do NOT gener
 `;
   }
 
+  const tableDirective = `
+STRICT TABLE & CONTENT PRESENTATION POLICY (${formatCheck.description}):
+1. ADVANTAGES AND DISADVANTAGES (or Benefits & Limitations / Strengths & Weaknesses):
+   - ALWAYS present as separate sections with numbered points!
+   - Example:
+     Section: "1. Advantages of X" -> list points: "1. Name: 1-2 sentence explanation", "2. Name: ..."
+     Section: "2. Disadvantages of X" -> list points: "1. Name: 1-2 sentence explanation", "2. Name: ..."
+   - NEVER put advantages and disadvantages into a two-column table!
+
+2. FEATURES, CHARACTERISTICS, APPLICATIONS, IMPORTANCE, OBJECTIVES:
+   - Present as a clear heading followed by numbered points or bullets with concise explanations.
+   - NEVER convert features, characteristics, or applications into tables!
+
+3. COMPARISON & DIFFERENCE QUESTIONS:
+   - ONLY when the question explicitly asks to compare ("Differentiate between A and B", "Compare X and Y", "A vs B", "Distinguish between A and B"), use a direct comparison table.
+
+${!formatCheck.tableAllowed ? 'DO NOT INCLUDE ANY "table" IN THIS ANSWER. Use clean numbered points and separate section headings instead.' : 'Include a comparison table comparing the concepts directly.'}
+`;
+
   return `
 You are an expert Computer Engineering professor writing model exam answers for Savitribai Phule Pune University (SPPU) BE Computer Engineering students.
 
@@ -164,6 +233,8 @@ Do not add unnecessary sections like "Foundational Rationale", "Statistical Reas
 The question itself must strictly dictate the structure and contents.
 
 ${diagramDirective}
+
+${tableDirective}
 
 LANGUAGE & VOCABULARY RULES:
 - Use simple, clear, professional English.
@@ -199,6 +270,13 @@ You must output ONLY valid JSON matching this structure:
         "Point 1",
         "Point 2"
       ]
+      ${formatCheck.tableAllowed ? `,
+      "table": {
+        "headers": ["Concept A", "Concept B"],
+        "rows": [
+          { "parameter": "Feature / Difference point for A", "col1": "Contrasting point for B" }
+        ]
+      }` : ''}
     }
   ],
   "summary": [

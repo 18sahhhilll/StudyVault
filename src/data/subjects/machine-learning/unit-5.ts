@@ -118,16 +118,21 @@ export const unit5Data: Unit = {
           ]
         },
         {
-          title: '4. Strengths & Limitations Matrix',
-          table: {
-            headers: ['Strengths of K-Means', 'Limitations of K-Means'],
-            rows: [
-              { parameter: 'Computation', col1: 'Very efficient O(N·K·t); scales cleanly to large datasets.', col2: 'Requires specifying K in advance.' },
-              { parameter: 'Convergence', col1: 'Guaranteed to converge to a local minimum.', col2: 'Sensitive to initial centroid positions; can get trapped in sub-optimal local minima.' },
-              { parameter: 'Geometry', col1: 'Intuitive and mathematically straightforward.', col2: 'Assumes spherical clusters of similar size; fails on complex or elongated shapes.' },
-              { parameter: 'Outliers', col1: 'Fast updates via batch means.', col2: 'Highly sensitive to outliers (extreme points drag cluster means).' }
-            ]
-          }
+          title: '4. Strengths of K-Means',
+          content: [
+            '1. Computational Efficiency: Time complexity of O(N · K · t) is linear in the number of samples, scaling cleanly to very large datasets.',
+            '2. Simple Implementation: Straightforward to understand and implement with intuitive geometric intuition.',
+            '3. Guaranteed Convergence: Mathematically guaranteed to converge to a local minimum of SSE in a finite number of iterations.'
+          ]
+        },
+        {
+          title: '5. Limitations of K-Means',
+          content: [
+            '1. Requires Pre-specifying K: The user must select the number of clusters in advance (e.g. using the Elbow method).',
+            '2. Sensitive to Initialization: Poor initial centroid choices can trap the algorithm in bad local minima.',
+            '3. Assumes Spherical Clusters: Cannot accurately detect non-convex shapes, overlapping clusters, or clusters with unequal densities.',
+            '4. Highly Sensitive to Outliers: Outliers heavily pull the mean centroid calculation away from true cluster centers.'
+          ]
         }
       ],
       diagrams: [
@@ -758,16 +763,20 @@ export const unit5Data: Unit = {
           ]
         },
         {
-          title: '4. Advantages and Disadvantages Matrix',
-          table: {
-            headers: ['Advantages of Outlier Analysis', 'Disadvantages & Inherent Difficulties'],
-            rows: [
-              { parameter: 'Detection Value', col1: 'Uncovers critical, rare events (fraud, intrusions, diseases).', col2: 'Defining "normal" vs "abnormal" is highly subjective and context-dependent.' },
-              { parameter: 'Data Quality', col1: 'Cleans corrupt data, significantly boosting downstream model accuracy.', col2: 'Differentiating between ambient noise and genuine rare events is extremely hard.' },
-              { parameter: 'Supervision', col1: 'Unsupervised methods require zero manual labeling.', col2: 'Suffers from masking (outliers conceal each other) and swamping (normal points falsely flagged).' },
-              { parameter: 'High Dimensions', col1: 'Reveals latent structural anomalies.', col2: 'Distance-based metrics degrade sharply in high dimensions (Curse of Dimensionality).' }
-            ]
-          }
+          title: '4. Advantages of Outlier Analysis',
+          content: [
+            '1. Uncovers Rare and Critical Events: Detects high-value abnormalities such as credit card fraud, network intrusions, and medical anomalies.',
+            '2. Improves Data Quality: Removing noise and corrupted data entries significantly boosts the accuracy of downstream ML models.',
+            '3. Real-time Fault Prevention: Enables early warnings in industrial machinery, IoT sensors, and financial trading systems.'
+          ]
+        },
+        {
+          title: '5. Disadvantages and Challenges of Outlier Analysis',
+          content: [
+            '1. Defining "Normal" is Subjective: Hard boundaries between normal and anomalous behavior are difficult to define in dynamic systems.',
+            '2. Suffer from the Curse of Dimensionality: Distance and density metrics break down in high-dimensional feature spaces.',
+            '3. Severe Class Imbalance: Anomalies represent a minuscule fraction of data (< 1%), making supervised validation difficult.'
+          ]
         }
       ],
       diagrams: [
@@ -1010,14 +1019,20 @@ export const unit5Data: Unit = {
           ]
         },
         {
-          title: '3. Advantages & Limitations',
-          table: {
-            headers: ['Strengths of Spectral Clustering', 'Limitations of Spectral Clustering'],
-            rows: [
-              { parameter: 'Cluster Geometry', col1: 'Flawlessly identifies complex non-convex shapes (concentric circles, interlocking spirals).', col2: 'Requires choosing scaling parameter σ and cluster count K.' },
-              { parameter: 'Input Format', col1: 'Only requires pairwise similarity matrix; coordinates not mandatory.', col2: 'Eigen-decomposition has O(N³) computational complexity; slow on big data.' }
-            ]
-          }
+          title: '3. Strengths of Spectral Clustering',
+          content: [
+            '1. Arbitrary Cluster Shapes: Easily captures complex, non-convex geometries (concentric circles, interlocking spirals) that K-Means fails on.',
+            '2. Pairwise Graph Representation: Requires only a similarity matrix rather than explicit coordinate vectors.',
+            '3. Global Eigenvector Optimization: Solves relaxed graph-cut problems without getting trapped in local centroid minima.'
+          ]
+        },
+        {
+          title: '4. Limitations of Spectral Clustering',
+          content: [
+            '1. High Computational Complexity: Computing eigendecomposition of an N x N Laplacian matrix requires O(N^3) time, making it impractical for massive datasets without approximation.',
+            '2. Sensitive to Hyperparameters: Requires careful tuning of the similarity scaling factor sigma and cluster count K.',
+            '3. Memory Intensive: Storing the dense pairwise affinity matrix requires O(N^2) RAM.'
+          ]
         }
       ],
       diagrams: [

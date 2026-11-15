@@ -171,31 +171,22 @@ export const unit4Data: Unit = {
       definition: 'K-Nearest Neighbour (KNN) is an intuitive non-parametric algorithm that memorizes training data and predicts based on distance, offering great simplicity alongside noticeable computational limitations.',
       sections: [
         {
-          title: '1. Advantages and Disadvantages of KNN',
+          title: '1. Advantages of KNN',
           content: [
-            'The key strengths and limitations of the KNN algorithm in university examinations are summarized below:'
-          ],
-          table: {
-            headers: ['Advantages of KNN (Strengths)', 'Disadvantages of KNN (Weaknesses)'],
-            rows: [
-              {
-                parameter: 'Simple to understand and implement: Requires no complex mathematical model assumptions or iterative training.',
-                col1: 'Slow prediction speed: Every prediction requires computing distances to all training points, which is slow for large datasets.'
-              },
-              {
-                parameter: 'Zero training time: As a lazy learner, new training data can be added immediately without retraining.',
-                col1: 'High memory usage: The entire training dataset must be permanently stored in memory (RAM).'
-              },
-              {
-                parameter: 'Handles non-linear data well: Naturally adapts to complex decision boundaries without needing linear separation.',
-                col1: 'Sensitive to feature scale: Inaccurate if features are not normalized, as large numbers dominate distance calculations.'
-              },
-              {
-                parameter: 'Versatile: Can be applied to both classification (majority vote) and regression (average of neighbours).',
-                col1: 'Curse of Dimensionality: Distance metrics lose meaning in high dimensions, causing accuracy to degrade.'
-              }
-            ]
-          }
+            '1. Simple to Understand and Implement: KNN has an intuitive geometric concept and requires no complex mathematical assumptions or iterative optimization beyond choosing K.',
+            '2. No Training Phase (Zero Training Time): As a lazy learner, KNN simply stores the training instances in memory. New data points can be appended immediately without retraining.',
+            '3. Handles Non-Linear Data Well: KNN easily adapts to complex, irregular decision boundaries that linear classifiers fail to separate.',
+            '4. Versatile Across Tasks: Naturally supports both multiclass classification (via majority voting) and regression problems (via local neighbor averaging).'
+          ]
+        },
+        {
+          title: '2. Disadvantages of KNN',
+          content: [
+            '1. Slow Prediction Speed: During inference, KNN must compute distances to every single training point, resulting in high O(N · D) testing time complexity on large datasets.',
+            '2. High Memory Requirement: The complete training dataset must permanently reside in RAM during test time, making it impractical for massive datasets.',
+            '3. Highly Sensitive to Feature Scaling: Because distance metrics (like Euclidean distance) depend on numerical magnitude, unnormalized features with large numerical ranges will dominate the prediction.',
+            '4. Suffers from the Curse of Dimensionality: In high-dimensional feature spaces, data points become sparse and almost equidistant from one another, severely degrading accuracy.'
+          ]
         }
       ],
       summary: [

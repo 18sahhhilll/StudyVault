@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "generate:answer": "node scripts/generate_answer.js",
     "compare:models": "node scripts/compare_models.js",
-    "test:diagrams": "node scripts/test_diagram_detection.js"
+    "test:diagrams": "node scripts/test_diagram_detection.js",
+    "test:tables": "node scripts/test_table_rules.js"
   },
   "dependencies": {
     "katex": "^0.16.11",

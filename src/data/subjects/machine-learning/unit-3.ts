@@ -945,28 +945,20 @@ export const unit3Data: Unit = {
           ]
         },
         {
-          title: '2. Direct 2-Column Comparison: Advantages vs Limitations of SGD',
-          table: {
-            headers: ['Key Advantages of SGD', 'Key Limitations of SGD'],
-            rows: [
-              {
-                parameter: 'Computation is instantaneous per step because it calculates the gradient on only one single row at a time.',
-                col1: 'Noisy gradient estimates cause erratic zig-zag oscillations that make the convergence path unstable.'
-              },
-              {
-                parameter: 'Extremely memory efficient; runs comfortably on large datasets or streaming data that do not fit in RAM.',
-                col1: 'Never settles permanently at the global minimum without a gradually decaying learning rate schedule.'
-              },
-              {
-                parameter: 'Stochastic fluctuations and noise help the parameters dislodge and jump out of shallow local minima.',
-                col1: 'Highly sensitive to feature scaling and requires careful tuning of the initial learning rate.'
-              },
-              {
-                parameter: 'Enables online and incremental learning where new data samples arrive continuously in real time.',
-                col1: 'Cannot take full advantage of highly parallelized GPU/SIMD vector math compared to batch processing.'
-              }
-            ]
-          }
+          title: '2. Key Advantages of SGD',
+          content: [
+            '1. Instant Computation per Step: Calculates the gradient and updates weights using only one single sample at a time, resulting in extremely fast iterations.',
+            '2. Memory Efficient: Runs comfortably on massive datasets and streaming data that cannot fit into RAM.',
+            '3. Escapes Shallow Local Minima: Frequent erratic updates introduce noise that can help the optimizer bounce out of sub-optimal local minima and saddle points.'
+          ]
+        },
+        {
+          title: '3. Key Limitations of SGD',
+          content: [
+            '1. Erratic Convergence Path: Noisy gradients cause zig-zag oscillations that make the convergence trajectory unstable.',
+            '2. Never Settles Permanently at Minimum: Without a decaying learning rate schedule, SGD wanders around the minimum instead of converging strictly.',
+            '3. Loses Vectorized Hardware Acceleration: Updating sample by sample cannot exploit GPU/CPU SIMD matrix parallelism.'
+          ]
         }
       ],
       diagrams: [
