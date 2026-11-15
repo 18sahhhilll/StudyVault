@@ -3,6 +3,7 @@ import { machineLearningSubject } from './subjects/machine-learning';
 import { blockchainSubject } from './subjects/blockchain-technology';
 import { daaSubject } from './subjects/daa';
 import { stqaSubject } from './subjects/stqa';
+import { oomdSubject } from './subjects/oomd';
 
 // Helper to sort questions within each unit by occurrence frequency descending (most occurrences first)
 function sortQuestionsByFrequency(unit: Unit): Unit {
@@ -53,7 +54,8 @@ export const allSubjects: Subject[] = [
   processSubject(machineLearningSubject),
   processSubject(blockchainSubject),
   processSubject(daaSubject),
-  processSubject(stqaSubject)
+  processSubject(stqaSubject),
+  processSubject(oomdSubject)
 ];
 
 export function getSubjectById(subjectId: string): Subject | undefined {

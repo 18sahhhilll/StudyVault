@@ -79,6 +79,20 @@ import {
   DistributedGHSMSTDiagram,
   RabinKarpRollingHashDiagram
 } from './daa/DAAUnit6Diagrams';
+import {
+  ATMUseCaseDiagram,
+  ATMNestedStateDiagram,
+  TelephoneStateDiagram,
+  CarRentalSequenceDiagram,
+  TwoWheelerActivityDiagram,
+  LayersPartitionsDiagram,
+  ATMDistributedArchitectureDiagram,
+  InheritanceToDelegationDiagram,
+  LegacyWrappingDiagram,
+  ClientDispatcherServerDiagram,
+  StrategyPatternDiagram,
+  ObserverPatternDiagram
+} from './oomd/OOMDDiagrams';
 
 interface TechnicalDiagramProps {
   diagram: DiagramData;
@@ -1506,6 +1520,32 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
             <text x="270" y="270" textAnchor="middle" className="text-[8.5px] fill-academic-400">Forward pass: input features multiplied by weight matrices, summed with bias, and transformed by non-linear activations</text>
           </svg>
         );
+
+      // OOMD Diagrams
+      case 'oomd-atm-usecase':
+        return <ATMUseCaseDiagram />;
+      case 'oomd-atm-nested-state':
+        return <ATMNestedStateDiagram />;
+      case 'oomd-telephone-state':
+        return <TelephoneStateDiagram />;
+      case 'oomd-car-rental-sequence':
+        return <CarRentalSequenceDiagram />;
+      case 'oomd-two-wheeler-activity':
+        return <TwoWheelerActivityDiagram />;
+      case 'oomd-layers-partitions':
+        return <LayersPartitionsDiagram />;
+      case 'oomd-atm-distributed-arch':
+        return <ATMDistributedArchitectureDiagram />;
+      case 'oomd-inheritance-delegation':
+        return <InheritanceToDelegationDiagram />;
+      case 'oomd-legacy-layers':
+        return <LegacyWrappingDiagram />;
+      case 'oomd-client-dispatcher-server':
+        return <ClientDispatcherServerDiagram />;
+      case 'oomd-strategy-pattern':
+        return <StrategyPatternDiagram />;
+      case 'oomd-observer-pattern':
+        return <ObserverPatternDiagram />;
 
       default:
         return (
