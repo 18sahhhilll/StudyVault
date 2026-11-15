@@ -1035,3 +1035,464 @@ export const ObserverPatternDiagram: React.FC = () => {
     </div>
   );
 };
+
+
+// ==========================================
+// 13. Model View Controller (Textbook Fig. 6.1.1)
+// ==========================================
+export const MVCPatternDiagram: React.FC = () => {
+  return (
+    <div className="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 sm:p-6 text-white shadow-xl">
+      <div className="text-center mb-4">
+        <h4 className="text-sm sm:text-base font-bold text-sky-400">Model-View-Controller Architectural Pattern (Textbook Fig. 6.1.1)</h4>
+        <p className="text-xs text-slate-400">Separation of Data (Model), Presentation (View), and Control Logic (Controller)</p>
+      </div>
+      <svg viewBox="0 0 820 340" className="w-full h-auto select-none font-sans">
+        <defs>
+          <marker id="arrow-mvc" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M 0 0 L 8 4 L 0 8 z" fill="#38bdf8" />
+          </marker>
+        </defs>
+
+        {/* Observer Box (Left) */}
+        <g transform="translate(60, 120)">
+          <rect x="0" y="0" width="120" height="50" rx="8" fill="#1e293b" stroke="#94a3b8" strokeWidth="2" />
+          <text x="60" y="30" textAnchor="middle" fill="#f8fafc" fontSize="13" fontWeight="bold">Observer</text>
+        </g>
+
+        {/* Controller Box (Top) */}
+        <g transform="translate(320, 30)">
+          <rect x="0" y="0" width="150" height="50" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
+          <text x="75" y="30" textAnchor="middle" fill="#38bdf8" fontSize="13" fontWeight="bold">Controller</text>
+        </g>
+
+        {/* Model Box (Right) */}
+        <g transform="translate(600, 120)">
+          <rect x="0" y="0" width="130" height="50" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
+          <text x="65" y="30" textAnchor="middle" fill="#34d399" fontSize="13" fontWeight="bold">Model</text>
+        </g>
+
+        {/* View Box (Bottom) */}
+        <g transform="translate(320, 230)">
+          <rect x="0" y="0" width="150" height="50" rx="8" fill="#2e1065" stroke="#c084fc" strokeWidth="2" />
+          <text x="75" y="30" textAnchor="middle" fill="#e9d5ff" fontSize="13" fontWeight="bold">View</text>
+        </g>
+
+        {/* Observer -> Controller (Uses) */}
+        <line x1="150" y1="120" x2="320" y2="65" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-mvc)" />
+        <text x="220" y="80" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Uses</text>
+
+        {/* Observer -> View (Sees) */}
+        <line x1="150" y1="170" x2="320" y2="240" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-mvc)" />
+        <text x="220" y="220" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Sees</text>
+
+        {/* Controller -> Model (Manipulates) */}
+        <line x1="470" y1="65" x2="620" y2="120" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-mvc)" />
+        <text x="565" y="80" textAnchor="middle" fill="#38bdf8" fontSize="11" fontWeight="bold">Manipulates</text>
+
+        {/* Model -> View (Updates) */}
+        <line x1="620" y1="170" x2="470" y2="240" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-mvc)" />
+        <text x="565" y="220" textAnchor="middle" fill="#34d399" fontSize="11" fontWeight="bold">Updates</text>
+
+        {/* View -> Model (Sees / Queries) */}
+        <line x1="470" y1="235" x2="600" y2="160" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4 3" markerEnd="url(#arrow-mvc)" />
+        <text x="520" y="185" textAnchor="middle" fill="#cbd5e1" fontSize="10">Queries state</text>
+      </svg>
+    </div>
+  );
+};
+
+// ==========================================
+// 14. Forwarder-Receiver Pattern (Textbook Fig. 6.6.2)
+// ==========================================
+export const ForwarderReceiverDiagram: React.FC = () => {
+  return (
+    <div className="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 sm:p-6 text-white shadow-xl">
+      <div className="text-center mb-4">
+        <h4 className="text-sm sm:text-base font-bold text-amber-400">Forwarder-Receiver Communication Pattern (Textbook Fig. 6.6.2)</h4>
+        <p className="text-xs text-slate-400">Encapsulating Interprocess Communication (IPC) Mechanism Between Peer Components</p>
+      </div>
+      <svg viewBox="0 0 840 360" className="w-full h-auto select-none font-sans">
+        <defs>
+          <marker id="arrow-fr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M 0 0 L 8 4 L 0 8 z" fill="#f59e0b" />
+          </marker>
+        </defs>
+
+        {/* Peer 1 Enclosure (Left) */}
+        <g transform="translate(40, 30)">
+          <rect x="0" y="0" width="320" height="300" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" strokeDasharray="5 3" />
+          <text x="20" y="30" fill="#38bdf8" fontSize="13" fontWeight="bold">Peer 1 Process</text>
+
+          {/* Peer 1 Service Class */}
+          <g transform="translate(20, 60)">
+            <rect x="0" y="0" width="130" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+            <text x="65" y="30" textAnchor="middle" fill="#f8fafc" fontSize="12" fontWeight="bold">Peer 1</text>
+            <line x1="0" y1="42" x2="130" y2="42" stroke="#475569" strokeWidth="1" />
+            <text x="10" y="60" fill="#94a3b8" fontSize="10">+service()</text>
+          </g>
+
+          {/* Forwarder 1 */}
+          <g transform="translate(170, 60)">
+            <rect x="0" y="0" width="130" height="90" rx="6" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+            <text x="65" y="24" textAnchor="middle" fill="#fde68a" fontSize="11" fontWeight="bold">Forwarder</text>
+            <line x1="0" y1="32" x2="130" y2="32" stroke="#475569" strokeWidth="1" />
+            <text x="10" y="48" fill="#94a3b8" fontSize="9">+marshal()</text>
+            <text x="10" y="62" fill="#94a3b8" fontSize="9">+deliver()</text>
+            <text x="10" y="76" fill="#94a3b8" fontSize="9">+sendMsg()</text>
+          </g>
+
+          {/* Receiver 1 */}
+          <g transform="translate(170, 180)">
+            <rect x="0" y="0" width="130" height="90" rx="6" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
+            <text x="65" y="24" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">Receiver</text>
+            <line x1="0" y1="32" x2="130" y2="32" stroke="#475569" strokeWidth="1" />
+            <text x="10" y="48" fill="#94a3b8" fontSize="9">+receive()</text>
+            <text x="10" y="62" fill="#94a3b8" fontSize="9">+unmarshal()</text>
+            <text x="10" y="76" fill="#94a3b8" fontSize="9">+receiveMsg()</text>
+          </g>
+
+          {/* Internal links inside Peer 1 */}
+          <line x1="150" y1="95" x2="170" y2="95" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arrow-fr)" />
+          <text x="160" y="88" fill="#f59e0b" fontSize="8">sendMsg</text>
+
+          <line x1="170" y1="210" x2="130" y2="140" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#arrow-fr)" />
+          <text x="110" y="195" fill="#10b981" fontSize="8">receiveMsg</text>
+        </g>
+
+        {/* Central IPC Channel */}
+        <g transform="translate(390, 80)">
+          <rect x="0" y="0" width="60" height="190" rx="8" fill="#1e1b4b" stroke="#6366f1" strokeWidth="2" />
+          <text x="30" y="95" textAnchor="middle" fill="#a5b4fc" fontSize="12" fontWeight="bold" transform="rotate(-90 30 95)">IPC Channel</text>
+        </g>
+
+        {/* IPC Cross-Arrows */}
+        <line x1="340" y1="105" x2="390" y2="105" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow-fr)" />
+        <line x1="450" y1="105" x2="500" y2="225" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow-fr)" />
+
+        <line x1="500" y1="105" x2="450" y2="105" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-fr)" />
+        <line x1="390" y1="225" x2="340" y2="225" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-fr)" />
+
+        {/* Peer 2 Enclosure (Right) */}
+        <g transform="translate(480, 30)">
+          <rect x="0" y="0" width="320" height="300" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" strokeDasharray="5 3" />
+          <text x="20" y="30" fill="#38bdf8" fontSize="13" fontWeight="bold">Peer 2 Process</text>
+
+          {/* Receiver 2 */}
+          <g transform="translate(20, 180)">
+            <rect x="0" y="0" width="130" height="90" rx="6" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
+            <text x="65" y="24" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">Receiver</text>
+            <line x1="0" y1="32" x2="130" y2="32" stroke="#475569" strokeWidth="1" />
+            <text x="10" y="48" fill="#94a3b8" fontSize="9">+receive()</text>
+            <text x="10" y="62" fill="#94a3b8" fontSize="9">+unmarshal()</text>
+            <text x="10" y="76" fill="#94a3b8" fontSize="9">+receiveMsg()</text>
+          </g>
+
+          {/* Forwarder 2 */}
+          <g transform="translate(20, 60)">
+            <rect x="0" y="0" width="130" height="90" rx="6" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+            <text x="65" y="24" textAnchor="middle" fill="#fde68a" fontSize="11" fontWeight="bold">Forwarder</text>
+            <line x1="0" y1="32" x2="130" y2="32" stroke="#475569" strokeWidth="1" />
+            <text x="10" y="48" fill="#94a3b8" fontSize="9">+marshal()</text>
+            <text x="10" y="62" fill="#94a3b8" fontSize="9">+deliver()</text>
+            <text x="10" y="76" fill="#94a3b8" fontSize="9">+sendMsg()</text>
+          </g>
+
+          {/* Peer 2 Service Class */}
+          <g transform="translate(170, 60)">
+            <rect x="0" y="0" width="130" height="80" rx="6" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+            <text x="65" y="30" textAnchor="middle" fill="#f8fafc" fontSize="12" fontWeight="bold">Peer 2</text>
+            <line x1="0" y1="42" x2="130" y2="42" stroke="#475569" strokeWidth="1" />
+            <text x="10" y="60" fill="#94a3b8" fontSize="10">+service()</text>
+          </g>
+
+          {/* Internal links inside Peer 2 */}
+          <line x1="170" y1="95" x2="150" y2="95" stroke="#f59e0b" strokeWidth="1.5" markerEnd="url(#arrow-fr)" />
+          <line x1="150" y1="210" x2="200" y2="140" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#arrow-fr)" />
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+// ==========================================
+// 15. Publisher-Subscriber Pattern (Textbook Fig. 6.6.4)
+// ==========================================
+export const PublisherSubscriberDiagram: React.FC = () => {
+  return (
+    <div className="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 sm:p-6 text-white shadow-xl">
+      <div className="text-center mb-4">
+        <h4 className="text-sm sm:text-base font-bold text-sky-400">Publisher-Subscriber Design Pattern (Textbook Fig. 6.6.4)</h4>
+        <p className="text-xs text-slate-400">Decoupled Event Distribution with Proxy Components and Central Event Channel</p>
+      </div>
+      <svg viewBox="0 0 820 300" className="w-full h-auto select-none font-sans">
+        <defs>
+          <marker id="arrow-ps" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M 0 0 L 8 4 L 0 8 z" fill="#38bdf8" />
+          </marker>
+        </defs>
+
+        {/* Publisher */}
+        <g transform="translate(60, 40)">
+          <rect x="0" y="0" width="130" height="50" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
+          <text x="65" y="30" textAnchor="middle" fill="#38bdf8" fontSize="13" fontWeight="bold">Publisher</text>
+        </g>
+
+        {/* Proxy Publisher */}
+        <g transform="translate(60, 180)">
+          <rect x="0" y="0" width="130" height="50" rx="8" fill="#1e293b" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3" />
+          <text x="65" y="30" textAnchor="middle" fill="#cbd5e1" fontSize="12">Proxy Publisher</text>
+        </g>
+
+        {/* Event Channel */}
+        <g transform="translate(330, 90)">
+          <rect x="0" y="0" width="160" height="80" rx="10" fill="#1e1b4b" stroke="#818cf8" strokeWidth="2" />
+          <text x="80" y="45" textAnchor="middle" fill="#c7d2fe" fontSize="14" fontWeight="bold">Event Channel</text>
+        </g>
+
+        {/* Proxy Subscriber */}
+        <g transform="translate(630, 180)">
+          <rect x="0" y="0" width="130" height="50" rx="8" fill="#1e293b" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3" />
+          <text x="65" y="30" textAnchor="middle" fill="#cbd5e1" fontSize="12">Proxy Subscriber</text>
+        </g>
+
+        {/* Subscriber */}
+        <g transform="translate(630, 40)">
+          <rect x="0" y="0" width="130" height="50" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
+          <text x="65" y="30" textAnchor="middle" fill="#34d399" fontSize="13" fontWeight="bold">Subscriber</text>
+        </g>
+
+        {/* Connections */}
+        {/* Publisher -> Proxy Publisher */}
+        <line x1="125" y1="90" x2="125" y2="180" stroke="#38bdf8" strokeWidth="1.5" markerEnd="url(#arrow-ps)" />
+
+        {/* Proxy Publisher -> Event Channel */}
+        <line x1="190" y1="205" x2="330" y2="145" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-ps)" />
+        <text x="240" y="165" fill="#38bdf8" fontSize="11" fontWeight="bold">Publish Event</text>
+
+        {/* Event Channel -> Proxy Subscriber */}
+        <line x1="490" y1="145" x2="630" y2="205" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-ps)" />
+        <text x="560" y="165" fill="#34d399" fontSize="11" fontWeight="bold">Deliver Event</text>
+
+        {/* Proxy Subscriber -> Subscriber */}
+        <line x1="695" y1="180" x2="695" y2="90" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#arrow-ps)" />
+
+        {/* Direct Logical Association */}
+        <line x1="190" y1="65" x2="630" y2="65" stroke="#64748b" strokeWidth="1.5" strokeDasharray="4 4" />
+        <text x="410" y="55" textAnchor="middle" fill="#94a3b8" fontSize="10">Decoupled 1-to-many dependency</text>
+      </svg>
+    </div>
+  );
+};
+
+// ==========================================
+// 16. Command Processor Pattern (Textbook Fig. 6.7.1)
+// ==========================================
+export const CommandProcessorDiagram: React.FC = () => {
+  return (
+    <div className="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 sm:p-6 text-white shadow-xl">
+      <div className="text-center mb-4">
+        <h4 className="text-sm sm:text-base font-bold text-violet-400">Command Processor Design Pattern (Textbook Fig. 6.7.1)</h4>
+        <p className="text-xs text-slate-400">Encapsulating Service Requests as Objects for Scheduling, Logging &amp; Multi-Level Undo</p>
+      </div>
+      <svg viewBox="0 0 840 340" className="w-full h-auto select-none font-sans">
+        <defs>
+          <marker id="arrow-cp" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M 0 0 L 8 4 L 0 8 z" fill="#a855f7" />
+          </marker>
+          <marker id="gen-cp" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <polygon points="0,0 8,5 0,10" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+          </marker>
+        </defs>
+
+        {/* Controller (Left) */}
+        <g transform="translate(40, 110)">
+          <rect x="0" y="0" width="140" height="70" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
+          <text x="70" y="40" textAnchor="middle" fill="#38bdf8" fontSize="13" fontWeight="bold">Controller</text>
+        </g>
+
+        {/* Command Processor (Top Center) */}
+        <g transform="translate(280, 30)">
+          <rect x="0" y="0" width="180" height="75" rx="8" fill="#2e1065" stroke="#a855f7" strokeWidth="2" />
+          <text x="90" y="32" textAnchor="middle" fill="#c084fc" fontSize="13" fontWeight="bold">Command Processor</text>
+          <line x1="0" y1="42" x2="180" y2="42" stroke="#475569" strokeWidth="1" />
+          <text x="12" y="60" fill="#e9d5ff" fontSize="10">Performs or stores</text>
+        </g>
+
+        {/* Abstract Command (Top Right) */}
+        <g transform="translate(560, 30)">
+          <rect x="0" y="0" width="160" height="70" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
+          <text x="80" y="32" textAnchor="middle" fill="#38bdf8" fontSize="12" fontWeight="bold">&lt;&lt;Abstract&gt;&gt; Command</text>
+          <line x1="0" y1="42" x2="160" y2="42" stroke="#475569" strokeWidth="1" />
+          <text x="12" y="58" fill="#94a3b8" fontSize="10">+do() / +undo()</text>
+        </g>
+
+        {/* Concrete Command (Bottom Center) */}
+        <g transform="translate(410, 190)">
+          <rect x="0" y="0" width="150" height="70" rx="6" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
+          <text x="75" y="30" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">Command</text>
+          <line x1="0" y1="40" x2="150" y2="40" stroke="#475569" strokeWidth="1" />
+          <text x="10" y="58" fill="#a7f3d0" fontSize="10">+execute()</text>
+        </g>
+
+        {/* Supplier (Bottom Right) */}
+        <g transform="translate(660, 190)">
+          <rect x="0" y="0" width="140" height="70" rx="6" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="70" y="40" textAnchor="middle" fill="#fde68a" fontSize="12" fontWeight="bold">Supplier</text>
+        </g>
+
+        {/* Connections */}
+        {/* Controller -> Command Processor (Transfers command) */}
+        <line x1="140" y1="110" x2="280" y2="70" stroke="#a855f7" strokeWidth="2" markerEnd="url(#arrow-cp)" />
+        <text x="180" y="80" fill="#c084fc" fontSize="10" fontWeight="bold">Transfers command</text>
+
+        {/* Controller -> Command (Creates) */}
+        <line x1="180" y1="165" x2="410" y2="215" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-cp)" />
+        <text x="280" y="200" fill="#38bdf8" fontSize="10" fontWeight="bold">Creates</text>
+
+        {/* Command Processor -> Abstract Command */}
+        <line x1="460" y1="67" x2="560" y2="67" stroke="#94a3b8" strokeWidth="2" />
+        <polygon points="560,67 545,62 545,72" fill="#94a3b8" />
+
+        {/* Command inherits Abstract Command */}
+        <path d="M 485 190 L 485 140 L 640 140 L 640 100" fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4 3" markerEnd="url(#gen-cp)" />
+        <text x="560" y="130" fill="#38bdf8" fontSize="10">Inherits</text>
+
+        {/* Command uses Supplier */}
+        <line x1="560" y1="225" x2="660" y2="225" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrow-cp)" />
+        <text x="610" y="217" textAnchor="middle" fill="#f59e0b" fontSize="10" fontWeight="bold">Uses</text>
+      </svg>
+    </div>
+  );
+};
+
+// ==========================================
+// 17. View Handler Pattern (Textbook Fig. 6.7.2)
+// ==========================================
+export const ViewHandlerDiagram: React.FC = () => {
+  return (
+    <div className="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 sm:p-6 text-white shadow-xl">
+      <div className="text-center mb-4">
+        <h4 className="text-sm sm:text-base font-bold text-sky-400">View Handler Design Pattern (Textbook Fig. 6.7.2)</h4>
+        <p className="text-xs text-slate-400">Centralized Coordination, Creation, Tiling &amp; Updating of Multiple Window Views</p>
+      </div>
+      <svg viewBox="0 0 840 340" className="w-full h-auto select-none font-sans">
+        <defs>
+          <marker id="arrow-vh" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M 0 0 L 8 4 L 0 8 z" fill="#38bdf8" />
+          </marker>
+        </defs>
+
+        {/* ViewHandler (Top Left) */}
+        <g transform="translate(60, 40)">
+          <rect x="0" y="0" width="160" height="70" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
+          <text x="80" y="40" textAnchor="middle" fill="#38bdf8" fontSize="13" fontWeight="bold">ViewHandler</text>
+        </g>
+
+        {/* AbstractView (Top Right) */}
+        <g transform="translate(520, 40)">
+          <rect x="0" y="0" width="160" height="70" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
+          <text x="80" y="40" textAnchor="middle" fill="#38bdf8" fontSize="12" fontWeight="bold">&lt;&lt;Abstract&gt;&gt; View</text>
+        </g>
+
+        {/* SpecificView1 & SpecificView2 (Bottom Right) */}
+        <g transform="translate(430, 200)">
+          <rect x="0" y="0" width="130" height="60" rx="6" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
+          <text x="65" y="35" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">SpecificView1</text>
+        </g>
+
+        <g transform="translate(590, 200)">
+          <rect x="0" y="0" width="130" height="60" rx="6" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
+          <text x="65" y="35" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">SpecificView2</text>
+        </g>
+
+        {/* Supplier (Bottom Left) */}
+        <g transform="translate(60, 200)">
+          <rect x="0" y="0" width="160" height="60" rx="6" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
+          <text x="80" y="35" textAnchor="middle" fill="#fde68a" fontSize="12" fontWeight="bold">Supplier</text>
+        </g>
+
+        {/* ViewHandler creates/closes/coordinates AbstractView */}
+        <line x1="220" y1="75" x2="520" y2="75" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-vh)" />
+        <text x="370" y="65" textAnchor="middle" fill="#38bdf8" fontSize="11" fontWeight="bold">Creates / Closes / Coordinates</text>
+
+        {/* SpecificViews inherit AbstractView */}
+        <line x1="495" y1="200" x2="570" y2="110" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3" />
+        <line x1="655" y1="200" x2="610" y2="110" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3" />
+
+        {/* Supplier notifies ViewHandler */}
+        <line x1="140" y1="200" x2="140" y2="110" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="3 3" markerEnd="url(#arrow-vh)" />
+        <text x="145" y="160" fill="#f59e0b" fontSize="10">notifies</text>
+
+        {/* Views retrieve data from Supplier */}
+        <path d="M 430 230 L 220 230" stroke="#10b981" strokeWidth="1.5" markerEnd="url(#arrow-vh)" />
+        <text x="325" y="220" textAnchor="middle" fill="#a7f3d0" fontSize="10">retrieves data</text>
+      </svg>
+    </div>
+  );
+};
+
+// ==========================================
+// 18. Counted Pointer / Handle-Body (Textbook Fig. 6.8.1)
+// ==========================================
+export const CountedPointerDiagram: React.FC = () => {
+  return (
+    <div className="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 sm:p-6 text-white shadow-xl">
+      <div className="text-center mb-4">
+        <h4 className="text-sm sm:text-base font-bold text-emerald-400">Representation of Handle-Body Idiom (Textbook Fig. 6.8.1)</h4>
+        <p className="text-xs text-slate-400">Counted Pointer Idiom for Safe C++ Shared Memory Management and Automatic Deallocation</p>
+      </div>
+      <svg viewBox="0 0 820 300" className="w-full h-auto select-none font-sans">
+        <defs>
+          <marker id="arrow-cp-idiom" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M 0 0 L 8 4 L 0 8 z" fill="#10b981" />
+          </marker>
+        </defs>
+
+        {/* Client (Left) */}
+        <g transform="translate(60, 70)">
+          <rect x="0" y="0" width="150" height="90" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
+          <rect x="0" y="0" width="150" height="26" rx="8" fill="#0369a1" />
+          <text x="75" y="18" textAnchor="middle" fill="#f8fafc" fontSize="12" fontWeight="bold">Client</text>
+          <line x1="0" y1="46" x2="150" y2="46" stroke="#475569" strokeWidth="1" />
+          <text x="12" y="65" fill="#cbd5e1" fontSize="11">Handle h</text>
+          <text x="12" y="80" fill="#94a3b8" fontSize="10">(Allocated on stack)</text>
+        </g>
+
+        {/* Handle (Middle) */}
+        <g transform="translate(320, 40)">
+          <rect x="0" y="0" width="180" height="150" rx="8" fill="#1e293b" stroke="#10b981" strokeWidth="2" />
+          <rect x="0" y="0" width="180" height="26" rx="8" fill="#064e3b" />
+          <text x="90" y="18" textAnchor="middle" fill="#a7f3d0" fontSize="12" fontWeight="bold">Handle</text>
+          <text x="12" y="46" fill="#a7f3d0" fontSize="10">-body: Body*</text>
+          <line x1="0" y1="54" x2="180" y2="54" stroke="#475569" strokeWidth="1" />
+          <text x="12" y="72" fill="#cbd5e1" fontSize="10">+operator-&gt;()</text>
+          <text x="12" y="88" fill="#cbd5e1" fontSize="10">+Handle()</text>
+          <text x="12" y="104" fill="#cbd5e1" fontSize="10">+Handle(Handle&amp;)</text>
+          <text x="12" y="120" fill="#cbd5e1" fontSize="10">+operator=()</text>
+          <text x="12" y="136" fill="#cbd5e1" fontSize="10">+~Handle()</text>
+        </g>
+
+        {/* Body (Right) */}
+        <g transform="translate(600, 50)">
+          <rect x="0" y="0" width="160" height="130" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="2" />
+          <rect x="0" y="0" width="160" height="26" rx="8" fill="#78350f" />
+          <text x="80" y="18" textAnchor="middle" fill="#fde68a" fontSize="12" fontWeight="bold">Body</text>
+          <text x="12" y="46" fill="#fde68a" fontSize="10">-refCounter: int</text>
+          <line x1="0" y1="54" x2="160" y2="54" stroke="#475569" strokeWidth="1" />
+          <text x="12" y="74" fill="#cbd5e1" fontSize="10">+service()</text>
+          <text x="12" y="92" fill="#cbd5e1" fontSize="10">+Body()</text>
+          <text x="12" y="110" fill="#cbd5e1" fontSize="10">+~Body()</text>
+        </g>
+
+        {/* Client -> Handle (holds by value) */}
+        <line x1="210" y1="115" x2="320" y2="115" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow-cp-idiom)" />
+        <text x="265" y="105" textAnchor="middle" fill="#38bdf8" fontSize="10" fontWeight="bold">holds by value</text>
+
+        {/* Handle -> Body (refers to heap object) */}
+        <line x1="500" y1="115" x2="600" y2="115" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow-cp-idiom)" />
+        <text x="550" y="105" textAnchor="middle" fill="#10b981" fontSize="10" fontWeight="bold">refers to</text>
+      </svg>
+    </div>
+  );
+};

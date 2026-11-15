@@ -91,7 +91,13 @@ import {
   LegacyWrappingDiagram,
   ClientDispatcherServerDiagram,
   StrategyPatternDiagram,
-  ObserverPatternDiagram
+  ObserverPatternDiagram,
+  MVCPatternDiagram,
+  ForwarderReceiverDiagram,
+  PublisherSubscriberDiagram,
+  CommandProcessorDiagram,
+  ViewHandlerDiagram,
+  CountedPointerDiagram
 } from './oomd/OOMDDiagrams';
 
 interface TechnicalDiagramProps {
@@ -1546,6 +1552,18 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
         return <StrategyPatternDiagram />;
       case 'oomd-observer-pattern':
         return <ObserverPatternDiagram />;
+      case 'oomd-mvc-pattern':
+        return <MVCPatternDiagram />;
+      case 'oomd-forwarder-receiver':
+        return <ForwarderReceiverDiagram />;
+      case 'oomd-publisher-subscriber':
+        return <PublisherSubscriberDiagram />;
+      case 'oomd-command-processor':
+        return <CommandProcessorDiagram />;
+      case 'oomd-view-handler':
+        return <ViewHandlerDiagram />;
+      case 'oomd-counted-pointer':
+        return <CountedPointerDiagram />;
 
       default:
         return (

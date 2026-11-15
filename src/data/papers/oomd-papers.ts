@@ -276,7 +276,7 @@ export const oomdQuestionPapers: QuestionPaper[] = [
               "marks": 5,
               "unitNumber": 6,
               "unitTitle": "Communication Patterns",
-              "mappedQuestionId": "oomd-u6-q4",
+              "mappedQuestionId": "oomd-u6-q9",
               "mappedUnitId": "unit-6",
               "mappedSubjectId": "oomd"
             },
@@ -302,7 +302,7 @@ export const oomdQuestionPapers: QuestionPaper[] = [
               "marks": 5,
               "unitNumber": 6,
               "unitTitle": "Idioms and Style",
-              "mappedQuestionId": "oomd-u6-q7",
+              "mappedQuestionId": "oomd-u6-q11",
               "mappedUnitId": "unit-6",
               "mappedSubjectId": "oomd"
             },
@@ -312,7 +312,7 @@ export const oomdQuestionPapers: QuestionPaper[] = [
               "marks": 5,
               "unitNumber": 6,
               "unitTitle": "View Handler Pattern",
-              "mappedQuestionId": "oomd-u6-q6",
+              "mappedQuestionId": "oomd-u6-q9",
               "mappedUnitId": "unit-6",
               "mappedSubjectId": "oomd"
             },
@@ -322,7 +322,7 @@ export const oomdQuestionPapers: QuestionPaper[] = [
               "marks": 8,
               "unitNumber": 6,
               "unitTitle": "Architectural Patterns",
-              "mappedQuestionId": "oomd-u6-q4",
+              "mappedQuestionId": "oomd-u6-q9",
               "mappedUnitId": "unit-6",
               "mappedSubjectId": "oomd"
             }
@@ -926,7 +926,7 @@ export const oomdQuestionPapers: QuestionPaper[] = [
               "marks": 5,
               "unitNumber": 6,
               "unitTitle": "Client-Dispatcher-Server",
-              "mappedQuestionId": "oomd-u6-q4",
+              "mappedQuestionId": "oomd-u6-q9",
               "mappedUnitId": "unit-6",
               "mappedSubjectId": "oomd"
             },
@@ -972,7 +972,7 @@ export const oomdQuestionPapers: QuestionPaper[] = [
               "marks": 5,
               "unitNumber": 6,
               "unitTitle": "Publisher-Subscriber",
-              "mappedQuestionId": "oomd-u6-q5",
+              "mappedQuestionId": "oomd-u6-q11",
               "mappedUnitId": "unit-6",
               "mappedSubjectId": "oomd"
             },
@@ -982,7 +982,7 @@ export const oomdQuestionPapers: QuestionPaper[] = [
               "marks": 8,
               "unitNumber": 6,
               "unitTitle": "Idioms and Style",
-              "mappedQuestionId": "oomd-u6-q8",
+              "mappedQuestionId": "oomd-u6-q10",
               "mappedUnitId": "unit-6",
               "mappedSubjectId": "oomd"
             }
