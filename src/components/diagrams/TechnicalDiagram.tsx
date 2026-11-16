@@ -350,43 +350,137 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
         );
 
       case 'svm-margin':
+      case 'svm-hyperplane':
         return (
-          <svg viewBox="0 0 460 260" className="w-full h-auto select-none">
-            {/* Background Margin band */}
-            <polygon points="50,220 220,20 280,20 110,220" fill="#3b82f6" fillOpacity="0.08" />
+          <svg viewBox="0 0 560 360" className="w-full h-auto select-none font-sans">
+            <defs>
+              <marker id="arr-svm" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#10b981" />
+              </marker>
+              <marker id="arr-svm-rev" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto">
+                <path d="M 6 0 L 0 3 L 6 6 z" fill="#10b981" />
+              </marker>
+              <marker id="arr-axis" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#64748b" />
+              </marker>
+              <linearGradient id="grad-svm-band" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.14" />
+                <stop offset="50%" stopColor="#6366f1" stopOpacity="0.10" />
+                <stop offset="100%" stopColor="#ec4899" stopOpacity="0.14" />
+              </linearGradient>
+              <pattern id="grid-svm-pattern" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-academic-200 dark:text-academic-800/60" />
+              </pattern>
+            </defs>
 
-            {/* Class +1 Points */}
-            {[[70, 90], [90, 40], [130, 60], [60, 140]].map(([x, y], i) => (
-              <circle key={i} cx={x} cy={y} r="5" fill="#3b82f6" fillOpacity="0.5" />
+            {/* Backdrop Card */}
+            <rect x="8" y="8" width="544" height="344" rx="10" className="fill-academic-50 dark:fill-academic-950 stroke-academic-200 dark:stroke-academic-800" strokeWidth="1" />
+            <rect x="8" y="8" width="544" height="344" rx="10" fill="url(#grid-svm-pattern)" />
+
+            {/* Coordinate Axes */}
+            <line x1="45" y1="305" x2="525" y2="305" stroke="currentColor" strokeWidth="1.5" className="text-academic-400 dark:text-academic-600" markerEnd="url(#arr-axis)" />
+            <line x1="45" y1="305" x2="45" y2="25" stroke="currentColor" strokeWidth="1.5" className="text-academic-400 dark:text-academic-600" markerEnd="url(#arr-axis)" />
+            <text x="520" y="322" textAnchor="end" className="text-[10px] font-bold fill-academic-600 dark:fill-academic-400">Feature X₁</text>
+            <text x="52" y="24" className="text-[10px] font-bold fill-academic-600 dark:fill-academic-400">Feature X₂</text>
+
+            {/* Margin Band (Shaded Parallelogram between positive & negative margin planes) */}
+            <polygon points="145,245 365,25 435,95 215,315" fill="url(#grad-svm-band)" stroke="#6366f1" strokeWidth="0.5" strokeDasharray="3 3" />
+
+            {/* Positive Margin Boundary line: w^T x + b = +1 */}
+            <line x1="145" y1="245" x2="365" y2="25" stroke="#0ea5e9" strokeWidth="2" strokeDasharray="5 4" />
+            <text x="235" y="32" className="text-[10.5px] font-bold fill-sky-600 dark:fill-sky-400">wᵀx + b = +1</text>
+            <text x="235" y="44" className="text-[8.5px] font-medium fill-sky-600 dark:fill-sky-400">(Positive Margin Plane)</text>
+
+            {/* Negative Margin Boundary line: w^T x + b = -1 */}
+            <line x1="215" y1="315" x2="435" y2="95" stroke="#f43f5e" strokeWidth="2" strokeDasharray="5 4" />
+            <text x="442" y="110" className="text-[10.5px] font-bold fill-rose-600 dark:fill-rose-400">wᵀx + b = -1</text>
+            <text x="442" y="122" className="text-[8.5px] font-medium fill-rose-600 dark:fill-rose-400">(Negative Margin Plane)</text>
+
+            {/* Central Optimal Separating Hyperplane: w^T x + b = 0 */}
+            <line x1="170" y1="290" x2="410" y2="50" stroke="#2563eb" strokeWidth="3" />
+            <g transform="translate(360, 48)">
+              <rect x="0" y="0" width="165" height="22" rx="4" className="fill-blue-600/10 dark:fill-blue-400/15 stroke-blue-500" strokeWidth="1" />
+              <text x="82" y="15" textAnchor="middle" className="text-[10px] font-bold fill-blue-600 dark:fill-blue-400">wᵀx + b = 0 (Hyperplane)</text>
+            </g>
+
+            {/* Margin Width Dimension Indicator (Perpendicular orthogonal line) */}
+            <line x1="255" y1="135" x2="325" y2="205" stroke="#10b981" strokeWidth="2" markerStart="url(#arr-svm-rev)" markerEnd="url(#arr-svm)" />
+            <g transform="translate(295, 148)">
+              <rect x="0" y="0" width="138" height="34" rx="4" className="fill-emerald-500/15 dark:fill-emerald-400/20 stroke-emerald-500" strokeWidth="1" />
+              <text x="69" y="14" textAnchor="middle" className="text-[10px] font-bold fill-emerald-700 dark:fill-emerald-300">Total Margin M = 2 / ||w||</text>
+              <text x="69" y="27" textAnchor="middle" className="text-[8.5px] font-semibold fill-emerald-600 dark:fill-emerald-400">Half-Margin = 1 / ||w||</text>
+            </g>
+
+            {/* Class +1 Non-Support Vectors (Blue Circles) */}
+            {[
+              [110, 210],
+              [130, 140],
+              [180, 100],
+              [230, 70],
+              [280, 45],
+              [90, 160]
+            ].map(([x, y], i) => (
+              <circle key={`pos-${i}`} cx={x} cy={y} r="5" fill="#0ea5e9" fillOpacity="0.75" stroke="#ffffff" strokeWidth="1" />
             ))}
-            {/* Support Vectors Positive */}
-            <circle cx="120" cy="100" r="6" fill="#1d4ed8" stroke="#ffffff" strokeWidth="2" />
-            <circle cx="80" cy="170" r="6" fill="#1d4ed8" stroke="#ffffff" strokeWidth="2" />
 
-            {/* Class -1 Points */}
-            {[[320, 120], [350, 180], [300, 210], [370, 80]].map(([x, y], i) => (
-              <polygon key={i} points={`${x},${y-5} ${x+5},${y+5} ${x-5},${y+5}`} fill="#ef4444" fillOpacity="0.5" />
+            {/* Class -1 Non-Support Vectors (Red Squares) */}
+            {[
+              [340, 280],
+              [420, 220],
+              [460, 160],
+              [410, 270],
+              [480, 100],
+              [390, 210]
+            ].map(([x, y], i) => (
+              <rect key={`neg-${i}`} x={x - 4.5} y={y - 4.5} width="9" height="9" rx="1.5" fill="#f43f5e" fillOpacity="0.75" stroke="#ffffff" strokeWidth="1" />
             ))}
-            {/* Support Vectors Negative */}
-            <polygon points="240,115 246,127 234,127" fill="#b91c1c" stroke="#ffffff" strokeWidth="1.5" />
-            <polygon points="200,185 206,197 194,197" fill="#b91c1c" stroke="#ffffff" strokeWidth="1.5" />
 
-            {/* Boundaries */}
-            {/* Left margin boundary: w·x + b = +1 */}
-            <line x1="70" y1="230" x2="230" y2="20" stroke="#3b82f6" strokeWidth="2" strokeDasharray="4 4" />
-            <text x="75" y="245" className="text-[10px] font-semibold fill-blue-600">w·x + b = +1</text>
+            {/* Critical Positive Support Vectors (On positive boundary: x + y = 390) */}
+            {/* SV 1: (200, 190) */}
+            <circle cx="200" cy="190" r="10" fill="none" stroke="#0284c7" strokeWidth="2" strokeDasharray="3 2" />
+            <circle cx="200" cy="190" r="5.5" fill="#0284c7" stroke="#ffffff" strokeWidth="2" />
+            {/* SV 2: (290, 100) */}
+            <circle cx="290" cy="100" r="10" fill="none" stroke="#0284c7" strokeWidth="2" strokeDasharray="3 2" />
+            <circle cx="290" cy="100" r="5.5" fill="#0284c7" stroke="#ffffff" strokeWidth="2" />
 
-            {/* Central Hyperplane: w·x + b = 0 */}
-            <line x1="100" y1="230" x2="260" y2="20" stroke="#ef4444" strokeWidth="3" />
-            <text x="265" y="35" className="text-xs font-bold fill-red-600">w·x + b = 0 (Hyperplane)</text>
+            {/* Positive SV Callout Badge */}
+            <line x1="200" y1="190" x2="140" y2="255" stroke="#0284c7" strokeWidth="1.5" strokeDasharray="2 2" />
+            <rect x="70" y="250" width="130" height="20" rx="4" className="fill-sky-50 dark:fill-sky-950/70 stroke-sky-400" strokeWidth="1" />
+            <text x="135" y="264" textAnchor="middle" className="text-[9px] font-bold fill-sky-700 dark:fill-sky-300">Support Vector (y = +1)</text>
 
-            {/* Right margin boundary: w·x + b = -1 */}
-            <line x1="130" y1="230" x2="290" y2="20" stroke="#3b82f6" strokeWidth="2" strokeDasharray="4 4" />
-            <text x="145" y="245" className="text-[10px] font-semibold fill-blue-600">w·x + b = -1</text>
+            {/* Critical Negative Support Vectors (On negative boundary: x + y = 530) */}
+            {/* SV 1: (270, 260) */}
+            <circle cx="270" cy="260" r="11" fill="none" stroke="#e11d48" strokeWidth="2" strokeDasharray="3 2" />
+            <rect x="264.5" y="254.5" width="11" height="11" rx="2" fill="#e11d48" stroke="#ffffff" strokeWidth="2" />
+            {/* SV 2: (360, 170) */}
+            <circle cx="360" cy="170" r="11" fill="none" stroke="#e11d48" strokeWidth="2" strokeDasharray="3 2" />
+            <rect x="354.5" y="164.5" width="11" height="11" rx="2" fill="#e11d48" stroke="#ffffff" strokeWidth="2" />
 
-            {/* Margin dimension indicator */}
-            <line x1="140" y1="130" x2="190" y2="105" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrow)" />
-            <text x="165" y="145" className="text-xs font-bold fill-emerald-600">Margin = 2/||w||</text>
+            {/* Negative SV Callout Badge */}
+            <line x1="360" y1="170" x2="435" y2="225" stroke="#e11d48" strokeWidth="1.5" strokeDasharray="2 2" />
+            <rect x="375" y="222" width="130" height="20" rx="4" className="fill-rose-50 dark:fill-rose-950/70 stroke-rose-400" strokeWidth="1" />
+            <text x="440" y="236" textAnchor="middle" className="text-[9px] font-bold fill-rose-700 dark:fill-rose-300">Support Vector (y = -1)</text>
+
+            {/* Bottom Legend and Exam Key Properties */}
+            <g transform="translate(25, 310)">
+              <rect x="0" y="0" width="510" height="28" rx="6" className="fill-white/80 dark:fill-academic-900/80 stroke-academic-200 dark:stroke-academic-800" strokeWidth="1" />
+              
+              <circle cx="18" cy="14" r="4.5" fill="#0ea5e9" />
+              <text x="28" y="17" className="text-[8.5px] font-medium fill-academic-700 dark:fill-academic-300">Class +1</text>
+
+              <rect x="80" y="9.5" width="9" height="9" rx="1.5" fill="#f43f5e" />
+              <text x="94" y="17" className="text-[8.5px] font-medium fill-academic-700 dark:fill-academic-300">Class -1</text>
+
+              <circle cx="150" cy="14" r="6" fill="none" stroke="#6366f1" strokeWidth="1.5" strokeDasharray="2 2" />
+              <circle cx="150" cy="14" r="3" fill="#6366f1" />
+              <text x="162" y="17" className="text-[8.5px] font-bold fill-academic-800 dark:fill-academic-200">Support Vector (Constrains w)</text>
+
+              <line x1="310" y1="14" x2="330" y2="14" stroke="#2563eb" strokeWidth="2.5" />
+              <text x="335" y="17" className="text-[8.5px] font-bold fill-blue-600 dark:fill-blue-400">Optimal Hyperplane</text>
+
+              <rect x="430" y="9" width="12" height="10" fill="url(#grad-svm-band)" stroke="#6366f1" strokeWidth="1" />
+              <text x="447" y="17" className="text-[8.5px] font-semibold fill-academic-700 dark:fill-academic-300">Margin M = 2/||w||</text>
+            </g>
           </svg>
         );
 
@@ -623,6 +717,7 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
       case 'rnn-unfolded':
         return <RNNUnfoldedDiagram onHover={setHoveredElement} />;
 
+      case 'cnn-architecture':
       case 'cnn-pipeline':
         return <CNNPipelineDiagram onHover={setHoveredElement} />;
 
@@ -1422,6 +1517,80 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
             <text x="437" y="225" textAnchor="middle" className="text-[7.5px] font-mono fill-academic-400">safaridriver</text>
 
             <text x="270" y="255" textAnchor="middle" className="text-[8.5px] fill-academic-500">Hub distributes tests in parallel to remote Nodes matching desired capabilities (OS, Browser, Version)</text>
+          </svg>
+        );
+
+      case 'selenium-rc-architecture':
+        return (
+          <svg viewBox="0 0 540 280" className="w-full h-auto select-none">
+            <defs>
+              <marker id="arr-rc" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#3b82f6" />
+              </marker>
+              <marker id="arr-rc-rev" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto">
+                <path d="M 6 0 L 0 3 L 6 6 z" fill="#64748b" />
+              </marker>
+            </defs>
+            <rect x="10" y="10" width="520" height="260" rx="8" className="fill-academic-50 dark:fill-academic-900 stroke-academic-200 dark:stroke-academic-800" strokeWidth="1" />
+            <text x="270" y="30" textAnchor="middle" className="text-xs font-bold fill-academic-900 dark:fill-academic-100">Selenium Remote Control (Selenium RC / 1.0) Architecture</text>
+
+            {/* Block 1: Client Libraries */}
+            <rect x="25" y="55" width="120" height="175" rx="6" className="fill-white dark:fill-academic-800 stroke-blue-500" strokeWidth="1.5" />
+            <text x="85" y="78" textAnchor="middle" className="text-[10px] font-bold fill-blue-600 dark:fill-blue-400">1. Client / Test Script</text>
+            <text x="85" y="93" textAnchor="middle" className="text-[8.5px] fill-academic-500">Client Libraries (Driver)</text>
+            {['Java Test', 'Python Script', 'C# / NUnit', 'Ruby Script'].map((t, i) => (
+              <g key={i}>
+                <rect x="35" y={105 + i * 26} width="100" height="20" rx="4" className="fill-blue-50 dark:fill-blue-950/60 stroke-blue-200 dark:stroke-blue-800" strokeWidth="1" />
+                <text x="85" y={119 + i * 26} textAnchor="middle" className="text-[8.5px] font-medium fill-academic-800 dark:fill-academic-200">{t}</text>
+              </g>
+            ))}
+
+            {/* Arrow: Client -> Server */}
+            <line x1="145" y1="125" x2="195" y2="125" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr-rc)" />
+            <text x="170" y="118" textAnchor="middle" className="text-[8px] font-bold fill-blue-600">Selenese</text>
+            <line x1="195" y1="145" x2="148" y2="145" stroke="#64748b" strokeWidth="1.5" strokeDasharray="3 2" markerEnd="url(#arr-rc-rev)" />
+            <text x="170" y="157" textAnchor="middle" className="text-[7.5px] fill-academic-500">HTTP Resp</text>
+
+            {/* Block 2: Selenium RC Server */}
+            <rect x="200" y="50" width="150" height="185" rx="6" className="fill-white dark:fill-academic-800 stroke-amber-500" strokeWidth="1.5" />
+            <text x="275" y="72" textAnchor="middle" className="text-[10px] font-bold fill-amber-700 dark:fill-amber-400">2. Selenium RC Server</text>
+            <text x="275" y="85" textAnchor="middle" className="text-[8px] font-mono fill-academic-400">(Java Daemon Process)</text>
+
+            <rect x="210" y="95" width="130" height="36" rx="4" className="fill-amber-50 dark:fill-amber-950/50 stroke-amber-300 dark:stroke-amber-800" strokeWidth="1" />
+            <text x="275" y="110" textAnchor="middle" className="text-[8.5px] font-bold fill-amber-800 dark:fill-amber-300">Server Launcher</text>
+            <text x="275" y="122" textAnchor="middle" className="text-[7.5px] fill-academic-600 dark:fill-academic-400">Starts browser process</text>
+
+            <rect x="210" y="138" width="130" height="42" rx="4" className="fill-purple-50 dark:fill-purple-950/50 stroke-purple-300 dark:stroke-purple-800" strokeWidth="1" />
+            <text x="275" y="153" textAnchor="middle" className="text-[8.5px] font-bold fill-purple-800 dark:fill-purple-300">HTTP Proxy & Core Injector</text>
+            <text x="275" y="165" textAnchor="middle" className="text-[7.5px] fill-academic-600 dark:fill-academic-400">Tricks Same-Origin Policy (SOP)</text>
+            <text x="275" y="174" textAnchor="middle" className="text-[7px] font-mono fill-purple-600">Injects Selenium-Core JS</text>
+
+            <rect x="210" y="186" width="130" height="40" rx="4" className="fill-emerald-50 dark:fill-emerald-950/50 stroke-emerald-300 dark:stroke-emerald-800" strokeWidth="1" />
+            <text x="275" y="201" textAnchor="middle" className="text-[8.5px] font-bold fill-emerald-800 dark:fill-emerald-300">Command Interceptor</text>
+            <text x="275" y="213" textAnchor="middle" className="text-[7.5px] fill-academic-600 dark:fill-academic-400">Dispatches commands & awaits JS result</text>
+
+            {/* Arrow: Server -> Browser */}
+            <line x1="350" y1="125" x2="395" y2="125" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arr-rc)" />
+            <text x="373" y="118" textAnchor="middle" className="text-[7.5px] font-bold fill-purple-600">Inject JS</text>
+            <line x1="395" y1="145" x2="353" y2="145" stroke="#64748b" strokeWidth="1.5" strokeDasharray="3 2" markerEnd="url(#arr-rc-rev)" />
+            <text x="373" y="157" textAnchor="middle" className="text-[7.5px] fill-academic-500">DOM Status</text>
+
+            {/* Block 3: Target Browser */}
+            <rect x="400" y="55" width="120" height="175" rx="6" className="fill-white dark:fill-academic-800 stroke-purple-500" strokeWidth="1.5" />
+            <text x="460" y="78" textAnchor="middle" className="text-[10px] font-bold fill-purple-600 dark:fill-purple-400">3. Target Browser</text>
+            <text x="460" y="93" textAnchor="middle" className="text-[8.5px] fill-academic-500">Real Browser Engine</text>
+
+            <rect x="408" y="105" width="104" height="48" rx="4" className="fill-purple-100 dark:fill-purple-950/80 stroke-purple-400" strokeWidth="1.5" />
+            <text x="460" y="122" textAnchor="middle" className="text-[8.5px] font-bold fill-purple-900 dark:fill-purple-200">Selenium-Core (JS)</text>
+            <text x="460" y="134" textAnchor="middle" className="text-[7.5px] fill-academic-600 dark:fill-academic-300">Injected JS interpreter</text>
+            <text x="460" y="144" textAnchor="middle" className="text-[7px] font-mono fill-purple-700 dark:fill-purple-300">executes in web page DOM</text>
+
+            <rect x="408" y="162" width="104" height="58" rx="4" className="fill-academic-50 dark:fill-academic-900/60 stroke-academic-200 dark:stroke-academic-700" strokeWidth="1" />
+            <text x="460" y="178" textAnchor="middle" className="text-[8.5px] font-semibold fill-academic-800 dark:fill-academic-200">AUT Web Application</text>
+            <text x="460" y="192" textAnchor="middle" className="text-[7.5px] fill-academic-500">DOM Elements & Forms</text>
+            <text x="460" y="205" textAnchor="middle" className="text-[7px] fill-academic-400">Chrome / Firefox / IE</text>
+
+            <text x="270" y="255" textAnchor="middle" className="text-[8px] fill-academic-500">Note: Browser executes injected JS via proxy. Deprecated due to Same-Origin Policy friction; replaced by native WebDriver.</text>
           </svg>
         );
 

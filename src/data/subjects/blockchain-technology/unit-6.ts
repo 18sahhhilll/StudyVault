@@ -72,6 +72,15 @@ export const blockchainUnit6Data: Unit = {
       ],
       syllabusTopics: ['Industrial Applications', 'Sector Taxonomy', 'Supply Chain', 'Financial Services', 'Digital Identity'],
       definition: 'While blockchain was first introduced as the foundational mechanism behind Bitcoin to solve the double-spending problem in electronic cash, it has expanded into a universal multi-party trust infrastructure deployed across modern industry wherever shared, auditable, and immutable ledgers are needed.',
+      diagrams: [
+        {
+          id: 'diag-supply-chain-application',
+          title: 'End-to-End Blockchain Supply Chain System Architecture',
+          caption: 'Visual workflow linking Manufacturer, Logistics Distributor, Retailer, and End Customer over a synchronized, immutable blockchain ledger with smart contracts and IoT sensor validation.',
+          type: 'svg-interactive',
+          svgType: 'supply-chain-blockchain'
+        }
+      ],
       sections: [
         {
           title: '1. Industrial Adoption Landscape',

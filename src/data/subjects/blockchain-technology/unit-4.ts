@@ -818,6 +818,15 @@ export const blockchainUnit4Data: Unit = {
       ],
       syllabusTopics: ['Coinbase Platform', 'Coinbase Wallet', 'Custodial vs Self-Custodial', 'Enterprise Compliance'],
       definition: 'Coinbase is a prominent United States-based cryptocurrency exchange platform founded in 2012 by Brian Armstrong and Fred Ehrsam. Publicly traded on NASDAQ (COIN), its mission is to build an open financial system by providing regulated on-ramps between traditional fiat banking and digital assets.',
+      diagrams: [
+        {
+          id: 'diag-coinbase-architecture',
+          title: 'Coinbase Centralized Exchange (Custodial) vs Coinbase Wallet (Self-Custody) Architecture',
+          caption: 'Architectural distinction between centralized custodial exchange database ledger and decentralized non-custodial self-sovereign private key control.',
+          type: 'svg-interactive',
+          svgType: 'custodial-vs-noncustodial'
+        }
+      ],
       sections: [
         {
           title: '1. Coinbase Centralized Platform (Custodial)',
