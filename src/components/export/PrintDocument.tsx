@@ -62,7 +62,7 @@ export const PrintDocument: React.FC<PrintDocumentProps> = ({
       />
 
       {/* 3. Units & Questions */}
-      <div className="print-content-body space-y-8">
+      <div className="print-content-body space-y-4">
         {units.map((unit, uIdx) => {
           const questions = filteredQuestionsByUnit.get(unit.id) || [];
           if (questions.length === 0) return null;
@@ -73,10 +73,10 @@ export const PrintDocument: React.FC<PrintDocumentProps> = ({
               className={`print-unit-section ${uIdx > 0 ? 'break-before-page' : ''}`}
             >
               {/* Unit Title Banner */}
-              <div className="p-6 rounded-xl bg-slate-100 border-2 border-slate-300 mb-6 space-y-3 break-inside-avoid">
+              <div className="p-4 rounded-lg bg-slate-100 border border-slate-300 mb-4 space-y-2 break-inside-avoid">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded text-xs font-mono font-black bg-blue-700 text-white uppercase tracking-wider">
+                    <span className="px-2 py-0.5 rounded text-xs font-mono font-black bg-blue-700 text-white uppercase tracking-wider">
                       Unit {unit.unitNumber}
                     </span>
                     <span className="text-xs font-mono text-slate-500">
@@ -88,7 +88,7 @@ export const PrintDocument: React.FC<PrintDocumentProps> = ({
                   </span>
                 </div>
 
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight">
+                <h2 className="text-xl font-black text-slate-900 tracking-tight">
                   {unit.title}
                 </h2>
 
@@ -97,7 +97,7 @@ export const PrintDocument: React.FC<PrintDocumentProps> = ({
                 </p>
 
                 {/* Syllabus Topics */}
-                <div className="pt-2 border-t border-slate-200">
+                <div className="pt-1.5 border-t border-slate-200">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
                     Syllabus Topics Covered:
                   </span>

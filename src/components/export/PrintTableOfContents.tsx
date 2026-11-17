@@ -16,64 +16,64 @@ export const PrintTableOfContents: React.FC<PrintTableOfContentsProps> = ({
   filteredQuestionsByUnit,
 }) => {
   return (
-    <div className="print-toc-page p-6 sm:p-8 bg-white text-slate-900 break-after-page space-y-6">
+    <div className="print-toc-page p-5 bg-white text-slate-900 break-after-page space-y-3">
       {/* Header */}
-      <div className="border-b-2 border-slate-800 pb-3 flex items-center justify-between">
+      <div className="border-b-2 border-slate-800 pb-2 flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-black text-slate-900 tracking-tight uppercase">
+          <h2 className="text-lg font-black text-slate-900 tracking-tight uppercase">
             Table of Contents
           </h2>
-          <p className="text-xs text-slate-500 font-medium">
+          <p className="text-[11px] text-slate-500 font-medium">
             {subject.name} ({subject.code}) — Structured Question Bank Index
           </p>
         </div>
-        <div className="text-right text-xs font-mono text-slate-500">
+        <div className="text-right text-[10px] font-mono text-slate-500">
           StudyVault Academic Series
         </div>
       </div>
 
       {/* Units & Questions Tree */}
-      <div className="space-y-6">
+      <div className="space-y-3">
         {units.map((unit) => {
           const questions = filteredQuestionsByUnit.get(unit.id) || [];
           if (questions.length === 0) return null;
 
           return (
-            <div key={unit.id} className="space-y-3 break-inside-avoid">
+            <div key={unit.id} className="space-y-2">
               {/* Unit Header Bar */}
-              <div className="p-2.5 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-between">
+              <div className="p-2 rounded bg-slate-100 border border-slate-200 flex items-center justify-between">
                 <div>
-                  <span className="text-xs font-black uppercase text-blue-800 mr-2">
+                  <span className="text-[11px] font-black uppercase text-blue-800 mr-2">
                     Unit {unit.unitNumber}:
                   </span>
-                  <span className="text-xs font-bold text-slate-900">
+                  <span className="text-[11px] font-bold text-slate-900">
                     {unit.title}
                   </span>
                 </div>
-                <span className="text-[11px] font-mono text-slate-500 font-semibold">
+                <span className="text-[10px] font-mono text-slate-500 font-semibold">
                   {questions.length} Question{questions.length !== 1 ? 's' : ''}
                 </span>
               </div>
 
               {/* Questions List */}
-              <div className="divide-y divide-slate-100 border-l-2 border-slate-200 ml-3 pl-3 space-y-1.5">
+              <div className="divide-y divide-slate-100 border-l-2 border-slate-200 ml-2.5 pl-2.5 space-y-0.5">
                 {questions.map((q) => (
                   <div
                     key={q.id}
-                    className="pt-1.5 pb-1 flex items-start justify-between gap-3 text-xs"
+                    className="py-0.5 flex items-start justify-between gap-2 text-[10.5px]"
                   >
-                    <div className="flex items-start gap-2 flex-1 min-w-0">
+                    <div className="flex items-start gap-1.5 flex-1 min-w-0">
                       <span className="font-mono font-bold text-blue-700 shrink-0">
                         Q{q.qNumber}.
                       </span>
-                      <span className="text-slate-800 font-medium leading-snug">
+                      <span className="text-slate-800 font-medium leading-tight">
                         {q.title}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 shrink-0 pt-0.5">
+                    <div className="flex items-center gap-1 shrink-0 pt-0.2">
                       {q.numericalSolution && (
-                        <span className="px-1.5 py-0.5 rounded text-[9px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-0.5">
+                        <span className="px-1 py-0.2 rounded text-[8.5px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-0.5">
                           <Calculator className="w-2.5 h-2.5" />
                           <span>Numerical</span>
                         </span>

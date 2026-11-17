@@ -1747,21 +1747,21 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram, pri
 
   if (printMode) {
     return (
-      <figure className="my-4 rounded-lg border border-slate-200 bg-slate-50/70 p-3 break-inside-avoid print:break-inside-avoid shadow-none">
-        <figcaption className="text-xs font-bold text-slate-900 mb-2 flex items-center justify-between pb-1.5 border-b border-slate-200">
+      <figure className="my-3 rounded-lg border border-slate-200 bg-slate-50/70 p-2.5 break-inside-avoid print:break-inside-avoid shadow-none">
+        <figcaption className="text-xs font-bold text-slate-900 mb-1.5 flex items-center justify-between pb-1 border-b border-slate-200">
           <span className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-blue-600" />
             <span>{diagram.title}</span>
           </span>
           <span className="text-[10px] font-mono text-slate-500 font-normal">Vector Architecture</span>
         </figcaption>
-        <div className="w-full flex items-center justify-center py-2 max-h-[120mm]">
-          <div className="w-full max-w-2xl print:max-w-full">
+        <div className="w-full flex items-center justify-center py-1 print-diagram-container">
+          <div className="w-full max-w-[150mm] max-h-[75mm] flex items-center justify-center">
             {renderSVGContent()}
           </div>
         </div>
         {diagram.caption && (
-          <p className="mt-2 text-[10px] text-slate-600 italic text-center border-t border-slate-200/80 pt-1.5">
+          <p className="mt-1.5 text-[9.5px] text-slate-600 italic text-center border-t border-slate-200/80 pt-1">
             Fig: {diagram.caption}
           </p>
         )}

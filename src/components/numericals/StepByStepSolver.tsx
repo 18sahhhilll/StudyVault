@@ -66,7 +66,7 @@ export const StepByStepSolver: React.FC<StepByStepSolverProps> = ({ solution, pr
 
   if (printMode) {
     return (
-      <div className="rounded-xl border border-indigo-200 bg-white p-4 space-y-4 my-4 break-inside-avoid print:break-inside-avoid shadow-none">
+      <div className="rounded-xl border border-indigo-200 bg-white p-4 space-y-4 my-4 shadow-none">
         {/* Header */}
         <div className="border-b border-indigo-100 pb-3">
           <div className="flex items-center gap-2 mb-1">
