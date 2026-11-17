@@ -10,8 +10,10 @@ import {
   FileText,
   HelpCircle,
   Clock,
-  Compass
+  Compass,
+  Download
 } from 'lucide-react';
+import { Subject, Unit } from '@/types';
 import { getSubjectById } from '@/data';
 import { ImportanceBadge } from '@/components/common/ImportanceBadge';
 import { MarksBadge } from '@/components/common/MarksBadge';
@@ -23,6 +25,8 @@ interface SubjectDetailViewProps {
   onSelectQuestion: (unitId: string, questionId: string) => void;
   getUnitStats: (subjectId: string, unitId: string) => { total: number; completed: number; percentage: number };
   getSubjectStats: (subjectId: string) => { total: number; completed: number; percentage: number };
+  onDownloadSubjectPDF?: (subject: Subject) => void;
+  onDownloadUnitPDF?: (subject: Subject, unit: Unit) => void;
 }
 
 export const SubjectDetailView: React.FC<SubjectDetailViewProps> = ({
@@ -32,6 +36,8 @@ export const SubjectDetailView: React.FC<SubjectDetailViewProps> = ({
   onSelectQuestion,
   getUnitStats,
   getSubjectStats,
+  onDownloadSubjectPDF,
+  onDownloadUnitPDF,
 }) => {
   const subject = getSubjectById(subjectId);
   if (!subject) return <div>Subject not found</div>;
@@ -90,6 +96,15 @@ export const SubjectDetailView: React.FC<SubjectDetailViewProps> = ({
                 style={{ width: `${subjectStats.percentage}%` }}
               />
             </div>
+
+            <button
+              onClick={() => onDownloadSubjectPDF?.(subject)}
+              className="mt-3.5 w-full py-2 px-3 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+              title="Download complete subject notes as PDF"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download Full Subject PDF</span>
+            </button>
           </div>
         </div>
 
@@ -176,13 +191,26 @@ export const SubjectDetailView: React.FC<SubjectDetailViewProps> = ({
                     />
                   </div>
 
-                  <button
-                    onClick={() => onSelectUnit(unit.id)}
-                    className="w-full py-2.5 px-4 rounded-lg text-xs font-semibold bg-academic-900 dark:bg-white text-white dark:text-academic-900 hover:bg-academic-800 dark:hover:bg-academic-100 transition-colors flex items-center justify-center gap-2 shadow-sm"
-                  >
-                    <span>Read Unit Notes ({unit.questions.length} Questions)</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => onSelectUnit(unit.id)}
+                      className="flex-1 py-2.5 px-3 rounded-lg text-xs font-semibold bg-academic-900 dark:bg-white text-white dark:text-academic-900 hover:bg-academic-800 dark:hover:bg-academic-100 transition-colors flex items-center justify-center gap-1.5 shadow-sm truncate"
+                    >
+                      <span className="truncate">Read Notes ({unit.questions.length} Qs)</span>
+                      <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onDownloadUnitPDF?.(subject, unit);
+                      }}
+                      className="p-2.5 rounded-lg border border-academic-300 dark:border-academic-700 hover:bg-academic-100 dark:hover:bg-academic-800 text-academic-700 dark:text-academic-300 transition-colors flex items-center justify-center shrink-0"
+                      title="Export this unit as PDF"
+                      aria-label={`Export Unit ${unit.unitNumber} as PDF`}
+                    >
+                      <Download className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    </button>
+                  </div>
                 </div>
               </div>
             );

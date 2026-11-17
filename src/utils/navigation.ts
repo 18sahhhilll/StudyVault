@@ -1,6 +1,6 @@
 import { getSubjectById, getUnitById, getQuestionById } from '@/data';
 
-export type TabType = 'dashboard' | 'subjects' | 'papers' | 'important' | 'revision';
+export type TabType = 'dashboard' | 'subjects' | 'papers' | 'important' | 'revision' | 'print';
 
 export interface AppRoute {
   tab: TabType;
@@ -47,6 +47,16 @@ export function routeToPath(route: AppRoute): string {
 
   if (route.tab === 'revision') {
     return '/revision';
+  }
+
+  if (route.tab === 'print') {
+    if (route.subjectId && route.unitId) {
+      return `/print/${encodeURIComponent(route.subjectId)}/${encodeURIComponent(route.unitId)}`;
+    }
+    if (route.subjectId) {
+      return `/print/${encodeURIComponent(route.subjectId)}`;
+    }
+    return '/subjects';
   }
 
   return '/';
@@ -99,6 +109,19 @@ export function parseCurrentLocation(): AppRoute {
   // Route: /revision
   if (first === 'revision' || first === 'revision-mode') {
     return { tab: 'revision' };
+  }
+
+  // Route: /print/:subjectId or /print/:subjectId/:unitId
+  if (first === 'print') {
+    const subjectId = segments[1] ? decodeURIComponent(segments[1]) : null;
+    const unitId = segments[2] ? decodeURIComponent(segments[2]) : null;
+    if (subjectId) {
+      const subject = getSubjectById(subjectId);
+      if (subject) {
+        return { tab: 'print', subjectId, unitId: unitId || undefined };
+      }
+    }
+    return { tab: 'subjects' };
   }
 
   // Route: /subjects ...
@@ -272,6 +295,24 @@ export function getRouteBreadcrumbs(route: AppRoute): BreadcrumbItem[] {
     return crumbs;
   }
 
+  if (route.tab === 'print') {
+    const s = route.subjectId ? getSubjectById(route.subjectId) : null;
+    const u = route.subjectId && route.unitId ? getUnitById(route.subjectId, route.unitId) : null;
+    crumbs.push({
+      label: s ? s.name : 'Print Notes',
+      route: s ? { tab: 'subjects', subjectId: s.id } : { tab: 'subjects' },
+      path: s ? `/subjects/${s.id}` : '/subjects',
+      isCurrent: false,
+    });
+    crumbs.push({
+      label: u ? `Print Unit ${u.unitNumber}` : 'Print Complete Notes',
+      route,
+      path: routeToPath(route),
+      isCurrent: true,
+    });
+    return crumbs;
+  }
+
   if (route.tab === 'subjects') {
     crumbs.push({
       label: 'Subjects',
@@ -340,6 +381,17 @@ export function getRouteTitle(route: AppRoute): string {
   }
   if (route.tab === 'revision') {
     return 'Fast Revision Mode — StudyVault';
+  }
+  if (route.tab === 'print') {
+    const s = route.subjectId ? getSubjectById(route.subjectId) : null;
+    const u = route.subjectId && route.unitId ? getUnitById(route.subjectId, route.unitId) : null;
+    if (s && u) {
+      return `Print: ${s.name} - Unit ${u.unitNumber} - StudyVault`;
+    }
+    if (s) {
+      return `Print: ${s.name} - Complete Notes - StudyVault`;
+    }
+    return 'Print Notes — StudyVault';
   }
   if (route.tab === 'subjects') {
     if (route.subjectId && route.unitId && route.questionId) {

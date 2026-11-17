@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AppLayout } from '@/components/layout/AppLayout';
 import { DashboardView } from '@/components/dashboard/DashboardView';
 import { SubjectsView } from '@/components/subjects/SubjectsView';
@@ -8,12 +9,25 @@ import { ImportantQuestionsView } from '@/components/questions/ImportantQuestion
 import { RevisionView } from '@/components/revision/RevisionView';
 import { QuestionPapersView } from '@/components/papers/QuestionPapersView';
 import { SearchModal } from '@/components/common/SearchModal';
+import { ExportModal } from '@/components/export/ExportModal';
+import { PrintDocument } from '@/components/export/PrintDocument';
+import { PrintView } from '@/components/export/PrintView';
 import { useStudyProgress } from '@/hooks/useStudyProgress';
 import { useNavigationRouter } from '@/hooks/useNavigationRouter';
+import { usePrintExport } from '@/hooks/usePrintExport';
 import { getSubjectById, getUnitById } from '@/data';
 
 export function App() {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
+
+  const {
+    modalOpen,
+    target,
+    activeOptions,
+    openExportModal,
+    closeExportModal,
+    triggerPrint,
+  } = usePrintExport();
 
   const {
     currentRoute,
@@ -116,6 +130,7 @@ export function App() {
               onToggleBookmarked={toggleBookmarked}
               onSaveNote={saveQuestionNote}
               onBackToSubject={handleBackToSubject}
+              onDownloadUnitPDF={(subj, u) => openExportModal({ type: 'unit', subject: subj, unit: u })}
             />
           );
         }
@@ -133,6 +148,8 @@ export function App() {
             }
             getUnitStats={getUnitStats}
             getSubjectStats={getSubjectStats}
+            onDownloadSubjectPDF={(subj) => openExportModal({ type: 'subject', subject: subj })}
+            onDownloadUnitPDF={(subj, u) => openExportModal({ type: 'unit', subject: subj, unit: u })}
           />
         );
       }
@@ -144,6 +161,22 @@ export function App() {
           getSubjectStats={getSubjectStats}
         />
       );
+    }
+
+    if (currentTab === 'print' && selectedSubjectId) {
+      const subject = getSubjectById(selectedSubjectId);
+      const unit = selectedUnitId ? getUnitById(selectedSubjectId, selectedUnitId) : undefined;
+      if (subject) {
+        return (
+          <PrintView
+            subject={subject}
+            unit={unit}
+            bookmarkedQuestionIds={progress.bookmarkedQuestionIds}
+            notesByQuestionId={progress.notesByQuestionId}
+            onBack={navigateBack}
+          />
+        );
+      }
     }
 
     if (currentTab === 'papers') {
@@ -174,6 +207,28 @@ export function App() {
     return null;
   };
 
+  if (currentTab === 'print') {
+    return (
+      <>
+        {renderContent()}
+        {target &&
+          typeof document !== 'undefined' &&
+          createPortal(
+            <div id="print-mount-root">
+              <PrintDocument
+                subject={target.subject}
+                units={target.unit ? [target.unit] : target.subject.units}
+                options={activeOptions}
+                bookmarkedQuestionIds={progress.bookmarkedQuestionIds}
+                notesByQuestionId={progress.notesByQuestionId}
+              />
+            </div>,
+            document.body
+          )}
+      </>
+    );
+  }
+
   return (
     <AppLayout
       currentTab={currentTab}
@@ -195,6 +250,33 @@ export function App() {
         onClose={() => setSearchModalOpen(false)}
         onSelectQuestion={handleOpenQuestion}
       />
+
+      {target && (
+        <ExportModal
+          isOpen={modalOpen}
+          onClose={closeExportModal}
+          subject={target.subject}
+          unit={target.unit}
+          bookmarkedQuestionIds={progress.bookmarkedQuestionIds}
+          notesByQuestionId={progress.notesByQuestionId}
+          onTriggerPrint={triggerPrint}
+        />
+      )}
+
+      {target &&
+        typeof document !== 'undefined' &&
+        createPortal(
+          <div id="print-mount-root">
+            <PrintDocument
+              subject={target.subject}
+              units={target.unit ? [target.unit] : target.subject.units}
+              options={activeOptions}
+              bookmarkedQuestionIds={progress.bookmarkedQuestionIds}
+              notesByQuestionId={progress.notesByQuestionId}
+            />
+          </div>,
+          document.body
+        )}
     </AppLayout>
   );
 }

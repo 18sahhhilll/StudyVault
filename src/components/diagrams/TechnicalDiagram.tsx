@@ -102,9 +102,10 @@ import {
 
 interface TechnicalDiagramProps {
   diagram: DiagramData;
+  printMode?: boolean;
 }
 
-export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) => {
+export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram, printMode = false }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [hoveredElement, setHoveredElement] = useState<string | null>(null);
 
@@ -1743,6 +1744,30 @@ export const TechnicalDiagram: React.FC<TechnicalDiagramProps> = ({ diagram }) =
         );
     }
   };
+
+  if (printMode) {
+    return (
+      <figure className="my-4 rounded-lg border border-slate-200 bg-slate-50/70 p-3 break-inside-avoid print:break-inside-avoid shadow-none">
+        <figcaption className="text-xs font-bold text-slate-900 mb-2 flex items-center justify-between pb-1.5 border-b border-slate-200">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-blue-600" />
+            <span>{diagram.title}</span>
+          </span>
+          <span className="text-[10px] font-mono text-slate-500 font-normal">Vector Architecture</span>
+        </figcaption>
+        <div className="w-full flex items-center justify-center py-2 max-h-[120mm]">
+          <div className="w-full max-w-2xl print:max-w-full">
+            {renderSVGContent()}
+          </div>
+        </div>
+        {diagram.caption && (
+          <p className="mt-2 text-[10px] text-slate-600 italic text-center border-t border-slate-200/80 pt-1.5">
+            Fig: {diagram.caption}
+          </p>
+        )}
+      </figure>
+    );
+  }
 
   return (
     <div className="my-6 rounded-xl border border-academic-200/80 dark:border-academic-800/80 bg-white dark:bg-academic-950/70 shadow-sm overflow-hidden transition-all duration-200 hover:border-academic-300 dark:hover:border-academic-700">

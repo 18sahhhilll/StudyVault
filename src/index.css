@@ -41,24 +41,141 @@
   background: rgba(100, 116, 139, 0.6);
 }
 
-/* Print styling for printing exam notes */
+/* ============================================================
+   ACADEMIC PRINT & PDF EXPORT STYLING (A4 SPECIFICATION)
+   ============================================================ */
 @media print {
+  @page {
+    size: A4 portrait;
+    margin: 18mm 16mm 20mm 16mm;
+  }
+
+  /* Force exact colors, borders, and fills across Chrome, Edge, Safari & Firefox */
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+
+  /* When printing from the modal overlay, hide all application chrome and render only the print mount */
+  body.printing-mount #root {
+    display: none !important;
+  }
+
+  body.printing-mount #print-mount-root {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  /* Hide app chrome by default in print */
   aside,
   header,
+  nav,
   button,
-  .no-print {
+  .no-print,
+  #search-modal-backdrop,
+  [role="dialog"]:not(.print-document) {
     display: none !important;
   }
 
   body {
-    background: white !important;
-    color: black !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-size: 10.5pt !important;
+    line-height: 1.5 !important;
   }
 
-  main {
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    max-width: 100% !important;
+  /* Page break utilities */
+  .break-before-page {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  .break-after-page {
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+
+  .break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .break-after-avoid {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    color: #0f172a !important;
+  }
+
+  p, li {
+    orphans: 3 !important;
+    widows: 3 !important;
+  }
+
+  /* High-fidelity tables */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 9.5pt !important;
+    break-inside: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  th, td {
+    border-color: #cbd5e1 !important;
+  }
+
+  /* Vector SVG diagrams: crisp, centered, contained */
+  svg {
+    max-height: 120mm !important;
+    width: 100% !important;
+    height: auto !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  figure {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    border-color: #e2e8f0 !important;
+    background-color: #f8fafc !important;
+  }
+
+  /* KaTeX mathematical typesetting */
+  .katex-display {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    margin: 8px 0 !important;
+  }
+
+  .katex {
+    font-size: 1.05em !important;
+  }
+
+  /* Code blocks */
+  pre, code {
+    font-family: 'JetBrains Mono', monospace !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
   }
 }

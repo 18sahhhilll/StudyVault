@@ -18,9 +18,10 @@ import { MathRenderer } from '@/components/diagrams/MathRenderer';
 
 interface StepByStepSolverProps {
   solution: NumericalSolution;
+  printMode?: boolean;
 }
 
-export const StepByStepSolver: React.FC<StepByStepSolverProps> = ({ solution }) => {
+export const StepByStepSolver: React.FC<StepByStepSolverProps> = ({ solution, printMode = false }) => {
   const [currentStepIndex, setCurrentStepIndex] = useState<number>(0);
   const [viewMode, setViewMode] = useState<'step-by-step' | 'all-steps'>('step-by-step');
   const [revealedSteps, setRevealedSteps] = useState<number[]>([0]);
@@ -62,6 +63,165 @@ export const StepByStepSolver: React.FC<StepByStepSolverProps> = ({ solution }) 
     setViewMode('all-steps');
     setRevealedSteps(solution.steps.map((_, i) => i));
   };
+
+  if (printMode) {
+    return (
+      <div className="rounded-xl border border-indigo-200 bg-white p-4 space-y-4 my-4 break-inside-avoid print:break-inside-avoid shadow-none">
+        {/* Header */}
+        <div className="border-b border-indigo-100 pb-3">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-800 uppercase tracking-wider">
+              Step-by-Step Numerical Solution
+            </span>
+          </div>
+          <h4 className="text-sm font-bold text-slate-900 leading-snug">
+            {solution.problemSummary}
+          </h4>
+        </div>
+
+        {/* Given Data & To Find */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-3 rounded-lg border border-slate-200 text-xs">
+          <div>
+            <span className="font-bold text-slate-700 block mb-1">Given Data:</span>
+            <ul className="space-y-0.5 text-slate-600">
+              {solution.givenData.map((g, idx) => (
+                <li key={idx} className="font-mono">
+                  <strong>{g.label}:</strong> {g.value}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <span className="font-bold text-slate-700 block mb-1">To Find / Compute:</span>
+            <ul className="space-y-0.5 text-slate-600">
+              {solution.toFind.map((tf, idx) => (
+                <li key={idx} className="font-mono">
+                  • {tf}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Steps in order */}
+        <div className="space-y-4">
+          {solution.steps.map((step, idx) => (
+            <div
+              key={idx}
+              className="p-3.5 rounded-lg border border-slate-200 bg-white space-y-2.5 break-inside-avoid print:break-inside-avoid"
+            >
+              <div className="flex items-center gap-2 pb-1.5 border-b border-slate-100">
+                <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-indigo-600 text-white">
+                  Step {step.stepNumber}
+                </span>
+                <h5 className="text-xs sm:text-sm font-bold text-slate-900">
+                  {step.title}
+                </h5>
+              </div>
+
+              <p className="text-xs text-slate-700 leading-relaxed">
+                {step.explanation}
+              </p>
+
+              {step.formula && (
+                <div className="p-2 rounded bg-slate-50 border border-slate-200">
+                  <span className="text-[10px] font-semibold text-slate-500 block mb-0.5">Formula Applied:</span>
+                  <MathRenderer math={step.formula} block />
+                </div>
+              )}
+
+              {step.substitution && (
+                <div className="p-2 rounded bg-indigo-50/60 border border-indigo-200 font-mono text-xs text-indigo-900">
+                  <span className="text-[10px] font-semibold text-indigo-600 block mb-0.5">Values Substituted:</span>
+                  <MathRenderer math={step.substitution} block />
+                </div>
+              )}
+
+              {step.calculation && (
+                <div className="p-2 rounded bg-slate-50 text-xs font-mono text-slate-800 whitespace-pre-line border border-slate-200">
+                  {step.calculation}
+                </div>
+              )}
+
+              {step.table && (
+                <div className="overflow-visible rounded border border-slate-200 my-2">
+                  <table className="w-full text-xs text-left border-collapse">
+                    <thead className="bg-slate-100 text-slate-800 font-semibold border-b border-slate-200">
+                      <tr>
+                        {step.table.headers.map((h, i) => (
+                          <th key={i} className="p-2 border border-slate-200">
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200 font-mono">
+                      {step.table.rows.map((row, rIdx) => (
+                        <tr
+                          key={rIdx}
+                          className={
+                            rIdx === step.table!.rows.length - 1
+                              ? 'bg-indigo-50/80 font-bold'
+                              : 'bg-white'
+                          }
+                        >
+                          {row.map((cell, cIdx) => (
+                            <td key={cIdx} className="p-2 border border-slate-200">
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {step.result && (
+                <div className="p-2 rounded bg-emerald-50 border border-emerald-300 flex items-center justify-between text-xs font-bold text-emerald-800">
+                  <span>Step {step.stepNumber} Result:</span>
+                  <span className="font-mono">{step.result}</span>
+                </div>
+              )}
+
+              {step.tip && (
+                <div className="p-2 rounded bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-start gap-1.5">
+                  <AlertTriangle className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                  <span><strong>Exam Tip / Pitfall:</strong> {step.tip}</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Final Exam Answer Box */}
+        <div className="p-4 rounded-xl bg-emerald-50/80 border-2 border-emerald-500 space-y-2 break-inside-avoid print:break-inside-avoid">
+          <div className="flex items-center gap-1.5">
+            <CheckCircle className="w-4 h-4 text-emerald-600" />
+            <h5 className="text-xs font-bold text-emerald-950 uppercase tracking-wide">
+              Final University Examination Answer
+            </h5>
+          </div>
+
+          <div className="p-3 rounded-lg bg-white border-2 border-dashed border-emerald-400 flex items-center justify-between gap-3">
+            <div>
+              <span className="text-[11px] font-semibold text-slate-500 block">
+                {solution.finalAnswer.label}:
+              </span>
+              <span className="text-base font-bold font-mono text-emerald-700">
+                {solution.finalAnswer.value}
+              </span>
+            </div>
+            {solution.finalAnswer.interpretation && (
+              <p className="text-xs text-slate-600 max-w-sm italic">
+                {solution.finalAnswer.interpretation}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="rounded-xl border-2 border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-b from-indigo-50/50 via-white to-white dark:from-indigo-950/20 dark:via-academic-900 dark:to-academic-900 shadow-md overflow-hidden transition-all">

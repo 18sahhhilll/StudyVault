@@ -214,3 +214,5 @@ export interface QuestionPaper {
   instructions: string[];
   pairs: PYQPair[];
 }
+
+export * from './export';
