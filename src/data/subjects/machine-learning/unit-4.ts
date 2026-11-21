@@ -22,12 +22,11 @@ export const unit4Data: Unit = {
     'Micro-average vs Macro-average Metrics'
   ],
   questionPaperIndex: [
-    { paper: 'Paper 1', qMain: '(a) → Q7, (b) → Q8 + Q10, (c) → Q14', qOr: '(a) → Q22, (b) → Q11, Q12, (c) → Q1' },
-    { paper: 'Paper 2', qMain: '(a) → Q17, (b) → Q4, (c) → Q9', qOr: '(a) → Q11, (b) → Q18, (c) → Q5' },
-    { paper: 'Paper 3', qMain: '(a) → Q13, (b) → Q8, (c) → Q17', qOr: '(a) → Q1, (b) → Q15, (c) → Q10' },
-    { paper: 'Paper 4', qMain: '(a) → Q8, (b) → Q2, (c) → Q3', qOr: 'Unit III Revision (R², Least Squares, SGD)' },
-    { paper: 'Paper 5', qMain: '(a) → Q6, (b) → Q2, (c) → Q3', qOr: '(a) → Q14, (b) → Q16, (c) → Q11' },
-    { paper: 'Paper 6', qMain: '(a) → Q10, (b) → Q8 + Q11, (c) → Q20', qOr: '(a) → Q21, (b) → Q19' }
+    { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q1, (b) → Q5, (c) → Q6', qOr: '(a) → Q2, (b) → Q3, (c) → Q8' },
+    { paper: 'May 2024 ([6404]-82)', qMain: '(a) → Q13, (b) → Q8, (c) → Q17', qOr: '(a) → Q15, (b) → Q20, (c) → Q6' },
+    { paper: 'April 2024 ([6263]-82)', qMain: '(a) → Q17, (b) → Q4, (c) → Q9', qOr: '(a) → Q11, (b) → Q18, (c) → Q5' },
+    { paper: 'Nov 2023 ([6181]-102)', qMain: '(a) → Q1, (b) → Q3, (c) → Q4', qOr: '(a) → Q7, (b) → Q12, (c) → Q19' },
+    { paper: 'April 2023 ([6004]-481)', qMain: '(a) → Q7, (b) → Q8 + Q10, (c) → Q14', qOr: '(a) → Q22, (b) → Q11, Q12, (c) → Q1' }
   ],
   quickRevision: {
     keyDefinitions: [
@@ -77,8 +76,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q4(c)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q4(a)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q4(c)', marks: 6 }
       ],
       syllabusTopics: ['K-Nearest Neighbour', 'Lazy Learner', 'Euclidean Distance', 'Majority Voting'],
       definition: 'K-Nearest Neighbour (KNN) is a simple, supervised Machine Learning algorithm used for classification and regression. It predicts the class of a new data point based on the majority class of its K closest neighbours.',
@@ -164,8 +163,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q4(c)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q4(c)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q4(c)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q4(c)', marks: 6 }
       ],
       syllabusTopics: ['KNN Pros & Cons', 'Lazy Learning', 'Computational Complexity', 'Curse of Dimensionality'],
       definition: 'K-Nearest Neighbour (KNN) is an intuitive non-parametric algorithm that memorizes training data and predicts based on distance, offering great simplicity alongside noticeable computational limitations.',
@@ -212,8 +211,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q3(c)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q3(c)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q3(c)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q3(c)', marks: 6 }
       ],
       syllabusTopics: ['Euclidean Distance', 'Manhattan Distance', 'Minkowski Distance', 'Hamming Distance'],
       definition: 'Distance metrics are mathematical functions used in Machine Learning to quantify the geometric dissimilarity or closeness between two data points in an n-dimensional feature space.',
@@ -286,7 +285,7 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q3(b)', marks: 6 }
+        { paper: 'April 2024', questionNo: 'Q3(b)', marks: 6 }
       ],
       syllabusTopics: ['KNN Numerical', 'Euclidean Distance', 'Majority Voting'],
       definition: 'Step-by-step classification of a test candidate using Euclidean distance calculation and majority voting in a 2D feature space.',
@@ -426,8 +425,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q4(b)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q4(b)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q4(b)', marks: 6 }
       ],
       syllabusTopics: ['SVM', 'Separating Hyperplane', 'Margin', 'Support Vectors'],
       definition: 'Support Vector Machine (SVM) is a supervised learning algorithm that finds an optimal decision boundary (hyperplane) to separate different classes with the maximum possible margin.',
@@ -489,8 +488,8 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q4(b)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q4(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q4(b)', marks: 6 }
       ],
       syllabusTopics: ['Kernel Trick', 'Linear Kernel', 'Polynomial Kernel', 'RBF Kernel', 'Sigmoid Kernel'],
       definition: 'Kernel methods are mathematical functions that allow SVM to classify non-linearly separable data by mapping it into a higher-dimensional space where it becomes linearly separable.',
@@ -551,8 +550,8 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q3(b)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q3(b)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q3(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q3(b)', marks: 6 }
       ],
       syllabusTopics: ['SVR', 'Epsilon-tube', 'Slack Variables', 'Loss Function'],
       definition: 'Support Vector Regression (SVR) is an adaptation of SVM for regression problems that predicts continuous numerical values instead of discrete classes.',
@@ -630,10 +629,10 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q3(b)', notes: 'First part' },
-        { paper: 'Paper 3', questionNo: 'Q3(b)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q3(a)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q3(b)', notes: 'First part' }
+        { paper: 'May 2024', questionNo: 'Q3(b)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q3(a)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q3(b)', notes: 'First part' },
+        { paper: 'In-Sem Exam', questionNo: 'Q3(b)', notes: 'First part' }
       ],
       syllabusTopics: ['Ensemble Learning', 'Weak Learners', 'Majority Voting', 'Averaging'],
       definition: 'Ensemble Learning is a Machine Learning technique that combines multiple individual models to produce a more accurate and reliable prediction.',
@@ -710,7 +709,7 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q3(c)', marks: 6 }
+        { paper: 'April 2024', questionNo: 'Q3(c)', marks: 6 }
       ],
       syllabusTopics: ['Max Voting', 'Averaging', 'Bagging', 'Boosting', 'Stacking'],
       definition: 'Ensemble techniques are divided into simple methods that directly combine fixed model outputs and advanced methods that actively train learners sequentially, via bootstrapping, or through meta-learners.',
@@ -764,8 +763,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q3(a)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q3(a)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q3(a)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q3(a)', marks: 6 }
       ],
       syllabusTopics: ['Bagging', 'Boosting', 'Variance Reduction', 'Bias Reduction'],
       definition: 'Bagging and Boosting are the two most popular ensemble learning techniques used to combine multiple base models to produce a single superior predictive model.',
@@ -839,8 +838,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q3(a)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q3(a)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q3(a)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q3(a)', marks: 6 }
       ],
       syllabusTopics: ['Random Forest', 'Bootstrapping', 'Feature Randomness', 'Out-of-Bag Error'],
       definition: 'Random Forest is an ensemble learning algorithm that builds a forest of multiple decision trees using bootstrap aggregation and random feature selection, combining their predictions to achieve high accuracy and prevent overfitting.',
@@ -911,7 +910,7 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q4(b)(ii)', marks: 4 }
+        { paper: 'April 2023', questionNo: 'Q4(b)(ii)', marks: 4 }
       ],
       syllabusTopics: ['AdaBoost', 'Decision Stumps', 'Weight Update', 'Sequential Learning'],
       definition: 'AdaBoost (Adaptive Boosting) is an iterative boosting algorithm that converts a sequence of weak learners (typically 1-level decision stumps) into a strong classifier by adaptively increasing the sample weights of misclassified records.',
@@ -977,8 +976,8 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q4(a)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q4(a)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q4(a)', marks: 6 }
       ],
       syllabusTopics: ['Binary Classification', 'Multiclass Classification', 'Softmax', 'Sigmoid'],
       definition: 'Classification is a supervised machine learning task where algorithms categorize data into distinct groups, categorized by the number of possible output target labels.',
@@ -1044,8 +1043,8 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q4(a)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q4(a)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q4(a)', marks: 6 }
       ],
       syllabusTopics: ['Multiclass Classification', 'One-vs-All (OvA)', 'One-vs-One (OvO)'],
       definition: 'Multiclass classification is the problem of categorizing input samples into one of three or more distinct classes.',
@@ -1123,8 +1122,8 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q4(b)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q4(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q4(b)', marks: 6 }
       ],
       syllabusTopics: ['Class Imbalance', 'Resampling', 'SMOTE', 'Cost-Sensitive Learning'],
       definition: 'Class imbalance occurs when some classes have substantially fewer training examples than others, biasing models toward predicting only the majority classes.',
@@ -1186,7 +1185,7 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 5', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q4(b)', marks: 6 }
       ],
       syllabusTopics: ['Outliers', 'IQR Rule', 'Z-Score', 'Winsorization'],
       definition: 'Outlier analysis encompasses statistical, distance, and density-based protocols to detect anomalous observations that deviate drastically from normal patterns and mitigate their distorting influence on models.',
@@ -1237,8 +1236,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q3(c)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q3(c)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q3(c)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q3(c)', marks: 6 }
       ],
       syllabusTopics: ['Model Evaluation', 'Confusion Matrix', 'Accuracy', 'Precision', 'Recall', 'F1-Score'],
       definition: 'Evaluation metrics are quantitative measures used to evaluate how accurately and reliably a classification model performs on unseen test data.',
@@ -1301,8 +1300,8 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q3(c)', marks: 4 },
-        { paper: 'Paper 6', questionNo: 'Q3(c)', marks: 4 }
+        { paper: 'Nov 2023', questionNo: 'Q3(c)', marks: 4 },
+        { paper: 'In-Sem Exam', questionNo: 'Q3(c)', marks: 4 }
       ],
       syllabusTopics: ['Confusion Matrix', 'True Positives', 'False Positives', 'Type I and Type II Errors'],
       definition: 'A Confusion Matrix is a tabular representation used to evaluate the performance of a classification model by comparing actual target values against model predictions.',
@@ -1357,8 +1356,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q4(b)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q4(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q4(b)', marks: 6 }
       ],
       syllabusTopics: ['Accuracy', 'Precision', 'Recall', 'F-Score', 'Harmonic Mean'],
       definition: 'Accuracy, Precision, Recall, and F-Score are the four foundational metrics used to measure the performance and error characteristics of classification models.',
@@ -1415,8 +1414,8 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q4(a)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q4(a)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q4(a)', marks: 6 }
       ],
       syllabusTopics: ['Precision-Recall Trade-Off', 'Decision Threshold', 'PR Curve'],
       definition: 'Precision and Recall share an inverse relationship known as the Precision-Recall trade-off; increasing one metric typically causes the other metric to decrease.',
@@ -1477,8 +1476,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q3(c)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q3(c)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q3(c)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q3(c)', marks: 6 }
       ],
       syllabusTopics: ['K-Fold Cross-Validation', 'Resampling', 'Bias-Variance Tradeoff in K', 'Choice of K'],
       definition: 'K-Fold Cross-Validation is a resampling procedure that partitions a dataset into K equal subsets (folds) to evaluate a model generalizability on unseen data.',
@@ -1559,7 +1558,7 @@ export const unit4Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'April 2023', questionNo: 'Q4(a)', marks: 6 }
       ],
       syllabusTopics: ['Macro-Average', 'Micro-Average', 'Multiclass Confusion Matrix', 'Evaluation Numerical'],
       definition: 'Complete step-by-step computation of per-class True Positives, Precision, Recall, and F1 followed by macro-averaging across an asymmetric 4-class confusion matrix.',

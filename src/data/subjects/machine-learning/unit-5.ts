@@ -24,12 +24,11 @@ export const unit5Data: Unit = {
     'Validation Metrics: Intrinsic (Silhouette, Davies-Bouldin) vs Extrinsic (Rand, ARI, Homogeneity, Completeness)'
   ],
   questionPaperIndex: [
-    { paper: 'Paper 1', qMain: '(a) → Q5, (b) → Q9, (c) → Q15', qOr: '(a) → Q18, (b) → Q1, (c) → (i) Q13, (ii) Q7' },
-    { paper: 'Paper 2', qMain: '(a) → Q4, (b) → Q7, (c) → Q2', qOr: '(a) → Q11, (b) → Q5, (c) → Q19' },
-    { paper: 'Paper 3', qMain: '(a) → Q4, (b) → Q7, (c) → Q9', qOr: '(a) → Q11, (b) → Q1, (c) → Q5' },
-    { paper: 'Paper 4', qMain: '(a) → Q1, (b) → Q9 + Q10, (c) → Q12', qOr: '(a) → Q5 + Q7, (b) → (i) Q3, (ii) Q4, (iii) Q17' },
-    { paper: 'Paper 5', qMain: '(a) → Q3, (b) → Q6, (c) → Q7', qOr: '(a) → Q16, (b) → Q9, (c) → Q14' },
-    { paper: 'Paper 6', qMain: '(a) → Q8, (b) → Q1, (c) → (i) Q5, (ii) Q5 (dendrogram)', qOr: '(a) → Q10, (b) → Q13, (c) → (i) Q15, (ii) Q18' }
+    { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q1, (b) → Q8, (c) → Q12', qOr: '(a) → Q4, (b) → Q10, (c) → Q16' },
+    { paper: 'May 2024 ([6404]-82)', qMain: '(a) → Q4, (b) → Q7, (c) → Q9', qOr: '(a) → Q1, (b) → Q14, (c) → Q12' },
+    { paper: 'April 2024 ([6263]-82)', qMain: '(a) → Q4, (b) → Q7, (c) → Q2', qOr: '(a) → Q11, (b) → Q5, (c) → Q19' },
+    { paper: 'Nov 2023 ([6181]-102)', qMain: '(a) → Q2, (b) → Q6, (c) → Q11', qOr: '(a) → Q8, (b) → Q15, (c) → Q17' },
+    { paper: 'April 2023 ([6004]-481)', qMain: '(a) → Q5, (b) → Q9, (c) → Q15', qOr: '(a) → Q18, (b) → Q1, (c) → (i) Q13, (ii) Q7' }
   ],
   quickRevision: {
     keyDefinitions: [
@@ -77,10 +76,10 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q6(b)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q6(b)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q5(b)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q6(b)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q5(a)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q6(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q5(b)', marks: 6 }
       ],
       syllabusTopics: ['K-Means Clustering', 'Centroids', 'WCSS / SSE', 'Partitioning'],
       definition: 'K-Means is an unsupervised, iterative, centroid-based partitioning clustering algorithm that divides N observations into K disjoint clusters, where each instance belongs to the cluster with the nearest mean centroid.',
@@ -167,7 +166,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q5(c)', marks: 6 }
+        { paper: 'April 2024', questionNo: 'Q5(c)', marks: 6 }
       ],
       syllabusTopics: ['K-Means Numerical', 'Euclidean Distance', 'Centroid Update'],
       definition: 'Complete two-iteration execution of K-Means on 9 2D points with K = 3, verifying distance calculations, cluster memberships, and final convergence.',
@@ -266,8 +265,8 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 5', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q6(b)(i)', marks: 4 }
+        { paper: 'Nov 2024', questionNo: 'Q5(a)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q6(b)(i)', marks: 4 }
       ],
       syllabusTopics: ['Cluster Optimization', 'WCSS Minimization', 'Cohesion and Separation'],
       definition: 'Cluster optimization is the mathematical formulation of clustering as an objective minimization task aimed at simultaneously maximizing intra-cluster compactness (cohesion) and maximizing inter-cluster separation.',
@@ -317,9 +316,9 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q6(b)(ii)', marks: 4 }
+        { paper: 'May 2024', questionNo: 'Q5(a)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q5(a)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q6(b)(ii)', marks: 4 }
       ],
       syllabusTopics: ['K-Medoids', 'PAM Algorithm', 'Robustness to Outliers'],
       definition: 'K-Medoids (Partitioning Around Medoids - PAM) is a robust partitioning clustering algorithm where each cluster is represented by an actual observed data point (medoid) rather than an artificial arithmetic mean.',
@@ -393,11 +392,11 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'Paper 2', questionNo: 'Q6(b)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q6(c)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q6(a)', notes: 'Hierarchical part' },
-        { paper: 'Paper 6', questionNo: 'Q5(c)', notes: '(i) Agglomerative, (ii) Dendrogram' }
+        { paper: 'May 2024', questionNo: 'Q6(c)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q6(b)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q6(a)', notes: 'Hierarchical part' },
+        { paper: 'April 2023', questionNo: 'Q5(a)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q5(c)', notes: '(i) Agglomerative, (ii) Dendrogram' }
       ],
       syllabusTopics: ['Hierarchical Clustering', 'Agglomerative', 'Divisive', 'Dendrogram', 'Linkage'],
       definition: 'Hierarchical clustering constructs a multi-level nested hierarchy of clusters represented as a tree diagram called a dendrogram, eliminating the requirement to specify cluster count K in advance.',
@@ -499,7 +498,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 5', questionNo: 'Q5(b)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q5(b)', marks: 6 }
       ],
       syllabusTopics: ['Hierarchical vs K-Means', 'Complexity', 'Determinism', 'Cluster Geometry'],
       definition: 'A comprehensive comparative analysis contrasting tree-based hierarchical clustering against centroid-based partitioning K-Means across complexity, assumptions, and performance.',
@@ -564,11 +563,11 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q5(b)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q5(b)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q5(c)', marks: 6 },
-        { paper: 'Paper 1', questionNo: 'Q6(c)(ii)', marks: 4 },
-        { paper: 'Paper 4', questionNo: 'Q6(a)', notes: 'Density-based part' }
+        { paper: 'Nov 2024', questionNo: 'Q5(c)', marks: 6 },
+        { paper: 'May 2024', questionNo: 'Q5(b)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q5(b)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q6(a)', notes: 'Density-based part' },
+        { paper: 'April 2023', questionNo: 'Q6(c)(ii)', marks: 4 }
       ],
       syllabusTopics: ['DBSCAN', 'Core Point', 'Border Point', 'Noise Point', 'Density Reachability'],
       definition: 'DBSCAN (Density-Based Spatial Clustering of Applications with Noise) groups contiguous high-density regions separated by low-density regions, discovering arbitrary shapes and explicitly isolating noise.',
@@ -644,7 +643,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 6', questionNo: 'Q5(a)', marks: 6 }
+        { paper: 'In-Sem Exam', questionNo: 'Q5(a)', marks: 6 }
       ],
       syllabusTopics: ['DBSCAN', 'OPTICS', 'DENCLUE', 'Reachability Plot', 'Kernel Density'],
       definition: 'A comprehensive technical comparison of the three major density-based clustering paradigms: region-growing DBSCAN, hierarchical reachability-ordering OPTICS, and kernel density attractor DENCLUE.',
@@ -729,10 +728,10 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q5(b)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q5(c)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q5(b)', notes: 'First part' },
-        { paper: 'Paper 5', questionNo: 'Q6(b)', notes: 'In relation to clustering' }
+        { paper: 'Nov 2024', questionNo: 'Q6(b)', notes: 'In relation to clustering' },
+        { paper: 'May 2024', questionNo: 'Q5(c)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q5(b)', notes: 'First part' },
+        { paper: 'April 2023', questionNo: 'Q5(b)', marks: 6 }
       ],
       syllabusTopics: ['Outlier Analysis', 'Anomaly Detection', 'Fraud Detection', 'Data Quality'],
       definition: 'Outlier analysis is the process of detecting and evaluating data objects that deviate drastically from typical patterns, indicating either data collection errors or rare, high-value real-world events.',
@@ -812,8 +811,8 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q5(b)', notes: 'Second part' },
-        { paper: 'Paper 6', questionNo: 'Q6(a)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q5(b)', notes: 'Second part' },
+        { paper: 'In-Sem Exam', questionNo: 'Q6(a)', marks: 6 }
       ],
       syllabusTopics: ['Local Outlier Factor', 'Density-based Outlier', 'Reachability Distance', 'LRD'],
       definition: 'Local Outlier Factor (LOF) is an unsupervised density-based algorithm that measures the local anomaly of a point by comparing its local reachability density against the densities of its k-nearest neighbours.',
@@ -898,8 +897,8 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q6(a)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q6(a)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q6(a)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q6(a)', marks: 6 }
       ],
       syllabusTopics: ['Isolation Forest', 'Isolation Tree', 'Path Length', 'Anomaly Score'],
       definition: 'Isolation Forest (iForest) is an unsupervised anomaly detection algorithm that isolates outliers by constructing random partitioning trees, exploiting the fact that anomalies are "few and different" and thus require fewer splits to isolate.',
@@ -990,7 +989,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q5(c)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q5(c)', marks: 6 }
       ],
       syllabusTopics: ['Spectral Clustering', 'Affinity Matrix', 'Graph Laplacian', 'Eigenvectors'],
       definition: 'Spectral clustering is a graph-theoretic clustering technique that uses the spectrum (eigenvalues and eigenvectors) of the graph Laplacian derived from a data similarity matrix to project data into a low-dimensional manifold before clustering via K-Means.',
@@ -1068,8 +1067,8 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q6(c)(i)', marks: 4 },
-        { paper: 'Paper 6', questionNo: 'Q6(b)', marks: 6 }
+        { paper: 'April 2023', questionNo: 'Q6(c)(i)', marks: 4 },
+        { paper: 'In-Sem Exam', questionNo: 'Q6(b)', marks: 6 }
       ],
       syllabusTopics: ['Graph-Based Clustering', 'Minimum Spanning Tree', 'Connected Components'],
       definition: 'Graph-based clustering models data as a weighted graph of nodes (points) and edges (similarity/distance), partitioning the graph into disconnected components by severing long or low-similarity edges.',
@@ -1116,7 +1115,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 5', questionNo: 'Q6(c)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q6(c)', marks: 6 }
       ],
       syllabusTopics: ['K-Means vs Spectral', 'Non-Convex Clusters', 'Computational Cost'],
       definition: 'A direct technical comparison highlighting the divide between centroid-distance partitioning in original feature space (K-Means) and graph Laplacian spectral projection (Spectral Clustering).',
@@ -1173,8 +1172,8 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q5(c)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q6(c)(i)', marks: 4 }
+        { paper: 'April 2023', questionNo: 'Q5(c)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q6(c)(i)', marks: 4 }
       ],
       syllabusTopics: ['Elbow Method', 'Optimal K', 'WCSS', 'Distortion'],
       definition: 'The Elbow Method is a heuristic visual diagnostic used to determine the optimal cluster count K in K-Means by plotting the Within-Cluster Sum of Squares (WCSS / SSE) against K and locating the "elbow" bend where marginal reduction in error diminishes sharply.',
@@ -1238,7 +1237,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 5', questionNo: 'Q6(a)', marks: 4 }
+        { paper: 'Nov 2024', questionNo: 'Q6(a)', marks: 4 }
       ],
       syllabusTopics: ['K-Medoids K Selection', 'Medoid Cost', 'Silhouette Method'],
       definition: 'Techniques for determining the optimal number of clusters K in K-Medoids (PAM) based on total medoid dissimilarity cost curves, silhouette width maximization, and domain constraints.',
@@ -1276,7 +1275,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q6(b)(iii)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q6(b)(iii)', marks: 6 }
       ],
       syllabusTopics: ['Clustering Metrics', 'Silhouette Score', 'Davies-Bouldin', 'Rand Index', 'ARI'],
       definition: 'Because clustering is unsupervised and operates without ground-truth labels, evaluation relies on intrinsic metrics assessing cluster geometry and extrinsic metrics benchmarking against reference labels.',
@@ -1349,8 +1348,8 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q6(a)', notes: 'Compare intrinsic vs extrinsic motivation / methods' },
-        { paper: 'Paper 6', questionNo: 'Q6(c)(ii)', marks: 4 }
+        { paper: 'April 2023', questionNo: 'Q6(a)', notes: 'Compare intrinsic vs extrinsic motivation / methods' },
+        { paper: 'In-Sem Exam', questionNo: 'Q6(c)(ii)', marks: 4 }
       ],
       syllabusTopics: ['Intrinsic Evaluation', 'Extrinsic Evaluation', 'Ground Truth', 'Validation'],
       definition: 'Intrinsic methods evaluate clustering quality internally through geometric cohesion and separation without reference labels; Extrinsic methods evaluate clustering externally by measuring agreement against known ground-truth benchmark classifications.',
@@ -1411,7 +1410,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q6(c)', marks: 6 }
+        { paper: 'April 2024', questionNo: 'Q6(c)', marks: 6 }
       ],
       syllabusTopics: ['Micro-Average', 'Macro-Average', 'Multiclass Evaluation'],
       definition: 'Micro-averaging aggregates individual true positives, false positives, and false negatives globally across all classes to compute a single pooled metric, giving equal weight to every individual sample.',

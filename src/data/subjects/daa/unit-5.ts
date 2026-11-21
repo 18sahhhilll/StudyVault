@@ -23,26 +23,10 @@ export const daaUnit5Data: Unit = {
     'Embedded Systems Case Study: Sorting Real-Time Sensor Stream (Patient Vital Signs) — In-Depth Justification for Insertion Sort'
   ],
   questionPaperIndex: [
-    {
-      paper: 'Paper 1 ([6004]-480A)',
-      qMain: 'Q5(a) Amortized Analysis: Aggregate & Potential Function Methods for Stack Operations (9M), Q5(b) Potential Method: Find Amortized Cost of PUSH, POP, MULTIPOP (9M)',
-      qOr: 'Q6(a) Short Notes: Aggregate, Accounting, Potential Method, Tractable/Intractable Problems (10M), Q6(b) Short Notes with Examples: Randomized Algorithm, Approximation Algorithm (8M)'
-    },
-    {
-      paper: 'Paper 2 ([6263]-81)',
-      qMain: 'Q5(a) Randomized Algorithms: Definition & Primary Reasons for Use (8M), Q5(b) Approximation Algorithms: Definition & Classification based on Ratio (9M)',
-      qOr: 'Q6(a) Methods of Amortized Analysis with Suitable Example (8M), Q6(b) Embedded System Case Study: Sorting Medical Patient Vital Signs Real-Time Sensor Stream (9M)'
-    },
-    {
-      paper: 'Paper 3 ([6181]-101)',
-      qMain: 'Q5(a) Amortized Analysis & Aggregate Method with Example (9M), Q5(b) Potential Function Method for PUSH, POP, MULTIPOP (9M)',
-      qOr: 'Q6(a) Embedded Algorithms Special Needs & Best Sorting Algorithm (6M), Q6(b) Explain Randomized & Approximate Algorithms (4M), Q6(c) Randomized Algorithm: Random Variable, Binomial & Math (8M)'
-    },
-    {
-      paper: 'Paper 4 ([6354]-485)',
-      qMain: 'Q5(a) Advantages & Disadvantages of Aggregate Analysis vs Accounting Method (8M), Q5(b) Approximation Algorithms & Classification by Approximation Ratio (9M)',
-      qOr: 'Q6(a) Potential Function Method for Binary Counter Analysis (8M), Q6(b) Comment on: Knapsack is NP-hard, SAT is NP-complete, MST is Tractable (9M)'
-    }
+    { paper: 'Nov 2024 ([6354]-485)', qMain: 'Q5(a) Average-Case vs Amortized Analysis (8M), Q5(b) Approximation Algorithms Classification (9M)', qOr: 'Q6(a) Potential Function for Binary Counter (8M), Q6(b) Analysis of Statements (Turing/Randomized) (9M)' },
+    { paper: 'April 2024 ([6263]-81)', qMain: 'Q5(a) Randomized Hiring Problem (8M), Q5(b) Vertex Cover Approximation (9M)', qOr: 'Q6(a) Amortized Analysis Aggregate Method (8M), Q6(b) Embedded Systems Architecture (9M)' },
+    { paper: 'Nov 2023 ([6181]-101)', qMain: 'Q5(a) Stack Multipop Amortized Analysis (9M), Q5(b) Potential Function Method (9M)', qOr: 'Q6(a) Embedded Algorithm Special Needs (6M), Q6(b) Randomized vs Approximate (4M), Q6(c) Randomized Algorithm Example (8M)' },
+    { paper: 'April 2023 ([6004]-480A)', qMain: 'Q5(a) Amortized Analysis Aggregate Method (9M), Q5(b) Potential Function Method (9M)', qOr: 'Q6(a) Amortized vs Average-Case Analysis (10M), Q6(b) Randomized & Approximation Algorithms (8M)' }
   ],
   quickRevision: {
     keyDefinitions: [
@@ -151,12 +135,11 @@ export const daaUnit5Data: Unit = {
       shortTitle: 'Amortized Analysis: Concept & The Three Methods',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q5(a)', marks: 9 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q6(a)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q5(a)', marks: 9 },
-        { paper: 'Decode / Textbook', questionNo: 'Q1, Q3, Q4', marks: 8 }
+        { paper: 'April 2024', questionNo: 'Q6(a)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q5(a)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q6(a)', marks: 10 }
       ],
       frequencyNote: 'The primary foundational theory question for Unit V appearing in all university papers.',
       syllabusTopics: [
@@ -242,12 +225,10 @@ export const daaUnit5Data: Unit = {
       title: 'Analyze the amortized cost of Stack operations (PUSH, POP, and MULTIPOP) using the Aggregate Analysis Method. Formulate the algorithms and prove the O(1) amortized bound.',
       shortTitle: 'Stack Operations Amortized Cost via Aggregate Analysis',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q5(a)', marks: 9 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q5(a)', marks: 9 },
-        { paper: 'Decode / Textbook', questionNo: 'Q4 / Section 5.1.1', marks: 8 }
+        { paper: 'Nov 2023', questionNo: 'Q5(a)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 1 Q5(a) [9 Marks] and Paper 3 Q5(a) [9 Marks].',
       syllabusTopics: [
@@ -329,13 +310,9 @@ export const daaUnit5Data: Unit = {
       title: 'Explain the Accounting Method of Amortized Analysis. Demonstrate its application to Stack operations with MULTIPOP by defining charges, credits, and proving the credit invariant.',
       shortTitle: 'Accounting Method for Stack Operations with MULTIPOP',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q6(a)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q5(a)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.1.2', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Standard examination question requiring clear credit assignment tables and invariant proofs.',
       syllabusTopics: [
         'Accounting Method Mechanism',
@@ -423,12 +400,11 @@ export const daaUnit5Data: Unit = {
       title: 'Explain the Potential Function Method of Amortized Analysis. Define potential energy Φ(D), derive the telescoping sum, and compute the amortized cost of PUSH, POP, and MULTIPOP stack operations.',
       shortTitle: 'Potential Function Method for Stack Operations',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q5(b)', marks: 9 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q5(b)', marks: 9 },
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q6(a)', marks: 10 }
+        { paper: 'Nov 2023', questionNo: 'Q5(b)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q5(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 1 Q5(b) [9 Marks] and Paper 3 Q5(b) [9 Marks].',
       syllabusTopics: [
@@ -538,11 +514,10 @@ export const daaUnit5Data: Unit = {
       title: 'Analyze the amortized cost of an INCREMENT operation on a k-bit Binary Counter using: i) Aggregate Analysis, ii) Accounting Method, and iii) Potential Function Method. Explain why the naive O(k) bound is loose.',
       shortTitle: 'Binary Counter Increment: Full Amortized Analysis (3 Methods)',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q6(a)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.1 / Example 2', marks: 8 }
+        { paper: 'Nov 2024', questionNo: 'Q6(a)', marks: 8 }
       ],
       frequencyNote: 'Directly related to Paper 4 Q6(a) and standard textbook curriculum.',
       syllabusTopics: [
@@ -675,11 +650,10 @@ export const daaUnit5Data: Unit = {
       title: 'Compare Average-Case Analysis with Amortized Analysis. Discuss the relative advantages and disadvantages of Aggregate Analysis, Accounting Method, and Potential Function Method.',
       shortTitle: 'Average-Case vs Amortized Analysis, and Method Trade-offs',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 3,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q5(a)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q2 / Review Questions', marks: 8 }
+        { paper: 'Nov 2024', questionNo: 'Q5(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 4 Q5(a) [8 Marks] requiring comparison of amortized methods.',
       syllabusTopics: [
@@ -764,11 +738,9 @@ export const daaUnit5Data: Unit = {
       title: 'Explain the concept of Time-Space Trade-off in algorithm design. Discuss Input Enhancement, Prestructuring, and Dynamic Programming with appropriate technical examples.',
       shortTitle: 'Time-Space Trade-off: Principles, Prestructuring & Examples',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.2 / Q6, Q7', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Standard curriculum question on engineering trade-offs between memory footprint and execution speed.',
       syllabusTopics: [
         'Time-Space Trade-off Concept',
@@ -832,13 +804,9 @@ export const daaUnit5Data: Unit = {
       title: 'Distinguish between Tractable and Intractable Problems. Provide formal definitions for the complexity classes P, NP, NP-Complete, and NP-Hard, and describe their interrelationships assuming P != NP.',
       shortTitle: 'Complexity Classes: Tractable/Intractable, P, NP, NP-C & NP-Hard',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q6(a)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q6(b)', marks: 9 },
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.3 / Q8', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Major recurring 8-10 mark question on computational complexity theory.',
       syllabusTopics: [
         'Tractable vs Intractable Problems',
@@ -945,10 +913,10 @@ export const daaUnit5Data: Unit = {
       title: 'Analyze and comment in detail on the following three statements: i) "The knapsack problem is NP-hard", ii) "Boolean Satisfiability Problem (SAT) is NP-complete", and iii) "Minimum spanning tree is a tractable problem".',
       shortTitle: 'Critical Analysis: Knapsack (NP-hard), SAT (NP-complete), MST (Tractable)',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q6(b)', marks: 9 }
+        { paper: 'Nov 2024', questionNo: 'Q6(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 4 Q6(b) [9 Marks] requiring in-depth technical justification for all three statements.',
       syllabusTopics: [
@@ -1015,12 +983,9 @@ export const daaUnit5Data: Unit = {
       title: 'Explain Cook’s Theorem and the Boolean Satisfiability (SAT / 3-SAT) Problem. Describe the reduction technique used to prove NP-Completeness of subsequent problems.',
       shortTitle: 'Cook’s Theorem, SAT/3-SAT & Polynomial Reduction Techniques',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q6(b) related', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.3', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Fundamental theoretical question on how the NP-completeness proof chain is initiated and propagated.',
       syllabusTopics: [
         'Cook’s Theorem Significance',
@@ -1086,10 +1051,12 @@ export const daaUnit5Data: Unit = {
       shortTitle: 'Randomized Algorithms: Principles & Mathematical Foundations',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q6(c)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.4 / Q9', marks: 8 }
+        { paper: 'April 2024', questionNo: 'Q5(a)', marks: 8 },
+        { paper: 'Nov 2023', questionNo: 'Q6(b)', marks: 4 },
+        { paper: 'Nov 2023', questionNo: 'Q6(c)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q6(b)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 3 Q6(c) [8 Marks] specifically demanding the mathematical formulation.',
       syllabusTopics: [
@@ -1158,14 +1125,9 @@ export const daaUnit5Data: Unit = {
       title: 'Differentiate between Las Vegas and Monte Carlo Randomized Algorithms. Provide classic examples of each and explain their error handling.',
       shortTitle: 'Las Vegas vs Monte Carlo Algorithms: Comparative Analysis',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q6(b)', marks: 8 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q5(a)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q6(b)', marks: 4 },
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.4 / Q9', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Directly asked across multiple papers as the core classification question for randomized algorithms.',
       syllabusTopics: [
         'Las Vegas vs Monte Carlo Classification',
@@ -1252,12 +1214,9 @@ export const daaUnit5Data: Unit = {
       title: 'Explain Randomized QuickSort. Present the RANDOMIZED-PARTITION algorithm, and derive its expected runtime of O(n log n), explaining how it eliminates the deterministic O(n²) worst-case input.',
       shortTitle: 'Randomized QuickSort: Algorithm, Partition & Expected Complexity',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q6(b)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.4.1 / Q10', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'The canonical Las Vegas algorithm example required in DAA exams.',
       syllabusTopics: [
         'Randomized QuickSort',
@@ -1366,11 +1325,9 @@ export const daaUnit5Data: Unit = {
       title: 'Describe the application of Randomized Algorithms to: i) Finding Duplicate Elements in an array, and ii) Primality Testing (Fermat and Miller-Rabin tests).',
       shortTitle: 'Randomized Applications: Duplicate Elements & Primality Testing',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.4.2 / Example 1, 2', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Standard curriculum applications demonstrating practical Las Vegas and Monte Carlo algorithms.',
       syllabusTopics: [
         'Randomized Duplicate Element Detection',
@@ -1446,14 +1403,9 @@ export const daaUnit5Data: Unit = {
       title: 'What are Approximation Algorithms? Explain their philosophy, define the Accuracy Ratio r(s_a) and Performance Ratio R_A, and explain why they are needed for NP-Hard problems.',
       shortTitle: 'Approximation Algorithms: Philosophy, Ratios & Metrics',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q6(b)', marks: 8 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q5(b)', marks: 9 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q6(b)', marks: 4 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q5(b)', marks: 9 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Directly asked across all papers as the primary definition and metric question for approximation algorithms.',
       syllabusTopics: [
         'Approximation Algorithms Philosophy',
@@ -1519,10 +1471,11 @@ export const daaUnit5Data: Unit = {
       shortTitle: 'Classification of Approximation Algorithms: Constant Factor, PTAS, FPTAS',
       marks: 9,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q5(b)', marks: 9 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q5(b)', marks: 9 }
+        { paper: 'Nov 2024', questionNo: 'Q5(b)', marks: 9 },
+        { paper: 'April 2024', questionNo: 'Q5(b)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q6(b)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q5(b) [9 Marks] and Paper 4 Q5(b) [9 Marks].',
       syllabusTopics: [
@@ -1601,11 +1554,9 @@ export const daaUnit5Data: Unit = {
       title: 'Explain Approximation Algorithms for the Traveling Salesperson Problem (TSP): i) Nearest Neighbor Heuristic, and ii) Twice-Around-the-Tree 2-Approximation Algorithm. Prove the 2-approximation bound using the Triangle Inequality.',
       shortTitle: 'TSP Approximation: Nearest Neighbor vs 2-Approximation Algorithm',
       marks: 10,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.5.1 / Q11', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'The fundamental approximation algorithm design and proof required in university algorithms courses.',
       syllabusTopics: [
         'Nearest Neighbor Heuristic for TSP',
@@ -1698,11 +1649,9 @@ export const daaUnit5Data: Unit = {
       title: 'Consider the 4-city TSP graph with vertices {A, B, C, D} and edge weights: AB=2, BC=3, CD=2, DA=7, AC=4, BD=4. Apply the Nearest Neighbor heuristic and find its accuracy ratio. Then apply the Twice-Around-the-Tree algorithm and compare results.',
       shortTitle: 'Solved Numerical: TSP Nearest-Neighbor vs 2-Approximation',
       marks: 9,
-      importance: 'Important',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Decode / Textbook', questionNo: 'Example 5.5.1 / 5.5.2', marks: 10 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Directly solves the complete numerical example from the textbook (pages 5-20 to 5-22).',
       syllabusTopics: [
         'Solved TSP Approximation Numerical',
@@ -1817,12 +1766,10 @@ export const daaUnit5Data: Unit = {
       title: 'Explain the principles of Embedded Systems Algorithms. Discuss characteristics, hardware constraints, and contrast Fixed Priority Scheduling with Dynamic Priority Scheduling using Queue architectures.',
       shortTitle: 'Embedded Algorithms: Constraints & Real-Time Task Scheduling',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q6(b)', marks: 9 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q6(a)', marks: 6 },
-        { paper: 'Decode / Textbook', questionNo: 'Section 5.6 / Q13, Q14', marks: 8 }
+        { paper: 'Nov 2023', questionNo: 'Q6(a)', marks: 6 }
       ],
       frequencyNote: 'Directly asked as Paper 3 Q6(a) [6M] and foundational for Paper 2 Q6(b).',
       syllabusTopics: [
@@ -1923,11 +1870,10 @@ export const daaUnit5Data: Unit = {
       title: 'Case Study: You are designing an embedded system for a medical device that continuously monitors patient vital signs (timestamps, heart rate, temperature, blood pressure) in real time. Suggest and rigorously justify the most suitable sorting algorithm for this scenario with respect to memory, stability, and responsiveness.',
       shortTitle: 'Embedded Case Study: Sorting Patient Vital Signs Sensor Stream',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q6(b)', marks: 9 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q6(a)', marks: 6 }
+        { paper: 'April 2024', questionNo: 'Q6(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q6(b) [9 Marks] and Paper 3 Q6(a) [6 Marks] as an applied system design problem.',
       syllabusTopics: [

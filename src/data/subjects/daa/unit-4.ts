@@ -21,26 +21,11 @@ export const daaUnit4Data: Unit = {
     'Comparative Analysis: Backtracking vs Branch and Bound, Greedy Method vs Dynamic Programming, Drawbacks of Branch and Bound'
   ],
   questionPaperIndex: [
-    {
-      paper: 'Paper 1 ([6004]-480A)',
-      qMain: 'Q3(a) Backtracking: Principle, Control Abstraction, Time Analysis (8M), Q3(b) Compare Greedy vs Dynamic Programming (Feasibility, Optimality, Recursion, Memorization, Complexity) (9M)',
-      qOr: 'Q4(a) Sum of Subsets Backtracking for S={2, 3, 5, 6, 8, 10}, sum=10 (8M), Q4(b) Branch and Bound Method & LC-Search Control Abstraction (9M)'
-    },
-    {
-      paper: 'Paper 2 ([6263]-81)',
-      qMain: 'Q3(a) Graph m-Coloring Backtracking Algorithm & Time Complexity (8M), Q3(b) 0/1 Knapsack LC Branch and Bound for 3 items m=7 (9M)',
-      qOr: 'Q4(a) Compare Backtracking with Branch and Bound (Search, Tree, Problem classes) (8M), Q4(b) Sum of Subsets for A={5, 10, 15, 20, 25}, sum=30 (9M)'
-    },
-    {
-      paper: 'Paper 3 ([6181]-101)',
-      qMain: 'Q3(a) Branch and Bound Strategy & TSP 4 Cities (9M), Q3(b) Backtracking Principle, Control Abstraction, Time Analysis (8M)',
-      qOr: 'Q4(a) Branch and Bound 0/1 Knapsack Algorithm & Instance m=15 kg (9M), Q4(b) Sum of Subsets Backtracking for S={2, 3, 5, 6, 8, 10}, sum=10 (8M)'
-    },
-    {
-      paper: 'Paper 4 ([6354]-485)',
-      qMain: 'Q3(a) Graph Coloring Backtracking for 7-Vertex Graph with R, G, B (8M), Q3(b) 0/1 Knapsack LC Branch and Bound for 3 items m=14 (9M)',
-      qOr: 'Q4(a) Traveling Salesperson 4 Cities A,B,C,D using Branch and Bound (8M), Q4(b) Short Note on LC Branch and Bound (5M), Q4(c) Drawbacks of Branch and Bound (4M)'
-    }
+    { paper: 'April 2025 ([6404]-81)', qMain: 'Q3(a) 3-Coloring 7-Vertex Graph (10M), Q3(b) Sum of Subsets State Space Tree Size (4M), Q3(c) Branch & Bound Drawbacks (4M)', qOr: 'Q4(a) Sum of Subsets Problem & Algorithm (8M), Q4(b) 0/1 Knapsack LC Branch & Bound (10M)' },
+    { paper: 'Nov 2024 ([6354]-485)', qMain: 'Q3(a) 3-Coloring 7-Vertex Graph (8M), Q3(b) 0/1 Knapsack LC Branch & Bound (9M)', qOr: 'Q4(a) TSP Branch & Bound 4 Cities (8M), Q4(b) LC Branch & Bound Method (5M), Q4(c) Branch & Bound Drawbacks (4M)' },
+    { paper: 'April 2024 ([6263]-81)', qMain: 'Q3(a) 4-Queens Problem (8M), Q3(b) 0/1 Knapsack LC Branch & Bound (9M)', qOr: 'Q4(a) Backtracking vs Branch & Bound (8M), Q4(b) Graph Coloring Problem (9M)' },
+    { paper: 'Nov 2023 ([6181]-101)', qMain: 'Q3(a) TSP Branch & Bound 4 Cities (9M), Q3(b) Backtracking Principle & 8-Queens (8M)', qOr: 'Q4(a) 0/1 Knapsack LC Branch & Bound (9M), Q4(b) Sum of Subsets Problem n=4 (8M)' },
+    { paper: 'April 2023 ([6004]-480A)', qMain: 'Q3(a) Backtracking Principle & 8-Queens (8M), Q3(b) Greedy vs Dynamic Programming (9M)', qOr: 'Q4(a) Sum of Subsets Problem n=4 (8M), Q4(b) Branch & Bound Control Abstraction (9M)' }
   ],
   quickRevision: {
     keyDefinitions: [
@@ -140,12 +125,11 @@ export const daaUnit4Data: Unit = {
       title: 'Explain with suitable examples the Principle of Backtracking. Distinguish between Explicit and Implicit Constraints, and define Live Node, E-Node, Dead Node, and Bounding Functions.',
       shortTitle: 'Backtracking Principle, Constraints & Terminology',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q3(a)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q3(b)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q1, Q2, Q4', marks: 8 }
+        { paper: 'Nov 2023', questionNo: 'Q3(b)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q3(a)', marks: 8 }
       ],
       frequencyNote: 'Asked in almost every semester examination paper as the fundamental theory question for Unit IV.',
       syllabusTopics: [
@@ -258,13 +242,9 @@ export const daaUnit4Data: Unit = {
       title: 'Write both Recursive and Iterative Control Abstractions for the Backtracking algorithmic technique. Provide a detailed time and efficiency analysis.',
       shortTitle: 'Backtracking Control Abstraction & Efficiency Analysis',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q3(a)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q3(b)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q6, Q7', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Standard 8-mark question requiring clean pseudocode schemas and mathematical breakdown of complexity factors.',
       syllabusTopics: [
         'Control Abstraction for Backtracking',
@@ -369,12 +349,9 @@ export const daaUnit4Data: Unit = {
       title: 'Compare Greedy Method and Dynamic Programming with respect to: i) Feasibility, ii) Optimality, iii) Recursion, iv) Memorization, and v) Time Complexity.',
       shortTitle: 'Comparison: Greedy Method vs Dynamic Programming',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q3(b)', marks: 9 },
-        { paper: 'Decode / Textbook', questionNo: 'Q2.8 / Review', marks: 9 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Directly asked as Paper 1 Q3(b) with the 5 explicit comparison parameters enumerated in the university paper.',
       syllabusTopics: [
         'Greedy Method vs Dynamic Programming',
@@ -446,12 +423,9 @@ export const daaUnit4Data: Unit = {
       title: 'Formulate the n-Queens Problem. Derive the mathematical conditions for column and diagonal non-attacking constraints. Present the complete recursive algorithm.',
       shortTitle: 'The n-Queens Problem: Formulation, Math & Algorithm',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q3(a) related', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q9, Q10', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Fundamental backtracking benchmark asked frequently with mathematical modeling and pseudocode expectations.',
       syllabusTopics: [
         'n-Queens Problem Formulation',
@@ -565,12 +539,9 @@ export const daaUnit4Data: Unit = {
       title: 'Walk through the 4-Queens Problem using Backtracking. Construct its full State-Space Tree and derive both valid solutions.',
       shortTitle: '4-Queens Problem: State-Space Tree Walkthrough',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Unit IV Choice', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q11, Q12', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Universally required solved problem in university exams showing step-by-step backtracking decisions.',
       syllabusTopics: [
         '4-Queens State Space Tree',
@@ -707,11 +678,9 @@ export const daaUnit4Data: Unit = {
       title: 'Analyze the 8-Queens Problem. For the given partial feasible sequence (7, 5, 3, 1), trace the remaining queen placements using backtracking until a complete solution is obtained.',
       shortTitle: '8-Queens: Feasible Sequence (7, 5, 3, 1) Backtracking Trace',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Decode / Textbook', questionNo: 'Q13 / Example 4.4.3', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Common university exam problem testing understanding of deep backtracking tree search on 8x8 boards.',
       syllabusTopics: [
         '8-Queens Problem',
@@ -826,12 +795,10 @@ export const daaUnit4Data: Unit = {
       title: 'Explain the Graph m-Coloring Problem with respect to Backtracking. Write the NextValue (Gen_Col_Value) and recursive mColoring algorithms, and analyze their time complexity.',
       shortTitle: 'Graph m-Coloring: Problem, Algorithms & Complexity',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q3(a)', marks: 8 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q3(a)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q15, Q16', marks: 8 }
+        { paper: 'April 2024', questionNo: 'Q3(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q3(a) [8 Marks] and Paper 4 Q3(a) [8 Marks].',
       syllabusTopics: [
@@ -952,11 +919,11 @@ export const daaUnit4Data: Unit = {
       title: 'Consider a 7-vertex graph represented by the adjacency matrix below. Use a recursive backtracking algorithm to color this graph with three colors (Red, Green, Blue). Trace the complete step-by-step solution.',
       shortTitle: 'Solved Problem: 7-Vertex Graph 3-Coloring Backtracking',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q3(a)', marks: 8 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q3(a) related', marks: 8 }
+        { paper: 'April 2025', questionNo: 'Q3(a)', marks: 10 },
+        { paper: 'Nov 2024', questionNo: 'Q3(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 4 Q3(a) with the exact 7x7 adjacency matrix.',
       syllabusTopics: [
@@ -1088,12 +1055,11 @@ export const daaUnit4Data: Unit = {
       title: 'Formulate the Sum of Subsets Problem. Explain its Recursive Backtracking Algorithm, and establish the two crucial pruning bounds used to truncate the state-space tree.',
       shortTitle: 'Sum of Subsets: Formulation, Algorithm & Pruning Bounds',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q4(a)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q4(b)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q18', marks: 8 }
+        { paper: 'April 2025', questionNo: 'Q3(b)', marks: 4 },
+        { paper: 'April 2025', questionNo: 'Q4(a)', marks: 8 }
       ],
       frequencyNote: 'Consistently appears across examination papers in Q4 as an 8-mark core problem.',
       syllabusTopics: [
@@ -1197,11 +1163,11 @@ export const daaUnit4Data: Unit = {
       title: 'Solve the Sum of Subsets Problem using Backtracking for the instance: set S = {2, 3, 5, 6, 8, 10} and target sum M = 10. Draw the state space tree and enumerate all solutions.',
       shortTitle: 'Solved Numerical: Sum of Subsets for S={2,3,5,6,8,10}, M=10',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q4(a)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q4(b)', marks: 8 }
+        { paper: 'Nov 2023', questionNo: 'Q4(b)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q4(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked with the exact same numbers in Paper 1 Q4(a) [8M] and Paper 3 Q4(b) [8M].',
       syllabusTopics: [
@@ -1320,10 +1286,10 @@ export const daaUnit4Data: Unit = {
       title: 'Consider set A of five numbers {5, 10, 15, 20, 25}. Solve this problem to find the first solution such that the sum is equal to 30 using backtracking approach. Show the state-space tree being created.',
       shortTitle: 'Solved Numerical: Sum of Subsets for A={5,10,15,20,25}, M=30',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q4(b)', marks: 9 }
+        { paper: 'April 2024', questionNo: 'Q4(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q4(b) [9 Marks] requiring state space tree and identification of the first solution.',
       syllabusTopics: [
@@ -1440,11 +1406,9 @@ export const daaUnit4Data: Unit = {
       title: 'Analyze the impact of element ordering on the Sum of Subsets Problem. Compare non-decreasing, non-increasing, and unsorted sequences with respect to pruning efficiency and computing time.',
       shortTitle: 'Sum of Subsets: Element Ordering & Pruning Efficiency Analysis',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'Decode / Textbook', questionNo: 'Q19 / Example 4.6.3', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Advanced conceptual question illustrating why sorting is a strict mathematical prerequisite for bounding functions.',
       syllabusTopics: [
         'Ordering of Elements in Sum of Subsets',
@@ -1515,14 +1479,9 @@ export const daaUnit4Data: Unit = {
       title: 'Explain the Principle of the Branch and Bound Method. Contrast it with Backtracking and describe how Lower Bounds, Upper Bounds, and Bounding Functions guide the search.',
       shortTitle: 'Branch and Bound Principle, Bounds & Pruning Mechanics',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q4(b)', marks: 9 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q3(a)', marks: 9 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q4(b)', marks: 5 },
-        { paper: 'Decode / Textbook', questionNo: 'Q20, Q24', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'The foundational question for Part II (Branch and Bound) in Unit IV across all exam papers.',
       syllabusTopics: [
         'Branch and Bound Principle',
@@ -1615,13 +1574,9 @@ export const daaUnit4Data: Unit = {
       title: 'Explain the three Exploration Strategies in Branch and Bound: FIFO, LIFO, and Least-Cost (LC) Search. Contrast their data structures, node selection policies, and search efficiencies.',
       shortTitle: 'Branch and Bound Strategies: FIFO vs LIFO vs LC Search',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q4(b)', marks: 9 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q4(b)', marks: 5 },
-        { paper: 'Decode / Textbook', questionNo: 'Q21, Q23', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Common 8-mark question comparing queue-based, stack-based, and heap-based search strategies.',
       syllabusTopics: [
         'FIFO Branch and Bound',
@@ -1708,12 +1663,11 @@ export const daaUnit4Data: Unit = {
       title: 'Present the complete Control Abstraction for Least-Cost Search (LC-Search / LCBB). Describe the functions Least_Cost(), Add_Node(), and explain the upper bound updating mechanism.',
       shortTitle: 'Control Abstraction for Least-Cost Search (LCBB)',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q4(b)', marks: 9 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q4(b)', marks: 5 },
-        { paper: 'Decode / Textbook', questionNo: 'Q21 / Section 4.9', marks: 8 }
+        { paper: 'Nov 2024', questionNo: 'Q4(b)', marks: 5 },
+        { paper: 'April 2023', questionNo: 'Q4(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 1 Q4(b) [9 Marks] as the primary control abstraction for Branch and Bound.',
       syllabusTopics: [
@@ -1816,13 +1770,9 @@ export const daaUnit4Data: Unit = {
       title: 'Explain the Reduced Matrix Method for solving the Traveling Salesperson Problem (TSP) using LC Branch and Bound. Derive the formulas for Row Minimization, Column Minimization, and Child Node Cost Calculation.',
       shortTitle: 'TSP using LCBB: Reduced Matrix Method & Bounding Formulas',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q3(a)', marks: 9 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q4(a)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q25 / Section 4.11', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Consistently appears as the 8 to 9-mark numerical/theory question for Branch and Bound in university exams.',
       syllabusTopics: [
         'Traveling Salesperson Problem (TSP)',
@@ -1912,11 +1862,11 @@ export const daaUnit4Data: Unit = {
       title: 'A salesman needs to visit four cities (A, B, C, D) and return to city A. The distances are: AB=10, AC=15, AD=20, BC=35, BD=25, CD=30. Find the shortest tour using Branch and Bound (LCBB). Trace all matrices and lower bounds.',
       shortTitle: 'Solved Numerical: 4-City TSP using LCBB (AB=10, AC=15, AD=20...)',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q4(a)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q3(a)', marks: 9 }
+        { paper: 'Nov 2024', questionNo: 'Q4(a)', marks: 8 },
+        { paper: 'Nov 2023', questionNo: 'Q3(a)', marks: 9 }
       ],
       frequencyNote: 'Directly asked with the identical graph/matrix in Paper 4 Q4(a) [8M] and Paper 3 Q3(a) [9M].',
       syllabusTopics: [
@@ -2057,14 +2007,9 @@ export const daaUnit4Data: Unit = {
       title: 'Explain the 0/1 Knapsack Problem using LC Branch and Bound. Formulate the bounding functions c^(x) and u(x) using the continuous fractional knapsack heuristic, and explain node pruning.',
       shortTitle: '0/1 Knapsack using LCBB: Formulations & Bounding Functions',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q3(b)', marks: 9 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q4(a)', marks: 9 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q3(b)', marks: 9 },
-        { paper: 'Decode / Textbook', questionNo: 'Q26 / Section 4.12', marks: 10 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Consistently appears across Paper 2, Paper 3, and Paper 4 as a major 9-mark problem.',
       syllabusTopics: [
         '0/1 Knapsack using LCBB',
@@ -2154,8 +2099,10 @@ export const daaUnit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q3(b)', marks: 9 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q3(b)', marks: 9 }
+        { paper: 'April 2025', questionNo: 'Q4(b)', marks: 10 },
+        { paper: 'Nov 2024', questionNo: 'Q3(b)', marks: 9 },
+        { paper: 'April 2024', questionNo: 'Q3(b)', marks: 9 },
+        { paper: 'Nov 2023', questionNo: 'Q4(a)', marks: 9 }
       ],
       frequencyNote: 'Directly solves the exact 3-item numericals from Paper 2 Q3(b) [9M] and Paper 4 Q3(b) [9M].',
       syllabusTopics: [
@@ -2283,11 +2230,11 @@ export const daaUnit4Data: Unit = {
       shortTitle: 'Backtracking vs Branch & Bound, and Limitations of B&B',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q4(a)', marks: 8 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q4(c)', marks: 4 },
-        { paper: 'Decode / Textbook', questionNo: 'Q27 / Section 4.13', marks: 8 }
+        { paper: 'April 2025', questionNo: 'Q3(c)', marks: 4 },
+        { paper: 'Nov 2024', questionNo: 'Q4(c)', marks: 4 },
+        { paper: 'April 2024', questionNo: 'Q4(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q4(a) [8M] and Paper 4 Q4(c) [4M].',
       syllabusTopics: [

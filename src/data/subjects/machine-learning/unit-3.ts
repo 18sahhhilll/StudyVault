@@ -16,12 +16,11 @@ export const unit3Data: Unit = {
     'Evaluation Metrics: MAE, MSE, RMSE, R² and Adjusted R²'
   ],
   questionPaperIndex: [
-    { paper: 'Paper 1', qMain: '(a) → Q1, (b) → Q3, (c) → Q5', qOr: '(a) → Q13, (b) → Q8, (c) → Q16' },
-    { paper: 'Paper 2', qMain: '(a) → Q2, (b) → Q4, (c) → Q17', qOr: '(a) → Q14, (b) → Q12, (c) → Q11' },
-    { paper: 'Paper 3', qMain: '(a) → Q9, (b) → Q2, (c) → Q7', qOr: '(a) → Q15, (b) → Q12, (c) → Q11' },
-    { paper: 'Paper 4', qMain: '(a) → Q6 (+Q3), (b) → Q8, (c) → Q10', qOr: '(a) → Q1, (b) → Q14, (c) → Q10' },
-    { paper: 'Paper 5', qMain: '(a) → Q3, (b) → Q18, (c) → Q7', qOr: '(a) → Q1 + Q8, (b) → Q14' },
-    { paper: 'Paper 6', qMain: '(a) → Q4, (b) → Q19, (c) → Q14', qOr: '(a) → Q8, (b) → Q7, (c) → Q13' },
+    { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q3, (b) → Q18, (c) → Q7', qOr: '(a) → Q1 + Q8, (b) → Q14' },
+    { paper: 'May 2024 ([6404]-82)', qMain: '(a) → Q9, (b) → Q2, (c) → Q7', qOr: '(a) → Q15, (b) → Q12, (c) → Q11' },
+    { paper: 'April 2024 ([6263]-82)', qMain: '(a) → Q2, (b) → Q4, (c) → Q17', qOr: '(a) → Q14, (b) → Q12, (c) → Q11' },
+    { paper: 'Nov 2023 ([6181]-102)', qMain: '(a) → Q6 (+Q3), (b) → Q8, (c) → Q10', qOr: '(a) → Q1, (b) → Q14, (c) → Q10' },
+    { paper: 'April 2023 ([6004]-481)', qMain: '(a) → Q1, (b) → Q3, (c) → Q5', qOr: '(a) → Q13, (b) → Q8, (c) → Q16' }
   ],
   quickRevision: {
     keyDefinitions: [
@@ -71,9 +70,9 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q1(a)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q2(a)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q2(a)', notes: 'First part; Ridge part covered in Q8' }
+        { paper: 'Nov 2024', questionNo: 'Q2(a)', notes: 'First part; Ridge part covered in Q8' },
+        { paper: 'Nov 2023', questionNo: 'Q2(a)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q1(a)', marks: 6 }
       ],
       syllabusTopics: ['Regression', 'Linear Regression', 'Least Squares'],
       definition: 'Linear Regression is a supervised Machine Learning algorithm used to predict a continuous numerical value by establishing a linear relationship between dependent and independent variables.',
@@ -167,8 +166,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q1(a)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q1(b)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q1(b)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q1(a)', marks: 6 }
       ],
       syllabusTopics: ['Regression Models', 'Polynomial Regression', 'Ridge', 'Lasso', 'Logistic Regression'],
       definition: 'Regression models are supervised learning algorithms used to establish mathematical relationships between input predictor variables and a continuous target variable.',
@@ -257,9 +256,9 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q1(b)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q1(a)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q1(a)(iii)', marks: 4 }
+        { paper: 'Nov 2024', questionNo: 'Q1(a)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q1(a)(iii)', marks: 4 },
+        { paper: 'April 2023', questionNo: 'Q1(b)', marks: 6 }
       ],
       syllabusTopics: ['Overfitting', 'Underfitting', 'Model Generalization', 'Bias-Variance'],
       definition: 'Underfitting occurs when a model is excessively simple and fails to capture underlying patterns, whereas Overfitting occurs when a model is excessively complex and memorizes training noise at the expense of generalization.',
@@ -346,8 +345,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q1(b)', notes: 'Focused on underfitting' },
-        { paper: 'Paper 6', questionNo: 'Q1(a)', notes: 'Comprehensive both' }
+        { paper: 'April 2024', questionNo: 'Q1(b)', notes: 'Focused on underfitting' },
+        { paper: 'In-Sem Exam', questionNo: 'Q1(a)', notes: 'Comprehensive both' }
       ],
       syllabusTopics: ['Regularization', 'Cross-Validation', 'Early Stopping', 'Feature Engineering'],
       definition: 'Remediation techniques for underfitting and overfitting are reciprocal strategies designed to adjust model complexity, capacity, and regularization constraints toward minimal generalization error.',
@@ -425,7 +424,7 @@ export const unit3Data: Unit = {
       importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q1(c)', marks: 4 }
+        { paper: 'April 2023', questionNo: 'Q1(c)', marks: 4 }
       ],
       syllabusTopics: ['Training Error', 'Generalization Error', 'Generalization Gap'],
       definition: 'Training error is the discrepancy between predicted and actual targets computed on the dataset used for model parameter fitting, whereas Generalization error (test error) is the expected error on previously unseen data drawn from the same underlying distribution.',
@@ -502,7 +501,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q1(a)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q1(a)', marks: 6 }
       ],
       syllabusTopics: ['Bias', 'Variance', 'Underfitting', 'Overfitting'],
       definition: 'Bias is the systematic error stemming from erroneous or overly simplified modeling assumptions; Variance is the sensitivity of predictions to fluctuations and perturbations in the training dataset.',
@@ -576,9 +575,9 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 3', questionNo: 'Q1(c)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q1(c)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q2(b)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q1(c)', marks: 6 },
+        { paper: 'May 2024', questionNo: 'Q1(c)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q2(b)', marks: 6 }
       ],
       syllabusTopics: ['Bias-Variance Tradeoff', 'Error Decomposition', 'Optimal Model Complexity'],
       definition: 'The Bias-Variance Trade-off is the foundational machine learning dilemma where decreasing bias by increasing model complexity inevitably inflates variance, and vice versa; total expected error is minimized only at an intermediate optimal complexity.',
@@ -649,10 +648,10 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q2(a)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q1(b)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q2(a)', notes: 'Second part (Ridge)' }
+        { paper: 'Nov 2024', questionNo: 'Q2(a)', notes: 'Second part (Ridge)' },
+        { paper: 'Nov 2023', questionNo: 'Q1(b)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q2(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q2(a)', marks: 6 }
       ],
       syllabusTopics: ['Lasso Regression', 'Ridge Regression', 'L1 Regularization', 'L2 Regularization', 'Feature Selection'],
       definition: 'Ridge Regression (L2) and Lasso Regression (L1) are regularization techniques that prevent overfitting in linear models by adding a penalty on large weights.',
@@ -763,7 +762,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 3', questionNo: 'Q1(a)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q1(a)', marks: 6 }
       ],
       syllabusTopics: ['Lasso Regression', 'Feature Selection', 'L1 Penalty', 'Sparsity'],
       definition: 'Lasso (Least Absolute Shrinkage and Selection Operator) is an L1-regularized regression technique that produces sparse models by driving coefficients of redundant features to zero, thus acting as an embedded feature selector.',
@@ -820,8 +819,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q1(c)', notes: 'Explain with example' },
-        { paper: 'Paper 4', questionNo: 'Q2(c)', notes: 'What is GD + Compare Batch and SGD' }
+        { paper: 'Nov 2023', questionNo: 'Q1(c)', notes: 'Explain with example' },
+        { paper: 'Nov 2023', questionNo: 'Q2(c)', notes: 'What is GD + Compare Batch and SGD' }
       ],
       syllabusTopics: ['Gradient Descent', 'Optimization', 'Batch GD', 'Stochastic GD', 'Learning Rate'],
       definition: 'Gradient Descent is a first-order iterative optimization algorithm used to find the local minimum of a differentiable cost function by taking successive steps proportional to the negative of the gradient.',
@@ -926,8 +925,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q2(c)', marks: 4 },
-        { paper: 'Paper 3', questionNo: 'Q2(c)', marks: 4 }
+        { paper: 'May 2024', questionNo: 'Q2(c)', marks: 4 },
+        { paper: 'April 2024', questionNo: 'Q2(c)', marks: 4 }
       ],
       syllabusTopics: ['Stochastic Gradient Descent', 'Online Learning', 'Learning Rate Scheduling'],
       definition: 'Stochastic Gradient Descent (SGD) is an optimization variant where parameters are updated incrementally using the loss gradient computed from only a single randomly selected training instance at each iteration.',
@@ -993,8 +992,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q2(b)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q2(b)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q2(b)', marks: 6 }
       ],
       syllabusTopics: ['Least Squares', 'Normal Equations', 'Residuals', 'SSE'],
       definition: 'The Least Squares Method is an analytical mathematical technique that determines the optimal line of best fit by minimizing the Sum of Squared Residuals (SSE) between observed data points and predicted values.',
@@ -1063,8 +1062,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q2(a)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q2(c)', marks: 6 }
+        { paper: 'April 2023', questionNo: 'Q2(a)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q2(c)', marks: 6 }
       ],
       syllabusTopics: ['Evaluation Metrics', 'MAE', 'MSE', 'RMSE', 'R2'],
       definition: 'Evaluation metrics are quantitative statistical measures used to assess prediction accuracy, compare alternative modeling approaches, monitor convergence during optimization, and validate generalization capabilities.',
@@ -1131,10 +1130,10 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'Paper 6', questionNo: 'Q1(c)', marks: 6 },
-        { paper: 'Paper 2', questionNo: 'Q2(a)', notes: 'Specifically focused on R²' }
+        { paper: 'Nov 2024', questionNo: 'Q2(b)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q2(a)', notes: 'Specifically focused on R²' },
+        { paper: 'Nov 2023', questionNo: 'Q2(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q1(c)', marks: 6 }
       ],
       syllabusTopics: ['MAE', 'MSE', 'RMSE', 'R-Squared', 'Adjusted R2'],
       definition: 'In Machine Learning, MAE, RMSE and R² are evaluation metrics used to measure the performance of a regression model. They tell us how accurately a model predicts values and how close predictions are to actual target observations.',
@@ -1280,7 +1279,7 @@ export const unit3Data: Unit = {
       importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 3', questionNo: 'Q2(a)', marks: 4 }
+        { paper: 'May 2024', questionNo: 'Q2(a)', marks: 4 }
       ],
       syllabusTopics: ['RMSE', 'MSE', 'Evaluation Comparison'],
       definition: 'Root Mean Squared Error (RMSE = √MSE) provides key interpretability advantages over Mean Squared Error by scaling error units back to the original measurement scale of the target variable.',
@@ -1347,7 +1346,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q2(c)', marks: 6 }
+        { paper: 'April 2023', questionNo: 'Q2(c)', marks: 6 }
       ],
       syllabusTopics: ['Least Squares Numerical', 'Slope and Intercept', 'Linear Extrapolation'],
       definition: 'Application of least squares normal equations to derive a linear cost model from empirical RAM capacity data and predict future hardware pricing.',
@@ -1500,7 +1499,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q1(c)', marks: 6 }
+        { paper: 'April 2024', questionNo: 'Q1(c)', marks: 6 }
       ],
       syllabusTopics: ['Least Squares Numerical', 'Forecasting', 'Time Series Regression'],
       definition: 'Using linear least squares regression to determine expenditure trend over 5 consecutive months and forecast the 6th month expenditure.',
@@ -1649,7 +1648,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 5', questionNo: 'Q1(b)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q1(b)', marks: 6 }
       ],
       syllabusTopics: ['Least Squares Numerical', 'Nutritional Modeling', 'Prediction'],
       definition: 'Linear regression analysis fitting carbohydrates content against total calories to estimate calorie count for arbitrary carbohydrate amounts.',
@@ -1717,7 +1716,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 6', questionNo: 'Q1(b)', marks: 6 }
+        { paper: 'In-Sem Exam', questionNo: 'Q1(b)', marks: 6 }
       ],
       syllabusTopics: ['Least Squares Numerical', 'Line of Best Fit'],
       definition: 'Complete derivation of the standard least-squares regression line for basic sequential integer inputs.',

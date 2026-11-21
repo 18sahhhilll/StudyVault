@@ -20,10 +20,11 @@ export const daaUnit3Data: Unit = {
     'Exhaustive Comparison: Greedy Method vs Dynamic Programming Strategy'
   ],
   questionPaperIndex: [
-    { paper: 'Paper 1 ([6004]-480A)', qMain: 'Q1(a) 0/1 Knapsack DP (10M), Q1(b) Job Sequencing Greedy (8M)', qOr: 'Q2(a) Job Sequencing Examples (8M), Q2(b) OBST DP (10M)' },
-    { paper: 'Paper 2 ([6263]-81)', qMain: 'Q1(a) Greedy Control Abstraction (6M), Q1(b) Knapsack Greedy 5 Objects (8M), Q1(c) Principle of Optimality (4M)', qOr: 'Q2(a) DP Control Abstraction (8M), Q2(b) Matrix Chain Multiplication 4 Matrices (10M)' },
-    { paper: 'Paper 3 ([6404]-81 / [6181]-101)', qMain: 'Q1(a) Knapsack Formulations (8M), Q1(b) Activity Selection (9M) | P-6551: Q1(a) Job Sequencing (9M), Q1(b) Knapsack DP (9M)', qOr: 'Q2(a) Principle of Optimality (7M), Q2(b) 0/1 Knapsack DP W=7 (10M) | P-6551: Q2(a) Job Scheduling (12M), Q2(b) Steps (6M)' },
-    { paper: 'Paper 4 ([6354]-485)', qMain: 'Q1(a) Task Scheduling with Penalties (8M), Q1(b) Knapsack Greedy W=15 (8M), Q1(c) Optimal Substructure (2M)', qOr: 'Q2(a) MCM 5 Matrices (10M), Q2(b) Knapsack DP Weakness (4M), Q2(c) Control Abstraction Uses (4M)' }
+    { paper: 'April 2025 ([6404]-81)', qMain: 'Q1(a) Knapsack Mathematical Formulations (8M), Q1(b) Activity Selection (9M)', qOr: 'Q2(a) Principle of Optimality (7M), Q2(b) 0/1 Knapsack DP W=7 (10M)' },
+    { paper: 'Nov 2024 ([6354]-485)', qMain: 'Q1(a) Unit-Time Task Scheduling (8M), Q1(b) Knapsack Greedy W=15 (8M), Q1(c) Optimal Substructure (2M)', qOr: 'Q2(a) MCM 5 Matrices (10M), Q2(b) Dynamic Programming Suitability (4M), Q2(c) Greedy Control Abstraction Uses (4M)' },
+    { paper: 'April 2024 ([6263]-81)', qMain: 'Q1(a) Greedy Control Abstraction (6M), Q1(b) Knapsack Greedy 5 Objects (8M), Q1(c) Dynamic Programming Principle (4M)', qOr: 'Q2(a) Dynamic Programming Approach (8M), Q2(b) Matrix Chain Multiplication 4 Matrices (10M)' },
+    { paper: 'Nov 2023 ([6181]-101)', qMain: 'Q1(a) Job Sequencing High-Level Description (9M), Q1(b) 0/1 Knapsack DP Instance (9M)', qOr: 'Q2(a) Job Scheduling Algorithm (12M), Q2(b) Greedy Approach Steps (6M)' },
+    { paper: 'April 2023 ([6004]-480A)', qMain: 'Q1(a) 0/1 Knapsack DP Instance (10M), Q1(b) Job Scheduling Greedy (8M)', qOr: 'Q2(a) Greedy Job Sequencing (8M), Q2(b) OBST Dynamic Programming (10M)' }
   ],
   quickRevision: {
     keyDefinitions: [
@@ -65,12 +66,11 @@ export const daaUnit3Data: Unit = {
       title: 'Explain the Greedy Algorithmic Strategy. Write its General Control Abstraction and Analyze its Time Complexity',
       shortTitle: 'Greedy Method: Principle, Control Abstraction & Complexity',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q1(a)', marks: 6 },
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q1(b)', marks: 8 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q2(c)', marks: 4 }
+        { paper: 'Nov 2024', questionNo: 'Q2(c)', marks: 4 },
+        { paper: 'April 2024', questionNo: 'Q1(a)', marks: 6 }
       ],
       syllabusTopics: ['Greedy Strategy Principle', 'Control Abstraction', 'Time Complexity Analysis', 'Feasibility and Optimality'],
       definition: 'A greedy algorithm is an algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most immediate and obvious benefit (locally optimal choice), with the expectation that this will lead to a globally optimal solution.',
@@ -169,11 +169,10 @@ export const daaUnit3Data: Unit = {
       title: 'Give the Mathematical Formulation for: (i) Fractional Knapsack Problem, and (ii) 0/1 Knapsack Problem. Why Does the Greedy Strategy Fail for 0/1 Knapsack?',
       shortTitle: 'Knapsack Formulations: Fractional vs 0/1 & Greedy Limitations',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 3 ([6404]-81)', questionNo: 'Q1(a)', marks: 8 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q1(b)', marks: 8 }
+        { paper: 'April 2025', questionNo: 'Q1(a)', marks: 8 }
       ],
       syllabusTopics: ['Mathematical Knapsack Formulation', 'Fractional vs 0/1 Constraints', 'Greedy Ratio Strategy', 'Greedy Failure in 0/1'],
       definition: 'The Knapsack problem is a combinatorial optimization challenge where given a set of n items, each with a weight w_i and profit p_i, and a knapsack of capacity W, the goal is to determine the subset of items to pack to maximize total profit without exceeding W.',
@@ -255,10 +254,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Find an Optimal Solution for the Following Knapsack Instance Using Greedy Method. Number of Objects n = 5, Capacity of Knapsack m = 100',
       shortTitle: 'Solved Numerical: Fractional Knapsack (5 Objects, m = 100)',
       marks: 8,
-      importance: 'Frequently Asked',
+      importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q1(b)', marks: 8 }
+        { paper: 'April 2024', questionNo: 'Q1(b)', marks: 8 }
       ],
       syllabusTopics: ['Greedy Knapsack Numerical', 'Ratio Sorting', 'Capacity Exhaustion', 'Evaluation of 3 Strategies'],
       definition: 'Complete step-by-step determination of knapsack filling under three distinct greedy heuristics: Maximum Profit, Minimum Weight, and Maximum Profit/Weight Ratio.',
@@ -390,10 +389,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Suppose We Have a Knapsack with Maximum Capacity of 15 Units and 4 Items: O₁(8, 10), O₂(6, 8), O₃(4, 3), O₄(2, 4). Maximize Total Value Using Greedy Strategy',
       shortTitle: 'Solved Numerical: Fractional Knapsack (W = 15, 4 Items)',
       marks: 8,
-      importance: 'Important',
+      importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q1(b)', marks: 8 }
+        { paper: 'Nov 2024', questionNo: 'Q1(b)', marks: 8 }
       ],
       syllabusTopics: ['Fractional Knapsack', 'Greedy Ratio Strategy', 'Fractional Item Breakage'],
       definition: 'Application of the greedy profit-to-weight ratio heuristic to an instance of 4 objects with fractional allocation to maximize total value within capacity 15.',
@@ -505,13 +504,10 @@ export const daaUnit3Data: Unit = {
       title: 'What is Job Sequencing with Deadlines? Explain its Principle, Greedy Control Abstraction, Time Analysis, and Algorithm Steps',
       shortTitle: 'Job Sequencing with Deadlines: Algorithm & Complexity',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q1(b)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q2(a)', marks: 12 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q2(a)', marks: 8 }
+        { paper: 'Nov 2023', questionNo: 'Q2(b)', marks: 6 }
       ],
       syllabusTopics: ['Job Sequencing Principle', 'Greedy Choice on Profits', 'Control Abstraction', 'Time Complexity O(n²) vs O(n log n)'],
       definition: 'Job Sequencing with Deadlines is an optimization problem where n jobs, each requiring 1 unit of CPU time and associated with a deadline d_i and profit p_i, must be scheduled on a single processor such that at most one job executes at any time and total earned profit is maximized.',
@@ -612,12 +608,11 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Job Scheduling Algorithm Using Greedy Approach for Jobs J₁..J₅ with Deadlines D=[2, 1, 3, 2, 1] and Profits P=[60, 100, 20, 40, 20]. Determine Optimal Sequence and Maximum Profit',
       shortTitle: 'Solved Numerical: Job Scheduling (5 Jobs: P=60,100,20,40,20)',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q1(b)', marks: 8 },
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q2(a)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q2(a)', marks: 12 }
+        { paper: 'Nov 2023', questionNo: 'Q2(a)', marks: 12 },
+        { paper: 'April 2023', questionNo: 'Q1(b)', marks: 8 }
       ],
       syllabusTopics: ['Job Scheduling Numerical', 'Slot Allocation', 'Feasibility Check', 'Maximum Profit Computation'],
       definition: 'Step-by-step application of the greedy job sequencing algorithm with time slot allocation on five jobs with conflicting deadlines.',
@@ -744,11 +739,11 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Write High-Level Description of Job Sequencing Algorithm. For n = 5, Profit P = {20, 15, 10, 5, 1}, Deadline D = {2, 2, 1, 3, 3}, Find Feasible Solutions, Optimal Solution, and Maximum Profit',
       shortTitle: 'Solved Numerical: Job Sequencing (n=5, P={20,15,10,5,1})',
       marks: 9,
-      importance: 'Frequently Asked',
+      importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q1(a)', marks: 9 },
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q2(a)', marks: 8 }
+        { paper: 'Nov 2023', questionNo: 'Q1(a)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q2(a)', marks: 8 }
       ],
       syllabusTopics: ['Feasible Solutions Enumeration', 'Job Sequencing with Deadlines', 'Optimal Solution Derivation'],
       definition: 'Comprehensive identification of all feasible job subsets, verification of deadline feasibility, and determination of the maximum-profit schedule.',
@@ -869,10 +864,10 @@ export const daaUnit3Data: Unit = {
       title: 'Design a Greedy Algorithm to Schedule Unit-Time Tasks with Deadlines and Penalties to Minimize Total Penalty Incurred, and Prove its Correctness',
       shortTitle: 'Task Scheduling with Penalties: Algorithm & Correctness Proof',
       marks: 8,
-      importance: 'Important',
+      importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q1(a)', marks: 8 }
+        { paper: 'Nov 2024', questionNo: 'Q1(a)', marks: 8 }
       ],
       syllabusTopics: ['Task Scheduling with Penalties', 'Matroid Theory', 'Minimizing Penalty by Maximizing Profit', 'Exchange Argument Proof'],
       definition: 'Task scheduling with penalties seeks to schedule n unit-time tasks with deadlines d_i and penalties w_i incurred if task i is missed, minimizing total penalties by greedily scheduling the set of early tasks that maximizes total earned weight.',
@@ -939,10 +934,10 @@ export const daaUnit3Data: Unit = {
       title: 'Explain the Activity Selection Problem. Give its Greedy Strategy, Algorithm, and Solve for Activities: A(1,3), B(3,4), C(2,5), D(0,7), E(5,9), F(8,10), G(11,12)',
       shortTitle: 'Activity Selection Problem: Algorithm & Solved Instance',
       marks: 9,
-      importance: 'Frequently Asked',
+      importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 3 ([6404]-81)', questionNo: 'Q1(b)', marks: 9 }
+        { paper: 'April 2025', questionNo: 'Q1(b)', marks: 9 }
       ],
       syllabusTopics: ['Activity Selection Formulation', 'Earliest Finish Time Heuristic', 'Activity Selection Algorithm', 'Time Complexity'],
       definition: 'The Activity Selection Problem is the problem of scheduling the maximum number of mutually compatible activities that share a single common resource, given their start times s_i and finish times f_i.',
@@ -1094,11 +1089,11 @@ export const daaUnit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q2(a)', marks: 8 },
-        { paper: 'Paper 3 ([6404]-81)', questionNo: 'Q2(a)', marks: 7 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q1(c)', marks: 4 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q1(c)', marks: 2 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q2(b)', marks: 4 }
+        { paper: 'April 2025', questionNo: 'Q2(a)', marks: 7 },
+        { paper: 'Nov 2024', questionNo: 'Q1(c)', marks: 2 },
+        { paper: 'Nov 2024', questionNo: 'Q2(b)', marks: 4 },
+        { paper: 'April 2024', questionNo: 'Q1(c)', marks: 4 },
+        { paper: 'April 2024', questionNo: 'Q2(a)', marks: 8 }
       ],
       syllabusTopics: ['Principle of Optimality', 'Bellman Equation', 'DP Control Abstraction', 'Optimal Substructure', 'Pseudo-Polynomial Time'],
       definition: 'Dynamic Programming is an algorithm design technique that solves optimization problems by breaking them down into smaller overlapping subproblems, solving each subproblem once, storing their solutions in a table (memoization/tabulation), and combining them to form an optimal solution.',
@@ -1192,11 +1187,10 @@ export const daaUnit3Data: Unit = {
       title: 'Compare Between Greedy Method and Dynamic Programming with Respect to: (i) Feasibility, (ii) Optimality, (iii) Recursion, (iv) Memoization, and (v) Time Complexity',
       shortTitle: 'Comprehensive Comparison: Greedy Method vs Dynamic Programming',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q3(b)', marks: 9 },
-        { paper: 'SPPU Dec-18, Dec-11', questionNo: 'Theory', marks: 6 }
+        { paper: 'April 2023', questionNo: 'Q3(b)', marks: 9 }
       ],
       syllabusTopics: ['Greedy vs DP Comparison', 'Feasibility and Optimality', 'Memoization vs Irrevocable Choice', 'Time Complexity Differences'],
       definition: 'Greedy and Dynamic Programming are both optimization paradigms based on optimal substructure, but differ fundamentally in how choices are evaluated, subproblems are shared, and decisions are preserved.',
@@ -1281,13 +1275,9 @@ export const daaUnit3Data: Unit = {
       title: 'Explain 0/1 Knapsack Problem Using Dynamic Programming. Devise the Recurrence Relation, Algorithm, and Traceback Procedure',
       shortTitle: '0/1 Knapsack using DP: Recurrence, Algorithm & Traceback',
       marks: 10,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q1(a)', marks: 10 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q1(b)', marks: 9 },
-        { paper: 'Paper 3 ([6404]-81)', questionNo: 'Q2(b)', marks: 10 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       syllabusTopics: ['0/1 Knapsack DP Recurrence', 'Table Construction', 'Traceback Vector Algorithm', 'Time & Space Complexity'],
       definition: 'The 0/1 Knapsack problem via dynamic programming computes a 2D table T[0..n, 0..W] where T[i, w] represents the maximum profit achievable considering a subset of the first i items under capacity limit w.',
       sections: [
@@ -1372,11 +1362,11 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Consider the Following Instance of Knapsack Problem: Items 1..4 with Weights [2, 1, 3, 2] and Profits [$12, $10, $20, $15]. Knapsack Capacity = 5. Find Optimal Solution Using Dynamic Programming Approach',
       shortTitle: 'Solved Numerical: 0/1 Knapsack DP (W=5, 4 Items)',
       marks: 10,
-      importance: 'Frequently Asked',
+      importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q1(a)', marks: 10 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q1(b)', marks: 9 }
+        { paper: 'Nov 2023', questionNo: 'Q1(b)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q1(a)', marks: 10 }
       ],
       syllabusTopics: ['0/1 Knapsack DP Table', 'Stepwise Row Calculation', 'Traceback Vector Extraction'],
       definition: 'Complete computation of the (5 x 6) dynamic programming table, row-by-row cell calculations, and traceback to isolate selected items and maximum profit.',
@@ -1536,10 +1526,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Consider 0/1 Knapsack Problem with Weight Capacity 7. Four Items: A(w=1, p=1), B(w=3, p=4), C(w=4, p=5), D(w=5, p=7). Find Optimal Solution Using Dynamic Programming Approach',
       shortTitle: 'Solved Numerical: 0/1 Knapsack DP (W=7, Items A,B,C,D)',
       marks: 10,
-      importance: 'Important',
+      importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 3 ([6404]-81)', questionNo: 'Q2(b)', marks: 10 }
+        { paper: 'April 2025', questionNo: 'Q2(b)', marks: 10 }
       ],
       syllabusTopics: ['0/1 Knapsack DP Table', 'Capacity W=7', 'Traceback Algorithm'],
       definition: 'Step-by-step DP table computation for a 4-item instance with capacity 7, demonstrating optimal item extraction via back-referencing.',
@@ -1659,12 +1649,9 @@ export const daaUnit3Data: Unit = {
       title: 'Explain Matrix Chain Multiplication Using Dynamic Programming. Derive its Recurrence Relation, Table Formulation, and Parenthesization Algorithm',
       shortTitle: 'Matrix Chain Multiplication: Recurrence, Algorithm & Complexity',
       marks: 10,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q2(b)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q2(a)', marks: 10 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       syllabusTopics: ['Matrix Chain Multiplication', 'Optimal Parenthesization', 'Cost Recurrence m[i,j]', 'Split Table s[i,j]', 'Time Complexity O(n³)'],
       definition: 'Matrix Chain Multiplication (MCM) is an optimization problem that finds the most efficient order (parenthesization) of multiplying a sequence of n matrices A₁ A₂ ... A_n such that the total number of scalar multiplications is minimized.',
       sections: [
@@ -1774,10 +1761,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Consider 4 Matrices A₁, A₂, A₃, A₄ with Orders 3×5, 5×4, 4×2, and 2×4. Find the Optimal Sequence of Chain Matrix Multiplication Using Dynamic Programming. Clearly Give Final Sequence and Total Multiplications Involved',
       shortTitle: 'Solved Numerical: Matrix Chain Multiplication (4 Matrices)',
       marks: 10,
-      importance: 'Frequently Asked',
+      importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q2(b)', marks: 10 }
+        { paper: 'April 2024', questionNo: 'Q2(b)', marks: 10 }
       ],
       syllabusTopics: ['MCM Numerical', 'Pyramid Table Filling', 'Split Table Tracking', 'Optimal Parenthesization'],
       definition: 'Complete derivation of the m[i, j] and s[i, j] tables across chain lengths L = 2, 3, 4 for dimensions P = [3, 5, 4, 2, 4].',
@@ -1915,10 +1902,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Given Sequence {4, 10, 3, 12, 20, 7} for Five Matrices A₁(4×10), A₂(10×3), A₃(3×12), A₄(12×20), A₅(20×7). Use Dynamic Programming to Solve Chain Matrix Multiplication',
       shortTitle: 'Solved Numerical: Matrix Chain Multiplication (5 Matrices)',
       marks: 10,
-      importance: 'Frequently Asked',
+      importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q2(a)', marks: 10 }
+        { paper: 'Nov 2024', questionNo: 'Q2(a)', marks: 10 }
       ],
       syllabusTopics: ['MCM 5 Matrices', 'Dimension Array P = [4, 10, 3, 12, 20, 7]', 'Pyramid Table Calculation'],
       definition: 'Comprehensive dynamic programming resolution of a 5-matrix chain with dimension array P = [4, 10, 3, 12, 20, 7], deriving optimal parenthesization and minimum operations.',
@@ -2045,12 +2032,9 @@ export const daaUnit3Data: Unit = {
       title: 'What is an Optimal Binary Search Tree (OBST)? Explain How Dynamic Programming is Used to Build an OBST. State its Recurrence Relations, Algorithm, and Time Complexity',
       shortTitle: 'Optimal Binary Search Tree (OBST): Theory & Algorithm',
       marks: 10,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q2(b)', marks: 10 },
-        { paper: 'SPPU Dec-06, May-07, 09', questionNo: 'Theory', marks: 12 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       syllabusTopics: ['OBST Definition', 'Weight Equation W[i,j]', 'Cost Recurrence C[i,j]', 'Root Matrix R[i,j]', 'Knuth Optimization O(n²)'],
       definition: 'An Optimal Binary Search Tree (OBST) is a binary search tree constructed from a set of sorted identifiers such that the expected total search cost, weighted by the access frequencies of successful searches (p_i) and unsuccessful searches (q_i), is minimized.',
       sections: [
@@ -2142,10 +2126,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: What is Optimal Binary Search Tree? Build an OBST for Following Data: Keys = [10, 20, 30, 40] with Frequencies = [4, 2, 6, 3]',
       shortTitle: 'Solved Numerical: OBST Construction (4 Keys: 10, 20, 30, 40)',
       marks: 10,
-      importance: 'Frequently Asked',
+      importance: 'Moderately Asked',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q2(b)', marks: 10 }
+        { paper: 'April 2023', questionNo: 'Q2(b)', marks: 10 }
       ],
       syllabusTopics: ['OBST Numerical', 'Weight Matrix Computation', 'Cost Matrix Computation', 'Tree Construction'],
       definition: 'Full dynamic programming tabulation of weights W[i, j], costs C[i, j], and roots R[i, j] for 4 keys with given search frequencies.',
@@ -2314,11 +2298,9 @@ export const daaUnit3Data: Unit = {
       title: 'Explain How to Compute Binomial Coefficients C(n, k) Using Dynamic Programming. State Pascal\'s Identity, Algorithm, and Analyze Time and Space Complexity',
       shortTitle: 'Binomial Coefficients via DP: Algorithm & Analysis',
       marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'Textbook / Decode Chapter 3.6', questionNo: 'Section 3.6', marks: 6 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       syllabusTopics: ['Binomial Coefficients', 'Pascal\'s Identity', 'Overlapping Subproblems', 'Time and Space Complexity'],
       definition: 'Computing the binomial coefficient C(n, k) = n! / (k!(n-k)!) using dynamic programming leverages Pascal\'s Identity to replace expensive factorial computations with simple additions in a 2D table.',
       sections: [

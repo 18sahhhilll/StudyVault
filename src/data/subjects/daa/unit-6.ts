@@ -25,26 +25,10 @@ export const daaUnit6Data: Unit = {
     'Knuth-Morris-Pratt (KMP) Algorithm: Prefix function pi, avoiding text pointer regression, linear matching phase'
   ],
   questionPaperIndex: [
-    {
-      paper: 'Paper 1 ([6004]-480A)',
-      qMain: 'Q7(a) Multithreaded Merge Sort & parallel merge advantage (9M), Q7(b)(i) Distributed Minimum Spanning Tree (MST) (8M), Q7(b)(ii) Rabin-Karp String Matching algorithm (8M)',
-      qOr: 'Q8(a) Short notes on: Multithreaded matrix mult, Multithreaded merge sort, Distributed BFS, Rabin-Karp (10M), Q8(b) Analyzing multithreaded algorithms, parallel loops, race conditions (7M)'
-    },
-    {
-      paper: 'Paper 2 ([6263]-81)',
-      qMain: 'Q7(a) Rabin-Karp algorithm runtime, worst-case behavior, and how spurious hits occur (10M), Q7(b) Multithreaded merge sort vs conventional merge sort with complexity (8M)',
-      qOr: 'Q8(a) Distributed BFS on 7-vertex graph A-G with round-by-round trace (10M), Q8(b) spawn and sync keywords with multithreading DAG model (8M)'
-    },
-    {
-      paper: 'Paper 3 ([6181]-101)',
-      qMain: 'Q7(a)(i) Distributed MST (GHS algorithm) (8M), Q7(a)(ii) Rabin-Karp string matching algorithm (10M), Q7(b) Multithreaded analysis, parallel loops, race conditions (7M)',
-      qOr: 'Q8(a) Multithreaded merge sort with P-Merge analysis (9M), Q8(b) Rabin-Karp numerical: Text T = 3141592653589793, Pattern P = 26, modulo q = 11 (8M)'
-    },
-    {
-      paper: 'Paper 4 ([6354]-485)',
-      qMain: 'Q7(a) Rabin-Karp algorithm & runtime analysis (10M), Q7(b) Performance measures: speedup, efficiency, throughput, contention, latency (8M)',
-      qOr: 'Q8(a) Distributed BFS on 7-vertex graph A-G (10M), Q8(b) Matrix multiplication m x n and n x p conventional vs multithreaded (8M)'
-    }
+    { paper: 'Nov 2024 ([6354]-485)', qMain: 'Q7(a) Rabin-Karp String Matching (10M), Q7(b) Multithreaded Speedup & Work (8M)', qOr: 'Q8(a) Distributed BFS 6-Node Graph (10M), Q8(b) Multithreaded Matrix Multiplication (8M)' },
+    { paper: 'April 2024 ([6263]-81)', qMain: 'Q7(a) Rabin-Karp Algorithm (10M), Q7(b) Multithreaded Merge Sort (8M)', qOr: 'Q8(a) Distributed BFS Execution (10M), Q8(b) Multithreaded Concurrency & Race Conditions (8M)' },
+    { paper: 'Nov 2023 ([6181]-101)', qMain: 'Q7(a) GHS Distributed MST & Rabin-Karp (10M), Q7(b) Determinacy Race Condition (7M)', qOr: 'Q8(a) Multithreaded Merge Sort (9M), Q8(b) Rabin-Karp Modulo 11 Trace (8M)' },
+    { paper: 'April 2023 ([6004]-480A)', qMain: 'Q7(a) Multithreaded Merge Sort (9M), Q7(b) GHS Distributed MST & String Matching (8M)', qOr: 'Q8(a) Multithreaded Matrix Multiplication & Distributed BFS (10M), Q8(b) Determinacy Race Condition (7M)' }
   ],
   quickRevision: {
     keyDefinitions: [
@@ -144,13 +128,10 @@ export const daaUnit6Data: Unit = {
       title: 'Explain the dynamic multithreading execution model. Describe the role of spawn and sync keywords and how a computation is modeled as a Directed Acyclic Graph (DAG). Define Work, Span, and Parallelism.',
       shortTitle: 'Dynamic Multithreading Model, DAG, spawn & sync',
       marks: 10,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(b)', marks: 7 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q8(b)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(b)', marks: 7 },
-        { paper: 'Decode / Textbook', questionNo: 'Q1, Q2, Q4', marks: 10 }
+        { paper: 'April 2024', questionNo: 'Q8(b)', marks: 8 }
       ],
       frequencyNote: 'Appears in almost every exam set under Q7 or Q8; foundational for multithreaded algorithms.',
       syllabusTopics: [
@@ -264,12 +245,11 @@ export const daaUnit6Data: Unit = {
       title: 'What is a determinacy race condition? Explain with an example of concurrent instructions. Distinguish between benign and malign races and describe mitigation methods.',
       shortTitle: 'Determinacy Races and Race Conditions',
       marks: 7,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(b)', marks: 7 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(b)', marks: 7 },
-        { paper: 'Decode / Textbook', questionNo: 'Q3, Q5', marks: 8 }
+        { paper: 'Nov 2023', questionNo: 'Q7(b)', marks: 7 },
+        { paper: 'April 2023', questionNo: 'Q8(b)', marks: 7 }
       ],
       frequencyNote: 'Regularly paired with multithreaded loop analysis in question 8(b) or 7(b).',
       syllabusTopics: [
@@ -368,12 +348,11 @@ export const daaUnit6Data: Unit = {
       title: 'Formulate the Multithreaded Matrix Multiplication algorithm using divide-and-conquer block decomposition. Compare its Work and Span with conventional sequential matrix multiplication for m x n and n x p matrices.',
       shortTitle: 'Multithreaded Matrix Multiplication vs Conventional',
       marks: 10,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q8(b)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q6, Q7', marks: 10 }
+        { paper: 'Nov 2024', questionNo: 'Q8(b)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
       ],
       frequencyNote: 'Directly asked in Paper 4 Q8(b) for rectangular matrices and Paper 1 Q8(a) as a core short note.',
       syllabusTopics: [
@@ -509,12 +488,12 @@ export const daaUnit6Data: Unit = {
       shortTitle: 'Multithreaded Merge Sort & P-Merge Advantage',
       marks: 9,
       importance: 'Frequently Asked',
-      occurrenceCount: 6,
+      occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q7(a)', marks: 9 },
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q7(b)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q8(a)', marks: 9 }
+        { paper: 'April 2024', questionNo: 'Q7(b)', marks: 8 },
+        { paper: 'Nov 2023', questionNo: 'Q8(a)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q7(a)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
       ],
       frequencyNote: 'Top-frequency question for Unit VI appearing in 4 question papers.',
       syllabusTopics: [
@@ -628,13 +607,9 @@ export const daaUnit6Data: Unit = {
       title: 'Provide a detailed mathematical derivation of the Work and Span recurrences for P-Merge and Multithreaded Merge Sort. Prove the worst-case 3/4 partition size bound.',
       shortTitle: 'P-Merge Mathematical Analysis & Span Derivation',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q7(a)', marks: 9 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q8(a)', marks: 9 },
-        { paper: 'Decode / Textbook', questionNo: 'Q8', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Deep theoretical derivation question for high scoring marks in Q7 or Q8.',
       syllabusTopics: [
         'P-Merge Partition Size Proof',
@@ -703,13 +678,9 @@ export const daaUnit6Data: Unit = {
       title: 'Explain the syntax, semantics, and implementation of parallel loops (parallel for). Why should a compiler avoid flat sequential task spawning, and how does divide-and-conquer desugaring solve this?',
       shortTitle: 'Parallel Loops and Divide-and-Conquer Desugaring',
       marks: 7,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(b)', marks: 7 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(b)', marks: 7 },
-        { paper: 'Decode / Textbook', questionNo: 'Q2, Q4', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Commonly asked alongside race conditions and DAG models in multithreaded algorithm analysis.',
       syllabusTopics: [
         'parallel for Syntax and Semantics',
@@ -781,13 +752,9 @@ export const daaUnit6Data: Unit = {
       title: 'Analyze multithreaded algorithms using theoretical scheduling foundations. State and prove Brent’s Theorem for greedy schedulers and derive the condition for linear speedup.',
       shortTitle: 'Greedy Schedulers & Brent’s Theorem',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(b)', marks: 7 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q7(b)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q5', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'The standard theoretical question for proving algorithmic scalability bounds.',
       syllabusTopics: [
         'Greedy Scheduler Definition',
@@ -851,11 +818,10 @@ export const daaUnit6Data: Unit = {
       title: 'Discuss the key performance measures of multithreaded systems: Speedup, Efficiency, Throughput, Contention, and Latency. Compare Amdahl’s Law with Gustafson’s Law.',
       shortTitle: 'Performance Measures of Multithreaded Systems',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q7(b)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q9', marks: 8 }
+        { paper: 'Nov 2024', questionNo: 'Q7(b)', marks: 8 }
       ],
       frequencyNote: 'Directly asked in Paper 4 Q7(b) for 8 marks.',
       syllabusTopics: [
@@ -940,10 +906,8 @@ export const daaUnit6Data: Unit = {
       shortTitle: 'Distributed Algorithms Fundamentals',
       marks: 8,
       importance: 'Conceptual / Additional',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Decode / Textbook', questionNo: 'Q10, Q11', marks: 8 }
-      ],
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Foundational theory for Distributed BFS and Distributed MST questions.',
       syllabusTopics: [
         'Distributed System Architecture',
@@ -1034,14 +998,9 @@ export const daaUnit6Data: Unit = {
       title: 'Describe the Distributed Breadth-First Search (BFS) algorithm. Explain wave propagation, layering, parent pointer selection, and analyze its message and time complexity.',
       shortTitle: 'Distributed Breadth-First Search (BFS)',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Decode / Textbook', questionNo: 'Q12, Q13', marks: 9 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'High-frequency 10-mark question featured in Papers 1, 2, and 4.',
       syllabusTopics: [
         'Distributed BFS Problem Formulation',
@@ -1129,11 +1088,11 @@ export const daaUnit6Data: Unit = {
       shortTitle: 'Distributed BFS Numerical Trace on 7-Vertex Graph',
       marks: 10,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Decode / Textbook', questionNo: 'Q13', marks: 10 }
+        { paper: 'Nov 2024', questionNo: 'Q8(a)', marks: 10 },
+        { paper: 'April 2024', questionNo: 'Q8(a)', marks: 10 },
+        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
       ],
       frequencyNote: 'Exact numerical/trace question featured in Paper 2 Q8(a) and Paper 4 Q8(a).',
       syllabusTopics: [
@@ -1284,12 +1243,11 @@ export const daaUnit6Data: Unit = {
       title: 'Explain the Gallager-Humblet-Spira (GHS) Distributed Minimum Spanning Tree algorithm. Explain the Cut Property, fragment levels, MWOE discovery, and merging rules.',
       shortTitle: 'Distributed MST: Gallager-Humblet-Spira (GHS)',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q7(b)(i)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(a)(i)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q14, Q15', marks: 9 }
+        { paper: 'Nov 2023', questionNo: 'Q7(a)', marks: 10 },
+        { paper: 'April 2023', questionNo: 'Q7(b)', marks: 8 }
       ],
       frequencyNote: 'Directly asked in Paper 1 Q7(b)(i) and Paper 3 Q7(a)(i) for 8 marks.',
       syllabusTopics: [
@@ -1382,13 +1340,9 @@ export const daaUnit6Data: Unit = {
       title: 'Analyze the message types, phases, and complexity of the Gallager-Humblet-Spira (GHS) distributed MST algorithm. Prove why message complexity is O(V log V + E).',
       shortTitle: 'GHS Message Types and Complexity Proof',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q7(b)(i)', marks: 8 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(a)(i)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q15', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Rigorous complexity derivation question for GHS distributed MST.',
       syllabusTopics: [
         'The 7 GHS Message Types',
@@ -1476,13 +1430,9 @@ export const daaUnit6Data: Unit = {
       title: 'Explain the Naive String Matching algorithm. Formulate its pseudocode and analyze its best-case and worst-case time complexities. Trace on T = "0000100010010" and P = "1001".',
       shortTitle: 'Naive String Matching Algorithm & Trace',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(a)(ii)', marks: 10 },
-        { paper: 'Decode / Textbook', questionNo: 'Q16', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Standard string matching baseline algorithm tested in university exams.',
       syllabusTopics: [
         'String Matching Formalism',
@@ -1601,13 +1551,9 @@ export const daaUnit6Data: Unit = {
       title: 'Describe String Matching with Finite Automata. Explain the role of the state transition function delta and the suffix function sigma. State preprocessing and matching complexities.',
       shortTitle: 'String Matching with Finite Automata',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(a)(ii)', marks: 10 },
-        { paper: 'Decode / Textbook', questionNo: 'Q17', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Foundational deterministic automaton approach to exact string matching.',
       syllabusTopics: [
         'DFA Formal Definition (Q, q_0, A, Sigma, delta)',
@@ -1688,13 +1634,13 @@ export const daaUnit6Data: Unit = {
       shortTitle: 'The Rabin-Karp String Matching Algorithm',
       marks: 10,
       importance: 'Frequently Asked',
-      occurrenceCount: 6,
+      occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q7(b)(ii)', marks: 8 },
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(a)(ii)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q7(a)', marks: 10 }
+        { paper: 'Nov 2024', questionNo: 'Q7(a)', marks: 10 },
+        { paper: 'April 2024', questionNo: 'Q7(a)', marks: 10 },
+        { paper: 'Nov 2023', questionNo: 'Q7(a)', marks: 10 },
+        { paper: 'April 2023', questionNo: 'Q7(b)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
       ],
       frequencyNote: 'Appears in every single previous year question paper; essential 10-mark topic.',
       syllabusTopics: [
@@ -1788,14 +1734,9 @@ export const daaUnit6Data: Unit = {
       title: 'What is a spurious hit in Rabin-Karp? Explain how it occurs and analyze the worst-case and average-case time complexity of the algorithm.',
       shortTitle: 'Rabin-Karp Spurious Hits & Runtime Analysis',
       marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q7(a)(ii)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'Decode / Textbook', questionNo: 'Q18', marks: 9 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Crucial conceptual question asked across Papers 2, 3, and 4.',
       syllabusTopics: [
         'Spurious Hit Formal Definition',
@@ -1866,11 +1807,10 @@ export const daaUnit6Data: Unit = {
       title: 'Numerical Problem: Trace the Rabin-Karp algorithm for Text T = 3141592653589793 and Pattern P = 26 with modulus q = 11 and radix d = 10. Trace hash values, find legitimate matches, and count spurious hits.',
       shortTitle: 'Rabin-Karp Spurious Hits Numerical Trace',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 3 ([6181]-101)', questionNo: 'Q8(b)', marks: 8 },
-        { paper: 'Decode / Textbook', questionNo: 'Q19', marks: 8 }
+        { paper: 'Nov 2023', questionNo: 'Q8(b)', marks: 8 }
       ],
       frequencyNote: 'Exact numerical problem asked in Paper 3 Q8(b) for 8 marks.',
       syllabusTopics: [
@@ -1995,13 +1935,9 @@ export const daaUnit6Data: Unit = {
       title: 'Explain the Knuth-Morris-Pratt (KMP) string matching algorithm. How does the prefix function pi avoid text backtracking? Analyze its preprocessing and matching complexities.',
       shortTitle: 'The Knuth-Morris-Pratt (KMP) Algorithm',
       marks: 9,
-      importance: 'Important',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'Decode / Textbook', questionNo: 'Q20', marks: 9 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Advanced string matching algorithm testing amortized analysis on text scans.',
       syllabusTopics: [
         'KMP Core Insight (No Backtracking)',
@@ -2085,14 +2021,9 @@ export const daaUnit6Data: Unit = {
       title: 'Provide a comparative evaluation of the major string matching algorithms: Naive, Rabin-Karp, Finite Automata, Knuth-Morris-Pratt (KMP), and Boyer-Moore. Discuss engineering trade-offs.',
       shortTitle: 'Comparative Evaluation of String Matching Algorithms',
       marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Paper 1 ([6004]-480A)', questionNo: 'Q8(a)', marks: 10 },
-        { paper: 'Paper 2 ([6263]-81)', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'Paper 4 ([6354]-485)', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'Decode / Textbook', questionNo: 'Q21', marks: 8 }
-      ],
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
       frequencyNote: 'Comprehensive summary question summarizing the entire string matching unit.',
       syllabusTopics: [
         '5-Algorithm Comparison Matrix',

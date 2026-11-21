@@ -22,11 +22,11 @@ export const unit6Data: Unit = {
     'Recommendation Systems: Content-Based vs Personalized (Collaborative Filtering)'
   ],
   questionPaperIndex: [
-    { paper: 'Paper 1', qMain: '(a) → Q1 (Activation Functions), (b) → Q7, Q10 (RNN vs CNN), (c) → Q9 (CNN)', qOr: '(a) → Q6 (Backprop vs Feedforward), (b) → Q11 (Padding in CNN), (c) → Q9 (Conv & Pooling)' },
-    { paper: 'Paper 2', qMain: '(a) → Q7 (RNN with Example), (b) → Q1 (Activation Functions), (c) → Q3 (MLP)', qOr: '(a) → Q5 (Building Blocks of RBF), (b) → Q12 (Recommendation Systems), (c) → Q9 (CNN with Example)' },
-    { paper: 'Paper 3', qMain: '(a) → Q3 (MLP), (b) → Q1 (Activation Functions), (c) → Q9 (CNN)', qOr: '(a) → Q5 (Building Blocks of RBF), (b) → Q12 (Recommendation Systems), (c) → Q7 (RNN with Example)' },
-    { paper: 'Paper 4', qMain: '(a) → Q2 (Single Layer NN), (b) → Q5 (RBF Networks), (c) → Q7, Q8 (RNN & Applications)', qOr: '(a) → Q4 (Backpropagation with Example), (b) → Q6 (FLANN and Merits), (c) → Q1 (Activation Functions)' },
-    { paper: 'Paper 5', qMain: '(a) → Q2 (Building Blocks of ANN), (b) → Q4 (Backprop Characteristics), (c) → Q7, Q9 (RNN & CNN)', qOr: '(a) → Q2 (ANN based on Perceptron), (b) → Q3, Q4 (MLP & Why Backprop), (c) → Q1 (Two Activation Functions)' }
+    { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q2 (Building Blocks of ANN), (b) → Q4 (Backprop Characteristics), (c) → Q7, Q9 (RNN & CNN)', qOr: '(a) → Q2 (ANN based on Perceptron), (b) → Q3, Q4 (MLP & Why Backprop), (c) → Q1 (Two Activation Functions)' },
+    { paper: 'May 2024 ([6404]-82)', qMain: '(a) → Q3 (MLP), (b) → Q1 (Activation Functions), (c) → Q9 (CNN)', qOr: '(a) → Q5 (Building Blocks of RBF), (b) → Q12 (Recommendation Systems), (c) → Q7 (RNN with Example)' },
+    { paper: 'April 2024 ([6263]-82)', qMain: '(a) → Q7 (RNN with Example), (b) → Q1 (Activation Functions), (c) → Q3 (MLP)', qOr: '(a) → Q5 (Building Blocks of RBF), (b) → Q12 (Recommendation Systems), (c) → Q9 (CNN with Example)' },
+    { paper: 'Nov 2023 ([6181]-102)', qMain: '(a) → Q2 (Single Layer NN), (b) → Q5 (RBF Networks), (c) → Q7, Q8 (RNN & Applications)', qOr: '(a) → Q4 (Backpropagation with Example), (b) → Q6 (FLANN and Merits), (c) → Q1 (Activation Functions)' },
+    { paper: 'April 2023 ([6004]-481)', qMain: '(a) → Q1 (Activation Functions), (b) → Q7, Q10 (RNN vs CNN), (c) → Q9 (CNN)', qOr: '(a) → Q6 (Backprop vs Feedforward), (b) → Q11 (Padding in CNN), (c) → Q9 (Conv & Pooling)' }
   ],
   quickRevision: {
     keyDefinitions: [
@@ -82,11 +82,11 @@ export const unit6Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q7(a)', marks: 6 },
-        { paper: 'Paper 2', questionNo: 'Q7(b)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q7(b)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q8(c)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q8(c)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q8(c)', marks: 6 },
+        { paper: 'May 2024', questionNo: 'Q7(b)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q7(b)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q8(c)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q7(a)', marks: 6 }
       ],
       syllabusTopics: ['Activation Functions', 'Sigmoid', 'Tanh', 'ReLU', 'Non-Linearity'],
       definition: 'An activation function (also called a transfer function) is a mathematical operation applied to the net weighted sum of inputs at a neuron: v = Σ (w_i * x_i) + b => y = f(v). It determines whether and to what magnitude a neuron should fire an active signal to subsequent downstream layers.',
@@ -172,9 +172,9 @@ export const unit6Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q7(a)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q7(a)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q8(a)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q7(a)', marks: 6 },
+        { paper: 'Nov 2024', questionNo: 'Q8(a)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q7(a)', marks: 6 }
       ],
       syllabusTopics: ['ANN Elements', 'Biological vs Artificial Neuron', 'Perceptron Learning Rule', 'XOR Problem'],
       definition: 'An Artificial Neural Network (ANN) is an interconnected computational architecture modeled after biological neurobiology. It consists of artificial neurons that compute weighted sums of inputs, incorporate an offset bias, and generate outputs via activation functions.',
@@ -262,9 +262,9 @@ export const unit6Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q7(c)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q7(a)', marks: 8 },
-        { paper: 'Paper 5', questionNo: 'Q8(b)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q8(b)', marks: 6 },
+        { paper: 'May 2024', questionNo: 'Q7(a)', marks: 8 },
+        { paper: 'April 2024', questionNo: 'Q7(c)', marks: 6 }
       ],
       syllabusTopics: ['MLP Architecture', 'Hidden Layers', 'Credit Assignment Problem', 'Calculus Chain Rule'],
       definition: 'A Multilayer Perceptron (MLP) is a feedforward artificial neural network consisting of at least three layers: an input layer, one or more intermediate hidden layers with non-linear activation functions, and an output layer. Units are typically fully connected in a feedforward direction.',
@@ -317,8 +317,8 @@ export const unit6Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q8(a)', marks: 8 },
-        { paper: 'Paper 5', questionNo: 'Q7(b)', marks: 8 }
+        { paper: 'Nov 2024', questionNo: 'Q7(b)', marks: 8 },
+        { paper: 'Nov 2023', questionNo: 'Q8(a)', marks: 8 }
       ],
       syllabusTopics: ['Backpropagation Algorithm', 'Forward Pass', 'Backward Pass', 'Delta Rule', 'Local Minima', 'Momentum'],
       definition: 'The Backpropagation algorithm (Rumelhart, Hinton, Williams, 1986) is a supervised learning method for training artificial neural networks. It optimizes synaptic weights using gradient descent on the squared error cost function: E = 1/2 * Σ (t_k - y_k)^2.',
@@ -389,9 +389,9 @@ export const unit6Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q8(a)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q8(a)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q7(b)', marks: 8 }
+        { paper: 'May 2024', questionNo: 'Q8(a)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q8(a)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q7(b)', marks: 8 }
       ],
       syllabusTopics: ['RBF Networks', 'Gaussian Basis Functions', 'Euclidean Distance', 'Two-Stage Training', 'RBF vs MLP'],
       definition: 'A Radial Basis Function (RBF) Network is a specialized feedforward artificial neural network that uses radially symmetric basis functions (typically Gaussian curves) as activation functions in its single hidden layer. It is widely used for function approximation, time-series prediction, and classification.',
@@ -478,8 +478,8 @@ export const unit6Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q8(b)', marks: 6 },
-        { paper: 'Paper 1', questionNo: 'Q8(a)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q8(b)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 6 }
       ],
       syllabusTopics: ['FLANN Architecture', 'Functional Expansion Φ(X)', 'Merits over Multilayer ANNs', 'FFN vs BPN'],
       definition: 'A Functional Link Artificial Neural Network (FLANN) is a single-layer feedforward neural network that eliminates hidden layers entirely while retaining the ability to solve non-linear classification and regression problems by passing inputs through an initial non-linear Functional Expansion Block.',
@@ -560,11 +560,11 @@ export const unit6Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q7(b)', marks: 6 },
-        { paper: 'Paper 2', questionNo: 'Q7(a)', marks: 8 },
-        { paper: 'Paper 3', questionNo: 'Q8(c)', marks: 6 },
-        { paper: 'Paper 4', questionNo: 'Q7(c)', marks: 8 },
-        { paper: 'Paper 5', questionNo: 'Q7(c)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q7(c)', marks: 6 },
+        { paper: 'May 2024', questionNo: 'Q8(c)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q7(a)', marks: 8 },
+        { paper: 'Nov 2023', questionNo: 'Q7(c)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q7(b)', marks: 6 }
       ],
       syllabusTopics: ['RNN Concept', 'Feedback Loops', 'Hidden State Update', 'Time-Unfolding', 'Sequential Types'],
       definition: 'A Recurrent Neural Network (RNN) is a specialized class of artificial neural networks designed for processing sequential, time-series, and natural language data. Unlike standard feedforward networks where all inputs are assumed independent, an RNN incorporates recurrent feedback loops that act as an internal memory, allowing information from prior time-steps to persist.',
@@ -631,7 +631,7 @@ export const unit6Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 4', questionNo: 'Q7(c)', marks: 6 }
+        { paper: 'Nov 2023', questionNo: 'Q7(c)', marks: 6 }
       ],
       syllabusTopics: ['RNN Applications', 'Vanishing & Exploding Gradients', 'BPTT', 'LSTM & GRU Gating'],
       definition: 'While Recurrent Neural Networks provide foundational capabilities for sequential pattern modeling, their practical deployment in long-horizon tasks is constrained by fundamental gradient decay dynamics during Backpropagation Through Time (BPTT).',
@@ -680,11 +680,11 @@ export const unit6Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q7(c)', marks: 6 },
-        { paper: 'Paper 1', questionNo: 'Q8(c)', marks: 6 },
-        { paper: 'Paper 2', questionNo: 'Q8(c)', marks: 8 },
-        { paper: 'Paper 3', questionNo: 'Q7(c)', marks: 8 },
-        { paper: 'Paper 5', questionNo: 'Q7(c)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q7(c)', marks: 6 },
+        { paper: 'May 2024', questionNo: 'Q7(c)', marks: 8 },
+        { paper: 'April 2024', questionNo: 'Q8(c)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q7(c)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q8(c)', marks: 6 }
       ],
       syllabusTopics: ['CNN Architecture', 'Convolution Layer', 'Kernel Filters', 'Weight Sharing', 'ReLU', 'Max Pooling', 'Fully Connected Layer'],
       definition: 'A Convolutional Neural Network (CNN or ConvNet) is a specialized deep feedforward learning architecture engineered specifically to process multi-dimensional grid-structured data such as 2D images. Rather than connecting every pixel to every neuron, CNNs exploit local spatial correlations using parameter sharing and local receptive fields.',
@@ -744,8 +744,8 @@ export const unit6Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q7(b)', marks: 6 },
-        { paper: 'Paper 5', questionNo: 'Q7(c)', marks: 6 }
+        { paper: 'Nov 2024', questionNo: 'Q7(c)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q7(b)', marks: 6 }
       ],
       syllabusTopics: ['CNN vs RNN', 'Spatial vs Temporal', 'Data Dimensions', 'Recurrent Loops vs Feedforward'],
       definition: 'Convolutional Neural Networks (CNN) and Recurrent Neural Networks (RNN) represent the two premier deep learning architectures. CNNs excel at extracting spatial hierarchies from grid data, while RNNs specialize in capturing temporal patterns across sequential time-series data.',
@@ -818,7 +818,7 @@ export const unit6Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Paper 1', questionNo: 'Q8(b)', marks: 6 }
+        { paper: 'April 2023', questionNo: 'Q8(b)', marks: 6 }
       ],
       syllabusTopics: ['Convolution Padding', 'Feature Map Shrinkage', 'Border Information Loss', 'Valid Padding', 'Same Padding', 'Full Padding'],
       definition: 'Padding refers to the process of surrounding the outer borders of an input image matrix with artificial pixels (typically zeros) prior to applying convolution filters, controlling the spatial size of output feature maps.',
@@ -946,8 +946,8 @@ export const unit6Data: Unit = {
       importance: 'Important',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Paper 2', questionNo: 'Q8(b)', marks: 6 },
-        { paper: 'Paper 3', questionNo: 'Q8(b)', marks: 6 }
+        { paper: 'May 2024', questionNo: 'Q8(b)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q8(b)', marks: 6 }
       ],
       syllabusTopics: ['Recommendation Systems', 'Content-Based Filtering', 'Collaborative Filtering', 'Cosine Similarity', 'Cold-Start', 'Serendipity'],
       definition: 'A Recommendation System is an information filtering algorithm that models user preferences, history, and item attributes to predict ratings or suggest items that a user is likely to consume (e.g. movies on Netflix, songs on Spotify, products on Amazon).',
