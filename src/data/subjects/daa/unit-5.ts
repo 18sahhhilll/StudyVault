@@ -23,6 +23,9 @@ export const daaUnit5Data: Unit = {
     'Embedded Systems Case Study: Sorting Real-Time Sensor Stream (Patient Vital Signs) — In-Depth Justification for Insertion Sort'
   ],
   questionPaperIndex: [
+    { paper: 'April 2026 ([6627]-81)', qMain: 'Q5(a) Aggregate, Accounting, Potential & Tractability (10M), Q5(b) Randomized & Approximation Algorithms (8M)', qOr: 'Q6(a) Amortized Stack Analysis (9M), Q6(b) Potential Method Stack Operations (9M)' },
+    { paper: 'Nov 2025 ([6584]-91)', qMain: 'Q5(a) Binary Counter Amortized Cost O(1) (5M), Q5(b) Intractable Problems & TSP (6M), Q5(c) Amortized Analysis Methods (6M)', qOr: 'Q6(a) Stack Operations Amortized Cost (9M), Q6(b) Randomized QuickSort (4M), Q6(c) Searching Tractability (4M)' },
+    { paper: 'April 2025 ([6404]-81)', qMain: 'Q5(a) Binary Counter Aggregate Method (6M), Q5(b) Tractable vs Non-tractable Problems (7M), Q5(c) Randomized QuickSort (4M)', qOr: 'Q6(a) Methods of Amortized Analysis (6M), Q6(b) Approximation Algorithm & Performance Ratios (7M), Q6(c) Randomized Algorithms (4M)' },
     { paper: 'Nov 2024 ([6354]-485)', qMain: 'Q5(a) Average-Case vs Amortized Analysis (8M), Q5(b) Approximation Algorithms Classification (9M)', qOr: 'Q6(a) Potential Function for Binary Counter (8M), Q6(b) Analysis of Statements (Turing/Randomized) (9M)' },
     { paper: 'April 2024 ([6263]-81)', qMain: 'Q5(a) Randomized Hiring Problem (8M), Q5(b) Vertex Cover Approximation (9M)', qOr: 'Q6(a) Amortized Analysis Aggregate Method (8M), Q6(b) Embedded Systems Architecture (9M)' },
     { paper: 'Nov 2023 ([6181]-101)', qMain: 'Q5(a) Stack Multipop Amortized Analysis (9M), Q5(b) Potential Function Method (9M)', qOr: 'Q6(a) Embedded Algorithm Special Needs (6M), Q6(b) Randomized vs Approximate (4M), Q6(c) Randomized Algorithm Example (8M)' },
@@ -135,8 +138,11 @@ export const daaUnit5Data: Unit = {
       shortTitle: 'Amortized Analysis: Concept & The Three Methods',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 6,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q5(a)', marks: 10 },
+        { paper: 'Nov 2025', questionNo: 'Q5(c)', marks: 6 },
+        { paper: 'April 2025', questionNo: 'Q6(a)', marks: 6 },
         { paper: 'April 2024', questionNo: 'Q6(a)', marks: 8 },
         { paper: 'April 2023', questionNo: 'Q5(a)', marks: 9 },
         { paper: 'April 2023', questionNo: 'Q6(a)', marks: 10 }
@@ -225,9 +231,11 @@ export const daaUnit5Data: Unit = {
       title: 'Analyze the amortized cost of Stack operations (PUSH, POP, and MULTIPOP) using the Aggregate Analysis Method. Formulate the algorithms and prove the O(1) amortized bound.',
       shortTitle: 'Stack Operations Amortized Cost via Aggregate Analysis',
       marks: 9,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q6(a)', marks: 9 },
+        { paper: 'Nov 2025', questionNo: 'Q6(a)', marks: 9 },
         { paper: 'Nov 2023', questionNo: 'Q5(a)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 1 Q5(a) [9 Marks] and Paper 3 Q5(a) [9 Marks].',
@@ -400,9 +408,10 @@ export const daaUnit5Data: Unit = {
       title: 'Explain the Potential Function Method of Amortized Analysis. Define potential energy Φ(D), derive the telescoping sum, and compute the amortized cost of PUSH, POP, and MULTIPOP stack operations.',
       shortTitle: 'Potential Function Method for Stack Operations',
       marks: 9,
-      importance: 'Important',
-      occurrenceCount: 2,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q6(b)', marks: 9 },
         { paper: 'Nov 2023', questionNo: 'Q5(b)', marks: 9 },
         { paper: 'April 2023', questionNo: 'Q5(b)', marks: 9 }
       ],
@@ -514,9 +523,11 @@ export const daaUnit5Data: Unit = {
       title: 'Analyze the amortized cost of an INCREMENT operation on a k-bit Binary Counter using: i) Aggregate Analysis, ii) Accounting Method, and iii) Potential Function Method. Explain why the naive O(k) bound is loose.',
       shortTitle: 'Binary Counter Increment: Full Amortized Analysis (3 Methods)',
       marks: 9,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q5(a)', marks: 5 },
+        { paper: 'April 2025', questionNo: 'Q5(a)', marks: 6 },
         { paper: 'Nov 2024', questionNo: 'Q6(a)', marks: 8 }
       ],
       frequencyNote: 'Directly related to Paper 4 Q6(a) and standard textbook curriculum.',
@@ -804,9 +815,12 @@ export const daaUnit5Data: Unit = {
       title: 'Distinguish between Tractable and Intractable Problems. Provide formal definitions for the complexity classes P, NP, NP-Complete, and NP-Hard, and describe their interrelationships assuming P != NP.',
       shortTitle: 'Complexity Classes: Tractable/Intractable, P, NP, NP-C & NP-Hard',
       marks: 9,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
+      importance: 'Important',
+      occurrenceCount: 2,
+      papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q5(b)', marks: 6 },
+        { paper: 'April 2025', questionNo: 'Q5(b)', marks: 7 }
+      ],
       frequencyNote: 'Major recurring 8-10 mark question on computational complexity theory.',
       syllabusTopics: [
         'Tractable vs Intractable Problems',
@@ -913,9 +927,10 @@ export const daaUnit5Data: Unit = {
       title: 'Analyze and comment in detail on the following three statements: i) "The knapsack problem is NP-hard", ii) "Boolean Satisfiability Problem (SAT) is NP-complete", and iii) "Minimum spanning tree is a tractable problem".',
       shortTitle: 'Critical Analysis: Knapsack (NP-hard), SAT (NP-complete), MST (Tractable)',
       marks: 9,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q6(c)', marks: 4 },
         { paper: 'Nov 2024', questionNo: 'Q6(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 4 Q6(b) [9 Marks] requiring in-depth technical justification for all three statements.',
@@ -1051,8 +1066,10 @@ export const daaUnit5Data: Unit = {
       shortTitle: 'Randomized Algorithms: Principles & Mathematical Foundations',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 6,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q5(b)', marks: 8 },
+        { paper: 'April 2025', questionNo: 'Q6(c)', marks: 4 },
         { paper: 'April 2024', questionNo: 'Q5(a)', marks: 8 },
         { paper: 'Nov 2023', questionNo: 'Q6(b)', marks: 4 },
         { paper: 'Nov 2023', questionNo: 'Q6(c)', marks: 8 },
@@ -1214,9 +1231,12 @@ export const daaUnit5Data: Unit = {
       title: 'Explain Randomized QuickSort. Present the RANDOMIZED-PARTITION algorithm, and derive its expected runtime of O(n log n), explaining how it eliminates the deterministic O(n²) worst-case input.',
       shortTitle: 'Randomized QuickSort: Algorithm, Partition & Expected Complexity',
       marks: 8,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
+      importance: 'Important',
+      occurrenceCount: 2,
+      papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q6(b)', marks: 4 },
+        { paper: 'April 2025', questionNo: 'Q5(c)', marks: 4 }
+      ],
       frequencyNote: 'The canonical Las Vegas algorithm example required in DAA exams.',
       syllabusTopics: [
         'Randomized QuickSort',
@@ -1403,9 +1423,11 @@ export const daaUnit5Data: Unit = {
       title: 'What are Approximation Algorithms? Explain their philosophy, define the Accuracy Ratio r(s_a) and Performance Ratio R_A, and explain why they are needed for NP-Hard problems.',
       shortTitle: 'Approximation Algorithms: Philosophy, Ratios & Metrics',
       marks: 9,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'April 2025', questionNo: 'Q6(b)', marks: 7 }
+      ],
       frequencyNote: 'Directly asked across all papers as the primary definition and metric question for approximation algorithms.',
       syllabusTopics: [
         'Approximation Algorithms Philosophy',

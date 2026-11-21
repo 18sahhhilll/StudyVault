@@ -21,6 +21,8 @@ export const daaUnit4Data: Unit = {
     'Comparative Analysis: Backtracking vs Branch and Bound, Greedy Method vs Dynamic Programming, Drawbacks of Branch and Bound'
   ],
   questionPaperIndex: [
+    { paper: 'April 2026 ([6627]-81)', qMain: 'Q3(a) 8-Queen Problem Backtracking (8M), Q3(b) Sum of Subsets Backtracking (9M)', qOr: 'Q4(a) TSP Branch & Bound (9M), Q4(b) Branch & Bound Strategies (FIFO/LIFO/LC) (8M)' },
+    { paper: 'Nov 2025 ([6584]-91)', qMain: 'Q3(a) Sum of Subsets A={5,10,15,20,25} Sum=30 (10M), Q3(b) Branch & Bound Abstraction (8M)', qOr: 'Q4(a) TSP 3-City Cost Matrix Branch & Bound (10M), Q4(b) Graph Colouring Backtracking (8M)' },
     { paper: 'April 2025 ([6404]-81)', qMain: 'Q3(a) 3-Coloring 7-Vertex Graph (10M), Q3(b) Sum of Subsets State Space Tree Size (4M), Q3(c) Branch & Bound Drawbacks (4M)', qOr: 'Q4(a) Sum of Subsets Problem & Algorithm (8M), Q4(b) 0/1 Knapsack LC Branch & Bound (10M)' },
     { paper: 'Nov 2024 ([6354]-485)', qMain: 'Q3(a) 3-Coloring 7-Vertex Graph (8M), Q3(b) 0/1 Knapsack LC Branch & Bound (9M)', qOr: 'Q4(a) TSP Branch & Bound 4 Cities (8M), Q4(b) LC Branch & Bound Method (5M), Q4(c) Branch & Bound Drawbacks (4M)' },
     { paper: 'April 2024 ([6263]-81)', qMain: 'Q3(a) 4-Queens Problem (8M), Q3(b) 0/1 Knapsack LC Branch & Bound (9M)', qOr: 'Q4(a) Backtracking vs Branch & Bound (8M), Q4(b) Graph Coloring Problem (9M)' },
@@ -423,9 +425,11 @@ export const daaUnit4Data: Unit = {
       title: 'Formulate the n-Queens Problem. Derive the mathematical conditions for column and diagonal non-attacking constraints. Present the complete recursive algorithm.',
       shortTitle: 'The n-Queens Problem: Formulation, Math & Algorithm',
       marks: 8,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q3(a)', marks: 8 }
+      ],
       frequencyNote: 'Fundamental backtracking benchmark asked frequently with mathematical modeling and pseudocode expectations.',
       syllabusTopics: [
         'n-Queens Problem Formulation',
@@ -795,9 +799,10 @@ export const daaUnit4Data: Unit = {
       title: 'Explain the Graph m-Coloring Problem with respect to Backtracking. Write the NextValue (Gen_Col_Value) and recursive mColoring algorithms, and analyze their time complexity.',
       shortTitle: 'Graph m-Coloring: Problem, Algorithms & Complexity',
       marks: 8,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q4(b)', marks: 8 },
         { paper: 'April 2024', questionNo: 'Q3(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q3(a) [8 Marks] and Paper 4 Q3(a) [8 Marks].',
@@ -1163,9 +1168,10 @@ export const daaUnit4Data: Unit = {
       title: 'Solve the Sum of Subsets Problem using Backtracking for the instance: set S = {2, 3, 5, 6, 8, 10} and target sum M = 10. Draw the state space tree and enumerate all solutions.',
       shortTitle: 'Solved Numerical: Sum of Subsets for S={2,3,5,6,8,10}, M=10',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 2,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q3(b)', marks: 9 },
         { paper: 'Nov 2023', questionNo: 'Q4(b)', marks: 8 },
         { paper: 'April 2023', questionNo: 'Q4(a)', marks: 8 }
       ],
@@ -1286,9 +1292,10 @@ export const daaUnit4Data: Unit = {
       title: 'Consider set A of five numbers {5, 10, 15, 20, 25}. Solve this problem to find the first solution such that the sum is equal to 30 using backtracking approach. Show the state-space tree being created.',
       shortTitle: 'Solved Numerical: Sum of Subsets for A={5,10,15,20,25}, M=30',
       marks: 9,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q3(a)', marks: 10 },
         { paper: 'April 2024', questionNo: 'Q4(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q4(b) [9 Marks] requiring state space tree and identification of the first solution.',
@@ -1574,9 +1581,11 @@ export const daaUnit4Data: Unit = {
       title: 'Explain the three Exploration Strategies in Branch and Bound: FIFO, LIFO, and Least-Cost (LC) Search. Contrast their data structures, node selection policies, and search efficiencies.',
       shortTitle: 'Branch and Bound Strategies: FIFO vs LIFO vs LC Search',
       marks: 8,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q4(b)', marks: 8 }
+      ],
       frequencyNote: 'Common 8-mark question comparing queue-based, stack-based, and heap-based search strategies.',
       syllabusTopics: [
         'FIFO Branch and Bound',
@@ -1663,9 +1672,10 @@ export const daaUnit4Data: Unit = {
       title: 'Present the complete Control Abstraction for Least-Cost Search (LC-Search / LCBB). Describe the functions Least_Cost(), Add_Node(), and explain the upper bound updating mechanism.',
       shortTitle: 'Control Abstraction for Least-Cost Search (LCBB)',
       marks: 9,
-      importance: 'Important',
-      occurrenceCount: 2,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q3(b)', marks: 8 },
         { paper: 'Nov 2024', questionNo: 'Q4(b)', marks: 5 },
         { paper: 'April 2023', questionNo: 'Q4(b)', marks: 9 }
       ],
@@ -1770,9 +1780,11 @@ export const daaUnit4Data: Unit = {
       title: 'Explain the Reduced Matrix Method for solving the Traveling Salesperson Problem (TSP) using LC Branch and Bound. Derive the formulas for Row Minimization, Column Minimization, and Child Node Cost Calculation.',
       shortTitle: 'TSP using LCBB: Reduced Matrix Method & Bounding Formulas',
       marks: 9,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q4(a)', marks: 10 }
+      ],
       frequencyNote: 'Consistently appears as the 8 to 9-mark numerical/theory question for Branch and Bound in university exams.',
       syllabusTopics: [
         'Traveling Salesperson Problem (TSP)',
@@ -1811,7 +1823,27 @@ export const daaUnit4Data: Unit = {
           ]
         },
         {
-          title: '3. Child Node Cost Calculation: Branching from City i to City j',
+          title: '3. Worked University Numerical: 3-City TSP (P, Q, R) via LC Branch and Bound',
+          content: [
+            'SPPU Nov 2025 (10 Marks): Tour starts from city P. Cost matrix: P->Q: 4, P->R: 2; Q->P: 3, Q->R: 4; R->P: 1, R->Q: 8.',
+            'Step 1: Initial Cost Matrix at Root Node 1 (start at P):',
+            '  [ [∞, 4, 2], [3, ∞, 4], [1, 8, ∞] ]',
+            '  Row Reductions: Row P min = 2, Row Q min = 3, Row R min = 1. Sum = 6.',
+            '  Matrix after row reduction: [ [∞, 2, 0], [0, ∞, 1], [0, 7, ∞] ].',
+            '  Column Reductions: Col P min = 0, Col Q min = 2, Col R min = 0. Sum = 2.',
+            '  Total Initial Lower Bound c(1) = 6 + 2 = 8.',
+            'Step 2: Branch to City Q (Tour P -> Q):',
+            '  Set row P = ∞, col Q = ∞, and Q->P = ∞. Remaining reduced cost evaluates to bound = 9.',
+            '  Complete tour: P -> Q -> R -> P has total cost = 4 + 4 + 1 = 9.',
+            'Step 3: Branch to City R (Tour P -> R):',
+            '  Set row P = ∞, col R = ∞, and R->P = ∞. Remaining reduced cost evaluates to bound = 13.',
+            '  Complete tour: P -> R -> Q -> P has total cost = 2 + 8 + 3 = 13.',
+            'Step 4: Conclusion:',
+            '  Optimal TSP Tour: P -> Q -> R -> P with minimum cost = 9.'
+          ]
+        },
+        {
+          title: '4. Child Node Cost Calculation: Branching from City i to City j',
           content: [
             'When branching from node parent (city i) to child node (city j) in the state-space tree:',
             '1. We commit to traversing edge (i, j).',
@@ -1862,9 +1894,10 @@ export const daaUnit4Data: Unit = {
       title: 'A salesman needs to visit four cities (A, B, C, D) and return to city A. The distances are: AB=10, AC=15, AD=20, BC=35, BD=25, CD=30. Find the shortest tour using Branch and Bound (LCBB). Trace all matrices and lower bounds.',
       shortTitle: 'Solved Numerical: 4-City TSP using LCBB (AB=10, AC=15, AD=20...)',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 2,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q4(a)', marks: 9 },
         { paper: 'Nov 2024', questionNo: 'Q4(a)', marks: 8 },
         { paper: 'Nov 2023', questionNo: 'Q3(a)', marks: 9 }
       ],

@@ -20,6 +20,8 @@ export const daaUnit3Data: Unit = {
     'Exhaustive Comparison: Greedy Method vs Dynamic Programming Strategy'
   ],
   questionPaperIndex: [
+    { paper: 'April 2026 ([6627]-81)', qMain: 'Q1(a) Job Scheduling with Deadlines (12M), Q1(b) 0/1 Knapsack DP (6M)', qOr: 'Q2(a) OBST DP 4 Keys (10M), Q2(b) Greedy vs DP Comparison (8M)' },
+    { paper: 'Nov 2025 ([6584]-91)', qMain: 'Q1(a) Greedy vs DP Comparison (6M), Q1(b) 4-Job Scheduling (8M), Q1(c) Greedy Optimality Statement (3M)', qOr: 'Q2(a) DP Control Abstraction (7M), Q2(b) Binomial Coefficients (x+y)^5 DP (10M)' },
     { paper: 'April 2025 ([6404]-81)', qMain: 'Q1(a) Knapsack Mathematical Formulations (8M), Q1(b) Activity Selection (9M)', qOr: 'Q2(a) Principle of Optimality (7M), Q2(b) 0/1 Knapsack DP W=7 (10M)' },
     { paper: 'Nov 2024 ([6354]-485)', qMain: 'Q1(a) Unit-Time Task Scheduling (8M), Q1(b) Knapsack Greedy W=15 (8M), Q1(c) Optimal Substructure (2M)', qOr: 'Q2(a) MCM 5 Matrices (10M), Q2(b) Dynamic Programming Suitability (4M), Q2(c) Greedy Control Abstraction Uses (4M)' },
     { paper: 'April 2024 ([6263]-81)', qMain: 'Q1(a) Greedy Control Abstraction (6M), Q1(b) Knapsack Greedy 5 Objects (8M), Q1(c) Dynamic Programming Principle (4M)', qOr: 'Q2(a) Dynamic Programming Approach (8M), Q2(b) Matrix Chain Multiplication 4 Matrices (10M)' },
@@ -169,9 +171,10 @@ export const daaUnit3Data: Unit = {
       title: 'Give the Mathematical Formulation for: (i) Fractional Knapsack Problem, and (ii) 0/1 Knapsack Problem. Why Does the Greedy Strategy Fail for 0/1 Knapsack?',
       shortTitle: 'Knapsack Formulations: Fractional vs 0/1 & Greedy Limitations',
       marks: 8,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q1(c)', marks: 3 },
         { paper: 'April 2025', questionNo: 'Q1(a)', marks: 8 }
       ],
       syllabusTopics: ['Mathematical Knapsack Formulation', 'Fractional vs 0/1 Constraints', 'Greedy Ratio Strategy', 'Greedy Failure in 0/1'],
@@ -504,9 +507,10 @@ export const daaUnit3Data: Unit = {
       title: 'What is Job Sequencing with Deadlines? Explain its Principle, Greedy Control Abstraction, Time Analysis, and Algorithm Steps',
       shortTitle: 'Job Sequencing with Deadlines: Algorithm & Complexity',
       marks: 8,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q1(b)', marks: 8 },
         { paper: 'Nov 2023', questionNo: 'Q2(b)', marks: 6 }
       ],
       syllabusTopics: ['Job Sequencing Principle', 'Greedy Choice on Profits', 'Control Abstraction', 'Time Complexity O(n²) vs O(n log n)'],
@@ -608,9 +612,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Job Scheduling Algorithm Using Greedy Approach for Jobs J₁..J₅ with Deadlines D=[2, 1, 3, 2, 1] and Profits P=[60, 100, 20, 40, 20]. Determine Optimal Sequence and Maximum Profit',
       shortTitle: 'Solved Numerical: Job Scheduling (5 Jobs: P=60,100,20,40,20)',
       marks: 8,
-      importance: 'Important',
-      occurrenceCount: 2,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q1(a)', marks: 12 },
         { paper: 'Nov 2023', questionNo: 'Q2(a)', marks: 12 },
         { paper: 'April 2023', questionNo: 'Q1(b)', marks: 8 }
       ],
@@ -1087,8 +1092,9 @@ export const daaUnit3Data: Unit = {
       shortTitle: 'Dynamic Programming: Principle of Optimality & DP Knapsack Limits',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      occurrenceCount: 6,
       papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q2(a)', marks: 7 },
         { paper: 'April 2025', questionNo: 'Q2(a)', marks: 7 },
         { paper: 'Nov 2024', questionNo: 'Q1(c)', marks: 2 },
         { paper: 'Nov 2024', questionNo: 'Q2(b)', marks: 4 },
@@ -1187,9 +1193,11 @@ export const daaUnit3Data: Unit = {
       title: 'Compare Between Greedy Method and Dynamic Programming with Respect to: (i) Feasibility, (ii) Optimality, (iii) Recursion, (iv) Memoization, and (v) Time Complexity',
       shortTitle: 'Comprehensive Comparison: Greedy Method vs Dynamic Programming',
       marks: 9,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q2(b)', marks: 8 },
+        { paper: 'Nov 2025', questionNo: 'Q1(a)', marks: 6 },
         { paper: 'April 2023', questionNo: 'Q3(b)', marks: 9 }
       ],
       syllabusTopics: ['Greedy vs DP Comparison', 'Feasibility and Optimality', 'Memoization vs Irrevocable Choice', 'Time Complexity Differences'],
@@ -1362,9 +1370,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: Consider the Following Instance of Knapsack Problem: Items 1..4 with Weights [2, 1, 3, 2] and Profits [$12, $10, $20, $15]. Knapsack Capacity = 5. Find Optimal Solution Using Dynamic Programming Approach',
       shortTitle: 'Solved Numerical: 0/1 Knapsack DP (W=5, 4 Items)',
       marks: 10,
-      importance: 'Important',
-      occurrenceCount: 2,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q1(b)', marks: 6 },
         { paper: 'Nov 2023', questionNo: 'Q1(b)', marks: 9 },
         { paper: 'April 2023', questionNo: 'Q1(a)', marks: 10 }
       ],
@@ -2126,9 +2135,10 @@ export const daaUnit3Data: Unit = {
       title: 'Numerical: What is Optimal Binary Search Tree? Build an OBST for Following Data: Keys = [10, 20, 30, 40] with Frequencies = [4, 2, 6, 3]',
       shortTitle: 'Solved Numerical: OBST Construction (4 Keys: 10, 20, 30, 40)',
       marks: 10,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Important',
+      occurrenceCount: 2,
       papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q2(a)', marks: 10 },
         { paper: 'April 2023', questionNo: 'Q2(b)', marks: 10 }
       ],
       syllabusTopics: ['OBST Numerical', 'Weight Matrix Computation', 'Cost Matrix Computation', 'Tree Construction'],
@@ -2298,9 +2308,11 @@ export const daaUnit3Data: Unit = {
       title: 'Explain How to Compute Binomial Coefficients C(n, k) Using Dynamic Programming. State Pascal\'s Identity, Algorithm, and Analyze Time and Space Complexity',
       shortTitle: 'Binomial Coefficients via DP: Algorithm & Analysis',
       marks: 6,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q2(b)', marks: 10 }
+      ],
       syllabusTopics: ['Binomial Coefficients', 'Pascal\'s Identity', 'Overlapping Subproblems', 'Time and Space Complexity'],
       definition: 'Computing the binomial coefficient C(n, k) = n! / (k!(n-k)!) using dynamic programming leverages Pascal\'s Identity to replace expensive factorial computations with simple additions in a 2D table.',
       sections: [
@@ -2338,7 +2350,25 @@ export const daaUnit3Data: Unit = {
           ]
         },
         {
-          title: '3. Numerical Example: Compute C(4, 2)',
+          title: '3. Worked University Numerical: Binomial Coefficients of (x + y)^5 via Dynamic Programming',
+          content: [
+            'SPPU Nov 2025 (10 Marks): Compute all binomial coefficients of (x + y)^5 using dynamic programming.',
+            'Step 1: Recurrence used: C[i, j] = C[i-1, j-1] + C[i-1, j] with boundary conditions C[i, 0] = 1 and C[i, i] = 1.',
+            'Step 2: Iterative DP Table Construction:',
+            '  • Row 0 (n=0): C[0,0] = 1',
+            '  • Row 1 (n=1): C[1,0] = 1, C[1,1] = 1',
+            '  • Row 2 (n=2): C[2,0] = 1, C[2,1] = 1+1 = 2, C[2,2] = 1',
+            '  • Row 3 (n=3): C[3,0] = 1, C[3,1] = 1+2 = 3, C[3,2] = 2+1 = 3, C[3,3] = 1',
+            '  • Row 4 (n=4): C[4,0] = 1, C[4,1] = 1+3 = 4, C[4,2] = 3+3 = 6, C[4,3] = 3+1 = 4, C[4,4] = 1',
+            '  • Row 5 (n=5): C[5,0] = 1, C[5,1] = 1+4 = 5, C[5,2] = 4+6 = 10, C[5,3] = 6+4 = 10, C[5,4] = 4+1 = 5, C[5,5] = 1',
+            'Step 3: Resulting Binomial Coefficients for (x + y)^5:',
+            '  C(5,0)=1, C(5,1)=5, C(5,2)=10, C(5,3)=10, C(5,4)=5, C(5,5)=1.',
+            'Step 4: Polynomial Expansion:',
+            '  (x + y)^5 = 1·x^5 + 5·x^4·y + 10·x^3·y^2 + 10·x^2·y^3 + 5·x·y^4 + 1·y^5.'
+          ]
+        },
+        {
+          title: '4. Additional Numerical: Compute C(4, 2)',
           content: [
             '• Row 0: C(0,0) = 1',
             '• Row 1: C(1,0) = 1, C(1,1) = 1',
