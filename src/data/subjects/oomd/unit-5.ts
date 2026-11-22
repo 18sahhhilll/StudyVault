@@ -53,12 +53,123 @@ export const unit5Data: Unit = {
       "In SPPU exams, use 2-column tables for comparison questions and separate numbered points for advantages and disadvantages."
     ]
   },
-  "questions": [
+  questions: [
+    {
+      "id": "oomd-u5-q3",
+      "unitId": "unit-5",
+      "subjectId": "oomd",
+      topicCategory: 'Class Design & Algorithm Optimization',
+      subtopic: 'Steps in Class Design & Bridging the Gap',
+      "qNumber": 1,
+      "title": "What are the Steps Involved in Class Design? Explain How to Bridge the Gap from High-Level Analysis to Low-Level Services.",
+      "shortTitle": "Class Design Steps & Bridging the Gap",
+      "marks": 5,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 2,
+      "papersAsked": [
+        { "paper": "May 2024", "questionNo": "Q6(a)", "marks": 5 },
+        { "paper": "Nov 2024 ([6584]-972)", "questionNo": "Q6(a)", "marks": 5 }
+      ],
+      "syllabusTopics": [
+        "Class Design",
+        "Overview of Class Design",
+        "Bridging the Gap"
+      ],
+      "definition": "Class Design is the phase of object-oriented development where high-level analysis classes and operations are elaborated into concrete programming specifications, choosing data structures, algorithms, and visibility rules to construct executable software.",
+      "sections": [
+        {
+          "title": "1. Steps in Class Design",
+          "content": [
+            "1. Bridge the gap between high-level requirements and low-level programming services.",
+            "2. Realize use cases by determining method call collaborations across classes.",
+            "3. Design algorithms for complex class operations.",
+            "4. Recurse downwards by decomposing complex operations into simpler helper classes.",
+            "5. Refactor the model to simplify class structures and eliminate redundancy.",
+            "6. Optimize access paths to data for runtime performance.",
+            "7. Reify behavior that must be manipulated dynamically (e.g., encapsulating commands as objects).",
+            "8. Adjust inheritance hierarchies and introduce delegation where appropriate."
+          ]
+        },
+        {
+          "title": "2. Bridging the Gap",
+          "content": [
+            "High-level requirements describe business rules (e.g., 'Authenticate Customer PIN'), while low-level services provide raw operating system and network facilities (e.g., TCP sockets, SQL queries, DES encryption chips).",
+            "Bridging the gap involves introducing intermediate abstraction layers: Application Classes -> Service Classes -> Data Access Objects (DAO) -> Driver Classes, ensuring that business logic never directly depends on raw hardware primitives."
+          ]
+        }
+      ],
+      "summary": [
+        "Direct university exam answer covering What are the Steps Involved in Class Design? Explain How to .",
+        "Includes textbook definitions, architectural components, and practical examples.",
+        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
+      ],
+      "keyPoints": [
+        "Textbook terminology",
+        "Standard UML notations",
+        "Exam-ready structure"
+      ]
+    },
+
+    {
+      "id": "oomd-u5-q5",
+      "unitId": "unit-5",
+      "subjectId": "oomd",
+      topicCategory: 'Class Design & Algorithm Optimization',
+      subtopic: 'Designing Algorithms & Recursing Downward',
+      "qNumber": 2,
+      "title": "What are the Steps to Design Algorithms in Class Design? Explain Recursing Downward.",
+      "shortTitle": "Algorithm Design & Recursing Downward",
+      "marks": 5,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 2,
+      "papersAsked": [
+        { "paper": "Nov 2023", "questionNo": "Q5(b)", "marks": 5 },
+        { "paper": "Nov 2024 ([6584]-972)", "questionNo": "Q6(b)", "marks": 5 }
+      ],
+      "syllabusTopics": [
+        "Class Design",
+        "Designing Algorithms",
+        "Recursing Downwards"
+      ],
+      "definition": "Designing Algorithms is the class design activity of specifying the exact computational steps, internal data structures, and helper operations required to implement complex operations defined on domain classes.",
+      "sections": [
+        {
+          "title": "1. Steps to Design Algorithms",
+          "content": [
+            "1. Choose Algorithms that Minimize Computational Cost: Select algorithms with appropriate time complexity (e.g., O(N log N) sorting vs O(N^2) brute force) based on expected input size.",
+            "2. Select Supporting Data Structures: Pick container types (arrays, balanced trees, hash tables, linked lists) that provide efficient operations for dominant access patterns.",
+            "3. Define New Internal Classes and Operations: If an algorithm requires intermediate data representations, create private helper classes to store working state.",
+            "4. Assign Operations to Appropriate Classes: Follow the Information Expert pattern by assigning responsibilities to the class that holds the required data."
+          ]
+        },
+        {
+          "title": "2. Recursing Downward",
+          "content": [
+            "Concept: When designing a high-level algorithm for a complex class operation, the algorithm often reveals sub-operations that are too intricate to implement directly inside the parent class.",
+            "Refactoring Downwards: The designer 'recurses downward' by defining new, smaller helper classes and lower-level operations to isolate these sub-tasks.",
+            "Example: In an ATM system, designing the high-level operation 'processWithdrawal()' reveals sub-operations such as 'verifyPin()', 'checkSufficientFunds()', 'logTransaction()', and 'dispenseBanknotes()'. Rather than making a monolithic ATM class, these are decomposed downwards into PinValidator, AccountManager, AuditLogger, and DispenserController classes."
+          ]
+        }
+      ],
+      "summary": [
+        "Direct university exam answer covering What are the Steps to Design Algorithms in Class Design? Exp.",
+        "Includes textbook definitions, architectural components, and practical examples.",
+        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
+      ],
+      "keyPoints": [
+        "Textbook terminology",
+        "Standard UML notations",
+        "Exam-ready structure"
+      ]
+    },
+
     {
       "id": "oomd-u5-q1",
       "unitId": "unit-5",
       "subjectId": "oomd",
-      "qNumber": 1,
+      topicCategory: 'Class Design & Algorithm Optimization',
+      subtopic: 'Design Optimization in Class Design',
+      "qNumber": 3,
       "title": "Explain the Tasks Involved in Design Optimization during Class Design.",
       "shortTitle": "Design Optimization Tasks",
       "marks": 5,
@@ -103,11 +214,14 @@ export const unit5Data: Unit = {
         "Exam-ready structure"
       ]
     },
+
     {
       "id": "oomd-u5-q2",
       "unitId": "unit-5",
       "subjectId": "oomd",
-      "qNumber": 2,
+      topicCategory: 'Class Design & Algorithm Optimization',
+      subtopic: 'Adjustment of Inheritance & Delegation',
+      "qNumber": 4,
       "title": "How is Adjustment of Inheritance Done in Class Design? Discuss the Steps and Explain Delegation with an Example.",
       "shortTitle": "Adjustment of Inheritance & Delegation",
       "marks": 7,
@@ -162,64 +276,14 @@ export const unit5Data: Unit = {
         "Exam-ready structure"
       ]
     },
-    {
-      "id": "oomd-u5-q3",
-      "unitId": "unit-5",
-      "subjectId": "oomd",
-      "qNumber": 3,
-      "title": "What are the Steps Involved in Class Design? Explain How to Bridge the Gap from High-Level Analysis to Low-Level Services.",
-      "shortTitle": "Class Design Steps & Bridging the Gap",
-      "marks": 5,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 2,
-      "papersAsked": [
-        { "paper": "May 2024", "questionNo": "Q6(a)", "marks": 5 },
-        { "paper": "Nov 2024 ([6584]-972)", "questionNo": "Q6(a)", "marks": 5 }
-      ],
-      "syllabusTopics": [
-        "Class Design",
-        "Overview of Class Design",
-        "Bridging the Gap"
-      ],
-      "definition": "Class Design is the phase of object-oriented development where high-level analysis classes and operations are elaborated into concrete programming specifications, choosing data structures, algorithms, and visibility rules to construct executable software.",
-      "sections": [
-        {
-          "title": "1. Steps in Class Design",
-          "content": [
-            "1. Bridge the gap between high-level requirements and low-level programming services.",
-            "2. Realize use cases by determining method call collaborations across classes.",
-            "3. Design algorithms for complex class operations.",
-            "4. Recurse downwards by decomposing complex operations into simpler helper classes.",
-            "5. Refactor the model to simplify class structures and eliminate redundancy.",
-            "6. Optimize access paths to data for runtime performance.",
-            "7. Reify behavior that must be manipulated dynamically (e.g., encapsulating commands as objects).",
-            "8. Adjust inheritance hierarchies and introduce delegation where appropriate."
-          ]
-        },
-        {
-          "title": "2. Bridging the Gap",
-          "content": [
-            "High-level requirements describe business rules (e.g., 'Authenticate Customer PIN'), while low-level services provide raw operating system and network facilities (e.g., TCP sockets, SQL queries, DES encryption chips).",
-            "Bridging the gap involves introducing intermediate abstraction layers: Application Classes -> Service Classes -> Data Access Objects (DAO) -> Driver Classes, ensuring that business logic never directly depends on raw hardware primitives."
-          ]
-        }
-      ],
-      "summary": [
-        "Direct university exam answer covering What are the Steps Involved in Class Design? Explain How to .",
-        "Includes textbook definitions, architectural components, and practical examples.",
-        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
-      ],
-      "keyPoints": [
-        "Textbook terminology",
-        "Standard UML notations",
-        "Exam-ready structure"
-      ]
-    },
+
     {
       "id": "oomd-u5-q4",
       "unitId": "unit-5",
       "subjectId": "oomd",
-      "qNumber": 4,
+      topicCategory: 'Class Design & Algorithm Optimization',
+      subtopic: 'Data Dictionary & ATM System Scenario',
+      "qNumber": 5,
       "title": "Write a Short Note on Data Dictionary. Prepare a Data Dictionary for an ATM System Scenario.",
       "shortTitle": "Data Dictionary for ATM System",
       "marks": 7,
@@ -268,47 +332,42 @@ export const unit5Data: Unit = {
         "Exam-ready structure"
       ]
     },
+
     {
-      "id": "oomd-u5-q5",
+      "id": "oomd-u5-q7",
       "unitId": "unit-5",
       "subjectId": "oomd",
-      "qNumber": 5,
-      "title": "What are the Steps to Design Algorithms in Class Design? Explain Recursing Downward.",
-      "shortTitle": "Algorithm Design & Recursing Downward",
-      "marks": 5,
+      topicCategory: 'Implementation Modeling & Testing',
+      subtopic: 'Steps in Implementation Modeling & Testing',
+      "qNumber": 6,
+      "title": "Explain the Steps Involved in Implementation Modeling in Detail.",
+      "shortTitle": "Implementation Modeling Steps",
+      "marks": 6,
       "importance": "Frequently Asked",
       "occurrenceCount": 2,
       "papersAsked": [
-        { "paper": "Nov 2023", "questionNo": "Q5(b)", "marks": 5 },
-        { "paper": "Nov 2024 ([6584]-972)", "questionNo": "Q6(b)", "marks": 5 }
+        { "paper": "Nov 2023", "questionNo": "Q6(b)", "marks": 5 },
+        { "paper": "May 2024 (PD4582)", "questionNo": "Q5(a)", "marks": 6 }
       ],
       "syllabusTopics": [
-        "Class Design",
-        "Designing Algorithms",
-        "Recursing Downwards"
+        "Implementation Modeling",
+        "Fine-Tuning Classes",
+        "Realizing Associations"
       ],
-      "definition": "Designing Algorithms is the class design activity of specifying the exact computational steps, internal data structures, and helper operations required to implement complex operations defined on domain classes.",
+      "definition": "Implementation Modeling is the final development stage that bridges the object-oriented design model to a specific target programming language (e.g., Java, C++, Python) by fine-tuning class definitions, realizing associations with concrete pointer types, and verifying correctness.",
       "sections": [
         {
-          "title": "1. Steps to Design Algorithms",
+          "title": "1. Four Major Steps in Implementation Modeling",
           "content": [
-            "1. Choose Algorithms that Minimize Computational Cost: Select algorithms with appropriate time complexity (e.g., O(N log N) sorting vs O(N^2) brute force) based on expected input size.",
-            "2. Select Supporting Data Structures: Pick container types (arrays, balanced trees, hash tables, linked lists) that provide efficient operations for dominant access patterns.",
-            "3. Define New Internal Classes and Operations: If an algorithm requires intermediate data representations, create private helper classes to store working state.",
-            "4. Assign Operations to Appropriate Classes: Follow the Information Expert pattern by assigning responsibilities to the class that holds the required data."
-          ]
-        },
-        {
-          "title": "2. Recursing Downward",
-          "content": [
-            "Concept: When designing a high-level algorithm for a complex class operation, the algorithm often reveals sub-operations that are too intricate to implement directly inside the parent class.",
-            "Refactoring Downwards: The designer 'recurses downward' by defining new, smaller helper classes and lower-level operations to isolate these sub-tasks.",
-            "Example: In an ATM system, designing the high-level operation 'processWithdrawal()' reveals sub-operations such as 'verifyPin()', 'checkSufficientFunds()', 'logTransaction()', and 'dispenseBanknotes()'. Rather than making a monolithic ATM class, these are decomposed downwards into PinValidator, AccountManager, AuditLogger, and DispenserController classes."
+            "Step 1 - Fine-Tuning Classes: Assigning target language data types (int, float, string) to all attributes, adding getter/setter accessors, declaring public/private/protected visibility modifiers, and finalizing constructor signatures.",
+            "Step 2 - Fine-Tuning Generalizations: Translating inheritance models into target language mechanisms (e.g., interfaces vs abstract classes in Java; virtual inheritance in C++). Resolving any lingering multiple inheritance issues.",
+            "Step 3 - Realizing Associations: Converting UML association lines into target language references. One-to-one associations become direct object pointers; one-to-many associations become collection objects (e.g., List<Account>, Set<Customer>); many-to-many associations are mapped to intermediate association classes.",
+            "Step 4 - Unit and Integration Testing: Developing automated test suites (e.g., JUnit) to verify individual class invariants, method boundary values, and inter-class interaction contracts."
           ]
         }
       ],
       "summary": [
-        "Direct university exam answer covering What are the Steps to Design Algorithms in Class Design? Exp.",
+        "Direct university exam answer covering Explain the Steps Involved in Implementation Modeling in Det.",
         "Includes textbook definitions, architectural components, and practical examples.",
         "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
       ],
@@ -318,11 +377,14 @@ export const unit5Data: Unit = {
         "Exam-ready structure"
       ]
     },
+
     {
       "id": "oomd-u5-q6",
       "unitId": "unit-5",
       "subjectId": "oomd",
-      "qNumber": 6,
+      topicCategory: 'Legacy Systems & Reverse Engineering',
+      subtopic: 'Reverse Engineering vs Forward Engineering',
+      "qNumber": 7,
       "title": "Define Reverse Engineering. Enlist the Inputs and Outputs of Reverse Engineering and Compare Forward Engineering vs Reverse Engineering.",
       "shortTitle": "Reverse Engineering: Inputs & Outputs",
       "marks": 7,
@@ -400,52 +462,13 @@ export const unit5Data: Unit = {
         "Exam-ready structure"
       ]
     },
-    {
-      "id": "oomd-u5-q7",
-      "unitId": "unit-5",
-      "subjectId": "oomd",
-      "qNumber": 7,
-      "title": "Explain the Steps Involved in Implementation Modeling in Detail.",
-      "shortTitle": "Implementation Modeling Steps",
-      "marks": 6,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 2,
-      "papersAsked": [
-        { "paper": "Nov 2023", "questionNo": "Q6(b)", "marks": 5 },
-        { "paper": "May 2024 (PD4582)", "questionNo": "Q5(a)", "marks": 6 }
-      ],
-      "syllabusTopics": [
-        "Implementation Modeling",
-        "Fine-Tuning Classes",
-        "Realizing Associations"
-      ],
-      "definition": "Implementation Modeling is the final development stage that bridges the object-oriented design model to a specific target programming language (e.g., Java, C++, Python) by fine-tuning class definitions, realizing associations with concrete pointer types, and verifying correctness.",
-      "sections": [
-        {
-          "title": "1. Four Major Steps in Implementation Modeling",
-          "content": [
-            "Step 1 - Fine-Tuning Classes: Assigning target language data types (int, float, string) to all attributes, adding getter/setter accessors, declaring public/private/protected visibility modifiers, and finalizing constructor signatures.",
-            "Step 2 - Fine-Tuning Generalizations: Translating inheritance models into target language mechanisms (e.g., interfaces vs abstract classes in Java; virtual inheritance in C++). Resolving any lingering multiple inheritance issues.",
-            "Step 3 - Realizing Associations: Converting UML association lines into target language references. One-to-one associations become direct object pointers; one-to-many associations become collection objects (e.g., List<Account>, Set<Customer>); many-to-many associations are mapped to intermediate association classes.",
-            "Step 4 - Unit and Integration Testing: Developing automated test suites (e.g., JUnit) to verify individual class invariants, method boundary values, and inter-class interaction contracts."
-          ]
-        }
-      ],
-      "summary": [
-        "Direct university exam answer covering Explain the Steps Involved in Implementation Modeling in Det.",
-        "Includes textbook definitions, architectural components, and practical examples.",
-        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
-      ],
-      "keyPoints": [
-        "Textbook terminology",
-        "Standard UML notations",
-        "Exam-ready structure"
-      ]
-    },
+
     {
       "id": "oomd-u5-q8",
       "unitId": "unit-5",
       "subjectId": "oomd",
+      topicCategory: 'Legacy Systems & Reverse Engineering',
+      subtopic: 'Legacy Systems, 4-Layer Architecture & Wrapping',
       "qNumber": 8,
       "title": "Explain Legacy Systems, the 4-Layer Legacy Architecture, and How Wrapping and Maintenance are Applied.",
       "shortTitle": "Legacy Systems: Layers, Wrapping & Maintenance",

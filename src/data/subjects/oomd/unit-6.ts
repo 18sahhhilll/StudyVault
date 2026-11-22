@@ -79,11 +79,13 @@ export const unit6Data: Unit = {
       "For Counted Pointer questions, draw the Handle-Body diagram (Fig. 6.8.1) and write down the 8 implementation steps."
     ]
   },
-  "questions": [
+  questions: [
     {
       "id": "oomd-u6-q1",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Design Pattern Fundamentals',
+      subtopic: 'What Makes a Pattern & Architectural Pattern',
       "qNumber": 1,
       "title": "What is a Pattern? What Makes a Pattern? Explain Context, Problem, and Solution with an Example of an Architectural Pattern.",
       "shortTitle": "What is a Pattern & MVC Architecture",
@@ -144,10 +146,13 @@ export const unit6Data: Unit = {
         "Model-View-Controller (Fig. 6.1.1)"
       ]
     },
+
     {
       "id": "oomd-u6-q2",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Design Pattern Fundamentals',
+      subtopic: 'Pattern Categories: Architectural, Design & Idioms',
       "qNumber": 2,
       "title": "Explain Pattern Categories: Architectural Patterns, Design Patterns, and Idioms in Detail.",
       "shortTitle": "Pattern Categories: Architecture, Design & Idioms",
@@ -196,10 +201,13 @@ export const unit6Data: Unit = {
         "Idioms (low level, language specific)"
       ]
     },
+
     {
       "id": "oomd-u6-q3",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Design Pattern Fundamentals',
+      subtopic: 'Relationships Between Patterns',
       "qNumber": 3,
       "title": "Show and Explain Relationships Between Patterns with a Suitable Example.",
       "shortTitle": "Relationships Between Patterns",
@@ -249,10 +257,13 @@ export const unit6Data: Unit = {
         "Model as Subject, View as Observer"
       ]
     },
+
     {
       "id": "oomd-u6-q4",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Design Pattern Fundamentals',
+      subtopic: 'Standard Pattern Description Format',
       "qNumber": 4,
       "title": "Explain the Standard Pattern Description Format Used to Document Software Patterns.",
       "shortTitle": "Pattern Description Format",
@@ -298,10 +309,13 @@ export const unit6Data: Unit = {
         "Consequences (advantages & disadvantages)"
       ]
     },
+
     {
       "id": "oomd-u6-q5",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Communication Patterns',
+      subtopic: 'Forwarder-Receiver Pattern',
       "qNumber": 5,
       "title": "What is a Communication Pattern? Explain the Forwarder-Receiver Pattern in Detail with a Diagram.",
       "shortTitle": "Forwarder-Receiver Communication Pattern",
@@ -363,10 +377,13 @@ export const unit6Data: Unit = {
         "Marshal and unmarshal"
       ]
     },
+
     {
       "id": "oomd-u6-q6",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Communication Patterns',
+      subtopic: 'Client-Dispatcher-Server Pattern',
       "qNumber": 6,
       "title": "Explain the Client-Dispatcher-Server Architectural Design Pattern in Detail with a Diagram.",
       "shortTitle": "Client-Dispatcher-Server Pattern",
@@ -433,10 +450,13 @@ export const unit6Data: Unit = {
         "Sun RPC & CORBA"
       ]
     },
+
     {
       "id": "oomd-u6-q7",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Communication Patterns',
+      subtopic: 'Publisher-Subscriber Pattern',
       "qNumber": 7,
       "title": "Discuss the Structure and Variants of the Publisher-Subscriber Design Pattern with a Diagram.",
       "shortTitle": "Publisher-Subscriber Design Pattern",
@@ -505,10 +525,13 @@ export const unit6Data: Unit = {
         "Event messaging & logistics tracking"
       ]
     },
+
     {
       "id": "oomd-u6-q8",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Management Patterns',
+      subtopic: 'Command Processor Pattern',
       "qNumber": 8,
       "title": "What are Management Patterns? Explain the Command Processor Pattern in Detail with a Diagram.",
       "shortTitle": "Command Processor Management Pattern",
@@ -581,10 +604,13 @@ export const unit6Data: Unit = {
         "Known Use: MacApp"
       ]
     },
+
     {
       "id": "oomd-u6-q9",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Management Patterns',
+      subtopic: 'View Handler Pattern',
       "qNumber": 9,
       "title": "What is the View Handler Pattern? Explain Its Intent, Architecture, and Working with a Diagram.",
       "shortTitle": "View Handler Management Pattern",
@@ -654,10 +680,13 @@ export const unit6Data: Unit = {
         "Known Use: Microsoft Word"
       ]
     },
+
     {
       "id": "oomd-u6-q10",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Idioms & Memory Management',
+      subtopic: 'Idioms Introduction & Style',
       "qNumber": 10,
       "title": "Define Idioms. What Can Idioms Provide? Discuss Idioms and Style, and Explain Where to Find Idioms.",
       "shortTitle": "Idioms: Style & Sources",
@@ -713,10 +742,13 @@ export const unit6Data: Unit = {
         "Sources: Beck, Coplien, Meyers"
       ]
     },
+
     {
       "id": "oomd-u6-q11",
       "unitId": "unit-6",
       "subjectId": "oomd",
+      topicCategory: 'Idioms & Memory Management',
+      subtopic: 'Counted Pointer Idiom & Handle-Body',
       "qNumber": 11,
       "title": "Explain the Counted Pointer Idiom in Detail with Structure, Handle-Body Diagram, and Implementation Steps.",
       "shortTitle": "Counted Pointer Handle-Body Idiom",

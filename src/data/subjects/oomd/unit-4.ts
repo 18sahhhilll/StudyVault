@@ -52,12 +52,77 @@ export const unit4Data: Unit = {
       "In SPPU exams, use 2-column tables for comparison questions and separate numbered points for advantages and disadvantages."
     ]
   },
-  "questions": [
+  questions: [
+    {
+      "id": "oomd-u4-q4",
+      "unitId": "unit-4",
+      "subjectId": "oomd",
+      topicCategory: 'System Decomposition & Architecture',
+      subtopic: 'Subsystem Decomposition: Layers & Partitions',
+      "qNumber": 1,
+      "title": "What is Meant by a Subsystem in System Design? Explain the Decomposition of a System into Subsystems Using Layers and Partitions.",
+      "shortTitle": "Subsystems: Layers & Partitions",
+      "marks": 7,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 4,
+      "papersAsked": [
+        { "paper": "May 2024", "questionNo": "Q3(c)", "marks": 7 },
+        { "paper": "Nov 2023", "questionNo": "Q4(c)", "marks": 7 },
+        { "paper": "Oct 2022", "questionNo": "Q3(b)", "marks": 6 },
+        { "paper": "May 2024 (PD4582)", "questionNo": "Q3(b)", "marks": 5 }
+      ],
+      "syllabusTopics": [
+        "System Design",
+        "Breaking a System into Sub-systems",
+        "Layers and Partitions"
+      ],
+      "definition": "A Subsystem is a major, self-contained functional component of a system consisting of a group of closely interrelated classes, associations, operations, and constraints that collaborate to provide a unified set of services through a well-defined public interface.",
+      "diagrams": [
+        {
+          "id": "diag-oomd-layers-partitions",
+          "title": "Subsystem Decomposition: Layers and Partitions (Fig. 4.8.1)",
+          "caption": "Textbook Fig. 4.8.1: Horizontal decomposition into Layers (varying abstraction tiers) and vertical decomposition into Partitions (independent peer modules at the same abstraction level).",
+          "type": "svg-interactive",
+          "svgType": "oomd-layers-partitions"
+        }
+      ],
+      "sections": [
+        {
+          "title": "1. Horizontal Decomposition: Layers (Fig. 4.8.1)",
+          "content": [
+            "Concept: A layered architecture organizes subsystems into hierarchical tiers built one above the other. Each layer provides services to the layer directly above it and consumes services from the layer below it.",
+            "Varying Abstraction Levels: High layers represent abstract domain concepts and user interfaces, while lower layers handle concrete system services, database access, and hardware drivers.",
+            "Closed vs Open Architecture: In a closed architecture, each layer can only invoke the immediate adjacent lower layer (strong encapsulation). In an open architecture, a layer may invoke any layer beneath it (higher performance, reduced encapsulation)."
+          ]
+        },
+        {
+          "title": "2. Vertical Decomposition: Partitions (Fig. 4.8.1)",
+          "content": [
+            "Concept: Partitioning divides a system vertically into distinct, independent subsystems that share the same level of abstraction.",
+            "Weak Coupling: Subsystems in different partitions operate as peers with minimal dependencies, providing specialized business services (e.g., Account Subsystem, Transaction Subsystem, Security Subsystem).",
+            "Parallel Development: Because partitions have clean, orthogonal boundaries, different engineering teams can build, test, and maintain them simultaneously without merge conflicts."
+          ]
+        }
+      ],
+      "summary": [
+        "Direct university exam answer covering What is Meant by a Subsystem in System Design? Explain the D.",
+        "Includes textbook definitions, architectural components, and practical examples.",
+        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
+      ],
+      "keyPoints": [
+        "Textbook terminology",
+        "Standard UML notations",
+        "Exam-ready structure"
+      ]
+    },
+
     {
       "id": "oomd-u4-q1",
       "unitId": "unit-4",
       "subjectId": "oomd",
-      "qNumber": 1,
+      topicCategory: 'System Decomposition & Architecture',
+      subtopic: 'Common Architectural Styles & ATM Architecture',
+      "qNumber": 2,
       "title": "Enlist and Explain Common Architectural Styles Followed in Software Design. Draw the Distributed Architecture of an ATM System.",
       "shortTitle": "Architectural Styles & ATM Architecture",
       "marks": 7,
@@ -120,11 +185,66 @@ export const unit4Data: Unit = {
         "Exam-ready structure"
       ]
     },
+
+    {
+      "id": "oomd-u4-q7",
+      "unitId": "unit-4",
+      "subjectId": "oomd",
+      topicCategory: 'Subsystem Allocation & Global Resources',
+      subtopic: 'Allocation of Subsystems to Processors & Tasks',
+      "qNumber": 3,
+      "title": "How Do You Decide the Allocation of Subsystems to Processors and Tasks?",
+      "shortTitle": "Allocation of Subsystems to Processors",
+      "marks": 6,
+      "importance": "Important",
+      "occurrenceCount": 2,
+      "papersAsked": [
+        { "paper": "May 2024 (PD4582)", "questionNo": "Q4(a)", "marks": 6 },
+        { "paper": "Oct 2022", "questionNo": "Q3(b)", "marks": 6 }
+      ],
+      "syllabusTopics": [
+        "System Design",
+        "Allocation of Sub-systems",
+        "Hardware and Task Mapping"
+      ],
+      "definition": "The Allocation of Subsystems involves mapping logical software subsystems onto physical hardware processors, computing nodes, and operating system threads to balance workload, minimize network latency, and satisfy throughput demands.",
+      "sections": [
+        {
+          "title": "1. Key Criteria for Hardware Allocation",
+          "content": [
+            "1. Computation Volume: Subsystems requiring intensive number-crunching (e.g., 3D graphics rendering, video encoding, fraud detection AI) are assigned to dedicated high-performance server nodes or GPU clusters.",
+            "2. Bandwidth and Inter-Process Latency: Subsystems that communicate heavily with each other should reside on the same physical host to communicate over shared memory rather than slow network sockets.",
+            "3. Physical Location Requirements: Subsystems interfacing directly with external hardware (e.g., ATM card reader driver, cash dispenser motor controller) must reside on the physical client machine containing those peripherals.",
+            "4. Reliability and Redundancy: Critical subsystems (e.g., central banking transaction switch) require active-passive or active-active multi-node clustering for immediate disaster recovery."
+          ]
+        },
+        {
+          "title": "2. Task Allocation (Process / Thread Mapping)",
+          "content": [
+            "Inherent Concurrency: If two subsystems execute independent tasks, allocate them to separate OS processes or threads.",
+            "Thread Scheduling: Periodic tasks (e.g., sensor polling every 10ms) run on dedicated high-priority real-time threads, while non-urgent background tasks (e.g., audit log archiving) run on worker pool threads."
+          ]
+        }
+      ],
+      "summary": [
+        "Direct university exam answer covering How Do You Decide the Allocation of Subsystems to Processors.",
+        "Includes textbook definitions, architectural components, and practical examples.",
+        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
+      ],
+      "keyPoints": [
+        "Textbook terminology",
+        "Standard UML notations",
+        "Exam-ready structure"
+      ]
+    },
+
     {
       "id": "oomd-u4-q2",
       "unitId": "unit-4",
       "subjectId": "oomd",
-      "qNumber": 2,
+      topicCategory: 'Subsystem Allocation & Global Resources',
+      subtopic: 'Handling Global Resources in System Design',
+      "qNumber": 4,
       "title": "Explain How Global Resources are Handled in System Design.",
       "shortTitle": "Global Resource Handling",
       "marks": 5,
@@ -171,11 +291,14 @@ export const unit4Data: Unit = {
         "Exam-ready structure"
       ]
     },
+
     {
       "id": "oomd-u4-q3",
       "unitId": "unit-4",
       "subjectId": "oomd",
-      "qNumber": 3,
+      topicCategory: 'Data Storage & Software Control Strategies',
+      subtopic: 'Data Storage Management (Flat Files vs RDBMS vs OODBMS)',
+      "qNumber": 5,
       "title": "Explain Data Storage Management in Software Modeling: Flat Files vs Relational Databases vs Object-Oriented Databases.",
       "shortTitle": "Data Storage Management",
       "marks": 6,
@@ -252,71 +375,14 @@ export const unit4Data: Unit = {
         "Exam-ready structure"
       ]
     },
-    {
-      "id": "oomd-u4-q4",
-      "unitId": "unit-4",
-      "subjectId": "oomd",
-      "qNumber": 4,
-      "title": "What is Meant by a Subsystem in System Design? Explain the Decomposition of a System into Subsystems Using Layers and Partitions.",
-      "shortTitle": "Subsystems: Layers & Partitions",
-      "marks": 7,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 4,
-      "papersAsked": [
-        { "paper": "May 2024", "questionNo": "Q3(c)", "marks": 7 },
-        { "paper": "Nov 2023", "questionNo": "Q4(c)", "marks": 7 },
-        { "paper": "Oct 2022", "questionNo": "Q3(b)", "marks": 6 },
-        { "paper": "May 2024 (PD4582)", "questionNo": "Q3(b)", "marks": 5 }
-      ],
-      "syllabusTopics": [
-        "System Design",
-        "Breaking a System into Sub-systems",
-        "Layers and Partitions"
-      ],
-      "definition": "A Subsystem is a major, self-contained functional component of a system consisting of a group of closely interrelated classes, associations, operations, and constraints that collaborate to provide a unified set of services through a well-defined public interface.",
-      "diagrams": [
-        {
-          "id": "diag-oomd-layers-partitions",
-          "title": "Subsystem Decomposition: Layers and Partitions (Fig. 4.8.1)",
-          "caption": "Textbook Fig. 4.8.1: Horizontal decomposition into Layers (varying abstraction tiers) and vertical decomposition into Partitions (independent peer modules at the same abstraction level).",
-          "type": "svg-interactive",
-          "svgType": "oomd-layers-partitions"
-        }
-      ],
-      "sections": [
-        {
-          "title": "1. Horizontal Decomposition: Layers (Fig. 4.8.1)",
-          "content": [
-            "Concept: A layered architecture organizes subsystems into hierarchical tiers built one above the other. Each layer provides services to the layer directly above it and consumes services from the layer below it.",
-            "Varying Abstraction Levels: High layers represent abstract domain concepts and user interfaces, while lower layers handle concrete system services, database access, and hardware drivers.",
-            "Closed vs Open Architecture: In a closed architecture, each layer can only invoke the immediate adjacent lower layer (strong encapsulation). In an open architecture, a layer may invoke any layer beneath it (higher performance, reduced encapsulation)."
-          ]
-        },
-        {
-          "title": "2. Vertical Decomposition: Partitions (Fig. 4.8.1)",
-          "content": [
-            "Concept: Partitioning divides a system vertically into distinct, independent subsystems that share the same level of abstraction.",
-            "Weak Coupling: Subsystems in different partitions operate as peers with minimal dependencies, providing specialized business services (e.g., Account Subsystem, Transaction Subsystem, Security Subsystem).",
-            "Parallel Development: Because partitions have clean, orthogonal boundaries, different engineering teams can build, test, and maintain them simultaneously without merge conflicts."
-          ]
-        }
-      ],
-      "summary": [
-        "Direct university exam answer covering What is Meant by a Subsystem in System Design? Explain the D.",
-        "Includes textbook definitions, architectural components, and practical examples.",
-        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
-      ],
-      "keyPoints": [
-        "Textbook terminology",
-        "Standard UML notations",
-        "Exam-ready structure"
-      ]
-    },
+
     {
       "id": "oomd-u4-q5",
       "unitId": "unit-4",
       "subjectId": "oomd",
-      "qNumber": 5,
+      topicCategory: 'Data Storage & Software Control Strategies',
+      subtopic: 'Software Control Strategies (Procedure vs Event Driven)',
+      "qNumber": 6,
       "title": "Explain Software Control Strategies: External Control (Procedure-Driven vs Event-Driven) and Internal Control.",
       "shortTitle": "Software Control Strategies",
       "marks": 5,
@@ -364,109 +430,14 @@ export const unit4Data: Unit = {
         "Exam-ready structure"
       ]
     },
-    {
-      "id": "oomd-u4-q6",
-      "unitId": "unit-4",
-      "subjectId": "oomd",
-      "qNumber": 6,
-      "title": "Define Reuse Plan. Explain Libraries, Frameworks, and Patterns with Respect to a Reuse Plan.",
-      "shortTitle": "Reuse Plan: Libraries, Frameworks & Patterns",
-      "marks": 6,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 3,
-      "papersAsked": [
-        { "paper": "May 2024", "questionNo": "Q3(a)", "marks": 5 },
-        { "paper": "Nov 2023", "questionNo": "Q4(b)", "marks": 5 },
-        { "paper": "April 2023", "questionNo": "Q3(a)", "marks": 6 }
-      ],
-      "syllabusTopics": [
-        "System Design",
-        "Making a Reuse Plan",
-        "Libraries, Frameworks and Patterns"
-      ],
-      "definition": "A Reuse Plan is a strategic system design activity that identifies existing software assets (classes, components, architectures) to incorporate into a new system to reduce development time, improve reliability, and avoid reinventing the wheel.",
-      "sections": [
-        {
-          "title": "1. Three Core Reusable Assets",
-          "content": [
-            "1. Class Library: A collection of pre-compiled, reusable classes and helper functions that developers instantiate and call to perform common utility tasks (e.g., math calculations, string formatting, date manipulation, data collections). Control remains with user code.",
-            "2. Framework: A skeletal, semi-complete architectural foundation designed for a specific domain (e.g., Spring Boot, React, Django). A framework dictates program flow using 'Inversion of Control' (the framework calls user code via callbacks, known as the Hollywood Principle: 'Don't call us, we'll call you').",
-            "3. Design Pattern: An abstract, generalized architectural solution to a commonly recurring software design problem within a given context. Unlike libraries, patterns are not pre-packaged code; they are conceptual templates customized during implementation."
-          ]
-        },
-        {
-          "title": "2. Advantages of a Formal Reuse Plan",
-          "content": [
-            "Accelerates Time to Market: Eliminates redundant coding of standard infrastructure such as cryptographic hashing, database drivers, and UI widgets.",
-            "Higher Software Quality: Reusable commercial or open-source libraries have undergone extensive real-world testing and optimization across thousands of production environments."
-          ]
-        }
-      ],
-      "summary": [
-        "Direct university exam answer covering Define Reuse Plan. Explain Libraries, Frameworks, and Patter.",
-        "Includes textbook definitions, architectural components, and practical examples.",
-        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
-      ],
-      "keyPoints": [
-        "Textbook terminology",
-        "Standard UML notations",
-        "Exam-ready structure"
-      ]
-    },
-    {
-      "id": "oomd-u4-q7",
-      "unitId": "unit-4",
-      "subjectId": "oomd",
-      "qNumber": 7,
-      "title": "How Do You Decide the Allocation of Subsystems to Processors and Tasks?",
-      "shortTitle": "Allocation of Subsystems to Processors",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 2,
-      "papersAsked": [
-        { "paper": "May 2024 (PD4582)", "questionNo": "Q4(a)", "marks": 6 },
-        { "paper": "Oct 2022", "questionNo": "Q3(b)", "marks": 6 }
-      ],
-      "syllabusTopics": [
-        "System Design",
-        "Allocation of Sub-systems",
-        "Hardware and Task Mapping"
-      ],
-      "definition": "The Allocation of Subsystems involves mapping logical software subsystems onto physical hardware processors, computing nodes, and operating system threads to balance workload, minimize network latency, and satisfy throughput demands.",
-      "sections": [
-        {
-          "title": "1. Key Criteria for Hardware Allocation",
-          "content": [
-            "1. Computation Volume: Subsystems requiring intensive number-crunching (e.g., 3D graphics rendering, video encoding, fraud detection AI) are assigned to dedicated high-performance server nodes or GPU clusters.",
-            "2. Bandwidth and Inter-Process Latency: Subsystems that communicate heavily with each other should reside on the same physical host to communicate over shared memory rather than slow network sockets.",
-            "3. Physical Location Requirements: Subsystems interfacing directly with external hardware (e.g., ATM card reader driver, cash dispenser motor controller) must reside on the physical client machine containing those peripherals.",
-            "4. Reliability and Redundancy: Critical subsystems (e.g., central banking transaction switch) require active-passive or active-active multi-node clustering for immediate disaster recovery."
-          ]
-        },
-        {
-          "title": "2. Task Allocation (Process / Thread Mapping)",
-          "content": [
-            "Inherent Concurrency: If two subsystems execute independent tasks, allocate them to separate OS processes or threads.",
-            "Thread Scheduling: Periodic tasks (e.g., sensor polling every 10ms) run on dedicated high-priority real-time threads, while non-urgent background tasks (e.g., audit log archiving) run on worker pool threads."
-          ]
-        }
-      ],
-      "summary": [
-        "Direct university exam answer covering How Do You Decide the Allocation of Subsystems to Processors.",
-        "Includes textbook definitions, architectural components, and practical examples.",
-        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
-      ],
-      "keyPoints": [
-        "Textbook terminology",
-        "Standard UML notations",
-        "Exam-ready structure"
-      ]
-    },
+
     {
       "id": "oomd-u4-q8",
       "unitId": "unit-4",
       "subjectId": "oomd",
-      "qNumber": 8,
+      topicCategory: 'Performance Estimation & Reuse Plan',
+      subtopic: 'System Performance Estimation',
+      "qNumber": 7,
       "title": "Write a Short Note on System Performance Estimation.",
       "shortTitle": "System Performance Estimation",
       "marks": 5,
@@ -502,6 +473,58 @@ export const unit4Data: Unit = {
       ],
       "summary": [
         "Direct university exam answer covering Write a Short Note on System Performance Estimation..",
+        "Includes textbook definitions, architectural components, and practical examples.",
+        "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
+      ],
+      "keyPoints": [
+        "Textbook terminology",
+        "Standard UML notations",
+        "Exam-ready structure"
+      ]
+    },
+
+    {
+      "id": "oomd-u4-q6",
+      "unitId": "unit-4",
+      "subjectId": "oomd",
+      topicCategory: 'Performance Estimation & Reuse Plan',
+      subtopic: 'Reuse Plan: Libraries, Frameworks & Patterns',
+      "qNumber": 8,
+      "title": "Define Reuse Plan. Explain Libraries, Frameworks, and Patterns with Respect to a Reuse Plan.",
+      "shortTitle": "Reuse Plan: Libraries, Frameworks & Patterns",
+      "marks": 6,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 3,
+      "papersAsked": [
+        { "paper": "May 2024", "questionNo": "Q3(a)", "marks": 5 },
+        { "paper": "Nov 2023", "questionNo": "Q4(b)", "marks": 5 },
+        { "paper": "April 2023", "questionNo": "Q3(a)", "marks": 6 }
+      ],
+      "syllabusTopics": [
+        "System Design",
+        "Making a Reuse Plan",
+        "Libraries, Frameworks and Patterns"
+      ],
+      "definition": "A Reuse Plan is a strategic system design activity that identifies existing software assets (classes, components, architectures) to incorporate into a new system to reduce development time, improve reliability, and avoid reinventing the wheel.",
+      "sections": [
+        {
+          "title": "1. Three Core Reusable Assets",
+          "content": [
+            "1. Class Library: A collection of pre-compiled, reusable classes and helper functions that developers instantiate and call to perform common utility tasks (e.g., math calculations, string formatting, date manipulation, data collections). Control remains with user code.",
+            "2. Framework: A skeletal, semi-complete architectural foundation designed for a specific domain (e.g., Spring Boot, React, Django). A framework dictates program flow using 'Inversion of Control' (the framework calls user code via callbacks, known as the Hollywood Principle: 'Don't call us, we'll call you').",
+            "3. Design Pattern: An abstract, generalized architectural solution to a commonly recurring software design problem within a given context. Unlike libraries, patterns are not pre-packaged code; they are conceptual templates customized during implementation."
+          ]
+        },
+        {
+          "title": "2. Advantages of a Formal Reuse Plan",
+          "content": [
+            "Accelerates Time to Market: Eliminates redundant coding of standard infrastructure such as cryptographic hashing, database drivers, and UI widgets.",
+            "Higher Software Quality: Reusable commercial or open-source libraries have undergone extensive real-world testing and optimization across thousands of production environments."
+          ]
+        }
+      ],
+      "summary": [
+        "Direct university exam answer covering Define Reuse Plan. Explain Libraries, Frameworks, and Patter.",
         "Includes textbook definitions, architectural components, and practical examples.",
         "Follows strict SPPU evaluation guidelines with diagrams placed under definition."
       ],
