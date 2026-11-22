@@ -5,7 +5,10 @@ import { daaSubject } from './subjects/daa';
 import { stqaSubject } from './subjects/stqa';
 import { oomdSubject } from './subjects/oomd';
 
-// Helper to sort questions within each unit by occurrence frequency descending (most occurrences first)
+// Helper to sort questions within each unit:
+// If topics are defined (Syllabus-Wise): Group by syllabus topics in their canonical order,
+// and sort occurrence-wise (highest frequency & recency) within each topic.
+// If topics are not defined: Fall back to occurrence frequency descending.
 function sortQuestionsByFrequency(unit: Unit): Unit {
   const sorted = [...unit.questions]
     .sort((a, b) => {
@@ -43,10 +46,56 @@ function sortQuestionsByFrequency(unit: Unit): Unit {
   };
 }
 
+function processUnit(unit: Unit): Unit {
+  const hasTopics = unit.questions.some((q) => !!q.topicCategory);
+  if (!hasTopics) {
+    return sortQuestionsByFrequency(unit);
+  }
+
+  // Preserve canonical sequence of topics
+  const canonicalTopics: string[] = [];
+  unit.questions.forEach((q) => {
+    const topic = q.topicCategory || 'General';
+    if (!canonicalTopics.includes(topic)) {
+      canonicalTopics.push(topic);
+    }
+  });
+
+  const sorted: Question[] = [];
+  canonicalTopics.forEach((topic) => {
+    const matching = unit.questions.filter((q) => (q.topicCategory || 'General') === topic);
+    matching.sort((a, b) => {
+      const countA = a.occurrenceCount ?? a.papersAsked?.length ?? 0;
+      const countB = b.occurrenceCount ?? b.papersAsked?.length ?? 0;
+      if (countB !== countA) return countB - countA;
+
+      if (a.importance !== b.importance) {
+        if (a.importance === 'Frequently Asked') return -1;
+        if (b.importance === 'Frequently Asked') return 1;
+      }
+
+      const marksA = a.marks ?? 0;
+      const marksB = b.marks ?? 0;
+      if (marksB !== marksA) return marksB - marksA;
+
+      return a.qNumber - b.qNumber;
+    });
+    sorted.push(...matching);
+  });
+
+  return {
+    ...unit,
+    questions: sorted.map((q, idx) => ({
+      ...q,
+      qNumber: idx + 1
+    }))
+  };
+}
+
 function processSubject(subject: Subject): Subject {
   return {
     ...subject,
-    units: subject.units.map(sortQuestionsByFrequency)
+    units: subject.units.map(processUnit)
   };
 }
 
