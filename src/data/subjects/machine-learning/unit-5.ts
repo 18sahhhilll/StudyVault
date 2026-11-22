@@ -6,22 +6,12 @@ export const unit5Data: Unit = {
   title: 'Unsupervised Learning',
   shortTitle: 'Unsupervised Learning',
   description: 'In-depth exploration of Partitioning Clustering (K-Means, K-Medoids/PAM), Hierarchical Clustering (Agglomerative, Divisive, Dendrograms), Density-Based Clustering (DBSCAN, OPTICS, DENCLUE), Graph-Based & Spectral Clustering, Outlier Analysis (LOF, Isolation Forest), and Validation Metrics (Elbow Method, Silhouette, Intrinsic vs Extrinsic).',
-  syllabus: [
-    'Unsupervised Learning Fundamentals & Cluster Taxonomy',
-    'K-Means Clustering: Objective, Algorithm, and Limitations',
-    'Cluster Optimization & Objective Function Minimization',
-    'K-Medoids / Partitioning Around Medoids (PAM) Algorithm',
-    'Hierarchical Clustering: Agglomerative (AGNES), Divisive (DIANA), Dendrograms',
-    'Linkage Criteria: Single, Complete, Average, Centroid Linkage',
-    'Density-Based Clustering: DBSCAN (Core, Border, Noise points)',
-    'Advanced Density Clustering: OPTICS Reachability & DENCLUE Density Attractors',
-    'Outlier Analysis & Anomaly Detection Frameworks',
-    'Local Outlier Factor (LOF): k-distance, LRD, and Calculation',
-    'Isolation Factor Model (Isolation Forest / iForest)',
-    'Graph-Based Clustering & Minimum Spanning Tree (MST)',
-    'Spectral Clustering: Affinity Matrix, Graph Laplacian, Eigenvectors',
-    'Clustering Evaluation: Elbow Method (SSE/WCSS) and Silhouette Coefficient',
-    'Validation Metrics: Intrinsic (Silhouette, Davies-Bouldin) vs Extrinsic (Rand, ARI, Homogeneity, Completeness)'
+    syllabus: [
+    'K-Means, K-medoids (PAM), Hierarchical, and Density-based Clustering (DBSCAN, OPTICS, DENCLUE)',
+    'Spectral Clustering and Graph-Based Clustering (Graph Laplacian and Minimum Spanning Trees)',
+    'Outlier Analysis: Local Outlier Factor (LOF) and Isolation Factor Model (Isolation Forest)',
+    'Evaluation Metrics and Score: The Elbow Method (WCSS Curve), Extrinsic and Intrinsic Methods',
+    '#Exemplar / Case Studies: Market basket analysis / Customer Segmentation'
   ],
   questionPaperIndex: [
     { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q1, (b) → Q8, (c) → Q12', qOr: '(a) → Q4, (b) → Q10, (c) → Q16' },
@@ -81,6 +71,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q6(b)', marks: 6 },
         { paper: 'In-Sem Exam', questionNo: 'Q5(b)', marks: 6 }
       ],
+      topicCategory: 'Partitioning & Hierarchical Clustering',
       syllabusTopics: ['K-Means Clustering', 'Centroids', 'WCSS / SSE', 'Partitioning'],
       definition: 'K-Means is an unsupervised, iterative, centroid-based partitioning clustering algorithm that divides N observations into K disjoint clusters, where each instance belongs to the cluster with the nearest mean centroid.',
       sections: [
@@ -155,6 +146,7 @@ export const unit5Data: Unit = {
         'K-Means++ initialization enhancement'
       ]
     },
+
     {
       id: 'ml-u5-q2',
       unitId: 'unit-5',
@@ -168,6 +160,7 @@ export const unit5Data: Unit = {
       papersAsked: [
         { paper: 'April 2024', questionNo: 'Q5(c)', marks: 6 }
       ],
+      topicCategory: 'Partitioning & Hierarchical Clustering',
       syllabusTopics: ['K-Means Numerical', 'Euclidean Distance', 'Centroid Update'],
       definition: 'Complete two-iteration execution of K-Means on 9 2D points with K = 3, verifying distance calculations, cluster memberships, and final convergence.',
       sections: [
@@ -254,6 +247,7 @@ export const unit5Data: Unit = {
         'Final cluster and centroid summary'
       ]
     },
+
     {
       id: 'ml-u5-q3',
       unitId: 'unit-5',
@@ -268,6 +262,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q5(a)', marks: 6 },
         { paper: 'Nov 2023', questionNo: 'Q6(b)(i)', marks: 4 }
       ],
+      topicCategory: 'Partitioning & Hierarchical Clustering',
       syllabusTopics: ['Cluster Optimization', 'WCSS Minimization', 'Cohesion and Separation'],
       definition: 'Cluster optimization is the mathematical formulation of clustering as an objective minimization task aimed at simultaneously maximizing intra-cluster compactness (cohesion) and maximizing inter-cluster separation.',
       sections: [
@@ -305,6 +300,7 @@ export const unit5Data: Unit = {
         'Feature standardization necessity'
       ]
     },
+
     {
       id: 'ml-u5-q4',
       unitId: 'unit-5',
@@ -320,6 +316,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q5(a)', marks: 6 },
         { paper: 'Nov 2023', questionNo: 'Q6(b)(ii)', marks: 4 }
       ],
+      topicCategory: 'Partitioning & Hierarchical Clustering',
       syllabusTopics: ['K-Medoids', 'PAM Algorithm', 'Robustness to Outliers'],
       definition: 'K-Medoids (Partitioning Around Medoids - PAM) is a robust partitioning clustering algorithm where each cluster is represented by an actual observed data point (medoid) rather than an artificial arithmetic mean.',
       sections: [
@@ -381,6 +378,7 @@ export const unit5Data: Unit = {
         'Computational scaling comparison'
       ]
     },
+
     {
       id: 'ml-u5-q5',
       unitId: 'unit-5',
@@ -398,6 +396,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q5(a)', marks: 6 },
         { paper: 'In-Sem Exam', questionNo: 'Q5(c)', notes: '(i) Agglomerative, (ii) Dendrogram' }
       ],
+      topicCategory: 'Partitioning & Hierarchical Clustering',
       syllabusTopics: ['Hierarchical Clustering', 'Agglomerative', 'Divisive', 'Dendrogram', 'Linkage'],
       definition: 'Hierarchical clustering constructs a multi-level nested hierarchy of clusters represented as a tree diagram called a dendrogram, eliminating the requirement to specify cluster count K in advance.',
       sections: [
@@ -487,6 +486,7 @@ export const unit5Data: Unit = {
         'Chaining effect in single linkage'
       ]
     },
+
     {
       id: 'ml-u5-q6',
       unitId: 'unit-5',
@@ -500,6 +500,7 @@ export const unit5Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2024', questionNo: 'Q5(b)', marks: 6 }
       ],
+      topicCategory: 'Partitioning & Hierarchical Clustering',
       syllabusTopics: ['Hierarchical vs K-Means', 'Complexity', 'Determinism', 'Cluster Geometry'],
       definition: 'A comprehensive comparative analysis contrasting tree-based hierarchical clustering against centroid-based partitioning K-Means across complexity, assumptions, and performance.',
       sections: [
@@ -552,6 +553,7 @@ export const unit5Data: Unit = {
         'Computational complexity O(N³) vs O(N)'
       ]
     },
+
     {
       id: 'ml-u5-q7',
       unitId: 'unit-5',
@@ -569,6 +571,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q6(a)', notes: 'Density-based part' },
         { paper: 'April 2023', questionNo: 'Q6(c)(ii)', marks: 4 }
       ],
+      topicCategory: 'Density-Based & Spectral Clustering',
       syllabusTopics: ['DBSCAN', 'Core Point', 'Border Point', 'Noise Point', 'Density Reachability'],
       definition: 'DBSCAN (Density-Based Spatial Clustering of Applications with Noise) groups contiguous high-density regions separated by low-density regions, discovering arbitrary shapes and explicitly isolating noise.',
       sections: [
@@ -632,6 +635,7 @@ export const unit5Data: Unit = {
         'Arbitrary shape discovery and noise isolation'
       ]
     },
+
     {
       id: 'ml-u5-q8',
       unitId: 'unit-5',
@@ -645,6 +649,7 @@ export const unit5Data: Unit = {
       papersAsked: [
         { paper: 'In-Sem Exam', questionNo: 'Q5(a)', marks: 6 }
       ],
+      topicCategory: 'Density-Based & Spectral Clustering',
       syllabusTopics: ['DBSCAN', 'OPTICS', 'DENCLUE', 'Reachability Plot', 'Kernel Density'],
       definition: 'A comprehensive technical comparison of the three major density-based clustering paradigms: region-growing DBSCAN, hierarchical reachability-ordering OPTICS, and kernel density attractor DENCLUE.',
       sections: [
@@ -717,11 +722,201 @@ export const unit5Data: Unit = {
         'Gaussian kernel density attractors in DENCLUE'
       ]
     },
+
     {
       id: 'ml-u5-q9',
       unitId: 'unit-5',
       subjectId: 'machine-learning',
       qNumber: 9,
+      title: 'Spectral Clustering Algorithm',
+      shortTitle: 'Spectral Clustering & Graph Laplacian',
+      marks: 6,
+      importance: 'Important',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'Nov 2023', questionNo: 'Q5(c)', marks: 6 }
+      ],
+      topicCategory: 'Density-Based & Spectral Clustering',
+      syllabusTopics: ['Spectral Clustering', 'Affinity Matrix', 'Graph Laplacian', 'Eigenvectors'],
+      definition: 'Spectral clustering is a graph-theoretic clustering technique that uses the spectrum (eigenvalues and eigenvectors) of the graph Laplacian derived from a data similarity matrix to project data into a low-dimensional manifold before clustering via K-Means.',
+      sections: [
+        {
+          title: '1. Foundational Graph Cut Formulation',
+          content: [
+            'Data points are treated as nodes V in an undirected similarity graph G = (V, E).',
+            'Edges weights A_ij represent pairwise similarity (e.g., Gaussian affinity: A_ij = exp(-||xᵢ - x_j||² / 2σ²)).',
+            'Clustering = Graph Partitioning: Cut the graph into K subgraphs such that edges between groups have minimal weight (Min-Cut / Normalized Cut) while edges within groups have maximal weight.'
+          ]
+        },
+        {
+          title: '2. Step-by-Step Spectral Algorithm',
+          content: [
+            '1. Construct Similarity Matrix A ∈ ℝⁿˣⁿ (via Gaussian RBF or k-NN graph).',
+            '2. Compute Diagonal Degree Matrix D where D_ii = ∑_j A_ij.',
+            '3. Form the Graph Laplacian Matrix L = D - A (or normalized L_sym = D^(-1/2) L D^(-1/2)).',
+            '4. Compute the K eigenvectors corresponding to the K smallest eigenvalues of L.',
+            '5. Form matrix U ∈ ℝⁿˣᴷ whose columns are these K eigenvectors. Each row of U is the new low-dimensional representation of point xᵢ.',
+            '6. Apply standard K-Means clustering on the rows of U to obtain final cluster assignments.'
+          ],
+          formulas: [
+            { name: 'Unnormalized Graph Laplacian', latex: 'L = D - A' },
+            { name: 'Normalized Symmetric Laplacian', latex: 'L_{\\text{sym}} = D^{-1/2} L D^{-1/2} = I - D^{-1/2} A D^{-1/2}' }
+          ]
+        },
+        {
+          title: '3. Strengths of Spectral Clustering',
+          content: [
+            '1. Arbitrary Cluster Shapes: Easily captures complex, non-convex geometries (concentric circles, interlocking spirals) that K-Means fails on.',
+            '2. Pairwise Graph Representation: Requires only a similarity matrix rather than explicit coordinate vectors.',
+            '3. Global Eigenvector Optimization: Solves relaxed graph-cut problems without getting trapped in local centroid minima.'
+          ]
+        },
+        {
+          title: '4. Limitations of Spectral Clustering',
+          content: [
+            '1. High Computational Complexity: Computing eigendecomposition of an N x N Laplacian matrix requires O(N^3) time, making it impractical for massive datasets without approximation.',
+            '2. Sensitive to Hyperparameters: Requires careful tuning of the similarity scaling factor sigma and cluster count K.',
+            '3. Memory Intensive: Storing the dense pairwise affinity matrix requires O(N^2) RAM.'
+          ]
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-spectral-cut',
+          title: 'Similarity Graph and Spectral Cut',
+          caption: 'Graph nodes with dense intra-cluster edges partitioned by a dashed spectral cut slicing through weak inter-cluster connections.',
+          type: 'svg-interactive',
+          svgType: 'spectral-cut'
+        }
+      ],
+      summary: [
+        'Spectral clustering frames clustering as a normalized graph cut problem.',
+        'Uses eigenvectors of the Graph Laplacian L = D - A to embed data into low-dimensional space.',
+        'Applies K-Means in the spectral embedding space to discover complex non-convex manifolds.',
+        'Superior for complex shapes, but computationally expensive O(N³) for large datasets.'
+      ],
+      keyPoints: [
+        'Graph cut optimization objective',
+        'Affinity matrix A and Degree matrix D',
+        'Graph Laplacian L = D - A',
+        'Eigenvector embedding and post K-Means'
+      ]
+    },
+
+    {
+      id: 'ml-u5-q10',
+      unitId: 'unit-5',
+      subjectId: 'machine-learning',
+      qNumber: 10,
+      title: 'Graph-Based Clustering',
+      shortTitle: 'Graph-Based Clustering & Minimum Spanning Trees',
+      marks: 6,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
+      papersAsked: [
+        { paper: 'April 2023', questionNo: 'Q6(c)(i)', marks: 4 },
+        { paper: 'In-Sem Exam', questionNo: 'Q6(b)', marks: 6 }
+      ],
+      topicCategory: 'Density-Based & Spectral Clustering',
+      syllabusTopics: ['Graph-Based Clustering', 'Minimum Spanning Tree', 'Connected Components'],
+      definition: 'Graph-based clustering models data as a weighted graph of nodes (points) and edges (similarity/distance), partitioning the graph into disconnected components by severing long or low-similarity edges.',
+      sections: [
+        {
+          title: '1. Graph Construction Framework',
+          content: [
+            '1. ε-Neighborhood Graph: Connect nodes whose distance is less than threshold ε.',
+            '2. k-Nearest Neighbour (k-NN) Graph: Connect each point to its k closest neighbours.',
+            '3. Fully Connected Graph: Connect all pairs with edges weighted by Gaussian similarity A_ij = exp(-d_ij² / 2σ²).'
+          ]
+        },
+        {
+          title: '2. Major Graph Clustering Techniques',
+          content: [
+            '1. Threshold Inconsistency (Connected Components): Remove all edges exceeding a distance threshold; remaining connected subgraphs form clusters.',
+            '2. Minimum Spanning Tree (MST) Clustering: Construct the MST connecting all points with minimum total edge weight. Remove the K - 1 longest edges to yield K distinct clusters.',
+            '3. Spectral Graph Partitioning: Slicing the graph using Laplacian eigenvectors (see Q12).',
+            '4. Community Detection: Modularity optimization in social and interaction networks.'
+          ]
+        }
+      ],
+      summary: [
+        'Graph-based clustering treats data points as nodes and similarities as weighted edges.',
+        'Clusters are formed by pruning weak, long edges to leave strongly connected subgraphs.',
+        'Key methods: Connected components, MST edge deletion, and Spectral graph cuts.',
+        'Excels at arbitrary shapes and network data, but graph construction is costly.'
+      ],
+      keyPoints: [
+        'Graph representation G = (V, E)',
+        'k-NN and ε-neighbourhood graph models',
+        'MST edge deletion for K clusters',
+        'Natural fit for social and relational networks'
+      ]
+    },
+
+    {
+      id: 'ml-u5-q11',
+      unitId: 'unit-5',
+      subjectId: 'machine-learning',
+      qNumber: 11,
+      title: 'Differentiate between K-Means and Spectral Clustering',
+      shortTitle: 'K-Means vs Spectral Clustering Comparison',
+      marks: 6,
+      importance: 'Important',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'Nov 2024', questionNo: 'Q6(c)', marks: 6 }
+      ],
+      topicCategory: 'Density-Based & Spectral Clustering',
+      syllabusTopics: ['K-Means vs Spectral', 'Non-Convex Clusters', 'Computational Cost'],
+      definition: 'A direct technical comparison highlighting the divide between centroid-distance partitioning in original feature space (K-Means) and graph Laplacian spectral projection (Spectral Clustering).',
+      sections: [
+        {
+          title: '1. Comparison Matrix',
+          table: {
+            headers: ['K-Means Clustering', 'Spectral Clustering'],
+            rows: [
+              {
+                parameter: 'Centroid-based distance minimization: Clusters points by minimizing Euclidean distances to cluster centers.',
+                col1: 'Graph connectivity partitioning: Clusters points based on affinity graph cut theory and Laplacian eigenvectors.'
+              },
+              {
+                parameter: 'Strictly restricted to convex, spherical, blob-like clusters; fails completely on rings or nested shapes.',
+                col1: 'Flawlessly identifies complex, arbitrary, non-convex shapes (like concentric circles and interlocking spirals).'
+              },
+              {
+                parameter: 'Operates directly in the original continuous coordinate feature space ℝⁿ.',
+                col1: 'Projects data into a low-dimensional graph Laplacian eigenspace before applying final clustering.'
+              },
+              {
+                parameter: 'Computationally linear: O(N·K·t), running very fast and scaling seamlessly to millions of data points.',
+                col1: 'Computationally cubic: O(N³) due to eigen-decomposition, restricting it to smaller datasets.'
+              },
+              {
+                parameter: 'Requires continuous numerical coordinate vectors as input.',
+                col1: 'Requires only a pairwise similarity/affinity matrix (actual spatial coordinates are not required).'
+              }
+            ]
+          }
+        }
+      ],
+      summary: [
+        'K-Means operates on original coordinates, is fast O(N), but only finds spherical clusters.',
+        'Spectral clustering operates on graph laplacians, finds arbitrary non-convex shapes, but is slow O(N³).',
+        'Spectral clustering actually uses K-Means as its final sub-step on the eigenvector space.'
+      ],
+      keyPoints: [
+        'Centroid distance vs Graph connectivity',
+        'Spherical vs Arbitrary manifold geometry',
+        'Linear O(N) vs Cubic O(N³) scaling',
+        'K-Means role in the final spectral step'
+      ]
+    },
+
+    {
+      id: 'ml-u5-q12',
+      unitId: 'unit-5',
+      subjectId: 'machine-learning',
+      qNumber: 12,
       title: 'Outlier Analysis: Importance, Advantages and Disadvantages',
       shortTitle: 'Outlier Analysis: Importance, Pros & Cons',
       marks: 6,
@@ -733,6 +928,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q5(b)', notes: 'First part' },
         { paper: 'April 2023', questionNo: 'Q5(b)', marks: 6 }
       ],
+      topicCategory: 'Outlier Analysis',
       syllabusTopics: ['Outlier Analysis', 'Anomaly Detection', 'Fraud Detection', 'Data Quality'],
       definition: 'Outlier analysis is the process of detecting and evaluating data objects that deviate drastically from typical patterns, indicating either data collection errors or rare, high-value real-world events.',
       sections: [
@@ -800,11 +996,12 @@ export const unit5Data: Unit = {
         'Masking and swamping challenges'
       ]
     },
+
     {
-      id: 'ml-u5-q10',
+      id: 'ml-u5-q13',
       unitId: 'unit-5',
       subjectId: 'machine-learning',
-      qNumber: 10,
+      qNumber: 13,
       title: 'Local Outlier Factor (LOF): What is it and How is it Calculated?',
       shortTitle: 'Local Outlier Factor (LOF) Algorithm & Formula',
       marks: 6,
@@ -814,6 +1011,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q5(b)', notes: 'Second part' },
         { paper: 'In-Sem Exam', questionNo: 'Q6(a)', marks: 6 }
       ],
+      topicCategory: 'Outlier Analysis',
       syllabusTopics: ['Local Outlier Factor', 'Density-based Outlier', 'Reachability Distance', 'LRD'],
       definition: 'Local Outlier Factor (LOF) is an unsupervised density-based algorithm that measures the local anomaly of a point by comparing its local reachability density against the densities of its k-nearest neighbours.',
       sections: [
@@ -886,11 +1084,12 @@ export const unit5Data: Unit = {
         'LOF interpretation (≈ 1 inlier, >> 1 outlier)'
       ]
     },
+
     {
-      id: 'ml-u5-q11',
+      id: 'ml-u5-q14',
       unitId: 'unit-5',
       subjectId: 'machine-learning',
-      qNumber: 11,
+      qNumber: 14,
       title: 'Isolation Factor Model (Isolation Forest)',
       shortTitle: 'Isolation Forest (iForest) Anomaly Detection',
       marks: 6,
@@ -900,6 +1099,7 @@ export const unit5Data: Unit = {
         { paper: 'May 2024', questionNo: 'Q6(a)', marks: 6 },
         { paper: 'April 2024', questionNo: 'Q6(a)', marks: 6 }
       ],
+      topicCategory: 'Outlier Analysis',
       syllabusTopics: ['Isolation Forest', 'Isolation Tree', 'Path Length', 'Anomaly Score'],
       definition: 'Isolation Forest (iForest) is an unsupervised anomaly detection algorithm that isolates outliers by constructing random partitioning trees, exploiting the fact that anomalies are "few and different" and thus require fewer splits to isolate.',
       sections: [
@@ -978,189 +1178,7 @@ export const unit5Data: Unit = {
         'Normalized anomaly score formula s(x, n)'
       ]
     },
-    {
-      id: 'ml-u5-q12',
-      unitId: 'unit-5',
-      subjectId: 'machine-learning',
-      qNumber: 12,
-      title: 'Spectral Clustering Algorithm',
-      shortTitle: 'Spectral Clustering & Graph Laplacian',
-      marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q5(c)', marks: 6 }
-      ],
-      syllabusTopics: ['Spectral Clustering', 'Affinity Matrix', 'Graph Laplacian', 'Eigenvectors'],
-      definition: 'Spectral clustering is a graph-theoretic clustering technique that uses the spectrum (eigenvalues and eigenvectors) of the graph Laplacian derived from a data similarity matrix to project data into a low-dimensional manifold before clustering via K-Means.',
-      sections: [
-        {
-          title: '1. Foundational Graph Cut Formulation',
-          content: [
-            'Data points are treated as nodes V in an undirected similarity graph G = (V, E).',
-            'Edges weights A_ij represent pairwise similarity (e.g., Gaussian affinity: A_ij = exp(-||xᵢ - x_j||² / 2σ²)).',
-            'Clustering = Graph Partitioning: Cut the graph into K subgraphs such that edges between groups have minimal weight (Min-Cut / Normalized Cut) while edges within groups have maximal weight.'
-          ]
-        },
-        {
-          title: '2. Step-by-Step Spectral Algorithm',
-          content: [
-            '1. Construct Similarity Matrix A ∈ ℝⁿˣⁿ (via Gaussian RBF or k-NN graph).',
-            '2. Compute Diagonal Degree Matrix D where D_ii = ∑_j A_ij.',
-            '3. Form the Graph Laplacian Matrix L = D - A (or normalized L_sym = D^(-1/2) L D^(-1/2)).',
-            '4. Compute the K eigenvectors corresponding to the K smallest eigenvalues of L.',
-            '5. Form matrix U ∈ ℝⁿˣᴷ whose columns are these K eigenvectors. Each row of U is the new low-dimensional representation of point xᵢ.',
-            '6. Apply standard K-Means clustering on the rows of U to obtain final cluster assignments.'
-          ],
-          formulas: [
-            { name: 'Unnormalized Graph Laplacian', latex: 'L = D - A' },
-            { name: 'Normalized Symmetric Laplacian', latex: 'L_{\\text{sym}} = D^{-1/2} L D^{-1/2} = I - D^{-1/2} A D^{-1/2}' }
-          ]
-        },
-        {
-          title: '3. Strengths of Spectral Clustering',
-          content: [
-            '1. Arbitrary Cluster Shapes: Easily captures complex, non-convex geometries (concentric circles, interlocking spirals) that K-Means fails on.',
-            '2. Pairwise Graph Representation: Requires only a similarity matrix rather than explicit coordinate vectors.',
-            '3. Global Eigenvector Optimization: Solves relaxed graph-cut problems without getting trapped in local centroid minima.'
-          ]
-        },
-        {
-          title: '4. Limitations of Spectral Clustering',
-          content: [
-            '1. High Computational Complexity: Computing eigendecomposition of an N x N Laplacian matrix requires O(N^3) time, making it impractical for massive datasets without approximation.',
-            '2. Sensitive to Hyperparameters: Requires careful tuning of the similarity scaling factor sigma and cluster count K.',
-            '3. Memory Intensive: Storing the dense pairwise affinity matrix requires O(N^2) RAM.'
-          ]
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-spectral-cut',
-          title: 'Similarity Graph and Spectral Cut',
-          caption: 'Graph nodes with dense intra-cluster edges partitioned by a dashed spectral cut slicing through weak inter-cluster connections.',
-          type: 'svg-interactive',
-          svgType: 'spectral-cut'
-        }
-      ],
-      summary: [
-        'Spectral clustering frames clustering as a normalized graph cut problem.',
-        'Uses eigenvectors of the Graph Laplacian L = D - A to embed data into low-dimensional space.',
-        'Applies K-Means in the spectral embedding space to discover complex non-convex manifolds.',
-        'Superior for complex shapes, but computationally expensive O(N³) for large datasets.'
-      ],
-      keyPoints: [
-        'Graph cut optimization objective',
-        'Affinity matrix A and Degree matrix D',
-        'Graph Laplacian L = D - A',
-        'Eigenvector embedding and post K-Means'
-      ]
-    },
-    {
-      id: 'ml-u5-q13',
-      unitId: 'unit-5',
-      subjectId: 'machine-learning',
-      qNumber: 13,
-      title: 'Graph-Based Clustering',
-      shortTitle: 'Graph-Based Clustering & Minimum Spanning Trees',
-      marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q6(c)(i)', marks: 4 },
-        { paper: 'In-Sem Exam', questionNo: 'Q6(b)', marks: 6 }
-      ],
-      syllabusTopics: ['Graph-Based Clustering', 'Minimum Spanning Tree', 'Connected Components'],
-      definition: 'Graph-based clustering models data as a weighted graph of nodes (points) and edges (similarity/distance), partitioning the graph into disconnected components by severing long or low-similarity edges.',
-      sections: [
-        {
-          title: '1. Graph Construction Framework',
-          content: [
-            '1. ε-Neighborhood Graph: Connect nodes whose distance is less than threshold ε.',
-            '2. k-Nearest Neighbour (k-NN) Graph: Connect each point to its k closest neighbours.',
-            '3. Fully Connected Graph: Connect all pairs with edges weighted by Gaussian similarity A_ij = exp(-d_ij² / 2σ²).'
-          ]
-        },
-        {
-          title: '2. Major Graph Clustering Techniques',
-          content: [
-            '1. Threshold Inconsistency (Connected Components): Remove all edges exceeding a distance threshold; remaining connected subgraphs form clusters.',
-            '2. Minimum Spanning Tree (MST) Clustering: Construct the MST connecting all points with minimum total edge weight. Remove the K - 1 longest edges to yield K distinct clusters.',
-            '3. Spectral Graph Partitioning: Slicing the graph using Laplacian eigenvectors (see Q12).',
-            '4. Community Detection: Modularity optimization in social and interaction networks.'
-          ]
-        }
-      ],
-      summary: [
-        'Graph-based clustering treats data points as nodes and similarities as weighted edges.',
-        'Clusters are formed by pruning weak, long edges to leave strongly connected subgraphs.',
-        'Key methods: Connected components, MST edge deletion, and Spectral graph cuts.',
-        'Excels at arbitrary shapes and network data, but graph construction is costly.'
-      ],
-      keyPoints: [
-        'Graph representation G = (V, E)',
-        'k-NN and ε-neighbourhood graph models',
-        'MST edge deletion for K clusters',
-        'Natural fit for social and relational networks'
-      ]
-    },
-    {
-      id: 'ml-u5-q14',
-      unitId: 'unit-5',
-      subjectId: 'machine-learning',
-      qNumber: 14,
-      title: 'Differentiate between K-Means and Spectral Clustering',
-      shortTitle: 'K-Means vs Spectral Clustering Comparison',
-      marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q6(c)', marks: 6 }
-      ],
-      syllabusTopics: ['K-Means vs Spectral', 'Non-Convex Clusters', 'Computational Cost'],
-      definition: 'A direct technical comparison highlighting the divide between centroid-distance partitioning in original feature space (K-Means) and graph Laplacian spectral projection (Spectral Clustering).',
-      sections: [
-        {
-          title: '1. Comparison Matrix',
-          table: {
-            headers: ['K-Means Clustering', 'Spectral Clustering'],
-            rows: [
-              {
-                parameter: 'Centroid-based distance minimization: Clusters points by minimizing Euclidean distances to cluster centers.',
-                col1: 'Graph connectivity partitioning: Clusters points based on affinity graph cut theory and Laplacian eigenvectors.'
-              },
-              {
-                parameter: 'Strictly restricted to convex, spherical, blob-like clusters; fails completely on rings or nested shapes.',
-                col1: 'Flawlessly identifies complex, arbitrary, non-convex shapes (like concentric circles and interlocking spirals).'
-              },
-              {
-                parameter: 'Operates directly in the original continuous coordinate feature space ℝⁿ.',
-                col1: 'Projects data into a low-dimensional graph Laplacian eigenspace before applying final clustering.'
-              },
-              {
-                parameter: 'Computationally linear: O(N·K·t), running very fast and scaling seamlessly to millions of data points.',
-                col1: 'Computationally cubic: O(N³) due to eigen-decomposition, restricting it to smaller datasets.'
-              },
-              {
-                parameter: 'Requires continuous numerical coordinate vectors as input.',
-                col1: 'Requires only a pairwise similarity/affinity matrix (actual spatial coordinates are not required).'
-              }
-            ]
-          }
-        }
-      ],
-      summary: [
-        'K-Means operates on original coordinates, is fast O(N), but only finds spherical clusters.',
-        'Spectral clustering operates on graph laplacians, finds arbitrary non-convex shapes, but is slow O(N³).',
-        'Spectral clustering actually uses K-Means as its final sub-step on the eigenvector space.'
-      ],
-      keyPoints: [
-        'Centroid distance vs Graph connectivity',
-        'Spherical vs Arbitrary manifold geometry',
-        'Linear O(N) vs Cubic O(N³) scaling',
-        'K-Means role in the final spectral step'
-      ]
-    },
+
     {
       id: 'ml-u5-q15',
       unitId: 'unit-5',
@@ -1175,6 +1193,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q5(c)', marks: 6 },
         { paper: 'In-Sem Exam', questionNo: 'Q6(c)(i)', marks: 4 }
       ],
+      topicCategory: 'Clustering Evaluation & Exemplar',
       syllabusTopics: ['Elbow Method', 'Optimal K', 'WCSS', 'Distortion'],
       definition: 'The Elbow Method is a heuristic visual diagnostic used to determine the optimal cluster count K in K-Means by plotting the Within-Cluster Sum of Squares (WCSS / SSE) against K and locating the "elbow" bend where marginal reduction in error diminishes sharply.',
       sections: [
@@ -1226,6 +1245,7 @@ export const unit5Data: Unit = {
         'Ambiguity limitation on smooth curves'
       ]
     },
+
     {
       id: 'ml-u5-q16',
       unitId: 'unit-5',
@@ -1239,6 +1259,7 @@ export const unit5Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2024', questionNo: 'Q6(a)', marks: 4 }
       ],
+      topicCategory: 'Clustering Evaluation & Exemplar',
       syllabusTopics: ['K-Medoids K Selection', 'Medoid Cost', 'Silhouette Method'],
       definition: 'Techniques for determining the optimal number of clusters K in K-Medoids (PAM) based on total medoid dissimilarity cost curves, silhouette width maximization, and domain constraints.',
       sections: [
@@ -1264,6 +1285,7 @@ export const unit5Data: Unit = {
         'Domain operational requirements'
       ]
     },
+
     {
       id: 'ml-u5-q17',
       unitId: 'unit-5',
@@ -1277,6 +1299,7 @@ export const unit5Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2023', questionNo: 'Q6(b)(iii)', marks: 6 }
       ],
+      topicCategory: 'Clustering Evaluation & Exemplar',
       syllabusTopics: ['Clustering Metrics', 'Silhouette Score', 'Davies-Bouldin', 'Rand Index', 'ARI'],
       definition: 'Because clustering is unsupervised and operates without ground-truth labels, evaluation relies on intrinsic metrics assessing cluster geometry and extrinsic metrics benchmarking against reference labels.',
       sections: [
@@ -1337,6 +1360,7 @@ export const unit5Data: Unit = {
         'Adjusted Rand Index chance correction'
       ]
     },
+
     {
       id: 'ml-u5-q18',
       unitId: 'unit-5',
@@ -1351,6 +1375,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q6(a)', notes: 'Compare intrinsic vs extrinsic motivation / methods' },
         { paper: 'In-Sem Exam', questionNo: 'Q6(c)(ii)', marks: 4 }
       ],
+      topicCategory: 'Clustering Evaluation & Exemplar',
       syllabusTopics: ['Intrinsic Evaluation', 'Extrinsic Evaluation', 'Ground Truth', 'Validation'],
       definition: 'Intrinsic methods evaluate clustering quality internally through geometric cohesion and separation without reference labels; Extrinsic methods evaluate clustering externally by measuring agreement against known ground-truth benchmark classifications.',
       sections: [
@@ -1399,6 +1424,7 @@ export const unit5Data: Unit = {
         'Dual coverage of ML and motivation perspectives'
       ]
     },
+
     {
       id: 'ml-u5-q19',
       unitId: 'unit-5',
@@ -1412,6 +1438,7 @@ export const unit5Data: Unit = {
       papersAsked: [
         { paper: 'April 2024', questionNo: 'Q6(c)', marks: 6 }
       ],
+      topicCategory: 'Clustering Evaluation & Exemplar',
       syllabusTopics: ['Micro-Average', 'Macro-Average', 'Multiclass Evaluation'],
       definition: 'Micro-averaging aggregates individual true positives, false positives, and false negatives globally across all classes to compute a single pooled metric, giving equal weight to every individual sample.',
       sections: [
@@ -1453,6 +1480,32 @@ export const unit5Data: Unit = {
             ]
           }
         }
+      ,
+        {
+          title: '3. Exemplar Case Study: Market Basket Analysis & Customer Segmentation (SPPU Syllabus Exemplar)',
+          content: [
+            'Business Problem Statement:',
+            'Modern omni-channel retailers and e-commerce platforms must segment millions of shoppers into actionable behavioral cohorts to deliver personalized marketing, retain high-value shoppers, and uncover co-purchased item pairings to optimize shelf layout and bundle promotions.',
+            '',
+            'Part A: Customer Segmentation via RFM Clustering:',
+            '1. Feature Engineering (The RFM Framework):',
+            '   - Recency (R): Days elapsed since the customer\'s last completed purchase.',
+            '   - Frequency (F): Total number of distinct orders placed over the past 12 months.',
+            '   - Monetary Value (M): Cumulative gross revenue contributed by the customer.',
+            '2. Clustering Pipeline:',
+            '   - Data Preprocessing: Log-transform skewed monetary values and normalize using Z-score standardization.',
+            '   - Optimal K Selection: Apply the Elbow Method (WCSS curve) and Silhouette Analysis to identify natural groupings (typically K = 4 or 5 cohorts: "Champions", "Loyal Customers", "At-Risk", "Lost Customers", "High-Spenders").',
+            '   - Algorithm: K-Means Clustering minimizes intra-cluster variance, while K-Medoids (PAM) provides robust medoid profiles immune to extreme outlier spenders.',
+            '',
+            'Part B: Market Basket Analysis via Association Rule Mining:',
+            '1. Mining Transactional Co-occurrences:',
+            '   - Analyzes supermarket checkout receipts using the Apriori or FP-Growth algorithms.',
+            '   - Key Metrics: Support (frequency of itemset), Confidence (P(Item B | Item A)), and Lift (> 1 indicates genuine positive association beyond random chance).',
+            '2. Synergistic Retail Application:',
+            '   - "Champions" cohort receives premium loyalty rewards and cross-sell bundles (e.g., Organic Coffee + Premium French Press with Lift = 3.4).',
+            '   - "At-Risk" cohort receives automated win-back discount vouchers triggered on their favorite replenishment products.'
+          ]
+        },
       ],
       summary: [
         'Micro-average pools TP, FP, and FN across all classes before computing metrics.',

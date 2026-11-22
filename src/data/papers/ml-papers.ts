@@ -38,7 +38,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q6',
+              mappedQuestionId: 'ml-u3-q1',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -48,7 +48,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q8',
+              mappedQuestionId: 'ml-u3-q13',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -58,7 +58,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q10',
+              mappedQuestionId: 'ml-u3-q15',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -74,7 +74,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q1',
+              mappedQuestionId: 'ml-u3-q6',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -84,7 +84,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q14',
+              mappedQuestionId: 'ml-u3-q18',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -94,7 +94,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q10',
+              mappedQuestionId: 'ml-u3-q15',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -238,7 +238,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q9',
+              mappedQuestionId: 'ml-u5-q12',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             },
@@ -248,7 +248,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q14',
+              mappedQuestionId: 'ml-u5-q11',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             }
@@ -269,7 +269,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 5,
               unitNumber: 6,
               unitTitle: 'Introduction to Neural Networks',
-              mappedQuestionId: 'ml-u6-q2',
+              mappedQuestionId: 'ml-u6-q1',
               mappedUnitId: 'unit-6',
               mappedSubjectId: 'machine-learning'
             },
@@ -305,7 +305,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 6,
               unitTitle: 'Introduction to Neural Networks',
-              mappedQuestionId: 'ml-u6-q2',
+              mappedQuestionId: 'ml-u6-q1',
               mappedUnitId: 'unit-6',
               mappedSubjectId: 'machine-learning'
             },
@@ -325,7 +325,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 5,
               unitNumber: 6,
               unitTitle: 'Introduction to Neural Networks',
-              mappedQuestionId: 'ml-u6-q1',
+              mappedQuestionId: 'ml-u6-q2',
               mappedUnitId: 'unit-6',
               mappedSubjectId: 'machine-learning'
             }
@@ -372,7 +372,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q2',
+              mappedQuestionId: 'ml-u3-q7',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -392,7 +392,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q17',
+              mappedQuestionId: 'ml-u3-q10',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -408,7 +408,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q14',
+              mappedQuestionId: 'ml-u3-q18',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -418,7 +418,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q12',
+              mappedQuestionId: 'ml-u3-q8',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -428,7 +428,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q11',
+              mappedQuestionId: 'ml-u3-q16',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -546,7 +546,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q9',
+              mappedQuestionId: 'ml-u5-q12',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             }
@@ -562,7 +562,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 5,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q11',
+              mappedQuestionId: 'ml-u5-q14',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             },
@@ -613,7 +613,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 6,
               unitTitle: 'Introduction to Neural Networks',
-              mappedQuestionId: 'ml-u6-q1',
+              mappedQuestionId: 'ml-u6-q2',
               mappedUnitId: 'unit-6',
               mappedSubjectId: 'machine-learning'
             },
@@ -706,7 +706,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q1',
+              mappedQuestionId: 'ml-u3-q6',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -742,7 +742,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q13',
+              mappedQuestionId: 'ml-u3-q17',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -752,7 +752,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q8',
+              mappedQuestionId: 'ml-u3-q13',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -762,7 +762,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q16',
+              mappedQuestionId: 'ml-u3-q9',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -870,7 +870,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q9',
+              mappedQuestionId: 'ml-u5-q12',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             },
@@ -916,7 +916,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q13',
+              mappedQuestionId: 'ml-u5-q10',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             }
@@ -937,7 +937,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 5,
               unitNumber: 6,
               unitTitle: 'Introduction to Neural Networks',
-              mappedQuestionId: 'ml-u6-q1',
+              mappedQuestionId: 'ml-u6-q2',
               mappedUnitId: 'unit-6',
               mappedSubjectId: 'machine-learning'
             },
@@ -1050,7 +1050,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 8,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q18',
+              mappedQuestionId: 'ml-u3-q11',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -1060,7 +1060,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 4,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q7',
+              mappedQuestionId: 'ml-u3-q2',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -1076,7 +1076,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 9,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q1',
+              mappedQuestionId: 'ml-u3-q6',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -1086,7 +1086,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 9,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q14',
+              mappedQuestionId: 'ml-u3-q18',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -1184,7 +1184,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 5,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q10',
+              mappedQuestionId: 'ml-u5-q13',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             },
@@ -1194,7 +1194,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 5,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q12',
+              mappedQuestionId: 'ml-u5-q9',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             }
@@ -1241,7 +1241,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 4,
               unitNumber: 6,
               unitTitle: 'Introduction to Neural Networks',
-              mappedQuestionId: 'ml-u6-q2',
+              mappedQuestionId: 'ml-u6-q1',
               mappedUnitId: 'unit-6',
               mappedSubjectId: 'machine-learning'
             },
@@ -1297,7 +1297,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 4,
               unitNumber: 6,
               unitTitle: 'Introduction to Neural Networks',
-              mappedQuestionId: 'ml-u6-q1',
+              mappedQuestionId: 'ml-u6-q2',
               mappedUnitId: 'unit-6',
               mappedSubjectId: 'machine-learning'
             }
@@ -1344,7 +1344,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q9',
+              mappedQuestionId: 'ml-u3-q14',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -1354,7 +1354,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q2',
+              mappedQuestionId: 'ml-u3-q7',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -1364,7 +1364,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q7',
+              mappedQuestionId: 'ml-u3-q2',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -1380,7 +1380,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q15',
+              mappedQuestionId: 'ml-u3-q19',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -1390,7 +1390,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q12',
+              mappedQuestionId: 'ml-u3-q8',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             },
@@ -1400,7 +1400,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 3,
               unitTitle: 'Supervised Learning — Regression',
-              mappedQuestionId: 'ml-u3-q11',
+              mappedQuestionId: 'ml-u3-q16',
               mappedUnitId: 'unit-3',
               mappedSubjectId: 'machine-learning'
             }
@@ -1534,7 +1534,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 5,
               unitNumber: 5,
               unitTitle: 'Unsupervised Learning',
-              mappedQuestionId: 'ml-u5-q11',
+              mappedQuestionId: 'ml-u5-q14',
               mappedUnitId: 'unit-5',
               mappedSubjectId: 'machine-learning'
             },
@@ -1585,7 +1585,7 @@ export const mlQuestionPapers: QuestionPaper[] = [
               marks: 6,
               unitNumber: 6,
               unitTitle: 'Introduction to Neural Networks',
-              mappedQuestionId: 'ml-u6-q1',
+              mappedQuestionId: 'ml-u6-q2',
               mappedUnitId: 'unit-6',
               mappedSubjectId: 'machine-learning'
             },

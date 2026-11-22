@@ -6,14 +6,13 @@ export const unit3Data: Unit = {
   title: 'Supervised Learning — Regression',
   shortTitle: 'Regression',
   description: 'In-depth coverage of Bias, Variance, Overfitting, Underfitting, Linear, Ridge, and Lasso Regression, Gradient Descent algorithms, Least Squares, and comprehensive evaluation metrics.',
-  syllabus: [
-    'Bias and Variance',
-    'Generalization, Underfitting and Overfitting',
-    'Linear Regression & Multiple Linear Regression',
-    'Lasso (L1) and Ridge (L2) Regularization',
-    'Gradient Descent & Stochastic Gradient Descent (SGD)',
-    'Least Square Method & Normal Equations',
-    'Evaluation Metrics: MAE, MSE, RMSE, R² and Adjusted R²'
+    syllabus: [
+    'Bias, Variance, Generalization, Underfitting, Overfitting',
+    'Linear Regression: Principle, Formulation, Least Squares Method, Normal Equations',
+    'Regression: Lasso Regression (L1) and Ridge Regression (L2) Regularization',
+    'Gradient Descent Algorithm: Batch Gradient Descent vs Stochastic Gradient Descent (SGD)',
+    'Evaluation Metrics: Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R2 Score',
+    '#Exemplar / Case Studies: Stock market price prediction'
   ],
   questionPaperIndex: [
     { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q3, (b) → Q18, (c) → Q7', qOr: '(a) → Q1 + Q8, (b) → Q14' },
@@ -64,6 +63,408 @@ export const unit3Data: Unit = {
       unitId: 'unit-3',
       subjectId: 'machine-learning',
       qNumber: 1,
+      title: 'Explain Bias, Variance, Under fitting and Over fitting with Suitable Examples',
+      shortTitle: 'Bias, Variance, Underfitting & Overfitting In-Depth',
+      marks: 6,
+      importance: 'Important',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'Nov 2023', questionNo: 'Q1(a)', marks: 6 }
+      ],
+      topicCategory: 'Bias, Variance & Generalization',
+      syllabusTopics: ['Bias', 'Variance', 'Underfitting', 'Overfitting'],
+      definition: 'Bias is the systematic error stemming from erroneous or overly simplified modeling assumptions; Variance is the sensitivity of predictions to fluctuations and perturbations in the training dataset.',
+      sections: [
+        {
+          title: '1. Deep Dive: Bias',
+          content: [
+            'Definition: Difference between the expected (average) prediction across multiple training draws and the true target value: Bias = E[h(x)] - f(x).',
+            'High Bias Models: Make rigid assumptions; systematically miss key data trends (Underfitting). Examples: Linear Regression, Logistic Regression, Linear Discriminant Analysis (LDA).',
+            'Low Bias Models: Minimal assumptions; conform flexibly to training data. Examples: Decision Trees, k-NN, Kernel SVMs.',
+            'Example: Fitting a flat line across parabolic projectile trajectory data results in high bias.'
+          ]
+        },
+        {
+          title: '2. Deep Dive: Variance',
+          content: [
+            'Definition: Measures how drastically the learned hypothesis changes when trained on a different training split from the same population: Var = E[(h(x) - E[h(x)])²].',
+            'High Variance Models: Extremely sensitive to sample perturbations and noise (Overfitting). Examples: Unpruned Decision Trees, 1-NN, high-degree Polynomials.',
+            'Low Variance Models: Produces consistent hypotheses across varied random training samples.',
+            'Example: An unpruned decision tree built on different student samples yields radically conflicting split hierarchies.'
+          ]
+        },
+        {
+          title: '3. Bias vs Variance Comparison Table',
+          table: {
+            headers: ['Bias (Systematic Error)', 'Variance (Random Error)'],
+            rows: [
+              {
+                parameter: 'Systematic error that comes from oversimplified, rigid assumptions in the learning algorithm.',
+                col1: 'Random error that comes from excessive sensitivity to small fluctuations in the training data.'
+              },
+              {
+                parameter: 'Directly causes Underfitting (poor accuracy on both training and test datasets).',
+                col1: 'Directly causes Overfitting (flawless accuracy on training, but terrible accuracy on test data).'
+              },
+              {
+                parameter: 'High Bias models include: Linear Regression, Logistic Regression, and Naive Bayes.',
+                col1: 'High Variance models include: Deep Neural Networks, Unpruned Decision Trees, and 1-Nearest Neighbor.'
+              },
+              {
+                parameter: 'The model is too rigid; adding more training samples does not fix the underlying mistakes.',
+                col1: 'The model changes drastically whenever trained on a slightly different subset of data.'
+              },
+              {
+                parameter: 'Remedy: Increase model complexity, engineer new features, and decrease regularization penalty (λ).',
+                col1: 'Remedy: Collect more training data, apply L1/L2 regularization, and prune complex trees.'
+              }
+            ]
+          }
+        }
+      ],
+      summary: [
+        'Bias represents systematic error caused by oversimplification (causes underfitting).',
+        'Variance represents instability caused by oversensitivity to sample noise (causes overfitting).',
+        'Simple models have high bias and low variance; complex models have low bias and high variance.'
+      ],
+      keyPoints: [
+        'Systematic vs Random variation',
+        'Model assumption strength',
+        'Algorithm classification by bias/variance profile'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q2',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 2,
+      title: 'Explain Bias-Variance Trade-off (and its relation to Underfitting and Overfitting)',
+      shortTitle: 'Bias-Variance Trade-off & Mathematical Error Decomposition',
+      marks: 6,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
+      papersAsked: [
+        { paper: 'Nov 2024', questionNo: 'Q1(c)', marks: 6 },
+        { paper: 'May 2024', questionNo: 'Q1(c)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q2(b)', marks: 6 }
+      ],
+      topicCategory: 'Bias, Variance & Generalization',
+      syllabusTopics: ['Bias-Variance Tradeoff', 'Error Decomposition', 'Optimal Model Complexity'],
+      definition: 'The Bias-Variance Trade-off is the foundational machine learning dilemma where decreasing bias by increasing model complexity inevitably inflates variance, and vice versa; total expected error is minimized only at an intermediate optimal complexity.',
+      sections: [
+        {
+          title: '1. Mathematical Error Decomposition',
+          content: [
+            'Given noisy targets y = f(x) + ε where E[ε] = 0 and Var(ε) = σ²:',
+            'The expected test Mean Squared Error decomposes mathematically into three distinct components:'
+          ],
+          formulas: [
+            {
+              name: 'Total Expected Error Formula',
+              latex: '\\text{Total Expected Error} = \\text{Bias}[\\hat{f}(x)]^2 + \\text{Var}[\\hat{f}(x)] + \\sigma^2'
+            }
+          ]
+        },
+        {
+          title: '2. The Fundamental Conflict',
+          content: [
+            'Irreducible Error (σ²): Inherent ambient noise in the data collection process that no model can eliminate.',
+            'As model complexity increases: Bias² decreases monotonically while Variance increases monotonically.',
+            'The optimal complexity ("sweet spot") is the exact balance point where the sum (Bias² + Variance) achieves its absolute global minimum.'
+          ]
+        },
+        {
+          title: '3. Four Quadrants of Model Performance',
+          table: {
+            headers: ['Bias / Variance State', 'Model Behaviour & Real-World Implication'],
+            rows: [
+              { parameter: 'Low Bias, Low Variance', col1: 'The Ideal Model: Highly accurate and consistent (theoretically bounded by irreducible noise).' },
+              { parameter: 'Low Bias, High Variance', col1: 'Overfitting: Accurate on average across models, but wildly unstable for any single model instance.' },
+              { parameter: 'High Bias, Low Variance', col1: 'Underfitting: Highly consistent predictions, but systematically wrong on average.' },
+              { parameter: 'High Bias, High Variance', col1: 'Worst Possible Model: Both inaccurate on average and completely inconsistent across samples.' }
+            ]
+          }
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-bias-variance',
+          title: 'Bias-Variance Trade-off Curves',
+          caption: 'Visualizing Bias², Variance, Total Error, and the optimal complexity point minimizing generalization loss.',
+          type: 'svg-interactive',
+          svgType: 'bias-variance'
+        }
+      ],
+      summary: [
+        'Total Error = Bias² + Variance + Irreducible Error σ².',
+        'Decreasing bias forces variance upward; decreasing variance forces bias upward.',
+        'Optimal complexity minimizes the combined sum to maximize generalization capability.'
+      ],
+      keyPoints: [
+        'Total error decomposition',
+        'Irreducible error bound σ²',
+        'U-shaped total error curve',
+        'Complexity sweet-spot identification'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q3',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 3,
+      title: 'Differentiate between Overfitting and Underfitting (with example)',
+      shortTitle: 'Overfitting vs Underfitting Comparison',
+      marks: 6,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
+      papersAsked: [
+        { paper: 'Nov 2024', questionNo: 'Q1(a)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q1(a)(iii)', marks: 4 },
+        { paper: 'April 2023', questionNo: 'Q1(b)', marks: 6 }
+      ],
+      topicCategory: 'Bias, Variance & Generalization',
+      syllabusTopics: ['Overfitting', 'Underfitting', 'Model Generalization', 'Bias-Variance'],
+      definition: 'Underfitting occurs when a model is excessively simple and fails to capture underlying patterns, whereas Overfitting occurs when a model is excessively complex and memorizes training noise at the expense of generalization.',
+      sections: [
+        {
+          title: '1. Theoretical Framework',
+          content: [
+            'Underfitting (High Bias, Low Variance): The model makes overly rigid assumptions. As a consequence, it generates high error on both training and unseen testing sets.',
+            'Overfitting (Low Bias, High Variance): The model adapts too closely to the specific idiosyncrasies and noise of training observations. It scores near-zero training error but exhibits massive testing error.',
+            'Good Fit (Balanced Generalization): The model captures the underlying data generating function while ignoring random noise, achieving low and comparable training and test errors.'
+          ]
+        },
+        {
+          title: '2. Comparative Analysis Table',
+          table: {
+            headers: ['Overfitting (High Variance)', 'Underfitting (High Bias)'],
+            rows: [
+              {
+                parameter: 'The model is excessively complex (e.g. 15th-degree polynomial or deep tree) with far too many parameters.',
+                col1: 'The model is overly simplistic (e.g. a flat line trying to fit a curved pattern) with too few parameters.'
+              },
+              {
+                parameter: 'Training error is near zero because the model memorizes every single training sample including random noise.',
+                col1: 'Training error is very high because the model cannot even capture the basic trend in the training data.'
+              },
+              {
+                parameter: 'Testing error is very high; the model fails dramatically when given new, unseen real-world data.',
+                col1: 'Testing error is also very high, closely matching the poor performance on training data.'
+              },
+              {
+                parameter: 'Exhibits Low Bias and High Variance (it is overly sensitive to slight fluctuations in the training set).',
+                col1: 'Exhibits High Bias and Low Variance (it makes rigid assumptions that ignore real data patterns).'
+              },
+              {
+                parameter: 'Happens when there are too many features relative to the number of available training samples.',
+                col1: 'Happens when features are missing, insufficient, or non-informative for the task.'
+              },
+              {
+                parameter: 'Fixed by: Applying L1/L2 regularization, pruning decision trees, gathering more data, and dropping noisy features.',
+                col1: 'Fixed by: Adding polynomial features, using more complex algorithms, and decreasing regularization penalty (λ).'
+              }
+            ]
+          }
+        },
+        {
+          title: '3. Intuitive Example (Real Estate Pricing)',
+          content: [
+            'Underfitting: Predicting house price purely from a horizontal line (θ₀). Size is completely ignored.',
+            'Good Fit: A smooth quadratic curve capturing diminishing returns of square footage.',
+            'Overfitting: A degree-10 polynomial passing through every single house data point, predicting negative prices or wild spikes in between samples.'
+          ]
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-fit-comparison',
+          title: 'Underfitting vs Good Fit vs Overfitting',
+          caption: 'Comparing a rigid underfitted line, a balanced good fit, and a wildly oscillating overfitted curve.',
+          type: 'svg-interactive',
+          svgType: 'fit-comparison'
+        }
+      ],
+      summary: [
+        'Underfitting = Model too simple, high training and testing error, high bias.',
+        'Overfitting = Model memorizes noise, low training error but high test error, high variance.',
+        'Generalization gap reveals overfitting: large discrepancy between train and test loss.',
+        'Proper regularization and cross-validation help discover the optimal balance.'
+      ],
+      keyPoints: [
+        'High bias vs high variance',
+        'Training error vs generalization error gap',
+        'Causes: capacity, features, noise, sample size',
+        'Remedies: regularization, more data, feature engineering'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q4',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 4,
+      title: 'Techniques to Reduce Underfitting and Overfitting',
+      shortTitle: 'Techniques to Mitigate Underfitting & Overfitting',
+      marks: 6,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
+      papersAsked: [
+        { paper: 'April 2024', questionNo: 'Q1(b)', notes: 'Focused on underfitting' },
+        { paper: 'In-Sem Exam', questionNo: 'Q1(a)', notes: 'Comprehensive both' }
+      ],
+      topicCategory: 'Bias, Variance & Generalization',
+      syllabusTopics: ['Regularization', 'Cross-Validation', 'Early Stopping', 'Feature Engineering'],
+      definition: 'Remediation techniques for underfitting and overfitting are reciprocal strategies designed to adjust model complexity, capacity, and regularization constraints toward minimal generalization error.',
+      sections: [
+        {
+          title: '1. Techniques to Reduce Underfitting (High Bias)',
+          content: [
+            '1. Increase Model Complexity: Upgrade from linear to polynomial regression, increase tree depth, or add hidden layers in neural networks.',
+            '2. Add More Informative Features: Perform feature engineering (domain-specific ratios, interaction terms, non-linear transformations).',
+            '3. Reduce Regularization Constraints: Decrease the regularization parameter λ (or alpha) to loosen penalties on weights.',
+            '4. Increase Training Epochs / Duration: Train until convergence when optimization has stopped prematurely.',
+            '5. Remove Noise Filters: Ensure useful variance in the dataset has not been prematurely discarded.'
+          ]
+        },
+        {
+          title: '2. Techniques to Reduce Overfitting (High Variance)',
+          content: [
+            '1. Apply Regularization (L1 Lasso / L2 Ridge): Impose penalties on coefficient magnitudes to restrict model flexibility.',
+            '2. Collect More Training Data: Increases diversity of observations, preventing the algorithm from fitting noise.',
+            '3. Feature Selection / Dimensionality Reduction: Eliminate non-informative features using PCA or backward elimination.',
+            '4. Cross-Validation (K-Fold): Tune hyperparameters on unseen folds to prevent data leakage.',
+            '5. Early Stopping: Halt training once validation loss starts to increase while training loss continues decreasing.',
+            '6. Ensemble Methods: Aggregate predictions across diverse learners (e.g., Bagging, Random Forests) to smooth out individual variances.'
+          ]
+        },
+        {
+          title: '3. Comparative Summary Strategy',
+          table: {
+            headers: ['Techniques to Fix Underfitting (High Bias)', 'Techniques to Fix Overfitting (High Variance)'],
+            rows: [
+              {
+                parameter: 'Increase the number of features by engineering new domain-specific variables and interaction terms.',
+                col1: 'Decrease the number of features using Lasso (L1) regularization or dropping noisy, irrelevant variables.'
+              },
+              {
+                parameter: 'Increase model complexity by using higher-degree polynomials, deeper trees, or non-linear algorithms.',
+                col1: 'Reduce model complexity by pruning decision trees, setting max depth limits, or using simpler models.'
+              },
+              {
+                parameter: 'Decrease or remove regularization penalty (reduce λ) to give the model freedom to learn patterns.',
+                col1: 'Increase regularization penalty (increase λ in Ridge/Lasso) to heavily penalize large, erratic weights.'
+              },
+              {
+                parameter: 'Train for more epochs and ensure gradient descent has enough iterations to converge properly.',
+                col1: 'Use early stopping to halt training as soon as validation error begins to rise.'
+              },
+              {
+                parameter: 'Adding more data alone will NOT help if the model architecture is fundamentally too weak to learn.',
+                col1: 'Collect more training data or use data augmentation to expose the model to diverse examples.'
+              }
+            ]
+          }
+        }
+      ],
+      summary: [
+        'To fix underfitting: make model more expressive, add features, lower regularization, train longer.',
+        'To fix overfitting: constrain model, regularize (L1/L2), prune features, early stopping, ensemble, collect more data.',
+        'The two solutions act in diametrically opposed directions on the complexity spectrum.'
+      ],
+      keyPoints: [
+        'Feature engineering vs Feature selection',
+        'Regularization hyperparameter λ tuning',
+        'Early stopping on validation error curve',
+        'Cross-validation and ensemble aggregation'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q5',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 5,
+      title: 'Short Note: Training Error and Generalization Error',
+      shortTitle: 'Training Error vs Generalization Error',
+      marks: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'April 2023', questionNo: 'Q1(c)', marks: 4 }
+      ],
+      topicCategory: 'Bias, Variance & Generalization',
+      syllabusTopics: ['Training Error', 'Generalization Error', 'Generalization Gap'],
+      definition: 'Training error is the discrepancy between predicted and actual targets computed on the dataset used for model parameter fitting, whereas Generalization error (test error) is the expected error on previously unseen data drawn from the same underlying distribution.',
+      sections: [
+        {
+          title: '1. Core Concepts & Definitions',
+          content: [
+            'Training Error: Computed directly over training samples. As model complexity grows, training error monotonically decreases toward zero.',
+            'Generalization Error (Test Error): Measures how effectively the model extrapolates to new instances. Exhibits a U-shaped curve as complexity increases.',
+            'Generalization Gap: The mathematical difference: Generalization Gap = Generalization Error - Training Error.'
+          ],
+          formulas: [
+            { name: 'Generalization Gap', latex: '\\text{Gap} = E_{\\text{test}} - E_{\\text{train}}' }
+          ]
+        },
+        {
+          title: '2. Direct 2-Column Comparison: Training Error vs Generalization Error',
+          table: {
+            headers: ['Training Error', 'Generalization (Test) Error'],
+            rows: [
+              {
+                parameter: 'Calculated directly on the training dataset that the model used to fit its parameters.',
+                col1: 'Calculated on completely fresh, unseen testing data drawn from the real world.'
+              },
+              {
+                parameter: 'Monotonically decreases towards zero as model complexity or training iterations increase.',
+                col1: 'Follows a U-shaped curve: decreases initially, reaches an optimal minimum, then climbs rapidly due to overfitting.'
+              },
+              {
+                parameter: 'Low training error does NOT guarantee that the model will perform well on future real-world predictions.',
+                col1: 'Low generalization error confirms that the model has learned true underlying patterns and will succeed in production.'
+              },
+              {
+                parameter: 'Very high training error indicates Underfitting (the model is too simple to capture even basic trends).',
+                col1: 'Very high test error combined with near-zero training error indicates Overfitting (model memorized training noise).'
+              },
+              {
+                parameter: 'Analogy: A student scoring 100% on homework questions they have already memorized.',
+                col1: 'Analogy: The same student taking an unseen final examination covering new problems.'
+              }
+            ]
+          }
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-generalization-error',
+          title: 'Training vs Generalization Error Curves',
+          caption: 'Monotonically decreasing training error alongside the U-shaped generalization error curve, showing the generalization gap.',
+          type: 'svg-interactive',
+          svgType: 'generalization-error'
+        }
+      ],
+      summary: [
+        'Training error evaluates performance on seen instances; generalization error tests unseen instances.',
+        'A wide generalization gap is the primary indicator of overfitting.',
+        'Machine learning algorithms aim to minimize generalization error, not solely training error.'
+      ],
+      keyPoints: [
+        'Monotonic training error decrease',
+        'U-shaped generalization curve',
+        'Generalization gap diagnostic',
+        'Early stopping criterion'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q6',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 6,
       title: 'What is Regression? Explain Linear Regression (with example)',
       shortTitle: 'Regression & Linear Regression Explained',
       marks: 6,
@@ -74,6 +475,7 @@ export const unit3Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q2(a)', marks: 6 },
         { paper: 'April 2023', questionNo: 'Q1(a)', marks: 6 }
       ],
+      topicCategory: 'Linear Regression & Solved Numericals',
       syllabusTopics: ['Regression', 'Linear Regression', 'Least Squares'],
       definition: 'Linear Regression is a supervised Machine Learning algorithm used to predict a continuous numerical value by establishing a linear relationship between dependent and independent variables.',
       sections: [
@@ -155,11 +557,12 @@ export const unit3Data: Unit = {
         'Least squares optimization criterion'
       ]
     },
+
     {
-      id: 'ml-u3-q2',
+      id: 'ml-u3-q7',
       unitId: 'unit-3',
       subjectId: 'machine-learning',
-      qNumber: 2,
+      qNumber: 7,
       title: 'Define Different Regression Models',
       shortTitle: 'Different Regression Models & Taxonomies',
       marks: 6,
@@ -169,6 +572,7 @@ export const unit3Data: Unit = {
         { paper: 'May 2024', questionNo: 'Q1(b)', marks: 6 },
         { paper: 'April 2024', questionNo: 'Q1(a)', marks: 6 }
       ],
+      topicCategory: 'Linear Regression & Solved Numericals',
       syllabusTopics: ['Regression Models', 'Polynomial Regression', 'Ridge', 'Lasso', 'Logistic Regression'],
       definition: 'Regression models are supervised learning algorithms used to establish mathematical relationships between input predictor variables and a continuous target variable.',
       sections: [
@@ -245,747 +649,12 @@ export const unit3Data: Unit = {
         'Model selection based on linearity, dimensionality, and multicollinearity'
       ]
     },
-    {
-      id: 'ml-u3-q3',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 3,
-      title: 'Differentiate between Overfitting and Underfitting (with example)',
-      shortTitle: 'Overfitting vs Underfitting Comparison',
-      marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q1(a)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q1(a)(iii)', marks: 4 },
-        { paper: 'April 2023', questionNo: 'Q1(b)', marks: 6 }
-      ],
-      syllabusTopics: ['Overfitting', 'Underfitting', 'Model Generalization', 'Bias-Variance'],
-      definition: 'Underfitting occurs when a model is excessively simple and fails to capture underlying patterns, whereas Overfitting occurs when a model is excessively complex and memorizes training noise at the expense of generalization.',
-      sections: [
-        {
-          title: '1. Theoretical Framework',
-          content: [
-            'Underfitting (High Bias, Low Variance): The model makes overly rigid assumptions. As a consequence, it generates high error on both training and unseen testing sets.',
-            'Overfitting (Low Bias, High Variance): The model adapts too closely to the specific idiosyncrasies and noise of training observations. It scores near-zero training error but exhibits massive testing error.',
-            'Good Fit (Balanced Generalization): The model captures the underlying data generating function while ignoring random noise, achieving low and comparable training and test errors.'
-          ]
-        },
-        {
-          title: '2. Comparative Analysis Table',
-          table: {
-            headers: ['Overfitting (High Variance)', 'Underfitting (High Bias)'],
-            rows: [
-              {
-                parameter: 'The model is excessively complex (e.g. 15th-degree polynomial or deep tree) with far too many parameters.',
-                col1: 'The model is overly simplistic (e.g. a flat line trying to fit a curved pattern) with too few parameters.'
-              },
-              {
-                parameter: 'Training error is near zero because the model memorizes every single training sample including random noise.',
-                col1: 'Training error is very high because the model cannot even capture the basic trend in the training data.'
-              },
-              {
-                parameter: 'Testing error is very high; the model fails dramatically when given new, unseen real-world data.',
-                col1: 'Testing error is also very high, closely matching the poor performance on training data.'
-              },
-              {
-                parameter: 'Exhibits Low Bias and High Variance (it is overly sensitive to slight fluctuations in the training set).',
-                col1: 'Exhibits High Bias and Low Variance (it makes rigid assumptions that ignore real data patterns).'
-              },
-              {
-                parameter: 'Happens when there are too many features relative to the number of available training samples.',
-                col1: 'Happens when features are missing, insufficient, or non-informative for the task.'
-              },
-              {
-                parameter: 'Fixed by: Applying L1/L2 regularization, pruning decision trees, gathering more data, and dropping noisy features.',
-                col1: 'Fixed by: Adding polynomial features, using more complex algorithms, and decreasing regularization penalty (λ).'
-              }
-            ]
-          }
-        },
-        {
-          title: '3. Intuitive Example (Real Estate Pricing)',
-          content: [
-            'Underfitting: Predicting house price purely from a horizontal line (θ₀). Size is completely ignored.',
-            'Good Fit: A smooth quadratic curve capturing diminishing returns of square footage.',
-            'Overfitting: A degree-10 polynomial passing through every single house data point, predicting negative prices or wild spikes in between samples.'
-          ]
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-fit-comparison',
-          title: 'Underfitting vs Good Fit vs Overfitting',
-          caption: 'Comparing a rigid underfitted line, a balanced good fit, and a wildly oscillating overfitted curve.',
-          type: 'svg-interactive',
-          svgType: 'fit-comparison'
-        }
-      ],
-      summary: [
-        'Underfitting = Model too simple, high training and testing error, high bias.',
-        'Overfitting = Model memorizes noise, low training error but high test error, high variance.',
-        'Generalization gap reveals overfitting: large discrepancy between train and test loss.',
-        'Proper regularization and cross-validation help discover the optimal balance.'
-      ],
-      keyPoints: [
-        'High bias vs high variance',
-        'Training error vs generalization error gap',
-        'Causes: capacity, features, noise, sample size',
-        'Remedies: regularization, more data, feature engineering'
-      ]
-    },
-    {
-      id: 'ml-u3-q4',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 4,
-      title: 'Techniques to Reduce Underfitting and Overfitting',
-      shortTitle: 'Techniques to Mitigate Underfitting & Overfitting',
-      marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'April 2024', questionNo: 'Q1(b)', notes: 'Focused on underfitting' },
-        { paper: 'In-Sem Exam', questionNo: 'Q1(a)', notes: 'Comprehensive both' }
-      ],
-      syllabusTopics: ['Regularization', 'Cross-Validation', 'Early Stopping', 'Feature Engineering'],
-      definition: 'Remediation techniques for underfitting and overfitting are reciprocal strategies designed to adjust model complexity, capacity, and regularization constraints toward minimal generalization error.',
-      sections: [
-        {
-          title: '1. Techniques to Reduce Underfitting (High Bias)',
-          content: [
-            '1. Increase Model Complexity: Upgrade from linear to polynomial regression, increase tree depth, or add hidden layers in neural networks.',
-            '2. Add More Informative Features: Perform feature engineering (domain-specific ratios, interaction terms, non-linear transformations).',
-            '3. Reduce Regularization Constraints: Decrease the regularization parameter λ (or alpha) to loosen penalties on weights.',
-            '4. Increase Training Epochs / Duration: Train until convergence when optimization has stopped prematurely.',
-            '5. Remove Noise Filters: Ensure useful variance in the dataset has not been prematurely discarded.'
-          ]
-        },
-        {
-          title: '2. Techniques to Reduce Overfitting (High Variance)',
-          content: [
-            '1. Apply Regularization (L1 Lasso / L2 Ridge): Impose penalties on coefficient magnitudes to restrict model flexibility.',
-            '2. Collect More Training Data: Increases diversity of observations, preventing the algorithm from fitting noise.',
-            '3. Feature Selection / Dimensionality Reduction: Eliminate non-informative features using PCA or backward elimination.',
-            '4. Cross-Validation (K-Fold): Tune hyperparameters on unseen folds to prevent data leakage.',
-            '5. Early Stopping: Halt training once validation loss starts to increase while training loss continues decreasing.',
-            '6. Ensemble Methods: Aggregate predictions across diverse learners (e.g., Bagging, Random Forests) to smooth out individual variances.'
-          ]
-        },
-        {
-          title: '3. Comparative Summary Strategy',
-          table: {
-            headers: ['Techniques to Fix Underfitting (High Bias)', 'Techniques to Fix Overfitting (High Variance)'],
-            rows: [
-              {
-                parameter: 'Increase the number of features by engineering new domain-specific variables and interaction terms.',
-                col1: 'Decrease the number of features using Lasso (L1) regularization or dropping noisy, irrelevant variables.'
-              },
-              {
-                parameter: 'Increase model complexity by using higher-degree polynomials, deeper trees, or non-linear algorithms.',
-                col1: 'Reduce model complexity by pruning decision trees, setting max depth limits, or using simpler models.'
-              },
-              {
-                parameter: 'Decrease or remove regularization penalty (reduce λ) to give the model freedom to learn patterns.',
-                col1: 'Increase regularization penalty (increase λ in Ridge/Lasso) to heavily penalize large, erratic weights.'
-              },
-              {
-                parameter: 'Train for more epochs and ensure gradient descent has enough iterations to converge properly.',
-                col1: 'Use early stopping to halt training as soon as validation error begins to rise.'
-              },
-              {
-                parameter: 'Adding more data alone will NOT help if the model architecture is fundamentally too weak to learn.',
-                col1: 'Collect more training data or use data augmentation to expose the model to diverse examples.'
-              }
-            ]
-          }
-        }
-      ],
-      summary: [
-        'To fix underfitting: make model more expressive, add features, lower regularization, train longer.',
-        'To fix overfitting: constrain model, regularize (L1/L2), prune features, early stopping, ensemble, collect more data.',
-        'The two solutions act in diametrically opposed directions on the complexity spectrum.'
-      ],
-      keyPoints: [
-        'Feature engineering vs Feature selection',
-        'Regularization hyperparameter λ tuning',
-        'Early stopping on validation error curve',
-        'Cross-validation and ensemble aggregation'
-      ]
-    },
-    {
-      id: 'ml-u3-q5',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 5,
-      title: 'Short Note: Training Error and Generalization Error',
-      shortTitle: 'Training Error vs Generalization Error',
-      marks: 4,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q1(c)', marks: 4 }
-      ],
-      syllabusTopics: ['Training Error', 'Generalization Error', 'Generalization Gap'],
-      definition: 'Training error is the discrepancy between predicted and actual targets computed on the dataset used for model parameter fitting, whereas Generalization error (test error) is the expected error on previously unseen data drawn from the same underlying distribution.',
-      sections: [
-        {
-          title: '1. Core Concepts & Definitions',
-          content: [
-            'Training Error: Computed directly over training samples. As model complexity grows, training error monotonically decreases toward zero.',
-            'Generalization Error (Test Error): Measures how effectively the model extrapolates to new instances. Exhibits a U-shaped curve as complexity increases.',
-            'Generalization Gap: The mathematical difference: Generalization Gap = Generalization Error - Training Error.'
-          ],
-          formulas: [
-            { name: 'Generalization Gap', latex: '\\text{Gap} = E_{\\text{test}} - E_{\\text{train}}' }
-          ]
-        },
-        {
-          title: '2. Direct 2-Column Comparison: Training Error vs Generalization Error',
-          table: {
-            headers: ['Training Error', 'Generalization (Test) Error'],
-            rows: [
-              {
-                parameter: 'Calculated directly on the training dataset that the model used to fit its parameters.',
-                col1: 'Calculated on completely fresh, unseen testing data drawn from the real world.'
-              },
-              {
-                parameter: 'Monotonically decreases towards zero as model complexity or training iterations increase.',
-                col1: 'Follows a U-shaped curve: decreases initially, reaches an optimal minimum, then climbs rapidly due to overfitting.'
-              },
-              {
-                parameter: 'Low training error does NOT guarantee that the model will perform well on future real-world predictions.',
-                col1: 'Low generalization error confirms that the model has learned true underlying patterns and will succeed in production.'
-              },
-              {
-                parameter: 'Very high training error indicates Underfitting (the model is too simple to capture even basic trends).',
-                col1: 'Very high test error combined with near-zero training error indicates Overfitting (model memorized training noise).'
-              },
-              {
-                parameter: 'Analogy: A student scoring 100% on homework questions they have already memorized.',
-                col1: 'Analogy: The same student taking an unseen final examination covering new problems.'
-              }
-            ]
-          }
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-generalization-error',
-          title: 'Training vs Generalization Error Curves',
-          caption: 'Monotonically decreasing training error alongside the U-shaped generalization error curve, showing the generalization gap.',
-          type: 'svg-interactive',
-          svgType: 'generalization-error'
-        }
-      ],
-      summary: [
-        'Training error evaluates performance on seen instances; generalization error tests unseen instances.',
-        'A wide generalization gap is the primary indicator of overfitting.',
-        'Machine learning algorithms aim to minimize generalization error, not solely training error.'
-      ],
-      keyPoints: [
-        'Monotonic training error decrease',
-        'U-shaped generalization curve',
-        'Generalization gap diagnostic',
-        'Early stopping criterion'
-      ]
-    },
-    {
-      id: 'ml-u3-q6',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 6,
-      title: 'Explain Bias, Variance, Under fitting and Over fitting with Suitable Examples',
-      shortTitle: 'Bias, Variance, Underfitting & Overfitting In-Depth',
-      marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q1(a)', marks: 6 }
-      ],
-      syllabusTopics: ['Bias', 'Variance', 'Underfitting', 'Overfitting'],
-      definition: 'Bias is the systematic error stemming from erroneous or overly simplified modeling assumptions; Variance is the sensitivity of predictions to fluctuations and perturbations in the training dataset.',
-      sections: [
-        {
-          title: '1. Deep Dive: Bias',
-          content: [
-            'Definition: Difference between the expected (average) prediction across multiple training draws and the true target value: Bias = E[h(x)] - f(x).',
-            'High Bias Models: Make rigid assumptions; systematically miss key data trends (Underfitting). Examples: Linear Regression, Logistic Regression, Linear Discriminant Analysis (LDA).',
-            'Low Bias Models: Minimal assumptions; conform flexibly to training data. Examples: Decision Trees, k-NN, Kernel SVMs.',
-            'Example: Fitting a flat line across parabolic projectile trajectory data results in high bias.'
-          ]
-        },
-        {
-          title: '2. Deep Dive: Variance',
-          content: [
-            'Definition: Measures how drastically the learned hypothesis changes when trained on a different training split from the same population: Var = E[(h(x) - E[h(x)])²].',
-            'High Variance Models: Extremely sensitive to sample perturbations and noise (Overfitting). Examples: Unpruned Decision Trees, 1-NN, high-degree Polynomials.',
-            'Low Variance Models: Produces consistent hypotheses across varied random training samples.',
-            'Example: An unpruned decision tree built on different student samples yields radically conflicting split hierarchies.'
-          ]
-        },
-        {
-          title: '3. Bias vs Variance Comparison Table',
-          table: {
-            headers: ['Bias (Systematic Error)', 'Variance (Random Error)'],
-            rows: [
-              {
-                parameter: 'Systematic error that comes from oversimplified, rigid assumptions in the learning algorithm.',
-                col1: 'Random error that comes from excessive sensitivity to small fluctuations in the training data.'
-              },
-              {
-                parameter: 'Directly causes Underfitting (poor accuracy on both training and test datasets).',
-                col1: 'Directly causes Overfitting (flawless accuracy on training, but terrible accuracy on test data).'
-              },
-              {
-                parameter: 'High Bias models include: Linear Regression, Logistic Regression, and Naive Bayes.',
-                col1: 'High Variance models include: Deep Neural Networks, Unpruned Decision Trees, and 1-Nearest Neighbor.'
-              },
-              {
-                parameter: 'The model is too rigid; adding more training samples does not fix the underlying mistakes.',
-                col1: 'The model changes drastically whenever trained on a slightly different subset of data.'
-              },
-              {
-                parameter: 'Remedy: Increase model complexity, engineer new features, and decrease regularization penalty (λ).',
-                col1: 'Remedy: Collect more training data, apply L1/L2 regularization, and prune complex trees.'
-              }
-            ]
-          }
-        }
-      ],
-      summary: [
-        'Bias represents systematic error caused by oversimplification (causes underfitting).',
-        'Variance represents instability caused by oversensitivity to sample noise (causes overfitting).',
-        'Simple models have high bias and low variance; complex models have low bias and high variance.'
-      ],
-      keyPoints: [
-        'Systematic vs Random variation',
-        'Model assumption strength',
-        'Algorithm classification by bias/variance profile'
-      ]
-    },
-    {
-      id: 'ml-u3-q7',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 7,
-      title: 'Explain Bias-Variance Trade-off (and its relation to Underfitting and Overfitting)',
-      shortTitle: 'Bias-Variance Trade-off & Mathematical Error Decomposition',
-      marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q1(c)', marks: 6 },
-        { paper: 'May 2024', questionNo: 'Q1(c)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q2(b)', marks: 6 }
-      ],
-      syllabusTopics: ['Bias-Variance Tradeoff', 'Error Decomposition', 'Optimal Model Complexity'],
-      definition: 'The Bias-Variance Trade-off is the foundational machine learning dilemma where decreasing bias by increasing model complexity inevitably inflates variance, and vice versa; total expected error is minimized only at an intermediate optimal complexity.',
-      sections: [
-        {
-          title: '1. Mathematical Error Decomposition',
-          content: [
-            'Given noisy targets y = f(x) + ε where E[ε] = 0 and Var(ε) = σ²:',
-            'The expected test Mean Squared Error decomposes mathematically into three distinct components:'
-          ],
-          formulas: [
-            {
-              name: 'Total Expected Error Formula',
-              latex: '\\text{Total Expected Error} = \\text{Bias}[\\hat{f}(x)]^2 + \\text{Var}[\\hat{f}(x)] + \\sigma^2'
-            }
-          ]
-        },
-        {
-          title: '2. The Fundamental Conflict',
-          content: [
-            'Irreducible Error (σ²): Inherent ambient noise in the data collection process that no model can eliminate.',
-            'As model complexity increases: Bias² decreases monotonically while Variance increases monotonically.',
-            'The optimal complexity ("sweet spot") is the exact balance point where the sum (Bias² + Variance) achieves its absolute global minimum.'
-          ]
-        },
-        {
-          title: '3. Four Quadrants of Model Performance',
-          table: {
-            headers: ['Bias / Variance State', 'Model Behaviour & Real-World Implication'],
-            rows: [
-              { parameter: 'Low Bias, Low Variance', col1: 'The Ideal Model: Highly accurate and consistent (theoretically bounded by irreducible noise).' },
-              { parameter: 'Low Bias, High Variance', col1: 'Overfitting: Accurate on average across models, but wildly unstable for any single model instance.' },
-              { parameter: 'High Bias, Low Variance', col1: 'Underfitting: Highly consistent predictions, but systematically wrong on average.' },
-              { parameter: 'High Bias, High Variance', col1: 'Worst Possible Model: Both inaccurate on average and completely inconsistent across samples.' }
-            ]
-          }
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-bias-variance',
-          title: 'Bias-Variance Trade-off Curves',
-          caption: 'Visualizing Bias², Variance, Total Error, and the optimal complexity point minimizing generalization loss.',
-          type: 'svg-interactive',
-          svgType: 'bias-variance'
-        }
-      ],
-      summary: [
-        'Total Error = Bias² + Variance + Irreducible Error σ².',
-        'Decreasing bias forces variance upward; decreasing variance forces bias upward.',
-        'Optimal complexity minimizes the combined sum to maximize generalization capability.'
-      ],
-      keyPoints: [
-        'Total error decomposition',
-        'Irreducible error bound σ²',
-        'U-shaped total error curve',
-        'Complexity sweet-spot identification'
-      ]
-    },
+
     {
       id: 'ml-u3-q8',
       unitId: 'unit-3',
       subjectId: 'machine-learning',
       qNumber: 8,
-      title: 'Short Note on Lasso and Ridge Regression (Differentiate Lasso and Ridge)',
-      shortTitle: 'Ridge (L2) vs Lasso (L1) Regularization In-Depth',
-      marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q2(a)', notes: 'Second part (Ridge)' },
-        { paper: 'Nov 2023', questionNo: 'Q1(b)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q2(a)', marks: 6 }
-      ],
-      syllabusTopics: ['Lasso Regression', 'Ridge Regression', 'L1 Regularization', 'L2 Regularization', 'Feature Selection'],
-      definition: 'Ridge Regression (L2) and Lasso Regression (L1) are regularization techniques that prevent overfitting in linear models by adding a penalty on large weights.',
-      sections: [
-        {
-          title: '1. What is Regularization and Why is it Needed?',
-          content: [
-            'Regularization is a technique used in Machine Learning to stop a model from overfitting.',
-            'Overfitting happens when a model tries to memorize every small detail and random noise in the training data, causing it to fail on new real-world data.',
-            'In Simple Words:',
-            'When a model overfits, its weights (coefficients) become unnaturally large and unstable. Regularization adds a penalty on large weights to keep the model simple, smooth, and balanced.'
-          ]
-        },
-        {
-          title: '2. Ridge Regression (L2 Regularization)',
-          content: [
-            'Adds a penalty proportional to the sum of squared weights: λ ∑ βⱼ².',
-            'In Simple Words:',
-            'Ridge Regression reduces the values of large weights so no single feature dominates the model. It pulls weights close to zero, but never makes them exactly zero. All features stay in the equation.',
-            'Real-World Example (House Price Prediction):',
-            'Suppose you predict house prices using Area, Bedrooms, and Location Rating. If Area and Bedrooms are correlated, standard regression gives them huge unstable weights. Ridge Regression shrinks these weights evenly so the prediction is steady and reliable.',
-            'Analytical closed-form solution: β_ridge = (XᵀX + λI)⁻¹ XᵀY.'
-          ],
-          formulas: [
-            { name: 'Ridge Cost Function', latex: 'J_{\\text{Ridge}}(\\beta) = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 + \\lambda \\sum_{j=1}^{p}\\beta_j^2' }
-          ]
-        },
-        {
-          title: '3. Lasso Regression (L1 Regularization)',
-          content: [
-            'Lasso stands for Least Absolute Shrinkage and Selection Operator.',
-            'Adds a penalty proportional to the sum of absolute values of weights: λ ∑ |βⱼ|.',
-            'In Simple Words:',
-            'Lasso shrinks weights just like Ridge. But Lasso can shrink unimportant weights all the way to absolute zero (0.0). When a weight becomes zero, that feature is completely removed from the model. Thus, Lasso does automatic feature selection.',
-            'Real-World Example (House Price with Useless Features):',
-            'Suppose you also included Door Color and Owner Age in the house dataset. Lasso sets the weights of Door Color and Owner Age to exactly zero (0.0), automatically throwing them out of the formula and keeping only Area and Bedrooms.'
-          ],
-          formulas: [
-            { name: 'Lasso Cost Function', latex: 'J_{\\text{Lasso}}(\\beta) = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 + \\lambda \\sum_{j=1}^{p}|\\beta_j|' }
-          ]
-        },
-        {
-          title: '4. Difference Between Ridge and Lasso Regression (2-Column Format)',
-          table: {
-            headers: ['Ridge Regression (L2)', 'Lasso Regression (L1)'],
-            rows: [
-              {
-                parameter: 'Adds a penalty equal to the sum of squared weights (λ ∑ βⱼ²) to the cost function.',
-                col1: 'Adds a penalty equal to the sum of absolute values of weights (λ ∑ |βⱼ|) to the cost function.'
-              },
-              {
-                parameter: 'Shrinks weights smoothly close to zero, but never makes any weight exactly zero.',
-                col1: 'Shrinks weights and can force unimportant weights to become exactly zero (0.0).'
-              },
-              {
-                parameter: 'Does not perform feature selection; all original features are retained in the final equation.',
-                col1: 'Performs automatic feature selection; features with zero weights are completely removed.'
-              },
-              {
-                parameter: 'Has a smooth, circular constraint boundary where error contours touch curves, keeping weights non-zero.',
-                col1: 'Has a sharp diamond constraint boundary with pointed corners on axes, easily forcing weights to zero.'
-              },
-              {
-                parameter: 'Handles multicollinearity by sharing weights and shrinking correlated features together.',
-                col1: 'Handles multicollinearity by arbitrarily picking one correlated feature and zeroing out the rest.'
-              },
-              {
-                parameter: 'Has a direct closed-form analytical matrix formula: β = (XᵀX + λI)⁻¹ XᵀY.',
-                col1: 'Has no closed-form formula; it must be calculated iteratively using coordinate descent.'
-              },
-              {
-                parameter: 'Best used when you have many features and almost all of them contribute to the outcome.',
-                col1: 'Best used when you have many features, but suspect only a small subset really matters.'
-              }
-            ]
-          }
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-lasso-ridge-geometry',
-          title: 'Geometric Constraint Regions: Lasso (L1) vs Ridge (L2)',
-          caption: 'Error elliptical contours touching the sharp diamond corner of L1 (producing β₂ = 0) versus the smooth circle of L2.',
-          type: 'svg-interactive',
-          svgType: 'lasso-ridge-geometry'
-        }
-      ],
-      summary: [
-        'Ridge (L2) adds λ∑βⱼ², shrinks coefficients smoothly, retains all features, resolves multicollinearity.',
-        'Lasso (L1) adds λ∑|βⱼ|, drives coefficients to exact zero, provides automatic feature selection.',
-        'L1 has diamond geometry with sharp axis corners; L2 has circular smooth geometry.'
-      ],
-      keyPoints: [
-        'L1 absolute vs L2 squared penalty',
-        'Automatic feature selection in Lasso',
-        'Multicollinearity mitigation in Ridge',
-        'Geometric diamond vs circular constraint regions'
-      ]
-    },
-    {
-      id: 'ml-u3-q9',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 9,
-      title: 'Explain Lasso Regression. How is Lasso Regression used for Feature Selection?',
-      shortTitle: 'Lasso Regression for Automatic Feature Selection',
-      marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q1(a)', marks: 6 }
-      ],
-      syllabusTopics: ['Lasso Regression', 'Feature Selection', 'L1 Penalty', 'Sparsity'],
-      definition: 'Lasso (Least Absolute Shrinkage and Selection Operator) is an L1-regularized regression technique that produces sparse models by driving coefficients of redundant features to zero, thus acting as an embedded feature selector.',
-      sections: [
-        {
-          title: '1. Mechanism of Feature Selection via L1 Norm',
-          content: [
-            '1. In standard regression, every input feature receives a non-zero coefficient regardless of importance.',
-            '2. The Lasso cost function adds λ∑|βⱼ|. In constrained optimization form, this minimizes SSE subject to ∑|βⱼ| ≤ t.',
-            '3. The L1 constraint forms a hyper-polyhedron (diamond in 2D) with vertices situated precisely along the feature axes.',
-            '4. When the elliptical contours of the sum of squared errors expand from the unconstrained OLS solution, they almost always touch the constraint boundary at a vertex.',
-            '5. At any axis vertex, all coordinates other than that axis are exactly zero. Therefore, irrelevant features are completely dropped.'
-          ]
-        },
-        {
-          title: '2. Tuning the Sparsity Parameter λ',
-          content: [
-            'When λ = 0: Lasso is identical to Ordinary Least Squares (all features retained).',
-            'As λ increases: Shrinkage pressure intensifies, forcing progressively more feature coefficients to zero.',
-            'If λ is excessively large: All coefficients become zero, resulting in a null model.',
-            'The optimal λ is selected using K-Fold Cross-Validation (typically choosing the λ that minimizes validation MSE).'
-          ]
-        },
-        {
-          title: '3. Concrete Example',
-          content: [
-            'Predicting house price with 5 candidate features: Area, Location Score, Bedrooms, Front Door Color, Owner Age.',
-            'After fitting Lasso with tuned λ: Area = +4.5, Location = +2.8, Bedrooms = +1.1, Door Color = 0.0, Owner Age = 0.0.',
-            'The algorithm automatically discards door color and owner age without requiring human intervention.'
-          ]
-        }
-      ],
-      summary: [
-        'Lasso minimizes SSE + λ∑|βⱼ|.',
-        'Sharp diamond vertices of the L1 norm force optimization intersections directly on axes.',
-        'Coefficients become exactly zero, yielding embedded, automatic feature selection.',
-        'Cross-validation determines the optimal tuning parameter λ.'
-      ],
-      keyPoints: [
-        'L1 diamond constraint geometry',
-        'Axis-intercept point of contact',
-        'Sparse weight vector',
-        'Hyperparameter λ tuning via cross-validation'
-      ]
-    },
-    {
-      id: 'ml-u3-q10',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 10,
-      title: 'Explain Gradient Descent Algorithm with Example. Compare Batch and Stochastic Gradient Descent',
-      shortTitle: 'Gradient Descent Algorithm & Batch vs SGD Comparison',
-      marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q1(c)', notes: 'Explain with example' },
-        { paper: 'Nov 2023', questionNo: 'Q2(c)', notes: 'What is GD + Compare Batch and SGD' }
-      ],
-      syllabusTopics: ['Gradient Descent', 'Optimization', 'Batch GD', 'Stochastic GD', 'Learning Rate'],
-      definition: 'Gradient Descent is a first-order iterative optimization algorithm used to find the local minimum of a differentiable cost function by taking successive steps proportional to the negative of the gradient.',
-      sections: [
-        {
-          title: '1. Mathematical Foundation & Update Rule',
-          content: [
-            'Cost function J(θ) measures model prediction error (e.g., Mean Squared Error).',
-            'The gradient ∇J(θ) is the vector of partial derivatives pointing in the direction of steepest ascent.',
-            'To minimize error, parameters are iteratively updated in the exact opposite direction (steepest descent):'
-          ],
-          formulas: [
-            {
-              name: 'General Parameter Update Rule',
-              latex: '\\theta_{\\text{new}} = \\theta_{\\text{old}} - \\eta \\nabla J(\\theta)'
-            },
-            {
-              name: 'Linear Regression Gradient Update',
-              latex: '\\theta_j := \\theta_j - \\eta \\frac{1}{m}\\sum_{i=1}^{m}\\Big(h_\\theta(x^{(i)}) - y^{(i)}\\Big) x_j^{(i)}'
-            }
-          ]
-        },
-        {
-          title: '2. Numerical Walkthrough Example',
-          content: [
-            'Minimize single-variable function f(x) = x².',
-            'Derivative: f\'(x) = 2x. Let initial point x₀ = 4.0 and learning rate η = 0.1.'
-          ],
-          table: {
-            headers: ['Iteration (t)', 'Current x_t', 'Gradient 2x_t', 'Step: η · 2x_t', 'Updated x_(t+1)'],
-            rows: [
-              { parameter: 'Step 1', col1: '4.000', col2: '8.000', col3: '0.800', col4: '4.0 - 0.8 = 3.200' },
-              { parameter: 'Step 2', col1: '3.200', col2: '6.400', col3: '0.640', col4: '3.2 - 0.64 = 2.560' },
-              { parameter: 'Step 3', col1: '2.560', col2: '5.120', col3: '0.512', col4: '2.56 - 0.512 = 2.048' },
-              { parameter: 'Step 4', col1: '2.048', col2: '4.096', col3: '0.410', col4: '2.048 - 0.410 = 1.638' },
-              { parameter: 'Convergence', col1: '... → 0.0', col2: '... → 0.0', col3: '... → 0.0', col4: 'Converges cleanly to global minimum x = 0' }
-            ]
-          }
-        },
-        {
-          title: '3. Comparative Analysis: Batch GD vs SGD vs Mini-Batch GD',
-          table: {
-            headers: ['Batch Gradient Descent', 'Stochastic Gradient Descent (SGD)'],
-            rows: [
-              {
-                parameter: 'Uses the entire training dataset (all m samples) to compute the gradient at every single step.',
-                col1: 'Uses only a single randomly chosen training sample to compute the gradient at each step.'
-              },
-              {
-                parameter: 'Computation is very slow per step on large datasets because it processes all rows every iteration.',
-                col1: 'Computation is instantaneous per step because it only evaluates one single row at a time.'
-              },
-              {
-                parameter: 'Follows a smooth, direct, deterministic path straight down toward the cost minimum.',
-                col1: 'Follows a noisy, oscillating zig-zag path that bounces around but trends toward the minimum.'
-              },
-              {
-                parameter: 'Requires loading the entire dataset into RAM, which is infeasible for massive big-data applications.',
-                col1: 'Requires minimal RAM footprint because only one data point needs to be in memory at any instant.'
-              },
-              {
-                parameter: 'Can easily get permanently stuck in local minima or flat saddle points on complex loss surfaces.',
-                col1: 'Random noise in individual sample steps helps it escape shallow local minima into better regions.'
-              },
-              {
-                parameter: 'Reaches the exact minimum smoothly on convex error surfaces.',
-                col1: 'Fluctuates around the minimum and needs a decreasing learning rate schedule to settle down.'
-              }
-            ]
-          }
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-gradient-descent',
-          title: 'Convex Cost Surface & Gradient Descent Steps',
-          caption: 'Step-by-step parameter updates down the parabolic bowl J(θ) with step size naturally diminishing near the minimum.',
-          type: 'svg-interactive',
-          svgType: 'gradient-descent'
-        }
-      ],
-      summary: [
-        'Gradient descent minimizes cost via iterative updates: θ := θ - η∇J(θ).',
-        'Learning rate η controls step magnitude; too large overshoots, too small converges sluggishly.',
-        'Batch GD uses all data per update (smooth, slow); SGD updates per single instance (fast, noisy).'
-      ],
-      keyPoints: [
-        'Negative gradient vector direction',
-        'Learning rate tuning dilemma',
-        'Batch vs Stochastic vs Mini-Batch tradeoff',
-        'Convex vs Non-convex optimization dynamics'
-      ]
-    },
-    {
-      id: 'ml-u3-q11',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 11,
-      title: 'Short Note on Stochastic Gradient Descent (SGD) Algorithm',
-      shortTitle: 'Stochastic Gradient Descent (SGD) Protocol',
-      marks: 4,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q2(c)', marks: 4 },
-        { paper: 'April 2024', questionNo: 'Q2(c)', marks: 4 }
-      ],
-      syllabusTopics: ['Stochastic Gradient Descent', 'Online Learning', 'Learning Rate Scheduling'],
-      definition: 'Stochastic Gradient Descent (SGD) is an optimization variant where parameters are updated incrementally using the loss gradient computed from only a single randomly selected training instance at each iteration.',
-      sections: [
-        {
-          title: '1. Algorithmic Protocol',
-          content: [
-            '1. Randomly initialize parameter vector θ and set base learning rate η.',
-            '2. Shuffle the entire training dataset to avoid cyclic bias.',
-            '3. For each individual sample (x⁽ⁱ⁾, y⁽ⁱ⁾): Compute gradient for that isolated sample and immediately update parameters: θ := θ - η(h_θ(x⁽ⁱ⁾) - y⁽ⁱ⁾)x⁽ⁱ⁾.',
-            '4. Repeat for multiple passes (epochs) through the dataset until average loss stabilizes.'
-          ],
-          formulas: [
-            { name: 'SGD Update Rule for Single Sample', latex: '\\theta_j := \\theta_j - \\eta \\cdot \\Big(h_\\theta(x^{(i)}) - y^{(i)}\\Big) x_j^{(i)}' }
-          ]
-        },
-        {
-          title: '2. Key Advantages of SGD',
-          content: [
-            '1. Instant Computation per Step: Calculates the gradient and updates weights using only one single sample at a time, resulting in extremely fast iterations.',
-            '2. Memory Efficient: Runs comfortably on massive datasets and streaming data that cannot fit into RAM.',
-            '3. Escapes Shallow Local Minima: Frequent erratic updates introduce noise that can help the optimizer bounce out of sub-optimal local minima and saddle points.'
-          ]
-        },
-        {
-          title: '3. Key Limitations of SGD',
-          content: [
-            '1. Erratic Convergence Path: Noisy gradients cause zig-zag oscillations that make the convergence trajectory unstable.',
-            '2. Never Settles Permanently at Minimum: Without a decaying learning rate schedule, SGD wanders around the minimum instead of converging strictly.',
-            '3. Loses Vectorized Hardware Acceleration: Updating sample by sample cannot exploit GPU/CPU SIMD matrix parallelism.'
-          ]
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-batch-vs-sgd',
-          title: 'Contour Plot: Batch GD vs SGD Trajectories',
-          caption: 'Smooth, direct trajectory of Batch GD compared with the fluctuating, noisy path of SGD toward the cost minimum.',
-          type: 'svg-interactive',
-          svgType: 'batch-vs-sgd'
-        }
-      ],
-      summary: [
-        'SGD updates parameters after every single training example rather than the entire dataset.',
-        'Significantly faster with minimal memory footprint; suited for online streaming data.',
-        'Noisy updates cause oscillations around the minimum, managed via learning rate decay.'
-      ],
-      keyPoints: [
-        'Single-sample parameter update',
-        'Shuffle training instances per epoch',
-        'Stochastic fluctuation vs Deterministic descent',
-        'Foundation for modern deep learning optimizers'
-      ]
-    },
-    {
-      id: 'ml-u3-q12',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 12,
       title: 'What do you mean by Least Square Method? Explain it in the context of Linear Regression',
       shortTitle: 'Least Squares Method & Normal Equations',
       marks: 6,
@@ -995,6 +664,7 @@ export const unit3Data: Unit = {
         { paper: 'May 2024', questionNo: 'Q2(b)', marks: 6 },
         { paper: 'April 2024', questionNo: 'Q2(b)', marks: 6 }
       ],
+      topicCategory: 'Linear Regression & Solved Numericals',
       syllabusTopics: ['Least Squares', 'Normal Equations', 'Residuals', 'SSE'],
       definition: 'The Least Squares Method is an analytical mathematical technique that determines the optimal line of best fit by minimizing the Sum of Squared Residuals (SSE) between observed data points and predicted values.',
       sections: [
@@ -1051,295 +721,12 @@ export const unit3Data: Unit = {
         'Analytical closed-form guarantee'
       ]
     },
+
     {
-      id: 'ml-u3-q13',
+      id: 'ml-u3-q9',
       unitId: 'unit-3',
       subjectId: 'machine-learning',
-      qNumber: 13,
-      title: 'Importance of Evaluation Metrics / Short Note on Evaluation Metrics',
-      shortTitle: 'Importance of Regression Evaluation Metrics',
-      marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
-      papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q2(a)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q2(c)', marks: 6 }
-      ],
-      syllabusTopics: ['Evaluation Metrics', 'MAE', 'MSE', 'RMSE', 'R2'],
-      definition: 'Evaluation metrics are quantitative statistical measures used to assess prediction accuracy, compare alternative modeling approaches, monitor convergence during optimization, and validate generalization capabilities.',
-      sections: [
-        {
-          title: '1. Why Evaluation Metrics are Indispensable',
-          content: [
-            '1. Performance Quantification: Translates model effectiveness into standardized numerical values understandable by domain engineers and stakeholders.',
-            '2. Model Selection: Provides an objective benchmark to pick between competing models (e.g., Linear vs Polynomial vs Ridge).',
-            '3. Diagnosing Overfitting & Underfitting: Comparing metric scores across training and validation sets detects generalization breakdown.',
-            '4. Loss Function Guidance: Functions like MSE serve as the exact mathematical objective minimized by gradient-based optimizers.',
-            '5. Hyperparameter Optimization: Acts as the fitness evaluation target during grid search and cross-validation for tuning λ or learning rates.'
-          ]
-        },
-        {
-          title: '2. Direct 2-Column Comparison of Primary Regression Metrics',
-          table: {
-            headers: ['Evaluation Metric & Formula', 'Core Characteristic, Sensitivity & Ideal Value'],
-            rows: [
-              {
-                parameter: 'Mean Absolute Error (MAE): (1/N) ∑ |yᵢ - ŷᵢ|',
-                col1: 'Calculates the average linear error magnitude in original target units; robust against outliers; ideal score is 0.'
-              },
-              {
-                parameter: 'Mean Squared Error (MSE): (1/N) ∑ (yᵢ - ŷᵢ)²',
-                col1: 'Squares errors to heavily penalize large mistakes; outputs squared units; smooth differentiable loss for optimization; ideal score is 0.'
-              },
-              {
-                parameter: 'Root Mean Squared Error (RMSE): √MSE',
-                col1: 'Restores measurement scale back to original target units while retaining heavy penalties on large blunders; ideal score is 0.'
-              },
-              {
-                parameter: 'Coefficient of Determination (R²): 1 - [SS_res / SS_tot]',
-                col1: 'Measures the proportion of total variance explained by the model compared to guessing the mean; dimensionless ratio (0 to 1); ideal score is 1.0.'
-              },
-              {
-                parameter: 'Adjusted R²: 1 - [(1 - R²)(N - 1)/(N - p - 1)]',
-                col1: 'Penalizes the addition of useless predictor features p to prevent misleading artificial inflation of R²; ideal score is 1.0.'
-              }
-            ]
-          }
-        }
-      ],
-      summary: [
-        'Evaluation metrics provide objective assessment of model prediction quality.',
-        'Facilitates comparison, hyperparameter optimization, and overfitting diagnosis.',
-        'Primary metrics: MAE (linear scale), RMSE (penalizes outliers, target scale), R² (% variance explained).'
-      ],
-      keyPoints: [
-        'Objective performance benchmark',
-        'Train vs Test metric discrepancy',
-        'Differentiation between MAE, MSE, RMSE, R²',
-        'Loss function role in training'
-      ]
-    },
-    {
-      id: 'ml-u3-q14',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 14,
-      title: 'Short Note on MAE, RMSE and R² (What is R² as a measure of evaluation?)',
-      shortTitle: 'MAE, RMSE, and R² In-Depth with Numerical Verification',
-      marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q2(a)', notes: 'Specifically focused on R²' },
-        { paper: 'Nov 2023', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q1(c)', marks: 6 }
-      ],
-      syllabusTopics: ['MAE', 'MSE', 'RMSE', 'R-Squared', 'Adjusted R2'],
-      definition: 'In Machine Learning, MAE, RMSE and R² are evaluation metrics used to measure the performance of a regression model. They tell us how accurately a model predicts values and how close predictions are to actual target observations.',
-      sections: [
-        {
-          title: '1. What are MAE, RMSE, and R² (Evaluation Metrics)?',
-          content: [
-            'In Machine Learning, MAE, RMSE and R² are evaluation metrics used to measure the performance of a regression model.',
-            'They help us understand how accurately a model predicts values and diagnose whether predictions have small or catastrophic errors.'
-          ]
-        },
-        {
-          title: '2. MAE (Mean Absolute Error)',
-          content: [
-            'Definition: MAE is the average of the absolute differences between actual values and predicted values.',
-            'In simple words:',
-            'MAE tells us how far the model predictions are from the actual values on average, without worrying about whether the prediction was too high or too low.',
-            'Formula: MAE = (1/n) * Σ |yᵢ - ŷᵢ|',
-            'Concrete Example:',
-            '• Actual house price = 100, Predicted house price = 90 ==> Error = |100 - 90| = 10.',
-            '• If another prediction has Error = 6, average error across the two is (10 + 6) / 2 = 8.',
-            'Advantages:',
-            '• Easy to understand and calculate for both engineers and non-technical stakeholders.',
-            '• Less sensitive to large outlier errors because mistakes are not squared.',
-            '• Lower MAE indicates better model performance (0 is perfect).'
-          ],
-          formulas: [
-            { name: 'MAE Formula', latex: '\\text{MAE} = \\frac{1}{n}\\sum_{i=1}^{n}|y_i - \\hat{y}_i|' }
-          ]
-        },
-        {
-          title: '3. RMSE (Root Mean Square Error)',
-          content: [
-            'Definition: RMSE is the square root of the average of squared differences between actual and predicted values.',
-            'In simple words:',
-            'RMSE measures prediction errors while giving much heavier importance and penalties to large mistakes.',
-            'Formula: RMSE = √[ (1/n) * Σ (yᵢ - ŷᵢ)² ]',
-            'Concrete Example:',
-            '• An error of 2 units contributes 2² = 4 to the sum.',
-            '• A blunder of 10 units contributes 10² = 100 to the sum (25 times more impact for a 5x larger error!).',
-            'Advantages:',
-            '• Heavily penalizes large prediction errors, making it critical for medical, finance, and safety systems.',
-            '• Useful for measuring model accuracy in real-world engineering applications.',
-            '• Expressed in the exact same measurement unit as the target variable (due to the square root).',
-            '• Lower RMSE indicates better model performance (0 is perfect).'
-          ],
-          formulas: [
-            { name: 'RMSE Formula', latex: '\\text{RMSE} = \\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2}' }
-          ]
-        },
-        {
-          title: '4. R² (R-Squared / Coefficient of Determination)',
-          content: [
-            'Definition: R² is a statistical measure that tells us how well a regression model explains the variation in the actual data.',
-            'In simple words:',
-            'R² tells us what percentage of the variation in the output is successfully captured and explained by the model compared to simply guessing the average.',
-            'Formula: R² = 1 - (SS_res / SS_tot)',
-            'Where:',
-            '• SS_res = Sum of squared errors (residuals) = Σ (yᵢ - ŷᵢ)²',
-            '• SS_tot = Total sum of squares from the mean = Σ (yᵢ - ȳ)²',
-            'Concrete Example:',
-            'If R² = 0.80, it means the model explains 80% of the variation in the target variable, while 20% remains unexplained random noise.'
-          ],
-          formulas: [
-            { name: 'R-Squared Formula', latex: 'R^2 = 1 - \\frac{SS_{\\text{res}}}{SS_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}' }
-          ],
-          table: {
-            headers: ['R² Value', 'Meaning & Model Quality'],
-            rows: [
-              { parameter: '1.0', col1: 'Perfect prediction: Model hits every actual data point with zero error.' },
-              { parameter: '0.9', col1: 'Very good fit: 90% of data variation is captured by the model.' },
-              { parameter: '0.8', col1: 'Good fit: Reliable predictor for practical deployment.' },
-              { parameter: '0.5', col1: 'Moderate fit: Captures general direction but leaves 50% unexplained.' },
-              { parameter: '0.0', col1: 'No improvement: Performs no better than simply predicting the mean (ȳ).' },
-              { parameter: 'Negative (< 0)', col1: 'Worse than predicting the mean: Model predictions are severely inaccurate.' }
-            ]
-          }
-        },
-        {
-          title: '5. Direct 2-Column Difference: MAE vs RMSE',
-          table: {
-            headers: ['MAE (Mean Absolute Error)', 'RMSE (Root Mean Square Error)'],
-            rows: [
-              { parameter: 'MAE calculates the simple average of absolute differences without squaring.', col1: 'RMSE squares all errors before averaging and then takes the square root.' },
-              { parameter: 'Treats all errors proportionally (an error of 10 is simply 5 times an error of 2).', col1: 'Gives disproportionately heavier penalties to large mistakes (error of 10 counts 25 times more).' },
-              { parameter: 'Robust and less sensitive to extreme outliers.', col1: 'Highly sensitive to outliers—a single huge blunder inflates the entire RMSE.' },
-              { parameter: 'Absolute value function has non-differentiable sharp corner at error = 0.', col1: 'Smooth and mathematically differentiable everywhere, making it ideal for gradient descent.' },
-              { parameter: 'Best used when all errors carry equal operational risk.', col1: 'Best used when large errors are dangerous or catastrophic (e.g., flight trajectory, medical dosage).' }
-            ]
-          }
-        },
-        {
-          title: '6. Quick Comparison: MAE vs RMSE vs R²',
-          table: {
-            headers: ['Metric Name & Type', 'What It Measures, Sensitivity & Ideal Score'],
-            rows: [
-              { parameter: 'Mean Absolute Error (MAE) [Absolute Error Metric]', col1: 'Measures average magnitude of prediction errors in original units; robust to outliers; lower is better (0 is ideal).' },
-              { parameter: 'Root Mean Square Error (RMSE) [Quadratic Error Metric]', col1: 'Measures prediction error giving heavy penalties to large mistakes; in original units; lower is better (0 is ideal).' },
-              { parameter: 'R-Squared (R²) [Goodness-of-Fit Ratio]', col1: 'Measures proportion of output variation explained by the model; dimensionless (0 to 1); higher is better (1.0 is ideal).' }
-            ]
-          }
-        },
-        {
-          title: '7. Easy Way to Remember (Fast Exam Memory Hook)',
-          content: [
-            '• MAE: How much error does the model make on average in plain numbers?',
-            '• RMSE: How much error does the model make, giving heavy punishment to large mistakes?',
-            '• R²: How well does the model explain the variation in data compared to guessing the average?'
-          ]
-        },
-        {
-          title: '8. Worked Numerical Verification (For 6-Mark Exam Answers)',
-          content: [
-            'Dataset: x = [1, 2, 3, 4], Actual y = [3, 4, 5, 7]. Regression line ŷ = 1.3x + 1.5. N = 4.',
-            '• Predicted ŷ: [2.8, 4.1, 5.4, 6.7]',
-            '• Absolute Errors |y - ŷ|: [0.2, 0.1, 0.4, 0.3] ==> Sum = 1.0 ==> MAE = 1.0 / 4 = 0.25',
-            '• Squared Errors (y - ŷ)²: [0.04, 0.01, 0.16, 0.09] ==> Sum (SS_res) = 0.30 ==> RMSE = √(0.30 / 4) = 0.274',
-            '• Total Variation from Mean ȳ (4.75): SS_tot = 8.75 ==> R² = 1 - (0.30 / 8.75) = 0.9657 (Explains 96.57% of data variance).'
-          ]
-        }
-      ],
-      summary: [
-        'MAE measures average absolute error without penalizing outliers.',
-        'RMSE penalizes large errors heavily and is expressed in target units.',
-        'R² measures the percentage of data variance explained (0 to 1; 1 is perfect, < 0 is worse than mean).',
-        'Memory hook: MAE = average error, RMSE = punished large blunders, R² = percentage explained.'
-      ],
-      keyPoints: [
-        'Formula derivation and units comparison',
-        'Robustness (MAE) vs Sensitivity to outliers (RMSE)',
-        'Scale-free baseline comparison (R²)',
-        'SS_res vs SS_tot variance partitioning'
-      ]
-    },
-    {
-      id: 'ml-u3-q15',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 15,
-      title: 'Advantages of RMSE over MSE as an Evaluation Metric',
-      shortTitle: 'Advantages of RMSE over MSE',
-      marks: 4,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q2(a)', marks: 4 }
-      ],
-      syllabusTopics: ['RMSE', 'MSE', 'Evaluation Comparison'],
-      definition: 'Root Mean Squared Error (RMSE = √MSE) provides key interpretability advantages over Mean Squared Error by scaling error units back to the original measurement scale of the target variable.',
-      sections: [
-        {
-          title: '1. Key Comparative Advantages of RMSE',
-          content: [
-            '1. Direct Unit Dimensionality: MSE reports errors in squared units (e.g., dollars², kg², Celsius²), which lacks physical interpretability. RMSE restores original units ($ or kg).',
-            '2. Directly Comparable with Target and MAE: RMSE can be directly juxtaposed against target mean ȳ or MAE to assess relative percentage error.',
-            '3. Comprehensible Numerical Scale: The square root scales enormous squared numbers back to standard human-readable ranges.',
-            '4. Retains Quadratic Outlier Penalty: Because squaring occurs before rooting, RMSE retains the critical property of heavily penalizing large outliers.',
-            '5. Represents Standard Deviation of Residuals: RMSE directly approximates the standard deviation of unexplained variance in the regression fit.'
-          ]
-        },
-        {
-          title: '2. Direct 2-Column Difference: RMSE vs MSE',
-          table: {
-            headers: ['Root Mean Square Error (RMSE)', 'Mean Squared Error (MSE)'],
-            rows: [
-              { parameter: 'Calculates the square root of mean squared errors: RMSE = √MSE.', col1: 'Calculates the raw mean of squared errors without taking a square root: MSE = (1/n) Σ (y - ŷ)².' },
-              { parameter: 'Measured in the exact same units as the target variable (e.g., dollars, meters, kg).', col1: 'Measured in squared units (e.g., dollars², meters², kg²), which lacks physical intuition.' },
-              { parameter: 'Easy to interpret and explain directly to business clients and project managers.', col1: 'Difficult for humans to interpret because squared numbers are unnaturally large.' },
-              { parameter: 'Directly comparable against the dataset mean (ȳ) or MAE.', col1: 'Cannot be directly compared to dataset mean because units do not match.' },
-              { parameter: 'Preferred for model evaluation, executive reporting, and paper publications.', col1: 'Preferred as the mathematical loss function during gradient descent because its derivative is simpler.' }
-            ]
-          }
-        },
-        {
-          title: '3. Illustrative Concrete Example',
-          content: [
-            'Suppose we are predicting product delivery cost ($). Errors on two test shipments: e₁ = $2, e₂ = $4.',
-            '• MSE = (2² + 4²) / 2 = (4 + 16) / 2 = 10 ($²). "10 squared dollars" makes no physical sense to a customer.',
-            '• RMSE = √10 = $3.16. A manager immediately understands that predictions miss the true delivery cost by about $3.16 on average.'
-          ]
-        },
-        {
-          title: '4. Easy Way to Remember',
-          content: [
-            '• MSE: Math-friendly loss function, but outputs weird squared units (dollars²).',
-            '• RMSE: The square root fix that converts the error back into normal human units (dollars).'
-          ]
-        }
-      ],
-      summary: [
-        'RMSE = √MSE expresses errors in the original units of target variable y.',
-        'Retains heavy penalty on large outliers while offering direct physical interpretability.',
-        'Preferred for reporting and communication, whereas MSE is favored during gradient optimization.'
-      ],
-      keyPoints: [
-        'Original unit alignment',
-        'Direct comparability with MAE and mean y',
-        'Quadratic outlier weighting preserved',
-        'Reporting vs Optimization preference'
-      ]
-    },
-    {
-      id: 'ml-u3-q16',
-      unitId: 'unit-3',
-      subjectId: 'machine-learning',
-      qNumber: 16,
+      qNumber: 9,
       title: 'Numerical: Memory (Capacity) and Cost of RAM',
       shortTitle: 'Solved Numerical: RAM Capacity vs Cost Prediction',
       marks: 6,
@@ -1348,6 +735,7 @@ export const unit3Data: Unit = {
       papersAsked: [
         { paper: 'April 2023', questionNo: 'Q2(c)', marks: 6 }
       ],
+      topicCategory: 'Linear Regression & Solved Numericals',
       syllabusTopics: ['Least Squares Numerical', 'Slope and Intercept', 'Linear Extrapolation'],
       definition: 'Application of least squares normal equations to derive a linear cost model from empirical RAM capacity data and predict future hardware pricing.',
       sections: [
@@ -1488,11 +876,12 @@ export const unit3Data: Unit = {
         'Linear extrapolation prediction'
       ]
     },
+
     {
-      id: 'ml-u3-q17',
+      id: 'ml-u3-q10',
       unitId: 'unit-3',
       subjectId: 'machine-learning',
-      qNumber: 17,
+      qNumber: 10,
       title: 'Numerical: Company Expenditure -- Predict the 6th Month',
       shortTitle: 'Solved Numerical: Company Monthly Expenditure Forecast',
       marks: 6,
@@ -1501,6 +890,7 @@ export const unit3Data: Unit = {
       papersAsked: [
         { paper: 'April 2024', questionNo: 'Q1(c)', marks: 6 }
       ],
+      topicCategory: 'Linear Regression & Solved Numericals',
       syllabusTopics: ['Least Squares Numerical', 'Forecasting', 'Time Series Regression'],
       definition: 'Using linear least squares regression to determine expenditure trend over 5 consecutive months and forecast the 6th month expenditure.',
       sections: [
@@ -1637,11 +1027,12 @@ export const unit3Data: Unit = {
         'Month 6 forecast = 53.6'
       ]
     },
+
     {
-      id: 'ml-u3-q18',
+      id: 'ml-u3-q11',
       unitId: 'unit-3',
       subjectId: 'machine-learning',
-      qNumber: 18,
+      qNumber: 11,
       title: 'Numerical: Carbohydrates (X) and Calories (Y)',
       shortTitle: 'Solved Numerical: Carbohydrates vs Calories Regression',
       marks: 6,
@@ -1650,6 +1041,7 @@ export const unit3Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2024', questionNo: 'Q1(b)', marks: 6 }
       ],
+      topicCategory: 'Linear Regression & Solved Numericals',
       syllabusTopics: ['Least Squares Numerical', 'Nutritional Modeling', 'Prediction'],
       definition: 'Linear regression analysis fitting carbohydrates content against total calories to estimate calorie count for arbitrary carbohydrate amounts.',
       sections: [
@@ -1705,11 +1097,12 @@ export const unit3Data: Unit = {
         'Prediction = 145.73 calories'
       ]
     },
+
     {
-      id: 'ml-u3-q19',
+      id: 'ml-u3-q12',
       unitId: 'unit-3',
       subjectId: 'machine-learning',
-      qNumber: 19,
+      qNumber: 12,
       title: 'Numerical: Find the Linear Regression Line for X=1,2,3,4 and Y=3,4,5,7',
       shortTitle: 'Solved Numerical: Linear Regression Line Derivation',
       marks: 6,
@@ -1718,6 +1111,7 @@ export const unit3Data: Unit = {
       papersAsked: [
         { paper: 'In-Sem Exam', questionNo: 'Q1(b)', marks: 6 }
       ],
+      topicCategory: 'Linear Regression & Solved Numericals',
       syllabusTopics: ['Least Squares Numerical', 'Line of Best Fit'],
       definition: 'Complete derivation of the standard least-squares regression line for basic sequential integer inputs.',
       sections: [
@@ -1837,6 +1231,676 @@ export const unit3Data: Unit = {
         'Slope a = 1.3',
         'Intercept b = 1.5',
         'Cross-validated with worked Q14 metrics'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q13',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 13,
+      title: 'Short Note on Lasso and Ridge Regression (Differentiate Lasso and Ridge)',
+      shortTitle: 'Ridge (L2) vs Lasso (L1) Regularization In-Depth',
+      marks: 6,
+      importance: 'Frequently Asked',
+      occurrenceCount: 4,
+      papersAsked: [
+        { paper: 'Nov 2024', questionNo: 'Q2(a)', notes: 'Second part (Ridge)' },
+        { paper: 'Nov 2023', questionNo: 'Q1(b)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q2(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q2(a)', marks: 6 }
+      ],
+      topicCategory: 'Regularized Regression',
+      syllabusTopics: ['Lasso Regression', 'Ridge Regression', 'L1 Regularization', 'L2 Regularization', 'Feature Selection'],
+      definition: 'Ridge Regression (L2) and Lasso Regression (L1) are regularization techniques that prevent overfitting in linear models by adding a penalty on large weights.',
+      sections: [
+        {
+          title: '1. What is Regularization and Why is it Needed?',
+          content: [
+            'Regularization is a technique used in Machine Learning to stop a model from overfitting.',
+            'Overfitting happens when a model tries to memorize every small detail and random noise in the training data, causing it to fail on new real-world data.',
+            'In Simple Words:',
+            'When a model overfits, its weights (coefficients) become unnaturally large and unstable. Regularization adds a penalty on large weights to keep the model simple, smooth, and balanced.'
+          ]
+        },
+        {
+          title: '2. Ridge Regression (L2 Regularization)',
+          content: [
+            'Adds a penalty proportional to the sum of squared weights: λ ∑ βⱼ².',
+            'In Simple Words:',
+            'Ridge Regression reduces the values of large weights so no single feature dominates the model. It pulls weights close to zero, but never makes them exactly zero. All features stay in the equation.',
+            'Real-World Example (House Price Prediction):',
+            'Suppose you predict house prices using Area, Bedrooms, and Location Rating. If Area and Bedrooms are correlated, standard regression gives them huge unstable weights. Ridge Regression shrinks these weights evenly so the prediction is steady and reliable.',
+            'Analytical closed-form solution: β_ridge = (XᵀX + λI)⁻¹ XᵀY.'
+          ],
+          formulas: [
+            { name: 'Ridge Cost Function', latex: 'J_{\\text{Ridge}}(\\beta) = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 + \\lambda \\sum_{j=1}^{p}\\beta_j^2' }
+          ]
+        },
+        {
+          title: '3. Lasso Regression (L1 Regularization)',
+          content: [
+            'Lasso stands for Least Absolute Shrinkage and Selection Operator.',
+            'Adds a penalty proportional to the sum of absolute values of weights: λ ∑ |βⱼ|.',
+            'In Simple Words:',
+            'Lasso shrinks weights just like Ridge. But Lasso can shrink unimportant weights all the way to absolute zero (0.0). When a weight becomes zero, that feature is completely removed from the model. Thus, Lasso does automatic feature selection.',
+            'Real-World Example (House Price with Useless Features):',
+            'Suppose you also included Door Color and Owner Age in the house dataset. Lasso sets the weights of Door Color and Owner Age to exactly zero (0.0), automatically throwing them out of the formula and keeping only Area and Bedrooms.'
+          ],
+          formulas: [
+            { name: 'Lasso Cost Function', latex: 'J_{\\text{Lasso}}(\\beta) = \\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2 + \\lambda \\sum_{j=1}^{p}|\\beta_j|' }
+          ]
+        },
+        {
+          title: '4. Difference Between Ridge and Lasso Regression (2-Column Format)',
+          table: {
+            headers: ['Ridge Regression (L2)', 'Lasso Regression (L1)'],
+            rows: [
+              {
+                parameter: 'Adds a penalty equal to the sum of squared weights (λ ∑ βⱼ²) to the cost function.',
+                col1: 'Adds a penalty equal to the sum of absolute values of weights (λ ∑ |βⱼ|) to the cost function.'
+              },
+              {
+                parameter: 'Shrinks weights smoothly close to zero, but never makes any weight exactly zero.',
+                col1: 'Shrinks weights and can force unimportant weights to become exactly zero (0.0).'
+              },
+              {
+                parameter: 'Does not perform feature selection; all original features are retained in the final equation.',
+                col1: 'Performs automatic feature selection; features with zero weights are completely removed.'
+              },
+              {
+                parameter: 'Has a smooth, circular constraint boundary where error contours touch curves, keeping weights non-zero.',
+                col1: 'Has a sharp diamond constraint boundary with pointed corners on axes, easily forcing weights to zero.'
+              },
+              {
+                parameter: 'Handles multicollinearity by sharing weights and shrinking correlated features together.',
+                col1: 'Handles multicollinearity by arbitrarily picking one correlated feature and zeroing out the rest.'
+              },
+              {
+                parameter: 'Has a direct closed-form analytical matrix formula: β = (XᵀX + λI)⁻¹ XᵀY.',
+                col1: 'Has no closed-form formula; it must be calculated iteratively using coordinate descent.'
+              },
+              {
+                parameter: 'Best used when you have many features and almost all of them contribute to the outcome.',
+                col1: 'Best used when you have many features, but suspect only a small subset really matters.'
+              }
+            ]
+          }
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-lasso-ridge-geometry',
+          title: 'Geometric Constraint Regions: Lasso (L1) vs Ridge (L2)',
+          caption: 'Error elliptical contours touching the sharp diamond corner of L1 (producing β₂ = 0) versus the smooth circle of L2.',
+          type: 'svg-interactive',
+          svgType: 'lasso-ridge-geometry'
+        }
+      ],
+      summary: [
+        'Ridge (L2) adds λ∑βⱼ², shrinks coefficients smoothly, retains all features, resolves multicollinearity.',
+        'Lasso (L1) adds λ∑|βⱼ|, drives coefficients to exact zero, provides automatic feature selection.',
+        'L1 has diamond geometry with sharp axis corners; L2 has circular smooth geometry.'
+      ],
+      keyPoints: [
+        'L1 absolute vs L2 squared penalty',
+        'Automatic feature selection in Lasso',
+        'Multicollinearity mitigation in Ridge',
+        'Geometric diamond vs circular constraint regions'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q14',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 14,
+      title: 'Explain Lasso Regression. How is Lasso Regression used for Feature Selection?',
+      shortTitle: 'Lasso Regression for Automatic Feature Selection',
+      marks: 6,
+      importance: 'Important',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'May 2024', questionNo: 'Q1(a)', marks: 6 }
+      ],
+      topicCategory: 'Regularized Regression',
+      syllabusTopics: ['Lasso Regression', 'Feature Selection', 'L1 Penalty', 'Sparsity'],
+      definition: 'Lasso (Least Absolute Shrinkage and Selection Operator) is an L1-regularized regression technique that produces sparse models by driving coefficients of redundant features to zero, thus acting as an embedded feature selector.',
+      sections: [
+        {
+          title: '1. Mechanism of Feature Selection via L1 Norm',
+          content: [
+            '1. In standard regression, every input feature receives a non-zero coefficient regardless of importance.',
+            '2. The Lasso cost function adds λ∑|βⱼ|. In constrained optimization form, this minimizes SSE subject to ∑|βⱼ| ≤ t.',
+            '3. The L1 constraint forms a hyper-polyhedron (diamond in 2D) with vertices situated precisely along the feature axes.',
+            '4. When the elliptical contours of the sum of squared errors expand from the unconstrained OLS solution, they almost always touch the constraint boundary at a vertex.',
+            '5. At any axis vertex, all coordinates other than that axis are exactly zero. Therefore, irrelevant features are completely dropped.'
+          ]
+        },
+        {
+          title: '2. Tuning the Sparsity Parameter λ',
+          content: [
+            'When λ = 0: Lasso is identical to Ordinary Least Squares (all features retained).',
+            'As λ increases: Shrinkage pressure intensifies, forcing progressively more feature coefficients to zero.',
+            'If λ is excessively large: All coefficients become zero, resulting in a null model.',
+            'The optimal λ is selected using K-Fold Cross-Validation (typically choosing the λ that minimizes validation MSE).'
+          ]
+        },
+        {
+          title: '3. Concrete Example',
+          content: [
+            'Predicting house price with 5 candidate features: Area, Location Score, Bedrooms, Front Door Color, Owner Age.',
+            'After fitting Lasso with tuned λ: Area = +4.5, Location = +2.8, Bedrooms = +1.1, Door Color = 0.0, Owner Age = 0.0.',
+            'The algorithm automatically discards door color and owner age without requiring human intervention.'
+          ]
+        }
+      ],
+      summary: [
+        'Lasso minimizes SSE + λ∑|βⱼ|.',
+        'Sharp diamond vertices of the L1 norm force optimization intersections directly on axes.',
+        'Coefficients become exactly zero, yielding embedded, automatic feature selection.',
+        'Cross-validation determines the optimal tuning parameter λ.'
+      ],
+      keyPoints: [
+        'L1 diamond constraint geometry',
+        'Axis-intercept point of contact',
+        'Sparse weight vector',
+        'Hyperparameter λ tuning via cross-validation'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q15',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 15,
+      title: 'Explain Gradient Descent Algorithm with Example. Compare Batch and Stochastic Gradient Descent',
+      shortTitle: 'Gradient Descent Algorithm & Batch vs SGD Comparison',
+      marks: 6,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
+      papersAsked: [
+        { paper: 'Nov 2023', questionNo: 'Q1(c)', notes: 'Explain with example' },
+        { paper: 'Nov 2023', questionNo: 'Q2(c)', notes: 'What is GD + Compare Batch and SGD' }
+      ],
+      topicCategory: 'Optimization Algorithms',
+      syllabusTopics: ['Gradient Descent', 'Optimization', 'Batch GD', 'Stochastic GD', 'Learning Rate'],
+      definition: 'Gradient Descent is a first-order iterative optimization algorithm used to find the local minimum of a differentiable cost function by taking successive steps proportional to the negative of the gradient.',
+      sections: [
+        {
+          title: '1. Mathematical Foundation & Update Rule',
+          content: [
+            'Cost function J(θ) measures model prediction error (e.g., Mean Squared Error).',
+            'The gradient ∇J(θ) is the vector of partial derivatives pointing in the direction of steepest ascent.',
+            'To minimize error, parameters are iteratively updated in the exact opposite direction (steepest descent):'
+          ],
+          formulas: [
+            {
+              name: 'General Parameter Update Rule',
+              latex: '\\theta_{\\text{new}} = \\theta_{\\text{old}} - \\eta \\nabla J(\\theta)'
+            },
+            {
+              name: 'Linear Regression Gradient Update',
+              latex: '\\theta_j := \\theta_j - \\eta \\frac{1}{m}\\sum_{i=1}^{m}\\Big(h_\\theta(x^{(i)}) - y^{(i)}\\Big) x_j^{(i)}'
+            }
+          ]
+        },
+        {
+          title: '2. Numerical Walkthrough Example',
+          content: [
+            'Minimize single-variable function f(x) = x².',
+            'Derivative: f\'(x) = 2x. Let initial point x₀ = 4.0 and learning rate η = 0.1.'
+          ],
+          table: {
+            headers: ['Iteration (t)', 'Current x_t', 'Gradient 2x_t', 'Step: η · 2x_t', 'Updated x_(t+1)'],
+            rows: [
+              { parameter: 'Step 1', col1: '4.000', col2: '8.000', col3: '0.800', col4: '4.0 - 0.8 = 3.200' },
+              { parameter: 'Step 2', col1: '3.200', col2: '6.400', col3: '0.640', col4: '3.2 - 0.64 = 2.560' },
+              { parameter: 'Step 3', col1: '2.560', col2: '5.120', col3: '0.512', col4: '2.56 - 0.512 = 2.048' },
+              { parameter: 'Step 4', col1: '2.048', col2: '4.096', col3: '0.410', col4: '2.048 - 0.410 = 1.638' },
+              { parameter: 'Convergence', col1: '... → 0.0', col2: '... → 0.0', col3: '... → 0.0', col4: 'Converges cleanly to global minimum x = 0' }
+            ]
+          }
+        },
+        {
+          title: '3. Comparative Analysis: Batch GD vs SGD vs Mini-Batch GD',
+          table: {
+            headers: ['Batch Gradient Descent', 'Stochastic Gradient Descent (SGD)'],
+            rows: [
+              {
+                parameter: 'Uses the entire training dataset (all m samples) to compute the gradient at every single step.',
+                col1: 'Uses only a single randomly chosen training sample to compute the gradient at each step.'
+              },
+              {
+                parameter: 'Computation is very slow per step on large datasets because it processes all rows every iteration.',
+                col1: 'Computation is instantaneous per step because it only evaluates one single row at a time.'
+              },
+              {
+                parameter: 'Follows a smooth, direct, deterministic path straight down toward the cost minimum.',
+                col1: 'Follows a noisy, oscillating zig-zag path that bounces around but trends toward the minimum.'
+              },
+              {
+                parameter: 'Requires loading the entire dataset into RAM, which is infeasible for massive big-data applications.',
+                col1: 'Requires minimal RAM footprint because only one data point needs to be in memory at any instant.'
+              },
+              {
+                parameter: 'Can easily get permanently stuck in local minima or flat saddle points on complex loss surfaces.',
+                col1: 'Random noise in individual sample steps helps it escape shallow local minima into better regions.'
+              },
+              {
+                parameter: 'Reaches the exact minimum smoothly on convex error surfaces.',
+                col1: 'Fluctuates around the minimum and needs a decreasing learning rate schedule to settle down.'
+              }
+            ]
+          }
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-gradient-descent',
+          title: 'Convex Cost Surface & Gradient Descent Steps',
+          caption: 'Step-by-step parameter updates down the parabolic bowl J(θ) with step size naturally diminishing near the minimum.',
+          type: 'svg-interactive',
+          svgType: 'gradient-descent'
+        }
+      ],
+      summary: [
+        'Gradient descent minimizes cost via iterative updates: θ := θ - η∇J(θ).',
+        'Learning rate η controls step magnitude; too large overshoots, too small converges sluggishly.',
+        'Batch GD uses all data per update (smooth, slow); SGD updates per single instance (fast, noisy).'
+      ],
+      keyPoints: [
+        'Negative gradient vector direction',
+        'Learning rate tuning dilemma',
+        'Batch vs Stochastic vs Mini-Batch tradeoff',
+        'Convex vs Non-convex optimization dynamics'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q16',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 16,
+      title: 'Short Note on Stochastic Gradient Descent (SGD) Algorithm',
+      shortTitle: 'Stochastic Gradient Descent (SGD) Protocol',
+      marks: 4,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
+      papersAsked: [
+        { paper: 'May 2024', questionNo: 'Q2(c)', marks: 4 },
+        { paper: 'April 2024', questionNo: 'Q2(c)', marks: 4 }
+      ],
+      topicCategory: 'Optimization Algorithms',
+      syllabusTopics: ['Stochastic Gradient Descent', 'Online Learning', 'Learning Rate Scheduling'],
+      definition: 'Stochastic Gradient Descent (SGD) is an optimization variant where parameters are updated incrementally using the loss gradient computed from only a single randomly selected training instance at each iteration.',
+      sections: [
+        {
+          title: '1. Algorithmic Protocol',
+          content: [
+            '1. Randomly initialize parameter vector θ and set base learning rate η.',
+            '2. Shuffle the entire training dataset to avoid cyclic bias.',
+            '3. For each individual sample (x⁽ⁱ⁾, y⁽ⁱ⁾): Compute gradient for that isolated sample and immediately update parameters: θ := θ - η(h_θ(x⁽ⁱ⁾) - y⁽ⁱ⁾)x⁽ⁱ⁾.',
+            '4. Repeat for multiple passes (epochs) through the dataset until average loss stabilizes.'
+          ],
+          formulas: [
+            { name: 'SGD Update Rule for Single Sample', latex: '\\theta_j := \\theta_j - \\eta \\cdot \\Big(h_\\theta(x^{(i)}) - y^{(i)}\\Big) x_j^{(i)}' }
+          ]
+        },
+        {
+          title: '2. Key Advantages of SGD',
+          content: [
+            '1. Instant Computation per Step: Calculates the gradient and updates weights using only one single sample at a time, resulting in extremely fast iterations.',
+            '2. Memory Efficient: Runs comfortably on massive datasets and streaming data that cannot fit into RAM.',
+            '3. Escapes Shallow Local Minima: Frequent erratic updates introduce noise that can help the optimizer bounce out of sub-optimal local minima and saddle points.'
+          ]
+        },
+        {
+          title: '3. Key Limitations of SGD',
+          content: [
+            '1. Erratic Convergence Path: Noisy gradients cause zig-zag oscillations that make the convergence trajectory unstable.',
+            '2. Never Settles Permanently at Minimum: Without a decaying learning rate schedule, SGD wanders around the minimum instead of converging strictly.',
+            '3. Loses Vectorized Hardware Acceleration: Updating sample by sample cannot exploit GPU/CPU SIMD matrix parallelism.'
+          ]
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-batch-vs-sgd',
+          title: 'Contour Plot: Batch GD vs SGD Trajectories',
+          caption: 'Smooth, direct trajectory of Batch GD compared with the fluctuating, noisy path of SGD toward the cost minimum.',
+          type: 'svg-interactive',
+          svgType: 'batch-vs-sgd'
+        }
+      ],
+      summary: [
+        'SGD updates parameters after every single training example rather than the entire dataset.',
+        'Significantly faster with minimal memory footprint; suited for online streaming data.',
+        'Noisy updates cause oscillations around the minimum, managed via learning rate decay.'
+      ],
+      keyPoints: [
+        'Single-sample parameter update',
+        'Shuffle training instances per epoch',
+        'Stochastic fluctuation vs Deterministic descent',
+        'Foundation for modern deep learning optimizers'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q17',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 17,
+      title: 'Importance of Evaluation Metrics / Short Note on Evaluation Metrics',
+      shortTitle: 'Importance of Regression Evaluation Metrics',
+      marks: 6,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
+      papersAsked: [
+        { paper: 'April 2023', questionNo: 'Q2(a)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q2(c)', marks: 6 }
+      ],
+      topicCategory: 'Evaluation Metrics & Exemplar',
+      syllabusTopics: ['Evaluation Metrics', 'MAE', 'MSE', 'RMSE', 'R2'],
+      definition: 'Evaluation metrics are quantitative statistical measures used to assess prediction accuracy, compare alternative modeling approaches, monitor convergence during optimization, and validate generalization capabilities.',
+      sections: [
+        {
+          title: '1. Why Evaluation Metrics are Indispensable',
+          content: [
+            '1. Performance Quantification: Translates model effectiveness into standardized numerical values understandable by domain engineers and stakeholders.',
+            '2. Model Selection: Provides an objective benchmark to pick between competing models (e.g., Linear vs Polynomial vs Ridge).',
+            '3. Diagnosing Overfitting & Underfitting: Comparing metric scores across training and validation sets detects generalization breakdown.',
+            '4. Loss Function Guidance: Functions like MSE serve as the exact mathematical objective minimized by gradient-based optimizers.',
+            '5. Hyperparameter Optimization: Acts as the fitness evaluation target during grid search and cross-validation for tuning λ or learning rates.'
+          ]
+        },
+        {
+          title: '2. Direct 2-Column Comparison of Primary Regression Metrics',
+          table: {
+            headers: ['Evaluation Metric & Formula', 'Core Characteristic, Sensitivity & Ideal Value'],
+            rows: [
+              {
+                parameter: 'Mean Absolute Error (MAE): (1/N) ∑ |yᵢ - ŷᵢ|',
+                col1: 'Calculates the average linear error magnitude in original target units; robust against outliers; ideal score is 0.'
+              },
+              {
+                parameter: 'Mean Squared Error (MSE): (1/N) ∑ (yᵢ - ŷᵢ)²',
+                col1: 'Squares errors to heavily penalize large mistakes; outputs squared units; smooth differentiable loss for optimization; ideal score is 0.'
+              },
+              {
+                parameter: 'Root Mean Squared Error (RMSE): √MSE',
+                col1: 'Restores measurement scale back to original target units while retaining heavy penalties on large blunders; ideal score is 0.'
+              },
+              {
+                parameter: 'Coefficient of Determination (R²): 1 - [SS_res / SS_tot]',
+                col1: 'Measures the proportion of total variance explained by the model compared to guessing the mean; dimensionless ratio (0 to 1); ideal score is 1.0.'
+              },
+              {
+                parameter: 'Adjusted R²: 1 - [(1 - R²)(N - 1)/(N - p - 1)]',
+                col1: 'Penalizes the addition of useless predictor features p to prevent misleading artificial inflation of R²; ideal score is 1.0.'
+              }
+            ]
+          }
+        }
+      ],
+      summary: [
+        'Evaluation metrics provide objective assessment of model prediction quality.',
+        'Facilitates comparison, hyperparameter optimization, and overfitting diagnosis.',
+        'Primary metrics: MAE (linear scale), RMSE (penalizes outliers, target scale), R² (% variance explained).'
+      ],
+      keyPoints: [
+        'Objective performance benchmark',
+        'Train vs Test metric discrepancy',
+        'Differentiation between MAE, MSE, RMSE, R²',
+        'Loss function role in training'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q18',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 18,
+      title: 'Short Note on MAE, RMSE and R² (What is R² as a measure of evaluation?)',
+      shortTitle: 'MAE, RMSE, and R² In-Depth with Numerical Verification',
+      marks: 6,
+      importance: 'Frequently Asked',
+      occurrenceCount: 4,
+      papersAsked: [
+        { paper: 'Nov 2024', questionNo: 'Q2(b)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q2(a)', notes: 'Specifically focused on R²' },
+        { paper: 'Nov 2023', questionNo: 'Q2(b)', marks: 6 },
+        { paper: 'In-Sem Exam', questionNo: 'Q1(c)', marks: 6 }
+      ],
+      topicCategory: 'Evaluation Metrics & Exemplar',
+      syllabusTopics: ['MAE', 'MSE', 'RMSE', 'R-Squared', 'Adjusted R2'],
+      definition: 'In Machine Learning, MAE, RMSE and R² are evaluation metrics used to measure the performance of a regression model. They tell us how accurately a model predicts values and how close predictions are to actual target observations.',
+      sections: [
+        {
+          title: '1. What are MAE, RMSE, and R² (Evaluation Metrics)?',
+          content: [
+            'In Machine Learning, MAE, RMSE and R² are evaluation metrics used to measure the performance of a regression model.',
+            'They help us understand how accurately a model predicts values and diagnose whether predictions have small or catastrophic errors.'
+          ]
+        },
+        {
+          title: '2. MAE (Mean Absolute Error)',
+          content: [
+            'Definition: MAE is the average of the absolute differences between actual values and predicted values.',
+            'In simple words:',
+            'MAE tells us how far the model predictions are from the actual values on average, without worrying about whether the prediction was too high or too low.',
+            'Formula: MAE = (1/n) * Σ |yᵢ - ŷᵢ|',
+            'Concrete Example:',
+            '• Actual house price = 100, Predicted house price = 90 ==> Error = |100 - 90| = 10.',
+            '• If another prediction has Error = 6, average error across the two is (10 + 6) / 2 = 8.',
+            'Advantages:',
+            '• Easy to understand and calculate for both engineers and non-technical stakeholders.',
+            '• Less sensitive to large outlier errors because mistakes are not squared.',
+            '• Lower MAE indicates better model performance (0 is perfect).'
+          ],
+          formulas: [
+            { name: 'MAE Formula', latex: '\\text{MAE} = \\frac{1}{n}\\sum_{i=1}^{n}|y_i - \\hat{y}_i|' }
+          ]
+        },
+        {
+          title: '3. RMSE (Root Mean Square Error)',
+          content: [
+            'Definition: RMSE is the square root of the average of squared differences between actual and predicted values.',
+            'In simple words:',
+            'RMSE measures prediction errors while giving much heavier importance and penalties to large mistakes.',
+            'Formula: RMSE = √[ (1/n) * Σ (yᵢ - ŷᵢ)² ]',
+            'Concrete Example:',
+            '• An error of 2 units contributes 2² = 4 to the sum.',
+            '• A blunder of 10 units contributes 10² = 100 to the sum (25 times more impact for a 5x larger error!).',
+            'Advantages:',
+            '• Heavily penalizes large prediction errors, making it critical for medical, finance, and safety systems.',
+            '• Useful for measuring model accuracy in real-world engineering applications.',
+            '• Expressed in the exact same measurement unit as the target variable (due to the square root).',
+            '• Lower RMSE indicates better model performance (0 is perfect).'
+          ],
+          formulas: [
+            { name: 'RMSE Formula', latex: '\\text{RMSE} = \\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}(y_i - \\hat{y}_i)^2}' }
+          ]
+        },
+        {
+          title: '4. R² (R-Squared / Coefficient of Determination)',
+          content: [
+            'Definition: R² is a statistical measure that tells us how well a regression model explains the variation in the actual data.',
+            'In simple words:',
+            'R² tells us what percentage of the variation in the output is successfully captured and explained by the model compared to simply guessing the average.',
+            'Formula: R² = 1 - (SS_res / SS_tot)',
+            'Where:',
+            '• SS_res = Sum of squared errors (residuals) = Σ (yᵢ - ŷᵢ)²',
+            '• SS_tot = Total sum of squares from the mean = Σ (yᵢ - ȳ)²',
+            'Concrete Example:',
+            'If R² = 0.80, it means the model explains 80% of the variation in the target variable, while 20% remains unexplained random noise.'
+          ],
+          formulas: [
+            { name: 'R-Squared Formula', latex: 'R^2 = 1 - \\frac{SS_{\\text{res}}}{SS_{\\text{tot}}} = 1 - \\frac{\\sum(y_i - \\hat{y}_i)^2}{\\sum(y_i - \\bar{y})^2}' }
+          ],
+          table: {
+            headers: ['R² Value', 'Meaning & Model Quality'],
+            rows: [
+              { parameter: '1.0', col1: 'Perfect prediction: Model hits every actual data point with zero error.' },
+              { parameter: '0.9', col1: 'Very good fit: 90% of data variation is captured by the model.' },
+              { parameter: '0.8', col1: 'Good fit: Reliable predictor for practical deployment.' },
+              { parameter: '0.5', col1: 'Moderate fit: Captures general direction but leaves 50% unexplained.' },
+              { parameter: '0.0', col1: 'No improvement: Performs no better than simply predicting the mean (ȳ).' },
+              { parameter: 'Negative (< 0)', col1: 'Worse than predicting the mean: Model predictions are severely inaccurate.' }
+            ]
+          }
+        },
+        {
+          title: '5. Direct 2-Column Difference: MAE vs RMSE',
+          table: {
+            headers: ['MAE (Mean Absolute Error)', 'RMSE (Root Mean Square Error)'],
+            rows: [
+              { parameter: 'MAE calculates the simple average of absolute differences without squaring.', col1: 'RMSE squares all errors before averaging and then takes the square root.' },
+              { parameter: 'Treats all errors proportionally (an error of 10 is simply 5 times an error of 2).', col1: 'Gives disproportionately heavier penalties to large mistakes (error of 10 counts 25 times more).' },
+              { parameter: 'Robust and less sensitive to extreme outliers.', col1: 'Highly sensitive to outliers—a single huge blunder inflates the entire RMSE.' },
+              { parameter: 'Absolute value function has non-differentiable sharp corner at error = 0.', col1: 'Smooth and mathematically differentiable everywhere, making it ideal for gradient descent.' },
+              { parameter: 'Best used when all errors carry equal operational risk.', col1: 'Best used when large errors are dangerous or catastrophic (e.g., flight trajectory, medical dosage).' }
+            ]
+          }
+        },
+        {
+          title: '6. Quick Comparison: MAE vs RMSE vs R²',
+          table: {
+            headers: ['Metric Name & Type', 'What It Measures, Sensitivity & Ideal Score'],
+            rows: [
+              { parameter: 'Mean Absolute Error (MAE) [Absolute Error Metric]', col1: 'Measures average magnitude of prediction errors in original units; robust to outliers; lower is better (0 is ideal).' },
+              { parameter: 'Root Mean Square Error (RMSE) [Quadratic Error Metric]', col1: 'Measures prediction error giving heavy penalties to large mistakes; in original units; lower is better (0 is ideal).' },
+              { parameter: 'R-Squared (R²) [Goodness-of-Fit Ratio]', col1: 'Measures proportion of output variation explained by the model; dimensionless (0 to 1); higher is better (1.0 is ideal).' }
+            ]
+          }
+        },
+        {
+          title: '7. Easy Way to Remember (Fast Exam Memory Hook)',
+          content: [
+            '• MAE: How much error does the model make on average in plain numbers?',
+            '• RMSE: How much error does the model make, giving heavy punishment to large mistakes?',
+            '• R²: How well does the model explain the variation in data compared to guessing the average?'
+          ]
+        },
+        {
+          title: '8. Worked Numerical Verification (For 6-Mark Exam Answers)',
+          content: [
+            'Dataset: x = [1, 2, 3, 4], Actual y = [3, 4, 5, 7]. Regression line ŷ = 1.3x + 1.5. N = 4.',
+            '• Predicted ŷ: [2.8, 4.1, 5.4, 6.7]',
+            '• Absolute Errors |y - ŷ|: [0.2, 0.1, 0.4, 0.3] ==> Sum = 1.0 ==> MAE = 1.0 / 4 = 0.25',
+            '• Squared Errors (y - ŷ)²: [0.04, 0.01, 0.16, 0.09] ==> Sum (SS_res) = 0.30 ==> RMSE = √(0.30 / 4) = 0.274',
+            '• Total Variation from Mean ȳ (4.75): SS_tot = 8.75 ==> R² = 1 - (0.30 / 8.75) = 0.9657 (Explains 96.57% of data variance).'
+          ]
+        }
+      ],
+      summary: [
+        'MAE measures average absolute error without penalizing outliers.',
+        'RMSE penalizes large errors heavily and is expressed in target units.',
+        'R² measures the percentage of data variance explained (0 to 1; 1 is perfect, < 0 is worse than mean).',
+        'Memory hook: MAE = average error, RMSE = punished large blunders, R² = percentage explained.'
+      ],
+      keyPoints: [
+        'Formula derivation and units comparison',
+        'Robustness (MAE) vs Sensitivity to outliers (RMSE)',
+        'Scale-free baseline comparison (R²)',
+        'SS_res vs SS_tot variance partitioning'
+      ]
+    },
+
+    {
+      id: 'ml-u3-q19',
+      unitId: 'unit-3',
+      subjectId: 'machine-learning',
+      qNumber: 19,
+      title: 'Advantages of RMSE over MSE as an Evaluation Metric',
+      shortTitle: 'Advantages of RMSE over MSE',
+      marks: 4,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'May 2024', questionNo: 'Q2(a)', marks: 4 }
+      ],
+      topicCategory: 'Evaluation Metrics & Exemplar',
+      syllabusTopics: ['RMSE', 'MSE', 'Evaluation Comparison'],
+      definition: 'Root Mean Squared Error (RMSE = √MSE) provides key interpretability advantages over Mean Squared Error by scaling error units back to the original measurement scale of the target variable.',
+      sections: [
+        {
+          title: '1. Key Comparative Advantages of RMSE',
+          content: [
+            '1. Direct Unit Dimensionality: MSE reports errors in squared units (e.g., dollars², kg², Celsius²), which lacks physical interpretability. RMSE restores original units ($ or kg).',
+            '2. Directly Comparable with Target and MAE: RMSE can be directly juxtaposed against target mean ȳ or MAE to assess relative percentage error.',
+            '3. Comprehensible Numerical Scale: The square root scales enormous squared numbers back to standard human-readable ranges.',
+            '4. Retains Quadratic Outlier Penalty: Because squaring occurs before rooting, RMSE retains the critical property of heavily penalizing large outliers.',
+            '5. Represents Standard Deviation of Residuals: RMSE directly approximates the standard deviation of unexplained variance in the regression fit.'
+          ]
+        },
+        {
+          title: '2. Direct 2-Column Difference: RMSE vs MSE',
+          table: {
+            headers: ['Root Mean Square Error (RMSE)', 'Mean Squared Error (MSE)'],
+            rows: [
+              { parameter: 'Calculates the square root of mean squared errors: RMSE = √MSE.', col1: 'Calculates the raw mean of squared errors without taking a square root: MSE = (1/n) Σ (y - ŷ)².' },
+              { parameter: 'Measured in the exact same units as the target variable (e.g., dollars, meters, kg).', col1: 'Measured in squared units (e.g., dollars², meters², kg²), which lacks physical intuition.' },
+              { parameter: 'Easy to interpret and explain directly to business clients and project managers.', col1: 'Difficult for humans to interpret because squared numbers are unnaturally large.' },
+              { parameter: 'Directly comparable against the dataset mean (ȳ) or MAE.', col1: 'Cannot be directly compared to dataset mean because units do not match.' },
+              { parameter: 'Preferred for model evaluation, executive reporting, and paper publications.', col1: 'Preferred as the mathematical loss function during gradient descent because its derivative is simpler.' }
+            ]
+          }
+        },
+        {
+          title: '3. Illustrative Concrete Example',
+          content: [
+            'Suppose we are predicting product delivery cost ($). Errors on two test shipments: e₁ = $2, e₂ = $4.',
+            '• MSE = (2² + 4²) / 2 = (4 + 16) / 2 = 10 ($²). "10 squared dollars" makes no physical sense to a customer.',
+            '• RMSE = √10 = $3.16. A manager immediately understands that predictions miss the true delivery cost by about $3.16 on average.'
+          ]
+        },
+        {
+          title: '4. Easy Way to Remember',
+          content: [
+            '• MSE: Math-friendly loss function, but outputs weird squared units (dollars²).',
+            '• RMSE: The square root fix that converts the error back into normal human units (dollars).'
+          ]
+        }
+      ,
+        {
+          title: '3. Exemplar Case Study: Stock Market Price Prediction (SPPU Syllabus Exemplar)',
+          content: [
+            'Problem Statement & Financial Engineering Context:',
+            'Financial analysts and quantitative investment funds aim to forecast the future closing prices of equities (e.g., NIFTY 50, S&P 500 stocks) based on historical daily market parameters to optimize portfolio returns and manage downside risk.',
+            '',
+            'Dataset Features & Formulation:',
+            '• Historical Trading Metrics: Open price, High price, Low price, Close price, Trading Volume (OHLCV).',
+            '• Technical Momentum Indicators: Simple Moving Average (SMA-20, SMA-50), Exponential Moving Average (EMA-12, EMA-26), Relative Strength Index (RSI), Moving Average Convergence Divergence (MACD), and Bollinger Bands.',
+            '• Problem Classification: Multiple Continuous Supervised Regression: \\hat{y} = w_0 + \\sum_{i=1}^d w_i \\cdot x_i.',
+            '',
+            'Algorithmic Strategy & Regularization Mechanics:',
+            '1. Why Ordinary Least Squares (OLS) Overfits:',
+            '   Technical indicators derived from the same underlying price series exhibit intense multicollinearity. OLS yields wildly fluctuating weights with immense variance.',
+            '2. Ridge Regression (L2 Regularization):',
+            '   Applies a squared weight penalty \\lambda \\cdot \\sum w_i^2. Shrinks collinear regression coefficients proportionally, dampening sensitivity to market noise and preventing overfitting.',
+            '3. Lasso Regression (L1 Regularization):',
+            '   Applies an absolute weight penalty \\lambda \\cdot \\sum |w_i|. Drives uninformative or redundant lagging indicators strictly to zero, performing automatic feature selection and identifying the true drivers of market movement.',
+            '4. Optimization via Mini-Batch Gradient Descent:',
+            '   Processes streaming financial time-series windows, updating weights iteratively with momentum to avoid local minima in non-convex volatility surfaces.',
+            '',
+            'Evaluation Protocol in Market Forecasting:',
+            '• MAE (Mean Absolute Error): Measures typical rupee/dollar deviation per share.',
+            '• RMSE (Root Mean Squared Error): Heavily penalizes large erroneous price forecasts (crucial for margin calls and stop-loss limits).',
+            '• R² Score: Assesses the proportion of price variance explained by the technical feature set.'
+          ]
+        },
+      ],
+      summary: [
+        'RMSE = √MSE expresses errors in the original units of target variable y.',
+        'Retains heavy penalty on large outliers while offering direct physical interpretability.',
+        'Preferred for reporting and communication, whereas MSE is favored during gradient optimization.'
+      ],
+      keyPoints: [
+        'Original unit alignment',
+        'Direct comparability with MAE and mean y',
+        'Quadratic outlier weighting preserved',
+        'Reporting vs Optimization preference'
       ]
     }
   ]

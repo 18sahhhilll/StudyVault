@@ -6,20 +6,13 @@ export const unit6Data: Unit = {
   title: 'Introduction to Neural Networks',
   shortTitle: 'Neural Networks',
   description: 'Comprehensive university examination study material covering Activation Functions, Single-Layer Perceptrons, Multilayer Perceptrons (MLP), the Backpropagation algorithm, Radial Basis Function (RBF) Networks, Functional Link ANN (FLANN), Recurrent Neural Networks (RNN), Convolutional Neural Networks (CNN), Convolution Padding, and Recommendation Systems.',
-  syllabus: [
-    'Biological Neuron vs Artificial Neuron & Basic Elements of ANN',
-    'Activation Functions: Sigmoid, Tanh, ReLU, Threshold, and Importance',
-    'Single-Layer Perceptron: Learning Rule, Linear Separability, and the XOR Problem',
-    'Multilayer Perceptron (MLP) Architecture & Credit Assignment Problem',
-    'Backpropagation Learning Algorithm: Mathematical Derivation, Deltas, and Convergence',
-    'Radial Basis Function (RBF) Networks: Building Blocks, Gaussian Centers, and Two-Stage Training',
-    'Functional Link Artificial Neural Network (FLANN) & Functional Expansion',
-    'Recurrent Neural Networks (RNN): Feedback Loops, Time-Unfolding, and Architectures',
-    'Applications and Limitations of RNNs: Vanishing/Exploding Gradients & LSTMs',
-    'Convolutional Neural Networks (CNN): Architecture, Convolution, ReLU, Pooling, and Dense Layers',
-    'Comparative Analysis: Convolutional Neural Networks (CNN) vs Recurrent Neural Networks (RNN)',
-    'Types of Padding in CNNs: Valid Padding, Same Padding, and Full Padding',
-    'Recommendation Systems: Content-Based vs Personalized (Collaborative Filtering)'
+    syllabus: [
+    'Artificial Neural Networks: Single Layer Neural Network, Multilayer Perceptron (MLP), Back Propagation Learning',
+    'Specialized Architectures: Functional Link Artificial Neural Network (FLANN) and Radial Basis Function (RBF) Network',
+    'Activation Functions: Sigmoid, Tanh, ReLU, Leaky ReLU, Softmax, Threshold (Mathematical Formulations & Derivatives)',
+    'Introduction to Deep Learning: Recurrent Neural Networks (RNN) and Long Short-Term Memory (LSTM)',
+    'Introduction to Deep Learning: Convolutional Neural Networks (CNN) Architecture, Layers, and Padding Strategies',
+    '#Exemplar / Case Studies: Movie Recommendation System (Content-Based, Collaborative Filtering, and Neural NCF)'
   ],
   questionPaperIndex: [
     { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q2 (Building Blocks of ANN), (b) → Q4 (Backprop Characteristics), (c) → Q7, Q9 (RNN & CNN)', qOr: '(a) → Q2 (ANN based on Perceptron), (b) → Q3, Q4 (MLP & Why Backprop), (c) → Q1 (Two Activation Functions)' },
@@ -76,96 +69,6 @@ export const unit6Data: Unit = {
       unitId: 'unit-6',
       subjectId: 'machine-learning',
       qNumber: 1,
-      title: 'Explain Activation Functions in Neural Networks: Importance, Types, and Detailed Comparison',
-      shortTitle: 'Activation Functions: Importance & Types',
-      marks: 8,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q8(c)', marks: 6 },
-        { paper: 'May 2024', questionNo: 'Q7(b)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q7(b)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q8(c)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q7(a)', marks: 6 }
-      ],
-      syllabusTopics: ['Activation Functions', 'Sigmoid', 'Tanh', 'ReLU', 'Non-Linearity'],
-      definition: 'An activation function (also called a transfer function) is a mathematical operation applied to the net weighted sum of inputs at a neuron: v = Σ (w_i * x_i) + b => y = f(v). It determines whether and to what magnitude a neuron should fire an active signal to subsequent downstream layers.',
-      sections: [
-        {
-          title: '1. Why Activation Functions are Essential in Neural Networks',
-          content: [
-            '1. Introduces Non-Linearity: Without non-linear activation functions, stacking multiple linear dense layers collapses into a single linear combination: W_2(W_1 * x + b_1) + b_2 = W\' * x + b\'. Non-linearity allows ANNs to act as universal function approximators capable of learning complex, non-linear boundaries.',
-            '2. Enables Backpropagation: Differentiable activation functions allow computing mathematical error gradients (∂E/∂w) using the chain rule to update weights via gradient descent.',
-            '3. Bounds Output Range: Squashes unbounded weighted inputs into controlled intervals (e.g. [0, 1] or [-1, 1]), stabilizing numerical calculations and avoiding arithmetic explosion.',
-            '4. Feature Selection & Sparsity: Functions like ReLU deactivate non-contributing neurons (setting output to 0), generating sparse representations that dramatically accelerate deep network inference.'
-          ]
-        },
-        {
-          title: '2. Prominent Activation Functions',
-          content: [
-            '• Binary Step / Threshold: f(v) = 1 if v >= θ, else 0. Used in early McCulloch-Pitts perceptrons. Discontinuous at θ with zero derivative everywhere else, making it completely incompatible with backpropagation.',
-            '• Logistic Sigmoid: f(v) = 1 / (1 + e^(-v)), with derivative f\'(v) = f(v)(1 - f(v)). Squashes inputs smoothly into (0, 1). Ideal for binary classification probability outputs, but causes vanishing gradients for large |v| and is not zero-centered.',
-            '• Hyperbolic Tangent (Tanh): f(v) = tanh(v) = (e^v - e^(-v)) / (e^v + e^(-v)), with derivative f\'(v) = 1 - f^2(v). Squashes inputs into (-1, 1). Being zero-centered allows gradients to update in both positive and negative directions, converging faster than Sigmoid.',
-            '• Rectified Linear Unit (ReLU): f(v) = max(0, v), with derivative f\'(v) = 1 for v > 0, and 0 for v < 0. The modern standard for hidden layers. Avoids vanishing gradients for positive activations and computes with ultra-fast CPU/GPU efficiency.'
-          ]
-        },
-        {
-          title: '3. Difference Between Sigmoid and ReLU Activation Functions (2-Column Format)',
-          table: {
-            headers: ['Sigmoid Activation Function', 'ReLU (Rectified Linear Unit)'],
-            rows: [
-              {
-                parameter: 'Formula: σ(z) = 1 / (1 + e^(-z)), squashing output values strictly between (0, 1).',
-                col1: 'Formula: f(z) = max(0, z), outputting 0 for negative inputs and z for positive inputs.'
-              },
-              {
-                parameter: 'Suffers severely from the Vanishing Gradient problem on deep networks as gradients plateau near 0.',
-                col1: 'Completely immune to vanishing gradients for all positive activations (constant derivative of 1).'
-              },
-              {
-                parameter: 'Computationally heavy because it requires calculating exponential powers (e^(-z)).',
-                col1: 'Computationally ultra-fast and lightweight (simple conditional check max(0, z)).'
-              },
-              {
-                parameter: 'Non-zero centered: output is always strictly positive, causing zigzagging weight updates.',
-                col1: 'Produces sparse representations by deactivating neurons with negative inputs to save computation.'
-              },
-              {
-                parameter: 'Best used in the final output layer of binary classification models to output probability scores.',
-                col1: 'The universal gold-standard default for hidden layers in modern deep neural networks.'
-              }
-            ]
-          }
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-activation-functions',
-          title: 'Comparison of Activation Functions: Sigmoid, Tanh, and ReLU',
-          caption: 'Visual contrast illustrating the smooth (0,1) curve of Sigmoid, zero-centered (-1,1) S-curve of Tanh, and the ramp max(0,v) geometry of ReLU.',
-          type: 'svg-interactive',
-          svgType: 'activation-functions'
-        }
-      ],
-      summary: [
-        'Activation functions inject non-linearity, enabling ANNs to learn arbitrary complex boundaries.',
-        'Sigmoid maps inputs to (0, 1) and is used for binary probabilities, but suffers from vanishing gradients.',
-        'Tanh maps inputs to (-1, 1) and is zero-centered, speeding up gradient descent convergence.',
-        'ReLU (max(0, v)) is the preferred modern standard for hidden layers due to speed and gradient propagation.'
-      ],
-      keyPoints: [
-        'Non-linear universal approximation requirement',
-        'Differentiability for backpropagation chain rule',
-        'Sigmoid: (0, 1) range & vanishing gradient',
-        'Tanh: zero-centered (-1, 1) range',
-        'ReLU: max(0, v) and computational efficiency'
-      ]
-    },
-    {
-      id: 'ml-u6-q2',
-      unitId: 'unit-6',
-      subjectId: 'machine-learning',
-      qNumber: 2,
       title: 'Explain Single Layer Neural Networks and Basic Elements of ANN. Detail the Biological vs Artificial Neuron Analogy and the XOR Limitation',
       shortTitle: 'Basic Elements of ANN & Perceptron Model',
       marks: 6,
@@ -176,6 +79,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q8(a)', marks: 6 },
         { paper: 'Nov 2023', questionNo: 'Q7(a)', marks: 6 }
       ],
+      topicCategory: 'Foundations of Artificial Neural Networks',
       syllabusTopics: ['ANN Elements', 'Biological vs Artificial Neuron', 'Perceptron Learning Rule', 'XOR Problem'],
       definition: 'An Artificial Neural Network (ANN) is an interconnected computational architecture modeled after biological neurobiology. It consists of artificial neurons that compute weighted sums of inputs, incorporate an offset bias, and generate outputs via activation functions.',
       sections: [
@@ -251,6 +155,99 @@ export const unit6Data: Unit = {
         'Linear separability constraint & XOR failure'
       ]
     },
+
+    {
+      id: 'ml-u6-q2',
+      unitId: 'unit-6',
+      subjectId: 'machine-learning',
+      qNumber: 2,
+      title: 'Explain Activation Functions in Neural Networks: Importance, Types, and Detailed Comparison',
+      shortTitle: 'Activation Functions: Importance & Types',
+      marks: 8,
+      importance: 'Frequently Asked',
+      occurrenceCount: 5,
+      papersAsked: [
+        { paper: 'Nov 2024', questionNo: 'Q8(c)', marks: 6 },
+        { paper: 'May 2024', questionNo: 'Q7(b)', marks: 6 },
+        { paper: 'April 2024', questionNo: 'Q7(b)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q8(c)', marks: 6 },
+        { paper: 'April 2023', questionNo: 'Q7(a)', marks: 6 }
+      ],
+      topicCategory: 'Foundations of Artificial Neural Networks',
+      syllabusTopics: ['Activation Functions', 'Sigmoid', 'Tanh', 'ReLU', 'Non-Linearity'],
+      definition: 'An activation function (also called a transfer function) is a mathematical operation applied to the net weighted sum of inputs at a neuron: v = Σ (w_i * x_i) + b => y = f(v). It determines whether and to what magnitude a neuron should fire an active signal to subsequent downstream layers.',
+      sections: [
+        {
+          title: '1. Why Activation Functions are Essential in Neural Networks',
+          content: [
+            '1. Introduces Non-Linearity: Without non-linear activation functions, stacking multiple linear dense layers collapses into a single linear combination: W_2(W_1 * x + b_1) + b_2 = W\' * x + b\'. Non-linearity allows ANNs to act as universal function approximators capable of learning complex, non-linear boundaries.',
+            '2. Enables Backpropagation: Differentiable activation functions allow computing mathematical error gradients (∂E/∂w) using the chain rule to update weights via gradient descent.',
+            '3. Bounds Output Range: Squashes unbounded weighted inputs into controlled intervals (e.g. [0, 1] or [-1, 1]), stabilizing numerical calculations and avoiding arithmetic explosion.',
+            '4. Feature Selection & Sparsity: Functions like ReLU deactivate non-contributing neurons (setting output to 0), generating sparse representations that dramatically accelerate deep network inference.'
+          ]
+        },
+        {
+          title: '2. Prominent Activation Functions',
+          content: [
+            '• Binary Step / Threshold: f(v) = 1 if v >= θ, else 0. Used in early McCulloch-Pitts perceptrons. Discontinuous at θ with zero derivative everywhere else, making it completely incompatible with backpropagation.',
+            '• Logistic Sigmoid: f(v) = 1 / (1 + e^(-v)), with derivative f\'(v) = f(v)(1 - f(v)). Squashes inputs smoothly into (0, 1). Ideal for binary classification probability outputs, but causes vanishing gradients for large |v| and is not zero-centered.',
+            '• Hyperbolic Tangent (Tanh): f(v) = tanh(v) = (e^v - e^(-v)) / (e^v + e^(-v)), with derivative f\'(v) = 1 - f^2(v). Squashes inputs into (-1, 1). Being zero-centered allows gradients to update in both positive and negative directions, converging faster than Sigmoid.',
+            '• Rectified Linear Unit (ReLU): f(v) = max(0, v), with derivative f\'(v) = 1 for v > 0, and 0 for v < 0. The modern standard for hidden layers. Avoids vanishing gradients for positive activations and computes with ultra-fast CPU/GPU efficiency.'
+          ]
+        },
+        {
+          title: '3. Difference Between Sigmoid and ReLU Activation Functions (2-Column Format)',
+          table: {
+            headers: ['Sigmoid Activation Function', 'ReLU (Rectified Linear Unit)'],
+            rows: [
+              {
+                parameter: 'Formula: σ(z) = 1 / (1 + e^(-z)), squashing output values strictly between (0, 1).',
+                col1: 'Formula: f(z) = max(0, z), outputting 0 for negative inputs and z for positive inputs.'
+              },
+              {
+                parameter: 'Suffers severely from the Vanishing Gradient problem on deep networks as gradients plateau near 0.',
+                col1: 'Completely immune to vanishing gradients for all positive activations (constant derivative of 1).'
+              },
+              {
+                parameter: 'Computationally heavy because it requires calculating exponential powers (e^(-z)).',
+                col1: 'Computationally ultra-fast and lightweight (simple conditional check max(0, z)).'
+              },
+              {
+                parameter: 'Non-zero centered: output is always strictly positive, causing zigzagging weight updates.',
+                col1: 'Produces sparse representations by deactivating neurons with negative inputs to save computation.'
+              },
+              {
+                parameter: 'Best used in the final output layer of binary classification models to output probability scores.',
+                col1: 'The universal gold-standard default for hidden layers in modern deep neural networks.'
+              }
+            ]
+          }
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-activation-functions',
+          title: 'Comparison of Activation Functions: Sigmoid, Tanh, and ReLU',
+          caption: 'Visual contrast illustrating the smooth (0,1) curve of Sigmoid, zero-centered (-1,1) S-curve of Tanh, and the ramp max(0,v) geometry of ReLU.',
+          type: 'svg-interactive',
+          svgType: 'activation-functions'
+        }
+      ],
+      summary: [
+        'Activation functions inject non-linearity, enabling ANNs to learn arbitrary complex boundaries.',
+        'Sigmoid maps inputs to (0, 1) and is used for binary probabilities, but suffers from vanishing gradients.',
+        'Tanh maps inputs to (-1, 1) and is zero-centered, speeding up gradient descent convergence.',
+        'ReLU (max(0, v)) is the preferred modern standard for hidden layers due to speed and gradient propagation.'
+      ],
+      keyPoints: [
+        'Non-linear universal approximation requirement',
+        'Differentiability for backpropagation chain rule',
+        'Sigmoid: (0, 1) range & vanishing gradient',
+        'Tanh: zero-centered (-1, 1) range',
+        'ReLU: max(0, v) and computational efficiency'
+      ]
+    },
+
     {
       id: 'ml-u6-q3',
       unitId: 'unit-6',
@@ -266,6 +263,7 @@ export const unit6Data: Unit = {
         { paper: 'May 2024', questionNo: 'Q7(a)', marks: 8 },
         { paper: 'April 2024', questionNo: 'Q7(c)', marks: 6 }
       ],
+      topicCategory: 'Multilayer & Specialized Neural Networks',
       syllabusTopics: ['MLP Architecture', 'Hidden Layers', 'Credit Assignment Problem', 'Calculus Chain Rule'],
       definition: 'A Multilayer Perceptron (MLP) is a feedforward artificial neural network consisting of at least three layers: an input layer, one or more intermediate hidden layers with non-linear activation functions, and an output layer. Units are typically fully connected in a feedforward direction.',
       sections: [
@@ -306,6 +304,7 @@ export const unit6Data: Unit = {
         'Calculus chain rule for backward gradient flow'
       ]
     },
+
     {
       id: 'ml-u6-q4',
       unitId: 'unit-6',
@@ -320,6 +319,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q7(b)', marks: 8 },
         { paper: 'Nov 2023', questionNo: 'Q8(a)', marks: 8 }
       ],
+      topicCategory: 'Multilayer & Specialized Neural Networks',
       syllabusTopics: ['Backpropagation Algorithm', 'Forward Pass', 'Backward Pass', 'Delta Rule', 'Local Minima', 'Momentum'],
       definition: 'The Backpropagation algorithm (Rumelhart, Hinton, Williams, 1986) is a supervised learning method for training artificial neural networks. It optimizes synaptic weights using gradient descent on the squared error cost function: E = 1/2 * Σ (t_k - y_k)^2.',
       sections: [
@@ -378,6 +378,7 @@ export const unit6Data: Unit = {
         'Momentum acceleration against local minima'
       ]
     },
+
     {
       id: 'ml-u6-q5',
       unitId: 'unit-6',
@@ -393,6 +394,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q8(a)', marks: 6 },
         { paper: 'Nov 2023', questionNo: 'Q7(b)', marks: 8 }
       ],
+      topicCategory: 'Multilayer & Specialized Neural Networks',
       syllabusTopics: ['RBF Networks', 'Gaussian Basis Functions', 'Euclidean Distance', 'Two-Stage Training', 'RBF vs MLP'],
       definition: 'A Radial Basis Function (RBF) Network is a specialized feedforward artificial neural network that uses radially symmetric basis functions (typically Gaussian curves) as activation functions in its single hidden layer. It is widely used for function approximation, time-series prediction, and classification.',
       sections: [
@@ -467,6 +469,7 @@ export const unit6Data: Unit = {
         'Local vs global decision approximation'
       ]
     },
+
     {
       id: 'ml-u6-q6',
       unitId: 'unit-6',
@@ -481,6 +484,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q8(b)', marks: 6 },
         { paper: 'April 2023', questionNo: 'Q8(a)', marks: 6 }
       ],
+      topicCategory: 'Multilayer & Specialized Neural Networks',
       syllabusTopics: ['FLANN Architecture', 'Functional Expansion Φ(X)', 'Merits over Multilayer ANNs', 'FFN vs BPN'],
       definition: 'A Functional Link Artificial Neural Network (FLANN) is a single-layer feedforward neural network that eliminates hidden layers entirely while retaining the ability to solve non-linear classification and regression problems by passing inputs through an initial non-linear Functional Expansion Block.',
       sections: [
@@ -549,6 +553,7 @@ export const unit6Data: Unit = {
         'Feedforward Network (FFN) vs Backpropagation Network (BPN)'
       ]
     },
+
     {
       id: 'ml-u6-q7',
       unitId: 'unit-6',
@@ -566,6 +571,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q7(c)', marks: 8 },
         { paper: 'April 2023', questionNo: 'Q7(b)', marks: 6 }
       ],
+      topicCategory: 'Deep Learning: RNN & CNN',
       syllabusTopics: ['RNN Concept', 'Feedback Loops', 'Hidden State Update', 'Time-Unfolding', 'Sequential Types'],
       definition: 'A Recurrent Neural Network (RNN) is a specialized class of artificial neural networks designed for processing sequential, time-series, and natural language data. Unlike standard feedforward networks where all inputs are assumed independent, an RNN incorporates recurrent feedback loops that act as an internal memory, allowing information from prior time-steps to persist.',
       sections: [
@@ -620,6 +626,7 @@ export const unit6Data: Unit = {
         'Sequential classification topologies (One-to-Many, Many-to-Many)'
       ]
     },
+
     {
       id: 'ml-u6-q8',
       unitId: 'unit-6',
@@ -633,6 +640,7 @@ export const unit6Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2023', questionNo: 'Q7(c)', marks: 6 }
       ],
+      topicCategory: 'Deep Learning: RNN & CNN',
       syllabusTopics: ['RNN Applications', 'Vanishing & Exploding Gradients', 'BPTT', 'LSTM & GRU Gating'],
       definition: 'While Recurrent Neural Networks provide foundational capabilities for sequential pattern modeling, their practical deployment in long-horizon tasks is constrained by fundamental gradient decay dynamics during Backpropagation Through Time (BPTT).',
       sections: [
@@ -669,6 +677,7 @@ export const unit6Data: Unit = {
         'LSTM & GRU constant error carousel gating solutions'
       ]
     },
+
     {
       id: 'ml-u6-q9',
       unitId: 'unit-6',
@@ -686,6 +695,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q7(c)', marks: 6 },
         { paper: 'April 2023', questionNo: 'Q8(c)', marks: 6 }
       ],
+      topicCategory: 'Deep Learning: RNN & CNN',
       syllabusTopics: ['CNN Architecture', 'Convolution Layer', 'Kernel Filters', 'Weight Sharing', 'ReLU', 'Max Pooling', 'Fully Connected Layer'],
       definition: 'A Convolutional Neural Network (CNN or ConvNet) is a specialized deep feedforward learning architecture engineered specifically to process multi-dimensional grid-structured data such as 2D images. Rather than connecting every pixel to every neuron, CNNs exploit local spatial correlations using parameter sharing and local receptive fields.',
       sections: [
@@ -733,6 +743,7 @@ export const unit6Data: Unit = {
         'Flattening and dense fully connected classification'
       ]
     },
+
     {
       id: 'ml-u6-q10',
       unitId: 'unit-6',
@@ -747,6 +758,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q7(c)', marks: 6 },
         { paper: 'April 2023', questionNo: 'Q7(b)', marks: 6 }
       ],
+      topicCategory: 'Deep Learning: RNN & CNN',
       syllabusTopics: ['CNN vs RNN', 'Spatial vs Temporal', 'Data Dimensions', 'Recurrent Loops vs Feedforward'],
       definition: 'Convolutional Neural Networks (CNN) and Recurrent Neural Networks (RNN) represent the two premier deep learning architectures. CNNs excel at extracting spatial hierarchies from grid data, while RNNs specialize in capturing temporal patterns across sequential time-series data.',
       sections: [
@@ -807,6 +819,7 @@ export const unit6Data: Unit = {
         'GPU parallelization vs sequential computing bottleneck'
       ]
     },
+
     {
       id: 'ml-u6-q11',
       unitId: 'unit-6',
@@ -820,6 +833,7 @@ export const unit6Data: Unit = {
       papersAsked: [
         { paper: 'April 2023', questionNo: 'Q8(b)', marks: 6 }
       ],
+      topicCategory: 'Deep Learning: RNN & CNN',
       syllabusTopics: ['Convolution Padding', 'Feature Map Shrinkage', 'Border Information Loss', 'Valid Padding', 'Same Padding', 'Full Padding'],
       definition: 'Padding refers to the process of surrounding the outer borders of an input image matrix with artificial pixels (typically zeros) prior to applying convolution filters, controlling the spatial size of output feature maps.',
       sections: [
@@ -935,6 +949,7 @@ export const unit6Data: Unit = {
         'Valid Padding (P=0) vs Same Padding (P=(F-1)/2) vs Full Padding'
       ]
     },
+
     {
       id: 'ml-u6-q12',
       unitId: 'unit-6',
@@ -949,6 +964,7 @@ export const unit6Data: Unit = {
         { paper: 'May 2024', questionNo: 'Q8(b)', marks: 6 },
         { paper: 'April 2024', questionNo: 'Q8(b)', marks: 6 }
       ],
+      topicCategory: 'Exemplar Case Study',
       syllabusTopics: ['Recommendation Systems', 'Content-Based Filtering', 'Collaborative Filtering', 'Cosine Similarity', 'Cold-Start', 'Serendipity'],
       definition: 'A Recommendation System is an information filtering algorithm that models user preferences, history, and item attributes to predict ratings or suggest items that a user is likely to consume (e.g. movies on Netflix, songs on Spotify, products on Amazon).',
       sections: [
@@ -1006,6 +1022,29 @@ export const unit6Data: Unit = {
             ]
           }
         }
+      ,
+        {
+          title: '3. Exemplar Case Study: Movie Recommendation System (SPPU Syllabus Exemplar)',
+          content: [
+            'Streaming Platform Problem Context:',
+            'Online streaming platforms (e.g., Netflix, Prime Video, Hotstar) manage catalogs of over 100,000 films viewed by hundreds of millions of active subscribers. Delivering real-time, highly personalized film suggestions is paramount to driving user engagement and minimizing subscription churn.',
+            '',
+            'Algorithmic Paradigms for Movie Recommendations:',
+            '1. Content-Based Filtering:',
+            '   - Extracts rich item metadata: Genre tags (Sci-Fi, Thriller), Director (Christopher Nolan), Cast members, Plot summary keywords (TF-IDF vectorization or BERT text embeddings).',
+            '   - Builds an explicit user preference profile by computing the Cosine Similarity between user history vectors and candidate movie vectors.',
+            '   - Strength: Zero cold-start problem for newly released films; fully explainable recommendations.',
+            '2. Collaborative Filtering (Matrix Factorization):',
+            '   - Analyzes massive sparse User-Item Rating Matrices R in R^{M x N}.',
+            '   - Singular Value Decomposition (SVD) factors R approx P \\cdot Q^T, discovering latent taste dimensions (e.g., gritty superhero vs lighthearted animated comedy).',
+            '   - Strength: Completely independent of metadata; discovers unexpected cross-genre user taste synergies.',
+            '',
+            '3. Deep Neural Recommendation (Neural Collaborative Filtering - NCF):',
+            '   - Combines low-dimensional User and Movie Embedding vectors through multi-layer perceptron (MLP) hidden layers with non-linear activation functions (ReLU).',
+            '   - Captures complex, high-order, non-linear user-movie interaction patterns that linear matrix factorization fails to model.',
+            '   - End-to-end loss minimization via Binary Cross-Entropy on implicit feedback (play history, completion rate, pause/rewind gestures).'
+          ]
+        },
       ],
       summary: [
         'Content-Based filtering suggests items matching item metadata and past user choices.',
