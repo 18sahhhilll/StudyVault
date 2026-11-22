@@ -132,6 +132,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Asked in almost every semester examination paper as the fundamental theory question for Unit IV.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: 'Principle & Terminology',
       syllabusTopics: [
         'Backtracking Principle',
         'Explicit vs Implicit Constraints',
@@ -248,6 +249,7 @@ export const daaUnit4Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Standard 8-mark question requiring clean pseudocode schemas and mathematical breakdown of complexity factors.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: 'Control Abstraction & Time Analysis',
       syllabusTopics: [
         'Control Abstraction for Backtracking',
         'Recursive Schema',
@@ -357,6 +359,7 @@ export const daaUnit4Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Universally required solved problem in university exams showing step-by-step backtracking decisions.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: '8-Queen Problem',
       syllabusTopics: [
         '4-Queens State Space Tree',
         'Backtracking Tree Trace',
@@ -498,6 +501,7 @@ export const daaUnit4Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Common university exam problem testing understanding of deep backtracking tree search on 8x8 boards.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: '8-Queen Problem',
       syllabusTopics: [
         '8-Queens Problem',
         'Feasible Prefix Verification',
@@ -620,6 +624,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 2 Q3(a) [8 Marks] and Paper 4 Q3(a) [8 Marks].',
       topicCategory: 'Backtracking Strategy',
+      subtopic: '8-Queen Problem',
       syllabusTopics: [
         'Graph m-Coloring Formulation',
         'Chromatic Number',
@@ -747,6 +752,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 4 Q3(a) with the exact 7x7 adjacency matrix.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: 'Graph Coloring Problem',
       syllabusTopics: [
         'Solved Graph Coloring Numerical',
         '7-Vertex Graph Trace',
@@ -885,6 +891,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Consistently appears across examination papers in Q4 as an 8-mark core problem.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: 'Graph Coloring Problem',
       syllabusTopics: [
         'Sum of Subsets Problem Formulation',
         'Binary Tuple Representation x_i in {0, 1}',
@@ -996,6 +1003,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Directly asked with the exact same numbers in Paper 1 Q4(a) [8M] and Paper 3 Q4(b) [8M].',
       topicCategory: 'Backtracking Strategy',
+      subtopic: 'Sum of Subsets Problem',
       syllabusTopics: [
         'Solved Sum of Subsets Numerical',
         'Target Sum M = 10',
@@ -1121,6 +1129,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 2 Q4(b) [9 Marks] requiring state space tree and identification of the first solution.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: 'Sum of Subsets Problem',
       syllabusTopics: [
         'Solved Numerical A={5,10,15,20,25}, M=30',
         'First Solution Generation',
@@ -1241,6 +1250,7 @@ export const daaUnit4Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Advanced conceptual question illustrating why sorting is a strict mathematical prerequisite for bounding functions.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: 'Sum of Subsets Problem',
       syllabusTopics: [
         'Ordering of Elements in Sum of Subsets',
         'Non-Decreasing vs Non-Increasing vs Unsorted',
@@ -1316,6 +1326,7 @@ export const daaUnit4Data: Unit = {
       papersAsked: [],
       frequencyNote: 'The foundational question for Part II (Branch and Bound) in Unit IV across all exam papers.',
       topicCategory: 'Backtracking Strategy',
+      subtopic: 'Sum of Subsets Problem',
       syllabusTopics: [
         'Branch and Bound Principle',
         'Lower Bound c^(x) vs Upper Bound u(x)',
@@ -1415,6 +1426,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Common 8-mark question comparing queue-based, stack-based, and heap-based search strategies.',
       topicCategory: 'Branch-and-Bound Strategy',
+      subtopic: 'Branch-and-Bound Principle',
       syllabusTopics: [
         'FIFO Branch and Bound',
         'LIFO Branch and Bound',
@@ -1510,6 +1522,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 1 Q4(b) [9 Marks] as the primary control abstraction for Branch and Bound.',
       topicCategory: 'Branch-and-Bound Strategy',
+      subtopic: 'FIFO, LIFO & LC Strategies',
       syllabusTopics: [
         'Control Abstraction for LC-Search',
         'Least_Cost() and Add_Node() Subroutines',
@@ -1618,6 +1631,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Consistently appears as the 8 to 9-mark numerical/theory question for Branch and Bound in university exams.',
       topicCategory: 'Branch-and-Bound Strategy',
+      subtopic: 'Control Abstraction for LCBB',
       syllabusTopics: [
         'Traveling Salesperson Problem (TSP)',
         'Reduced Cost Matrix Technique',
@@ -1736,6 +1750,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Direct university numerical from Nov 2025 examination paper Q4(a) [6584]-91.',
       topicCategory: 'Branch-and-Bound Strategy',
+      subtopic: 'Travelling Salesperson Problem (TSP)',
       syllabusTopics: [
         'Travelling Salesperson Problem (TSP)',
         'Reduced Cost Matrix Method',
@@ -1824,7 +1839,8 @@ export const daaUnit4Data: Unit = {
       conclusion: 'Least-Cost Branch-and-Bound finds the optimal tour P → Q → R → P of cost 9 while pruning the suboptimal branch P → R.'
     },
 
-    // Q16: Solved Numerical 3-City TSP
+    // Q16: Solved Numerical 3-City TSP,
+
     {
       id: 'daa-u4-q16',
       unitId: 'unit-4',
@@ -1840,6 +1856,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Direct university numerical from Nov 2025 examination paper Q4(a) [6584]-91.',
       topicCategory: 'Branch-and-Bound Strategy',
+      subtopic: 'Travelling Salesperson Problem (TSP)',
       syllabusTopics: [
         'Travelling Salesperson Problem (TSP)',
         'Reduced Cost Matrix Method',
@@ -1945,6 +1962,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Directly asked with the identical graph/matrix in Paper 4 Q4(a) [8M] and Paper 3 Q3(a) [9M].',
       topicCategory: 'Branch-and-Bound Strategy',
+      subtopic: 'Travelling Salesperson Problem (TSP)',
       syllabusTopics: [
         'Solved TSP Numerical',
         '4 Cities: A(1), B(2), C(3), D(4)',
@@ -2089,6 +2107,7 @@ export const daaUnit4Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Consistently appears across Paper 2, Paper 3, and Paper 4 as a major 9-mark problem.',
       topicCategory: 'Branch-and-Bound Strategy',
+      subtopic: '0/1 Knapsack Problem (LCBB)',
       syllabusTopics: [
         '0/1 Knapsack using LCBB',
         'Maximization to Minimization Transformation',
@@ -2185,6 +2204,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Directly solves the exact 3-item numericals from Paper 2 Q3(b) [9M] and Paper 4 Q3(b) [9M].',
       topicCategory: 'Branch-and-Bound Strategy',
+      subtopic: '0/1 Knapsack Problem (LCBB)',
       syllabusTopics: [
         'Solved 0/1 Knapsack LCBB Numerical',
         'Instance 1: m = 7, items {(5,6), (4,5), (3,4)}',
@@ -2319,6 +2339,7 @@ export const daaUnit4Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 2 Q4(a) [8M] and Paper 4 Q4(c) [4M].',
       topicCategory: 'Comparative Analysis & Exemplar',
+      subtopic: 'Comparative Analysis & Airline Crew Scheduling Exemplar',
       syllabusTopics: [
         'Backtracking vs Branch and Bound Comparison',
         'Search Technique and State Space Exploration',

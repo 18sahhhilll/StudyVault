@@ -143,6 +143,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'The primary foundational theory question for Unit V appearing in all university papers.',
       topicCategory: 'Amortized Analysis',
+      subtopic: 'Aggregate, Accounting & Potential Methods',
       syllabusTopics: [
         'Amortized Analysis Fundamentals',
         'Why Amortized Analysis is Needed',
@@ -236,6 +237,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 1 Q5(a) [9 Marks] and Paper 3 Q5(a) [9 Marks].',
       topicCategory: 'Amortized Analysis',
+      subtopic: 'Stack Operations (Aggregate Method)',
       syllabusTopics: [
         'Aggregate Analysis for Stack Operations',
         'Algorithm MULTIPOP(S, k)',
@@ -321,6 +323,7 @@ export const daaUnit5Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Standard examination question requiring clear credit assignment tables and invariant proofs.',
       topicCategory: 'Amortized Analysis',
+      subtopic: 'Stack Operations (Accounting Method)',
       syllabusTopics: [
         'Accounting Method Mechanism',
         'Amortized Charge Assignment',
@@ -417,6 +420,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 1 Q5(b) [9 Marks] and Paper 3 Q5(b) [9 Marks].',
       topicCategory: 'Amortized Analysis',
+      subtopic: 'Stack Operations (Potential Method)',
       syllabusTopics: [
         'Potential Function Definition Φ(D)',
         'Amortized Cost Formula c^ = c + ΔΦ',
@@ -534,6 +538,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly related to Paper 4 Q6(a) and standard textbook curriculum.',
       topicCategory: 'Amortized Analysis',
+      subtopic: 'Binary Counter Increment',
       syllabusTopics: [
         'k-bit Binary Counter Increment',
         'Aggregate Analysis for Binary Counter',
@@ -672,6 +677,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 4 Q5(a) [8 Marks] requiring comparison of amortized methods.',
       topicCategory: 'Amortized Analysis',
+      subtopic: 'Average-Case vs Amortized',
       syllabusTopics: [
         'Average-Case vs Amortized Analysis',
         'Advantages and Disadvantages of Aggregate Analysis',
@@ -760,6 +766,7 @@ export const daaUnit5Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Standard curriculum question on engineering trade-offs between memory footprint and execution speed.',
       topicCategory: 'Time-Space Tradeoff',
+      subtopic: 'Time-Space Tradeoff',
       syllabusTopics: [
         'Time-Space Trade-off Concept',
         'Input Enhancement (String Matching, Counting Sort)',
@@ -831,6 +838,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Major recurring 8-10 mark question on computational complexity theory.',
       topicCategory: 'Tractable and Non-Tractable Problems',
+      subtopic: 'Complexity Classes (P, NP, NP-C, NP-Hard)',
       syllabusTopics: [
         'Tractable vs Intractable Problems',
         'Definition of Class P and NP',
@@ -945,6 +953,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 4 Q6(b) [9 Marks] requiring in-depth technical justification for all three statements.',
       topicCategory: 'Tractable and Non-Tractable Problems',
+      subtopic: 'Problem Tractability Classification',
       syllabusTopics: [
         '0/1 Knapsack NP-Hard Classification',
         'Boolean SAT NP-Complete Classification',
@@ -1015,6 +1024,7 @@ export const daaUnit5Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Fundamental theoretical question on how the NP-completeness proof chain is initiated and propagated.',
       topicCategory: 'Tractable and Non-Tractable Problems',
+      subtopic: 'Cook\'s Theorem & 3-SAT Reduction',
       syllabusTopics: [
         'Cook’s Theorem Significance',
         'Boolean Satisfiability (SAT and 3-SAT)',
@@ -1091,6 +1101,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 3 Q6(c) [8 Marks] specifically demanding the mathematical formulation.',
       topicCategory: 'Randomized Algorithms',
+      subtopic: 'Randomized Principles & Foundations',
       syllabusTopics: [
         'Randomized Algorithms Principles',
         'Random Variables & Probability Distributions',
@@ -1163,6 +1174,7 @@ export const daaUnit5Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Directly asked across multiple papers as the core classification question for randomized algorithms.',
       topicCategory: 'Randomized Algorithms',
+      subtopic: 'Las Vegas vs Monte Carlo',
       syllabusTopics: [
         'Las Vegas vs Monte Carlo Classification',
         'Correctness Guarantees vs Time Guarantees',
@@ -1257,6 +1269,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'The canonical Las Vegas algorithm example required in DAA exams.',
       topicCategory: 'Randomized Algorithms',
+      subtopic: 'Randomized QuickSort',
       syllabusTopics: [
         'Randomized QuickSort',
         'Algorithm RANDOMIZED-PARTITION(A, p, r)',
@@ -1370,6 +1383,7 @@ export const daaUnit5Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Standard curriculum applications demonstrating practical Las Vegas and Monte Carlo algorithms.',
       topicCategory: 'Randomized Algorithms',
+      subtopic: 'Randomized Duplicate & Primality Testing',
       syllabusTopics: [
         'Randomized Duplicate Element Detection',
         'Fermat Primality Testing',
@@ -1452,6 +1466,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked across all papers as the primary definition and metric question for approximation algorithms.',
       topicCategory: 'Approximation Algorithms',
+      subtopic: 'Approximation Ratios & Metrics',
       syllabusTopics: [
         'Approximation Algorithms Philosophy',
         'Why Approximation is Needed for NP-Hard Problems',
@@ -1525,6 +1540,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 2 Q5(b) [9 Marks] and Paper 4 Q5(b) [9 Marks].',
       topicCategory: 'Approximation Algorithms',
+      subtopic: 'PTAS & FPTAS Classification',
       syllabusTopics: [
         'Classification of Approximation Algorithms',
         'Constant-Factor Approximation Algorithms',
@@ -1607,6 +1623,7 @@ export const daaUnit5Data: Unit = {
       papersAsked: [],
       frequencyNote: 'The fundamental approximation algorithm design and proof required in university algorithms courses.',
       topicCategory: 'Approximation Algorithms',
+      subtopic: 'TSP Approximation Algorithms',
       syllabusTopics: [
         'Nearest Neighbor Heuristic for TSP',
         'Metric TSP & Triangle Inequality',
@@ -1704,6 +1721,7 @@ export const daaUnit5Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Directly solves the complete numerical example from the textbook (pages 5-20 to 5-22).',
       topicCategory: 'Approximation Algorithms',
+      subtopic: 'Solved Numerical: TSP 2-Approximation',
       syllabusTopics: [
         'Solved TSP Approximation Numerical',
         'Nearest Neighbor Trace and Accuracy Ratio',
@@ -1825,6 +1843,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 3 Q6(a) [6M] and foundational for Paper 2 Q6(b).',
       topicCategory: 'Embedded Algorithms & Exemplar',
+      subtopic: 'Power-Optimized Real-Time Task Scheduling',
       syllabusTopics: [
         'Characteristics of Embedded Systems',
         'Embedded Hardware Constraints (ROM, RAM, Power)',
@@ -1931,6 +1950,7 @@ export const daaUnit5Data: Unit = {
       ],
       frequencyNote: 'Directly asked as Paper 2 Q6(b) [9 Marks] and Paper 3 Q6(a) [6 Marks] as an applied system design problem.',
       topicCategory: 'Embedded Algorithms & Exemplar',
+      subtopic: 'Embedded Sensor Sorting & Cutting Stock Exemplar',
       syllabusTopics: [
         'Embedded Sorting Algorithm Requirements',
         'Medical Patient Vital Signs Monitoring Case Study',

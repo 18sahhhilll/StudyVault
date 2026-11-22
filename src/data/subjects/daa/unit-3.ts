@@ -72,6 +72,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q1(a)', marks: 6 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Principle & Control Abstraction',
       syllabusTopics: ['Greedy Strategy Principle', 'Control Abstraction', 'Time Complexity Analysis', 'Feasibility and Optimality'],
       definition: 'A greedy algorithm is an algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most immediate and obvious benefit (locally optimal choice), with the expectation that this will lead to a globally optimal solution.',
       sections: [
@@ -177,6 +178,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2025', questionNo: 'Q1(a)', marks: 8 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Knapsack Problem',
       syllabusTopics: ['Mathematical Knapsack Formulation', 'Fractional vs 0/1 Constraints', 'Greedy Ratio Strategy', 'Greedy Failure in 0/1'],
       definition: 'The Knapsack problem is a combinatorial optimization challenge where given a set of n items, each with a weight w_i and profit p_i, and a knapsack of capacity W, the goal is to determine the subset of items to pack to maximize total profit without exceeding W.',
       sections: [
@@ -264,6 +266,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q1(b)', marks: 8 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Knapsack Problem',
       syllabusTopics: ['Greedy Knapsack Numerical', 'Ratio Sorting', 'Capacity Exhaustion', 'Evaluation of 3 Strategies'],
       definition: 'Complete step-by-step determination of knapsack filling under three distinct greedy heuristics: Maximum Profit, Minimum Weight, and Maximum Profit/Weight Ratio.',
       sections: [
@@ -401,6 +404,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q1(b)', marks: 8 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Knapsack Problem',
       syllabusTopics: ['Fractional Knapsack', 'Greedy Ratio Strategy', 'Fractional Item Breakage'],
       definition: 'Application of the greedy profit-to-weight ratio heuristic to an instance of 4 objects with fractional allocation to maximize total value within capacity 15.',
       sections: [
@@ -519,6 +523,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q2(b)', marks: 6 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Job Scheduling with Deadlines',
       syllabusTopics: ['Job Sequencing Principle', 'Greedy Choice on Profits', 'Control Abstraction', 'Time Complexity O(n²) vs O(n log n)'],
       definition: 'Job Sequencing with Deadlines is an optimization problem where n jobs, each requiring 1 unit of CPU time and associated with a deadline d_i and profit p_i, must be scheduled on a single processor such that at most one job executes at any time and total earned profit is maximized.',
       sections: [
@@ -627,6 +632,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q1(b)', marks: 8 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Job Scheduling with Deadlines',
       syllabusTopics: ['Job Scheduling Numerical', 'Slot Allocation', 'Feasibility Check', 'Maximum Profit Computation'],
       definition: 'Step-by-step application of the greedy job sequencing algorithm with time slot allocation on five jobs with conflicting deadlines.',
       sections: [
@@ -760,6 +766,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q2(a)', marks: 8 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Job Scheduling with Deadlines',
       syllabusTopics: ['Feasible Solutions Enumeration', 'Job Sequencing with Deadlines', 'Optimal Solution Derivation'],
       definition: 'Comprehensive identification of all feasible job subsets, verification of deadline feasibility, and determination of the maximum-profit schedule.',
       sections: [
@@ -886,6 +893,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q1(a)', marks: 8 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Job Scheduling with Deadlines',
       syllabusTopics: ['Task Scheduling with Penalties', 'Matroid Theory', 'Minimizing Penalty by Maximizing Profit', 'Exchange Argument Proof'],
       definition: 'Task scheduling with penalties seeks to schedule n unit-time tasks with deadlines d_i and penalties w_i incurred if task i is missed, minimizing total penalties by greedily scheduling the set of early tasks that maximizes total earned weight.',
       sections: [
@@ -958,6 +966,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2025', questionNo: 'Q1(b)', marks: 9 }
       ],
       topicCategory: 'Greedy Strategy',
+      subtopic: 'Activity Selection Problem',
       syllabusTopics: ['Activity Selection Formulation', 'Earliest Finish Time Heuristic', 'Activity Selection Algorithm', 'Time Complexity'],
       definition: 'The Activity Selection Problem is the problem of scheduling the maximum number of mutually compatible activities that share a single common resource, given their start times s_i and finish times f_i.',
       sections: [
@@ -1117,6 +1126,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q2(a)', marks: 8 }
       ],
       topicCategory: 'Dynamic Programming',
+      subtopic: 'Principle of Optimality',
       syllabusTopics: ['Principle of Optimality', 'Bellman Equation', 'DP Control Abstraction', 'Optimal Substructure', 'Pseudo-Polynomial Time'],
       definition: 'Dynamic Programming is an algorithm design technique that solves optimization problems by breaking them down into smaller overlapping subproblems, solving each subproblem once, storing their solutions in a table (memoization/tabulation), and combining them to form an optimal solution.',
       sections: [
@@ -1218,6 +1228,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q3(b)', marks: 9 }
       ],
       topicCategory: 'Dynamic Programming',
+      subtopic: 'Binomial Coefficients',
       syllabusTopics: ['Greedy vs DP Comparison', 'Feasibility and Optimality', 'Memoization vs Irrevocable Choice', 'Time Complexity Differences'],
       definition: 'Greedy and Dynamic Programming are both optimization paradigms based on optimal substructure, but differ fundamentally in how choices are evaluated, subproblems are shared, and decisions are preserved.',
       sections: [
@@ -1332,6 +1343,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q2(b)', marks: 10 }
       ],
       topicCategory: 'Dynamic Programming',
+      subtopic: 'Optimal Binary Search Tree (OBST)',
       syllabusTopics: ['MCM Numerical', 'Pyramid Table Filling', 'Split Table Tracking', 'Optimal Parenthesization'],
       definition: 'Complete derivation of the m[i, j] and s[i, j] tables across chain lengths L = 2, 3, 4 for dimensions P = [3, 5, 4, 2, 4].',
       sections: [
@@ -1475,6 +1487,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q2(a)', marks: 10 }
       ],
       topicCategory: 'Dynamic Programming',
+      subtopic: 'Optimal Binary Search Tree (OBST)',
       syllabusTopics: ['MCM 5 Matrices', 'Dimension Array P = [4, 10, 3, 12, 20, 7]', 'Pyramid Table Calculation'],
       definition: 'Comprehensive dynamic programming resolution of a 5-matrix chain with dimension array P = [4, 10, 3, 12, 20, 7], deriving optimal parenthesization and minimum operations.',
       sections: [
@@ -1605,6 +1618,7 @@ export const daaUnit3Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       topicCategory: 'Dynamic Programming',
+      subtopic: '0/1 Knapsack Problem',
       syllabusTopics: ['OBST Definition', 'Weight Equation W[i,j]', 'Cost Recurrence C[i,j]', 'Root Matrix R[i,j]', 'Knuth Optimization O(n²)'],
       definition: 'An Optimal Binary Search Tree (OBST) is a binary search tree constructed from a set of sorted identifiers such that the expected total search cost, weighted by the access frequencies of successful searches (p_i) and unsuccessful searches (q_i), is minimized.',
       sections: [
@@ -1704,6 +1718,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q2(b)', marks: 10 }
       ],
       topicCategory: 'Dynamic Programming',
+      subtopic: '0/1 Knapsack Problem',
       syllabusTopics: ['OBST Numerical', 'Weight Matrix Computation', 'Cost Matrix Computation', 'Tree Construction'],
       definition: 'Full dynamic programming tabulation of weights W[i, j], costs C[i, j], and roots R[i, j] for 4 keys with given search frequencies.',
       sections: [
@@ -1876,6 +1891,7 @@ export const daaUnit3Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       topicCategory: 'Dynamic Programming',
+      subtopic: '0/1 Knapsack Problem',
       syllabusTopics: ['0/1 Knapsack DP Recurrence', 'Table Construction', 'Traceback Vector Algorithm', 'Time & Space Complexity'],
       definition: 'The 0/1 Knapsack problem via dynamic programming computes a 2D table T[0..n, 0..W] where T[i, w] represents the maximum profit achievable considering a subset of the first i items under capacity limit w.',
       sections: [
@@ -1969,6 +1985,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q1(a)', marks: 10 }
       ],
       topicCategory: 'Dynamic Programming',
+      subtopic: 'Chain Matrix Multiplication',
       syllabusTopics: ['0/1 Knapsack DP Table', 'Stepwise Row Calculation', 'Traceback Vector Extraction'],
       definition: 'Complete computation of the (5 x 6) dynamic programming table, row-by-row cell calculations, and traceback to isolate selected items and maximum profit.',
       sections: [
@@ -2134,6 +2151,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2025', questionNo: 'Q2(b)', marks: 10 }
       ],
       topicCategory: 'Dynamic Programming',
+      subtopic: 'Chain Matrix Multiplication',
       syllabusTopics: ['0/1 Knapsack DP Table', 'Capacity W=7', 'Traceback Algorithm'],
       definition: 'Step-by-step DP table computation for a 4-item instance with capacity 7, demonstrating optimal item extraction via back-referencing.',
       sections: [
@@ -2257,6 +2275,7 @@ export const daaUnit3Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       topicCategory: 'Dynamic Programming',
+      subtopic: 'Chain Matrix Multiplication',
       syllabusTopics: ['Matrix Chain Multiplication', 'Optimal Parenthesization', 'Cost Recurrence m[i,j]', 'Split Table s[i,j]', 'Time Complexity O(n³)'],
       definition: 'Matrix Chain Multiplication (MCM) is an optimization problem that finds the most efficient order (parenthesization) of multiplying a sequence of n matrices A₁ A₂ ... A_n such that the total number of scalar multiplications is minimized.',
       sections: [
@@ -2373,6 +2392,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2025', questionNo: 'Q2(b)', marks: 10 }
       ],
       topicCategory: 'Comparative Analysis & Exemplar',
+      subtopic: 'Comparative Analysis & Rail Tracks Exemplar',
       syllabusTopics: ['Binomial Coefficients', 'Pascal\'s Identity', 'Overlapping Subproblems', 'Time and Space Complexity'],
       definition: 'Computing the binomial coefficient C(n, k) = n! / (k!(n-k)!) using dynamic programming leverages Pascal\'s Identity to replace expensive factorial computations with simple additions in a 2D table.',
       sections: [

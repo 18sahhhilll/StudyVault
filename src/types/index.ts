@@ -116,6 +116,7 @@ export interface Question {
   papersAsked: PaperAppearance[];
   frequencyNote?: string;
   topicCategory?: string; // Syllabus topic group (e.g. "Greedy Strategy", "Dynamic Programming")
+  subtopic?: string; // Syllabus subtopic (e.g. "Principle & Control Abstraction", "Knapsack Problem", "Job Scheduling")
   syllabusTopics: string[];
 
   // Answer Structure

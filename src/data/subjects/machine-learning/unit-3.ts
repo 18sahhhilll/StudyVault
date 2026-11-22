@@ -72,6 +72,7 @@ export const unit3Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q1(a)', marks: 6 }
       ],
       topicCategory: 'Bias, Variance & Generalization',
+      subtopic: 'Bias, Variance & Underfitting',
       syllabusTopics: ['Bias', 'Variance', 'Underfitting', 'Overfitting'],
       definition: 'Bias is the systematic error stemming from erroneous or overly simplified modeling assumptions; Variance is the sensitivity of predictions to fluctuations and perturbations in the training dataset.',
       sections: [
@@ -150,6 +151,7 @@ export const unit3Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q2(b)', marks: 6 }
       ],
       topicCategory: 'Bias, Variance & Generalization',
+      subtopic: 'Bias-Variance Error Decomposition',
       syllabusTopics: ['Bias-Variance Tradeoff', 'Error Decomposition', 'Optimal Model Complexity'],
       definition: 'The Bias-Variance Trade-off is the foundational machine learning dilemma where decreasing bias by increasing model complexity inevitably inflates variance, and vice versa; total expected error is minimized only at an intermediate optimal complexity.',
       sections: [
@@ -225,6 +227,7 @@ export const unit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q1(b)', marks: 6 }
       ],
       topicCategory: 'Bias, Variance & Generalization',
+      subtopic: 'Overfitting vs Underfitting',
       syllabusTopics: ['Overfitting', 'Underfitting', 'Model Generalization', 'Bias-Variance'],
       definition: 'Underfitting occurs when a model is excessively simple and fails to capture underlying patterns, whereas Overfitting occurs when a model is excessively complex and memorizes training noise at the expense of generalization.',
       sections: [
@@ -315,6 +318,7 @@ export const unit3Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q1(a)', notes: 'Comprehensive both' }
       ],
       topicCategory: 'Bias, Variance & Generalization',
+      subtopic: 'Mitigation Techniques',
       syllabusTopics: ['Regularization', 'Cross-Validation', 'Early Stopping', 'Feature Engineering'],
       definition: 'Remediation techniques for underfitting and overfitting are reciprocal strategies designed to adjust model complexity, capacity, and regularization constraints toward minimal generalization error.',
       sections: [
@@ -395,6 +399,7 @@ export const unit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q1(c)', marks: 4 }
       ],
       topicCategory: 'Bias, Variance & Generalization',
+      subtopic: 'Training vs Generalization Error',
       syllabusTopics: ['Training Error', 'Generalization Error', 'Generalization Gap'],
       definition: 'Training error is the discrepancy between predicted and actual targets computed on the dataset used for model parameter fitting, whereas Generalization error (test error) is the expected error on previously unseen data drawn from the same underlying distribution.',
       sections: [
@@ -476,6 +481,7 @@ export const unit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q1(a)', marks: 6 }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
+      subtopic: 'Linear Regression Principle',
       syllabusTopics: ['Regression', 'Linear Regression', 'Least Squares'],
       definition: 'Linear Regression is a supervised Machine Learning algorithm used to predict a continuous numerical value by establishing a linear relationship between dependent and independent variables.',
       sections: [
@@ -573,6 +579,7 @@ export const unit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q1(a)', marks: 6 }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
+      subtopic: 'Regression Taxonomies',
       syllabusTopics: ['Regression Models', 'Polynomial Regression', 'Ridge', 'Lasso', 'Logistic Regression'],
       definition: 'Regression models are supervised learning algorithms used to establish mathematical relationships between input predictor variables and a continuous target variable.',
       sections: [
@@ -665,6 +672,7 @@ export const unit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q2(b)', marks: 6 }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
+      subtopic: 'Least Squares & Normal Equations',
       syllabusTopics: ['Least Squares', 'Normal Equations', 'Residuals', 'SSE'],
       definition: 'The Least Squares Method is an analytical mathematical technique that determines the optimal line of best fit by minimizing the Sum of Squared Residuals (SSE) between observed data points and predicted values.',
       sections: [
@@ -736,6 +744,7 @@ export const unit3Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q2(c)', marks: 6 }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
+      subtopic: 'RAM Capacity Cost Numerical',
       syllabusTopics: ['Least Squares Numerical', 'Slope and Intercept', 'Linear Extrapolation'],
       definition: 'Application of least squares normal equations to derive a linear cost model from empirical RAM capacity data and predict future hardware pricing.',
       sections: [
@@ -891,6 +900,7 @@ export const unit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q1(c)', marks: 6 }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
+      subtopic: 'Monthly Expenditure Forecast Numerical',
       syllabusTopics: ['Least Squares Numerical', 'Forecasting', 'Time Series Regression'],
       definition: 'Using linear least squares regression to determine expenditure trend over 5 consecutive months and forecast the 6th month expenditure.',
       sections: [
@@ -1042,6 +1052,7 @@ export const unit3Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q1(b)', marks: 6 }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
+      subtopic: 'Carbohydrates Calories Numerical',
       syllabusTopics: ['Least Squares Numerical', 'Nutritional Modeling', 'Prediction'],
       definition: 'Linear regression analysis fitting carbohydrates content against total calories to estimate calorie count for arbitrary carbohydrate amounts.',
       sections: [
@@ -1112,6 +1123,7 @@ export const unit3Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q1(b)', marks: 6 }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
+      subtopic: 'Regression Line Derivation Numerical',
       syllabusTopics: ['Least Squares Numerical', 'Line of Best Fit'],
       definition: 'Complete derivation of the standard least-squares regression line for basic sequential integer inputs.',
       sections: [
@@ -1251,6 +1263,7 @@ export const unit3Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q2(a)', marks: 6 }
       ],
       topicCategory: 'Regularized Regression',
+      subtopic: 'Lasso (L1) vs Ridge (L2)',
       syllabusTopics: ['Lasso Regression', 'Ridge Regression', 'L1 Regularization', 'L2 Regularization', 'Feature Selection'],
       definition: 'Ridge Regression (L2) and Lasso Regression (L1) are regularization techniques that prevent overfitting in linear models by adding a penalty on large weights.',
       sections: [
@@ -1364,6 +1377,7 @@ export const unit3Data: Unit = {
         { paper: 'May 2024', questionNo: 'Q1(a)', marks: 6 }
       ],
       topicCategory: 'Regularized Regression',
+      subtopic: 'Lasso Feature Selection',
       syllabusTopics: ['Lasso Regression', 'Feature Selection', 'L1 Penalty', 'Sparsity'],
       definition: 'Lasso (Least Absolute Shrinkage and Selection Operator) is an L1-regularized regression technique that produces sparse models by driving coefficients of redundant features to zero, thus acting as an embedded feature selector.',
       sections: [
@@ -1424,6 +1438,7 @@ export const unit3Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q2(c)', notes: 'What is GD + Compare Batch and SGD' }
       ],
       topicCategory: 'Optimization Algorithms',
+      subtopic: 'Gradient Descent (Batch vs SGD)',
       syllabusTopics: ['Gradient Descent', 'Optimization', 'Batch GD', 'Stochastic GD', 'Learning Rate'],
       definition: 'Gradient Descent is a first-order iterative optimization algorithm used to find the local minimum of a differentiable cost function by taking successive steps proportional to the negative of the gradient.',
       sections: [
@@ -1532,6 +1547,7 @@ export const unit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q2(c)', marks: 4 }
       ],
       topicCategory: 'Optimization Algorithms',
+      subtopic: 'Stochastic Gradient Descent (SGD)',
       syllabusTopics: ['Stochastic Gradient Descent', 'Online Learning', 'Learning Rate Scheduling'],
       definition: 'Stochastic Gradient Descent (SGD) is an optimization variant where parameters are updated incrementally using the loss gradient computed from only a single randomly selected training instance at each iteration.',
       sections: [
@@ -1601,6 +1617,7 @@ export const unit3Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q2(c)', marks: 6 }
       ],
       topicCategory: 'Evaluation Metrics & Exemplar',
+      subtopic: 'Importance of Regression Metrics',
       syllabusTopics: ['Evaluation Metrics', 'MAE', 'MSE', 'RMSE', 'R2'],
       definition: 'Evaluation metrics are quantitative statistical measures used to assess prediction accuracy, compare alternative modeling approaches, monitor convergence during optimization, and validate generalization capabilities.',
       sections: [
@@ -1673,6 +1690,7 @@ export const unit3Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q1(c)', marks: 6 }
       ],
       topicCategory: 'Evaluation Metrics & Exemplar',
+      subtopic: 'MAE, RMSE and R2 Metrics',
       syllabusTopics: ['MAE', 'MSE', 'RMSE', 'R-Squared', 'Adjusted R2'],
       definition: 'In Machine Learning, MAE, RMSE and R² are evaluation metrics used to measure the performance of a regression model. They tell us how accurately a model predicts values and how close predictions are to actual target observations.',
       sections: [
@@ -1821,6 +1839,7 @@ export const unit3Data: Unit = {
         { paper: 'May 2024', questionNo: 'Q2(a)', marks: 4 }
       ],
       topicCategory: 'Evaluation Metrics & Exemplar',
+      subtopic: 'RMSE vs MSE & Stock Market Exemplar',
       syllabusTopics: ['RMSE', 'MSE', 'Evaluation Comparison'],
       definition: 'Root Mean Squared Error (RMSE = √MSE) provides key interpretability advantages over Mean Squared Error by scaling error units back to the original measurement scale of the target variable.',
       sections: [

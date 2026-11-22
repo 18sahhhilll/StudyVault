@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   ArrowLeft,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   CheckCircle2,
   Bookmark,
   BookOpen,
@@ -17,7 +18,10 @@ import {
   ListFilter,
   Calculator,
   X,
-  Download
+  Download,
+  Calendar,
+  Layers,
+  ChevronsUpDown
 } from 'lucide-react';
 import { Unit, Question, Subject } from '@/types';
 import { ImportanceBadge } from '@/components/common/ImportanceBadge';
@@ -41,6 +45,28 @@ interface UnitReadingViewProps {
   onDownloadUnitPDF?: (subject: Subject, unit: Unit) => void;
 }
 
+
+// Paper recency scoring helper: Newer university exam sessions score higher
+// e.g., Nov 2025 (202511) > April 2025 (202505) > Nov 2024 (202411) > April 2024 (202405)
+const getPaperRecencyScore = (paperStr: string): number => {
+  if (!paperStr) return 0;
+  const lower = paperStr.toLowerCase();
+  const yearMatch = lower.match(/\b(20\d\d)\b/);
+  const year = yearMatch ? parseInt(yearMatch[1], 10) : 2020;
+  let monthScore = 0;
+  if (lower.includes('nov') || lower.includes('dec')) monthScore = 11;
+  else if (lower.includes('oct')) monthScore = 10;
+  else if (lower.includes('apr') || lower.includes('may')) monthScore = 5;
+  else if (lower.includes('mar')) monthScore = 3;
+  else if (lower.includes('jan') || lower.includes('feb')) monthScore = 1;
+  return year * 100 + monthScore;
+};
+
+const getQuestionMaxRecency = (q: Question): number => {
+  if (!q.papersAsked || q.papersAsked.length === 0) return 0;
+  return Math.max(...q.papersAsked.map((p) => getPaperRecencyScore(p.paper)));
+};
+
 export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
   subject,
   unit,
@@ -60,10 +86,97 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
   const [userNote, setUserNote] = useState('');
   const [noteSavedFeedback, setNoteSavedFeedback] = useState(false);
   const [mobileQuestionsOpen, setMobileQuestionsOpen] = useState(false);
+  const [collapsedTopics, setCollapsedTopics] = useState<Record<string, boolean>>({});
 
-  const currentQuestionIndex = unit.questions.findIndex((q) => q.id === activeQuestionId);
+  // 1. Enhanced search filtering across title, shortTitle, qNumber, topicCategory, subtopic, syllabusTopics, and papersAsked
+  const searchLower = sidebarSearch.trim().toLowerCase();
+  const filteredQuestions = useMemo(() => {
+    return unit.questions.filter((q) => {
+      const matchesSearch =
+        !searchLower ||
+        q.title.toLowerCase().includes(searchLower) ||
+        q.shortTitle.toLowerCase().includes(searchLower) ||
+        q.qNumber.toString().includes(searchLower) ||
+        (q.topicCategory && q.topicCategory.toLowerCase().includes(searchLower)) ||
+        (q.subtopic && q.subtopic.toLowerCase().includes(searchLower)) ||
+        (q.syllabusTopics && q.syllabusTopics.some((st) => st.toLowerCase().includes(searchLower))) ||
+        (q.papersAsked &&
+          q.papersAsked.some(
+            (p) =>
+              p.paper.toLowerCase().includes(searchLower) ||
+              p.questionNo.toLowerCase().includes(searchLower)
+          ));
+
+      if (!matchesSearch) return false;
+
+      if (filterMode === 'faq') return q.importance === 'Frequently Asked';
+      if (filterMode === 'pending') return !completedQuestionIds.includes(q.id);
+      if (filterMode === 'bookmarked') return bookmarkedQuestionIds.includes(q.id);
+      return true;
+    });
+  }, [unit.questions, searchLower, filterMode, completedQuestionIds, bookmarkedQuestionIds]);
+
+  // 2. Syllabus-wise Primary grouping & Occurrence-wise sorting within each topic
+  const topicGroups = useMemo(() => {
+    // Collect distinct topics in syllabus canonical sequence
+    const canonicalTopics: string[] = [];
+    unit.questions.forEach((q) => {
+      const topic = q.topicCategory || 'General';
+      if (!canonicalTopics.includes(topic)) {
+        canonicalTopics.push(topic);
+      }
+    });
+
+    const groups: {
+      topic: string;
+      questions: Question[];
+      totalInTopic: number;
+      solvedInTopic: number;
+    }[] = [];
+
+    canonicalTopics.forEach((topic) => {
+      const matching = filteredQuestions.filter(
+        (q) => (q.topicCategory || 'General') === topic
+      );
+
+      if (matching.length > 0) {
+        // Secondary sort inside each topic: Newest university examination paper first, then frequency
+        const sorted = [...matching].sort((a, b) => {
+          const recA = getQuestionMaxRecency(a);
+          const recB = getQuestionMaxRecency(b);
+          if (recB !== recA) return recB - recA;
+          return b.occurrenceCount - a.occurrenceCount;
+        });
+
+        const allInTopic = unit.questions.filter(
+          (q) => (q.topicCategory || 'General') === topic
+        );
+        const solvedCount = allInTopic.filter((q) =>
+          completedQuestionIds.includes(q.id)
+        ).length;
+
+        groups.push({
+          topic,
+          questions: sorted,
+          totalInTopic: allInTopic.length,
+          solvedInTopic: solvedCount,
+        });
+      }
+    });
+
+    return groups;
+  }, [unit.questions, filteredQuestions, completedQuestionIds]);
+
+  // 3. Ordered questions flattened from topic groups for sequential Previous/Next navigation
+  const orderedQuestions = useMemo(() => {
+    return topicGroups.flatMap((g) => g.questions);
+  }, [topicGroups]);
+
+  const currentOrderedIndex = orderedQuestions.findIndex((q) => q.id === activeQuestionId);
   const currentQuestion: Question =
-    currentQuestionIndex !== -1 ? unit.questions[currentQuestionIndex] : unit.questions[0];
+    currentOrderedIndex !== -1
+      ? orderedQuestions[currentOrderedIndex]
+      : unit.questions.find((q) => q.id === activeQuestionId) || unit.questions[0];
 
   useEffect(() => {
     setUserNote(notesByQuestionId[currentQuestion.id] || '');
@@ -74,15 +187,50 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [currentQuestion.id]);
 
+  // Auto-expand the topic containing current question
+  useEffect(() => {
+    if (currentQuestion?.topicCategory) {
+      setCollapsedTopics((prev) => {
+        if (prev[currentQuestion.topicCategory!]) {
+          return {
+            ...prev,
+            [currentQuestion.topicCategory!]: false,
+          };
+        }
+        return prev;
+      });
+    }
+  }, [currentQuestion?.id, currentQuestion?.topicCategory]);
+
+  const toggleTopic = (topicName: string) => {
+    setCollapsedTopics((prev) => ({
+      ...prev,
+      [topicName]: !prev[topicName],
+    }));
+  };
+
+  const toggleAllTopics = () => {
+    const anyCollapsed = topicGroups.some((g) => collapsedTopics[g.topic]);
+    if (anyCollapsed) {
+      setCollapsedTopics({});
+    } else {
+      const all: Record<string, boolean> = {};
+      topicGroups.forEach((g) => {
+        all[g.topic] = true;
+      });
+      setCollapsedTopics(all);
+    }
+  };
+
   const handlePrev = () => {
-    if (currentQuestionIndex > 0) {
-      onSelectQuestion(unit.questions[currentQuestionIndex - 1].id);
+    if (currentOrderedIndex > 0) {
+      onSelectQuestion(orderedQuestions[currentOrderedIndex - 1].id);
     }
   };
 
   const handleNext = () => {
-    if (currentQuestionIndex < unit.questions.length - 1) {
-      onSelectQuestion(unit.questions[currentQuestionIndex + 1].id);
+    if (currentOrderedIndex < orderedQuestions.length - 1) {
+      onSelectQuestion(orderedQuestions[currentOrderedIndex + 1].id);
     }
   };
 
@@ -92,24 +240,169 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
     setTimeout(() => setNoteSavedFeedback(false), 2000);
   };
 
-  // Filter sidebar question list
-  const filteredQuestions = unit.questions.filter((q) => {
-    const matchesSearch =
-      q.title.toLowerCase().includes(sidebarSearch.toLowerCase()) ||
-      q.shortTitle.toLowerCase().includes(sidebarSearch.toLowerCase()) ||
-      q.qNumber.toString().includes(sidebarSearch);
-
-    if (!matchesSearch) return false;
-
-    if (filterMode === 'faq') return q.importance === 'Frequently Asked';
-    if (filterMode === 'pending') return !completedQuestionIds.includes(q.id);
-    if (filterMode === 'bookmarked') return bookmarkedQuestionIds.includes(q.id);
-    return true;
-  });
-
   const isCompleted = completedQuestionIds.includes(currentQuestion.id);
   const isBookmarked = bookmarkedQuestionIds.includes(currentQuestion.id);
   const hasTopicCategories = unit.questions.some((q) => !!q.topicCategory);
+
+  // Render question card (shared between desktop sidebar and mobile drawer)
+  const renderQuestionCard = (q: Question, isMobile: boolean) => {
+    const active = q.id === currentQuestion.id;
+    const completed = completedQuestionIds.includes(q.id);
+    const bookmarked = bookmarkedQuestionIds.includes(q.id);
+
+    // Sorted papers by recency (newest exam first)
+    const sortedPapers = [...q.papersAsked].sort(
+      (a, b) => getPaperRecencyScore(b.paper) - getPaperRecencyScore(a.paper)
+    );
+
+    return (
+      <div
+        key={q.id}
+        onClick={() => {
+          onSelectQuestion(q.id);
+          if (isMobile) setMobileQuestionsOpen(false);
+        }}
+        className={`p-2.5 rounded-lg text-left cursor-pointer transition-all flex items-start gap-2.5 group ${
+          active
+            ? 'bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 shadow-xs'
+            : 'hover:bg-academic-50 dark:hover:bg-academic-800/50'
+        }`}
+      >
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleCompleted(q.id);
+          }}
+          className={`mt-0.5 shrink-0 ${
+            completed
+              ? 'text-emerald-600 dark:text-emerald-400'
+              : 'text-academic-300 dark:text-academic-700 hover:text-academic-500'
+          }`}
+          title={completed ? 'Completed' : 'Mark completed'}
+        >
+          <CheckCircle2 className="w-4 h-4" />
+        </button>
+
+        <div className="flex-1 min-w-0">
+          {/* Subtopic Header Tag */}
+          {q.subtopic && (
+            <div className="text-[9px] font-semibold text-blue-600 dark:text-blue-400 mb-0.5 truncate uppercase tracking-wider">
+              {q.subtopic}
+            </div>
+          )}
+
+          <div className="flex items-center gap-1.5 flex-wrap mb-1">
+            <span
+              className={`text-[10px] font-mono font-bold ${
+                active ? 'text-blue-700 dark:text-blue-300' : 'text-academic-500'
+              }`}
+            >
+              Q{q.qNumber}
+            </span>
+            <MarksBadge marks={q.marks} />
+            {q.numericalSolution && (
+              <span
+                className="text-[9px] font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-1 py-0.5 rounded flex items-center gap-0.5"
+                title="Step-by-step Numerical Solver Available"
+              >
+                <Calculator className="w-2.5 h-2.5" />
+                <span>Solved</span>
+              </span>
+            )}
+            {q.importance === 'Frequently Asked' && (
+              <span className="text-[9px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 px-1 rounded">
+                FAQ
+              </span>
+            )}
+            {q.occurrenceCount > 1 ? (
+              <span
+                className="text-[9px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-1 py-0.5 rounded border border-amber-200/50"
+                title={`Appeared ${q.occurrenceCount} times in university papers`}
+              >
+                {q.occurrenceCount}x
+              </span>
+            ) : q.occurrenceCount === 1 ? (
+              <span
+                className="text-[9px] text-academic-500 bg-academic-100 dark:bg-academic-800 px-1 py-0.5 rounded"
+                title="Appeared once in university papers"
+              >
+                1x
+              </span>
+            ) : null}
+            {bookmarked && (
+              <Bookmark className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
+            )}
+          </div>
+
+          <h4
+            className={`text-xs font-medium line-clamp-2 leading-snug ${
+              active
+                ? 'text-blue-950 dark:text-blue-100 font-semibold'
+                : 'text-academic-700 dark:text-academic-300'
+            }`}
+          >
+            {q.shortTitle || q.title}
+          </h4>
+
+          {/* Chronological examination appearance tags (Newest paper first) */}
+          {sortedPapers.length > 0 && (
+            <div className="flex items-center gap-1 text-[9px] font-mono text-academic-400 dark:text-academic-500 mt-1 truncate">
+              <Calendar className="w-2.5 h-2.5 text-blue-500/70 shrink-0" />
+              <span className="truncate">
+                {sortedPapers[0].paper}: {sortedPapers[0].questionNo}
+                {sortedPapers.length > 1 && ` • ${sortedPapers[1].paper}`}
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  // Render Topic Accordion Group
+  const renderTopicGroup = (
+    group: {
+      topic: string;
+      questions: Question[];
+      totalInTopic: number;
+      solvedInTopic: number;
+    },
+    isMobile: boolean
+  ) => {
+    const isCollapsed = collapsedTopics[group.topic] || false;
+
+    return (
+      <div key={group.topic} className="pt-2 first:pt-0">
+        <button
+          onClick={() => toggleTopic(group.topic)}
+          className="w-full text-left py-1.5 px-2 flex items-center justify-between gap-1.5 rounded-lg bg-academic-50/90 dark:bg-academic-800/60 hover:bg-academic-100/90 dark:hover:bg-academic-800 transition-colors border border-academic-200/50 dark:border-academic-700/50 group"
+        >
+          <div className="flex items-center gap-1.5 min-w-0">
+            <div className="w-1.5 h-3.5 rounded-full bg-blue-500 dark:bg-blue-400 shrink-0" />
+            <span className="text-[11px] font-bold uppercase tracking-wider text-academic-800 dark:text-academic-200 truncate">
+              {group.topic}
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="text-[10px] font-mono text-academic-500 dark:text-academic-400 bg-white/70 dark:bg-academic-900/60 px-1.5 py-0.5 rounded border border-academic-200/60 dark:border-academic-700/60">
+              {group.solvedInTopic}/{group.totalInTopic}
+            </span>
+            {isCollapsed ? (
+              <ChevronRight className="w-3.5 h-3.5 text-academic-400 group-hover:text-academic-600 dark:group-hover:text-academic-300" />
+            ) : (
+              <ChevronDown className="w-3.5 h-3.5 text-academic-400 group-hover:text-academic-600 dark:group-hover:text-academic-300" />
+            )}
+          </div>
+        </button>
+
+        {!isCollapsed && (
+          <div className="mt-1 space-y-0.5 divide-y divide-academic-100 dark:divide-academic-800/40 pl-1">
+            {group.questions.map((q) => renderQuestionCard(q, isMobile))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 items-start animate-in fade-in duration-200 w-full">
@@ -132,7 +425,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
           </span>
           <span className="flex items-center gap-1 text-[11px] text-blue-600 dark:text-blue-400 font-normal shrink-0 ml-1.5 bg-white/70 dark:bg-blue-900/60 px-1.5 py-0.5 rounded">
             <ListFilter className="w-3 h-3" />
-            <span>List</span>
+            <span>Syllabus</span>
           </span>
         </button>
 
@@ -147,7 +440,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
           </button>
           <button
             onClick={handlePrev}
-            disabled={currentQuestionIndex === 0}
+            disabled={currentOrderedIndex <= 0}
             className="p-2 rounded-lg border border-academic-200 dark:border-academic-800 text-academic-700 dark:text-academic-300 disabled:opacity-30 disabled:cursor-not-allowed bg-academic-50 dark:bg-academic-800"
             title="Previous Question"
           >
@@ -155,7 +448,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
           </button>
           <button
             onClick={handleNext}
-            disabled={currentQuestionIndex === unit.questions.length - 1}
+            disabled={currentOrderedIndex === -1 || currentOrderedIndex >= orderedQuestions.length - 1}
             className="p-2 rounded-lg border border-academic-200 dark:border-academic-800 text-academic-700 dark:text-academic-300 disabled:opacity-30 disabled:cursor-not-allowed bg-academic-50 dark:bg-academic-800"
             title="Next Question"
           >
@@ -202,120 +495,51 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                 />
               </div>
 
-              <div className="flex items-center gap-1 text-[11px] overflow-x-auto pb-1">
-                {[
-                  { id: 'all', label: 'All' },
-                  { id: 'faq', label: 'FAQs' },
-                  { id: 'pending', label: 'Pending' },
-                  { id: 'bookmarked', label: 'Saved' },
-                ].map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setFilterMode(tab.id as any)}
-                    className={`px-2 py-0.5 rounded text-[10px] font-medium transition-colors ${
-                      filterMode === tab.id
-                        ? 'bg-academic-900 dark:bg-white text-white dark:text-academic-900 font-semibold'
-                        : 'text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 bg-academic-100/50 dark:bg-academic-800/50'
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
+              <div className="flex items-center justify-between gap-1 text-[11px] overflow-x-auto pb-1">
+                <div className="flex items-center gap-1">
+                  {[
+                    { id: 'all', label: 'All' },
+                    { id: 'faq', label: 'FAQs' },
+                    { id: 'pending', label: 'Pending' },
+                    { id: 'bookmarked', label: 'Saved' },
+                  ].map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setFilterMode(tab.id as any)}
+                      className={`px-2 py-0.5 rounded text-[10px] font-medium transition-colors ${
+                        filterMode === tab.id
+                          ? 'bg-academic-900 dark:bg-white text-white dark:text-academic-900 font-semibold'
+                          : 'text-academic-500 hover:text-academic-900 dark:hover:text-academic-100 bg-academic-100/50 dark:bg-academic-800/50'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={toggleAllTopics}
+                  className="text-[9px] font-semibold text-blue-600 dark:text-blue-400 px-1.5 py-0.5 rounded hover:bg-blue-50 dark:hover:bg-blue-950/40 shrink-0"
+                >
+                  Toggle All
+                </button>
               </div>
             </div>
 
-            {/* Questions List in Drawer */}
-            <div className="overflow-y-auto flex-1 divide-y divide-academic-100 dark:divide-academic-800/50 pt-1 space-y-0.5 pr-1">
-              {filteredQuestions.map((q, idx) => {
-                const active = q.id === currentQuestion.id;
-                const completed = completedQuestionIds.includes(q.id);
-                const bookmarked = bookmarkedQuestionIds.includes(q.id);
-                const prevQ = idx > 0 ? filteredQuestions[idx - 1] : null;
-                const isFirstOfTopic = q.topicCategory && (!prevQ || prevQ.topicCategory !== q.topicCategory);
-
-                return (
-                  <React.Fragment key={q.id}>
-                    {isFirstOfTopic && (
-                      <div className="pt-3 pb-1.5 px-2 mt-2 first:mt-0 flex items-center gap-1.5 border-b border-academic-200 dark:border-academic-800 bg-academic-50/60 dark:bg-academic-800/40 rounded">
-                        <div className="w-1.5 h-3 rounded-full bg-blue-500 dark:bg-blue-400 shrink-0" />
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-academic-700 dark:text-academic-300">
-                          {q.topicCategory}
-                        </span>
-                      </div>
-                    )}
-                    <div
-                      onClick={() => {
-                        onSelectQuestion(q.id);
-                        setMobileQuestionsOpen(false);
-                      }}
-                      className={`p-2.5 rounded-lg text-left cursor-pointer transition-all flex items-start gap-2.5 group ${
-                        active
-                          ? 'bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 shadow-xs'
-                          : 'hover:bg-academic-50 dark:hover:bg-academic-800/50'
-                      }`}
-                    >
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onToggleCompleted(q.id);
-                      }}
-                      className={`mt-0.5 shrink-0 ${
-                        completed
-                          ? 'text-emerald-600 dark:text-emerald-400'
-                          : 'text-academic-300 dark:text-academic-700 hover:text-academic-500'
-                      }`}
-                    >
-                      <CheckCircle2 className="w-4 h-4" />
-                    </button>
-
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap mb-1">
-                        <span className={`text-[10px] font-mono font-bold ${active ? 'text-blue-700 dark:text-blue-300' : 'text-academic-500'}`}>
-                          Q{q.qNumber}
-                        </span>
-                        <MarksBadge marks={q.marks} />
-                        {q.numericalSolution && (
-                          <span className="text-[9px] font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-1 py-0.5 rounded flex items-center gap-0.5">
-                            <Calculator className="w-2.5 h-2.5" />
-                            <span>Solved</span>
-                          </span>
-                        )}
-                        {q.importance === 'Frequently Asked' && (
-                          <span className="text-[9px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 px-1 rounded">
-                            FAQ
-                          </span>
-                        )}
-                        {q.occurrenceCount > 1 ? (
-                          <span
-                            className="text-[9px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-1 py-0.5 rounded border border-amber-200/50"
-                            title={`Appeared ${q.occurrenceCount} times in university papers`}
-                          >
-                            {q.occurrenceCount}x
-                          </span>
-                        ) : q.occurrenceCount === 1 ? (
-                          <span
-                            className="text-[9px] text-academic-500 bg-academic-100 dark:bg-academic-800 px-1 py-0.5 rounded"
-                            title="Appeared once in university papers"
-                          >
-                            1x
-                          </span>
-                        ) : null}
-                        {bookmarked && <Bookmark className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />}
-                      </div>
-                      <h4 className={`text-xs font-medium line-clamp-2 leading-snug ${active ? 'text-blue-950 dark:text-blue-100 font-semibold' : 'text-academic-700 dark:text-academic-300'}`}>
-                        {q.shortTitle || q.title}
-                      </h4>
-                    </div>
-                  </div>
-                </React.Fragment>
-              );
-            })}
+            {/* Questions List in Drawer - Grouped by Topic Accordions */}
+            <div className="overflow-y-auto flex-1 pt-1 space-y-1 pr-1">
+              {topicGroups.length > 0 ? (
+                topicGroups.map((group) => renderTopicGroup(group, true))
+              ) : (
+                <div className="py-8 text-center text-academic-400 text-xs">
+                  No questions match your filter.
+                </div>
+              )}
             </div>
           </div>
         </div>
       )}
 
-      {/* Desktop Left Sidebar: Unit Questions Navigation (Sticky, Hidden on mobile) */}
+      {/* Desktop Left Sidebar: Unit Questions Navigation (Sticky, Syllabus-Wise First) */}
       <aside className="hidden lg:flex w-80 shrink-0 bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 p-4 lg:sticky lg:top-20 max-h-[85vh] flex-col shadow-sm">
         {/* Back and Unit Info */}
         <div className="pb-3 border-b border-academic-100 dark:border-academic-800 space-y-1">
@@ -340,8 +564,13 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
           <h2 className="text-sm font-bold text-academic-900 dark:text-academic-100">
             Unit {unit.unitNumber}: {unit.shortTitle}
           </h2>
-          <div className="text-[11px] text-academic-400 font-mono">
-            {unit.questions.filter((q) => completedQuestionIds.includes(q.id)).length} of {unit.questions.length} Solved
+          <div className="flex items-center justify-between text-[11px] text-academic-400 font-mono">
+            <span>
+              {unit.questions.filter((q) => completedQuestionIds.includes(q.id)).length} of {unit.questions.length} Solved
+            </span>
+            <span className="text-[10px] text-blue-600 dark:text-blue-400 font-sans font-medium">
+              Syllabus-Wise Order
+            </span>
           </div>
         </div>
 
@@ -353,13 +582,13 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
               type="text"
               value={sidebarSearch}
               onChange={(e) => setSidebarSearch(e.target.value)}
-              placeholder="Filter unit questions..."
+              placeholder="Search topic, question, exam (e.g. Nov 2025)..."
               className="w-full pl-8 pr-2 py-1 text-xs rounded-md bg-academic-50 dark:bg-academic-950 border border-academic-200 dark:border-academic-800 text-academic-800 dark:text-academic-200 outline-none"
             />
           </div>
 
-          <div className="flex items-center justify-between gap-1 text-[11px] overflow-x-auto pb-1">
-            <div className="flex items-center gap-1">
+          <div className="flex items-center justify-between gap-1 text-[11px]">
+            <div className="flex items-center gap-1 overflow-x-auto pb-0.5">
               {[
                 { id: 'all', label: 'All' },
                 { id: 'faq', label: 'FAQs' },
@@ -379,119 +608,28 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                 </button>
               ))}
             </div>
-            <span
-              className={`text-[9px] font-mono font-semibold px-1.5 py-0.5 rounded shrink-0 border ${
-                hasTopicCategories
-                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-blue-200/40'
-                  : 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 border-rose-200/40'
-              }`}
-              title={hasTopicCategories ? "Questions arranged topic-wise per official SPPU university syllabus" : "Questions arranged in descending order of frequency"}
+
+            <button
+              onClick={toggleAllTopics}
+              className="text-[9px] font-medium text-blue-600 dark:text-blue-400 hover:underline shrink-0"
+              title="Expand or Collapse All Topics"
             >
-              {hasTopicCategories ? 'Topic-Wise Order' : 'Frequency ↓'}
-            </span>
+              Toggle All
+            </button>
           </div>
         </div>
 
-        {/* Questions List */}
-        <div className="overflow-y-auto flex-1 divide-y divide-academic-100 dark:divide-academic-800/50 pt-1 space-y-0.5 pr-1">
-          {filteredQuestions.map((q, idx) => {
-            const active = q.id === currentQuestion.id;
-            const completed = completedQuestionIds.includes(q.id);
-            const bookmarked = bookmarkedQuestionIds.includes(q.id);
-            const prevQ = idx > 0 ? filteredQuestions[idx - 1] : null;
-            const isFirstOfTopic = q.topicCategory && (!prevQ || prevQ.topicCategory !== q.topicCategory);
-
-            return (
-              <React.Fragment key={q.id}>
-                {isFirstOfTopic && (
-                  <div className="pt-3 pb-1.5 px-2 mt-2 first:mt-0 flex items-center gap-1.5 border-b border-academic-200 dark:border-academic-800 bg-academic-50/60 dark:bg-academic-800/40 rounded">
-                    <div className="w-1.5 h-3 rounded-full bg-blue-500 dark:bg-blue-400 shrink-0" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-academic-700 dark:text-academic-300">
-                      {q.topicCategory}
-                    </span>
-                  </div>
-                )}
-                <div
-                  onClick={() => onSelectQuestion(q.id)}
-                  className={`p-2.5 rounded-lg text-left cursor-pointer transition-all flex items-start gap-2.5 group ${
-                    active
-                      ? 'bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 shadow-xs'
-                      : 'hover:bg-academic-50 dark:hover:bg-academic-800/50'
-                  }`}
-                >
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onToggleCompleted(q.id);
-                  }}
-                  className={`mt-0.5 shrink-0 ${
-                    completed
-                      ? 'text-emerald-600 dark:text-emerald-400'
-                      : 'text-academic-300 dark:text-academic-700 hover:text-academic-500'
-                  }`}
-                  title={completed ? 'Completed' : 'Mark completed'}
-                >
-                  <CheckCircle2 className="w-4 h-4" />
-                </button>
-
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 flex-wrap mb-1">
-                    <span
-                      className={`text-[10px] font-mono font-bold ${
-                        active
-                          ? 'text-blue-700 dark:text-blue-300'
-                          : 'text-academic-500'
-                      }`}
-                    >
-                      Q{q.qNumber}
-                    </span>
-                    <MarksBadge marks={q.marks} />
-                    {q.numericalSolution && (
-                      <span className="text-[9px] font-semibold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-1 py-0.5 rounded flex items-center gap-0.5" title="Step-by-step Numerical Solver Available">
-                        <Calculator className="w-2.5 h-2.5" />
-                        <span>Solved</span>
-                      </span>
-                    )}
-                    {q.importance === 'Frequently Asked' && (
-                      <span className="text-[9px] font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 px-1 rounded">
-                        FAQ
-                      </span>
-                    )}
-                    {q.occurrenceCount > 1 ? (
-                      <span
-                        className="text-[9px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 px-1 py-0.5 rounded border border-amber-200/50"
-                        title={`Appeared ${q.occurrenceCount} times in university papers`}
-                      >
-                        {q.occurrenceCount}x
-                      </span>
-                    ) : q.occurrenceCount === 1 ? (
-                      <span
-                        className="text-[9px] text-academic-500 bg-academic-100 dark:bg-academic-800 px-1 py-0.5 rounded"
-                        title="Appeared once in university papers"
-                      >
-                        1x
-                      </span>
-                    ) : null}
-                    {bookmarked && (
-                      <Bookmark className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
-                    )}
-                  </div>
-                  <h4
-                    className={`text-xs font-medium line-clamp-2 leading-snug ${
-                      active
-                        ? 'text-blue-950 dark:text-blue-100 font-semibold'
-                        : 'text-academic-700 dark:text-academic-300'
-                    }`}
-                  >
-                    {q.shortTitle || q.title}
-                  </h4>
-                </div>
-              </div>
-            </React.Fragment>
-          );
-        })}
-      </div>
-    </aside>
+        {/* Questions List Grouped by Syllabus Topic Accordions */}
+        <div className="overflow-y-auto flex-1 pt-1 space-y-1 pr-1">
+          {topicGroups.length > 0 ? (
+            topicGroups.map((group) => renderTopicGroup(group, false))
+          ) : (
+            <div className="py-8 text-center text-academic-400 text-xs">
+              No questions match your filter.
+            </div>
+          )}
+        </div>
+      </aside>
 
     {/* Main Reading Area (Digital Notebook / Textbook Design) */}
     <main className="flex-1 min-w-0 bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 shadow-sm overflow-hidden p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 w-full">
@@ -504,8 +642,13 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
             </span>
             {currentQuestion.topicCategory && (
               <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1 shadow-xs">
-                <Bookmark className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                <Layers className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>{currentQuestion.topicCategory}</span>
+              </span>
+            )}
+            {currentQuestion.subtopic && (
+              <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 shadow-xs">
+                {currentQuestion.subtopic}
               </span>
             )}
               <MarksBadge marks={currentQuestion.marks} />
@@ -571,11 +714,13 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
               <div className="space-y-0.5">
                 <span className="font-bold text-blue-900 dark:text-blue-200">Asked in University Examinations:</span>
                 <div className="font-mono text-blue-800 dark:text-blue-300 flex flex-wrap gap-x-3 gap-y-1 mt-1">
-                  {currentQuestion.papersAsked.map((p, idx) => (
-                    <span key={idx} className="bg-white/80 dark:bg-blue-900/40 px-2 py-0.5 rounded border border-blue-200 dark:border-blue-800">
-                      <strong>{p.paper}</strong>: {p.questionNo} {p.notes ? `(${p.notes})` : ''}
-                    </span>
-                  ))}
+                  {[...currentQuestion.papersAsked]
+                    .sort((a, b) => getPaperRecencyScore(b.paper) - getPaperRecencyScore(a.paper))
+                    .map((p, idx) => (
+                      <span key={idx} className="bg-white/80 dark:bg-blue-900/40 px-2 py-0.5 rounded border border-blue-200 dark:border-blue-800">
+                        <strong>{p.paper}</strong>: {p.questionNo} {p.notes ? `(${p.notes})` : ''}
+                      </span>
+                    ))}
                 </div>
               </div>
             </div>
@@ -784,7 +929,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
         <div className="pt-8 border-t border-academic-200 dark:border-academic-800 flex items-center justify-between gap-4">
           <button
             onClick={handlePrev}
-            disabled={currentQuestionIndex === 0}
+            disabled={currentOrderedIndex <= 0}
             className="px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold border border-academic-200 dark:border-academic-700 text-academic-700 dark:text-academic-300 hover:bg-academic-50 dark:hover:bg-academic-800 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -807,7 +952,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
 
           <button
             onClick={handleNext}
-            disabled={currentQuestionIndex === unit.questions.length - 1}
+            disabled={currentOrderedIndex === -1 || currentOrderedIndex >= orderedQuestions.length - 1}
             className="px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold bg-academic-900 dark:bg-white text-white dark:text-academic-900 hover:bg-academic-800 dark:hover:bg-academic-100 disabled:opacity-40 disabled:cursor-not-allowed transition-colors flex items-center gap-2 shadow-sm"
           >
             <span className="hidden sm:inline">Next Question</span>

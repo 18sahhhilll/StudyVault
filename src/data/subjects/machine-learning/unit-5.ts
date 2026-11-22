@@ -72,6 +72,7 @@ export const unit5Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q5(b)', marks: 6 }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
+      subtopic: 'K-Means Algorithm',
       syllabusTopics: ['K-Means Clustering', 'Centroids', 'WCSS / SSE', 'Partitioning'],
       definition: 'K-Means is an unsupervised, iterative, centroid-based partitioning clustering algorithm that divides N observations into K disjoint clusters, where each instance belongs to the cluster with the nearest mean centroid.',
       sections: [
@@ -161,6 +162,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q5(c)', marks: 6 }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
+      subtopic: 'K-Means 9-Point Numerical',
       syllabusTopics: ['K-Means Numerical', 'Euclidean Distance', 'Centroid Update'],
       definition: 'Complete two-iteration execution of K-Means on 9 2D points with K = 3, verifying distance calculations, cluster memberships, and final convergence.',
       sections: [
@@ -263,6 +265,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q6(b)(i)', marks: 4 }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
+      subtopic: 'Cluster Optimization',
       syllabusTopics: ['Cluster Optimization', 'WCSS Minimization', 'Cohesion and Separation'],
       definition: 'Cluster optimization is the mathematical formulation of clustering as an objective minimization task aimed at simultaneously maximizing intra-cluster compactness (cohesion) and maximizing inter-cluster separation.',
       sections: [
@@ -317,6 +320,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q6(b)(ii)', marks: 4 }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
+      subtopic: 'K-Medoids (PAM) Algorithm',
       syllabusTopics: ['K-Medoids', 'PAM Algorithm', 'Robustness to Outliers'],
       definition: 'K-Medoids (Partitioning Around Medoids - PAM) is a robust partitioning clustering algorithm where each cluster is represented by an actual observed data point (medoid) rather than an artificial arithmetic mean.',
       sections: [
@@ -397,6 +401,7 @@ export const unit5Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q5(c)', notes: '(i) Agglomerative, (ii) Dendrogram' }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
+      subtopic: 'Hierarchical Clustering',
       syllabusTopics: ['Hierarchical Clustering', 'Agglomerative', 'Divisive', 'Dendrogram', 'Linkage'],
       definition: 'Hierarchical clustering constructs a multi-level nested hierarchy of clusters represented as a tree diagram called a dendrogram, eliminating the requirement to specify cluster count K in advance.',
       sections: [
@@ -501,6 +506,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q5(b)', marks: 6 }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
+      subtopic: 'Hierarchical vs K-Means',
       syllabusTopics: ['Hierarchical vs K-Means', 'Complexity', 'Determinism', 'Cluster Geometry'],
       definition: 'A comprehensive comparative analysis contrasting tree-based hierarchical clustering against centroid-based partitioning K-Means across complexity, assumptions, and performance.',
       sections: [
@@ -572,6 +578,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q6(c)(ii)', marks: 4 }
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
+      subtopic: 'DBSCAN Core Points & Clustering',
       syllabusTopics: ['DBSCAN', 'Core Point', 'Border Point', 'Noise Point', 'Density Reachability'],
       definition: 'DBSCAN (Density-Based Spatial Clustering of Applications with Noise) groups contiguous high-density regions separated by low-density regions, discovering arbitrary shapes and explicitly isolating noise.',
       sections: [
@@ -650,6 +657,7 @@ export const unit5Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q5(a)', marks: 6 }
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
+      subtopic: 'DBSCAN vs OPTICS vs DENCLUE',
       syllabusTopics: ['DBSCAN', 'OPTICS', 'DENCLUE', 'Reachability Plot', 'Kernel Density'],
       definition: 'A comprehensive technical comparison of the three major density-based clustering paradigms: region-growing DBSCAN, hierarchical reachability-ordering OPTICS, and kernel density attractor DENCLUE.',
       sections: [
@@ -737,6 +745,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q5(c)', marks: 6 }
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
+      subtopic: 'Spectral Clustering & Graph Laplacian',
       syllabusTopics: ['Spectral Clustering', 'Affinity Matrix', 'Graph Laplacian', 'Eigenvectors'],
       definition: 'Spectral clustering is a graph-theoretic clustering technique that uses the spectrum (eigenvalues and eigenvectors) of the graph Laplacian derived from a data similarity matrix to project data into a low-dimensional manifold before clustering via K-Means.',
       sections: [
@@ -818,6 +827,7 @@ export const unit5Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q6(b)', marks: 6 }
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
+      subtopic: 'Graph-Based MST Clustering',
       syllabusTopics: ['Graph-Based Clustering', 'Minimum Spanning Tree', 'Connected Components'],
       definition: 'Graph-based clustering models data as a weighted graph of nodes (points) and edges (similarity/distance), partitioning the graph into disconnected components by severing long or low-similarity edges.',
       sections: [
@@ -867,6 +877,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q6(c)', marks: 6 }
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
+      subtopic: 'K-Means vs Spectral Comparison',
       syllabusTopics: ['K-Means vs Spectral', 'Non-Convex Clusters', 'Computational Cost'],
       definition: 'A direct technical comparison highlighting the divide between centroid-distance partitioning in original feature space (K-Means) and graph Laplacian spectral projection (Spectral Clustering).',
       sections: [
@@ -929,6 +940,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q5(b)', marks: 6 }
       ],
       topicCategory: 'Outlier Analysis',
+      subtopic: 'Outlier Analysis Principles',
       syllabusTopics: ['Outlier Analysis', 'Anomaly Detection', 'Fraud Detection', 'Data Quality'],
       definition: 'Outlier analysis is the process of detecting and evaluating data objects that deviate drastically from typical patterns, indicating either data collection errors or rare, high-value real-world events.',
       sections: [
@@ -1012,6 +1024,7 @@ export const unit5Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q6(a)', marks: 6 }
       ],
       topicCategory: 'Outlier Analysis',
+      subtopic: 'Local Outlier Factor (LOF)',
       syllabusTopics: ['Local Outlier Factor', 'Density-based Outlier', 'Reachability Distance', 'LRD'],
       definition: 'Local Outlier Factor (LOF) is an unsupervised density-based algorithm that measures the local anomaly of a point by comparing its local reachability density against the densities of its k-nearest neighbours.',
       sections: [
@@ -1100,6 +1113,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q6(a)', marks: 6 }
       ],
       topicCategory: 'Outlier Analysis',
+      subtopic: 'Isolation Forest Model',
       syllabusTopics: ['Isolation Forest', 'Isolation Tree', 'Path Length', 'Anomaly Score'],
       definition: 'Isolation Forest (iForest) is an unsupervised anomaly detection algorithm that isolates outliers by constructing random partitioning trees, exploiting the fact that anomalies are "few and different" and thus require fewer splits to isolate.',
       sections: [
@@ -1194,6 +1208,7 @@ export const unit5Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q6(c)(i)', marks: 4 }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
+      subtopic: 'The Elbow Method (WCSS)',
       syllabusTopics: ['Elbow Method', 'Optimal K', 'WCSS', 'Distortion'],
       definition: 'The Elbow Method is a heuristic visual diagnostic used to determine the optimal cluster count K in K-Means by plotting the Within-Cluster Sum of Squares (WCSS / SSE) against K and locating the "elbow" bend where marginal reduction in error diminishes sharply.',
       sections: [
@@ -1260,6 +1275,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q6(a)', marks: 4 }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
+      subtopic: 'Choosing Optimal K in PAM',
       syllabusTopics: ['K-Medoids K Selection', 'Medoid Cost', 'Silhouette Method'],
       definition: 'Techniques for determining the optimal number of clusters K in K-Medoids (PAM) based on total medoid dissimilarity cost curves, silhouette width maximization, and domain constraints.',
       sections: [
@@ -1300,6 +1316,7 @@ export const unit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q6(b)(iii)', marks: 6 }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
+      subtopic: 'Clustering Metrics Suite',
       syllabusTopics: ['Clustering Metrics', 'Silhouette Score', 'Davies-Bouldin', 'Rand Index', 'ARI'],
       definition: 'Because clustering is unsupervised and operates without ground-truth labels, evaluation relies on intrinsic metrics assessing cluster geometry and extrinsic metrics benchmarking against reference labels.',
       sections: [
@@ -1376,6 +1393,7 @@ export const unit5Data: Unit = {
         { paper: 'In-Sem Exam', questionNo: 'Q6(c)(ii)', marks: 4 }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
+      subtopic: 'Intrinsic vs Extrinsic Evaluation',
       syllabusTopics: ['Intrinsic Evaluation', 'Extrinsic Evaluation', 'Ground Truth', 'Validation'],
       definition: 'Intrinsic methods evaluate clustering quality internally through geometric cohesion and separation without reference labels; Extrinsic methods evaluate clustering externally by measuring agreement against known ground-truth benchmark classifications.',
       sections: [
@@ -1439,6 +1457,7 @@ export const unit5Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q6(c)', marks: 6 }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
+      subtopic: 'Micro Metrics & Customer Segmentation Exemplar',
       syllabusTopics: ['Micro-Average', 'Macro-Average', 'Multiclass Evaluation'],
       definition: 'Micro-averaging aggregates individual true positives, false positives, and false negatives globally across all classes to compute a single pooled metric, giving equal weight to every individual sample.',
       sections: [

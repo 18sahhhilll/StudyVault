@@ -134,6 +134,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Appears in almost every exam set under Q7 or Q8; foundational for multithreaded algorithms.',
       topicCategory: 'Multithreaded Algorithms',
+      subtopic: 'Dynamic Multithreading DAG Model',
       syllabusTopics: [
         'Dynamic Multithreading Principles',
         'Linguistic Primitives: spawn and sync',
@@ -251,6 +252,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Deep theoretical derivation question for high scoring marks in Q7 or Q8.',
       topicCategory: 'Multithreaded Algorithms',
+      subtopic: 'Performance Measures (Work & Span)',
       syllabusTopics: [
         'P-Merge Partition Size Proof',
         'P-Merge Span Recurrence',
@@ -330,6 +332,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Top-frequency question for Unit VI appearing in 4 question papers.',
       topicCategory: 'Multithreaded Algorithms',
+      subtopic: 'Analyzing Multithreaded Algorithms (Brent\'s Theorem)',
       syllabusTopics: [
         'Naive Parallel Merge Sort',
         'The Serial Merge Bottleneck',
@@ -453,6 +456,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Directly asked in Paper 4 Q8(b) for rectangular matrices and Paper 1 Q8(a) as a core short note.',
       topicCategory: 'Multithreaded Algorithms',
+      subtopic: 'Parallel Loops & Desugaring',
       syllabusTopics: [
         'Conventional Matrix Multiplication',
         'Block Divide-and-Conquer Decomposition',
@@ -593,6 +597,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Directly asked in Paper 4 Q7(b) for 8 marks.',
       topicCategory: 'Multithreaded Algorithms',
+      subtopic: 'Race Conditions & Determinacy',
       syllabusTopics: [
         'Speedup and Efficiency Definitions',
         'Throughput, Latency, and Contention',
@@ -680,6 +685,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'The standard theoretical question for proving algorithmic scalability bounds.',
       topicCategory: 'Problem Solving using Multithreaded Algorithms',
+      subtopic: 'Multithreaded Matrix Multiplication',
       syllabusTopics: [
         'Greedy Scheduler Definition',
         'Complete vs Incomplete Steps',
@@ -748,6 +754,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Commonly asked alongside race conditions and DAG models in multithreaded algorithm analysis.',
       topicCategory: 'Problem Solving using Multithreaded Algorithms',
+      subtopic: 'Multithreaded Merge Sort',
       syllabusTopics: [
         'parallel for Syntax and Semantics',
         'Flat Spawn Loop Overhead',
@@ -829,6 +836,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Regularly paired with multithreaded loop analysis in question 8(b) or 7(b).',
       topicCategory: 'Problem Solving using Multithreaded Algorithms',
+      subtopic: 'P-Merge Span Analysis',
       syllabusTopics: [
         'Determinacy Races Definition',
         'DAG Formalization of Concurrent Access',
@@ -931,6 +939,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Foundational theory for Distributed BFS and Distributed MST questions.',
       topicCategory: 'Distributed Algorithms',
+      subtopic: 'Distributed Systems Fundamentals',
       syllabusTopics: [
         'Distributed System Architecture',
         'Synchronous vs Asynchronous Communication',
@@ -1028,6 +1037,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'High-frequency 10-mark question featured in Papers 1, 2, and 4.',
       topicCategory: 'Distributed Algorithms',
+      subtopic: 'Distributed Breadth-First Search (BFS)',
       syllabusTopics: [
         'Distributed BFS Problem Formulation',
         'Synchronous Wavefront Layering',
@@ -1123,6 +1133,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Exact numerical/trace question featured in Paper 2 Q8(a) and Paper 4 Q8(a).',
       topicCategory: 'Distributed Algorithms',
+      subtopic: 'Distributed BFS Network Trace',
       syllabusTopics: [
         '7-Vertex Graph Topology',
         'Round-by-Round Message Exchanges',
@@ -1281,6 +1292,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Directly asked in Paper 1 Q7(b)(i) and Paper 3 Q7(a)(i) for 8 marks.',
       topicCategory: 'Distributed Algorithms',
+      subtopic: 'Distributed Minimum Spanning Tree (GHS)',
       syllabusTopics: [
         'Distributed MST Problem Definition',
         'The Cut Property in Distributed Graphs',
@@ -1377,6 +1389,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Rigorous complexity derivation question for GHS distributed MST.',
       topicCategory: 'Distributed Algorithms',
+      subtopic: 'GHS Message Types & Complexity',
       syllabusTopics: [
         'The 7 GHS Message Types',
         'The 4 Operational Phases',
@@ -1471,6 +1484,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Standard string matching baseline algorithm tested in university exams.',
       topicCategory: 'String Matching Algorithms',
+      subtopic: 'The Naive String Matching Algorithm',
       syllabusTopics: [
         'String Matching Formalism',
         'Naive Sliding Window Algorithm',
@@ -1594,6 +1608,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Crucial conceptual question asked across Papers 2, 3, and 4.',
       topicCategory: 'String Matching Algorithms',
+      subtopic: 'The Rabin-Karp Algorithm',
       syllabusTopics: [
         'Spurious Hit Formal Definition',
         'Pigeonhole Principle and Hash Collisions',
@@ -1672,6 +1687,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Exact numerical problem asked in Paper 3 Q8(b) for 8 marks.',
       topicCategory: 'String Matching Algorithms',
+      subtopic: 'Rabin-Karp Spurious Hits Analysis',
       syllabusTopics: [
         'Rabin-Karp Numerical Execution',
         'Horner’s Hash for P = 26 mod 11',
@@ -1800,6 +1816,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Foundational deterministic automaton approach to exact string matching.',
       topicCategory: 'String Matching Algorithms',
+      subtopic: 'Solved Numerical: Rabin-Karp Trace',
       syllabusTopics: [
         'DFA Formal Definition (Q, q_0, A, Sigma, delta)',
         'Suffix Function sigma Definition',
@@ -1892,6 +1909,7 @@ export const daaUnit6Data: Unit = {
       ],
       frequencyNote: 'Appears in every single previous year question paper; essential 10-mark topic.',
       topicCategory: 'String Matching Algorithms',
+      subtopic: 'String Matching with Finite Automata',
       syllabusTopics: [
         'Radix-d Integer Representation',
         'Horner’s Rule for Hash Computation',
@@ -1989,6 +2007,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Advanced string matching algorithm testing amortized analysis on text scans.',
       topicCategory: 'String Matching Algorithms',
+      subtopic: 'The Knuth-Morris-Pratt (KMP) Algorithm',
       syllabusTopics: [
         'KMP Core Insight (No Backtracking)',
         'Prefix Function pi Definition',
@@ -2077,6 +2096,7 @@ export const daaUnit6Data: Unit = {
       papersAsked: [],
       frequencyNote: 'Comprehensive summary question summarizing the entire string matching unit.',
       topicCategory: 'Comparative Evaluation & Exemplar',
+      subtopic: 'Comparative Evaluation & Plagiarism Detection Exemplar',
       syllabusTopics: [
         '5-Algorithm Comparison Matrix',
         'Preprocessing vs Matching Trade-offs',

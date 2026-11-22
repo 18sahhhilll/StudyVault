@@ -80,6 +80,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q7(a)', marks: 6 }
       ],
       topicCategory: 'Foundations of Artificial Neural Networks',
+      subtopic: 'Single Layer ANN & Perceptron',
       syllabusTopics: ['ANN Elements', 'Biological vs Artificial Neuron', 'Perceptron Learning Rule', 'XOR Problem'],
       definition: 'An Artificial Neural Network (ANN) is an interconnected computational architecture modeled after biological neurobiology. It consists of artificial neurons that compute weighted sums of inputs, incorporate an offset bias, and generate outputs via activation functions.',
       sections: [
@@ -174,6 +175,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q7(a)', marks: 6 }
       ],
       topicCategory: 'Foundations of Artificial Neural Networks',
+      subtopic: 'Activation Functions',
       syllabusTopics: ['Activation Functions', 'Sigmoid', 'Tanh', 'ReLU', 'Non-Linearity'],
       definition: 'An activation function (also called a transfer function) is a mathematical operation applied to the net weighted sum of inputs at a neuron: v = Σ (w_i * x_i) + b => y = f(v). It determines whether and to what magnitude a neuron should fire an active signal to subsequent downstream layers.',
       sections: [
@@ -264,6 +266,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q7(c)', marks: 6 }
       ],
       topicCategory: 'Multilayer & Specialized Neural Networks',
+      subtopic: 'Multilayer Perceptron (MLP)',
       syllabusTopics: ['MLP Architecture', 'Hidden Layers', 'Credit Assignment Problem', 'Calculus Chain Rule'],
       definition: 'A Multilayer Perceptron (MLP) is a feedforward artificial neural network consisting of at least three layers: an input layer, one or more intermediate hidden layers with non-linear activation functions, and an output layer. Units are typically fully connected in a feedforward direction.',
       sections: [
@@ -320,6 +323,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q8(a)', marks: 8 }
       ],
       topicCategory: 'Multilayer & Specialized Neural Networks',
+      subtopic: 'Backpropagation Algorithm',
       syllabusTopics: ['Backpropagation Algorithm', 'Forward Pass', 'Backward Pass', 'Delta Rule', 'Local Minima', 'Momentum'],
       definition: 'The Backpropagation algorithm (Rumelhart, Hinton, Williams, 1986) is a supervised learning method for training artificial neural networks. It optimizes synaptic weights using gradient descent on the squared error cost function: E = 1/2 * Σ (t_k - y_k)^2.',
       sections: [
@@ -395,6 +399,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q7(b)', marks: 8 }
       ],
       topicCategory: 'Multilayer & Specialized Neural Networks',
+      subtopic: 'Radial Basis Function (RBF)',
       syllabusTopics: ['RBF Networks', 'Gaussian Basis Functions', 'Euclidean Distance', 'Two-Stage Training', 'RBF vs MLP'],
       definition: 'A Radial Basis Function (RBF) Network is a specialized feedforward artificial neural network that uses radially symmetric basis functions (typically Gaussian curves) as activation functions in its single hidden layer. It is widely used for function approximation, time-series prediction, and classification.',
       sections: [
@@ -485,6 +490,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q8(a)', marks: 6 }
       ],
       topicCategory: 'Multilayer & Specialized Neural Networks',
+      subtopic: 'Functional Link ANN (FLANN)',
       syllabusTopics: ['FLANN Architecture', 'Functional Expansion Φ(X)', 'Merits over Multilayer ANNs', 'FFN vs BPN'],
       definition: 'A Functional Link Artificial Neural Network (FLANN) is a single-layer feedforward neural network that eliminates hidden layers entirely while retaining the ability to solve non-linear classification and regression problems by passing inputs through an initial non-linear Functional Expansion Block.',
       sections: [
@@ -572,6 +578,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q7(b)', marks: 6 }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
+      subtopic: 'Recurrent Neural Networks (RNN)',
       syllabusTopics: ['RNN Concept', 'Feedback Loops', 'Hidden State Update', 'Time-Unfolding', 'Sequential Types'],
       definition: 'A Recurrent Neural Network (RNN) is a specialized class of artificial neural networks designed for processing sequential, time-series, and natural language data. Unlike standard feedforward networks where all inputs are assumed independent, an RNN incorporates recurrent feedback loops that act as an internal memory, allowing information from prior time-steps to persist.',
       sections: [
@@ -641,6 +648,7 @@ export const unit6Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q7(c)', marks: 6 }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
+      subtopic: 'RNN Limitations & LSTMs',
       syllabusTopics: ['RNN Applications', 'Vanishing & Exploding Gradients', 'BPTT', 'LSTM & GRU Gating'],
       definition: 'While Recurrent Neural Networks provide foundational capabilities for sequential pattern modeling, their practical deployment in long-horizon tasks is constrained by fundamental gradient decay dynamics during Backpropagation Through Time (BPTT).',
       sections: [
@@ -696,6 +704,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q8(c)', marks: 6 }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
+      subtopic: 'Convolutional Neural Networks (CNN)',
       syllabusTopics: ['CNN Architecture', 'Convolution Layer', 'Kernel Filters', 'Weight Sharing', 'ReLU', 'Max Pooling', 'Fully Connected Layer'],
       definition: 'A Convolutional Neural Network (CNN or ConvNet) is a specialized deep feedforward learning architecture engineered specifically to process multi-dimensional grid-structured data such as 2D images. Rather than connecting every pixel to every neuron, CNNs exploit local spatial correlations using parameter sharing and local receptive fields.',
       sections: [
@@ -759,6 +768,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q7(b)', marks: 6 }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
+      subtopic: 'CNN vs RNN Comparison',
       syllabusTopics: ['CNN vs RNN', 'Spatial vs Temporal', 'Data Dimensions', 'Recurrent Loops vs Feedforward'],
       definition: 'Convolutional Neural Networks (CNN) and Recurrent Neural Networks (RNN) represent the two premier deep learning architectures. CNNs excel at extracting spatial hierarchies from grid data, while RNNs specialize in capturing temporal patterns across sequential time-series data.',
       sections: [
@@ -834,6 +844,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q8(b)', marks: 6 }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
+      subtopic: 'Padding in CNN',
       syllabusTopics: ['Convolution Padding', 'Feature Map Shrinkage', 'Border Information Loss', 'Valid Padding', 'Same Padding', 'Full Padding'],
       definition: 'Padding refers to the process of surrounding the outer borders of an input image matrix with artificial pixels (typically zeros) prior to applying convolution filters, controlling the spatial size of output feature maps.',
       sections: [
@@ -965,6 +976,7 @@ export const unit6Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q8(b)', marks: 6 }
       ],
       topicCategory: 'Exemplar Case Study',
+      subtopic: 'Movie Recommendation System Exemplar',
       syllabusTopics: ['Recommendation Systems', 'Content-Based Filtering', 'Collaborative Filtering', 'Cosine Similarity', 'Cold-Start', 'Serendipity'],
       definition: 'A Recommendation System is an information filtering algorithm that models user preferences, history, and item attributes to predict ratings or suggest items that a user is likely to consume (e.g. movies on Netflix, songs on Spotify, products on Amazon).',
       sections: [
