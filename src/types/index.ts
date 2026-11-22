@@ -115,6 +115,7 @@ export interface Question {
   occurrenceCount: number;
   papersAsked: PaperAppearance[];
   frequencyNote?: string;
+  topicCategory?: string; // Syllabus topic group (e.g. "Greedy Strategy", "Dynamic Programming")
   syllabusTopics: string[];
 
   // Answer Structure

@@ -6,21 +6,16 @@ export const daaUnit5Data: Unit = {
   title: 'Amortized Analysis, Computational Complexity and Approximation Algorithms',
   shortTitle: 'Amortized, Complexity & Approximation',
   description: 'Comprehensive study of Amortized Analysis (Aggregate, Accounting/Credit, and Potential Function methods for Stack operations and Binary Counters), Time-Space Tradeoffs, Computational Complexity Classes (P, NP, NP-Complete, NP-Hard, Cook’s Theorem), Randomized Algorithms (Las Vegas vs Monte Carlo, Randomized QuickSort), Approximation Algorithms (Approximation Ratio, Metric TSP 2-Approximation), and Embedded Systems Algorithms (Real-time task scheduling, in-place adaptive sorting for vital signs sensor streams).',
-  syllabus: [
-    'Amortized Analysis Fundamentals: Definition, Average-Case vs Amortized, Guarantees over Worst-Case Sequences',
-    'Aggregate Analysis: Total Sequence Cost T(n), Stack MULTIPOP O(1) Bound, k-bit Binary Counter Increment',
-    'Accounting (Credit) Method: Amortized Charge Assignment, Credit Deposit and Consumption, Stack and Counter Analysis',
-    'Potential Function Method: Potential Energy Φ(D), Amortized Cost c^ = c + ΔΦ, Proof of Non-Negative Potential',
-    'Time-Space Tradeoff: Principles, Input Enhancement, Prestructuring (Indexing, Hashing, B-trees), Dynamic Programming Tables',
-    'Introduction to Tractable and Intractable Problems: Solvability in Polynomial Time vs Exponential Hardness',
-    'Complexity Classes: Formal Definitions of P, NP, NP-Complete, and NP-Hard, Reducibility, Cook-Levin Theorem',
-    'Critical Problem Analyses: 0/1 Knapsack (NP-hard), Boolean SAT (NP-complete), Minimum Spanning Tree (Tractable)',
-    'Randomized Algorithms: Principles, Random Variables, Binomial Distributions, Las Vegas vs Monte Carlo Paradigms',
-    'Randomized QuickSort: RANDOMIZED-PARTITION, Worst-Case Avoidance, Expected O(n log n) Complexity Derivation',
-    'Approximation Algorithms: Philosophy for NP-Hard Problems, Accuracy Ratio r(s_a), Performance Ratio R_A, Classification',
-    'Approximation for Traveling Salesperson Problem (TSP): Nearest-Neighbor Heuristic, Twice-Around-the-Tree 2-Approximation',
-    'Embedded Systems Algorithms: Architectural Constraints (ROM, RAM, Microcontroller), Task Scheduling (Fixed vs Dynamic Priority)',
-    'Embedded Systems Case Study: Sorting Real-Time Sensor Stream (Patient Vital Signs) — In-Depth Justification for Insertion Sort'
+      syllabus: [
+    'Amortized Analysis: Aggregate Analysis, Accounting Method, Potential Function Method',
+    'Amortized Analysis Case Studies: Binary Counter Increment and Stack Operations (MULTIPOP)',
+    'Time-Space Tradeoff: Lookup Precomputation, Memory Footprint vs CPU Runtime',
+    'Introduction to Tractable and Non-Tractable Problems: P, NP, NP-Complete, and NP-Hard Classes',
+    'Cook\'s Theorem: Boolean Satisfiability (SAT) and Polynomial-Time Reductions',
+    'Introduction to Randomized Algorithms: Las Vegas vs Monte Carlo Paradigms',
+    'Introduction to Approximation Algorithms: Approximation Ratios, PTAS, FPTAS, TSP Approximation',
+    'Embedded Algorithms: Real-Time Constraints, Power-Optimized Scheduling, Sorting in Embedded Systems',
+    '#Exemplar / Case Studies: Cutting stock problem'
   ],
   questionPaperIndex: [
     { paper: 'April 2026 ([6627]-81)', qMain: 'Q5(a) Aggregate, Accounting, Potential & Tractability (10M), Q5(b) Randomized & Approximation Algorithms (8M)', qOr: 'Q6(a) Amortized Stack Analysis (9M), Q6(b) Potential Method Stack Operations (9M)' },
@@ -128,7 +123,6 @@ export const daaUnit5Data: Unit = {
     ]
   },
   questions: [
-    // Q1
     {
       id: 'daa-u5-q1',
       unitId: 'unit-5',
@@ -148,6 +142,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q6(a)', marks: 10 }
       ],
       frequencyNote: 'The primary foundational theory question for Unit V appearing in all university papers.',
+      topicCategory: 'Amortized Analysis',
       syllabusTopics: [
         'Amortized Analysis Fundamentals',
         'Why Amortized Analysis is Needed',
@@ -222,7 +217,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Amortized analysis provides realistic, tight complexity bounds for data structures by recognizing that expensive operations must be preceded by sufficiently many cheap operations.'
     },
 
-    // Q2
+    // Q2,
+
     {
       id: 'daa-u5-q2',
       unitId: 'unit-5',
@@ -239,6 +235,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q5(a)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 1 Q5(a) [9 Marks] and Paper 3 Q5(a) [9 Marks].',
+      topicCategory: 'Amortized Analysis',
       syllabusTopics: [
         'Aggregate Analysis for Stack Operations',
         'Algorithm MULTIPOP(S, k)',
@@ -309,7 +306,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Aggregate analysis establishes a tight O(1) amortized bound for stack operations by demonstrating that the aggregate work is bounded by the total number of items inserted.'
     },
 
-    // Q3
+    // Q3,
+
     {
       id: 'daa-u5-q3',
       unitId: 'unit-5',
@@ -322,6 +320,7 @@ export const daaUnit5Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Standard examination question requiring clear credit assignment tables and invariant proofs.',
+      topicCategory: 'Amortized Analysis',
       syllabusTopics: [
         'Accounting Method Mechanism',
         'Amortized Charge Assignment',
@@ -399,7 +398,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'The accounting method provides an intuitive financial model where insertion operations prepay for future deletions, ensuring all operations remain amortized O(1).'
     },
 
-    // Q4
+    // Q4,
+
     {
       id: 'daa-u5-q4',
       unitId: 'unit-5',
@@ -416,6 +416,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q5(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 1 Q5(b) [9 Marks] and Paper 3 Q5(b) [9 Marks].',
+      topicCategory: 'Amortized Analysis',
       syllabusTopics: [
         'Potential Function Definition Φ(D)',
         'Amortized Cost Formula c^ = c + ΔΦ',
@@ -514,7 +515,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'The potential function method provides an elegant, rigorous proof that stack operations are O(1) amortized, absorbing sudden MULTIPOP spikes through stored potential discharge.'
     },
 
-    // Q5
+    // Q5,
+
     {
       id: 'daa-u5-q5',
       unitId: 'unit-5',
@@ -531,6 +533,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q6(a)', marks: 8 }
       ],
       frequencyNote: 'Directly related to Paper 4 Q6(a) and standard textbook curriculum.',
+      topicCategory: 'Amortized Analysis',
       syllabusTopics: [
         'k-bit Binary Counter Increment',
         'Aggregate Analysis for Binary Counter',
@@ -652,7 +655,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'All three amortized techniques independently confirm that incrementing a binary counter requires O(1) amortized time, proving that worst-case ripples are rare.'
     },
 
-    // Q6
+    // Q6,
+
     {
       id: 'daa-u5-q6',
       unitId: 'unit-5',
@@ -667,6 +671,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q5(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 4 Q5(a) [8 Marks] requiring comparison of amortized methods.',
+      topicCategory: 'Amortized Analysis',
       syllabusTopics: [
         'Average-Case vs Amortized Analysis',
         'Advantages and Disadvantages of Aggregate Analysis',
@@ -740,7 +745,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Selecting the appropriate amortized method depends on the complexity of the data structure, with Aggregate suited for simple counters and Potential Method suited for advanced structures.'
     },
 
-    // Q7
+    // Q7,
+
     {
       id: 'daa-u5-q7',
       unitId: 'unit-5',
@@ -753,6 +759,7 @@ export const daaUnit5Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Standard curriculum question on engineering trade-offs between memory footprint and execution speed.',
+      topicCategory: 'Time-Space Tradeoff',
       syllabusTopics: [
         'Time-Space Trade-off Concept',
         'Input Enhancement (String Matching, Counting Sort)',
@@ -806,7 +813,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Engineers balance time and space based on system constraints: memory-constrained embedded systems favor space efficiency, while high-throughput cloud servers favor time efficiency.'
     },
 
-    // Q8
+    // Q8,
+
     {
       id: 'daa-u5-q8',
       unitId: 'unit-5',
@@ -822,6 +830,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'April 2025', questionNo: 'Q5(b)', marks: 7 }
       ],
       frequencyNote: 'Major recurring 8-10 mark question on computational complexity theory.',
+      topicCategory: 'Tractable and Non-Tractable Problems',
       syllabusTopics: [
         'Tractable vs Intractable Problems',
         'Definition of Class P and NP',
@@ -918,7 +927,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'The classification into P, NP, NP-Complete, and NP-Hard categorizes computational difficulty and guides whether exact, approximation, or heuristic methods should be applied.'
     },
 
-    // Q9
+    // Q9,
+
     {
       id: 'daa-u5-q9',
       unitId: 'unit-5',
@@ -934,6 +944,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q6(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 4 Q6(b) [9 Marks] requiring in-depth technical justification for all three statements.',
+      topicCategory: 'Tractable and Non-Tractable Problems',
       syllabusTopics: [
         '0/1 Knapsack NP-Hard Classification',
         'Boolean SAT NP-Complete Classification',
@@ -989,7 +1000,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'All three statements are rigorously true and reflect the distinct tiers of computational complexity: tractable polynomial algorithms (MST), boundary decision problems (SAT), and pseudo-polynomial optimization problems (Knapsack).'
     },
 
-    // Q10
+    // Q10,
+
     {
       id: 'daa-u5-q10',
       unitId: 'unit-5',
@@ -1002,6 +1014,7 @@ export const daaUnit5Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Fundamental theoretical question on how the NP-completeness proof chain is initiated and propagated.',
+      topicCategory: 'Tractable and Non-Tractable Problems',
       syllabusTopics: [
         'Cook’s Theorem Significance',
         'Boolean Satisfiability (SAT and 3-SAT)',
@@ -1056,7 +1069,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Cook’s Theorem transformed algorithm design by establishing polynomial reductions as the universal tool to demonstrate intractability in computer science.'
     },
 
-    // Q11
+    // Q11,
+
     {
       id: 'daa-u5-q11',
       unitId: 'unit-5',
@@ -1076,6 +1090,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q6(b)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 3 Q6(c) [8 Marks] specifically demanding the mathematical formulation.',
+      topicCategory: 'Randomized Algorithms',
       syllabusTopics: [
         'Randomized Algorithms Principles',
         'Random Variables & Probability Distributions',
@@ -1133,7 +1148,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Randomization introduces probabilistic guarantees that simplify algorithm design while delivering high expected performance across all input instances.'
     },
 
-    // Q12
+    // Q12,
+
     {
       id: 'daa-u5-q12',
       unitId: 'unit-5',
@@ -1146,6 +1162,7 @@ export const daaUnit5Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Directly asked across multiple papers as the core classification question for randomized algorithms.',
+      topicCategory: 'Randomized Algorithms',
       syllabusTopics: [
         'Las Vegas vs Monte Carlo Classification',
         'Correctness Guarantees vs Time Guarantees',
@@ -1222,7 +1239,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Las Vegas algorithms are preferred when absolute correctness is mandatory, while Monte Carlo algorithms are deployed when rapid bounded-time answers are needed for hard decision problems.'
     },
 
-    // Q13
+    // Q13,
+
     {
       id: 'daa-u5-q13',
       unitId: 'unit-5',
@@ -1238,6 +1256,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'April 2025', questionNo: 'Q5(c)', marks: 4 }
       ],
       frequencyNote: 'The canonical Las Vegas algorithm example required in DAA exams.',
+      topicCategory: 'Randomized Algorithms',
       syllabusTopics: [
         'Randomized QuickSort',
         'Algorithm RANDOMIZED-PARTITION(A, p, r)',
@@ -1336,7 +1355,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Randomized QuickSort is an exemplary Las Vegas algorithm that achieves robust O(n log n) expected performance on all inputs by eliminating deterministic vulnerabilities.'
     },
 
-    // Q14
+    // Q14,
+
     {
       id: 'daa-u5-q14',
       unitId: 'unit-5',
@@ -1349,6 +1369,7 @@ export const daaUnit5Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Standard curriculum applications demonstrating practical Las Vegas and Monte Carlo algorithms.',
+      topicCategory: 'Randomized Algorithms',
       syllabusTopics: [
         'Randomized Duplicate Element Detection',
         'Fermat Primality Testing',
@@ -1414,7 +1435,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Randomization transforms intractable search and number-theoretic verification into ultra-fast algorithms indispensable to modern cryptography.'
     },
 
-    // Q15
+    // Q15,
+
     {
       id: 'daa-u5-q15',
       unitId: 'unit-5',
@@ -1429,6 +1451,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'April 2025', questionNo: 'Q6(b)', marks: 7 }
       ],
       frequencyNote: 'Directly asked across all papers as the primary definition and metric question for approximation algorithms.',
+      topicCategory: 'Approximation Algorithms',
       syllabusTopics: [
         'Approximation Algorithms Philosophy',
         'Why Approximation is Needed for NP-Hard Problems',
@@ -1483,7 +1506,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Approximation algorithms provide the standard theoretical and practical framework for tackling intractable optimization problems in industrial computing.'
     },
 
-    // Q16
+    // Q16,
+
     {
       id: 'daa-u5-q16',
       unitId: 'unit-5',
@@ -1500,6 +1524,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q6(b)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q5(b) [9 Marks] and Paper 4 Q5(b) [9 Marks].',
+      topicCategory: 'Approximation Algorithms',
       syllabusTopics: [
         'Classification of Approximation Algorithms',
         'Constant-Factor Approximation Algorithms',
@@ -1567,7 +1592,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'The classification hierarchy reflects how closely an NP-hard problem can be approached, with FPTAS representing the pinnacle of approximation capability.'
     },
 
-    // Q17
+    // Q17,
+
     {
       id: 'daa-u5-q17',
       unitId: 'unit-5',
@@ -1580,6 +1606,7 @@ export const daaUnit5Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'The fundamental approximation algorithm design and proof required in university algorithms courses.',
+      topicCategory: 'Approximation Algorithms',
       syllabusTopics: [
         'Nearest Neighbor Heuristic for TSP',
         'Metric TSP & Triangle Inequality',
@@ -1662,7 +1689,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'The Twice-Around-the-Tree algorithm exemplifies how structural graph properties (MST) and metric constraints (triangle inequality) combine to deliver guaranteed approximation bounds for NP-hard problems.'
     },
 
-    // Q18
+    // Q18,
+
     {
       id: 'daa-u5-q18',
       unitId: 'unit-5',
@@ -1675,6 +1703,7 @@ export const daaUnit5Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Directly solves the complete numerical example from the textbook (pages 5-20 to 5-22).',
+      topicCategory: 'Approximation Algorithms',
       syllabusTopics: [
         'Solved TSP Approximation Numerical',
         'Nearest Neighbor Trace and Accuracy Ratio',
@@ -1779,7 +1808,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'The numerical demonstrates that while Nearest Neighbor produces a usable tour with 1.167 ratio on this instance, Twice-Around-the-Tree guarantees that no matter how large the graph, cost will never exceed twice the optimum.'
     },
 
-    // Q19
+    // Q19,
+
     {
       id: 'daa-u5-q19',
       unitId: 'unit-5',
@@ -1794,6 +1824,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q6(a)', marks: 6 }
       ],
       frequencyNote: 'Directly asked as Paper 3 Q6(a) [6M] and foundational for Paper 2 Q6(b).',
+      topicCategory: 'Embedded Algorithms & Exemplar',
       syllabusTopics: [
         'Characteristics of Embedded Systems',
         'Embedded Hardware Constraints (ROM, RAM, Power)',
@@ -1883,7 +1914,8 @@ export const daaUnit5Data: Unit = {
       conclusion: 'Embedded algorithm design demands balancing algorithmic sophistication against execution predictability, memory footprint, and hard real-time latency bounds.'
     },
 
-    // Q20
+    // Q20,
+
     {
       id: 'daa-u5-q20',
       unitId: 'unit-5',
@@ -1898,6 +1930,7 @@ export const daaUnit5Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q6(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q6(b) [9 Marks] and Paper 3 Q6(a) [6 Marks] as an applied system design problem.',
+      topicCategory: 'Embedded Algorithms & Exemplar',
       syllabusTopics: [
         'Embedded Sorting Algorithm Requirements',
         'Medical Patient Vital Signs Monitoring Case Study',
@@ -1964,6 +1997,26 @@ export const daaUnit5Data: Unit = {
             '5. Minimal ROM Code Footprint: Implementation occupies under 50 bytes of machine code in microcontroller flash memory.'
           ]
         }
+      ,
+        {
+          title: '4. Exemplar Case Study: Cutting Stock Problem (SPPU Syllabus Exemplar)',
+          content: [
+            'Problem Statement & Industrial Context:',
+            'In paper mills, steel fabrication, and sheet metal manufacturing, raw materials are manufactured in large master rolls or sheets of fixed standard width W. Customers place orders for smaller rolls of various widths w_i with required quantities d_i. The Cutting Stock Problem seeks to determine how to slice the master rolls to satisfy all customer demands while minimizing total material scrap/waste.',
+            '',
+            'Mathematical Formulation & Complexity:',
+            '• Input: Master roll width W; items of widths w_1, w_2, ..., w_m with demands d_1, d_2, ..., d_m.',
+            '• Cutting Pattern: A cutting pattern j is a vector (a_{1j}, a_{2j}, ..., a_{mj}) such that sum_{i=1}^m w_i · a_{ij} <= W.',
+            '• Problem Classification: The Cutting Stock Problem is a strongly NP-hard combinatorial optimization problem and is closely related to the Bin Packing Problem and Knapsack Problem.',
+            '',
+            'Algorithmic Solutions & Tradeoffs:',
+            '1. Gilmore-Gomory Method (Delayed Column Generation): Formulates the master problem as an integer linear program (ILP), solving the LP relaxation using the Simplex method where new cutting patterns are generated dynamically by solving a Knapsack subproblem.',
+            '2. First-Fit Decreasing (FFD) Approximation: For real-time embedded systems or rapid approximations, sorting items in descending order of width and placing each into the first master roll with sufficient remaining capacity guarantees an approximation ratio of at most (11/9) · OPT + 1 (less than 22% above optimal).',
+            '',
+            'Engineering Summary:',
+            'The Cutting Stock problem exemplifies the necessity of advanced algorithmic techniques—combining Knapsack dynamic programming subproblems with Branch-and-Bound / Column Generation—to achieve near-zero material waste in continuous industrial manufacturing.'
+          ]
+        },
       ],
       diagrams: [
         {

@@ -6,18 +6,16 @@ export const daaUnit3Data: Unit = {
   title: 'Greedy Method and Dynamic Programming Algorithmic Strategy',
   shortTitle: 'Greedy & Dynamic Programming',
   description: 'Comprehensive study of optimization strategies covering Greedy Control Abstraction, Fractional & 0/1 Knapsack formulations, Job Sequencing with Deadlines, Activity Selection, Bellman\'s Principle of Optimality, Optimal Substructure, Matrix Chain Multiplication (MCM), Optimal Binary Search Trees (OBST), and Binomial Coefficients.',
-  syllabus: [
-    'Greedy Strategy: Principle, Control Abstraction, Time Analysis, Applications',
-    'Fractional Knapsack Problem: Greedy Strategy on p_i / w_i Density, Proof of Optimality',
-    'Mathematical Formulations: Fractional Knapsack vs 0/1 Knapsack Constraint Models',
-    'Job Scheduling / Sequencing with Deadlines: Principle, Control Abstraction, Disjoint Set Union',
-    'Activity Selection Problem: Formulation, Earliest Finish Time Greedy Strategy',
-    'Dynamic Programming: Principle of Optimality, Optimal Substructure, Overlapping Subproblems',
-    '0/1 Knapsack using Dynamic Programming: Recurrence Relation, Table Formulation, Traceback Vector',
-    'Matrix Chain Multiplication (MCM): Parenthesization Optimization, Recurrence, Split Table',
-    'Optimal Binary Search Tree (OBST): Probability Weight Equation, Cost Recurrence, Root Tracking',
-    'Binomial Coefficients via DP: Pascal\'s Identity, Space & Time Complexity Analysis',
-    'Exhaustive Comparison: Greedy Method vs Dynamic Programming Strategy'
+      syllabus: [
+    'Greedy Strategy: Principle, Control Abstraction, Time Analysis, Knapsack Problem',
+    'Scheduling Algorithms: Job Scheduling with Deadlines and Activity Selection Problem',
+    'Dynamic Programming: Principle of Optimality, Control Abstraction, Time Analysis',
+    'Binomial Coefficients: Pascal Recurrence Formulation and Dynamic Programming Analysis',
+    'Optimal Binary Search Tree (OBST): Probability Weights, Cost Recurrence, Root Tracking',
+    '0/1 Knapsack Problem: Dynamic Programming Recurrence, Table Formulation, Traceback',
+    'Chain Matrix Multiplication: Parenthesization Optimization, Recurrence, Split Table',
+    'Comparative Analysis: Greedy Method vs Dynamic Programming Strategy',
+    '#Exemplar / Case Studies: Rail tracks connecting all the cities (Minimum Spanning Tree)'
   ],
   questionPaperIndex: [
     { paper: 'April 2026 ([6627]-81)', qMain: 'Q1(a) Job Scheduling with Deadlines (12M), Q1(b) 0/1 Knapsack DP (6M)', qOr: 'Q2(a) OBST DP 4 Keys (10M), Q2(b) Greedy vs DP Comparison (8M)' },
@@ -59,7 +57,6 @@ export const daaUnit3Data: Unit = {
     ]
   },
   questions: [
-    // Q1: Greedy Control Abstraction & Strategy
     {
       id: 'daa-u3-q1',
       unitId: 'unit-3',
@@ -74,6 +71,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q2(c)', marks: 4 },
         { paper: 'April 2024', questionNo: 'Q1(a)', marks: 6 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Greedy Strategy Principle', 'Control Abstraction', 'Time Complexity Analysis', 'Feasibility and Optimality'],
       definition: 'A greedy algorithm is an algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most immediate and obvious benefit (locally optimal choice), with the expectation that this will lead to a globally optimal solution.',
       sections: [
@@ -162,7 +160,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q2: Mathematical Formulation of Fractional vs 0/1 Knapsack
+    // Q2: Mathematical Formulation of Fractional vs 0/1 Knapsack,
+
     {
       id: 'daa-u3-q2',
       unitId: 'unit-3',
@@ -177,6 +176,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2025', questionNo: 'Q1(c)', marks: 3 },
         { paper: 'April 2025', questionNo: 'Q1(a)', marks: 8 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Mathematical Knapsack Formulation', 'Fractional vs 0/1 Constraints', 'Greedy Ratio Strategy', 'Greedy Failure in 0/1'],
       definition: 'The Knapsack problem is a combinatorial optimization challenge where given a set of n items, each with a weight w_i and profit p_i, and a knapsack of capacity W, the goal is to determine the subset of items to pack to maximize total profit without exceeding W.',
       sections: [
@@ -248,7 +248,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q3: Solved Numerical: Fractional Knapsack (5 Objects, m = 100)
+    // Q3: Solved Numerical: Fractional Knapsack (5 Objects, m = 100),
+
     {
       id: 'daa-u3-q3',
       unitId: 'unit-3',
@@ -262,6 +263,7 @@ export const daaUnit3Data: Unit = {
       papersAsked: [
         { paper: 'April 2024', questionNo: 'Q1(b)', marks: 8 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Greedy Knapsack Numerical', 'Ratio Sorting', 'Capacity Exhaustion', 'Evaluation of 3 Strategies'],
       definition: 'Complete step-by-step determination of knapsack filling under three distinct greedy heuristics: Maximum Profit, Minimum Weight, and Maximum Profit/Weight Ratio.',
       sections: [
@@ -383,7 +385,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q4: Solved Numerical: Fractional Knapsack (Capacity 15, 4 Objects)
+    // Q4: Solved Numerical: Fractional Knapsack (Capacity 15, 4 Objects),
+
     {
       id: 'daa-u3-q4',
       unitId: 'unit-3',
@@ -397,6 +400,7 @@ export const daaUnit3Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2024', questionNo: 'Q1(b)', marks: 8 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Fractional Knapsack', 'Greedy Ratio Strategy', 'Fractional Item Breakage'],
       definition: 'Application of the greedy profit-to-weight ratio heuristic to an instance of 4 objects with fractional allocation to maximize total value within capacity 15.',
       sections: [
@@ -498,7 +502,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q5: Job Sequencing with Deadlines Theory & Algorithm
+    // Q5: Job Sequencing with Deadlines Theory & Algorithm,
+
     {
       id: 'daa-u3-q5',
       unitId: 'unit-3',
@@ -513,6 +518,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2025', questionNo: 'Q1(b)', marks: 8 },
         { paper: 'Nov 2023', questionNo: 'Q2(b)', marks: 6 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Job Sequencing Principle', 'Greedy Choice on Profits', 'Control Abstraction', 'Time Complexity O(n²) vs O(n log n)'],
       definition: 'Job Sequencing with Deadlines is an optimization problem where n jobs, each requiring 1 unit of CPU time and associated with a deadline d_i and profit p_i, must be scheduled on a single processor such that at most one job executes at any time and total earned profit is maximized.',
       sections: [
@@ -603,7 +609,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q6: Solved Numerical: Job Sequencing (5 Jobs: 60, 100, 20, 40, 20)
+    // Q6: Solved Numerical: Job Sequencing (5 Jobs: 60, 100, 20, 40, 20),
+
     {
       id: 'daa-u3-q6',
       unitId: 'unit-3',
@@ -619,6 +626,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q2(a)', marks: 12 },
         { paper: 'April 2023', questionNo: 'Q1(b)', marks: 8 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Job Scheduling Numerical', 'Slot Allocation', 'Feasibility Check', 'Maximum Profit Computation'],
       definition: 'Step-by-step application of the greedy job sequencing algorithm with time slot allocation on five jobs with conflicting deadlines.',
       sections: [
@@ -735,7 +743,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q7: Solved Numerical: Job Sequencing (5 Jobs: P=20,15,10,5,1; D=2,2,1,3,3)
+    // Q7: Solved Numerical: Job Sequencing (5 Jobs: P=20,15,10,5,1; D=2,2,1,3,3),
+
     {
       id: 'daa-u3-q7',
       unitId: 'unit-3',
@@ -750,6 +759,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q1(a)', marks: 9 },
         { paper: 'April 2023', questionNo: 'Q2(a)', marks: 8 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Feasible Solutions Enumeration', 'Job Sequencing with Deadlines', 'Optimal Solution Derivation'],
       definition: 'Comprehensive identification of all feasible job subsets, verification of deadline feasibility, and determination of the maximum-profit schedule.',
       sections: [
@@ -860,7 +870,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q8: Task Scheduling with Penalties & Correctness Proof
+    // Q8: Task Scheduling with Penalties & Correctness Proof,
+
     {
       id: 'daa-u3-q8',
       unitId: 'unit-3',
@@ -874,6 +885,7 @@ export const daaUnit3Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2024', questionNo: 'Q1(a)', marks: 8 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Task Scheduling with Penalties', 'Matroid Theory', 'Minimizing Penalty by Maximizing Profit', 'Exchange Argument Proof'],
       definition: 'Task scheduling with penalties seeks to schedule n unit-time tasks with deadlines d_i and penalties w_i incurred if task i is missed, minimizing total penalties by greedily scheduling the set of early tasks that maximizes total earned weight.',
       sections: [
@@ -930,7 +942,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q9: Activity Selection Problem & Numerical
+    // Q9: Activity Selection Problem & Numerical,
+
     {
       id: 'daa-u3-q9',
       unitId: 'unit-3',
@@ -944,6 +957,7 @@ export const daaUnit3Data: Unit = {
       papersAsked: [
         { paper: 'April 2025', questionNo: 'Q1(b)', marks: 9 }
       ],
+      topicCategory: 'Greedy Strategy',
       syllabusTopics: ['Activity Selection Formulation', 'Earliest Finish Time Heuristic', 'Activity Selection Algorithm', 'Time Complexity'],
       definition: 'The Activity Selection Problem is the problem of scheduling the maximum number of mutually compatible activities that share a single common resource, given their start times s_i and finish times f_i.',
       sections: [
@@ -1082,7 +1096,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q10: Dynamic Programming Principles, Control Abstraction & Optimality
+    // Q10: Dynamic Programming Principles, Control Abstraction & Optimality,
+
     {
       id: 'daa-u3-q10',
       unitId: 'unit-3',
@@ -1101,6 +1116,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q1(c)', marks: 4 },
         { paper: 'April 2024', questionNo: 'Q2(a)', marks: 8 }
       ],
+      topicCategory: 'Dynamic Programming',
       syllabusTopics: ['Principle of Optimality', 'Bellman Equation', 'DP Control Abstraction', 'Optimal Substructure', 'Pseudo-Polynomial Time'],
       definition: 'Dynamic Programming is an algorithm design technique that solves optimization problems by breaking them down into smaller overlapping subproblems, solving each subproblem once, storing their solutions in a table (memoization/tabulation), and combining them to form an optimal solution.',
       sections: [
@@ -1184,7 +1200,8 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q11: Greedy Method vs Dynamic Programming Comparison
+    // Q11: Greedy Method vs Dynamic Programming Comparison,
+
     {
       id: 'daa-u3-q11',
       unitId: 'unit-3',
@@ -1200,6 +1217,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'Nov 2025', questionNo: 'Q1(a)', marks: 6 },
         { paper: 'April 2023', questionNo: 'Q3(b)', marks: 9 }
       ],
+      topicCategory: 'Dynamic Programming',
       syllabusTopics: ['Greedy vs DP Comparison', 'Feasibility and Optimality', 'Memoization vs Irrevocable Choice', 'Time Complexity Differences'],
       definition: 'Greedy and Dynamic Programming are both optimization paradigms based on optimal substructure, but differ fundamentally in how choices are evaluated, subproblems are shared, and decisions are preserved.',
       sections: [
@@ -1260,6 +1278,30 @@ export const daaUnit3Data: Unit = {
             '• Therefore, Greedy is a subset of dynamic thinking that works when local optimality strictly implies global optimality.'
           ]
         }
+      ,
+        {
+          title: '2. Exemplar Case Study: Rail Tracks Connecting All the Cities (SPPU Syllabus Exemplar)',
+          content: [
+            'Problem Statement & Engineering Objective:',
+            'A national railway authority must construct a network of railway tracks connecting N cities such that any city is reachable from any other city, while minimizing total track construction and land-acquisition cost without creating redundant circular loops.',
+            '',
+            'Algorithmic Formulation:',
+            '• Graph Model: Formulated as an undirected weighted graph G = (V, E), where V represents cities (|V| = n) and E represents possible rail corridors with weight w(u, v) denoting the cost of laying track between city u and city v.',
+            '• Problem Classification: This is mathematically identical to the Minimum Spanning Tree (MST) problem.',
+            '',
+            'Algorithmic Strategy Selection — Greedy vs Dynamic Programming:',
+            '1. Why Greedy (Kruskal\'s or Prim\'s Algorithm) is the Optimal Choice:',
+            '   - Optimal Substructure and Greedy Choice Property: The Cut Property proves that the lightest edge crossing any cut of G MUST belong to an MST. Choosing the locally cheapest feasible edge at each step is guaranteed to yield the globally optimal minimum-cost rail network.',
+            '   - Computational Efficiency: Kruskal\'s algorithm with Disjoint Set Union (DSU) runs in O(E log V) time, and Prim\'s algorithm with Fibonacci Heap runs in O(E + V log V). For 100 cities with 1,000 corridors, it computes the optimal network in under 2 milliseconds.',
+            '2. Why Dynamic Programming is Overkill and Unnecessary:',
+            '   - Dynamic Programming evaluates all overlapping subproblems and costs O(V² · 2^V) or O(V³), which is completely unnecessary when the greedy choice property guarantees optimality without backtracking or subproblem memorization.',
+            '',
+            'Engineering Summary for Rail Network Design:',
+            '• Recommended Algorithm: Kruskal\'s Algorithm with Union-Find (DSU) cycle detection.',
+            '• Total Tracks Required: Exactly (n - 1) rail corridors for n cities.',
+            '• Cycle Prevention: If both cities u and v belong to the same connected component (Find(u) == Find(v)), laying the corridor creates a redundant expensive loop and is rejected.'
+          ]
+        },
       ],
       summary: [
         'Greedy is top-down, local, fast (O(n log n)), and requires the Greedy Choice Property.',
@@ -1274,499 +1316,13 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q12: 0/1 Knapsack Problem using Dynamic Programming
+    // Q12: 0/1 Knapsack Problem using Dynamic Programming,
+
     {
       id: 'daa-u3-q12',
       unitId: 'unit-3',
       subjectId: 'daa',
       qNumber: 12,
-      title: 'Explain 0/1 Knapsack Problem Using Dynamic Programming. Devise the Recurrence Relation, Algorithm, and Traceback Procedure',
-      shortTitle: '0/1 Knapsack using DP: Recurrence, Algorithm & Traceback',
-      marks: 10,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
-      syllabusTopics: ['0/1 Knapsack DP Recurrence', 'Table Construction', 'Traceback Vector Algorithm', 'Time & Space Complexity'],
-      definition: 'The 0/1 Knapsack problem via dynamic programming computes a 2D table T[0..n, 0..W] where T[i, w] represents the maximum profit achievable considering a subset of the first i items under capacity limit w.',
-      sections: [
-        {
-          title: '1. Mathematical Recurrence Relation',
-          content: [
-            'Let items be indexed 1 to n with weights w_i and profits p_i. Let knapsack capacity be W.',
-            'For item i and current capacity w:',
-            '  Case 1: If weight of item i exceeds capacity w (w_i > w), item i cannot fit:',
-            '          T[i, w] = T[i - 1, w]',
-            '  Case 2: If item i can fit (w_i ≤ w), we choose the maximum of excluding it or including it:',
-            '          T[i, w] = max( T[i - 1, w],  p_i + T[i - 1, w - w_i] )',
-            'Base Cases:',
-            '  T[0, w] = 0 for all w ≥ 0 (no items available)',
-            '  T[i, 0] = 0 for all i ≥ 0 (zero capacity)'
-          ],
-          formulas: [
-            { name: '0/1 Knapsack DP Bellman Equation', latex: 'T[i, w] = \\begin{cases} 0 & \\text{if } i=0 \\text{ or } w=0 \\\\ T[i-1, w] & \\text{if } w_i > w \\\\ \\max\\{T[i-1, w], \\; p_i + T[i-1, w - w_i]\\} & \\text{if } w_i \\le w \\end{cases}' }
-          ]
-        },
-        {
-          title: '2. Tabular Algorithm: `DKnapsack(p, w, n, W)`',
-          content: [
-            'Algorithm DKnapsack(p, w, n, W)',
-            '{',
-            '    for i = 0 to n do T[i, 0] = 0;',
-            '    for w = 0 to W do T[0, w] = 0;',
-            '    for i = 1 to n do',
-            '    {',
-            '        for w = 1 to W do',
-            '        {',
-            '            if w[i] <= w then',
-            '                T[i, w] = max(T[i-1, w], p[i] + T[i-1, w - w[i]]);',
-            '            else',
-            '                T[i, w] = T[i-1, w];',
-            '        }',
-            '    }',
-            '    return T[n, W];',
-            '}'
-          ]
-        },
-        {
-          title: '3. Traceback Procedure to Find Selected Items Vector (x₁, ..., x_n)',
-          content: [
-            'Once table T[n, W] is filled, determine which items were included by tracing backward:',
-            '  i = n, k = W;',
-            '  while (i > 0 and k > 0) do',
-            '  {',
-            '      if T[i, k] == T[i - 1, k] then',
-            '          x_i = 0; // Item i was not selected',
-            '      else',
-            '      {',
-            '          x_i = 1; // Item i was selected',
-            '          k = k - w_i; // Deduct weight of selected item',
-            '      }',
-            '      i = i - 1;',
-            '  }',
-            'Time Complexity: Table filling takes O(n W). Traceback takes O(n). Overall: O(n W).'
-          ]
-        }
-      ],
-      summary: [
-        '0/1 Knapsack DP builds an (n+1) x (W+1) table where T[i, w] stores max profit for first i items at capacity w.',
-        'Recurrence checks whether including item i (p_i + T[i-1, w-w_i]) beats excluding it (T[i-1, w]).',
-        'Traceback checks T[i, k] ≠ T[i-1, k] to identify included items.',
-        'Runs in O(nW) time and O(nW) space (can be optimized to O(W) space).'
-      ],
-      keyPoints: [
-        'T[i, w] recurrence formulation',
-        'Base conditions T[0, w] = 0, T[i, 0] = 0',
-        'Traceback logic k = k - w_i',
-        'O(nW) pseudo-polynomial complexity'
-      ]
-    },
-
-    // Q13: Solved Numerical: 0/1 Knapsack DP (W = 5, 4 Items)
-    {
-      id: 'daa-u3-q13',
-      unitId: 'unit-3',
-      subjectId: 'daa',
-      qNumber: 13,
-      title: 'Numerical: Consider the Following Instance of Knapsack Problem: Items 1..4 with Weights [2, 1, 3, 2] and Profits [$12, $10, $20, $15]. Knapsack Capacity = 5. Find Optimal Solution Using Dynamic Programming Approach',
-      shortTitle: 'Solved Numerical: 0/1 Knapsack DP (W=5, 4 Items)',
-      marks: 10,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
-      papersAsked: [
-        { paper: 'April 2026', questionNo: 'Q1(b)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q1(b)', marks: 9 },
-        { paper: 'April 2023', questionNo: 'Q1(a)', marks: 10 }
-      ],
-      syllabusTopics: ['0/1 Knapsack DP Table', 'Stepwise Row Calculation', 'Traceback Vector Extraction'],
-      definition: 'Complete computation of the (5 x 6) dynamic programming table, row-by-row cell calculations, and traceback to isolate selected items and maximum profit.',
-      sections: [
-        {
-          title: '1. Given Items & Capacity',
-          content: [
-            'Capacity W = 5, Number of items n = 4.',
-            'Item 1: w₁ = 2, p₁ = 12',
-            'Item 2: w₂ = 1, p₂ = 10',
-            'Item 3: w₃ = 3, p₃ = 20',
-            'Item 4: w₄ = 2, p₄ = 15'
-          ]
-        },
-        {
-          title: '2. Dynamic Programming Table T[i, w]',
-          table: {
-            headers: ['Item i \\ Cap w', 'w = 0', 'w = 1', 'w = 2', 'w = 3', 'w = 4', 'w = 5'],
-            rows: [
-              { parameter: 'i = 0 (No items)', col1: '0', col2: '0', col3: '0', col4: '0', col5: '0', col6: '0' },
-              { parameter: 'i = 1 (w=2, p=12)', col1: '0', col2: '0', col3: '12', col4: '12', col5: '12', col6: '12' },
-              { parameter: 'i = 2 (w=1, p=10)', col1: '0', col2: '10', col3: '12', col4: '22', col5: '22', col6: '22' },
-              { parameter: 'i = 3 (w=3, p=20)', col1: '0', col2: '10', col3: '12', col4: '22', col5: '30', col6: '32' },
-              { parameter: 'i = 4 (w=2, p=15)', col1: '0', col2: '10', col3: '15', col4: '25', col5: '30', col6: '37' }
-            ]
-          }
-        },
-        {
-          title: '3. Row-by-Row Calculation Details',
-          content: [
-            'Row 1 (Item 1: w₁=2, p₁=12):',
-            '  • w=1: w₁ > 1 ==> T[1,1] = T[0,1] = 0',
-            '  • w=2: max(T[0,2], 12 + T[0,0]) = max(0, 12) = 12',
-            '  • w=3..5: 12',
-            'Row 2 (Item 2: w₂=1, p₂=10):',
-            '  • w=1: max(T[1,1], 10 + T[1,0]) = max(0, 10) = 10',
-            '  • w=2: max(T[1,2], 10 + T[1,1]) = max(12, 10+0) = 12',
-            '  • w=3: max(T[1,3], 10 + T[1,2]) = max(12, 10+12) = 22',
-            '  • w=4..5: max(12, 10+12) = 22',
-            'Row 3 (Item 3: w₃=3, p₃=20):',
-            '  • w=1..2: T[2,w] = 10, 12',
-            '  • w=3: max(T[2,3], 20 + T[2,0]) = max(22, 20) = 22',
-            '  • w=4: max(T[2,4], 20 + T[2,1]) = max(22, 20+10) = 30',
-            '  • w=5: max(T[2,5], 20 + T[2,2]) = max(22, 20+12) = 32',
-            'Row 4 (Item 4: w₄=2, p₄=15):',
-            '  • w=1: 10',
-            '  • w=2: max(T[3,2], 15 + T[3,0]) = max(12, 15) = 15',
-            '  • w=3: max(T[3,3], 15 + T[3,1]) = max(22, 15+10) = 25',
-            '  • w=4: max(T[3,4], 15 + T[3,2]) = max(30, 15+12) = 30',
-            '  • w=5: max(T[3,5], 15 + T[3,3]) = max(32, 15+22) = 37'
-          ]
-        },
-        {
-          title: '4. Traceback to Determine Selected Items',
-          content: [
-            'Start at i = 4, k = 5:',
-            '• Check T[4, 5] vs T[3, 5]: 37 ≠ 32 ==> Item 4 is SELECTED (x₄ = 1).',
-            '  New capacity k = 5 - w₄ = 5 - 2 = 3. Next i = 3.',
-            '• Check T[3, 3] vs T[2, 3]: 22 == 22 ==> Item 3 is NOT selected (x₃ = 0) in this branch.',
-            '  (Note: If checking alternate combination with same profit 22: Item 2 & 1 yields 22).',
-            '• Next i = 2, k = 3:',
-            '  Check T[2, 3] vs T[1, 3]: 22 ≠ 12 ==> Item 2 is SELECTED (x₂ = 1).',
-            '  New capacity k = 3 - w₂ = 3 - 1 = 2. Next i = 1.',
-            '• Next i = 1, k = 2:',
-            '  Check T[1, 2] vs T[0, 2]: 12 ≠ 0 ==> Item 1 is SELECTED (x₁ = 1).',
-            '  New capacity k = 2 - w₁ = 2 - 2 = 0.',
-            '• Selected Items: Item 1, Item 2, Item 4.',
-            '  Total Weight = 2 + 1 + 2 = 5 (Fits knapsack exactly!).',
-            '  Total Profit = 12 + 10 + 15 = $37.'
-          ]
-        }
-      ],
-      numericalSolution: {
-        problemSummary: 'Find optimal 0/1 knapsack solution for capacity W = 5 with 4 items: (2, 12), (1, 10), (3, 20), (2, 15).',
-        givenData: [
-          { label: 'Capacity (W)', value: '5' },
-          { label: 'Item 1 (w, p)', value: '(2, $12)' },
-          { label: 'Item 2 (w, p)', value: '(1, $10)' },
-          { label: 'Item 3 (w, p)', value: '(3, $20)' },
-          { label: 'Item 4 (w, p)', value: '(2, $15)' }
-        ],
-        toFind: [
-          '5x6 Dynamic Programming Table T[i, w]',
-          'Cell calculations using Bellman recurrence',
-          'Traceback path from T[4, 5]',
-          'Optimal selection vector and maximum profit'
-        ],
-        steps: [
-          {
-            stepNumber: 1,
-            title: 'Initialize Base Cases',
-            explanation: 'Set T[0, w] = 0 for w = 0..5 and T[i, 0] = 0 for i = 0..4.',
-            result: 'Zeroth row and zeroth column initialized to 0'
-          },
-          {
-            stepNumber: 2,
-            title: 'Fill Row 1 (Item 1: w=2, p=12)',
-            explanation: 'For capacity w < 2, copy from above. For w ≥ 2, profit is 12.',
-            calculation: 'T[1, 0]=0, T[1, 1]=0, T[1, 2]=12, T[1, 3]=12, T[1, 4]=12, T[1, 5]=12',
-            result: 'Row 1 completed'
-          },
-          {
-            stepNumber: 3,
-            title: 'Fill Row 2 (Item 2: w=1, p=10)',
-            explanation: 'Include item 2 if 10 + T[1, w-1] > T[1, w].',
-            calculation: 'w=1: max(0, 10+0)=10\nw=2: max(12, 10+0)=12\nw=3: max(12, 10+12)=22\nw=4: max(12, 10+12)=22\nw=5: max(12, 10+12)=22',
-            result: 'Row 2: [0, 10, 12, 22, 22, 22]'
-          },
-          {
-            stepNumber: 4,
-            title: 'Fill Row 3 (Item 3: w=3, p=20)',
-            explanation: 'Include item 3 if 20 + T[2, w-3] > T[2, w].',
-            calculation: 'w=3: max(22, 20+0)=22\nw=4: max(22, 20+10)=30\nw=5: max(22, 20+12)=32',
-            result: 'Row 3: [0, 10, 12, 22, 30, 32]'
-          },
-          {
-            stepNumber: 5,
-            title: 'Fill Row 4 (Item 4: w=2, p=15)',
-            explanation: 'Include item 4 if 15 + T[3, w-2] > T[3, w].',
-            calculation: 'w=2: max(12, 15+0)=15\nw=3: max(22, 15+10)=25\nw=4: max(30, 15+12)=30\nw=5: max(32, 15+22)=37',
-            result: 'Goal T[4, 5] = 37'
-          },
-          {
-            stepNumber: 6,
-            title: 'Traceback to Identify Selected Items',
-            explanation: 'Trace backwards from T[4, 5] = 37 to recover binary inclusion vector.',
-            calculation: 'T[4,5]=37 != T[3,5]=32 ==> Select Item 4 (x₄=1), new cap = 5-2=3\nT[3,3]=22 == T[2,3]=22 ==> Reject Item 3 (x₃=0)\nT[2,3]=22 != T[1,3]=12 ==> Select Item 2 (x₂=1), new cap = 3-1=2\nT[1,2]=12 != T[0,2]=0  ==> Select Item 1 (x₁=1), new cap = 2-2=0',
-            result: 'Selected: Items {1, 2, 4} with Vector x = (1, 1, 0, 1)'
-          }
-        ],
-        finalAnswer: {
-          label: 'Optimal 0/1 Knapsack Solution',
-          value: 'Maximum Profit = $37 with Items {1, 2, 4} [x = (1, 1, 0, 1)]',
-          interpretation: 'Packing Item 1 (w=2, p=12), Item 2 (w=1, p=10), and Item 4 (w=2, p=15) consumes exactly 5 units of weight for a maximum profit of $37.'
-        }
-      },
-      summary: [
-        'Formed 5x6 DP table with base row/col initialized to 0.',
-        'Filled cells using T[i, w] = max(T[i-1, w], p_i + T[i-1, w-w_i]).',
-        'Goal cell T[4, 5] = $37.',
-        'Traceback selected Items {1, 2, 4} with weights 2 + 1 + 2 = 5.'
-      ],
-      keyPoints: [
-        '5x6 DP matrix construction',
-        'T[4, 5] = 37 maximum profit',
-        'Traceback path isolating items 1, 2, 4',
-        'Solution vector (1, 1, 0, 1)'
-      ]
-    },
-
-    // Q14: Solved Numerical: 0/1 Knapsack DP (W = 7, 4 Items)
-    {
-      id: 'daa-u3-q14',
-      unitId: 'unit-3',
-      subjectId: 'daa',
-      qNumber: 14,
-      title: 'Numerical: Consider 0/1 Knapsack Problem with Weight Capacity 7. Four Items: A(w=1, p=1), B(w=3, p=4), C(w=4, p=5), D(w=5, p=7). Find Optimal Solution Using Dynamic Programming Approach',
-      shortTitle: 'Solved Numerical: 0/1 Knapsack DP (W=7, Items A,B,C,D)',
-      marks: 10,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'April 2025', questionNo: 'Q2(b)', marks: 10 }
-      ],
-      syllabusTopics: ['0/1 Knapsack DP Table', 'Capacity W=7', 'Traceback Algorithm'],
-      definition: 'Step-by-step DP table computation for a 4-item instance with capacity 7, demonstrating optimal item extraction via back-referencing.',
-      sections: [
-        {
-          title: '1. Given Items & Capacity',
-          content: [
-            'Capacity W = 7, n = 4 items:',
-            'Item A: w_A = 1, p_A = 1',
-            'Item B: w_B = 3, p_B = 4',
-            'Item C: w_C = 4, p_C = 5',
-            'Item D: w_D = 5, p_D = 7'
-          ]
-        },
-        {
-          title: '2. Dynamic Programming Table T[i, w]',
-          table: {
-            headers: ['Item \\ Cap', 'w=0', 'w=1', 'w=2', 'w=3', 'w=4', 'w=5', 'w=6', 'w=7'],
-            rows: [
-              { parameter: 'i = 0 (None)', col1: '0', col2: '0', col3: '0', col4: '0', col5: '0', col6: '0', col7: '0', col8: '0' },
-              { parameter: 'i = 1 (A: 1, 1)', col1: '0', col2: '1', col3: '1', col4: '1', col5: '1', col6: '1', col7: '1', col8: '1' },
-              { parameter: 'i = 2 (B: 3, 4)', col1: '0', col2: '1', col3: '1', col4: '4', col5: '5', col6: '5', col7: '5', col8: '5' },
-              { parameter: 'i = 3 (C: 4, 5)', col1: '0', col2: '1', col3: '1', col4: '4', col5: '5', col6: '6', col7: '6', col8: '9' },
-              { parameter: 'i = 4 (D: 5, 7)', col1: '0', col2: '1', col3: '1', col4: '4', col5: '7', col6: '8', col7: '8', col8: '9' }
-            ]
-          }
-        },
-        {
-          title: '3. Traceback Analysis',
-          content: [
-            'Goal cell: T[4, 7] = 9.',
-            '• i = 4, w = 7: T[4, 7] == T[3, 7] == 9. Item D is NOT selected (x_D = 0). Capacity remains 7.',
-            '• i = 3, w = 7: T[3, 7] (9) ≠ T[2, 7] (5). Item C is SELECTED (x_C = 1).',
-            '  New capacity = 7 - w_C = 7 - 4 = 3.',
-            '• i = 2, w = 3: T[2, 3] (4) ≠ T[1, 3] (1). Item B is SELECTED (x_B = 1).',
-            '  New capacity = 3 - w_B = 3 - 3 = 0.',
-            '• i = 1, w = 0: Capacity is 0. Item A is NOT selected (x_A = 0).',
-            'Selected Items: B and C.',
-            'Total Weight = 3 + 4 = 7 (Exact capacity match).',
-            'Total Profit = 4 + 5 = 9.'
-          ]
-        }
-      ],
-      numericalSolution: {
-        problemSummary: 'DP 0/1 knapsack solution for W = 7 with items A(1,1), B(3,4), C(4,5), D(5,7).',
-        givenData: [
-          { label: 'W', value: '7' },
-          { label: 'A', value: '(w=1, p=1)' },
-          { label: 'B', value: '(w=3, p=4)' },
-          { label: 'C', value: '(w=4, p=5)' },
-          { label: 'D', value: '(w=5, p=7)' }
-        ],
-        toFind: [
-          '5x8 Table T[i, w]',
-          'Maximum profit cell T[4, 7]',
-          'Traceback path'
-        ],
-        steps: [
-          {
-            stepNumber: 1,
-            title: 'Compute Row 1 (Item A: w=1, p=1)',
-            explanation: 'For all w ≥ 1, capacity can hold Item A.',
-            result: 'Row 1: [0, 1, 1, 1, 1, 1, 1, 1]'
-          },
-          {
-            stepNumber: 2,
-            title: 'Compute Row 2 (Item B: w=3, p=4)',
-            explanation: 'At w=3: max(1, 4)=4; at w=4: max(1, 4+1)=5; at w=5..7: 5.',
-            result: 'Row 2: [0, 1, 1, 4, 5, 5, 5, 5]'
-          },
-          {
-            stepNumber: 3,
-            title: 'Compute Row 3 (Item C: w=4, p=5)',
-            explanation: 'At w=4: max(5, 5+0)=5; at w=5: max(5, 5+1)=6; at w=7: max(5, 5+T[2,3]=5+4)=9.',
-            result: 'Row 3: [0, 1, 1, 4, 5, 6, 6, 9]'
-          },
-          {
-            stepNumber: 4,
-            title: 'Compute Row 4 (Item D: w=5, p=7)',
-            explanation: 'At w=5: max(5, 7+0)=7; at w=6: max(6, 7+1)=8; at w=7: max(9, 7+T[3,2]=7+1=8)=9.',
-            result: 'Row 4: [0, 1, 1, 4, 7, 8, 8, 9]'
-          },
-          {
-            stepNumber: 5,
-            title: 'Execute Traceback',
-            explanation: 'Trace back from T[4, 7] = 9.',
-            calculation: 'T[4,7]=9 == T[3,7]=9 ==> Skip D (x_D=0)\nT[3,7]=9 != T[2,7]=5 ==> Pick C (x_C=1), remaining w = 7-4=3\nT[2,3]=4 != T[1,3]=1 ==> Pick B (x_B=1), remaining w = 3-3=0\nRemaining w=0 ==> Skip A (x_A=0)',
-            result: 'Selected: {B, C} with Profit = 9'
-          }
-        ],
-        finalAnswer: {
-          label: 'Optimal 0/1 Knapsack Solution',
-          value: 'Maximum Profit = 9 with Items {B, C}',
-          interpretation: 'Packing Item B (weight 3, profit 4) and Item C (weight 4, profit 5) consumes exactly 7 units of weight for a maximum profit of 9.'
-        }
-      },
-      summary: [
-        'Built 5x8 table for W = 7.',
-        'At W=7, including Item D gives 7+1=8, while Items B+C gives 4+5=9.',
-        'Traceback confirms Items B and C are selected.',
-        'Total Profit = 9, Total Weight = 7.'
-      ],
-      keyPoints: [
-        'Capacity W = 7 matrix',
-        'T[4, 7] = 9',
-        'Selection vector (x_A=0, x_B=1, x_C=1, x_D=0)',
-        'Superiority of B+C (profit 9) over D+A (profit 8)'
-      ]
-    },
-
-    // Q15: Matrix Chain Multiplication (MCM) Theory & Algorithm
-    {
-      id: 'daa-u3-q15',
-      unitId: 'unit-3',
-      subjectId: 'daa',
-      qNumber: 15,
-      title: 'Explain Matrix Chain Multiplication Using Dynamic Programming. Derive its Recurrence Relation, Table Formulation, and Parenthesization Algorithm',
-      shortTitle: 'Matrix Chain Multiplication: Recurrence, Algorithm & Complexity',
-      marks: 10,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
-      syllabusTopics: ['Matrix Chain Multiplication', 'Optimal Parenthesization', 'Cost Recurrence m[i,j]', 'Split Table s[i,j]', 'Time Complexity O(n³)'],
-      definition: 'Matrix Chain Multiplication (MCM) is an optimization problem that finds the most efficient order (parenthesization) of multiplying a sequence of n matrices A₁ A₂ ... A_n such that the total number of scalar multiplications is minimized.',
-      sections: [
-        {
-          title: '1. Problem Background & Associativity',
-          content: [
-            'Matrix multiplication is associative: (A · B) · C = A · (B · C). However, the number of scalar operations varies dramatically depending on the parenthesization order.',
-            'Example:',
-            '  • Let A₁ be 10 × 100, A₂ be 100 × 5, and A₃ be 5 × 50.',
-            '  • Order 1: ((A₁ A₂) A₃) takes (10 × 100 × 5) + (10 × 5 × 50) = 5,000 + 2,500 = 7,500 multiplications.',
-            '  • Order 2: (A₁ (A₂ A₃)) takes (100 × 5 × 50) + (10 × 100 × 50) = 25,000 + 50,000 = 75,000 multiplications.',
-            '  • Order 1 is 10 times faster than Order 2!'
-          ]
-        },
-        {
-          title: '2. Recurrence Relation for Minimum Multiplications',
-          content: [
-            'Let matrix A_i have dimensions p_{i-1} × p_i for i = 1, 2, ..., n.',
-            'Let m[i, j] be the minimum number of scalar multiplications needed to compute the product A_i A_{i+1} ... A_j.',
-            '• Base Case: A single matrix requires 0 multiplications:',
-            '  m[i, i] = 0 for all i = 1, 2, ..., n.',
-            '• Recursive Step: For a chain from i to j split at intermediate position k (where i ≤ k < j):',
-            '  Cost = Cost(A_i..A_k) + Cost(A_{k+1}..A_j) + Cost of multiplying the two resulting matrices',
-            '  m[i, j] = min_{i ≤ k < j} { m[i, k] + m[k+1, j] + p_{i-1} p_k p_j }',
-            '• Split Table: s[i, j] stores the value of k that achieves the minimum cost.'
-          ],
-          formulas: [
-            { name: 'MCM Bellman Recurrence', latex: 'm[i, j] = \\begin{cases} 0 & \\text{if } i = j \\\\ \\min_{i \\le k < j} \\{ m[i, k] + m[k+1, j] + p_{i-1} p_k p_j \\} & \\text{if } i < j \\end{cases}' }
-          ]
-        },
-        {
-          title: '3. Matrix Chain Order Algorithm & Complexity',
-          content: [
-            'Algorithm Matrix_Chain_Order(p, n)',
-            '{',
-            '    for i = 1 to n do m[i, i] = 0;',
-            '    for L = 2 to n do // L is chain length',
-            '    {',
-            '        for i = 1 to (n - L + 1) do',
-            '        {',
-            '            j = i + L - 1;',
-            '            m[i, j] = ∞;',
-            '            for k = i to (j - 1) do',
-            '            {',
-            '                q = m[i, k] + m[k+1, j] + p[i-1]*p[k]*p[j];',
-            '                if q < m[i, j] then',
-            '                {',
-            '                    m[i, j] = q;',
-            '                    s[i, j] = k;',
-            '                }',
-            '            }',
-            '        }',
-            '    }',
-            '    return m and s;',
-            '}',
-            'Time Complexity: Three nested loops (chain length L, starting index i, split index k) yield O(n³) running time. Space complexity is O(n²) to store m and s tables.'
-          ]
-        },
-        {
-          title: '4. Traceback: Printing Optimal Parenthesization',
-          content: [
-            'Algorithm Print_Optimal_Parens(s, i, j)',
-            '{',
-            '    if i == j then',
-            '        print "A" + i;',
-            '    else',
-            '    {',
-            '        print "(";',
-            '        Print_Optimal_Parens(s, i, s[i, j]);',
-            '        Print_Optimal_Parens(s, s[i, j] + 1, j);',
-            '        print ")";',
-            '    }',
-            '}'
-          ]
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-mcm',
-          title: 'Matrix Chain Multiplication Triangular Table Architecture',
-          caption: 'Pyramid DP table showing diagonal base cases m[i,i] = 0 and upward subproblem combination order by chain length.',
-          type: 'svg-interactive',
-          svgType: 'mcm-pyramid-grid'
-        }
-      ],
-      summary: [
-        'Matrix multiplication is associative but differing parenthesizations yield drastically different operation counts.',
-        'DP computes m[i, j] = min_k (m[i, k] + m[k+1, j] + p_{i-1} p_k p_j) by increasing chain length L.',
-        'Split table s[i, j] tracks optimal split points for recursive parenthesis printing.',
-        'Time complexity is O(n³) and space complexity is O(n²).'
-      ],
-      keyPoints: [
-        'Associative matrix multiplication',
-        'm[i, j] recurrence equation',
-        'Split table s[i, j] recording',
-        'O(n³) cubic time complexity',
-        'Recursive parenthesis printing algorithm'
-      ]
-    },
-
-    // Q16: Solved Numerical: MCM 4 Matrices (A1: 3x5, A2: 5x4, A3: 4x2, A4: 2x4)
-    {
-      id: 'daa-u3-q16',
-      unitId: 'unit-3',
-      subjectId: 'daa',
-      qNumber: 16,
       title: 'Numerical: Consider 4 Matrices A₁, A₂, A₃, A₄ with Orders 3×5, 5×4, 4×2, and 2×4. Find the Optimal Sequence of Chain Matrix Multiplication Using Dynamic Programming. Clearly Give Final Sequence and Total Multiplications Involved',
       shortTitle: 'Solved Numerical: Matrix Chain Multiplication (4 Matrices)',
       marks: 10,
@@ -1775,6 +1331,7 @@ export const daaUnit3Data: Unit = {
       papersAsked: [
         { paper: 'April 2024', questionNo: 'Q2(b)', marks: 10 }
       ],
+      topicCategory: 'Dynamic Programming',
       syllabusTopics: ['MCM Numerical', 'Pyramid Table Filling', 'Split Table Tracking', 'Optimal Parenthesization'],
       definition: 'Complete derivation of the m[i, j] and s[i, j] tables across chain lengths L = 2, 3, 4 for dimensions P = [3, 5, 4, 2, 4].',
       sections: [
@@ -1902,12 +1459,13 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q17: Solved Numerical: MCM 5 Matrices (Sequence {4, 10, 3, 12, 20, 7})
+    // Q17: Solved Numerical: MCM 5 Matrices (Sequence {4, 10, 3, 12, 20, 7}),
+
     {
-      id: 'daa-u3-q17',
+      id: 'daa-u3-q13',
       unitId: 'unit-3',
       subjectId: 'daa',
-      qNumber: 17,
+      qNumber: 13,
       title: 'Numerical: Given Sequence {4, 10, 3, 12, 20, 7} for Five Matrices A₁(4×10), A₂(10×3), A₃(3×12), A₄(12×20), A₅(20×7). Use Dynamic Programming to Solve Chain Matrix Multiplication',
       shortTitle: 'Solved Numerical: Matrix Chain Multiplication (5 Matrices)',
       marks: 10,
@@ -1916,6 +1474,7 @@ export const daaUnit3Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2024', questionNo: 'Q2(a)', marks: 10 }
       ],
+      topicCategory: 'Dynamic Programming',
       syllabusTopics: ['MCM 5 Matrices', 'Dimension Array P = [4, 10, 3, 12, 20, 7]', 'Pyramid Table Calculation'],
       definition: 'Comprehensive dynamic programming resolution of a 5-matrix chain with dimension array P = [4, 10, 3, 12, 20, 7], deriving optimal parenthesization and minimum operations.',
       sections: [
@@ -2032,18 +1591,20 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q18: Optimal Binary Search Tree (OBST) Theory & Algorithm
+    // Q18: Optimal Binary Search Tree (OBST) Theory & Algorithm,
+
     {
-      id: 'daa-u3-q18',
+      id: 'daa-u3-q14',
       unitId: 'unit-3',
       subjectId: 'daa',
-      qNumber: 18,
+      qNumber: 14,
       title: 'What is an Optimal Binary Search Tree (OBST)? Explain How Dynamic Programming is Used to Build an OBST. State its Recurrence Relations, Algorithm, and Time Complexity',
       shortTitle: 'Optimal Binary Search Tree (OBST): Theory & Algorithm',
       marks: 10,
       importance: 'Conceptual / Additional',
       occurrenceCount: 0,
       papersAsked: [],
+      topicCategory: 'Dynamic Programming',
       syllabusTopics: ['OBST Definition', 'Weight Equation W[i,j]', 'Cost Recurrence C[i,j]', 'Root Matrix R[i,j]', 'Knuth Optimization O(n²)'],
       definition: 'An Optimal Binary Search Tree (OBST) is a binary search tree constructed from a set of sorted identifiers such that the expected total search cost, weighted by the access frequencies of successful searches (p_i) and unsuccessful searches (q_i), is minimized.',
       sections: [
@@ -2126,12 +1687,13 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q19: Solved Numerical: OBST for 4 Keys
+    // Q19: Solved Numerical: OBST for 4 Keys,
+
     {
-      id: 'daa-u3-q19',
+      id: 'daa-u3-q15',
       unitId: 'unit-3',
       subjectId: 'daa',
-      qNumber: 19,
+      qNumber: 15,
       title: 'Numerical: What is Optimal Binary Search Tree? Build an OBST for Following Data: Keys = [10, 20, 30, 40] with Frequencies = [4, 2, 6, 3]',
       shortTitle: 'Solved Numerical: OBST Construction (4 Keys: 10, 20, 30, 40)',
       marks: 10,
@@ -2141,6 +1703,7 @@ export const daaUnit3Data: Unit = {
         { paper: 'April 2026', questionNo: 'Q2(a)', marks: 10 },
         { paper: 'April 2023', questionNo: 'Q2(b)', marks: 10 }
       ],
+      topicCategory: 'Dynamic Programming',
       syllabusTopics: ['OBST Numerical', 'Weight Matrix Computation', 'Cost Matrix Computation', 'Tree Construction'],
       definition: 'Full dynamic programming tabulation of weights W[i, j], costs C[i, j], and roots R[i, j] for 4 keys with given search frequencies.',
       sections: [
@@ -2299,7 +1862,503 @@ export const daaUnit3Data: Unit = {
       ]
     },
 
-    // Q20: Binomial Coefficients using Dynamic Programming
+    // Q20: Binomial Coefficients using Dynamic Programming,
+
+    {
+      id: 'daa-u3-q16',
+      unitId: 'unit-3',
+      subjectId: 'daa',
+      qNumber: 16,
+      title: 'Explain 0/1 Knapsack Problem Using Dynamic Programming. Devise the Recurrence Relation, Algorithm, and Traceback Procedure',
+      shortTitle: '0/1 Knapsack using DP: Recurrence, Algorithm & Traceback',
+      marks: 10,
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
+      topicCategory: 'Dynamic Programming',
+      syllabusTopics: ['0/1 Knapsack DP Recurrence', 'Table Construction', 'Traceback Vector Algorithm', 'Time & Space Complexity'],
+      definition: 'The 0/1 Knapsack problem via dynamic programming computes a 2D table T[0..n, 0..W] where T[i, w] represents the maximum profit achievable considering a subset of the first i items under capacity limit w.',
+      sections: [
+        {
+          title: '1. Mathematical Recurrence Relation',
+          content: [
+            'Let items be indexed 1 to n with weights w_i and profits p_i. Let knapsack capacity be W.',
+            'For item i and current capacity w:',
+            '  Case 1: If weight of item i exceeds capacity w (w_i > w), item i cannot fit:',
+            '          T[i, w] = T[i - 1, w]',
+            '  Case 2: If item i can fit (w_i ≤ w), we choose the maximum of excluding it or including it:',
+            '          T[i, w] = max( T[i - 1, w],  p_i + T[i - 1, w - w_i] )',
+            'Base Cases:',
+            '  T[0, w] = 0 for all w ≥ 0 (no items available)',
+            '  T[i, 0] = 0 for all i ≥ 0 (zero capacity)'
+          ],
+          formulas: [
+            { name: '0/1 Knapsack DP Bellman Equation', latex: 'T[i, w] = \\begin{cases} 0 & \\text{if } i=0 \\text{ or } w=0 \\\\ T[i-1, w] & \\text{if } w_i > w \\\\ \\max\\{T[i-1, w], \\; p_i + T[i-1, w - w_i]\\} & \\text{if } w_i \\le w \\end{cases}' }
+          ]
+        },
+        {
+          title: '2. Tabular Algorithm: `DKnapsack(p, w, n, W)`',
+          content: [
+            'Algorithm DKnapsack(p, w, n, W)',
+            '{',
+            '    for i = 0 to n do T[i, 0] = 0;',
+            '    for w = 0 to W do T[0, w] = 0;',
+            '    for i = 1 to n do',
+            '    {',
+            '        for w = 1 to W do',
+            '        {',
+            '            if w[i] <= w then',
+            '                T[i, w] = max(T[i-1, w], p[i] + T[i-1, w - w[i]]);',
+            '            else',
+            '                T[i, w] = T[i-1, w];',
+            '        }',
+            '    }',
+            '    return T[n, W];',
+            '}'
+          ]
+        },
+        {
+          title: '3. Traceback Procedure to Find Selected Items Vector (x₁, ..., x_n)',
+          content: [
+            'Once table T[n, W] is filled, determine which items were included by tracing backward:',
+            '  i = n, k = W;',
+            '  while (i > 0 and k > 0) do',
+            '  {',
+            '      if T[i, k] == T[i - 1, k] then',
+            '          x_i = 0; // Item i was not selected',
+            '      else',
+            '      {',
+            '          x_i = 1; // Item i was selected',
+            '          k = k - w_i; // Deduct weight of selected item',
+            '      }',
+            '      i = i - 1;',
+            '  }',
+            'Time Complexity: Table filling takes O(n W). Traceback takes O(n). Overall: O(n W).'
+          ]
+        }
+      ],
+      summary: [
+        '0/1 Knapsack DP builds an (n+1) x (W+1) table where T[i, w] stores max profit for first i items at capacity w.',
+        'Recurrence checks whether including item i (p_i + T[i-1, w-w_i]) beats excluding it (T[i-1, w]).',
+        'Traceback checks T[i, k] ≠ T[i-1, k] to identify included items.',
+        'Runs in O(nW) time and O(nW) space (can be optimized to O(W) space).'
+      ],
+      keyPoints: [
+        'T[i, w] recurrence formulation',
+        'Base conditions T[0, w] = 0, T[i, 0] = 0',
+        'Traceback logic k = k - w_i',
+        'O(nW) pseudo-polynomial complexity'
+      ]
+    },
+
+    // Q13: Solved Numerical: 0/1 Knapsack DP (W = 5, 4 Items),
+
+    {
+      id: 'daa-u3-q17',
+      unitId: 'unit-3',
+      subjectId: 'daa',
+      qNumber: 17,
+      title: 'Numerical: Consider the Following Instance of Knapsack Problem: Items 1..4 with Weights [2, 1, 3, 2] and Profits [$12, $10, $20, $15]. Knapsack Capacity = 5. Find Optimal Solution Using Dynamic Programming Approach',
+      shortTitle: 'Solved Numerical: 0/1 Knapsack DP (W=5, 4 Items)',
+      marks: 10,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
+      papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q1(b)', marks: 6 },
+        { paper: 'Nov 2023', questionNo: 'Q1(b)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q1(a)', marks: 10 }
+      ],
+      topicCategory: 'Dynamic Programming',
+      syllabusTopics: ['0/1 Knapsack DP Table', 'Stepwise Row Calculation', 'Traceback Vector Extraction'],
+      definition: 'Complete computation of the (5 x 6) dynamic programming table, row-by-row cell calculations, and traceback to isolate selected items and maximum profit.',
+      sections: [
+        {
+          title: '1. Given Items & Capacity',
+          content: [
+            'Capacity W = 5, Number of items n = 4.',
+            'Item 1: w₁ = 2, p₁ = 12',
+            'Item 2: w₂ = 1, p₂ = 10',
+            'Item 3: w₃ = 3, p₃ = 20',
+            'Item 4: w₄ = 2, p₄ = 15'
+          ]
+        },
+        {
+          title: '2. Dynamic Programming Table T[i, w]',
+          table: {
+            headers: ['Item i \\ Cap w', 'w = 0', 'w = 1', 'w = 2', 'w = 3', 'w = 4', 'w = 5'],
+            rows: [
+              { parameter: 'i = 0 (No items)', col1: '0', col2: '0', col3: '0', col4: '0', col5: '0', col6: '0' },
+              { parameter: 'i = 1 (w=2, p=12)', col1: '0', col2: '0', col3: '12', col4: '12', col5: '12', col6: '12' },
+              { parameter: 'i = 2 (w=1, p=10)', col1: '0', col2: '10', col3: '12', col4: '22', col5: '22', col6: '22' },
+              { parameter: 'i = 3 (w=3, p=20)', col1: '0', col2: '10', col3: '12', col4: '22', col5: '30', col6: '32' },
+              { parameter: 'i = 4 (w=2, p=15)', col1: '0', col2: '10', col3: '15', col4: '25', col5: '30', col6: '37' }
+            ]
+          }
+        },
+        {
+          title: '3. Row-by-Row Calculation Details',
+          content: [
+            'Row 1 (Item 1: w₁=2, p₁=12):',
+            '  • w=1: w₁ > 1 ==> T[1,1] = T[0,1] = 0',
+            '  • w=2: max(T[0,2], 12 + T[0,0]) = max(0, 12) = 12',
+            '  • w=3..5: 12',
+            'Row 2 (Item 2: w₂=1, p₂=10):',
+            '  • w=1: max(T[1,1], 10 + T[1,0]) = max(0, 10) = 10',
+            '  • w=2: max(T[1,2], 10 + T[1,1]) = max(12, 10+0) = 12',
+            '  • w=3: max(T[1,3], 10 + T[1,2]) = max(12, 10+12) = 22',
+            '  • w=4..5: max(12, 10+12) = 22',
+            'Row 3 (Item 3: w₃=3, p₃=20):',
+            '  • w=1..2: T[2,w] = 10, 12',
+            '  • w=3: max(T[2,3], 20 + T[2,0]) = max(22, 20) = 22',
+            '  • w=4: max(T[2,4], 20 + T[2,1]) = max(22, 20+10) = 30',
+            '  • w=5: max(T[2,5], 20 + T[2,2]) = max(22, 20+12) = 32',
+            'Row 4 (Item 4: w₄=2, p₄=15):',
+            '  • w=1: 10',
+            '  • w=2: max(T[3,2], 15 + T[3,0]) = max(12, 15) = 15',
+            '  • w=3: max(T[3,3], 15 + T[3,1]) = max(22, 15+10) = 25',
+            '  • w=4: max(T[3,4], 15 + T[3,2]) = max(30, 15+12) = 30',
+            '  • w=5: max(T[3,5], 15 + T[3,3]) = max(32, 15+22) = 37'
+          ]
+        },
+        {
+          title: '4. Traceback to Determine Selected Items',
+          content: [
+            'Start at i = 4, k = 5:',
+            '• Check T[4, 5] vs T[3, 5]: 37 ≠ 32 ==> Item 4 is SELECTED (x₄ = 1).',
+            '  New capacity k = 5 - w₄ = 5 - 2 = 3. Next i = 3.',
+            '• Check T[3, 3] vs T[2, 3]: 22 == 22 ==> Item 3 is NOT selected (x₃ = 0) in this branch.',
+            '  (Note: If checking alternate combination with same profit 22: Item 2 & 1 yields 22).',
+            '• Next i = 2, k = 3:',
+            '  Check T[2, 3] vs T[1, 3]: 22 ≠ 12 ==> Item 2 is SELECTED (x₂ = 1).',
+            '  New capacity k = 3 - w₂ = 3 - 1 = 2. Next i = 1.',
+            '• Next i = 1, k = 2:',
+            '  Check T[1, 2] vs T[0, 2]: 12 ≠ 0 ==> Item 1 is SELECTED (x₁ = 1).',
+            '  New capacity k = 2 - w₁ = 2 - 2 = 0.',
+            '• Selected Items: Item 1, Item 2, Item 4.',
+            '  Total Weight = 2 + 1 + 2 = 5 (Fits knapsack exactly!).',
+            '  Total Profit = 12 + 10 + 15 = $37.'
+          ]
+        }
+      ],
+      numericalSolution: {
+        problemSummary: 'Find optimal 0/1 knapsack solution for capacity W = 5 with 4 items: (2, 12), (1, 10), (3, 20), (2, 15).',
+        givenData: [
+          { label: 'Capacity (W)', value: '5' },
+          { label: 'Item 1 (w, p)', value: '(2, $12)' },
+          { label: 'Item 2 (w, p)', value: '(1, $10)' },
+          { label: 'Item 3 (w, p)', value: '(3, $20)' },
+          { label: 'Item 4 (w, p)', value: '(2, $15)' }
+        ],
+        toFind: [
+          '5x6 Dynamic Programming Table T[i, w]',
+          'Cell calculations using Bellman recurrence',
+          'Traceback path from T[4, 5]',
+          'Optimal selection vector and maximum profit'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Initialize Base Cases',
+            explanation: 'Set T[0, w] = 0 for w = 0..5 and T[i, 0] = 0 for i = 0..4.',
+            result: 'Zeroth row and zeroth column initialized to 0'
+          },
+          {
+            stepNumber: 2,
+            title: 'Fill Row 1 (Item 1: w=2, p=12)',
+            explanation: 'For capacity w < 2, copy from above. For w ≥ 2, profit is 12.',
+            calculation: 'T[1, 0]=0, T[1, 1]=0, T[1, 2]=12, T[1, 3]=12, T[1, 4]=12, T[1, 5]=12',
+            result: 'Row 1 completed'
+          },
+          {
+            stepNumber: 3,
+            title: 'Fill Row 2 (Item 2: w=1, p=10)',
+            explanation: 'Include item 2 if 10 + T[1, w-1] > T[1, w].',
+            calculation: 'w=1: max(0, 10+0)=10\nw=2: max(12, 10+0)=12\nw=3: max(12, 10+12)=22\nw=4: max(12, 10+12)=22\nw=5: max(12, 10+12)=22',
+            result: 'Row 2: [0, 10, 12, 22, 22, 22]'
+          },
+          {
+            stepNumber: 4,
+            title: 'Fill Row 3 (Item 3: w=3, p=20)',
+            explanation: 'Include item 3 if 20 + T[2, w-3] > T[2, w].',
+            calculation: 'w=3: max(22, 20+0)=22\nw=4: max(22, 20+10)=30\nw=5: max(22, 20+12)=32',
+            result: 'Row 3: [0, 10, 12, 22, 30, 32]'
+          },
+          {
+            stepNumber: 5,
+            title: 'Fill Row 4 (Item 4: w=2, p=15)',
+            explanation: 'Include item 4 if 15 + T[3, w-2] > T[3, w].',
+            calculation: 'w=2: max(12, 15+0)=15\nw=3: max(22, 15+10)=25\nw=4: max(30, 15+12)=30\nw=5: max(32, 15+22)=37',
+            result: 'Goal T[4, 5] = 37'
+          },
+          {
+            stepNumber: 6,
+            title: 'Traceback to Identify Selected Items',
+            explanation: 'Trace backwards from T[4, 5] = 37 to recover binary inclusion vector.',
+            calculation: 'T[4,5]=37 != T[3,5]=32 ==> Select Item 4 (x₄=1), new cap = 5-2=3\nT[3,3]=22 == T[2,3]=22 ==> Reject Item 3 (x₃=0)\nT[2,3]=22 != T[1,3]=12 ==> Select Item 2 (x₂=1), new cap = 3-1=2\nT[1,2]=12 != T[0,2]=0  ==> Select Item 1 (x₁=1), new cap = 2-2=0',
+            result: 'Selected: Items {1, 2, 4} with Vector x = (1, 1, 0, 1)'
+          }
+        ],
+        finalAnswer: {
+          label: 'Optimal 0/1 Knapsack Solution',
+          value: 'Maximum Profit = $37 with Items {1, 2, 4} [x = (1, 1, 0, 1)]',
+          interpretation: 'Packing Item 1 (w=2, p=12), Item 2 (w=1, p=10), and Item 4 (w=2, p=15) consumes exactly 5 units of weight for a maximum profit of $37.'
+        }
+      },
+      summary: [
+        'Formed 5x6 DP table with base row/col initialized to 0.',
+        'Filled cells using T[i, w] = max(T[i-1, w], p_i + T[i-1, w-w_i]).',
+        'Goal cell T[4, 5] = $37.',
+        'Traceback selected Items {1, 2, 4} with weights 2 + 1 + 2 = 5.'
+      ],
+      keyPoints: [
+        '5x6 DP matrix construction',
+        'T[4, 5] = 37 maximum profit',
+        'Traceback path isolating items 1, 2, 4',
+        'Solution vector (1, 1, 0, 1)'
+      ]
+    },
+
+    // Q14: Solved Numerical: 0/1 Knapsack DP (W = 7, 4 Items),
+
+    {
+      id: 'daa-u3-q18',
+      unitId: 'unit-3',
+      subjectId: 'daa',
+      qNumber: 18,
+      title: 'Numerical: Consider 0/1 Knapsack Problem with Weight Capacity 7. Four Items: A(w=1, p=1), B(w=3, p=4), C(w=4, p=5), D(w=5, p=7). Find Optimal Solution Using Dynamic Programming Approach',
+      shortTitle: 'Solved Numerical: 0/1 Knapsack DP (W=7, Items A,B,C,D)',
+      marks: 10,
+      importance: 'Moderately Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'April 2025', questionNo: 'Q2(b)', marks: 10 }
+      ],
+      topicCategory: 'Dynamic Programming',
+      syllabusTopics: ['0/1 Knapsack DP Table', 'Capacity W=7', 'Traceback Algorithm'],
+      definition: 'Step-by-step DP table computation for a 4-item instance with capacity 7, demonstrating optimal item extraction via back-referencing.',
+      sections: [
+        {
+          title: '1. Given Items & Capacity',
+          content: [
+            'Capacity W = 7, n = 4 items:',
+            'Item A: w_A = 1, p_A = 1',
+            'Item B: w_B = 3, p_B = 4',
+            'Item C: w_C = 4, p_C = 5',
+            'Item D: w_D = 5, p_D = 7'
+          ]
+        },
+        {
+          title: '2. Dynamic Programming Table T[i, w]',
+          table: {
+            headers: ['Item \\ Cap', 'w=0', 'w=1', 'w=2', 'w=3', 'w=4', 'w=5', 'w=6', 'w=7'],
+            rows: [
+              { parameter: 'i = 0 (None)', col1: '0', col2: '0', col3: '0', col4: '0', col5: '0', col6: '0', col7: '0', col8: '0' },
+              { parameter: 'i = 1 (A: 1, 1)', col1: '0', col2: '1', col3: '1', col4: '1', col5: '1', col6: '1', col7: '1', col8: '1' },
+              { parameter: 'i = 2 (B: 3, 4)', col1: '0', col2: '1', col3: '1', col4: '4', col5: '5', col6: '5', col7: '5', col8: '5' },
+              { parameter: 'i = 3 (C: 4, 5)', col1: '0', col2: '1', col3: '1', col4: '4', col5: '5', col6: '6', col7: '6', col8: '9' },
+              { parameter: 'i = 4 (D: 5, 7)', col1: '0', col2: '1', col3: '1', col4: '4', col5: '7', col6: '8', col7: '8', col8: '9' }
+            ]
+          }
+        },
+        {
+          title: '3. Traceback Analysis',
+          content: [
+            'Goal cell: T[4, 7] = 9.',
+            '• i = 4, w = 7: T[4, 7] == T[3, 7] == 9. Item D is NOT selected (x_D = 0). Capacity remains 7.',
+            '• i = 3, w = 7: T[3, 7] (9) ≠ T[2, 7] (5). Item C is SELECTED (x_C = 1).',
+            '  New capacity = 7 - w_C = 7 - 4 = 3.',
+            '• i = 2, w = 3: T[2, 3] (4) ≠ T[1, 3] (1). Item B is SELECTED (x_B = 1).',
+            '  New capacity = 3 - w_B = 3 - 3 = 0.',
+            '• i = 1, w = 0: Capacity is 0. Item A is NOT selected (x_A = 0).',
+            'Selected Items: B and C.',
+            'Total Weight = 3 + 4 = 7 (Exact capacity match).',
+            'Total Profit = 4 + 5 = 9.'
+          ]
+        }
+      ],
+      numericalSolution: {
+        problemSummary: 'DP 0/1 knapsack solution for W = 7 with items A(1,1), B(3,4), C(4,5), D(5,7).',
+        givenData: [
+          { label: 'W', value: '7' },
+          { label: 'A', value: '(w=1, p=1)' },
+          { label: 'B', value: '(w=3, p=4)' },
+          { label: 'C', value: '(w=4, p=5)' },
+          { label: 'D', value: '(w=5, p=7)' }
+        ],
+        toFind: [
+          '5x8 Table T[i, w]',
+          'Maximum profit cell T[4, 7]',
+          'Traceback path'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Compute Row 1 (Item A: w=1, p=1)',
+            explanation: 'For all w ≥ 1, capacity can hold Item A.',
+            result: 'Row 1: [0, 1, 1, 1, 1, 1, 1, 1]'
+          },
+          {
+            stepNumber: 2,
+            title: 'Compute Row 2 (Item B: w=3, p=4)',
+            explanation: 'At w=3: max(1, 4)=4; at w=4: max(1, 4+1)=5; at w=5..7: 5.',
+            result: 'Row 2: [0, 1, 1, 4, 5, 5, 5, 5]'
+          },
+          {
+            stepNumber: 3,
+            title: 'Compute Row 3 (Item C: w=4, p=5)',
+            explanation: 'At w=4: max(5, 5+0)=5; at w=5: max(5, 5+1)=6; at w=7: max(5, 5+T[2,3]=5+4)=9.',
+            result: 'Row 3: [0, 1, 1, 4, 5, 6, 6, 9]'
+          },
+          {
+            stepNumber: 4,
+            title: 'Compute Row 4 (Item D: w=5, p=7)',
+            explanation: 'At w=5: max(5, 7+0)=7; at w=6: max(6, 7+1)=8; at w=7: max(9, 7+T[3,2]=7+1=8)=9.',
+            result: 'Row 4: [0, 1, 1, 4, 7, 8, 8, 9]'
+          },
+          {
+            stepNumber: 5,
+            title: 'Execute Traceback',
+            explanation: 'Trace back from T[4, 7] = 9.',
+            calculation: 'T[4,7]=9 == T[3,7]=9 ==> Skip D (x_D=0)\nT[3,7]=9 != T[2,7]=5 ==> Pick C (x_C=1), remaining w = 7-4=3\nT[2,3]=4 != T[1,3]=1 ==> Pick B (x_B=1), remaining w = 3-3=0\nRemaining w=0 ==> Skip A (x_A=0)',
+            result: 'Selected: {B, C} with Profit = 9'
+          }
+        ],
+        finalAnswer: {
+          label: 'Optimal 0/1 Knapsack Solution',
+          value: 'Maximum Profit = 9 with Items {B, C}',
+          interpretation: 'Packing Item B (weight 3, profit 4) and Item C (weight 4, profit 5) consumes exactly 7 units of weight for a maximum profit of 9.'
+        }
+      },
+      summary: [
+        'Built 5x8 table for W = 7.',
+        'At W=7, including Item D gives 7+1=8, while Items B+C gives 4+5=9.',
+        'Traceback confirms Items B and C are selected.',
+        'Total Profit = 9, Total Weight = 7.'
+      ],
+      keyPoints: [
+        'Capacity W = 7 matrix',
+        'T[4, 7] = 9',
+        'Selection vector (x_A=0, x_B=1, x_C=1, x_D=0)',
+        'Superiority of B+C (profit 9) over D+A (profit 8)'
+      ]
+    },
+
+    // Q15: Matrix Chain Multiplication (MCM) Theory & Algorithm,
+
+    {
+      id: 'daa-u3-q19',
+      unitId: 'unit-3',
+      subjectId: 'daa',
+      qNumber: 19,
+      title: 'Explain Matrix Chain Multiplication Using Dynamic Programming. Derive its Recurrence Relation, Table Formulation, and Parenthesization Algorithm',
+      shortTitle: 'Matrix Chain Multiplication: Recurrence, Algorithm & Complexity',
+      marks: 10,
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
+      topicCategory: 'Dynamic Programming',
+      syllabusTopics: ['Matrix Chain Multiplication', 'Optimal Parenthesization', 'Cost Recurrence m[i,j]', 'Split Table s[i,j]', 'Time Complexity O(n³)'],
+      definition: 'Matrix Chain Multiplication (MCM) is an optimization problem that finds the most efficient order (parenthesization) of multiplying a sequence of n matrices A₁ A₂ ... A_n such that the total number of scalar multiplications is minimized.',
+      sections: [
+        {
+          title: '1. Problem Background & Associativity',
+          content: [
+            'Matrix multiplication is associative: (A · B) · C = A · (B · C). However, the number of scalar operations varies dramatically depending on the parenthesization order.',
+            'Example:',
+            '  • Let A₁ be 10 × 100, A₂ be 100 × 5, and A₃ be 5 × 50.',
+            '  • Order 1: ((A₁ A₂) A₃) takes (10 × 100 × 5) + (10 × 5 × 50) = 5,000 + 2,500 = 7,500 multiplications.',
+            '  • Order 2: (A₁ (A₂ A₃)) takes (100 × 5 × 50) + (10 × 100 × 50) = 25,000 + 50,000 = 75,000 multiplications.',
+            '  • Order 1 is 10 times faster than Order 2!'
+          ]
+        },
+        {
+          title: '2. Recurrence Relation for Minimum Multiplications',
+          content: [
+            'Let matrix A_i have dimensions p_{i-1} × p_i for i = 1, 2, ..., n.',
+            'Let m[i, j] be the minimum number of scalar multiplications needed to compute the product A_i A_{i+1} ... A_j.',
+            '• Base Case: A single matrix requires 0 multiplications:',
+            '  m[i, i] = 0 for all i = 1, 2, ..., n.',
+            '• Recursive Step: For a chain from i to j split at intermediate position k (where i ≤ k < j):',
+            '  Cost = Cost(A_i..A_k) + Cost(A_{k+1}..A_j) + Cost of multiplying the two resulting matrices',
+            '  m[i, j] = min_{i ≤ k < j} { m[i, k] + m[k+1, j] + p_{i-1} p_k p_j }',
+            '• Split Table: s[i, j] stores the value of k that achieves the minimum cost.'
+          ],
+          formulas: [
+            { name: 'MCM Bellman Recurrence', latex: 'm[i, j] = \\begin{cases} 0 & \\text{if } i = j \\\\ \\min_{i \\le k < j} \\{ m[i, k] + m[k+1, j] + p_{i-1} p_k p_j \\} & \\text{if } i < j \\end{cases}' }
+          ]
+        },
+        {
+          title: '3. Matrix Chain Order Algorithm & Complexity',
+          content: [
+            'Algorithm Matrix_Chain_Order(p, n)',
+            '{',
+            '    for i = 1 to n do m[i, i] = 0;',
+            '    for L = 2 to n do // L is chain length',
+            '    {',
+            '        for i = 1 to (n - L + 1) do',
+            '        {',
+            '            j = i + L - 1;',
+            '            m[i, j] = ∞;',
+            '            for k = i to (j - 1) do',
+            '            {',
+            '                q = m[i, k] + m[k+1, j] + p[i-1]*p[k]*p[j];',
+            '                if q < m[i, j] then',
+            '                {',
+            '                    m[i, j] = q;',
+            '                    s[i, j] = k;',
+            '                }',
+            '            }',
+            '        }',
+            '    }',
+            '    return m and s;',
+            '}',
+            'Time Complexity: Three nested loops (chain length L, starting index i, split index k) yield O(n³) running time. Space complexity is O(n²) to store m and s tables.'
+          ]
+        },
+        {
+          title: '4. Traceback: Printing Optimal Parenthesization',
+          content: [
+            'Algorithm Print_Optimal_Parens(s, i, j)',
+            '{',
+            '    if i == j then',
+            '        print "A" + i;',
+            '    else',
+            '    {',
+            '        print "(";',
+            '        Print_Optimal_Parens(s, i, s[i, j]);',
+            '        Print_Optimal_Parens(s, s[i, j] + 1, j);',
+            '        print ")";',
+            '    }',
+            '}'
+          ]
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-mcm',
+          title: 'Matrix Chain Multiplication Triangular Table Architecture',
+          caption: 'Pyramid DP table showing diagonal base cases m[i,i] = 0 and upward subproblem combination order by chain length.',
+          type: 'svg-interactive',
+          svgType: 'mcm-pyramid-grid'
+        }
+      ],
+      summary: [
+        'Matrix multiplication is associative but differing parenthesizations yield drastically different operation counts.',
+        'DP computes m[i, j] = min_k (m[i, k] + m[k+1, j] + p_{i-1} p_k p_j) by increasing chain length L.',
+        'Split table s[i, j] tracks optimal split points for recursive parenthesis printing.',
+        'Time complexity is O(n³) and space complexity is O(n²).'
+      ],
+      keyPoints: [
+        'Associative matrix multiplication',
+        'm[i, j] recurrence equation',
+        'Split table s[i, j] recording',
+        'O(n³) cubic time complexity',
+        'Recursive parenthesis printing algorithm'
+      ]
+    },
+
+    // Q16: Solved Numerical: MCM 4 Matrices (A1: 3x5, A2: 5x4, A3: 4x2, A4: 2x4),
+
     {
       id: 'daa-u3-q20',
       unitId: 'unit-3',
@@ -2313,6 +2372,7 @@ export const daaUnit3Data: Unit = {
       papersAsked: [
         { paper: 'Nov 2025', questionNo: 'Q2(b)', marks: 10 }
       ],
+      topicCategory: 'Comparative Analysis & Exemplar',
       syllabusTopics: ['Binomial Coefficients', 'Pascal\'s Identity', 'Overlapping Subproblems', 'Time and Space Complexity'],
       definition: 'Computing the binomial coefficient C(n, k) = n! / (k!(n-k)!) using dynamic programming leverages Pascal\'s Identity to replace expensive factorial computations with simple additions in a 2D table.',
       sections: [
@@ -2386,6 +2446,30 @@ export const daaUnit3Data: Unit = {
             '3. Space Optimization: Since row i depends only on row i - 1, space can be reduced to a 1D array of size Θ(k) by updating from right to left.'
           ]
         }
+      ,
+        {
+          title: '2. Exemplar Case Study: Rail Tracks Connecting All the Cities (SPPU Syllabus Exemplar)',
+          content: [
+            'Problem Statement & Engineering Objective:',
+            'A national railway authority must construct a network of railway tracks connecting N cities such that any city is reachable from any other city, while minimizing total track construction and land-acquisition cost without creating redundant circular loops.',
+            '',
+            'Algorithmic Formulation:',
+            '• Graph Model: Formulated as an undirected weighted graph G = (V, E), where V represents cities (|V| = n) and E represents possible rail corridors with weight w(u, v) denoting the cost of laying track between city u and city v.',
+            '• Problem Classification: This is mathematically identical to the Minimum Spanning Tree (MST) problem.',
+            '',
+            'Algorithmic Strategy Selection — Greedy vs Dynamic Programming:',
+            '1. Why Greedy (Kruskal\'s or Prim\'s Algorithm) is the Optimal Choice:',
+            '   - Optimal Substructure and Greedy Choice Property: The Cut Property proves that the lightest edge crossing any cut of G MUST belong to an MST. Choosing the locally cheapest feasible edge at each step is guaranteed to yield the globally optimal minimum-cost rail network.',
+            '   - Computational Efficiency: Kruskal\'s algorithm with Disjoint Set Union (DSU) runs in O(E log V) time, and Prim\'s algorithm with Fibonacci Heap runs in O(E + V log V). For 100 cities with 1,000 corridors, it computes the optimal network in under 2 milliseconds.',
+            '2. Why Dynamic Programming is Overkill and Unnecessary:',
+            '   - Dynamic Programming evaluates all overlapping subproblems and costs O(V² · 2^V) or O(V³), which is completely unnecessary when the greedy choice property guarantees optimality without backtracking or subproblem memorization.',
+            '',
+            'Engineering Summary for Rail Network Design:',
+            '• Recommended Algorithm: Kruskal\'s Algorithm with Union-Find (DSU) cycle detection.',
+            '• Total Tracks Required: Exactly (n - 1) rail corridors for n cities.',
+            '• Cycle Prevention: If both cities u and v belong to the same connected component (Find(u) == Find(v)), laying the corridor creates a redundant expensive loop and is rejected.'
+          ]
+        },
       ],
       summary: [
         'C(n, k) computed via Pascal\'s identity C(n, k) = C(n-1, k-1) + C(n-1, k).',

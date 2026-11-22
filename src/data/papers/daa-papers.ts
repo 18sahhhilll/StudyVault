@@ -46,7 +46,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 6,
             "unitNumber": 3,
             "unitTitle": "Greedy Method and Dynamic Programming",
-            "mappedQuestionId": "daa-u3-q13",
+            "mappedQuestionId": "daa-u3-q17",
             "mappedUnitId": "unit-3",
             "mappedSubjectId": "daa"
           }
@@ -62,7 +62,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 10,
             "unitNumber": 3,
             "unitTitle": "Greedy Method and Dynamic Programming",
-            "mappedQuestionId": "daa-u3-q19",
+            "mappedQuestionId": "daa-u3-q15",
             "mappedUnitId": "unit-3",
             "mappedSubjectId": "daa"
           },
@@ -93,7 +93,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 8,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q4",
+            "mappedQuestionId": "daa-u4-q3",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           },
@@ -103,7 +103,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 9,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q10",
+            "mappedQuestionId": "daa-u4-q8",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           }
@@ -129,7 +129,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 8,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q14",
+            "mappedQuestionId": "daa-u4-q12",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           }
@@ -207,7 +207,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 10,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q3",
+            "mappedQuestionId": "daa-u6-q4",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           },
@@ -217,7 +217,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 7,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q2",
+            "mappedQuestionId": "daa-u6-q8",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           }
@@ -233,7 +233,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 9,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q4",
+            "mappedQuestionId": "daa-u6-q3",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           },
@@ -243,7 +243,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 8,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q16",
+            "mappedQuestionId": "daa-u6-q18",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           }
@@ -355,7 +355,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 10,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q11",
+            "mappedQuestionId": "daa-u4-q9",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           },
@@ -365,7 +365,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 8,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q15",
+            "mappedQuestionId": "daa-u4-q13",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           }
@@ -391,7 +391,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 8,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q7",
+            "mappedQuestionId": "daa-u4-q5",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           }
@@ -489,7 +489,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 10,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q18",
+            "mappedQuestionId": "daa-u6-q16",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           },
@@ -499,7 +499,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 8,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q3",
+            "mappedQuestionId": "daa-u6-q4",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           }
@@ -606,7 +606,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 10,
             "unitNumber": 3,
             "unitTitle": "Greedy Method and Dynamic Programming",
-            "mappedQuestionId": "daa-u3-q14",
+            "mappedQuestionId": "daa-u3-q18",
             "mappedUnitId": "unit-3",
             "mappedSubjectId": "daa"
           }
@@ -627,7 +627,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 10,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q8",
+            "mappedQuestionId": "daa-u4-q6",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           },
@@ -637,7 +637,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 4,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q9",
+            "mappedQuestionId": "daa-u4-q7",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           },
@@ -663,7 +663,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 8,
             "unitNumber": 4,
             "unitTitle": "Backtracking and Branch & Bound",
-            "mappedQuestionId": "daa-u4-q9",
+            "mappedQuestionId": "daa-u4-q7",
             "mappedUnitId": "unit-4",
             "mappedSubjectId": "daa"
           },
@@ -771,7 +771,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 8,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q3",
+            "mappedQuestionId": "daa-u6-q4",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           },
@@ -781,7 +781,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 4,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q2",
+            "mappedQuestionId": "daa-u6-q8",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           },
@@ -817,7 +817,7 @@ export const daaQuestionPapers: QuestionPaper[] = [
             "marks": 10,
             "unitNumber": 6,
             "unitTitle": "Multithreaded, Distributed Algorithms and String Matching",
-            "mappedQuestionId": "daa-u6-q16",
+            "mappedQuestionId": "daa-u6-q18",
             "mappedUnitId": "unit-6",
             "mappedSubjectId": "daa"
           }

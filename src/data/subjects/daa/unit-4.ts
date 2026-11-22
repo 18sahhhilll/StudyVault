@@ -6,19 +6,17 @@ export const daaUnit4Data: Unit = {
   title: 'Backtracking and Branch-n-Bound Algorithmic Strategies',
   shortTitle: 'Backtracking & Branch-n-Bound',
   description: 'Comprehensive study of exhaustive state-space search techniques covering Backtracking control abstractions, Explicit vs Implicit constraints, n-Queens, Graph m-Coloring, Sum of Subsets, and Branch & Bound approaches (FIFO, LIFO, LCBB), Bounding Functions, Reduced Matrix Traveling Salesperson Problem (TSP), and 0/1 Knapsack Branch & Bound.',
-  syllabus: [
-    'Backtracking Principle: Solution Vector, Criterion Function, Explicit and Implicit Constraints',
-    'State Space Tree Terminology: Problem State, Solution State, Answer State, Live Node, E-Node, Dead Node, Bounding Functions',
-    'Control Abstraction for Backtracking: Recursive and Iterative Schemas, Time and Efficiency Analysis',
-    'The n-Queens Problem: Mathematical Formulation, Column and Diagonal Conflict Conditions, 4-Queens and 8-Queens walkthroughs',
-    'Graph m-Coloring Problem: Adjacency Formulation, NextValue Subroutine, Recursive Algorithm, Planar Graph 3-Coloring',
-    'Sum of Subsets Problem: Bounding Functions, Tree Organization, Comparison of Element Sorting Orders',
-    'Branch and Bound Principle: Optimization Formulation, Lower Bound c^(x), Upper Bound u(x), Pruning / Killing Criteria',
-    'Exploration Strategies: FIFO Branch and Bound (Queue / BFS), LIFO Branch and Bound (Stack / D-Search), Least-Cost (LC) Search',
-    'Control Abstraction for Least-Cost Search (LCBB): Min-Heap Priority Queue, Ranking Function, Algorithm LC_Search',
-    'Traveling Salesperson Problem (TSP) using LCBB: Dynamic Reduction Technique, Row Minimization, Column Minimization, Bounding Formula',
-    '0/1 Knapsack Problem using LCBB: Continuous Greedy Fractional Upper Bound Formulation, State-Space Tree Exploration',
-    'Comparative Analysis: Backtracking vs Branch and Bound, Greedy Method vs Dynamic Programming, Drawbacks of Branch and Bound'
+      syllabus: [
+    'Backtracking: Principle, Control Abstraction, Time Analysis of Control Abstraction',
+    '8-Queen Problem: Formulation, Explicit & Implicit Constraints, State Space Tree Walkthrough',
+    'Graph Coloring Problem: m-Colorability, Planar Graph Coloring, Backtracking Algorithm',
+    'Sum of Subsets Problem: Bounding Functions, Feasibility Tests, State Space Pruning',
+    'Branch-and-Bound: Principle, Control Abstraction, Time Analysis of Control Abstraction',
+    'Exploration Strategies: FIFO Branch-and-Bound, LIFO Branch-and-Bound, Least-Cost (LC) Search',
+    'Travelling Salesperson Problem (TSP): Reduced Cost Matrix Method, Bounding Equations',
+    '0/1 Knapsack Problem using Branch-and-Bound: Upper and Lower Bounding Functions',
+    'Comparative Analysis: Backtracking vs Branch-and-Bound Paradigms',
+    '#Exemplar / Case Studies: Airline Crew Scheduling (Integer Linear Programming)'
   ],
   questionPaperIndex: [
     { paper: 'April 2026 ([6627]-81)', qMain: 'Q3(a) 8-Queen Problem Backtracking (8M), Q3(b) Sum of Subsets Backtracking (9M)', qOr: 'Q4(a) TSP Branch & Bound (9M), Q4(b) Branch & Bound Strategies (FIFO/LIFO/LC) (8M)' },
@@ -118,7 +116,6 @@ export const daaUnit4Data: Unit = {
     ]
   },
   questions: [
-    // Q1
     {
       id: 'daa-u4-q1',
       unitId: 'unit-4',
@@ -134,6 +131,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q3(a)', marks: 8 }
       ],
       frequencyNote: 'Asked in almost every semester examination paper as the fundamental theory question for Unit IV.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Backtracking Principle',
         'Explicit vs Implicit Constraints',
@@ -235,7 +233,8 @@ export const daaUnit4Data: Unit = {
       conclusion: 'By evaluating bounding functions at each step, backtracking avoids generating the entire combinatorial solution space (e.g., pruning from O(n^n) down to practical subsets), making it a cornerstone technique for hard search problems.'
     },
 
-    // Q2
+    // Q2,
+
     {
       id: 'daa-u4-q2',
       unitId: 'unit-4',
@@ -248,6 +247,7 @@ export const daaUnit4Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Standard 8-mark question requiring clean pseudocode schemas and mathematical breakdown of complexity factors.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Control Abstraction for Backtracking',
         'Recursive Schema',
@@ -342,204 +342,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'Control abstractions standardize depth-first exploration across diverse applications, decoupling domain-specific candidate generation and bounding logic from the tree-traversal engine.'
     },
 
-    // Q3
+    // Q3,
+
     {
       id: 'daa-u4-q3',
       unitId: 'unit-4',
       subjectId: 'daa',
       qNumber: 3,
-      title: 'Compare Greedy Method and Dynamic Programming with respect to: i) Feasibility, ii) Optimality, iii) Recursion, iv) Memorization, and v) Time Complexity.',
-      shortTitle: 'Comparison: Greedy Method vs Dynamic Programming',
-      marks: 9,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
-      frequencyNote: 'Directly asked as Paper 1 Q3(b) with the 5 explicit comparison parameters enumerated in the university paper.',
-      syllabusTopics: [
-        'Greedy Method vs Dynamic Programming',
-        'Feasibility & Optimality Criteria',
-        'Recursion & Memorization Mechanisms',
-        'Time Complexity Comparison'
-      ],
-      definition: 'Greedy Method and Dynamic Programming are both optimization paradigms that solve problems by combining choices, but differ fundamentally in how choices are committed: Greedy makes irreversible locally optimal choices without backtracking, while Dynamic Programming systematically searches all subproblem combinations via Bellman’s Principle of Optimality and memoization.',
-      sections: [
-        {
-          title: '1. In-Depth Parameter Comparison Table',
-          table: {
-            headers: ['Greedy Algorithmic Strategy', 'Dynamic Programming Strategy'],
-            rows: [
-              {
-                parameter: 'Feasibility is checked at every single step before admitting a choice; once an infeasible option is rejected, it is never reconsidered.',
-                col1: 'Feasibility is evaluated collectively across subproblems; partial answers are merged only if combined constraints meet global rules.'
-              },
-              {
-                parameter: 'Constructs a locally optimal choice at each step hoping it yields a global optimum; fails for problems like 0/1 Knapsack.',
-                col1: 'Guarantees global optimality provided the problem satisfies Bellman\'s Principle of Optimality and has optimal substructure.'
-              },
-              {
-                parameter: 'Iterative or top-down progression that never revisits previous steps, never backtracks, and never reconsiders decisions.',
-                col1: 'Systematically solves overlapping subproblems through bottom-up tabular loops or top-down memoized recursion.'
-              },
-              {
-                parameter: 'Zero memoization required: intermediate states are never stored because choices are committed permanently.',
-                col1: 'Memoization is essential: stores subproblem results in tables (arrays/matrices) to eliminate duplicate recomputations.'
-              },
-              {
-                parameter: 'Generally very fast with lower time complexity: typically O(n) or O(n log n) driven by sorting candidates once.',
-                col1: 'Higher polynomial time complexity: O(n²), O(n³), or pseudo-polynomial O(n·W) due to filling dynamic programming matrices.'
-              }
-            ]
-          }
-        },
-        {
-          title: '2. Examination Summary of Key Differences',
-          content: [
-            '• Greedy makes decisions top-down, selecting the best candidate without waiting for solutions to subproblems.',
-            '• Dynamic programming solves bottom-up, first finding optimal solutions to subproblems and storing them in an auxiliary table before assembling the final answer.',
-            '• If a problem exhibits overlapping subproblems and optimal substructure, Dynamic Programming is guaranteed to find the true optimal answer, whereas Greedy requires the Matroid or greedy-choice property.'
-          ]
-        }
-      ],
-      summary: [
-        'Greedy checks feasibility step-by-step and commits irrevocably to locally optimal choices.',
-        'Dynamic programming guarantees global optimality using Bellman\'s recurrence and memoized tables.',
-        'Greedy requires no recursion or memoization, running in O(n log n) time.',
-        'DP uses recursive relations and 2D tabular storage, running in polynomial/pseudo-polynomial time.'
-      ],
-      keyPoints: [
-        'Feasibility (Step-by-step vs Tabular)',
-        'Optimality (Local vs Global)',
-        'Recursion (Iterative vs Recurrence)',
-        'Memorization (None vs 2D Table)',
-        'Time Complexity (O(n log n) vs O(n * W))'
-      ],
-      conclusion: 'Greedy method delivers superior runtime efficiency when greedy choice property holds, while Dynamic Programming provides robust optimality for problems with overlapping subproblems.'
-    },
-
-    // Q4
-    {
-      id: 'daa-u4-q4',
-      unitId: 'unit-4',
-      subjectId: 'daa',
-      qNumber: 4,
-      title: 'Formulate the n-Queens Problem. Derive the mathematical conditions for column and diagonal non-attacking constraints. Present the complete recursive algorithm.',
-      shortTitle: 'The n-Queens Problem: Formulation, Math & Algorithm',
-      marks: 8,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
-      papersAsked: [
-        { paper: 'April 2026', questionNo: 'Q3(a)', marks: 8 }
-      ],
-      frequencyNote: 'Fundamental backtracking benchmark asked frequently with mathematical modeling and pseudocode expectations.',
-      syllabusTopics: [
-        'n-Queens Problem Formulation',
-        '1D Solution Vector Representation',
-        'Diagonal Conflict Formula Derivation',
-        'Recursive Algorithm Queen(row, n) and Place(row, column)'
-      ],
-      definition: 'The n-Queens problem consists of placing n non-attacking queens on an n x n chessboard such that no two queens occupy the same row, same column, or same diagonal.',
-      sections: [
-        {
-          title: '1. Mathematical Modeling & 1D Vector Representation',
-          content: [
-            'A naive 2D board requires n^2 positions, yielding an enormous search space C(n^2, n).',
-            'Since every row must contain exactly one queen, we represent the board configuration as an n-tuple:',
-            'x = (x_1, x_2, ..., x_n) where x[i] = column index of the queen in row i (1 <= i <= n).',
-            '• Explicit Constraints: x[i] in {1, 2, ..., n} for all i in {1..n}.',
-            '  This immediately reduces the search space from C(n^2, n) to n^n tuples.'
-          ]
-        },
-        {
-          title: '2. Derivation of Non-Attacking Implicit Constraints',
-          content: [
-            '1. Row Constraint: Automatically satisfied because index i represents the row, placing exactly one queen per row.',
-            '2. Column Constraint: No two queens can be in the same column:',
-            '   x[i] != x[j]  for all distinct rows i != j.',
-            '3. Diagonal Constraint Derivation:',
-            '   Let two queens be located at coordinates (i, x[i]) and (j, x[j]).',
-            '   • On a 45° positive diagonal: row + col = constant => i + x[i] = j + x[j] => x[i] - x[j] = j - i.',
-            '   • On a 135° negative diagonal: row - col = constant => i - x[i] = j - x[j] => x[i] - x[j] = i - j.',
-            '   Combining both equations using absolute values yields the famous diagonal conflict formula:',
-            '   |x[i] - x[j]| == |i - j|  =>  CONFLICT (Queens attack diagonally)',
-            '   Therefore, for a placement to be legal, we must satisfy:',
-            '   |x[i] - x[j]| != |i - j|  and  x[i] != x[j]  for all j < i.'
-          ]
-        },
-        {
-          title: '3. Complete Recursive Algorithm Pseudocode',
-          content: [
-            '```text',
-            'Algorithm Place(row, column)',
-            '// Returns true if a queen can be safely placed at (row, column)',
-            '{',
-            '    for i = 1 to row - 1 do',
-            '    {',
-            '        // Check column conflict OR diagonal conflict',
-            '        if (board[i] == column or abs(board[i] - column) == abs(i - row)) then',
-            '            return false; // Conflict detected',
-            '    }',
-            '    return true; // No conflict, position is safe',
-            '}',
-            '',
-            'Algorithm Queen(row, n)',
-            '// Solves n-queens problem using backtracking',
-            '{',
-            '    for column = 1 to n do',
-            '    {',
-            '        if (Place(row, column) == true) then',
-            '        {',
-            '            board[row] = column; // Place queen',
-            '            if (row == n) then',
-            '                print_board(n); // Complete solution found',
-            '            else',
-            '                Queen(row + 1, n); // Recurse to next row',
-            '        }',
-            '    }',
-            '}',
-            '```'
-          ]
-        },
-        {
-          title: '4. Complexity Analysis',
-          content: [
-            '• Time Complexity: In the worst-case, the number of nodes checked is bounded by O(n!). The bounding function Place() executes in O(n) per node. Thus total time is O(n!).',
-            '• Space Complexity: O(n) for the 1D board array and call stack recursion depth.'
-          ]
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-nqueens-board',
-          title: '4-Queens Chessboard Placement & Diagonal Math',
-          caption: 'Figure 4.2: 4x4 chessboard layout demonstrating the solution tuple x = [2, 4, 1, 3] and geometric diagonal non-attacking conditions.',
-          type: 'svg-interactive',
-          svgType: 'nqueens-chessboard-visual',
-          description: 'Detailed board view showing queen coordinates, row-by-row indices, and diagonal constraint formulas.'
-        }
-      ],
-      summary: [
-        'Board configuration is represented as a 1D vector x[1..n] where x[i] is queen column in row i.',
-        'Explicit constraint: x[i] in {1, 2, ..., n}; search space size is n^n.',
-        'Implicit constraints: distinct columns (x[i] != x[j]) and distinct diagonals (|x[i] - x[j]| != |i - j|).',
-        'Place(row, col) checks previous rows 1..row-1 in O(n) time; recursive Queen() explores in O(n!) time.'
-      ],
-      keyPoints: [
-        '1D Tuple Representation x[1..n]',
-        'Column Check (board[i] != col)',
-        'Diagonal Formula (|board[i] - col| != |i - row|)',
-        'Algorithm Place() and Queen()',
-        'Time Complexity O(n!)',
-        'Space Complexity O(n)'
-      ],
-      conclusion: 'The 1D formulation reduces an otherwise intractably large search space down to O(n!), demonstrating the efficiency of backtracking with mathematical pruning.'
-    },
-
-    // Q5
-    {
-      id: 'daa-u4-q5',
-      unitId: 'unit-4',
-      subjectId: 'daa',
-      qNumber: 5,
       title: 'Walk through the 4-Queens Problem using Backtracking. Construct its full State-Space Tree and derive both valid solutions.',
       shortTitle: '4-Queens Problem: State-Space Tree Walkthrough',
       marks: 8,
@@ -547,6 +356,7 @@ export const daaUnit4Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Universally required solved problem in university exams showing step-by-step backtracking decisions.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         '4-Queens State Space Tree',
         'Backtracking Tree Trace',
@@ -673,12 +483,13 @@ export const daaUnit4Data: Unit = {
       conclusion: '4-Queens proves the power of backtracking: unviable branches are terminated early before deep subtree expansion, successfully discovering both solutions.'
     },
 
-    // Q6
+    // Q6,
+
     {
-      id: 'daa-u4-q6',
+      id: 'daa-u4-q4',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 6,
+      qNumber: 4,
       title: 'Analyze the 8-Queens Problem. For the given partial feasible sequence (7, 5, 3, 1), trace the remaining queen placements using backtracking until a complete solution is obtained.',
       shortTitle: '8-Queens: Feasible Sequence (7, 5, 3, 1) Backtracking Trace',
       marks: 8,
@@ -686,6 +497,7 @@ export const daaUnit4Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Common university exam problem testing understanding of deep backtracking tree search on 8x8 boards.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         '8-Queens Problem',
         'Feasible Prefix Verification',
@@ -790,12 +602,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'Demonstrates how backtracking recovers from dead ends deep inside the tree and advances toward valid 8-queen configurations.'
     },
 
-    // Q7
+    // Q7,
+
     {
-      id: 'daa-u4-q7',
+      id: 'daa-u4-q5',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 7,
+      qNumber: 5,
       title: 'Explain the Graph m-Coloring Problem with respect to Backtracking. Write the NextValue (Gen_Col_Value) and recursive mColoring algorithms, and analyze their time complexity.',
       shortTitle: 'Graph m-Coloring: Problem, Algorithms & Complexity',
       marks: 8,
@@ -806,6 +619,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q3(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q3(a) [8 Marks] and Paper 4 Q3(a) [8 Marks].',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Graph m-Coloring Formulation',
         'Chromatic Number',
@@ -915,12 +729,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'Graph m-coloring demonstrates how backtracking provides complete solutions to NP-complete graph decision problems by pruning color conflicts early.'
     },
 
-    // Q8
+    // Q8,
+
     {
-      id: 'daa-u4-q8',
+      id: 'daa-u4-q6',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 8,
+      qNumber: 6,
       title: 'Consider a 7-vertex graph represented by the adjacency matrix below. Use a recursive backtracking algorithm to color this graph with three colors (Red, Green, Blue). Trace the complete step-by-step solution.',
       shortTitle: 'Solved Problem: 7-Vertex Graph 3-Coloring Backtracking',
       marks: 8,
@@ -931,6 +746,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q3(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 4 Q3(a) with the exact 7x7 adjacency matrix.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Solved Graph Coloring Numerical',
         '7-Vertex Graph Trace',
@@ -1051,12 +867,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'The recursive algorithm assigns colors deterministically in a single forward pass without needing to backtrack because the available color count (3) exceeds the graph chromatic number (2).'
     },
 
-    // Q9
+    // Q9,
+
     {
-      id: 'daa-u4-q9',
+      id: 'daa-u4-q7',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 9,
+      qNumber: 7,
       title: 'Formulate the Sum of Subsets Problem. Explain its Recursive Backtracking Algorithm, and establish the two crucial pruning bounds used to truncate the state-space tree.',
       shortTitle: 'Sum of Subsets: Formulation, Algorithm & Pruning Bounds',
       marks: 8,
@@ -1067,6 +884,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'April 2025', questionNo: 'Q4(a)', marks: 8 }
       ],
       frequencyNote: 'Consistently appears across examination papers in Q4 as an 8-mark core problem.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Sum of Subsets Problem Formulation',
         'Binary Tuple Representation x_i in {0, 1}',
@@ -1159,12 +977,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'The dual bounding functions guarantee that only feasible partial sums are explored, transforming an exponential 2^n power set search into an efficient tree pruning algorithm.'
     },
 
-    // Q10
+    // Q10,
+
     {
-      id: 'daa-u4-q10',
+      id: 'daa-u4-q8',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 10,
+      qNumber: 8,
       title: 'Solve the Sum of Subsets Problem using Backtracking for the instance: set S = {2, 3, 5, 6, 8, 10} and target sum M = 10. Draw the state space tree and enumerate all solutions.',
       shortTitle: 'Solved Numerical: Sum of Subsets for S={2,3,5,6,8,10}, M=10',
       marks: 8,
@@ -1176,6 +995,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q4(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked with the exact same numbers in Paper 1 Q4(a) [8M] and Paper 3 Q4(b) [8M].',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Solved Sum of Subsets Numerical',
         'Target Sum M = 10',
@@ -1283,12 +1103,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'The backtracking procedure evaluates all valid subsets with minimal node expansions, proving that exactly 3 distinct subsets sum to 10.'
     },
 
-    // Q11
+    // Q11,
+
     {
-      id: 'daa-u4-q11',
+      id: 'daa-u4-q9',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 11,
+      qNumber: 9,
       title: 'Consider set A of five numbers {5, 10, 15, 20, 25}. Solve this problem to find the first solution such that the sum is equal to 30 using backtracking approach. Show the state-space tree being created.',
       shortTitle: 'Solved Numerical: Sum of Subsets for A={5,10,15,20,25}, M=30',
       marks: 9,
@@ -1299,6 +1120,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q4(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q4(b) [9 Marks] requiring state space tree and identification of the first solution.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Solved Numerical A={5,10,15,20,25}, M=30',
         'First Solution Generation',
@@ -1404,12 +1226,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'The first solution {5, 10, 15} is reached along the leftmost path of the state space tree with minimal overhead.'
     },
 
-    // Q12
+    // Q12,
+
     {
-      id: 'daa-u4-q12',
+      id: 'daa-u4-q10',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 12,
+      qNumber: 10,
       title: 'Analyze the impact of element ordering on the Sum of Subsets Problem. Compare non-decreasing, non-increasing, and unsorted sequences with respect to pruning efficiency and computing time.',
       shortTitle: 'Sum of Subsets: Element Ordering & Pruning Efficiency Analysis',
       marks: 8,
@@ -1417,6 +1240,7 @@ export const daaUnit4Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Advanced conceptual question illustrating why sorting is a strict mathematical prerequisite for bounding functions.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Ordering of Elements in Sum of Subsets',
         'Non-Decreasing vs Non-Increasing vs Unsorted',
@@ -1477,12 +1301,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'Pre-sorting inputs in non-decreasing order is a mandatory optimization that enables effective branch pruning, dramatically reducing overall computation time.'
     },
 
-    // Q13
+    // Q13,
+
     {
-      id: 'daa-u4-q13',
+      id: 'daa-u4-q11',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 13,
+      qNumber: 11,
       title: 'Explain the Principle of the Branch and Bound Method. Contrast it with Backtracking and describe how Lower Bounds, Upper Bounds, and Bounding Functions guide the search.',
       shortTitle: 'Branch and Bound Principle, Bounds & Pruning Mechanics',
       marks: 8,
@@ -1490,6 +1315,7 @@ export const daaUnit4Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'The foundational question for Part II (Branch and Bound) in Unit IV across all exam papers.',
+      topicCategory: 'Backtracking Strategy',
       syllabusTopics: [
         'Branch and Bound Principle',
         'Lower Bound c^(x) vs Upper Bound u(x)',
@@ -1572,12 +1398,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'By maintaining tight lower and upper bounds, Branch and Bound prunes vast regions of the search space, enabling exact optimal solutions to NP-hard optimization problems.'
     },
 
-    // Q14
+    // Q14,
+
     {
-      id: 'daa-u4-q14',
+      id: 'daa-u4-q12',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 14,
+      qNumber: 12,
       title: 'Explain the three Exploration Strategies in Branch and Bound: FIFO, LIFO, and Least-Cost (LC) Search. Contrast their data structures, node selection policies, and search efficiencies.',
       shortTitle: 'Branch and Bound Strategies: FIFO vs LIFO vs LC Search',
       marks: 8,
@@ -1587,6 +1414,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'April 2026', questionNo: 'Q4(b)', marks: 8 }
       ],
       frequencyNote: 'Common 8-mark question comparing queue-based, stack-based, and heap-based search strategies.',
+      topicCategory: 'Branch-and-Bound Strategy',
       syllabusTopics: [
         'FIFO Branch and Bound',
         'LIFO Branch and Bound',
@@ -1663,12 +1491,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'LC Search combines the bounding rigor of Branch and Bound with heuristic guidance, making it the industry standard for hard optimization challenges.'
     },
 
-    // Q15
+    // Q15,
+
     {
-      id: 'daa-u4-q15',
+      id: 'daa-u4-q13',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 15,
+      qNumber: 13,
       title: 'Present the complete Control Abstraction for Least-Cost Search (LC-Search / LCBB). Describe the functions Least_Cost(), Add_Node(), and explain the upper bound updating mechanism.',
       shortTitle: 'Control Abstraction for Least-Cost Search (LCBB)',
       marks: 9,
@@ -1680,6 +1509,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q4(b)', marks: 9 }
       ],
       frequencyNote: 'Directly asked as Paper 1 Q4(b) [9 Marks] as the primary control abstraction for Branch and Bound.',
+      topicCategory: 'Branch-and-Bound Strategy',
       syllabusTopics: [
         'Control Abstraction for LC-Search',
         'Least_Cost() and Add_Node() Subroutines',
@@ -1771,12 +1601,13 @@ export const daaUnit4Data: Unit = {
       conclusion: 'LC-Search provides a unified, provably optimal template that guarantees reaching an optimal solution with the minimum possible node expansions.'
     },
 
-    // Q16
+    // Q16,
+
     {
-      id: 'daa-u4-q16',
+      id: 'daa-u4-q14',
       unitId: 'unit-4',
       subjectId: 'daa',
-      qNumber: 16,
+      qNumber: 14,
       title: 'Explain the Reduced Matrix Method for solving the Traveling Salesperson Problem (TSP) using LC Branch and Bound. Derive the formulas for Row Minimization, Column Minimization, and Child Node Cost Calculation.',
       shortTitle: 'TSP using LCBB: Reduced Matrix Method & Bounding Formulas',
       marks: 9,
@@ -1786,6 +1617,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'Nov 2025', questionNo: 'Q4(a)', marks: 10 }
       ],
       frequencyNote: 'Consistently appears as the 8 to 9-mark numerical/theory question for Branch and Bound in university exams.',
+      topicCategory: 'Branch-and-Bound Strategy',
       syllabusTopics: [
         'Traveling Salesperson Problem (TSP)',
         'Reduced Cost Matrix Technique',
@@ -1885,7 +1717,217 @@ export const daaUnit4Data: Unit = {
       conclusion: 'The reduced matrix method yields exceptionally tight lower bounds, enabling LC Branch and Bound to prune large swaths of permutations and solve TSP to optimality.'
     },
 
-    // Q17
+    // Q17,
+
+    // Q16: Solved Numerical 3-City TSP,
+
+    {
+      id: 'daa-u4-q15',
+      unitId: 'unit-4',
+      subjectId: 'daa',
+      qNumber: 15,
+      title: 'A travelling salesperson has to make a trip between three cities P, Q, and R. The cost matrix is given below. No edge is indicated by ∞. The tour will start from city P. Solve this travelling salesperson problem using the branch and bound method. [10 Marks]',
+      shortTitle: 'Solved Numerical: 3-City TSP using Branch and Bound (P, Q, R)',
+      marks: 10,
+      importance: 'Frequently Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q4(a)', marks: 10 }
+      ],
+      frequencyNote: 'Direct university numerical from Nov 2025 examination paper Q4(a) [6584]-91.',
+      topicCategory: 'Branch-and-Bound Strategy',
+      syllabusTopics: [
+        'Travelling Salesperson Problem (TSP)',
+        'Reduced Cost Matrix Method',
+        'State Space Tree Construction',
+        'Lower Bound Computation'
+      ],
+      definition: 'The Travelling Salesperson Problem (TSP) on 3 cities seeks the minimum cost Hamiltonian cycle starting and ending at city P while visiting cities Q and R exactly once, solved systematically using Least-Cost Branch-and-Bound (LCBB) with row and column matrix reductions.',
+      numericalSolution: {
+        problemSummary: 'Find the minimum cost tour visiting cities P, Q, R starting and ending at P using Least-Cost Branch and Bound (LCBB).',
+        givenData: [
+          { label: 'Cities (V)', value: '{P, Q, R} (3 cities)' },
+          { label: 'Start City', value: 'P (City 1)' },
+          { label: 'Matrix Row P', value: '[ ∞, 4, 2 ]' },
+          { label: 'Matrix Row Q', value: '[ 3, ∞, 4 ]' },
+          { label: 'Matrix Row R', value: '[ 1, 8, ∞ ]' }
+        ],
+        toFind: [
+          'Row and column reductions for root cost matrix',
+          'Child node lower bounds for transitions to Q and R',
+          'Optimal Hamiltonian cycle and minimum total tour cost'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Initial Matrix Reduction & Root Lower Bound (Node 1)',
+            explanation: 'Perform row reduction and column reduction on the initial cost matrix to establish the root lower bound.',
+            formula: '\\hat{c}(\\text{root}) = r + c',
+            calculation: 'Row min: [2, 3, 1] => sum r = 6. Col min on reduced matrix: [0, 2, 0] => sum c = 2. Total reduction = 6 + 2 = 8.',
+            result: '\\hat{c}(\\text{Node 1}) = 8'
+          },
+          {
+            stepNumber: 2,
+            title: 'Branching from Root (City P) to City Q (Node 2: Path P -> Q)',
+            explanation: 'Set Row P = inf, Col Q = inf, and cell (Q, P) = inf. In root reduced matrix, M[P, Q] = 0. Row reductions add 1.',
+            formula: '\\hat{c}(j) = \\hat{c}(i) + \\hat{A}(i, j) + r',
+            calculation: '\\hat{c}(\\text{Node 2}) = 8 + 0 + 1 = 9',
+            result: 'Lower Bound (Node 2: P -> Q) = 9'
+          },
+          {
+            stepNumber: 3,
+            title: 'Branching from Root (City P) to City R (Node 3: Path P -> R)',
+            explanation: 'Set Row P = inf, Col R = inf, and cell (R, P) = inf. In root reduced matrix, M[P, R] = 0. Row reductions add 5.',
+            formula: '\\hat{c}(j) = \\hat{c}(i) + \\hat{A}(i, j) + r',
+            calculation: '\\hat{c}(\\text{Node 3}) = 8 + 0 + 5 = 13',
+            result: 'Lower Bound (Node 3: P -> R) = 13'
+          },
+          {
+            stepNumber: 4,
+            title: 'Complete Tour Evaluation from Node 2 (Path P -> Q -> R -> P)',
+            explanation: 'From Node 2, the only remaining city is R. Complete the tour P -> Q -> R -> P. Since Node 3 lower bound (13) exceeds this tour cost (9), Node 3 is pruned.',
+            calculation: 'Cost(P, Q) + Cost(Q, R) + Cost(R, P) = 4 + 4 + 1 = 9',
+            result: 'Optimal Tour Cost = 9'
+          }
+        ],
+        finalAnswer: {
+          label: 'Optimal TSP Tour',
+          value: 'P → Q → R → P with Minimum Cost = 9',
+          interpretation: 'Branch P → R has lower bound 13 > 9 and is pruned by Least-Cost Branch and Bound.'
+        }
+      },
+      sections: [
+        {
+          title: '1. State Space Tree and Pruning Walkthrough',
+          content: [
+            '1. Root Node 1 (City P): Initial lower bound computed via row and column reduction = 8.',
+            '2. Child Node 2 (P -> Q): Transition cost = 8 + 0 + 1 = 9. Complete tour P -> Q -> R -> P costs 9.',
+            '3. Child Node 3 (P -> R): Transition cost = 8 + 0 + 5 = 13. Since 13 > 9, Node 3 is immediately killed/pruned without expanding.',
+            '4. Optimal Result: The branch-and-bound exploration verifies that P -> Q -> R -> P is the global optimal tour with cost 9.'
+          ]
+        }
+      ],
+      summary: [
+        'Root Node lower bound is 8 after row reduction (6) and column reduction (2).',
+        'Branching to Q gives lower bound 9; branching to R gives lower bound 13.',
+        'Tour P -> Q -> R -> P yields optimal cost 9.',
+        'Branch P -> R is pruned as its lower bound 13 > 9.'
+      ],
+      keyPoints: [
+        '3-City Directed TSP Instance',
+        'Root Lower Bound: 8',
+        'Node 2 (P->Q) Bound: 9',
+        'Node 3 (P->R) Bound: 13 (Pruned)',
+        'Optimal Tour: P -> Q -> R -> P',
+        'Optimal Cost: 9'
+      ],
+      conclusion: 'Least-Cost Branch-and-Bound finds the optimal tour P → Q → R → P of cost 9 while pruning the suboptimal branch P → R.'
+    },
+
+    // Q16: Solved Numerical 3-City TSP
+    {
+      id: 'daa-u4-q16',
+      unitId: 'unit-4',
+      subjectId: 'daa',
+      qNumber: 16,
+      title: 'A travelling salesperson has to make a trip between three cities P, Q, and R. The cost matrix is given below. No edge is indicated by ∞. The tour will start from city P. Solve this travelling salesperson problem using the branch and bound method. [10 Marks]',
+      shortTitle: 'Solved Numerical: 3-City TSP using Branch and Bound (P, Q, R)',
+      marks: 10,
+      importance: 'Frequently Asked',
+      occurrenceCount: 1,
+      papersAsked: [
+        { paper: 'Nov 2025', questionNo: 'Q4(a)', marks: 10 }
+      ],
+      frequencyNote: 'Direct university numerical from Nov 2025 examination paper Q4(a) [6584]-91.',
+      topicCategory: 'Branch-and-Bound Strategy',
+      syllabusTopics: [
+        'Travelling Salesperson Problem (TSP)',
+        'Reduced Cost Matrix Method',
+        'State Space Tree Construction',
+        'Lower Bound Computation'
+      ],
+      definition: 'The Travelling Salesperson Problem (TSP) on 3 cities seeks the minimum cost Hamiltonian cycle starting and ending at city P while visiting cities Q and R exactly once, solved systematically using Least-Cost Branch-and-Bound (LCBB) with row and column matrix reductions.',
+      numericalSolution: {
+        problemSummary: 'Find the minimum cost tour visiting cities P, Q, R starting and ending at P using Least-Cost Branch and Bound (LCBB).',
+        givenData: [
+          { label: 'Cities (V)', value: '{P, Q, R} (3 cities)' },
+          { label: 'Start City', value: 'P (City 1)' },
+          { label: 'Matrix Row P', value: '[ ∞, 4, 2 ]' },
+          { label: 'Matrix Row Q', value: '[ 3, ∞, 4 ]' },
+          { label: 'Matrix Row R', value: '[ 1, 8, ∞ ]' }
+        ],
+        toFind: [
+          'Row and column reductions for root cost matrix',
+          'Child node lower bounds for transitions to Q and R',
+          'Optimal Hamiltonian cycle and minimum total tour cost'
+        ],
+        steps: [
+          {
+            stepNumber: 1,
+            title: 'Initial Matrix Reduction & Root Lower Bound (Node 1)',
+            explanation: 'Perform row reduction and column reduction on the initial cost matrix to establish the root lower bound.',
+            formula: '\\hat{c}(\\text{root}) = r + c',
+            calculation: 'Row min: [2, 3, 1] => sum r = 6. Col min on reduced matrix: [0, 2, 0] => sum c = 2. Total reduction = 6 + 2 = 8.',
+            result: '\\hat{c}(\\text{Node 1}) = 8'
+          },
+          {
+            stepNumber: 2,
+            title: 'Branching from Root (City P) to City Q (Node 2: Path P -> Q)',
+            explanation: 'Set Row P = inf, Col Q = inf, and cell (Q, P) = inf. In root reduced matrix, M[P, Q] = 0. Row reductions add 1.',
+            formula: '\\hat{c}(j) = \\hat{c}(i) + \\hat{A}(i, j) + r',
+            calculation: '\\hat{c}(\\text{Node 2}) = 8 + 0 + 1 = 9',
+            result: 'Lower Bound (Node 2: P -> Q) = 9'
+          },
+          {
+            stepNumber: 3,
+            title: 'Branching from Root (City P) to City R (Node 3: Path P -> R)',
+            explanation: 'Set Row P = inf, Col R = inf, and cell (R, P) = inf. In root reduced matrix, M[P, R] = 0. Row reductions add 5.',
+            formula: '\\hat{c}(j) = \\hat{c}(i) + \\hat{A}(i, j) + r',
+            calculation: '\\hat{c}(\\text{Node 3}) = 8 + 0 + 5 = 13',
+            result: 'Lower Bound (Node 3: P -> R) = 13'
+          },
+          {
+            stepNumber: 4,
+            title: 'Complete Tour Evaluation from Node 2 (Path P -> Q -> R -> P)',
+            explanation: 'From Node 2, the only remaining city is R. Complete the tour P -> Q -> R -> P. Since Node 3 lower bound (13) exceeds this tour cost (9), Node 3 is pruned.',
+            calculation: 'Cost(P, Q) + Cost(Q, R) + Cost(R, P) = 4 + 4 + 1 = 9',
+            result: 'Optimal Tour Cost = 9'
+          }
+        ],
+        finalAnswer: {
+          label: 'Optimal TSP Tour',
+          value: 'P → Q → R → P with Minimum Cost = 9',
+          interpretation: 'Branch P → R has lower bound 13 > 9 and is pruned by Least-Cost Branch and Bound.'
+        }
+      },
+      sections: [
+        {
+          title: '1. State Space Tree and Pruning Walkthrough',
+          content: [
+            '1. Root Node 1 (City P): Initial lower bound computed via row and column reduction = 8.',
+            '2. Child Node 2 (P -> Q): Transition cost = 8 + 0 + 1 = 9. Complete tour P -> Q -> R -> P costs 9.',
+            '3. Child Node 3 (P -> R): Transition cost = 8 + 0 + 5 = 13. Since 13 > 9, Node 3 is immediately killed/pruned without expanding.',
+            '4. Optimal Result: The branch-and-bound exploration verifies that P -> Q -> R -> P is the global optimal tour with cost 9.'
+          ]
+        }
+      ],
+      summary: [
+        'Root Node lower bound is 8 after row reduction (6) and column reduction (2).',
+        'Branching to Q gives lower bound 9; branching to R gives lower bound 13.',
+        'Tour P -> Q -> R -> P yields optimal cost 9.',
+        'Branch P -> R is pruned as its lower bound 13 > 9.'
+      ],
+      keyPoints: [
+        '3-City Directed TSP Instance',
+        'Root Lower Bound: 8',
+        'Node 2 (P->Q) Bound: 9',
+        'Node 3 (P->R) Bound: 13 (Pruned)',
+        'Optimal Tour: P -> Q -> R -> P',
+        'Optimal Cost: 9'
+      ],
+      conclusion: 'Least-Cost Branch-and-Bound finds the optimal tour P → Q → R → P of cost 9 while pruning the suboptimal branch P → R.'
+    },
+
     {
       id: 'daa-u4-q17',
       unitId: 'unit-4',
@@ -1902,6 +1944,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q3(a)', marks: 9 }
       ],
       frequencyNote: 'Directly asked with the identical graph/matrix in Paper 4 Q4(a) [8M] and Paper 3 Q3(a) [9M].',
+      topicCategory: 'Branch-and-Bound Strategy',
       syllabusTopics: [
         'Solved TSP Numerical',
         '4 Cities: A(1), B(2), C(3), D(4)',
@@ -2031,7 +2074,8 @@ export const daaUnit4Data: Unit = {
       conclusion: 'The LC Branch and Bound algorithm evaluates the complete 4-city instance with minimal expansion, rigorously proving that 80 is the global minimum tour length.'
     },
 
-    // Q18
+    // Q18,
+
     {
       id: 'daa-u4-q18',
       unitId: 'unit-4',
@@ -2044,6 +2088,7 @@ export const daaUnit4Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Consistently appears across Paper 2, Paper 3, and Paper 4 as a major 9-mark problem.',
+      topicCategory: 'Branch-and-Bound Strategy',
       syllabusTopics: [
         '0/1 Knapsack using LCBB',
         'Maximization to Minimization Transformation',
@@ -2120,7 +2165,8 @@ export const daaUnit4Data: Unit = {
       conclusion: 'The fractional relaxation provides an exceptionally tight heuristic estimate, allowing LC Branch and Bound to solve 0/1 knapsack instances with high efficiency.'
     },
 
-    // Q19
+    // Q19,
+
     {
       id: 'daa-u4-q19',
       unitId: 'unit-4',
@@ -2138,6 +2184,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q4(a)', marks: 9 }
       ],
       frequencyNote: 'Directly solves the exact 3-item numericals from Paper 2 Q3(b) [9M] and Paper 4 Q3(b) [9M].',
+      topicCategory: 'Branch-and-Bound Strategy',
       syllabusTopics: [
         'Solved 0/1 Knapsack LCBB Numerical',
         'Instance 1: m = 7, items {(5,6), (4,5), (3,4)}',
@@ -2253,7 +2300,8 @@ export const daaUnit4Data: Unit = {
       conclusion: 'LC Branch and Bound rigorously identifies the optimal items while killing suboptimal branches as soon as their fractional upper bound falls below the current discrete maximum.'
     },
 
-    // Q20
+    // Q20,
+
     {
       id: 'daa-u4-q20',
       unitId: 'unit-4',
@@ -2270,6 +2318,7 @@ export const daaUnit4Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q4(a)', marks: 8 }
       ],
       frequencyNote: 'Directly asked as Paper 2 Q4(a) [8M] and Paper 4 Q4(c) [4M].',
+      topicCategory: 'Comparative Analysis & Exemplar',
       syllabusTopics: [
         'Backtracking vs Branch and Bound Comparison',
         'Search Technique and State Space Exploration',
@@ -2338,6 +2387,36 @@ export const daaUnit4Data: Unit = {
             '   For large industrial instances (e.g. TSP with hundreds of cities), exact Branch and Bound becomes completely intractable, necessitating approximation algorithms or genetic heuristics.'
           ]
         }
+      ,
+        {
+          title: '3. Exemplar Case Study: Airline Crew Scheduling (SPPU Syllabus Exemplar)',
+          content: [
+            'Problem Statement & Aviation Industry Context:',
+            'Commercial airlines operate thousands of daily flights across global hub-and-spoke networks. Each flight leg requires a certified cockpit crew (Captain, First Officer) and cabin crew. The Airline Crew Scheduling Problem (CSP) seeks to construct a set of minimum-cost crew pairings (sequences of flight legs beginning and ending at the same crew base) such that every scheduled flight leg is covered exactly once, subject to strict legal and contractual constraints.',
+            '',
+            'Operational & Regulatory Constraints:',
+            '1. Maximum Daily Duty Hours: Total elapsed duty time (e.g., maximum 12 hours) cannot be exceeded.',
+            '2. Maximum Continuous Flight Hours: Flight deck time cannot exceed 8 hours per duty period.',
+            '3. Mandatory Rest Periods: Minimum rest (e.g., 10 uninterrupted hours) between successive duty days.',
+            '4. Base Return Constraint: Every pairing must start and conclude at the crew member\'s assigned home base city.',
+            '5. Aircraft Type Rating: Crew members must hold valid type certifications for the specific aircraft operated.',
+            '',
+            'Mathematical Formulation — Set Partitioning / Integer Linear Programming (ILP):',
+            '• Let m be the number of scheduled flight legs, and n be the number of legally feasible crew pairings (n can be millions).',
+            '• Let c_j be the operational cost of assigning pairing j (crew hotel stays, per-diem allowances, deadheading flights).',
+            '• Objective Function: Minimize Z = sum_{j=1}^n c_j · x_j, where x_j in {0, 1}',
+            '• Constraint: sum_{j=1}^n a_{ij} · x_j = 1 for all flight legs i = 1..m (where a_{ij} = 1 if pairing j covers flight leg i).',
+            '',
+            'Algorithmic Solution: Branch-and-Bound with Column Generation (Branch-and-Price):',
+            '• Why Branch-and-Bound is Essential: Because x_j must be discrete integers (0 or 1), the problem is strongly NP-hard. Simple greedy heuristics produce illegal or highly expensive schedules.',
+            '• LP Relaxation Bounding: At each node of the branch-and-bound tree, the integer constraints x_j in {0, 1} are relaxed to 0 <= x_j <= 1. The resulting Linear Program (LP) is solved to provide a rigorous lower bound.',
+            '• Dynamic Pruning: If the LP relaxation lower bound at an exploratory branch exceeds the cost of an already-known legal crew schedule, the entire sub-tree is pruned instantly, saving millions of calculations.',
+            '• Column Generation: Due to millions of possible pairings, pairings with negative reduced costs are generated dynamically on-the-fly using shortest path algorithms on duty-period networks.',
+            '',
+            'Engineering Summary:',
+            'Branch-and-Bound combined with LP relaxation lower bounding and column generation is the gold-standard algorithm deployed by major airline scheduling systems (e.g., Sabre, Jeppesen, Amadeus), saving airlines hundreds of millions of dollars annually.'
+          ]
+        },
       ],
       summary: [
         'Backtracking uses DFS with a stack for decision/enumeration problems with low O(n) memory.',

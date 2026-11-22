@@ -109,6 +109,7 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
 
   const isCompleted = completedQuestionIds.includes(currentQuestion.id);
   const isBookmarked = bookmarkedQuestionIds.includes(currentQuestion.id);
+  const hasTopicCategories = unit.questions.some((q) => !!q.topicCategory);
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 items-start animate-in fade-in duration-200 w-full">
@@ -225,23 +226,34 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
 
             {/* Questions List in Drawer */}
             <div className="overflow-y-auto flex-1 divide-y divide-academic-100 dark:divide-academic-800/50 pt-1 space-y-0.5 pr-1">
-              {filteredQuestions.map((q) => {
+              {filteredQuestions.map((q, idx) => {
                 const active = q.id === currentQuestion.id;
                 const completed = completedQuestionIds.includes(q.id);
                 const bookmarked = bookmarkedQuestionIds.includes(q.id);
+                const prevQ = idx > 0 ? filteredQuestions[idx - 1] : null;
+                const isFirstOfTopic = q.topicCategory && (!prevQ || prevQ.topicCategory !== q.topicCategory);
+
                 return (
-                  <div
-                    key={q.id}
-                    onClick={() => {
-                      onSelectQuestion(q.id);
-                      setMobileQuestionsOpen(false);
-                    }}
-                    className={`p-2.5 rounded-lg text-left cursor-pointer transition-all flex items-start gap-2.5 group ${
-                      active
-                        ? 'bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 shadow-xs'
-                        : 'hover:bg-academic-50 dark:hover:bg-academic-800/50'
-                    }`}
-                  >
+                  <React.Fragment key={q.id}>
+                    {isFirstOfTopic && (
+                      <div className="pt-3 pb-1.5 px-2 mt-2 first:mt-0 flex items-center gap-1.5 border-b border-academic-200 dark:border-academic-800 bg-academic-50/60 dark:bg-academic-800/40 rounded">
+                        <div className="w-1.5 h-3 rounded-full bg-blue-500 dark:bg-blue-400 shrink-0" />
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-academic-700 dark:text-academic-300">
+                          {q.topicCategory}
+                        </span>
+                      </div>
+                    )}
+                    <div
+                      onClick={() => {
+                        onSelectQuestion(q.id);
+                        setMobileQuestionsOpen(false);
+                      }}
+                      className={`p-2.5 rounded-lg text-left cursor-pointer transition-all flex items-start gap-2.5 group ${
+                        active
+                          ? 'bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 shadow-xs'
+                          : 'hover:bg-academic-50 dark:hover:bg-academic-800/50'
+                      }`}
+                    >
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -295,8 +307,9 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                       </h4>
                     </div>
                   </div>
-                );
-              })}
+                </React.Fragment>
+              );
+            })}
             </div>
           </div>
         </div>
@@ -367,30 +380,45 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
               ))}
             </div>
             <span
-              className="text-[9px] font-mono font-semibold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 px-1.5 py-0.5 rounded shrink-0 border border-rose-200/40"
-              title="Questions arranged in descending order of frequency (Most occurring university PYQs first)"
+              className={`text-[9px] font-mono font-semibold px-1.5 py-0.5 rounded shrink-0 border ${
+                hasTopicCategories
+                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 border-blue-200/40'
+                  : 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 border-rose-200/40'
+              }`}
+              title={hasTopicCategories ? "Questions arranged topic-wise per official SPPU university syllabus" : "Questions arranged in descending order of frequency"}
             >
-              Frequency ↓
+              {hasTopicCategories ? 'Topic-Wise Order' : 'Frequency ↓'}
             </span>
           </div>
         </div>
 
         {/* Questions List */}
         <div className="overflow-y-auto flex-1 divide-y divide-academic-100 dark:divide-academic-800/50 pt-1 space-y-0.5 pr-1">
-          {filteredQuestions.map((q) => {
+          {filteredQuestions.map((q, idx) => {
             const active = q.id === currentQuestion.id;
             const completed = completedQuestionIds.includes(q.id);
             const bookmarked = bookmarkedQuestionIds.includes(q.id);
+            const prevQ = idx > 0 ? filteredQuestions[idx - 1] : null;
+            const isFirstOfTopic = q.topicCategory && (!prevQ || prevQ.topicCategory !== q.topicCategory);
+
             return (
-              <div
-                key={q.id}
-                onClick={() => onSelectQuestion(q.id)}
-                className={`p-2.5 rounded-lg text-left cursor-pointer transition-all flex items-start gap-2.5 group ${
-                  active
-                    ? 'bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 shadow-xs'
-                    : 'hover:bg-academic-50 dark:hover:bg-academic-800/50'
-                }`}
-              >
+              <React.Fragment key={q.id}>
+                {isFirstOfTopic && (
+                  <div className="pt-3 pb-1.5 px-2 mt-2 first:mt-0 flex items-center gap-1.5 border-b border-academic-200 dark:border-academic-800 bg-academic-50/60 dark:bg-academic-800/40 rounded">
+                    <div className="w-1.5 h-3 rounded-full bg-blue-500 dark:bg-blue-400 shrink-0" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-academic-700 dark:text-academic-300">
+                      {q.topicCategory}
+                    </span>
+                  </div>
+                )}
+                <div
+                  onClick={() => onSelectQuestion(q.id)}
+                  className={`p-2.5 rounded-lg text-left cursor-pointer transition-all flex items-start gap-2.5 group ${
+                    active
+                      ? 'bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900/60 shadow-xs'
+                      : 'hover:bg-academic-50 dark:hover:bg-academic-800/50'
+                  }`}
+                >
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -459,20 +487,27 @@ export const UnitReadingView: React.FC<UnitReadingViewProps> = ({
                   </h4>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      </aside>
+            </React.Fragment>
+          );
+        })}
+      </div>
+    </aside>
 
-      {/* Main Reading Area (Digital Notebook / Textbook Design) */}
-      <main className="flex-1 min-w-0 bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 shadow-sm overflow-hidden p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 w-full">
-        {/* Top Header & Actions */}
-        <div className="space-y-4 pb-6 border-b border-academic-100 dark:border-academic-800">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-                Unit {unit.unitNumber} • Question {currentQuestion.qNumber}
+    {/* Main Reading Area (Digital Notebook / Textbook Design) */}
+    <main className="flex-1 min-w-0 bg-white dark:bg-academic-900 rounded-xl border border-academic-200 dark:border-academic-800 shadow-sm overflow-hidden p-4 sm:p-8 lg:p-10 space-y-6 sm:space-y-8 w-full">
+      {/* Top Header & Actions */}
+      <div className="space-y-4 pb-6 border-b border-academic-100 dark:border-academic-800">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="px-2.5 py-0.5 rounded text-xs font-mono font-bold bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+              Unit {unit.unitNumber} • Question {currentQuestion.qNumber}
+            </span>
+            {currentQuestion.topicCategory && (
+              <span className="px-2.5 py-0.5 rounded text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1 shadow-xs">
+                <Bookmark className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                <span>{currentQuestion.topicCategory}</span>
               </span>
+            )}
               <MarksBadge marks={currentQuestion.marks} />
               <ImportanceBadge
                 category={currentQuestion.importance}

@@ -6,23 +6,19 @@ export const daaUnit6Data: Unit = {
   title: 'Multithreaded and Distributed Algorithms, and String Matching',
   shortTitle: 'Multithreaded, Distributed & String Matching',
   description: 'In-depth exploration of Dynamic Multithreaded Algorithms (DAG execution model, Work and Span laws, Determinacy Races, Multithreaded Matrix Multiplication, and Parallel Merge Sort with P-Merge), Distributed Algorithms (Synchronous and Asynchronous models, Distributed Breadth-First Search on arbitrary networks, and the Gallager-Humblet-Spira Distributed Minimum Spanning Tree algorithm), and String Matching Algorithms (Naive string matching, String matching with Finite Automata, Rabin-Karp with Rolling Hash and Spurious Hit analysis, and the Knuth-Morris-Pratt algorithm).',
-  syllabus: [
-    'Dynamic Multithreading Principles: Shared-memory concurrency, nested parallelism, spawn and sync keywords, computational DAGs',
-    'Performance Metrics: Work (T1), Span (T_infinity), Work Law, Span Law, Parallelism (T1/T_infinity), Slackness, Speedup, Efficiency',
-    'Determinacy Races: Definition, data race vs determinacy race, benign races, race conditions in parallel accumulation, detection and mitigation',
-    'Multithreaded Matrix Multiplication: Divide-and-conquer block decomposition, parallel loops, rectangular matrices (m x n and n x p), Work and Span bounds',
-    'Multithreaded Merge Sort: Limitations of conventional divide-and-conquer, parallel merge (P-Merge) with dual binary search, O(log^3 n) span derivation',
-    'Parallel Loops: Desugaring parallel for loops into divide-and-conquer binary trees, grain size selection, loop overhead',
-    'Performance Measures: Speedup, Efficiency, Throughput, Contention, Latency, Amdahl’s Law vs Gustafson’s Law',
-    'Distributed Algorithms Basics: Network model, synchronous rounds vs asynchronous event-driven models, message complexity, time complexity',
-    'Distributed Breadth-First Search (BFS): Wave propagation, layering, parent pointer construction, message and round complexity',
-    'Distributed Minimum Spanning Tree (MST): Gallager-Humblet-Spira (GHS) algorithm, fragment merging, Minimum Weight Outgoing Edge (MWOE)',
-    'String Matching Problem: Formal alphabet, text, pattern, valid shifts, prefix, suffix, and factor properties',
-    'Naive String Matching: Sliding window comparisons, worst-case O((n - m + 1)m) behavior, average-case analysis',
-    'String Matching with Finite Automata: State transition function delta, suffix function sigma, deterministic matching in O(n) time',
-    'Rabin-Karp Algorithm: Radix-d representation, Horner’s rule, rolling hash using modular arithmetic, modular update formula',
-    'Spurious Hits in Rabin-Karp: Mathematical cause, hash collision probability, worst-case degradation to O(nm), expected linear runtime',
-    'Knuth-Morris-Pratt (KMP) Algorithm: Prefix function pi, avoiding text pointer regression, linear matching phase'
+      syllabus: [
+    'Multithreaded Algorithms: Introduction, Dynamic Multithreading DAG, spawn and sync',
+    'Performance Measures: Work, Span, Parallelism, Speedup, and Slackness',
+    'Analyzing Multithreaded Algorithms: Greedy Schedulers and Brent\'s Theorem Bound Proofs',
+    'Parallel Loops and Race Conditions: Divide-and-Conquer Desugaring, Determinacy Races',
+    'Problem Solving using Multithreaded Algorithms: Multithreaded Matrix Multiplication',
+    'Problem Solving using Multithreaded Algorithms: Multithreaded Merge Sort and P-Merge Span Analysis',
+    'Distributed Algorithms: Introduction, Synchronous vs Asynchronous Message Passing Topologies',
+    'Distributed Breadth-First Search (BFS): Algorithm and Network Traversal Trace',
+    'Distributed Minimum Spanning Tree (MST): Gallager-Humblet-Spira (GHS) Algorithm and Message Types',
+    'String Matching: Introduction, Formulation, and The Naive String Matching Algorithm',
+    'String Matching: The Rabin-Karp Algorithm, Rolling Hash, Spurious Hits, and Complexity',
+    '#Exemplar / Case Studies: Plagiarism detection (Winnowing Fingerprinting)'
   ],
   questionPaperIndex: [
     { paper: 'April 2026 ([6627]-81)', qMain: 'Q7(a) Matrix Mult, Merge Sort, BFS & Rabin-Karp Notes (10M), Q7(b) Parallel Loops & Race Conditions (7M)', qOr: 'Q8(a) Multithreaded Merge Sort Pseudocode (9M), Q8(b) Naive & Rabin-Karp Algorithms (8M)' },
@@ -122,7 +118,6 @@ export const daaUnit6Data: Unit = {
     ]
   },
   questions: [
-    // Q1
     {
       id: 'daa-u6-q1',
       unitId: 'unit-6',
@@ -138,6 +133,7 @@ export const daaUnit6Data: Unit = {
         { paper: 'April 2024', questionNo: 'Q8(b)', marks: 8 }
       ],
       frequencyNote: 'Appears in almost every exam set under Q7 or Q8; foundational for multithreaded algorithms.',
+      topicCategory: 'Multithreaded Algorithms',
       syllabusTopics: [
         'Dynamic Multithreading Principles',
         'Linguistic Primitives: spawn and sync',
@@ -240,80 +236,170 @@ export const daaUnit6Data: Unit = {
       conclusion: 'The DAG execution model separates logical concurrency specification from runtime physical scheduling, providing clean theoretical foundations for analyzing parallel speedup and efficiency.'
     },
 
-    // Q2
+    // Q2,
+
     {
       id: 'daa-u6-q2',
       unitId: 'unit-6',
       subjectId: 'daa',
       qNumber: 2,
-      title: 'What is a determinacy race condition? Explain with an example of concurrent instructions. Distinguish between benign and malign races and describe mitigation methods.',
-      shortTitle: 'Determinacy Races and Race Conditions',
-      marks: 7,
-      importance: 'Frequently Asked',
-      occurrenceCount: 4,
-      papersAsked: [
-        { paper: 'April 2026', questionNo: 'Q7(b)', marks: 7 },
-        { paper: 'April 2025', questionNo: 'Q7(b)', marks: 4 },
-        { paper: 'Nov 2023', questionNo: 'Q7(b)', marks: 7 },
-        { paper: 'April 2023', questionNo: 'Q8(b)', marks: 7 }
-      ],
-      frequencyNote: 'Regularly paired with multithreaded loop analysis in question 8(b) or 7(b).',
+      title: 'Provide a detailed mathematical derivation of the Work and Span recurrences for P-Merge and Multithreaded Merge Sort. Prove the worst-case 3/4 partition size bound.',
+      shortTitle: 'P-Merge Mathematical Analysis & Span Derivation',
+      marks: 8,
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
+      frequencyNote: 'Deep theoretical derivation question for high scoring marks in Q7 or Q8.',
+      topicCategory: 'Multithreaded Algorithms',
       syllabusTopics: [
-        'Determinacy Races Definition',
-        'DAG Formalization of Concurrent Access',
-        'Lost Update Assembly Analysis',
-        'Benign vs Malign Races',
-        'Detection and Mitigation'
+        'P-Merge Partition Size Proof',
+        'P-Merge Span Recurrence',
+        'Master Theorem and Expansion',
+        'Overall Merge Sort Span Derivation'
       ],
-      definition: 'A determinacy race condition occurs in a multithreaded program when two logically concurrent strands access the same memory location, at least one access is a write, and no synchronization mechanisms coordinate their execution order.',
+      definition: 'The mathematical analysis of P-Merge proves that median-based partitioning splits two sorted subarrays such that the larger recursive subproblem contains at most 3/4 of the total elements, yielding an O(log^2 n) merge span and an O(log^3 n) sort span.',
       sections: [
         {
-          title: '1. Formal Definition in Computational DAGs',
+          title: '1. Mathematical Proof of the 3/4 Partition Bound',
           content: [
-            'Let G = (V, E) be the computational DAG of an execution.',
-            'Two strands u, v in V are logically concurrent (u || v) if neither is reachable from the other: (u does not lead to v) and (v does not lead to u).',
-            'A determinacy race exists if and only if there exist two strands u, v such that:',
-            '1. u || v (they can execute at the exact same physical moment).',
-            '2. Both u and v access the same memory location M.',
-            '3. At least one of the accesses is a write operation.'
+            'Let T_1 have size n_1 and T_2 have size n_2 with n_1 >= n_2. Total elements n = n_1 + n_2.',
+            '1. Median x is chosen in T_1 at index q_1, so exactly floor(n_1/2) <= n_1/2 elements of T_1 are strictly smaller than x.',
+            '2. In the worst case, binary search finds that all elements of T_2 are greater than x (or all are smaller). Thus q_2 = p_2 or q_2 = r_2 + 1.',
+            '3. The larger of the two spawned recursive merges contains at most: max_subproblem <= (n_1/2) + n_2 elements.',
+            '4. Since n_1 >= n_2, we have n_2 <= n/2. Substituting:',
+            '   max_subproblem <= (n_1/2) + n_2 = (n_1 + n_2)/2 + n_2/2 <= n/2 + (n/2)/2 = n/2 + n/4 = (3/4)n.',
+            'Conclusion: Neither recursive subproblem ever contains more than (3/4)n elements in the worst case.'
           ]
         },
         {
-          title: '2. Low-Level Lost Update Trace',
+          title: '2. Derivation of P-Merge Span PM_infinity(n)',
           content: [
-            'Consider two parallel iterations executing x = x + 1 on shared variable x (initially 0):',
-            '• The statement x = x + 1 expands into 3 machine instructions: LOAD R, [x]; ADD R, 1; STORE [x], R.',
-            '• Thread 1 reads x = 0 into R1.',
-            '• Thread 2 reads x = 0 into R2.',
-            '• Both increment their local registers: R1 = 1, R2 = 1.',
-            '• Thread 1 stores 1 into x; Thread 2 overwrites 1 into x.',
-            '• Result: Two increments occurred, but x = 1 instead of 2. One update is permanently lost!'
+            'At each recursive step of P-Merge:',
+            '• Finding the median takes Theta(1) time.',
+            '• Binary search on the second subarray takes Theta(log n_2) <= Theta(log n) time.',
+            '• Spawning the two sub-merges executes them in parallel, so the span is the max of the two subproblems:',
+            '  PM_infinity(n) <= PM_infinity(3n/4) + c log n.',
+            '• Unfolding the recurrence over k = log_{4/3} n levels:',
+            '  PM_infinity(n) <= Sum_{i=0}^{log_{4/3} n} c log(n * (3/4)^i) = Theta(log^2 n).'
           ]
         },
         {
-          title: '3. Benign vs Malign Races and Mitigation',
+          title: '3. Derivation of Full Merge Sort Span T_infinity(n)',
+          content: [
+            'In P-MERGESORT, the two recursive sorting calls run concurrently, followed by P-MERGE:',
+            '  T_infinity(n) = T_infinity(n/2) + PM_infinity(n) = T_infinity(n/2) + Theta(log^2 n).',
+            '• Summing across all log_2 n tree levels:',
+            '  T_infinity(n) = Sum_{j=0}^{log_2 n} Theta(log^2(n / 2^j)) = Theta(log^3 n).'
+          ]
+        }
+      ],
+      summary: [
+        'The maximum recursive subproblem in P-Merge is mathematically bounded by (3/4)n.',
+        'Binary search requires O(log n) span at each recursion level.',
+        'Summing across log_(4/3) n levels yields P-Merge span Theta(log^2 n).',
+        'Full multithreaded merge sort achieves total span Theta(log^3 n) and work Theta(n log n).'
+      ],
+      keyPoints: [
+        'Bound: (n_1/2) + n_2 <= 3/4 n',
+        'PM_infinity(n) <= PM_infinity(3n/4) + O(log n)',
+        'P-Merge span = Theta(log^2 n)',
+        'Sort span = Theta(log^3 n)',
+        'Work efficiency preserved: Theta(n log n)'
+      ],
+      conclusion: 'The polylogarithmic span Theta(log^3 n) proves that Multithreaded Merge Sort with P-Merge scales gracefully across massively parallel multicore architectures.'
+    },
+
+    // Q6,
+
+    {
+      id: 'daa-u6-q3',
+      unitId: 'unit-6',
+      subjectId: 'daa',
+      qNumber: 3,
+      title: 'Explain Multithreaded Merge Sort. Why does naive parallelization of Merge Sort fail to achieve high parallelism? How does the P-MERGE algorithm overcome this limitation?',
+      shortTitle: 'Multithreaded Merge Sort & P-Merge Advantage',
+      marks: 9,
+      importance: 'Frequently Asked',
+      occurrenceCount: 5,
+      papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q8(a)', marks: 9 },
+        { paper: 'April 2024', questionNo: 'Q7(b)', marks: 8 },
+        { paper: 'Nov 2023', questionNo: 'Q8(a)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q7(a)', marks: 9 },
+        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
+      ],
+      frequencyNote: 'Top-frequency question for Unit VI appearing in 4 question papers.',
+      topicCategory: 'Multithreaded Algorithms',
+      syllabusTopics: [
+        'Naive Parallel Merge Sort',
+        'The Serial Merge Bottleneck',
+        'P-Merge Algorithm Principle',
+        'Median Binary Search Partitioning',
+        'Work, Span, and Parallelism Comparison'
+      ],
+      definition: 'Multithreaded Merge Sort parallelizes both the recursive sorting subproblems and the merge step itself. Using the P-MERGE algorithm with median binary search, the merge span is reduced from Theta(n) to Theta(log^2 n), yielding an overall sort span of Theta(log^3 n) and parallelism Theta(n / log^2 n).',
+      sections: [
+        {
+          title: '1. The Naive Parallel Merge Sort Trap',
+          content: [
+            'A naive multithreaded merge sort spawns the two recursive subsorts concurrently, but uses the conventional sequential two-pointer merge:',
+            '• Work: T_1(n) = 2 T_1(n/2) + Theta(n) = Theta(n log n).',
+            '• Span: Since the two recursive calls run in parallel, their span is T_infinity(n/2). However, sequential merge takes Theta(n) span: T_infinity(n) = T_infinity(n/2) + Theta(n) = Theta(n).',
+            '• Parallelism: T_1 / T_infinity = Theta(n log n) / Theta(n) = Theta(log n).',
+            '• For n = 1,000,000, parallelism is only log_2(10^6) approx 20! Adding 1,000 cores provides virtually zero additional speedup because the linear merge dominates execution.'
+          ]
+        },
+        {
+          title: '2. The P-MERGE (Parallel Merge) Solution',
+          content: [
+            'To break the O(n) span barrier, P-MERGE parallelizes the merge operation itself:',
+            '1. Given two sorted subarrays T[p_1..r_1] and T[p_2..r_2] (assume first is larger, n_1 >= n_2).',
+            '2. Find the median x = T[q_1] of the larger subarray at q_1 = floor((p_1 + r_1)/2).',
+            '3. Use binary search to find index q_2 in the second subarray where x fits.',
+            '4. Directly place x into its exact rank position in output array A: q_3 = p_3 + (q_1 - p_1) + (q_2 - p_2); A[q_3] = x.',
+            '5. Concurrently spawn two independent sub-merges: lower halves into A[p_3..q_3-1] and upper halves into A[q_3+1..r_3].'
+          ]
+        },
+        {
+          title: '3. Comparative Performance Analysis',
           table: {
-            headers: ['Category / Solution', 'Description', 'Characteristics / Impact'],
+            headers: ['Characteristic', 'Conventional Serial Merge Sort', 'Naive Parallel Merge Sort', 'Fully Parallel (with P-Merge)'],
             rows: [
               {
-                parameter: 'Malign Race',
-                col1: 'Concurrent unsynchronized read/write corrupting program invariants, data structures, or accumulators.',
-                col2: 'Produces nondeterministic wrong results, memory leaks, or crashes.'
+                parameter: 'Merge Routine',
+                col1: 'Sequential 2-pointer',
+                col2: 'Sequential 2-pointer',
+                col3: 'Parallel recursive P-Merge'
               },
               {
-                parameter: 'Benign Race',
-                col1: 'Concurrent write where different execution schedules do not affect final logical correctness.',
-                col2: 'Example: Multiple threads writing true to a shared found boolean during linear search.'
+                parameter: 'Merge Span',
+                col1: 'Theta(n)',
+                col2: 'Theta(n) [Bottleneck!]',
+                col3: 'Theta(log^2 n)'
               },
               {
-                parameter: 'Atomic Operations',
-                col1: 'Hardware Compare-And-Swap (CAS) instructions executing read-modify-write as a single indivisible step.',
-                col2: 'Lock-free, extremely fast, prevents lost updates without thread blocking.'
+                parameter: 'Total Sort Work T_1',
+                col1: 'Theta(n log n)',
+                col2: 'Theta(n log n)',
+                col3: 'Theta(n log n)'
               },
               {
-                parameter: 'Mutex Locks & Sync',
-                col1: 'Mutual exclusion locks or sync barriers enforcing serial critical sections.',
-                col2: 'Guarantees determinacy at the expense of introducing contention and latency.'
+                parameter: 'Total Sort Span T_infinity',
+                col1: 'Theta(n log n)',
+                col2: 'Theta(n)',
+                col3: 'Theta(log^3 n)'
+              },
+              {
+                parameter: 'Parallelism',
+                col1: '1 (Serial)',
+                col2: 'Theta(log n)',
+                col3: 'Theta(n / log^2 n)'
+              },
+              {
+                parameter: 'Speedup on 1M items',
+                col1: '1x',
+                col2: '~20x max',
+                col3: '~2,500x scalability'
               }
             ]
           }
@@ -321,36 +407,38 @@ export const daaUnit6Data: Unit = {
       ],
       diagrams: [
         {
-          id: 'diag-u6-race',
-          title: 'Determinacy Race Condition in Parallel Strands',
-          caption: 'Figure 6.2: Interleaved execution of concurrent read-modify-write instructions leading to a lost update on shared variable x.',
+          id: 'diag-u6-mergesort',
+          title: 'Multithreaded Merge Sort Architecture (Recursive P-Merge)',
+          caption: 'Figure 6.4: Dual divide-and-conquer pipeline: parallel recursion on sort subproblems combined with P-Merge median binary splitting.',
           type: 'svg-interactive',
-          svgType: 'race-condition-visual',
-          description: 'Diagram showing assembly instruction race interleaving.'
+          svgType: 'parallel-merge-sort-pipeline',
+          description: 'Visual diagram of parallel merge sort execution.'
         }
       ],
       summary: [
-        'A determinacy race occurs when concurrent strands access shared memory and at least one writes.',
-        'Formally: u || v, both access address M, and access(u)=write or access(v)=write.',
-        'Lost updates occur when non-atomic load-add-store sequences interleave.',
-        'Mitigated using atomic CAS instructions, locks, or restructuring into reduction trees.'
+        'Naive parallel merge sort only parallelizes recursive calls, leaving merge as an O(n) bottleneck.',
+        'P-Merge parallelizes the merge step itself using median selection and binary search.',
+        'P-Merge achieves merge span Theta(log^2 n) and work Theta(n).',
+        'Full Multithreaded Merge Sort achieves total span Theta(log^3 n) and work Theta(n log n).',
+        'Parallelism jumps from Theta(log n) to massive Theta(n / log^2 n).'
       ],
       keyPoints: [
-        'Concurrent strands (u || v)',
-        'Shared memory write collision',
-        'Lost update anomaly',
-        'Malign vs Benign races',
-        'Atomic CAS & Mutex synchronization'
+        'Serial merge creates Theta(n) span bottleneck',
+        'P-Merge uses dual binary search on medians',
+        'Merge span reduced to Theta(log^2 n)',
+        'Overall sort span = Theta(log^3 n)',
+        'Parallelism = Theta(n / log^2 n)'
       ],
-      conclusion: 'Eliminating determinacy races guarantees program determinism, ensuring that the parallel program produces identical output to its sequential counterpart for all inputs.'
+      conclusion: 'Parallelizing the merge operation is mandatory for scalable parallel sorting. P-Merge converts the linear sequential bottleneck into a polylogarithmic critical path.'
     },
 
-    // Q3
+    // Q5,
+
     {
-      id: 'daa-u6-q3',
+      id: 'daa-u6-q4',
       unitId: 'unit-6',
       subjectId: 'daa',
-      qNumber: 3,
+      qNumber: 4,
       title: 'Formulate the Multithreaded Matrix Multiplication algorithm using divide-and-conquer block decomposition. Compare its Work and Span with conventional sequential matrix multiplication for m x n and n x p matrices.',
       shortTitle: 'Multithreaded Matrix Multiplication vs Conventional',
       marks: 10,
@@ -364,6 +452,7 @@ export const daaUnit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
       ],
       frequencyNote: 'Directly asked in Paper 4 Q8(b) for rectangular matrices and Paper 1 Q8(a) as a core short note.',
+      topicCategory: 'Multithreaded Algorithms',
       syllabusTopics: [
         'Conventional Matrix Multiplication',
         'Block Divide-and-Conquer Decomposition',
@@ -487,344 +576,13 @@ export const daaUnit6Data: Unit = {
       conclusion: 'Multithreaded block matrix multiplication achieves optimal polylogarithmic span while maintaining strict serial work efficiency, making it the benchmark algorithm for high-performance linear algebra.'
     },
 
-    // Q4
-    {
-      id: 'daa-u6-q4',
-      unitId: 'unit-6',
-      subjectId: 'daa',
-      qNumber: 4,
-      title: 'Explain Multithreaded Merge Sort. Why does naive parallelization of Merge Sort fail to achieve high parallelism? How does the P-MERGE algorithm overcome this limitation?',
-      shortTitle: 'Multithreaded Merge Sort & P-Merge Advantage',
-      marks: 9,
-      importance: 'Frequently Asked',
-      occurrenceCount: 5,
-      papersAsked: [
-        { paper: 'April 2026', questionNo: 'Q8(a)', marks: 9 },
-        { paper: 'April 2024', questionNo: 'Q7(b)', marks: 8 },
-        { paper: 'Nov 2023', questionNo: 'Q8(a)', marks: 9 },
-        { paper: 'April 2023', questionNo: 'Q7(a)', marks: 9 },
-        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
-      ],
-      frequencyNote: 'Top-frequency question for Unit VI appearing in 4 question papers.',
-      syllabusTopics: [
-        'Naive Parallel Merge Sort',
-        'The Serial Merge Bottleneck',
-        'P-Merge Algorithm Principle',
-        'Median Binary Search Partitioning',
-        'Work, Span, and Parallelism Comparison'
-      ],
-      definition: 'Multithreaded Merge Sort parallelizes both the recursive sorting subproblems and the merge step itself. Using the P-MERGE algorithm with median binary search, the merge span is reduced from Theta(n) to Theta(log^2 n), yielding an overall sort span of Theta(log^3 n) and parallelism Theta(n / log^2 n).',
-      sections: [
-        {
-          title: '1. The Naive Parallel Merge Sort Trap',
-          content: [
-            'A naive multithreaded merge sort spawns the two recursive subsorts concurrently, but uses the conventional sequential two-pointer merge:',
-            '• Work: T_1(n) = 2 T_1(n/2) + Theta(n) = Theta(n log n).',
-            '• Span: Since the two recursive calls run in parallel, their span is T_infinity(n/2). However, sequential merge takes Theta(n) span: T_infinity(n) = T_infinity(n/2) + Theta(n) = Theta(n).',
-            '• Parallelism: T_1 / T_infinity = Theta(n log n) / Theta(n) = Theta(log n).',
-            '• For n = 1,000,000, parallelism is only log_2(10^6) approx 20! Adding 1,000 cores provides virtually zero additional speedup because the linear merge dominates execution.'
-          ]
-        },
-        {
-          title: '2. The P-MERGE (Parallel Merge) Solution',
-          content: [
-            'To break the O(n) span barrier, P-MERGE parallelizes the merge operation itself:',
-            '1. Given two sorted subarrays T[p_1..r_1] and T[p_2..r_2] (assume first is larger, n_1 >= n_2).',
-            '2. Find the median x = T[q_1] of the larger subarray at q_1 = floor((p_1 + r_1)/2).',
-            '3. Use binary search to find index q_2 in the second subarray where x fits.',
-            '4. Directly place x into its exact rank position in output array A: q_3 = p_3 + (q_1 - p_1) + (q_2 - p_2); A[q_3] = x.',
-            '5. Concurrently spawn two independent sub-merges: lower halves into A[p_3..q_3-1] and upper halves into A[q_3+1..r_3].'
-          ]
-        },
-        {
-          title: '3. Comparative Performance Analysis',
-          table: {
-            headers: ['Characteristic', 'Conventional Serial Merge Sort', 'Naive Parallel Merge Sort', 'Fully Parallel (with P-Merge)'],
-            rows: [
-              {
-                parameter: 'Merge Routine',
-                col1: 'Sequential 2-pointer',
-                col2: 'Sequential 2-pointer',
-                col3: 'Parallel recursive P-Merge'
-              },
-              {
-                parameter: 'Merge Span',
-                col1: 'Theta(n)',
-                col2: 'Theta(n) [Bottleneck!]',
-                col3: 'Theta(log^2 n)'
-              },
-              {
-                parameter: 'Total Sort Work T_1',
-                col1: 'Theta(n log n)',
-                col2: 'Theta(n log n)',
-                col3: 'Theta(n log n)'
-              },
-              {
-                parameter: 'Total Sort Span T_infinity',
-                col1: 'Theta(n log n)',
-                col2: 'Theta(n)',
-                col3: 'Theta(log^3 n)'
-              },
-              {
-                parameter: 'Parallelism',
-                col1: '1 (Serial)',
-                col2: 'Theta(log n)',
-                col3: 'Theta(n / log^2 n)'
-              },
-              {
-                parameter: 'Speedup on 1M items',
-                col1: '1x',
-                col2: '~20x max',
-                col3: '~2,500x scalability'
-              }
-            ]
-          }
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-u6-mergesort',
-          title: 'Multithreaded Merge Sort Architecture (Recursive P-Merge)',
-          caption: 'Figure 6.4: Dual divide-and-conquer pipeline: parallel recursion on sort subproblems combined with P-Merge median binary splitting.',
-          type: 'svg-interactive',
-          svgType: 'parallel-merge-sort-pipeline',
-          description: 'Visual diagram of parallel merge sort execution.'
-        }
-      ],
-      summary: [
-        'Naive parallel merge sort only parallelizes recursive calls, leaving merge as an O(n) bottleneck.',
-        'P-Merge parallelizes the merge step itself using median selection and binary search.',
-        'P-Merge achieves merge span Theta(log^2 n) and work Theta(n).',
-        'Full Multithreaded Merge Sort achieves total span Theta(log^3 n) and work Theta(n log n).',
-        'Parallelism jumps from Theta(log n) to massive Theta(n / log^2 n).'
-      ],
-      keyPoints: [
-        'Serial merge creates Theta(n) span bottleneck',
-        'P-Merge uses dual binary search on medians',
-        'Merge span reduced to Theta(log^2 n)',
-        'Overall sort span = Theta(log^3 n)',
-        'Parallelism = Theta(n / log^2 n)'
-      ],
-      conclusion: 'Parallelizing the merge operation is mandatory for scalable parallel sorting. P-Merge converts the linear sequential bottleneck into a polylogarithmic critical path.'
-    },
+    // Q4,
 
-    // Q5
     {
       id: 'daa-u6-q5',
       unitId: 'unit-6',
       subjectId: 'daa',
       qNumber: 5,
-      title: 'Provide a detailed mathematical derivation of the Work and Span recurrences for P-Merge and Multithreaded Merge Sort. Prove the worst-case 3/4 partition size bound.',
-      shortTitle: 'P-Merge Mathematical Analysis & Span Derivation',
-      marks: 8,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
-      frequencyNote: 'Deep theoretical derivation question for high scoring marks in Q7 or Q8.',
-      syllabusTopics: [
-        'P-Merge Partition Size Proof',
-        'P-Merge Span Recurrence',
-        'Master Theorem and Expansion',
-        'Overall Merge Sort Span Derivation'
-      ],
-      definition: 'The mathematical analysis of P-Merge proves that median-based partitioning splits two sorted subarrays such that the larger recursive subproblem contains at most 3/4 of the total elements, yielding an O(log^2 n) merge span and an O(log^3 n) sort span.',
-      sections: [
-        {
-          title: '1. Mathematical Proof of the 3/4 Partition Bound',
-          content: [
-            'Let T_1 have size n_1 and T_2 have size n_2 with n_1 >= n_2. Total elements n = n_1 + n_2.',
-            '1. Median x is chosen in T_1 at index q_1, so exactly floor(n_1/2) <= n_1/2 elements of T_1 are strictly smaller than x.',
-            '2. In the worst case, binary search finds that all elements of T_2 are greater than x (or all are smaller). Thus q_2 = p_2 or q_2 = r_2 + 1.',
-            '3. The larger of the two spawned recursive merges contains at most: max_subproblem <= (n_1/2) + n_2 elements.',
-            '4. Since n_1 >= n_2, we have n_2 <= n/2. Substituting:',
-            '   max_subproblem <= (n_1/2) + n_2 = (n_1 + n_2)/2 + n_2/2 <= n/2 + (n/2)/2 = n/2 + n/4 = (3/4)n.',
-            'Conclusion: Neither recursive subproblem ever contains more than (3/4)n elements in the worst case.'
-          ]
-        },
-        {
-          title: '2. Derivation of P-Merge Span PM_infinity(n)',
-          content: [
-            'At each recursive step of P-Merge:',
-            '• Finding the median takes Theta(1) time.',
-            '• Binary search on the second subarray takes Theta(log n_2) <= Theta(log n) time.',
-            '• Spawning the two sub-merges executes them in parallel, so the span is the max of the two subproblems:',
-            '  PM_infinity(n) <= PM_infinity(3n/4) + c log n.',
-            '• Unfolding the recurrence over k = log_{4/3} n levels:',
-            '  PM_infinity(n) <= Sum_{i=0}^{log_{4/3} n} c log(n * (3/4)^i) = Theta(log^2 n).'
-          ]
-        },
-        {
-          title: '3. Derivation of Full Merge Sort Span T_infinity(n)',
-          content: [
-            'In P-MERGESORT, the two recursive sorting calls run concurrently, followed by P-MERGE:',
-            '  T_infinity(n) = T_infinity(n/2) + PM_infinity(n) = T_infinity(n/2) + Theta(log^2 n).',
-            '• Summing across all log_2 n tree levels:',
-            '  T_infinity(n) = Sum_{j=0}^{log_2 n} Theta(log^2(n / 2^j)) = Theta(log^3 n).'
-          ]
-        }
-      ],
-      summary: [
-        'The maximum recursive subproblem in P-Merge is mathematically bounded by (3/4)n.',
-        'Binary search requires O(log n) span at each recursion level.',
-        'Summing across log_(4/3) n levels yields P-Merge span Theta(log^2 n).',
-        'Full multithreaded merge sort achieves total span Theta(log^3 n) and work Theta(n log n).'
-      ],
-      keyPoints: [
-        'Bound: (n_1/2) + n_2 <= 3/4 n',
-        'PM_infinity(n) <= PM_infinity(3n/4) + O(log n)',
-        'P-Merge span = Theta(log^2 n)',
-        'Sort span = Theta(log^3 n)',
-        'Work efficiency preserved: Theta(n log n)'
-      ],
-      conclusion: 'The polylogarithmic span Theta(log^3 n) proves that Multithreaded Merge Sort with P-Merge scales gracefully across massively parallel multicore architectures.'
-    },
-
-    // Q6
-    {
-      id: 'daa-u6-q6',
-      unitId: 'unit-6',
-      subjectId: 'daa',
-      qNumber: 6,
-      title: 'Explain the syntax, semantics, and implementation of parallel loops (parallel for). Why should a compiler avoid flat sequential task spawning, and how does divide-and-conquer desugaring solve this?',
-      shortTitle: 'Parallel Loops and Divide-and-Conquer Desugaring',
-      marks: 7,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
-      frequencyNote: 'Commonly asked alongside race conditions and DAG models in multithreaded algorithm analysis.',
-      syllabusTopics: [
-        'parallel for Syntax and Semantics',
-        'Flat Spawn Loop Overhead',
-        'Divide-and-Conquer Tree Desugaring',
-        'Grain Size Tuning'
-      ],
-      definition: 'A parallel loop (parallel for) specifies that all iterations of a loop are logically independent and can execute concurrently, with an implicit sync barrier at loop exit. Compilers desugar parallel for into a binary tree of spawned sub-ranges to avoid linear spawn overhead.',
-      sections: [
-        {
-          title: '1. Syntax and Semantics',
-          content: [
-            'In dynamic multithreading languages, parallel loops express iteration-level concurrency:',
-            '  parallel for i = 1 to n do A[i] = B[i] + C[i]',
-            '• Semantics: Every iteration i is logically concurrent with every other iteration.',
-            '• Barrier: An implicit sync is enforced at loop termination; control does not advance until all n iterations finish.'
-          ]
-        },
-        {
-          title: '2. The Flat Spawn Trap vs Divide-and-Conquer Tree',
-          content: [
-            '• Flat Spawn (Bad): Compiling into a sequential loop: for i=1 to n do spawn F(i); sync. The main thread takes Theta(n) time sequentially just spawning tasks, forcing span to be at least Theta(n)!',
-            '• Binary Tree Desugaring (Good): The compiler converts the loop into a recursive divide-and-conquer function that splits the index range [start..end] in half, spawning the left half and executing the right half.'
-          ],
-          codeBlock: {
-            language: 'text',
-            code: `PARALLEL-LOOP(start, end)
-1  if start == end
-2      EXECUTE_ITERATION(start)
-3  else
-4      mid = floor((start + end) / 2)
-5      spawn PARALLEL-LOOP(start, mid)
-6      PARALLEL-LOOP(mid + 1, end)
-7      sync`
-          }
-        },
-        {
-          title: '3. Complexity and Grain Size Selection',
-          content: [
-            '• Work: T_1(n) = Theta(n * cost_of_iteration) + Theta(n) = Theta(n).',
-            '• Span: Tree height is ceil(log_2 n), so T_infinity(n) = cost_of_iteration + Theta(log n).',
-            '• Grain Size (G): Spawning tasks for 1-instruction iterations incurs runtime overhead. Modern runtimes group iterations into blocks of size G (e.g., G = 64) and execute leaves serially.'
-          ]
-        }
-      ],
-      summary: [
-        'parallel for executes independent loop iterations concurrently with an implicit sync at exit.',
-        'Sequential flat spawning forces an unacceptable Theta(n) span bottleneck.',
-        'Compilers desugar parallel loops into a balanced binary tree of spawned ranges.',
-        'Achieves Work Theta(n) and Span Theta(log n) for unit-cost iterations.'
-      ],
-      keyPoints: [
-        'Iteration independence',
-        'Implicit sync at loop conclusion',
-        'Avoid flat spawn loop bottleneck',
-        'Divide-and-conquer binary tree desugaring',
-        'Span = Theta(log n)',
-        'Grain size optimization'
-      ],
-      conclusion: 'Divide-and-conquer desugaring ensures that task creation overhead scales logarithmically rather than linearly, preserving fine-grained loop parallelism.'
-    },
-
-    // Q7
-    {
-      id: 'daa-u6-q7',
-      unitId: 'unit-6',
-      subjectId: 'daa',
-      qNumber: 7,
-      title: 'Analyze multithreaded algorithms using theoretical scheduling foundations. State and prove Brent’s Theorem for greedy schedulers and derive the condition for linear speedup.',
-      shortTitle: 'Greedy Schedulers & Brent’s Theorem',
-      marks: 8,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
-      frequencyNote: 'The standard theoretical question for proving algorithmic scalability bounds.',
-      syllabusTopics: [
-        'Greedy Scheduler Definition',
-        'Complete vs Incomplete Steps',
-        'Brent’s Theorem Statement & Proof',
-        'Linear Speedup Condition'
-      ],
-      definition: 'A greedy scheduler is an online scheduler that never leaves a processor core idle if there is an enabled strand ready to run. Brent’s Theorem proves that any greedy scheduler executes a computation with work T_1 and span T_infinity on P processors in time T_P <= (T_1 - T_infinity)/P + T_infinity.',
-      sections: [
-        {
-          title: '1. The Greedy Scheduling Paradigm',
-          content: [
-            'At each discrete time step with P processors available and k ready strands:',
-            '• Complete Step: If k >= P, exactly P processors execute ready strands. P units of work are consumed.',
-            '• Incomplete Step: If k < P, all k strands are executed while P - k processors sit idle.',
-            'Because every ready strand is executed during an incomplete step, each incomplete step reduces the remaining span (critical path) of the DAG by at least 1!'
-          ]
-        },
-        {
-          title: '2. Mathematical Proof of Brent’s Theorem',
-          content: [
-            '1. Let S_C be the number of complete steps and S_I be the number of incomplete steps. Total execution time T_P = S_C + S_I.',
-            '2. Since there are at most T_infinity steps along the longest path, there can be at most T_infinity incomplete steps: S_I <= T_infinity.',
-            '3. In complete steps, P * S_C work is performed. Total work cannot exceed T_1 - S_I: P * S_C <= T_1 - S_I ==> S_C <= (T_1 - S_I)/P.',
-            '4. Substituting into total time:',
-            '   T_P = S_C + S_I <= (T_1 - S_I)/P + S_I = T_1/P + S_I * (1 - 1/P) <= (T_1 - T_infinity)/P + T_infinity <= T_1/P + T_infinity.'
-          ]
-        },
-        {
-          title: '3. Linear Speedup Condition',
-          content: [
-            'From Brent’s Theorem, if processor count P is much smaller than the parallelism: P << T_1 / T_infinity, then T_infinity << T_1 / P.',
-            '• The span term becomes negligible: T_P approx T_1 / P.',
-            '• Speedup S_P = T_1 / T_P approx P.',
-            '• The algorithm achieves near-ideal linear speedup.'
-          ]
-        }
-      ],
-      summary: [
-        'A greedy scheduler never leaves a processor idle when there is a ready strand to execute.',
-        'Brent’s Theorem guarantees: T_P <= (T_1 - T_infinity)/P + T_infinity.',
-        'Any greedy scheduler executes within a factor of 2 of the optimal offline schedule.',
-        'Linear speedup is achieved whenever P << T_1 / T_infinity.'
-      ],
-      keyPoints: [
-        'Online greedy scheduling',
-        'Complete vs Incomplete steps',
-        'Incomplete steps bounded by T_infinity',
-        'Brent’s Theorem: T_P <= T_1/P + T_infinity',
-        'Condition for linear speedup: P << T_1/T_infinity'
-      ],
-      conclusion: 'Brent’s Theorem guarantees that as long as the problem has sufficient parallelism (high slackness), simple greedy scheduling achieves near-perfect linear speedup.'
-    },
-
-    // Q8
-    {
-      id: 'daa-u6-q8',
-      unitId: 'unit-6',
-      subjectId: 'daa',
-      qNumber: 8,
       title: 'Discuss the key performance measures of multithreaded systems: Speedup, Efficiency, Throughput, Contention, and Latency. Compare Amdahl’s Law with Gustafson’s Law.',
       shortTitle: 'Performance Measures of Multithreaded Systems',
       marks: 8,
@@ -834,6 +592,7 @@ export const daaUnit6Data: Unit = {
         { paper: 'Nov 2024', questionNo: 'Q7(b)', marks: 8 }
       ],
       frequencyNote: 'Directly asked in Paper 4 Q7(b) for 8 marks.',
+      topicCategory: 'Multithreaded Algorithms',
       syllabusTopics: [
         'Speedup and Efficiency Definitions',
         'Throughput, Latency, and Contention',
@@ -906,7 +665,259 @@ export const daaUnit6Data: Unit = {
       conclusion: 'Understanding both Amdahl’s and Gustafson’s laws allows engineers to properly scale datasets to overcome sequential execution bottlenecks.'
     },
 
-    // Q9
+    // Q9,
+
+    {
+      id: 'daa-u6-q6',
+      unitId: 'unit-6',
+      subjectId: 'daa',
+      qNumber: 6,
+      title: 'Analyze multithreaded algorithms using theoretical scheduling foundations. State and prove Brent’s Theorem for greedy schedulers and derive the condition for linear speedup.',
+      shortTitle: 'Greedy Schedulers & Brent’s Theorem',
+      marks: 8,
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
+      frequencyNote: 'The standard theoretical question for proving algorithmic scalability bounds.',
+      topicCategory: 'Problem Solving using Multithreaded Algorithms',
+      syllabusTopics: [
+        'Greedy Scheduler Definition',
+        'Complete vs Incomplete Steps',
+        'Brent’s Theorem Statement & Proof',
+        'Linear Speedup Condition'
+      ],
+      definition: 'A greedy scheduler is an online scheduler that never leaves a processor core idle if there is an enabled strand ready to run. Brent’s Theorem proves that any greedy scheduler executes a computation with work T_1 and span T_infinity on P processors in time T_P <= (T_1 - T_infinity)/P + T_infinity.',
+      sections: [
+        {
+          title: '1. The Greedy Scheduling Paradigm',
+          content: [
+            'At each discrete time step with P processors available and k ready strands:',
+            '• Complete Step: If k >= P, exactly P processors execute ready strands. P units of work are consumed.',
+            '• Incomplete Step: If k < P, all k strands are executed while P - k processors sit idle.',
+            'Because every ready strand is executed during an incomplete step, each incomplete step reduces the remaining span (critical path) of the DAG by at least 1!'
+          ]
+        },
+        {
+          title: '2. Mathematical Proof of Brent’s Theorem',
+          content: [
+            '1. Let S_C be the number of complete steps and S_I be the number of incomplete steps. Total execution time T_P = S_C + S_I.',
+            '2. Since there are at most T_infinity steps along the longest path, there can be at most T_infinity incomplete steps: S_I <= T_infinity.',
+            '3. In complete steps, P * S_C work is performed. Total work cannot exceed T_1 - S_I: P * S_C <= T_1 - S_I ==> S_C <= (T_1 - S_I)/P.',
+            '4. Substituting into total time:',
+            '   T_P = S_C + S_I <= (T_1 - S_I)/P + S_I = T_1/P + S_I * (1 - 1/P) <= (T_1 - T_infinity)/P + T_infinity <= T_1/P + T_infinity.'
+          ]
+        },
+        {
+          title: '3. Linear Speedup Condition',
+          content: [
+            'From Brent’s Theorem, if processor count P is much smaller than the parallelism: P << T_1 / T_infinity, then T_infinity << T_1 / P.',
+            '• The span term becomes negligible: T_P approx T_1 / P.',
+            '• Speedup S_P = T_1 / T_P approx P.',
+            '• The algorithm achieves near-ideal linear speedup.'
+          ]
+        }
+      ],
+      summary: [
+        'A greedy scheduler never leaves a processor idle when there is a ready strand to execute.',
+        'Brent’s Theorem guarantees: T_P <= (T_1 - T_infinity)/P + T_infinity.',
+        'Any greedy scheduler executes within a factor of 2 of the optimal offline schedule.',
+        'Linear speedup is achieved whenever P << T_1 / T_infinity.'
+      ],
+      keyPoints: [
+        'Online greedy scheduling',
+        'Complete vs Incomplete steps',
+        'Incomplete steps bounded by T_infinity',
+        'Brent’s Theorem: T_P <= T_1/P + T_infinity',
+        'Condition for linear speedup: P << T_1/T_infinity'
+      ],
+      conclusion: 'Brent’s Theorem guarantees that as long as the problem has sufficient parallelism (high slackness), simple greedy scheduling achieves near-perfect linear speedup.'
+    },
+
+    // Q8,
+
+    {
+      id: 'daa-u6-q7',
+      unitId: 'unit-6',
+      subjectId: 'daa',
+      qNumber: 7,
+      title: 'Explain the syntax, semantics, and implementation of parallel loops (parallel for). Why should a compiler avoid flat sequential task spawning, and how does divide-and-conquer desugaring solve this?',
+      shortTitle: 'Parallel Loops and Divide-and-Conquer Desugaring',
+      marks: 7,
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
+      frequencyNote: 'Commonly asked alongside race conditions and DAG models in multithreaded algorithm analysis.',
+      topicCategory: 'Problem Solving using Multithreaded Algorithms',
+      syllabusTopics: [
+        'parallel for Syntax and Semantics',
+        'Flat Spawn Loop Overhead',
+        'Divide-and-Conquer Tree Desugaring',
+        'Grain Size Tuning'
+      ],
+      definition: 'A parallel loop (parallel for) specifies that all iterations of a loop are logically independent and can execute concurrently, with an implicit sync barrier at loop exit. Compilers desugar parallel for into a binary tree of spawned sub-ranges to avoid linear spawn overhead.',
+      sections: [
+        {
+          title: '1. Syntax and Semantics',
+          content: [
+            'In dynamic multithreading languages, parallel loops express iteration-level concurrency:',
+            '  parallel for i = 1 to n do A[i] = B[i] + C[i]',
+            '• Semantics: Every iteration i is logically concurrent with every other iteration.',
+            '• Barrier: An implicit sync is enforced at loop termination; control does not advance until all n iterations finish.'
+          ]
+        },
+        {
+          title: '2. The Flat Spawn Trap vs Divide-and-Conquer Tree',
+          content: [
+            '• Flat Spawn (Bad): Compiling into a sequential loop: for i=1 to n do spawn F(i); sync. The main thread takes Theta(n) time sequentially just spawning tasks, forcing span to be at least Theta(n)!',
+            '• Binary Tree Desugaring (Good): The compiler converts the loop into a recursive divide-and-conquer function that splits the index range [start..end] in half, spawning the left half and executing the right half.'
+          ],
+          codeBlock: {
+            language: 'text',
+            code: `PARALLEL-LOOP(start, end)
+1  if start == end
+2      EXECUTE_ITERATION(start)
+3  else
+4      mid = floor((start + end) / 2)
+5      spawn PARALLEL-LOOP(start, mid)
+6      PARALLEL-LOOP(mid + 1, end)
+7      sync`
+          }
+        },
+        {
+          title: '3. Complexity and Grain Size Selection',
+          content: [
+            '• Work: T_1(n) = Theta(n * cost_of_iteration) + Theta(n) = Theta(n).',
+            '• Span: Tree height is ceil(log_2 n), so T_infinity(n) = cost_of_iteration + Theta(log n).',
+            '• Grain Size (G): Spawning tasks for 1-instruction iterations incurs runtime overhead. Modern runtimes group iterations into blocks of size G (e.g., G = 64) and execute leaves serially.'
+          ]
+        }
+      ],
+      summary: [
+        'parallel for executes independent loop iterations concurrently with an implicit sync at exit.',
+        'Sequential flat spawning forces an unacceptable Theta(n) span bottleneck.',
+        'Compilers desugar parallel loops into a balanced binary tree of spawned ranges.',
+        'Achieves Work Theta(n) and Span Theta(log n) for unit-cost iterations.'
+      ],
+      keyPoints: [
+        'Iteration independence',
+        'Implicit sync at loop conclusion',
+        'Avoid flat spawn loop bottleneck',
+        'Divide-and-conquer binary tree desugaring',
+        'Span = Theta(log n)',
+        'Grain size optimization'
+      ],
+      conclusion: 'Divide-and-conquer desugaring ensures that task creation overhead scales logarithmically rather than linearly, preserving fine-grained loop parallelism.'
+    },
+
+    // Q7,
+
+    {
+      id: 'daa-u6-q8',
+      unitId: 'unit-6',
+      subjectId: 'daa',
+      qNumber: 8,
+      title: 'What is a determinacy race condition? Explain with an example of concurrent instructions. Distinguish between benign and malign races and describe mitigation methods.',
+      shortTitle: 'Determinacy Races and Race Conditions',
+      marks: 7,
+      importance: 'Frequently Asked',
+      occurrenceCount: 4,
+      papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q7(b)', marks: 7 },
+        { paper: 'April 2025', questionNo: 'Q7(b)', marks: 4 },
+        { paper: 'Nov 2023', questionNo: 'Q7(b)', marks: 7 },
+        { paper: 'April 2023', questionNo: 'Q8(b)', marks: 7 }
+      ],
+      frequencyNote: 'Regularly paired with multithreaded loop analysis in question 8(b) or 7(b).',
+      topicCategory: 'Problem Solving using Multithreaded Algorithms',
+      syllabusTopics: [
+        'Determinacy Races Definition',
+        'DAG Formalization of Concurrent Access',
+        'Lost Update Assembly Analysis',
+        'Benign vs Malign Races',
+        'Detection and Mitigation'
+      ],
+      definition: 'A determinacy race condition occurs in a multithreaded program when two logically concurrent strands access the same memory location, at least one access is a write, and no synchronization mechanisms coordinate their execution order.',
+      sections: [
+        {
+          title: '1. Formal Definition in Computational DAGs',
+          content: [
+            'Let G = (V, E) be the computational DAG of an execution.',
+            'Two strands u, v in V are logically concurrent (u || v) if neither is reachable from the other: (u does not lead to v) and (v does not lead to u).',
+            'A determinacy race exists if and only if there exist two strands u, v such that:',
+            '1. u || v (they can execute at the exact same physical moment).',
+            '2. Both u and v access the same memory location M.',
+            '3. At least one of the accesses is a write operation.'
+          ]
+        },
+        {
+          title: '2. Low-Level Lost Update Trace',
+          content: [
+            'Consider two parallel iterations executing x = x + 1 on shared variable x (initially 0):',
+            '• The statement x = x + 1 expands into 3 machine instructions: LOAD R, [x]; ADD R, 1; STORE [x], R.',
+            '• Thread 1 reads x = 0 into R1.',
+            '• Thread 2 reads x = 0 into R2.',
+            '• Both increment their local registers: R1 = 1, R2 = 1.',
+            '• Thread 1 stores 1 into x; Thread 2 overwrites 1 into x.',
+            '• Result: Two increments occurred, but x = 1 instead of 2. One update is permanently lost!'
+          ]
+        },
+        {
+          title: '3. Benign vs Malign Races and Mitigation',
+          table: {
+            headers: ['Category / Solution', 'Description', 'Characteristics / Impact'],
+            rows: [
+              {
+                parameter: 'Malign Race',
+                col1: 'Concurrent unsynchronized read/write corrupting program invariants, data structures, or accumulators.',
+                col2: 'Produces nondeterministic wrong results, memory leaks, or crashes.'
+              },
+              {
+                parameter: 'Benign Race',
+                col1: 'Concurrent write where different execution schedules do not affect final logical correctness.',
+                col2: 'Example: Multiple threads writing true to a shared found boolean during linear search.'
+              },
+              {
+                parameter: 'Atomic Operations',
+                col1: 'Hardware Compare-And-Swap (CAS) instructions executing read-modify-write as a single indivisible step.',
+                col2: 'Lock-free, extremely fast, prevents lost updates without thread blocking.'
+              },
+              {
+                parameter: 'Mutex Locks & Sync',
+                col1: 'Mutual exclusion locks or sync barriers enforcing serial critical sections.',
+                col2: 'Guarantees determinacy at the expense of introducing contention and latency.'
+              }
+            ]
+          }
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-u6-race',
+          title: 'Determinacy Race Condition in Parallel Strands',
+          caption: 'Figure 6.2: Interleaved execution of concurrent read-modify-write instructions leading to a lost update on shared variable x.',
+          type: 'svg-interactive',
+          svgType: 'race-condition-visual',
+          description: 'Diagram showing assembly instruction race interleaving.'
+        }
+      ],
+      summary: [
+        'A determinacy race occurs when concurrent strands access shared memory and at least one writes.',
+        'Formally: u || v, both access address M, and access(u)=write or access(v)=write.',
+        'Lost updates occur when non-atomic load-add-store sequences interleave.',
+        'Mitigated using atomic CAS instructions, locks, or restructuring into reduction trees.'
+      ],
+      keyPoints: [
+        'Concurrent strands (u || v)',
+        'Shared memory write collision',
+        'Lost update anomaly',
+        'Malign vs Benign races',
+        'Atomic CAS & Mutex synchronization'
+      ],
+      conclusion: 'Eliminating determinacy races guarantees program determinism, ensuring that the parallel program produces identical output to its sequential counterpart for all inputs.'
+    },
+
+    // Q3,
+
     {
       id: 'daa-u6-q9',
       unitId: 'unit-6',
@@ -919,6 +930,7 @@ export const daaUnit6Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Foundational theory for Distributed BFS and Distributed MST questions.',
+      topicCategory: 'Distributed Algorithms',
       syllabusTopics: [
         'Distributed System Architecture',
         'Synchronous vs Asynchronous Communication',
@@ -999,7 +1011,8 @@ export const daaUnit6Data: Unit = {
       conclusion: 'Distributed algorithms must minimize message complexity to conserve network bandwidth and battery life in IoT and cloud networks.'
     },
 
-    // Q10
+    // Q10,
+
     {
       id: 'daa-u6-q10',
       unitId: 'unit-6',
@@ -1014,6 +1027,7 @@ export const daaUnit6Data: Unit = {
         { paper: 'April 2025', questionNo: 'Q8(a)', marks: 8 }
       ],
       frequencyNote: 'High-frequency 10-mark question featured in Papers 1, 2, and 4.',
+      topicCategory: 'Distributed Algorithms',
       syllabusTopics: [
         'Distributed BFS Problem Formulation',
         'Synchronous Wavefront Layering',
@@ -1090,7 +1104,8 @@ export const daaUnit6Data: Unit = {
       conclusion: 'Distributed BFS forms the communication backbone for distributed routing, broadcast, convergecast, and network diameter estimation.'
     },
 
-    // Q11
+    // Q11,
+
     {
       id: 'daa-u6-q11',
       unitId: 'unit-6',
@@ -1107,6 +1122,7 @@ export const daaUnit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
       ],
       frequencyNote: 'Exact numerical/trace question featured in Paper 2 Q8(a) and Paper 4 Q8(a).',
+      topicCategory: 'Distributed Algorithms',
       syllabusTopics: [
         '7-Vertex Graph Topology',
         'Round-by-Round Message Exchanges',
@@ -1246,7 +1262,8 @@ export const daaUnit6Data: Unit = {
       conclusion: 'The trace confirms that Distributed BFS establishes minimum-hop paths to all nodes in exactly D rounds, constructing a valid directed spanning tree.'
     },
 
-    // Q12
+    // Q12,
+
     {
       id: 'daa-u6-q12',
       unitId: 'unit-6',
@@ -1263,6 +1280,7 @@ export const daaUnit6Data: Unit = {
         { paper: 'April 2023', questionNo: 'Q7(b)', marks: 8 }
       ],
       frequencyNote: 'Directly asked in Paper 1 Q7(b)(i) and Paper 3 Q7(a)(i) for 8 marks.',
+      topicCategory: 'Distributed Algorithms',
       syllabusTopics: [
         'Distributed MST Problem Definition',
         'The Cut Property in Distributed Graphs',
@@ -1344,7 +1362,8 @@ export const daaUnit6Data: Unit = {
       conclusion: 'The GHS algorithm is the foundational cornerstone of distributed graph algorithms, pioneering fragment leveling to prevent distributed deadlocks.'
     },
 
-    // Q13
+    // Q13,
+
     {
       id: 'daa-u6-q13',
       unitId: 'unit-6',
@@ -1357,6 +1376,7 @@ export const daaUnit6Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Rigorous complexity derivation question for GHS distributed MST.',
+      topicCategory: 'Distributed Algorithms',
       syllabusTopics: [
         'The 7 GHS Message Types',
         'The 4 Operational Phases',
@@ -1434,7 +1454,8 @@ export const daaUnit6Data: Unit = {
       conclusion: 'GHS achieves optimal communication bounds, ensuring that distributed MST construction does not saturate network bandwidth.'
     },
 
-    // Q14
+    // Q14,
+
     {
       id: 'daa-u6-q14',
       unitId: 'unit-6',
@@ -1449,6 +1470,7 @@ export const daaUnit6Data: Unit = {
         { paper: 'Nov 2025', questionNo: 'Q8(a)', marks: 10 }
       ],
       frequencyNote: 'Standard string matching baseline algorithm tested in university exams.',
+      topicCategory: 'String Matching Algorithms',
       syllabusTopics: [
         'String Matching Formalism',
         'Naive Sliding Window Algorithm',
@@ -1557,197 +1579,13 @@ export const daaUnit6Data: Unit = {
       conclusion: 'While simple and requiring no extra memory, the naive algorithm suffers from repetitive backtracking on structured or repetitive text.'
     },
 
-    // Q15
+    // Q15,
+
     {
       id: 'daa-u6-q15',
       unitId: 'unit-6',
       subjectId: 'daa',
       qNumber: 15,
-      title: 'Describe String Matching with Finite Automata. Explain the role of the state transition function delta and the suffix function sigma. State preprocessing and matching complexities.',
-      shortTitle: 'String Matching with Finite Automata',
-      marks: 8,
-      importance: 'Conceptual / Additional',
-      occurrenceCount: 0,
-      papersAsked: [],
-      frequencyNote: 'Foundational deterministic automaton approach to exact string matching.',
-      syllabusTopics: [
-        'DFA Formal Definition (Q, q_0, A, Sigma, delta)',
-        'Suffix Function sigma Definition',
-        'Transition Function delta(q, a) Construction',
-        'O(n) Text Matching Complexity'
-      ],
-      definition: 'Finite Automata string matching constructs a Deterministic Finite Automaton (DFA) from pattern P using a suffix function sigma, enabling text matching in strictly linear O(n) time with zero text backtracking.',
-      sections: [
-        {
-          title: '1. Automaton Formulation and Suffix Function',
-          content: [
-            'DFA 5-tuple: (Q, q_0, A, Sigma, delta):',
-            '• Q = {0, 1, 2, ..., m}: States representing the number of characters of pattern P matched so far.',
-            '• q_0 = 0: Initial state; A = {m}: Accepting state.',
-            '• Suffix Function sigma(x): Returns the length of the longest prefix of P that is also a suffix of x: sigma(x) = max {k | P_k is suffix of x}.',
-            '• Transition Function: delta(q, a) = sigma(P_q a), where P_q is prefix of P of length q.'
-          ]
-        },
-        {
-          title: '2. Text Matching Algorithm',
-          codeBlock: {
-            language: 'text',
-            code: `FINITE-AUTOMATON-MATCHER(T, delta, m)
-1  n = T.length
-2  q = 0
-3  for i = 1 to n
-4      q = delta(q, T[i])
-5      if q == m
-6          print "Pattern occurs with shift " (i - m)`
-          }
-        },
-        {
-          title: '3. Complexity Analysis',
-          table: {
-            headers: ['Phase', 'Time Complexity', 'Space Complexity', 'Characteristics'],
-            rows: [
-              {
-                parameter: 'Preprocessing',
-                col1: 'Theta(m^3 |Sigma|) [or Theta(m |Sigma|)]',
-                col2: 'Theta(m |Sigma|)',
-                col3: 'Constructs transition table delta once before scanning text.'
-              },
-              {
-                parameter: 'Matching',
-                col1: 'Theta(n)',
-                col2: 'Theta(1)',
-                col3: 'Optimal linear scan; one table lookup per text character; no backtracking.'
-              }
-            ]
-          }
-        }
-      ],
-      summary: [
-        'A DFA string matcher tracks the length of the longest pattern prefix matched so far (states 0 to m).',
-        'State transition delta(q, a) = sigma(P_q a), where sigma is the suffix function.',
-        'Text matching runs in strictly optimal Theta(n) time with zero backtracking.',
-        'Preprocessing requires Theta(m |Sigma|) time and space.'
-      ],
-      keyPoints: [
-        'States 0 to m (length of prefix matched)',
-        'Accepting state m indicates match',
-        'Suffix function sigma(P_q a)',
-        'Matching time: Theta(n)',
-        'Preprocessing: Theta(m |Sigma|)',
-        'No backward text pointer motion'
-      ],
-      conclusion: 'Finite Automata string matching provides the ideal model for streaming string search where input text cannot be buffered or rewound.'
-    },
-
-    // Q16
-    {
-      id: 'daa-u6-q16',
-      unitId: 'unit-6',
-      subjectId: 'daa',
-      qNumber: 16,
-      title: 'Explain the Rabin-Karp String Matching algorithm in detail. Formulate the radix-d integer representation, Horner’s rule, and the O(1) rolling hash update formula.',
-      shortTitle: 'The Rabin-Karp String Matching Algorithm',
-      marks: 10,
-      importance: 'Frequently Asked',
-      occurrenceCount: 7,
-      papersAsked: [
-        { paper: 'April 2026', questionNo: 'Q8(b)', marks: 8 },
-        { paper: 'April 2025', questionNo: 'Q8(b)', marks: 10 },
-        { paper: 'Nov 2024', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'April 2024', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'Nov 2023', questionNo: 'Q7(a)', marks: 10 },
-        { paper: 'April 2023', questionNo: 'Q7(b)', marks: 8 },
-        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
-      ],
-      frequencyNote: 'Appears in every single previous year question paper; essential 10-mark topic.',
-      syllabusTopics: [
-        'Radix-d Integer Representation',
-        'Horner’s Rule for Hash Computation',
-        'Modular Hashing with Prime Modulus q',
-        'O(1) Rolling Hash Derivation',
-        'Rabin-Karp Pseudocode'
-      ],
-      definition: 'The Rabin-Karp algorithm interprets strings as numbers in radix-d notation and calculates a fingerprint hash p for pattern P and hashes t_s for each text window using a rolling hash update formula that shifts windows in O(1) constant time.',
-      sections: [
-        {
-          title: '1. Radix-d Integer Representation and Horner’s Rule',
-          content: [
-            'Given alphabet Sigma of size d = |Sigma| (e.g., d = 10 for decimal digits, d = 256 for ASCII):',
-            '• A pattern string P[1..m] represents an m-digit integer in radix d:',
-            '  p = P[m] + d(P[m-1] + d(... + d(P[2] + d P[1])...)).',
-            '• Horner’s rule computes p and initial window t_0 in Theta(m) time.',
-            '• To prevent integer overflow, all values are computed modulo a large prime q.'
-          ]
-        },
-        {
-          title: '2. The O(1) Rolling Hash Update Equation',
-          content: [
-            'When shifting the text window from T[s+1..s+m] to T[s+2..s+m+1]:',
-            '1. Subtract the high-order digit: T[s+1] * d^(m-1).',
-            '2. Multiply the remaining value by radix d (shifting digits left).',
-            '3. Add the incoming low-order character: T[s+m+1].',
-            '4. Apply modulo q:',
-            '   t_{s+1} = ( d * ( t_s - T[s+1] * h ) + T[s+m+1] ) mod q',
-            'where h = d^(m-1) mod q is precomputed once in O(m) time.'
-          ]
-        },
-        {
-          title: '3. Full Rabin-Karp Pseudocode',
-          codeBlock: {
-            language: 'text',
-            code: `RABIN-KARP-MATCHER(T, P, d, q)
-1  n = T.length
-2  m = P.length
-3  h = d^(m - 1) mod q
-4  p = 0;  t0 = 0
-5  for i = 1 to m                  // Preprocessing: Theta(m)
-6      p  = (d * p  + P[i]) mod q
-7      t0 = (d * t0 + T[i]) mod q
-8  for s = 0 to n - m              // Matching: Theta(n) expected
-9      if p == ts
-10         if P[1..m] == T[s+1..s+m]  // Character verification
-11             print "Pattern occurs with shift " s
-12     if s < n - m
-13         ts+1 = (d * (ts - T[s+1] * h) + T[s+m+1]) mod q
-14         if ts+1 < 0
-15             ts+1 = ts+1 + q`
-          }
-        }
-      ],
-      diagrams: [
-        {
-          id: 'diag-u6-rk',
-          title: 'Rabin-Karp Rolling Hash Mechanism and Shift Window',
-          caption: 'Figure 6.7: Sliding window rolling hash: subtracting high-order digit, scaling by radix d, and adding new low-order digit.',
-          type: 'svg-interactive',
-          svgType: 'rabin-karp-rolling-hash',
-          description: 'Interactive diagram of Rabin-Karp rolling hash window transition.'
-        }
-      ],
-      summary: [
-        'Rabin-Karp treats strings as numbers in radix-d notation using Horner’s rule.',
-        'Computes fingerprints modulo prime q to fit inside standard machine words.',
-        'Rolling hash computes t_(s+1) from t_s in O(1) time using subtraction and shift.',
-        'Verification of characters occurs only when hash values match: p == t_s.',
-        'Preprocessing takes Theta(m) time; average text matching takes Theta(n) time.'
-      ],
-      keyPoints: [
-        'Radix-d integer encoding',
-        'Horner’s rule: Theta(m)',
-        'Prime modulus q prevents overflow',
-        'Multiplier h = d^(m-1) mod q',
-        'Rolling hash formula: O(1) per shift',
-        'Expected time: O(n + m)'
-      ],
-      conclusion: 'Rabin-Karp provides an elegant number-theoretic approach to string matching that extends naturally to multidimensional pattern search.'
-    },
-
-    // Q17
-    {
-      id: 'daa-u6-q17',
-      unitId: 'unit-6',
-      subjectId: 'daa',
-      qNumber: 17,
       title: 'What is a spurious hit in Rabin-Karp? Explain how it occurs and analyze the worst-case and average-case time complexity of the algorithm.',
       shortTitle: 'Rabin-Karp Spurious Hits & Runtime Analysis',
       marks: 9,
@@ -1755,6 +1593,7 @@ export const daaUnit6Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Crucial conceptual question asked across Papers 2, 3, and 4.',
+      topicCategory: 'String Matching Algorithms',
       syllabusTopics: [
         'Spurious Hit Formal Definition',
         'Pigeonhole Principle and Hash Collisions',
@@ -1815,12 +1654,13 @@ export const daaUnit6Data: Unit = {
       conclusion: 'Choosing a sufficiently large prime modulus ensures that spurious hits are extremely rare, guaranteeing near-optimal linear expected runtime.'
     },
 
-    // Q18
+    // Q18,
+
     {
-      id: 'daa-u6-q18',
+      id: 'daa-u6-q16',
       unitId: 'unit-6',
       subjectId: 'daa',
-      qNumber: 18,
+      qNumber: 16,
       title: 'Numerical Problem: Trace the Rabin-Karp algorithm for Text T = 3141592653589793 and Pattern P = 26 with modulus q = 11 and radix d = 10. Trace hash values, find legitimate matches, and count spurious hits.',
       shortTitle: 'Rabin-Karp Spurious Hits Numerical Trace',
       marks: 8,
@@ -1831,6 +1671,7 @@ export const daaUnit6Data: Unit = {
         { paper: 'Nov 2023', questionNo: 'Q8(b)', marks: 8 }
       ],
       frequencyNote: 'Exact numerical problem asked in Paper 3 Q8(b) for 8 marks.',
+      topicCategory: 'String Matching Algorithms',
       syllabusTopics: [
         'Rabin-Karp Numerical Execution',
         'Horner’s Hash for P = 26 mod 11',
@@ -1944,7 +1785,197 @@ export const daaUnit6Data: Unit = {
       conclusion: 'The trace demonstrates the exact mechanics of Rabin-Karp: hash matching flags candidate windows, while character verification prevents false matches.'
     },
 
-    // Q19
+    // Q19,
+
+    {
+      id: 'daa-u6-q17',
+      unitId: 'unit-6',
+      subjectId: 'daa',
+      qNumber: 17,
+      title: 'Describe String Matching with Finite Automata. Explain the role of the state transition function delta and the suffix function sigma. State preprocessing and matching complexities.',
+      shortTitle: 'String Matching with Finite Automata',
+      marks: 8,
+      importance: 'Conceptual / Additional',
+      occurrenceCount: 0,
+      papersAsked: [],
+      frequencyNote: 'Foundational deterministic automaton approach to exact string matching.',
+      topicCategory: 'String Matching Algorithms',
+      syllabusTopics: [
+        'DFA Formal Definition (Q, q_0, A, Sigma, delta)',
+        'Suffix Function sigma Definition',
+        'Transition Function delta(q, a) Construction',
+        'O(n) Text Matching Complexity'
+      ],
+      definition: 'Finite Automata string matching constructs a Deterministic Finite Automaton (DFA) from pattern P using a suffix function sigma, enabling text matching in strictly linear O(n) time with zero text backtracking.',
+      sections: [
+        {
+          title: '1. Automaton Formulation and Suffix Function',
+          content: [
+            'DFA 5-tuple: (Q, q_0, A, Sigma, delta):',
+            '• Q = {0, 1, 2, ..., m}: States representing the number of characters of pattern P matched so far.',
+            '• q_0 = 0: Initial state; A = {m}: Accepting state.',
+            '• Suffix Function sigma(x): Returns the length of the longest prefix of P that is also a suffix of x: sigma(x) = max {k | P_k is suffix of x}.',
+            '• Transition Function: delta(q, a) = sigma(P_q a), where P_q is prefix of P of length q.'
+          ]
+        },
+        {
+          title: '2. Text Matching Algorithm',
+          codeBlock: {
+            language: 'text',
+            code: `FINITE-AUTOMATON-MATCHER(T, delta, m)
+1  n = T.length
+2  q = 0
+3  for i = 1 to n
+4      q = delta(q, T[i])
+5      if q == m
+6          print "Pattern occurs with shift " (i - m)`
+          }
+        },
+        {
+          title: '3. Complexity Analysis',
+          table: {
+            headers: ['Phase', 'Time Complexity', 'Space Complexity', 'Characteristics'],
+            rows: [
+              {
+                parameter: 'Preprocessing',
+                col1: 'Theta(m^3 |Sigma|) [or Theta(m |Sigma|)]',
+                col2: 'Theta(m |Sigma|)',
+                col3: 'Constructs transition table delta once before scanning text.'
+              },
+              {
+                parameter: 'Matching',
+                col1: 'Theta(n)',
+                col2: 'Theta(1)',
+                col3: 'Optimal linear scan; one table lookup per text character; no backtracking.'
+              }
+            ]
+          }
+        }
+      ],
+      summary: [
+        'A DFA string matcher tracks the length of the longest pattern prefix matched so far (states 0 to m).',
+        'State transition delta(q, a) = sigma(P_q a), where sigma is the suffix function.',
+        'Text matching runs in strictly optimal Theta(n) time with zero backtracking.',
+        'Preprocessing requires Theta(m |Sigma|) time and space.'
+      ],
+      keyPoints: [
+        'States 0 to m (length of prefix matched)',
+        'Accepting state m indicates match',
+        'Suffix function sigma(P_q a)',
+        'Matching time: Theta(n)',
+        'Preprocessing: Theta(m |Sigma|)',
+        'No backward text pointer motion'
+      ],
+      conclusion: 'Finite Automata string matching provides the ideal model for streaming string search where input text cannot be buffered or rewound.'
+    },
+
+    // Q16,
+
+    {
+      id: 'daa-u6-q18',
+      unitId: 'unit-6',
+      subjectId: 'daa',
+      qNumber: 18,
+      title: 'Explain the Rabin-Karp String Matching algorithm in detail. Formulate the radix-d integer representation, Horner’s rule, and the O(1) rolling hash update formula.',
+      shortTitle: 'The Rabin-Karp String Matching Algorithm',
+      marks: 10,
+      importance: 'Frequently Asked',
+      occurrenceCount: 7,
+      papersAsked: [
+        { paper: 'April 2026', questionNo: 'Q8(b)', marks: 8 },
+        { paper: 'April 2025', questionNo: 'Q8(b)', marks: 10 },
+        { paper: 'Nov 2024', questionNo: 'Q7(a)', marks: 10 },
+        { paper: 'April 2024', questionNo: 'Q7(a)', marks: 10 },
+        { paper: 'Nov 2023', questionNo: 'Q7(a)', marks: 10 },
+        { paper: 'April 2023', questionNo: 'Q7(b)', marks: 8 },
+        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 10 }
+      ],
+      frequencyNote: 'Appears in every single previous year question paper; essential 10-mark topic.',
+      topicCategory: 'String Matching Algorithms',
+      syllabusTopics: [
+        'Radix-d Integer Representation',
+        'Horner’s Rule for Hash Computation',
+        'Modular Hashing with Prime Modulus q',
+        'O(1) Rolling Hash Derivation',
+        'Rabin-Karp Pseudocode'
+      ],
+      definition: 'The Rabin-Karp algorithm interprets strings as numbers in radix-d notation and calculates a fingerprint hash p for pattern P and hashes t_s for each text window using a rolling hash update formula that shifts windows in O(1) constant time.',
+      sections: [
+        {
+          title: '1. Radix-d Integer Representation and Horner’s Rule',
+          content: [
+            'Given alphabet Sigma of size d = |Sigma| (e.g., d = 10 for decimal digits, d = 256 for ASCII):',
+            '• A pattern string P[1..m] represents an m-digit integer in radix d:',
+            '  p = P[m] + d(P[m-1] + d(... + d(P[2] + d P[1])...)).',
+            '• Horner’s rule computes p and initial window t_0 in Theta(m) time.',
+            '• To prevent integer overflow, all values are computed modulo a large prime q.'
+          ]
+        },
+        {
+          title: '2. The O(1) Rolling Hash Update Equation',
+          content: [
+            'When shifting the text window from T[s+1..s+m] to T[s+2..s+m+1]:',
+            '1. Subtract the high-order digit: T[s+1] * d^(m-1).',
+            '2. Multiply the remaining value by radix d (shifting digits left).',
+            '3. Add the incoming low-order character: T[s+m+1].',
+            '4. Apply modulo q:',
+            '   t_{s+1} = ( d * ( t_s - T[s+1] * h ) + T[s+m+1] ) mod q',
+            'where h = d^(m-1) mod q is precomputed once in O(m) time.'
+          ]
+        },
+        {
+          title: '3. Full Rabin-Karp Pseudocode',
+          codeBlock: {
+            language: 'text',
+            code: `RABIN-KARP-MATCHER(T, P, d, q)
+1  n = T.length
+2  m = P.length
+3  h = d^(m - 1) mod q
+4  p = 0;  t0 = 0
+5  for i = 1 to m                  // Preprocessing: Theta(m)
+6      p  = (d * p  + P[i]) mod q
+7      t0 = (d * t0 + T[i]) mod q
+8  for s = 0 to n - m              // Matching: Theta(n) expected
+9      if p == ts
+10         if P[1..m] == T[s+1..s+m]  // Character verification
+11             print "Pattern occurs with shift " s
+12     if s < n - m
+13         ts+1 = (d * (ts - T[s+1] * h) + T[s+m+1]) mod q
+14         if ts+1 < 0
+15             ts+1 = ts+1 + q`
+          }
+        }
+      ],
+      diagrams: [
+        {
+          id: 'diag-u6-rk',
+          title: 'Rabin-Karp Rolling Hash Mechanism and Shift Window',
+          caption: 'Figure 6.7: Sliding window rolling hash: subtracting high-order digit, scaling by radix d, and adding new low-order digit.',
+          type: 'svg-interactive',
+          svgType: 'rabin-karp-rolling-hash',
+          description: 'Interactive diagram of Rabin-Karp rolling hash window transition.'
+        }
+      ],
+      summary: [
+        'Rabin-Karp treats strings as numbers in radix-d notation using Horner’s rule.',
+        'Computes fingerprints modulo prime q to fit inside standard machine words.',
+        'Rolling hash computes t_(s+1) from t_s in O(1) time using subtraction and shift.',
+        'Verification of characters occurs only when hash values match: p == t_s.',
+        'Preprocessing takes Theta(m) time; average text matching takes Theta(n) time.'
+      ],
+      keyPoints: [
+        'Radix-d integer encoding',
+        'Horner’s rule: Theta(m)',
+        'Prime modulus q prevents overflow',
+        'Multiplier h = d^(m-1) mod q',
+        'Rolling hash formula: O(1) per shift',
+        'Expected time: O(n + m)'
+      ],
+      conclusion: 'Rabin-Karp provides an elegant number-theoretic approach to string matching that extends naturally to multidimensional pattern search.'
+    },
+
+    // Q17,
+
     {
       id: 'daa-u6-q19',
       unitId: 'unit-6',
@@ -1957,6 +1988,7 @@ export const daaUnit6Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Advanced string matching algorithm testing amortized analysis on text scans.',
+      topicCategory: 'String Matching Algorithms',
       syllabusTopics: [
         'KMP Core Insight (No Backtracking)',
         'Prefix Function pi Definition',
@@ -2030,7 +2062,8 @@ export const daaUnit6Data: Unit = {
       conclusion: 'KMP provides strict worst-case linear time guarantees, making it the preferred choice for real-time and streaming text processing.'
     },
 
-    // Q20
+    // Q20,
+
     {
       id: 'daa-u6-q20',
       unitId: 'unit-6',
@@ -2043,6 +2076,7 @@ export const daaUnit6Data: Unit = {
       occurrenceCount: 0,
       papersAsked: [],
       frequencyNote: 'Comprehensive summary question summarizing the entire string matching unit.',
+      topicCategory: 'Comparative Evaluation & Exemplar',
       syllabusTopics: [
         '5-Algorithm Comparison Matrix',
         'Preprocessing vs Matching Trade-offs',
@@ -2114,6 +2148,35 @@ export const daaUnit6Data: Unit = {
             '• Use Boyer-Moore: For standard command-line tools (GNU grep) and word processors searching natural language text.'
           ]
         }
+      ,
+        {
+          title: '3. Exemplar Case Study: Plagiarism Detection (SPPU Syllabus Exemplar)',
+          content: [
+            'Problem Statement & Engineering Architecture:',
+            'A university examination or software repository evaluation system must detect verbatim copying, paraphrased passages, and restructured source code across thousands of student submissions and public codebases.',
+            '',
+            'Algorithmic Pipeline using Rabin-Karp & Winnowing Fingerprinting:',
+            '1. Lexical Normalization & Tokenization:',
+            '   - Remove comments, whitespace, and variable name variations.',
+            '   - Transform source code into a normalized token stream (e.g., "for", "ID", "=", "NUM", ";").',
+            '2. K-Gram Generation:',
+            '   - Divide the token stream into contiguous substrings of length k (typically k = 20 to 50 tokens).',
+            '3. Rabin-Karp Rolling Hash Fingerprinting:',
+            '   - Compute a rolling hash for each k-gram in O(1) time per token using Horner\'s polynomial rule:',
+            '     H(s[i+1 .. i+k]) = (d · (H(s[i .. i+k-1]) - s[i] · h) + s[i+k]) mod q',
+            '4. Winnowing Algorithm (Density Reduction):',
+            '   - Selecting every hash creates an unwieldy database. Winnowing slides a window of size w over the hash sequence and selects the minimum hash value within each window.',
+            '   - Guarantees that any match of length at least (w + k - 1) is guaranteed to be detected while reducing the fingerprint index size by a factor of w.',
+            '5. Inverted Index Lookup & Local Verification:',
+            '   - Stored fingerprints are queried in an inverted index table.',
+            '   - Matching hash buckets trigger detailed string verification to eliminate false positive spurious hits.',
+            '',
+            'Engineering Advantages:',
+            '• Scalability: Pre-computes fingerprints in O(n) linear time.',
+            '• Memory Efficiency: Stores only 64-bit integer hashes rather than raw text.',
+            '• Industry Deployment: This exact Rabin-Karp Winnowing pipeline is the theoretical core of systems like MOSS (Measure of Software Similarity), Turnitin, and GitHub code duplication scanners.'
+          ]
+        },
       ],
       summary: [
         'Naive is simplest with Theta(1) space, but has O(nm) worst case.',
