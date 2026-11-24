@@ -115,11 +115,13 @@ export const unit4Data: Unit = {
       "Always distinguish QA (process, prevention) from QC (product, detection) using a clear structured comparison table."
     ]
   },
-  "questions": [
+  questions: [
     {
       "id": "stqa-u4-q1",
       "unitId": "unit-4",
       "subjectId": "stqa",
+      topicCategory: 'Defects, Criticality & Quality Management Fundamentals',
+      subtopic: 'Why Software Has Defects & Root Causes',
       "qNumber": 1,
       "title": "Why Does Software Have Defects? Explain in Detail the Nine Causes of Software Errors",
       "shortTitle": "Why Software Has Defects (9 Causes)",
@@ -183,10 +185,13 @@ export const unit4Data: Unit = {
         "Standards compliance and rigorous testing mitigate systematic defects."
       ]
     },
+
     {
       "id": "stqa-u4-q2",
       "unitId": "unit-4",
       "subjectId": "stqa",
+      topicCategory: 'Defects, Criticality & Quality Management Fundamentals',
+      subtopic: 'Defect Amplification & Cost of Quality',
       "qNumber": 2,
       "title": "What Is the Impact of Defects in Different Phases of Software Development? (Cost of Quality & Defect Amplification)",
       "shortTitle": "Impact of Defects & Cost Escalation",
@@ -275,11 +280,309 @@ export const unit4Data: Unit = {
         "Early defect prevention is dramatically cheaper than late defect detection."
       ]
     },
+
+    {
+      "id": "stqa-u4-q8",
+      "unitId": "unit-4",
+      "subjectId": "stqa",
+      topicCategory: 'Defects, Criticality & Quality Management Fundamentals',
+      subtopic: 'Characteristics of Software & SDLC Quality',
+      "qNumber": 3,
+      "title": "Illustrate Characteristics of Software in Detail. Discuss Problematic Areas in the Software Development Life Cycle (SDLC)",
+      "shortTitle": "Software Characteristics & SDLC Problem Areas",
+      "marks": 6,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 3,
+      "papersAsked": [
+        {
+          "paper": "Nov 2023",
+          "questionNo": "Q3(a)",
+          "marks": 6
+        },
+        {
+          "paper": "May 2024",
+          "questionNo": "Q4(b)",
+          "marks": 6
+        },
+        {
+          "paper": "Nov 2025",
+          "questionNo": "Q3(b)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Software Characteristics",
+        "SDLC Issues",
+        "Problematic Areas"
+      ],
+      "definition": "Software is logical rather than physical, engineered rather than manufactured, does not wear out (it deteriorates due to change), and exhibits extreme complexity.",
+      "sections": [
+        {
+          "title": "1. Characteristics of Software",
+          "content": [
+            "Engineered, Not Manufactured: In hardware, replication costs are high; in software, reproduction is free once designed. Quality depends on intellectual engineering.",
+            "Software Does Not Wear Out: Hardware wears out due to friction/heat; software deteriorates due to accumulated code changes, library deprecations, and environment drift.",
+            "Invisibility: Software components cannot be inspected with physical tools; defects hide deep within logical execution branches.",
+            "Combinatorial Complexity: Even modest applications have millions of execution paths, making exhaustive testing mathematically impossible."
+          ]
+        },
+        {
+          "title": "2. Problematic Areas in SDLC",
+          "content": [
+            "Requirements Volatility (Scope Creep): Continuous changes during development without schedule/budget adjustments.",
+            "Client-Developer Communication Gaps: Technical jargon causing developers to misunderstand real business workflows.",
+            "Unrealistic Estimates: Politically imposed deadlines forcing teams to cut corners on testing and architecture.",
+            "Inadequate Regression & Integration Testing: Merging modules late without automated regression suites, leading to catastrophic integration bugs."
+          ]
+        }
+      ],
+      "summary": [
+        "Software does not wear out; it deteriorates due to change.",
+        "Software quality depends entirely on upstream intellectual engineering.",
+        "Major SDLC problem areas: shifting requirements, communication gaps, unrealistic deadlines, and late integration."
+      ],
+      "keyPoints": [
+        "Software is abstract, complex, and engineered.",
+        "Bathtub failure curve vs software change-deterioration curve.",
+        "SDLC risk hotspots: requirements volatility, integration friction."
+      ]
+    },
+
+    {
+      "id": "stqa-u4-q9",
+      "unitId": "unit-4",
+      "subjectId": "stqa",
+      topicCategory: 'Defects, Criticality & Quality Management Fundamentals',
+      subtopic: 'Software Development Process Models',
+      "qNumber": 4,
+      "title": "Discuss the Waterfall Model of Software Development with a Neat Diagram. Explain Its Advantages and Limitations",
+      "shortTitle": "Waterfall Model and Limitations",
+      "marks": 8,
+      "importance": "Important",
+      "occurrenceCount": 2,
+      "papersAsked": [
+        {
+          "paper": "May 2024",
+          "questionNo": "Q3(b)",
+          "marks": 8
+        },
+        {
+          "paper": "Nov 2023",
+          "questionNo": "Q3(b) Related",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Software Development Process",
+        "Waterfall Model",
+        "SDLC Models"
+      ],
+      "diagrams": [
+        {
+          "id": "diag-waterfall-model",
+          "title": "Classical Waterfall Model of Software Development",
+          "caption": "Sequential software development phases with phase-end reviews and feedback loops.",
+          "type": "svg-interactive",
+          "svgType": "waterfall-model"
+        }
+      ],
+      "definition": "The Waterfall Model is a classic linear-sequential SDLC model where progress flows downwards through distinct phases (Requirements, Design, Coding, Testing, Deployment, Maintenance) with no phase overlap.",
+      "sections": [
+        {
+          "title": "1. Phases of the Waterfall Model",
+          "content": [
+            "1. Requirements Analysis: Formal gathering and documentation of all functional/non-functional needs into the SRS.",
+            "2. System Design: Architectural design, database schema modeling, and interface specifications.",
+            "3. Implementation (Coding): Translating design models into source code with developer unit testing.",
+            "4. Integration & System Testing: Assembling modules to verify system-level functional and non-functional compliance.",
+            "5. Deployment & Maintenance: Production rollout followed by ongoing defect patching and enhancements."
+          ]
+        },
+        {
+          "title": "2. Advantages of Waterfall",
+          "content": [
+            "Simple, structured, and easy to understand and manage.",
+            "Clear milestones with formal sign-off documents at each phase.",
+            "Works well for small projects where requirements are completely stable upfront."
+          ]
+        },
+        {
+          "title": "3. Severe Limitations of Waterfall",
+          "content": [
+            "No Working Software Until Late: End users see no executable software until the final testing phase.",
+            "Inflexible to Requirements Change: Mid-project requirement changes require disruptive and expensive restarts.",
+            "Late Defect Detection: Testing is deferred to the end, meaning architectural flaws cause catastrophic budget overruns.",
+            "High Risk for Modern Systems: Incompatible with agile, cloud, or fast-changing digital products."
+          ]
+        }
+      ],
+      "summary": [
+        "Waterfall is a linear-sequential SDLC model with distinct, non-overlapping phases.",
+        "Provides disciplined documentation and milestone management.",
+        "Severe limitations: zero working software until late, rigid to change, and late defect discovery."
+      ],
+      "keyPoints": [
+        "Sequential flow: Requirements -> Design -> Coding -> Testing -> Maintenance.",
+        "Requires full upfront requirement certainty.",
+        "High risk for complex or evolving modern applications."
+      ]
+    },
+
+    {
+      "id": "stqa-u4-q10",
+      "unitId": "unit-4",
+      "subjectId": "stqa",
+      topicCategory: 'Defects, Criticality & Quality Management Fundamentals',
+      subtopic: 'Requirements of a Product & Quality Scope',
+      "qNumber": 5,
+      "title": "Explain the Requirements of a Product: Stated vs Implied Requirements, and Present vs Future Requirements",
+      "shortTitle": "Product Requirements Classification",
+      "marks": 4,
+      "importance": "Important",
+      "occurrenceCount": 1,
+      "papersAsked": [
+        {
+          "paper": "May 2024",
+          "questionNo": "Q3(a)",
+          "marks": 4
+        }
+      ],
+      "syllabusTopics": [
+        "Requirements of a Product",
+        "Stated vs Implied",
+        "Present vs Future"
+      ],
+      "definition": "Product requirements represent user expectations categorized into Stated (explicitly documented) vs Implied (inherent quality standards) and Present (immediate launch needs) vs Future (scalability roadmap).",
+      "sections": [
+        {
+          "title": "1. Stated vs Implied Requirements",
+          "content": [
+            "Stated Requirements: Explicitly requested and approved in contracts and user stories (e.g. \"Calculate sales tax and export PDF invoice\").",
+            "Implied Requirements: Unwritten professional standards expected by users without prompting (e.g. passwords must be encrypted, application must not crash on invalid input, acceptable screen loading speed)."
+          ]
+        },
+        {
+          "title": "2. Present vs Future Requirements",
+          "content": [
+            "Present Requirements: Immediate operational capabilities needed on day 1 of product release (e.g. supporting 500 branch tellers today).",
+            "Future Requirements: Anticipated scalability, regulatory changes, and extensions planned over the next 2-5 years (e.g. architecting microservices to scale to 50,000 mobile users next year)."
+          ]
+        },
+        {
+          "title": "3. Priority Hierarchy",
+          "content": [
+            "Primary (Must-Have): Core non-negotiable features required for release.",
+            "Secondary (Should-Have): High-value features that can be deferred if deadlines compress.",
+            "Tertiary (Could-Have): Nice-to-have features implemented only if spare bandwidth exists."
+          ]
+        }
+      ],
+      "summary": [
+        "Stated requirements are written in contracts; implied requirements are assumed industry standards.",
+        "Present requirements solve today's operational needs; future requirements plan for scale and evolution.",
+        "Classified by priority: Must-have, Should-have, and Could-have."
+      ],
+      "keyPoints": [
+        "Stated = explicit contract.",
+        "Implied = security, reliability, usability standards.",
+        "Present vs Future = immediate operations vs scalability roadmap."
+      ]
+    },
+
+    {
+      "id": "stqa-u4-q11",
+      "unitId": "unit-4",
+      "subjectId": "stqa",
+      topicCategory: 'Defects, Criticality & Quality Management Fundamentals',
+      subtopic: 'Schemes of Criticality Definitions',
+      "qNumber": 6,
+      "title": "Give Types of Products on the Basis of Criticality to the User. Explain Each Type with Proper Examples",
+      "shortTitle": "Product Types by Criticality",
+      "marks": 8,
+      "importance": "Important",
+      "occurrenceCount": 1,
+      "papersAsked": [
+        {
+          "paper": "May 2024",
+          "questionNo": "Q4(a)",
+          "marks": 8
+        }
+      ],
+      "syllabusTopics": [
+        "Types of Products",
+        "Schemes of Criticality",
+        "Safety-Critical Systems"
+      ],
+      "definition": "Products are classified by the severity of consequences resulting from software failure into Life-Affecting, Financial/Mission-Critical, Simulator-Based, and General Consumer products.",
+      "sections": [
+        {
+          "title": "1. Product Criticality Categories and Examples",
+          "content": [
+            "1. Life-Affecting / Safety-Critical Systems: Malfunction can cause death, permanent disability, or environmental disaster. Requires formal mathematical verification, fault-tolerant dual redundancy, and strict regulatory certification (FDA, FAA, ISO 26262). Examples: Pacemakers, flight control avionics, nuclear reactor shutoff systems.",
+            "2. Products Affecting Huge Amounts of Money (Financial / Mission-Critical): Malfunction causes millions in monetary loss, insolvency, or audit penalties. Requires rigorous ACID consistency, zero data corruption, encryption, and audit logs. Examples: Core banking engines, stock exchanges, cryptocurrency exchanges, payment gateways.",
+            "3. Simulator-Based Products: Malfunction leads to invalid training or flawed scientific projections. Requires real-time deterministic physics, sensor integration, and high fidelity. Examples: Flight training simulators, spacecraft orbital trajectory simulators.",
+            "4. General Commercial / Business-Critical Products: Malfunction causes operational inconvenience or lost productivity. Standard commercial testing for usability and responsiveness. Examples: E-commerce portals, streaming apps, office suites."
+          ]
+        },
+        {
+          "title": "2. Tabular Comparison",
+          "content": [],
+          "table": {
+            "headers": [
+              "Category",
+              "Consequence of Failure",
+              "Quality & Testing Focus",
+              "Examples"
+            ],
+            "rows": [
+              {
+                "parameter": "Life-Affecting",
+                "col1": "Loss of life, bodily harm, ecological disaster.",
+                "col2": "Formal verification, fault-tolerance, regulatory audits.",
+                "col3": "Medical pacemakers, fly-by-wire avionics."
+              },
+              {
+                "parameter": "Huge Money",
+                "col1": "Massive financial loss, insolvency, fraud.",
+                "col2": "ACID compliance, security, audit trails, concurrency.",
+                "col3": "Banking engines, stock market platforms."
+              },
+              {
+                "parameter": "Simulator-Based",
+                "col1": "Flawed training, inaccurate physical predictions.",
+                "col2": "Real-time rendering, deterministic physics calculations.",
+                "col3": "Flight simulators, NASA orbit modelers."
+              },
+              {
+                "parameter": "General Commercial",
+                "col1": "Inconvenience, support tickets, lost user churn.",
+                "col2": "Usability, functional correctness, response time.",
+                "col3": "E-commerce shopping apps, media streaming."
+              }
+            ]
+          }
+        }
+      ],
+      "summary": [
+        "Criticality dictates the depth of SQA and testing investment required.",
+        "Safety-critical failure causes loss of human life; financial system failure causes economic ruin.",
+        "Higher criticality mandates formal verification, dual redundancy, and regulatory compliance."
+      ],
+      "keyPoints": [
+        "Life-affecting: Avionics, medical devices (highest testing rigor).",
+        "Financial: Banking, stock exchanges (ACID, security, zero loss).",
+        "Simulator: Real-time physics, training accuracy.",
+        "Commercial: Usability, responsiveness, functional correctness."
+      ]
+    },
+
     {
       "id": "stqa-u4-q3",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 3,
+      topicCategory: 'Quality Assurance vs Quality Control & QMS Pillars',
+      subtopic: 'Quality Assurance vs Quality Control',
+      "qNumber": 7,
       "title": "Distinguish Between Quality Assurance (QA) and Quality Control (QC)",
       "shortTitle": "Quality Assurance vs Quality Control",
       "marks": 6,
@@ -364,11 +667,14 @@ export const unit4Data: Unit = {
         "Together they guarantee both process excellence and product reliability."
       ]
     },
+
     {
       "id": "stqa-u4-q4",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 4,
+      topicCategory: 'Quality Assurance vs Quality Control & QMS Pillars',
+      subtopic: 'Software Quality Control (SQC) Methods',
+      "qNumber": 8,
       "title": "What Do You Understand Regarding Quality Control? Explain Two Methods of Quality Control",
       "shortTitle": "Quality Control Methods",
       "marks": 6,
@@ -429,11 +735,14 @@ export const unit4Data: Unit = {
         "Dynamic QC: Testing at unit, integration, and system levels (finds failures)."
       ]
     },
+
     {
       "id": "stqa-u4-q5",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 5,
+      topicCategory: 'Quality Assurance vs Quality Control & QMS Pillars',
+      subtopic: 'Quality Plan, Implementation & Documentation',
+      "qNumber": 9,
       "title": "Can You Explain the Software Quality Plan in Detail? (Elements of Quality Plan and Development Plan)",
       "shortTitle": "Software Quality Plan",
       "marks": 6,
@@ -489,11 +798,14 @@ export const unit4Data: Unit = {
         "Development plan builds product; Quality plan ensures excellence."
       ]
     },
+
     {
       "id": "stqa-u4-q6",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 6,
+      topicCategory: 'Quality Assurance vs Quality Control & QMS Pillars',
+      subtopic: 'QMS Structure & Pillars of Quality Management',
+      "qNumber": 10,
       "title": "Explain the Quality Management System (QMS) Structure and Pillars of Quality Management",
       "shortTitle": "QMS Structure and Pillars",
       "marks": 6,
@@ -554,11 +866,14 @@ export const unit4Data: Unit = {
         "QMS aligns organization with ISO 9001 and CMMI."
       ]
     },
+
     {
       "id": "stqa-u4-q7",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 7,
+      topicCategory: 'Quality Assurance vs Quality Control & QMS Pillars',
+      subtopic: 'Customer Satisfaction Measurement & Metrics',
+      "qNumber": 11,
       "title": "Why Do You Need to Measure Customer Satisfaction? Explain Methods and Metric Scales",
       "shortTitle": "Customer Satisfaction Measurement",
       "marks": 5,
@@ -623,294 +938,153 @@ export const unit4Data: Unit = {
         "NPS = % Promoters - % Detractors (-100 to +100 range)."
       ]
     },
+
     {
-      "id": "stqa-u4-q8",
+      "id": "stqa-u4-q16",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 8,
-      "title": "Illustrate Characteristics of Software in Detail. Discuss Problematic Areas in the Software Development Life Cycle (SDLC)",
-      "shortTitle": "Software Characteristics & SDLC Problem Areas",
+      topicCategory: 'Quality Assurance vs Quality Control & QMS Pillars',
+      subtopic: 'Quality Tools Including CASE Tools',
+      "qNumber": 12,
+      "title": "Explain Quality Tools Including Computer-Aided Software Engineering (CASE) Tools in SQA",
+      "shortTitle": "CASE Tools in Quality Assurance",
       "marks": 6,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 3,
-      "papersAsked": [
-        {
-          "paper": "Nov 2023",
-          "questionNo": "Q3(a)",
-          "marks": 6
-        },
-        {
-          "paper": "May 2024",
-          "questionNo": "Q4(b)",
-          "marks": 6
-        },
-        {
-          "paper": "Nov 2025",
-          "questionNo": "Q3(b)",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Software Characteristics",
-        "SDLC Issues",
-        "Problematic Areas"
-      ],
-      "definition": "Software is logical rather than physical, engineered rather than manufactured, does not wear out (it deteriorates due to change), and exhibits extreme complexity.",
-      "sections": [
-        {
-          "title": "1. Characteristics of Software",
-          "content": [
-            "Engineered, Not Manufactured: In hardware, replication costs are high; in software, reproduction is free once designed. Quality depends on intellectual engineering.",
-            "Software Does Not Wear Out: Hardware wears out due to friction/heat; software deteriorates due to accumulated code changes, library deprecations, and environment drift.",
-            "Invisibility: Software components cannot be inspected with physical tools; defects hide deep within logical execution branches.",
-            "Combinatorial Complexity: Even modest applications have millions of execution paths, making exhaustive testing mathematically impossible."
-          ]
-        },
-        {
-          "title": "2. Problematic Areas in SDLC",
-          "content": [
-            "Requirements Volatility (Scope Creep): Continuous changes during development without schedule/budget adjustments.",
-            "Client-Developer Communication Gaps: Technical jargon causing developers to misunderstand real business workflows.",
-            "Unrealistic Estimates: Politically imposed deadlines forcing teams to cut corners on testing and architecture.",
-            "Inadequate Regression & Integration Testing: Merging modules late without automated regression suites, leading to catastrophic integration bugs."
-          ]
-        }
-      ],
-      "summary": [
-        "Software does not wear out; it deteriorates due to change.",
-        "Software quality depends entirely on upstream intellectual engineering.",
-        "Major SDLC problem areas: shifting requirements, communication gaps, unrealistic deadlines, and late integration."
-      ],
-      "keyPoints": [
-        "Software is abstract, complex, and engineered.",
-        "Bathtub failure curve vs software change-deterioration curve.",
-        "SDLC risk hotspots: requirements volatility, integration friction."
-      ]
-    },
-    {
-      "id": "stqa-u4-q9",
-      "unitId": "unit-4",
-      "subjectId": "stqa",
-      "qNumber": 9,
-      "title": "Discuss the Waterfall Model of Software Development with a Neat Diagram. Explain Its Advantages and Limitations",
-      "shortTitle": "Waterfall Model and Limitations",
-      "marks": 8,
-      "importance": "Important",
-      "occurrenceCount": 2,
-      "papersAsked": [
-        {
-          "paper": "May 2024",
-          "questionNo": "Q3(b)",
-          "marks": 8
-        },
-        {
-          "paper": "Nov 2023",
-          "questionNo": "Q3(b) Related",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Software Development Process",
-        "Waterfall Model",
-        "SDLC Models"
-      ],
-      "diagrams": [
-        {
-          "id": "diag-waterfall-model",
-          "title": "Classical Waterfall Model of Software Development",
-          "caption": "Sequential software development phases with phase-end reviews and feedback loops.",
-          "type": "svg-interactive",
-          "svgType": "waterfall-model"
-        }
-      ],
-      "definition": "The Waterfall Model is a classic linear-sequential SDLC model where progress flows downwards through distinct phases (Requirements, Design, Coding, Testing, Deployment, Maintenance) with no phase overlap.",
-      "sections": [
-        {
-          "title": "1. Phases of the Waterfall Model",
-          "content": [
-            "1. Requirements Analysis: Formal gathering and documentation of all functional/non-functional needs into the SRS.",
-            "2. System Design: Architectural design, database schema modeling, and interface specifications.",
-            "3. Implementation (Coding): Translating design models into source code with developer unit testing.",
-            "4. Integration & System Testing: Assembling modules to verify system-level functional and non-functional compliance.",
-            "5. Deployment & Maintenance: Production rollout followed by ongoing defect patching and enhancements."
-          ]
-        },
-        {
-          "title": "2. Advantages of Waterfall",
-          "content": [
-            "Simple, structured, and easy to understand and manage.",
-            "Clear milestones with formal sign-off documents at each phase.",
-            "Works well for small projects where requirements are completely stable upfront."
-          ]
-        },
-        {
-          "title": "3. Severe Limitations of Waterfall",
-          "content": [
-            "No Working Software Until Late: End users see no executable software until the final testing phase.",
-            "Inflexible to Requirements Change: Mid-project requirement changes require disruptive and expensive restarts.",
-            "Late Defect Detection: Testing is deferred to the end, meaning architectural flaws cause catastrophic budget overruns.",
-            "High Risk for Modern Systems: Incompatible with agile, cloud, or fast-changing digital products."
-          ]
-        }
-      ],
-      "summary": [
-        "Waterfall is a linear-sequential SDLC model with distinct, non-overlapping phases.",
-        "Provides disciplined documentation and milestone management.",
-        "Severe limitations: zero working software until late, rigid to change, and late defect discovery."
-      ],
-      "keyPoints": [
-        "Sequential flow: Requirements -> Design -> Coding -> Testing -> Maintenance.",
-        "Requires full upfront requirement certainty.",
-        "High risk for complex or evolving modern applications."
-      ]
-    },
-    {
-      "id": "stqa-u4-q10",
-      "unitId": "unit-4",
-      "subjectId": "stqa",
-      "qNumber": 10,
-      "title": "Explain the Requirements of a Product: Stated vs Implied Requirements, and Present vs Future Requirements",
-      "shortTitle": "Product Requirements Classification",
-      "marks": 4,
       "importance": "Important",
       "occurrenceCount": 1,
       "papersAsked": [
         {
-          "paper": "May 2024",
-          "questionNo": "Q3(a)",
-          "marks": 4
+          "paper": "Textbook 4.18 & Syllabus",
+          "questionNo": "Q4 Related",
+          "marks": 6
         }
       ],
       "syllabusTopics": [
-        "Requirements of a Product",
-        "Stated vs Implied",
-        "Present vs Future"
+        "CASE Tools",
+        "Quality Tools",
+        "Automated Software Engineering"
       ],
-      "definition": "Product requirements represent user expectations categorized into Stated (explicitly documented) vs Implied (inherent quality standards) and Present (immediate launch needs) vs Future (scalability roadmap).",
+      "definition": "CASE (Computer-Aided Software Engineering) tools are software applications that automate activities across the SDLC to enhance productivity, enforce architectural consistency, and improve deliverable quality.",
       "sections": [
         {
-          "title": "1. Stated vs Implied Requirements",
+          "title": "1. Core Components of a CASE Environment",
           "content": [
-            "Stated Requirements: Explicitly requested and approved in contracts and user stories (e.g. \"Calculate sales tax and export PDF invoice\").",
-            "Implied Requirements: Unwritten professional standards expected by users without prompting (e.g. passwords must be encrypted, application must not crash on invalid input, acceptable screen loading speed)."
+            "Central CASE Repository: The central database storing all project requirements, data models, UML diagrams, code assets, and defect logs.",
+            "Analysis & Design Tools (Upper-CASE): Automated diagramming tools (ERDs, DFDs, UML) with automated consistency checking.",
+            "Code Generation Tools (Lower-CASE): Engines generating source code and database schemas directly from design models.",
+            "Documentation Generators: Automatically compiling up-to-date API references (Swagger) and traceability matrices directly from repository assets.",
+            "Automated Testing Tools: Static code analyzers, unit test runners, and dynamic load generators."
           ]
         },
         {
-          "title": "2. Present vs Future Requirements",
+          "title": "2. Benefits and Limitations of CASE Tools",
           "content": [
-            "Present Requirements: Immediate operational capabilities needed on day 1 of product release (e.g. supporting 500 branch tellers today).",
-            "Future Requirements: Anticipated scalability, regulatory changes, and extensions planned over the next 2-5 years (e.g. architecting microservices to scale to 50,000 mobile users next year)."
-          ]
-        },
-        {
-          "title": "3. Priority Hierarchy",
-          "content": [
-            "Primary (Must-Have): Core non-negotiable features required for release.",
-            "Secondary (Should-Have): High-value features that can be deferred if deadlines compress.",
-            "Tertiary (Could-Have): Nice-to-have features implemented only if spare bandwidth exists."
+            "Benefits: Automates tedious repetitive tasks, enforces design standards, and ensures documentation consistency.",
+            "Limitations: High licensing cost, steep learning curve for developers, and risk of vendor lock-in with proprietary formats."
           ]
         }
       ],
       "summary": [
-        "Stated requirements are written in contracts; implied requirements are assumed industry standards.",
-        "Present requirements solve today's operational needs; future requirements plan for scale and evolution.",
-        "Classified by priority: Must-have, Should-have, and Could-have."
+        "CASE tools automate SDLC activities around a central repository.",
+        "Upper-CASE tools handle analysis/design; Lower-CASE tools handle code generation and testing.",
+        "CASE tools improve productivity and consistency while reducing human error."
       ],
       "keyPoints": [
-        "Stated = explicit contract.",
-        "Implied = security, reliability, usability standards.",
-        "Present vs Future = immediate operations vs scalability roadmap."
+        "Central CASE repository unites requirements, designs, code, and tests.",
+        "Upper-CASE (analysis/design) vs Lower-CASE (coding/testing).",
+        "Enforces consistency and accelerates delivery."
       ]
     },
+
     {
-      "id": "stqa-u4-q11",
+      "id": "stqa-u4-q15",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 11,
-      "title": "Give Types of Products on the Basis of Criticality to the User. Explain Each Type with Proper Examples",
-      "shortTitle": "Product Types by Criticality",
-      "marks": 8,
+      topicCategory: 'Quality Models & International Standards (ISO, CMM)',
+      subtopic: 'Software Quality Models (McCall Model)',
+      "qNumber": 13,
+      "title": "Explain Software Quality Models: Detail McCall's Quality Model (11 Factors) and Boehm's Model",
+      "shortTitle": "Software Quality Models (McCall & Boehm)",
+      "marks": 6,
       "importance": "Important",
       "occurrenceCount": 1,
       "papersAsked": [
         {
-          "paper": "May 2024",
-          "questionNo": "Q4(a)",
-          "marks": 8
+          "paper": "Textbook 4.15 & Syllabus",
+          "questionNo": "Q4/Q7 Related",
+          "marks": 6
         }
       ],
       "syllabusTopics": [
-        "Types of Products",
-        "Schemes of Criticality",
-        "Safety-Critical Systems"
+        "Software Quality Models",
+        "McCall Quality Model",
+        "Boehm Model"
       ],
-      "definition": "Products are classified by the severity of consequences resulting from software failure into Life-Affecting, Financial/Mission-Critical, Simulator-Based, and General Consumer products.",
+      "definition": "Software quality models break down abstract quality into measurable factors. McCall's model organizes 11 quality factors under Product Operation, Revision, and Transition, while Boehm's model structures quality into a hierarchical tree.",
       "sections": [
         {
-          "title": "1. Product Criticality Categories and Examples",
+          "title": "1. McCall's 11 Software Quality Factors",
           "content": [
-            "1. Life-Affecting / Safety-Critical Systems: Malfunction can cause death, permanent disability, or environmental disaster. Requires formal mathematical verification, fault-tolerant dual redundancy, and strict regulatory certification (FDA, FAA, ISO 26262). Examples: Pacemakers, flight control avionics, nuclear reactor shutoff systems.",
-            "2. Products Affecting Huge Amounts of Money (Financial / Mission-Critical): Malfunction causes millions in monetary loss, insolvency, or audit penalties. Requires rigorous ACID consistency, zero data corruption, encryption, and audit logs. Examples: Core banking engines, stock exchanges, cryptocurrency exchanges, payment gateways.",
-            "3. Simulator-Based Products: Malfunction leads to invalid training or flawed scientific projections. Requires real-time deterministic physics, sensor integration, and high fidelity. Examples: Flight training simulators, spacecraft orbital trajectory simulators.",
-            "4. General Commercial / Business-Critical Products: Malfunction causes operational inconvenience or lost productivity. Standard commercial testing for usability and responsiveness. Examples: E-commerce portals, streaming apps, office suites."
+            "A. Product Operation Factors (Day-to-day operation): Correctness (meets specs), Reliability (failure-free execution), Efficiency (CPU/RAM usage), Integrity (security controls), Usability (ease of learning/use).",
+            "B. Product Revision Factors (Ability to modify and evolve): Maintainability (effort to fix bugs), Flexibility (effort to add features), Testability (effort to verify code).",
+            "C. Product Transition Factors (Adapting to new platforms): Portability (effort to move to new OS/hardware), Reusability (reusing code components), Interoperability (effort to integrate with other systems via APIs)."
           ]
         },
         {
-          "title": "2. Tabular Comparison",
+          "title": "2. Boehm's Hierarchical Quality Model",
+          "content": [
+            "As-is Utility: How well, reliably, and efficiently does the software perform its function today?",
+            "Maintainability: How easily can the software be understood, modified, and tested tomorrow?",
+            "Portability: Can the software continue to be utilized when hardware and operating environments change?"
+          ]
+        },
+        {
+          "title": "3. McCall Quality Framework Table",
           "content": [],
           "table": {
             "headers": [
-              "Category",
-              "Consequence of Failure",
-              "Quality & Testing Focus",
-              "Examples"
+              "Perspective",
+              "Quality Factors",
+              "Core Question Answered"
             ],
             "rows": [
               {
-                "parameter": "Life-Affecting",
-                "col1": "Loss of life, bodily harm, ecological disaster.",
-                "col2": "Formal verification, fault-tolerance, regulatory audits.",
-                "col3": "Medical pacemakers, fly-by-wire avionics."
+                "parameter": "Product Operation",
+                "col1": "Correctness, Reliability, Efficiency, Integrity, Usability",
+                "col2": "\"Does the software run properly, securely, and efficiently today?\""
               },
               {
-                "parameter": "Huge Money",
-                "col1": "Massive financial loss, insolvency, fraud.",
-                "col2": "ACID compliance, security, audit trails, concurrency.",
-                "col3": "Banking engines, stock market platforms."
+                "parameter": "Product Revision",
+                "col1": "Maintainability, Flexibility, Testability",
+                "col2": "\"How easily can we fix bugs and add features tomorrow?\""
               },
               {
-                "parameter": "Simulator-Based",
-                "col1": "Flawed training, inaccurate physical predictions.",
-                "col2": "Real-time rendering, deterministic physics calculations.",
-                "col3": "Flight simulators, NASA orbit modelers."
-              },
-              {
-                "parameter": "General Commercial",
-                "col1": "Inconvenience, support tickets, lost user churn.",
-                "col2": "Usability, functional correctness, response time.",
-                "col3": "E-commerce shopping apps, media streaming."
+                "parameter": "Product Transition",
+                "col1": "Portability, Reusability, Interoperability",
+                "col2": "\"How easily can the software move to new platforms and connect with other systems?\""
               }
             ]
           }
         }
       ],
       "summary": [
-        "Criticality dictates the depth of SQA and testing investment required.",
-        "Safety-critical failure causes loss of human life; financial system failure causes economic ruin.",
-        "Higher criticality mandates formal verification, dual redundancy, and regulatory compliance."
+        "McCall organizes 11 quality factors under Product Operation, Revision, and Transition.",
+        "Boehm organizes quality hierarchically under As-is Utility, Maintainability, and Portability.",
+        "Quality models enable developers and testers to quantitatively evaluate software quality."
       ],
       "keyPoints": [
-        "Life-affecting: Avionics, medical devices (highest testing rigor).",
-        "Financial: Banking, stock exchanges (ACID, security, zero loss).",
-        "Simulator: Real-time physics, training accuracy.",
-        "Commercial: Usability, responsiveness, functional correctness."
+        "McCall: Operation (5), Revision (3), Transition (3) = 11 factors.",
+        "Boehm: Hierarchical tree (Utility, Maintainability, Portability).",
+        "Transforms abstract quality into measurable engineering attributes."
       ]
     },
+
     {
       "id": "stqa-u4-q12",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 12,
+      topicCategory: 'Quality Models & International Standards (ISO, CMM)',
+      subtopic: 'ISO 9001 Quality Standard',
+      "qNumber": 14,
       "title": "Explain ISO 9001 Standard and Its Importance in Software Testing and Quality Assurance",
       "shortTitle": "ISO 9001 and ISO 9000-3 Standards",
       "marks": 6,
@@ -982,11 +1156,14 @@ export const unit4Data: Unit = {
         "Mandates formal test documentation and bi-directional traceability."
       ]
     },
+
     {
       "id": "stqa-u4-q13",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 13,
+      topicCategory: 'Quality Models & International Standards (ISO, CMM)',
+      subtopic: 'Capability Maturity Model (CMM) Levels',
+      "qNumber": 15,
       "title": "Explain the Capability Maturity Model (CMM). Clarify the Different Levels of CMM in Detail",
       "shortTitle": "Capability Maturity Model (5 Levels)",
       "marks": 6,
@@ -1080,11 +1257,14 @@ export const unit4Data: Unit = {
         "Level 5: Optimizing (Continuous defect prevention)"
       ]
     },
+
     {
       "id": "stqa-u4-q14",
       "unitId": "unit-4",
       "subjectId": "stqa",
-      "qNumber": 14,
+      topicCategory: 'Quality Models & International Standards (ISO, CMM)',
+      subtopic: 'ISO 9000 vs CMM Comparative Evaluation',
+      "qNumber": 16,
       "title": "List and Explain the Limitations of Capability Maturity Model (CMM). Compare ISO 9000 and CMM",
       "shortTitle": "CMM Limitations & CMM vs ISO 9000",
       "marks": 6,
@@ -1157,139 +1337,6 @@ export const unit4Data: Unit = {
         "CMM limitations: Documentation overhead, cost, agile mismatch.",
         "ISO = Generic binary pass/fail baseline.",
         "CMM = Software-specific 5-level evolutionary roadmap."
-      ]
-    },
-    {
-      "id": "stqa-u4-q15",
-      "unitId": "unit-4",
-      "subjectId": "stqa",
-      "qNumber": 15,
-      "title": "Explain Software Quality Models: Detail McCall's Quality Model (11 Factors) and Boehm's Model",
-      "shortTitle": "Software Quality Models (McCall & Boehm)",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
-        {
-          "paper": "Textbook 4.15 & Syllabus",
-          "questionNo": "Q4/Q7 Related",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Software Quality Models",
-        "McCall Quality Model",
-        "Boehm Model"
-      ],
-      "definition": "Software quality models break down abstract quality into measurable factors. McCall's model organizes 11 quality factors under Product Operation, Revision, and Transition, while Boehm's model structures quality into a hierarchical tree.",
-      "sections": [
-        {
-          "title": "1. McCall's 11 Software Quality Factors",
-          "content": [
-            "A. Product Operation Factors (Day-to-day operation): Correctness (meets specs), Reliability (failure-free execution), Efficiency (CPU/RAM usage), Integrity (security controls), Usability (ease of learning/use).",
-            "B. Product Revision Factors (Ability to modify and evolve): Maintainability (effort to fix bugs), Flexibility (effort to add features), Testability (effort to verify code).",
-            "C. Product Transition Factors (Adapting to new platforms): Portability (effort to move to new OS/hardware), Reusability (reusing code components), Interoperability (effort to integrate with other systems via APIs)."
-          ]
-        },
-        {
-          "title": "2. Boehm's Hierarchical Quality Model",
-          "content": [
-            "As-is Utility: How well, reliably, and efficiently does the software perform its function today?",
-            "Maintainability: How easily can the software be understood, modified, and tested tomorrow?",
-            "Portability: Can the software continue to be utilized when hardware and operating environments change?"
-          ]
-        },
-        {
-          "title": "3. McCall Quality Framework Table",
-          "content": [],
-          "table": {
-            "headers": [
-              "Perspective",
-              "Quality Factors",
-              "Core Question Answered"
-            ],
-            "rows": [
-              {
-                "parameter": "Product Operation",
-                "col1": "Correctness, Reliability, Efficiency, Integrity, Usability",
-                "col2": "\"Does the software run properly, securely, and efficiently today?\""
-              },
-              {
-                "parameter": "Product Revision",
-                "col1": "Maintainability, Flexibility, Testability",
-                "col2": "\"How easily can we fix bugs and add features tomorrow?\""
-              },
-              {
-                "parameter": "Product Transition",
-                "col1": "Portability, Reusability, Interoperability",
-                "col2": "\"How easily can the software move to new platforms and connect with other systems?\""
-              }
-            ]
-          }
-        }
-      ],
-      "summary": [
-        "McCall organizes 11 quality factors under Product Operation, Revision, and Transition.",
-        "Boehm organizes quality hierarchically under As-is Utility, Maintainability, and Portability.",
-        "Quality models enable developers and testers to quantitatively evaluate software quality."
-      ],
-      "keyPoints": [
-        "McCall: Operation (5), Revision (3), Transition (3) = 11 factors.",
-        "Boehm: Hierarchical tree (Utility, Maintainability, Portability).",
-        "Transforms abstract quality into measurable engineering attributes."
-      ]
-    },
-    {
-      "id": "stqa-u4-q16",
-      "unitId": "unit-4",
-      "subjectId": "stqa",
-      "qNumber": 16,
-      "title": "Explain Quality Tools Including Computer-Aided Software Engineering (CASE) Tools in SQA",
-      "shortTitle": "CASE Tools in Quality Assurance",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
-        {
-          "paper": "Textbook 4.18 & Syllabus",
-          "questionNo": "Q4 Related",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "CASE Tools",
-        "Quality Tools",
-        "Automated Software Engineering"
-      ],
-      "definition": "CASE (Computer-Aided Software Engineering) tools are software applications that automate activities across the SDLC to enhance productivity, enforce architectural consistency, and improve deliverable quality.",
-      "sections": [
-        {
-          "title": "1. Core Components of a CASE Environment",
-          "content": [
-            "Central CASE Repository: The central database storing all project requirements, data models, UML diagrams, code assets, and defect logs.",
-            "Analysis & Design Tools (Upper-CASE): Automated diagramming tools (ERDs, DFDs, UML) with automated consistency checking.",
-            "Code Generation Tools (Lower-CASE): Engines generating source code and database schemas directly from design models.",
-            "Documentation Generators: Automatically compiling up-to-date API references (Swagger) and traceability matrices directly from repository assets.",
-            "Automated Testing Tools: Static code analyzers, unit test runners, and dynamic load generators."
-          ]
-        },
-        {
-          "title": "2. Benefits and Limitations of CASE Tools",
-          "content": [
-            "Benefits: Automates tedious repetitive tasks, enforces design standards, and ensures documentation consistency.",
-            "Limitations: High licensing cost, steep learning curve for developers, and risk of vendor lock-in with proprietary formats."
-          ]
-        }
-      ],
-      "summary": [
-        "CASE tools automate SDLC activities around a central repository.",
-        "Upper-CASE tools handle analysis/design; Lower-CASE tools handle code generation and testing.",
-        "CASE tools improve productivity and consistency while reducing human error."
-      ],
-      "keyPoints": [
-        "Central CASE repository unites requirements, designs, code, and tests.",
-        "Upper-CASE (analysis/design) vs Lower-CASE (coding/testing).",
-        "Enforces consistency and accelerates delivery."
       ]
     }
   ]

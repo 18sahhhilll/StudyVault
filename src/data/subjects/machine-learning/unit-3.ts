@@ -15,12 +15,33 @@ export const unit3Data: Unit = {
     '#Exemplar / Case Studies: Stock market price prediction'
   ],
   questionPaperIndex: [
-    { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q3, (b) → Q18, (c) → Q7', qOr: '(a) → Q1 + Q8, (b) → Q14' },
-    { paper: 'May 2024 ([6404]-82)', qMain: '(a) → Q9, (b) → Q2, (c) → Q7', qOr: '(a) → Q15, (b) → Q12, (c) → Q11' },
-    { paper: 'April 2024 ([6263]-82)', qMain: '(a) → Q2, (b) → Q4, (c) → Q17', qOr: '(a) → Q14, (b) → Q12, (c) → Q11' },
-    { paper: 'Nov 2023 ([6181]-102)', qMain: '(a) → Q6 (+Q3), (b) → Q8, (c) → Q10', qOr: '(a) → Q1, (b) → Q14, (c) → Q10' },
-    { paper: 'April 2023 ([6004]-481)', qMain: '(a) → Q1, (b) → Q3, (c) → Q5', qOr: '(a) → Q13, (b) → Q8, (c) → Q16' }
-  ],
+  {
+    paper: "June 2026 ([6627]-82)",
+    qMain: "Q1(a) Overfitting vs Underfitting (6M), Q1(b) Bias, Variance & Ridge (9M), Q1(c) Generalization (3M)",
+    qOr: "Q2(a) Linear Regression Numerical (9M), Q2(b) MAE, RMSE, R2 (9M)"
+  },
+  {
+    paper: "Nov 2025 ([6584]-92)",
+    qMain: "Q1(a) R2 Measure (6M), Q1(b) Cost Function & Gradient Descent (6M), Q1(c) L2 Regularization in Ridge (6M)",
+    qOr: "Q2(a) Bias-Variance Tradeoff (6M), Q2(b) Ad Spend vs Sales Numerical (6M), Q2(c) Overfitting Mitigation (6M)"
+  },
+  {
+    paper: "May 2025 ([6404]-82)",
+    qMain: "Q1(a) Linear Regression (6M), Q1(b) Overfitting vs Underfitting (6M), Q1(c) Training vs Generalization Error (6M)",
+    qOr: "Q2(a) Evaluation Metrics (6M), Q2(b) Lasso & Ridge (6M), Q2(c) RAM Cost Numerical (6M)"
+  },
+  {
+    paper: "Nov 2024 ([6354]-486)",
+    qMain: "Q1(a) Lasso Feature Selection (6M), Q1(b) Regression Taxonomies (6M), Q1(c) Bias-Variance Tradeoff (6M)",
+    qOr: "Q2(a) RMSE vs MSE (6M), Q2(b) Least Squares (6M), Q2(c) SGD (6M)"
+  },
+  {
+    paper: "May 2024 ([6263]-82)",
+    qMain: "Q1(a) Regression Models (6M), Q1(b) Reduce Underfitting (6M), Q1(c) Expenditure Numerical (6M)",
+    qOr: "Q2(a) R2 Evaluation (6M), Q2(b) Least Squares Method (6M), Q2(c) SGD Algorithm (6M)"
+  }
+],
+  
   quickRevision: {
     keyDefinitions: [
       { term: 'Regression', definition: 'Supervised learning technique modeling the relationship between dependent continuous variable (y) and one or more independent variables (x).' },
@@ -69,7 +90,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q1(a)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q1(b)(i, ii)', marks: 6, notes: 'Bias & Variance Terms' }
       ],
       topicCategory: 'Bias, Variance & Generalization',
       subtopic: 'Bias, Variance & Underfitting',
@@ -144,11 +165,10 @@ export const unit3Data: Unit = {
       shortTitle: 'Bias-Variance Trade-off & Mathematical Error Decomposition',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q1(c)', marks: 6 },
-        { paper: 'May 2024', questionNo: 'Q1(c)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q2(b)', marks: 6 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q2(a)', marks: 6, notes: 'Bias-Variance Tradeoff & Relationship to Under/Overfitting' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q1(c)', marks: 6, notes: 'Bias-Variance Tradeoff & Relationship to Under/Overfitting' }
       ],
       topicCategory: 'Bias, Variance & Generalization',
       subtopic: 'Bias-Variance Error Decomposition',
@@ -220,11 +240,10 @@ export const unit3Data: Unit = {
       shortTitle: 'Overfitting vs Underfitting Comparison',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q1(a)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q1(a)(iii)', marks: 4 },
-        { paper: 'April 2023', questionNo: 'Q1(b)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q1(a)', marks: 6, notes: 'Differentiate Underfitting & Overfitting' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q1(b)', marks: 6, notes: 'Differentiate Overfitting and Underfitting with Example' }
       ],
       topicCategory: 'Bias, Variance & Generalization',
       subtopic: 'Overfitting vs Underfitting',
@@ -314,8 +333,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'April 2024', questionNo: 'Q1(b)', notes: 'Focused on underfitting' },
-        { paper: 'In-Sem Exam', questionNo: 'Q1(a)', notes: 'Comprehensive both' }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q2(c)', marks: 6, notes: 'Techniques to Reduce Overfitting' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q1(b)', marks: 6, notes: 'Techniques to Reduce Underfitting' }
       ],
       topicCategory: 'Bias, Variance & Generalization',
       subtopic: 'Mitigation Techniques',
@@ -393,10 +412,11 @@ export const unit3Data: Unit = {
       title: 'Short Note: Training Error and Generalization Error',
       shortTitle: 'Training Error vs Generalization Error',
       marks: 4,
-      importance: 'Moderately Asked',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q1(c)', marks: 4 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q1(c)', marks: 3, notes: 'Concept of Generalization' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q1(c)', marks: 6, notes: 'Training Error vs Generalization Error' }
       ],
       topicCategory: 'Bias, Variance & Generalization',
       subtopic: 'Training vs Generalization Error',
@@ -473,12 +493,10 @@ export const unit3Data: Unit = {
       title: 'What is Regression? Explain Linear Regression (with example)',
       shortTitle: 'Regression & Linear Regression Explained',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      importance: 'Important',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q2(a)', notes: 'First part; Ridge part covered in Q8' },
-        { paper: 'Nov 2023', questionNo: 'Q2(a)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q1(a)', marks: 6 }
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q1(a)', marks: 6, notes: 'Linear Regression in Brief' }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
       subtopic: 'Linear Regression Principle',
@@ -575,8 +593,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q1(b)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q1(a)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q1(b)', marks: 6, notes: 'Define Different Regression Models' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q1(a)', marks: 6, notes: 'Define Different Regression Models' }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
       subtopic: 'Regression Taxonomies',
@@ -668,8 +686,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q2(b)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q2(b)', marks: 6, notes: 'Least Square Method in Linear Regression' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q2(b)', marks: 6, notes: 'Least Square Method in Linear Regression' }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
       subtopic: 'Least Squares & Normal Equations',
@@ -741,7 +759,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q2(c)', marks: 6 }
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q2(c)', marks: 6, notes: 'RAM Capacity vs Cost Least Squares & 32GB Prediction' }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
       subtopic: 'RAM Capacity Cost Numerical',
@@ -894,10 +912,11 @@ export const unit3Data: Unit = {
       title: 'Numerical: Company Expenditure -- Predict the 6th Month',
       shortTitle: 'Solved Numerical: Company Monthly Expenditure Forecast',
       marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'April 2024', questionNo: 'Q1(c)', marks: 6 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q2(b)', marks: 6, notes: 'Advertisement Spend vs Sales 11-Month Forecast for 10800/-' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q1(c)', marks: 6, notes: 'Company Expenditure Forecast for 6th Month' }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
       subtopic: 'Monthly Expenditure Forecast Numerical',
@@ -1047,9 +1066,9 @@ export const unit3Data: Unit = {
       shortTitle: 'Solved Numerical: Carbohydrates vs Calories Regression',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q1(b)', marks: 6 }
+
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
       subtopic: 'Carbohydrates Calories Numerical',
@@ -1120,7 +1139,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'In-Sem Exam', questionNo: 'Q1(b)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q2(a)', marks: 9, notes: 'Dataset Linear Regression Line & Predict Y at X=10' }
       ],
       topicCategory: 'Linear Regression & Solved Numericals',
       subtopic: 'Regression Line Derivation Numerical',
@@ -1255,12 +1274,11 @@ export const unit3Data: Unit = {
       shortTitle: 'Ridge (L2) vs Lasso (L1) Regularization In-Depth',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q2(a)', notes: 'Second part (Ridge)' },
-        { paper: 'Nov 2023', questionNo: 'Q1(b)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q2(a)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q1(b)(iii)', marks: 3, notes: 'Explain Ridge Regression' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q1(c)', marks: 6, notes: 'Primary Purpose of L2 Regularization in Ridge Cost Function' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q2(b)', marks: 6, notes: 'Lasso and Ridge Regression' }
       ],
       topicCategory: 'Regularized Regression',
       subtopic: 'Lasso (L1) vs Ridge (L2)',
@@ -1374,7 +1392,7 @@ export const unit3Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q1(a)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q1(a)', marks: 6, notes: 'Lasso Regression & Automatic Feature Selection' }
       ],
       topicCategory: 'Regularized Regression',
       subtopic: 'Lasso Feature Selection',
@@ -1431,11 +1449,10 @@ export const unit3Data: Unit = {
       title: 'Explain Gradient Descent Algorithm with Example. Compare Batch and Stochastic Gradient Descent',
       shortTitle: 'Gradient Descent Algorithm & Batch vs SGD Comparison',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Important',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q1(c)', notes: 'Explain with example' },
-        { paper: 'Nov 2023', questionNo: 'Q2(c)', notes: 'What is GD + Compare Batch and SGD' }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q1(b)', marks: 6, notes: 'Concept of Cost Function & Role in Gradient Descent' }
       ],
       topicCategory: 'Optimization Algorithms',
       subtopic: 'Gradient Descent (Batch vs SGD)',
@@ -1543,8 +1560,8 @@ export const unit3Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q2(c)', marks: 4 },
-        { paper: 'April 2024', questionNo: 'Q2(c)', marks: 4 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q2(c)', marks: 6, notes: 'Stochastic Gradient Descent (SGD) Algorithm' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q2(c)', marks: 6, notes: 'Stochastic Gradient Descent (SGD) Algorithm' }
       ],
       topicCategory: 'Optimization Algorithms',
       subtopic: 'Stochastic Gradient Descent (SGD)',
@@ -1610,11 +1627,10 @@ export const unit3Data: Unit = {
       title: 'Importance of Evaluation Metrics / Short Note on Evaluation Metrics',
       shortTitle: 'Importance of Regression Evaluation Metrics',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Important',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q2(a)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q2(c)', marks: 6 }
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q2(a)', marks: 6, notes: 'Importance of Evaluation Metrics / Matrix' }
       ],
       topicCategory: 'Evaluation Metrics & Exemplar',
       subtopic: 'Importance of Regression Metrics',
@@ -1682,12 +1698,11 @@ export const unit3Data: Unit = {
       shortTitle: 'MAE, RMSE, and R² In-Depth with Numerical Verification',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q2(a)', notes: 'Specifically focused on R²' },
-        { paper: 'Nov 2023', questionNo: 'Q2(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q1(c)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q2(b)', marks: 9, notes: 'Evaluation Metrics: MAE, RMSE, R2' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q1(a)', marks: 6, notes: 'What is R2 Measure of Evaluation?' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q2(a)', marks: 6, notes: 'What is R2 Measure of Evaluation?' }
       ],
       topicCategory: 'Evaluation Metrics & Exemplar',
       subtopic: 'MAE, RMSE and R2 Metrics',
@@ -1833,10 +1848,10 @@ export const unit3Data: Unit = {
       title: 'Advantages of RMSE over MSE as an Evaluation Metric',
       shortTitle: 'Advantages of RMSE over MSE',
       marks: 4,
-      importance: 'Moderately Asked',
+      importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q2(a)', marks: 4 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q2(a)', marks: 6, notes: 'Advantages of RMSE over MSE as Evaluation Metric' }
       ],
       topicCategory: 'Evaluation Metrics & Exemplar',
       subtopic: 'RMSE vs MSE & Stock Market Exemplar',

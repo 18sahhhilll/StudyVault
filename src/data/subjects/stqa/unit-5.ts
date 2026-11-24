@@ -82,11 +82,13 @@ export const unit5Data: Unit = {
       "Highlight criteria for tool selection: project budget, technology stack, team skill, and test maintenance."
     ]
   },
-  "questions": [
+  questions: [
     {
       "id": "stqa-u5-q1",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Automation Testing Fundamentals & Frameworks',
+      subtopic: 'What is Automation Testing & Manual vs Automated',
       "qNumber": 1,
       "title": "What Is Automation Testing in Software Testing? Differentiate Between Manual Testing and Automation Testing",
       "shortTitle": "Manual vs Automation Testing",
@@ -176,10 +178,13 @@ export const unit5Data: Unit = {
         "Complementary: Automation handles repetitive regression; humans handle exploratory."
       ]
     },
+
     {
       "id": "stqa-u5-q2",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Automation Testing Fundamentals & Frameworks',
+      subtopic: 'Benefits & Scope of Automation Testing',
       "qNumber": 2,
       "title": "What Are the Benefits of Automation Testing? When and What Tests Should Be Automated?",
       "shortTitle": "Benefits of Automation & Scope",
@@ -251,10 +256,13 @@ export const unit5Data: Unit = {
         "Low-priority: Unstable UI, adhoc, visual aesthetic evaluation."
       ]
     },
+
     {
       "id": "stqa-u5-q3",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Automation Testing Fundamentals & Frameworks',
+      subtopic: 'Automated Testing Process & Lifecycle',
       "qNumber": 3,
       "title": "Explain the Automated Testing Process / Lifecycle in Detail with a Neat Diagram",
       "shortTitle": "Automated Testing Process & Lifecycle",
@@ -322,10 +330,13 @@ export const unit5Data: Unit = {
         "Maintainability is the key indicator of long-term automation success."
       ]
     },
+
     {
       "id": "stqa-u5-q4",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Automation Testing Fundamentals & Frameworks',
+      subtopic: 'Automation Testing Frameworks',
       "qNumber": 4,
       "title": "Explain Different Test Automation Frameworks (Linear, Modular, Data-Driven, Keyword, Hybrid, BDD)",
       "shortTitle": "Test Automation Framework Types",
@@ -373,10 +384,13 @@ export const unit5Data: Unit = {
         "BDD = Given-When-Then collaboration (Cucumber)."
       ]
     },
+
     {
       "id": "stqa-u5-q5",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Automation Testing Fundamentals & Frameworks',
+      subtopic: 'How to Choose Automation Testing Tools',
       "qNumber": 5,
       "title": "How to Choose an Automation Testing Tool? Explain the Tool Selection Process in Detail",
       "shortTitle": "Choosing an Automation Tool",
@@ -432,10 +446,13 @@ export const unit5Data: Unit = {
         "Open-source (Selenium/Cypress) vs Commercial (Tosca/UFT)."
       ]
     },
+
     {
       "id": "stqa-u5-q6",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Selenium Automation Suite',
+      subtopic: 'Selenium Tool Suite Overview',
       "qNumber": 6,
       "title": "Illustrate the Selenium Tool Suite in Detail (IDE, RC, WebDriver, Grid)",
       "shortTitle": "Selenium Tool Suite Overview",
@@ -523,10 +540,13 @@ export const unit5Data: Unit = {
         "Grid = Parallel cross-browser distributed execution."
       ]
     },
+
     {
       "id": "stqa-u5-q7",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Selenium Automation Suite',
+      subtopic: 'Selenium IDE Tool',
       "qNumber": 7,
       "title": "Illustrate Selenium IDE (Selenium's \"IQE\") in Detail: Features, Working, and Limitations",
       "shortTitle": "Selenium IDE (\"IQE\") in Detail",
@@ -588,10 +608,13 @@ export const unit5Data: Unit = {
         "Record & Playback; exports to Java/Python WebDriver."
       ]
     },
+
     {
       "id": "stqa-u5-q8",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Selenium Automation Suite',
+      subtopic: 'Selenium WebDriver Architecture',
       "qNumber": 8,
       "title": "How Would You Explain Selenium WebDriver? Detail Architecture and Direct Communication",
       "shortTitle": "Selenium WebDriver Architecture",
@@ -656,10 +679,13 @@ export const unit5Data: Unit = {
         "Handles multi-window, alerts, frames, and file uploads."
       ]
     },
+
     {
       "id": "stqa-u5-q9",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Selenium Automation Suite',
+      subtopic: 'Selenium RC & Evolution',
       "qNumber": 9,
       "title": "What Is Selenium RC? Explain Its Architecture and Why WebDriver Replaced It",
       "shortTitle": "Selenium RC Architecture & Deprecation",
@@ -709,10 +735,13 @@ export const unit5Data: Unit = {
         "Superseded completely by Selenium WebDriver in Selenium 2.0."
       ]
     },
+
     {
       "id": "stqa-u5-q10",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Selenium Automation Suite',
+      subtopic: 'Selenium Grid Distributed Testing',
       "qNumber": 10,
       "title": "What Do You Understand by Selenium Grid? Explain Its Architecture and Working in Detail",
       "shortTitle": "Selenium Grid Architecture",
@@ -774,10 +803,13 @@ export const unit5Data: Unit = {
         "Parallel execution shaves hours off CI/CD build cycles."
       ]
     },
+
     {
       "id": "stqa-u5-q11",
       "unitId": "unit-5",
       "subjectId": "stqa",
+      topicCategory: 'Specialized Tools & Performance Testing (JMeter)',
+      subtopic: 'Robotic Process Automation (RPA)',
       "qNumber": 11,
       "title": "How Would You Explain Robotic Process Automation (RPA) in Software Testing? Detail Categories and Benefits",
       "shortTitle": "Robotic Process Automation (RPA)",
@@ -844,137 +876,14 @@ export const unit5Data: Unit = {
         "Non-invasive: works on top of existing legacy software without code changes."
       ]
     },
-    {
-      "id": "stqa-u5-q12",
-      "unitId": "unit-5",
-      "subjectId": "stqa",
-      "qNumber": 12,
-      "title": "What Is Performance Testing? What Are the Uses of It as Well as Its Types and Lifecycle?",
-      "shortTitle": "Performance Testing in Detail",
-      "marks": 6,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 3,
-      "papersAsked": [
-        {
-          "paper": "May 2024",
-          "questionNo": "Q5(c)",
-          "marks": 6
-        },
-        {
-          "paper": "May 2025",
-          "questionNo": "Q5(a)",
-          "marks": 6
-        },
-        {
-          "paper": "Nov 2025",
-          "questionNo": "Q5(b)",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Performance Testing",
-        "Load vs Stress",
-        "Testing Lifecycle"
-      ],
-      "definition": "Performance testing evaluates the speed, responsiveness, scalability, and resource utilization of a software application under various workload conditions to identify bottlenecks before production release.",
-      "sections": [
-        {
-          "title": "1. Core Uses of Performance Testing",
-          "content": [
-            "Verify SLA Compliance: Ensures response times comply with contractual Service Level Agreements (e.g. checkout renders under 1.5s).",
-            "Capacity Planning: Determines the maximum user concurrency the existing hardware/cloud infrastructure can handle.",
-            "Locate Architectural Bottlenecks: Uncovers database connection pool starvation, slow SQL queries, and CPU/memory leaks.",
-            "Verify Scalability: Tests auto-scaling rules and load-balancing algorithms under fluctuating traffic."
-          ]
-        },
-        {
-          "title": "2. Primary Performance Testing Types",
-          "content": [
-            "Load Testing: Verifies behavior under expected peak traffic.",
-            "Stress Testing: Pushes workload beyond breaking points to test failover.",
-            "Spike Testing: Sudden drastic surges in traffic.",
-            "Endurance (Soak) Testing: Sustained load over long periods to detect memory leaks.",
-            "Volume Testing: Testing system stability against massive database record volumes."
-          ]
-        }
-      ],
-      "summary": [
-        "Performance testing ensures system responsiveness, scalability, and resource efficiency.",
-        "Identifies database query bottlenecks, memory leaks, and server starvation.",
-        "Key types include Load, Stress, Spike, Endurance, and Volume testing."
-      ],
-      "keyPoints": [
-        "Performance testing evaluates speed, stability, and scalability.",
-        "Metrics: Response time, Throughput (TPS), CPU/Memory utilization.",
-        "Identifies bottlenecks prior to production deployment."
-      ]
-    },
-    {
-      "id": "stqa-u5-q13",
-      "unitId": "unit-5",
-      "subjectId": "stqa",
-      "qNumber": 13,
-      "title": "Describe Apache JMeter Based on: (i) Aim / Purpose, (ii) Working, and (iii) Advantages",
-      "shortTitle": "Apache JMeter Performance Tool",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
-        {
-          "paper": "May 2024",
-          "questionNo": "Q6(c)",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Performance Tools",
-        "Apache JMeter",
-        "Load Testing"
-      ],
-      "definition": "Apache JMeter is an open-source, Java-based load testing application designed to measure performance and simulate heavy loads across diverse server protocols and web applications.",
-      "sections": [
-        {
-          "title": "1. Aim / Purpose of Apache JMeter",
-          "content": [
-            "Designed to analyze and measure the performance of static and dynamic web resources.",
-            "Simulates heavy concurrent user loads on servers, networks, and objects to test strength and analyze overall performance under diverse workload scenarios.",
-            "Supports multiple protocols: HTTP, HTTPS, SOAP/REST Web Services, JDBC, FTP, LDAP, and JMS."
-          ]
-        },
-        {
-          "title": "2. Working Mechanism of JMeter",
-          "content": [
-            "Thread Groups: Simulates virtual users (threads) making simultaneous requests.",
-            "Samplers: Directs JMeter to send specific protocol requests (HTTP Request, JDBC Request).",
-            "Listeners: Collects execution responses and visualizes performance data in graphs, tables, and tree views.",
-            "Assertions: Evaluates server responses against expected criteria (response code 200, response time < 2s)."
-          ]
-        },
-        {
-          "title": "3. Key Advantages of Apache JMeter",
-          "content": [
-            "100% Open-Source & Java-Based: Platform-independent; runs on Windows, Linux, and macOS without licensing fees.",
-            "Extensible Plugin Architecture: Vast library of community plugins for custom graphs, OAuth support, and JMeter-to-InfluxDB reporting.",
-            "Distributed Master-Slave Architecture: Employs remote load generators to simulate tens of thousands of concurrent users."
-          ]
-        }
-      ],
-      "summary": [
-        "Apache JMeter is a premier open-source Java performance and load testing tool.",
-        "Working elements include Thread Groups (virtual users), Samplers, Assertions, and Listeners.",
-        "Features distributed load testing, multi-protocol support, and zero licensing cost."
-      ],
-      "keyPoints": [
-        "Purpose: Multi-protocol performance and load generation.",
-        "Architecture: Thread Groups -> Samplers -> Assertions -> Listeners.",
-        "Advantages: Open-source, platform-independent, distributed load generation."
-      ]
-    },
+
     {
       "id": "stqa-u5-q14",
       "unitId": "unit-5",
       "subjectId": "stqa",
-      "qNumber": 14,
+      topicCategory: 'Specialized Tools & Performance Testing (JMeter)',
+      subtopic: 'SoapUI, Appium, Tosca & Enterprise Tools',
+      "qNumber": 12,
       "title": "Overview of Enterprise Automation Tools: HP LoadRunner, SoapUI, Appium, and Tricentis Tosca",
       "shortTitle": "Enterprise Automation Tools Overview",
       "marks": 6,
@@ -1060,6 +969,138 @@ export const unit5Data: Unit = {
         "SoapUI = REST and SOAP API validation.",
         "Appium = iOS & Android mobile automation (WebDriver protocol).",
         "Tosca = Scriptless model-based enterprise automation."
+      ]
+    },
+
+    {
+      "id": "stqa-u5-q12",
+      "unitId": "unit-5",
+      "subjectId": "stqa",
+      topicCategory: 'Specialized Tools & Performance Testing (JMeter)',
+      subtopic: 'Performance Testing Fundamentals & Types',
+      "qNumber": 13,
+      "title": "What Is Performance Testing? What Are the Uses of It as Well as Its Types and Lifecycle?",
+      "shortTitle": "Performance Testing in Detail",
+      "marks": 6,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 3,
+      "papersAsked": [
+        {
+          "paper": "May 2024",
+          "questionNo": "Q5(c)",
+          "marks": 6
+        },
+        {
+          "paper": "May 2025",
+          "questionNo": "Q5(a)",
+          "marks": 6
+        },
+        {
+          "paper": "Nov 2025",
+          "questionNo": "Q5(b)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Performance Testing",
+        "Load vs Stress",
+        "Testing Lifecycle"
+      ],
+      "definition": "Performance testing evaluates the speed, responsiveness, scalability, and resource utilization of a software application under various workload conditions to identify bottlenecks before production release.",
+      "sections": [
+        {
+          "title": "1. Core Uses of Performance Testing",
+          "content": [
+            "Verify SLA Compliance: Ensures response times comply with contractual Service Level Agreements (e.g. checkout renders under 1.5s).",
+            "Capacity Planning: Determines the maximum user concurrency the existing hardware/cloud infrastructure can handle.",
+            "Locate Architectural Bottlenecks: Uncovers database connection pool starvation, slow SQL queries, and CPU/memory leaks.",
+            "Verify Scalability: Tests auto-scaling rules and load-balancing algorithms under fluctuating traffic."
+          ]
+        },
+        {
+          "title": "2. Primary Performance Testing Types",
+          "content": [
+            "Load Testing: Verifies behavior under expected peak traffic.",
+            "Stress Testing: Pushes workload beyond breaking points to test failover.",
+            "Spike Testing: Sudden drastic surges in traffic.",
+            "Endurance (Soak) Testing: Sustained load over long periods to detect memory leaks.",
+            "Volume Testing: Testing system stability against massive database record volumes."
+          ]
+        }
+      ],
+      "summary": [
+        "Performance testing ensures system responsiveness, scalability, and resource efficiency.",
+        "Identifies database query bottlenecks, memory leaks, and server starvation.",
+        "Key types include Load, Stress, Spike, Endurance, and Volume testing."
+      ],
+      "keyPoints": [
+        "Performance testing evaluates speed, stability, and scalability.",
+        "Metrics: Response time, Throughput (TPS), CPU/Memory utilization.",
+        "Identifies bottlenecks prior to production deployment."
+      ]
+    },
+
+    {
+      "id": "stqa-u5-q13",
+      "unitId": "unit-5",
+      "subjectId": "stqa",
+      topicCategory: 'Specialized Tools & Performance Testing (JMeter)',
+      subtopic: 'Apache JMeter Performance Testing Tool',
+      "qNumber": 14,
+      "title": "Describe Apache JMeter Based on: (i) Aim / Purpose, (ii) Working, and (iii) Advantages",
+      "shortTitle": "Apache JMeter Performance Tool",
+      "marks": 6,
+      "importance": "Important",
+      "occurrenceCount": 1,
+      "papersAsked": [
+        {
+          "paper": "May 2024",
+          "questionNo": "Q6(c)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Performance Tools",
+        "Apache JMeter",
+        "Load Testing"
+      ],
+      "definition": "Apache JMeter is an open-source, Java-based load testing application designed to measure performance and simulate heavy loads across diverse server protocols and web applications.",
+      "sections": [
+        {
+          "title": "1. Aim / Purpose of Apache JMeter",
+          "content": [
+            "Designed to analyze and measure the performance of static and dynamic web resources.",
+            "Simulates heavy concurrent user loads on servers, networks, and objects to test strength and analyze overall performance under diverse workload scenarios.",
+            "Supports multiple protocols: HTTP, HTTPS, SOAP/REST Web Services, JDBC, FTP, LDAP, and JMS."
+          ]
+        },
+        {
+          "title": "2. Working Mechanism of JMeter",
+          "content": [
+            "Thread Groups: Simulates virtual users (threads) making simultaneous requests.",
+            "Samplers: Directs JMeter to send specific protocol requests (HTTP Request, JDBC Request).",
+            "Listeners: Collects execution responses and visualizes performance data in graphs, tables, and tree views.",
+            "Assertions: Evaluates server responses against expected criteria (response code 200, response time < 2s)."
+          ]
+        },
+        {
+          "title": "3. Key Advantages of Apache JMeter",
+          "content": [
+            "100% Open-Source & Java-Based: Platform-independent; runs on Windows, Linux, and macOS without licensing fees.",
+            "Extensible Plugin Architecture: Vast library of community plugins for custom graphs, OAuth support, and JMeter-to-InfluxDB reporting.",
+            "Distributed Master-Slave Architecture: Employs remote load generators to simulate tens of thousands of concurrent users."
+          ]
+        }
+      ],
+      "summary": [
+        "Apache JMeter is a premier open-source Java performance and load testing tool.",
+        "Working elements include Thread Groups (virtual users), Samplers, Assertions, and Listeners.",
+        "Features distributed load testing, multi-protocol support, and zero licensing cost."
+      ],
+      "keyPoints": [
+        "Purpose: Multi-protocol performance and load generation.",
+        "Architecture: Thread Groups -> Samplers -> Assertions -> Listeners.",
+        "Advantages: Open-source, platform-independent, distributed load generation."
       ]
     }
   ]

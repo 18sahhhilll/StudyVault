@@ -56,6 +56,7 @@ const getPaperRecencyScore = (paperStr: string): number => {
   let monthScore = 0;
   if (lower.includes('nov') || lower.includes('dec')) monthScore = 11;
   else if (lower.includes('oct')) monthScore = 10;
+  else if (lower.includes('jun') || lower.includes('jul')) monthScore = 6;
   else if (lower.includes('apr') || lower.includes('may')) monthScore = 5;
   else if (lower.includes('mar')) monthScore = 3;
   else if (lower.includes('jan') || lower.includes('feb')) monthScore = 1;

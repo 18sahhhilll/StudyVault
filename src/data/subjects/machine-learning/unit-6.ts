@@ -15,12 +15,33 @@ export const unit6Data: Unit = {
     '#Exemplar / Case Studies: Movie Recommendation System (Content-Based, Collaborative Filtering, and Neural NCF)'
   ],
   questionPaperIndex: [
-    { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q2 (Building Blocks of ANN), (b) → Q4 (Backprop Characteristics), (c) → Q7, Q9 (RNN & CNN)', qOr: '(a) → Q2 (ANN based on Perceptron), (b) → Q3, Q4 (MLP & Why Backprop), (c) → Q1 (Two Activation Functions)' },
-    { paper: 'May 2024 ([6404]-82)', qMain: '(a) → Q3 (MLP), (b) → Q1 (Activation Functions), (c) → Q9 (CNN)', qOr: '(a) → Q5 (Building Blocks of RBF), (b) → Q12 (Recommendation Systems), (c) → Q7 (RNN with Example)' },
-    { paper: 'April 2024 ([6263]-82)', qMain: '(a) → Q7 (RNN with Example), (b) → Q1 (Activation Functions), (c) → Q3 (MLP)', qOr: '(a) → Q5 (Building Blocks of RBF), (b) → Q12 (Recommendation Systems), (c) → Q9 (CNN with Example)' },
-    { paper: 'Nov 2023 ([6181]-102)', qMain: '(a) → Q2 (Single Layer NN), (b) → Q5 (RBF Networks), (c) → Q7, Q8 (RNN & Applications)', qOr: '(a) → Q4 (Backpropagation with Example), (b) → Q6 (FLANN and Merits), (c) → Q1 (Activation Functions)' },
-    { paper: 'April 2023 ([6004]-481)', qMain: '(a) → Q1 (Activation Functions), (b) → Q7, Q10 (RNN vs CNN), (c) → Q9 (CNN)', qOr: '(a) → Q6 (Backprop vs Feedforward), (b) → Q11 (Padding in CNN), (c) → Q9 (Conv & Pooling)' }
-  ],
+  {
+    paper: "June 2026 ([6627]-82)",
+    qMain: "Q7(a) Activation Functions (5M), Q7(b) RNN vs CNN (8M), Q7(c) ANN Basic Concepts (4M)",
+    qOr: "Q8(a) Multilayer Perceptron (7M), Q8(b) Backpropagation in ANN (5M), Q8(c) RBF Networks (5M)"
+  },
+  {
+    paper: "Nov 2025 ([6584]-92)",
+    qMain: "Q7(a) Architecture of ANN (6M), Q7(b) Recurrent Neural Network (6M), Q7(c) Building Blocks of RBF (6M)",
+    qOr: "Q8(a) Multilayer Perceptron (6M), Q8(b) CNN Architecture & Example (6M), Q8(c) Role of Activation Functions (6M)"
+  },
+  {
+    paper: "May 2025 ([6404]-82)",
+    qMain: "Q7(a) Activation Functions (5M), Q7(b) RNN vs Simple CNN (6M), Q7(c) CNN Architecture (6M)",
+    qOr: "Q8(a) Backpropagation vs Feedforward (5M), Q8(b) Padding in CNN (6M), Q8(c) Convolutional & Pooling Layers (6M)"
+  },
+  {
+    paper: "Nov 2024 ([6354]-486)",
+    qMain: "Q7(a) Recurrent Neural Networks (6M), Q7(b) Activation Functions in NN (6M), Q7(c) Multilayer Perceptron (6M)",
+    qOr: "Q8(a) RBF Networks (6M), Q8(b) Personalized vs Content Recommendation (6M), Q8(c) CNN with Example (6M)"
+  },
+  {
+    paper: "May 2024 ([6263]-82)",
+    qMain: "Q7(a) Multilayer Perceptron (6M), Q7(b) Activation Functions (6M), Q7(c) CNN with Example (6M)",
+    qOr: "Q8(a) RBF Networks (6M), Q8(b) Recommendation Systems (6M), Q8(c) Recurrent Neural Networks (6M)"
+  }
+],
+  
   quickRevision: {
     keyDefinitions: [
       { term: 'Activation Function', definition: 'A mathematical transfer function applied to a neuron\'s net weighted input (v = Σ w_i x_i + b) that introduces non-linearity and determines the neuron\'s output activation.' },
@@ -73,11 +94,10 @@ export const unit6Data: Unit = {
       shortTitle: 'Basic Elements of ANN & Perceptron Model',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q7(a)', marks: 6 },
-        { paper: 'Nov 2024', questionNo: 'Q8(a)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q7(a)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q7(c)', marks: 4, notes: 'Basic Concepts of Artificial Neural Networks & Uses' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q7(a)', marks: 6, notes: 'Architecture of Artificial Neural Network' }
       ],
       topicCategory: 'Foundations of Artificial Neural Networks',
       subtopic: 'Single Layer ANN & Perceptron',
@@ -168,11 +188,11 @@ export const unit6Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q8(c)', marks: 6 },
-        { paper: 'May 2024', questionNo: 'Q7(b)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q7(b)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q8(c)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q7(a)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q7(a)', marks: 5, notes: 'Meaning of Activation Function with Example' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q8(c)', marks: 6, notes: 'Role of Activation Functions in Neural Networks Learning' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q7(a)', marks: 5, notes: 'Importance of Activation Function in Neural Network' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q7(b)', marks: 6, notes: 'Different Activation Functions Used in NN' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q7(b)', marks: 6, notes: 'Different Activation Functions Used in NN' }
       ],
       topicCategory: 'Foundations of Artificial Neural Networks',
       subtopic: 'Activation Functions',
@@ -259,11 +279,12 @@ export const unit6Data: Unit = {
       shortTitle: 'Multilayer Perceptron (MLP) & Hidden Layers',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q8(b)', marks: 6 },
-        { paper: 'May 2024', questionNo: 'Q7(a)', marks: 8 },
-        { paper: 'April 2024', questionNo: 'Q7(c)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q8(a)', marks: 7, notes: 'Multilayer Perceptron in Detail' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q8(a)', marks: 6, notes: 'Multilayer Perceptron with Diagram' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q7(c)', marks: 6, notes: 'Multilayer Perceptron with Diagram' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q7(a)', marks: 6, notes: 'Multilayer Perceptron with Diagram' }
       ],
       topicCategory: 'Multilayer & Specialized Neural Networks',
       subtopic: 'Multilayer Perceptron (MLP)',
@@ -316,11 +337,11 @@ export const unit6Data: Unit = {
       title: 'Explain the Backpropagation Learning Algorithm with Step-by-Step Mathematical Derivation and Key Characteristics',
       shortTitle: 'Backpropagation Algorithm & Mathematical Derivation',
       marks: 8,
-      importance: 'Important',
+      importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q7(b)', marks: 8 },
-        { paper: 'Nov 2023', questionNo: 'Q8(a)', marks: 8 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q8(b)', marks: 5, notes: 'Concept of Backpropagation in ANN with Example' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q8(a)', marks: 5, notes: 'Compare Backpropagation Network with Feed Forward Network' }
       ],
       topicCategory: 'Multilayer & Specialized Neural Networks',
       subtopic: 'Backpropagation Algorithm',
@@ -392,11 +413,12 @@ export const unit6Data: Unit = {
       shortTitle: 'Radial Basis Function (RBF) Networks',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 4,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q8(a)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q8(a)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q7(b)', marks: 8 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q8(c)', marks: 5, notes: 'Explain RBF Network in Brief' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q7(c)', marks: 6, notes: 'Building Blocks of RBF Networks' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q8(a)', marks: 6, notes: 'Building Blocks of RBF Networks' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q8(a)', marks: 6, notes: 'Building Blocks of RBF Networks' }
       ],
       topicCategory: 'Multilayer & Specialized Neural Networks',
       subtopic: 'Radial Basis Function (RBF)',
@@ -484,10 +506,9 @@ export const unit6Data: Unit = {
       shortTitle: 'FLANN Architecture & Merits over MLPs',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 2,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q8(b)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q8(a)', marks: 6 }
+
       ],
       topicCategory: 'Multilayer & Specialized Neural Networks',
       subtopic: 'Functional Link ANN (FLANN)',
@@ -569,13 +590,12 @@ export const unit6Data: Unit = {
       shortTitle: 'Recurrent Neural Networks (RNN) Architecture',
       marks: 8,
       importance: 'Frequently Asked',
-      occurrenceCount: 5,
+      occurrenceCount: 4,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q7(c)', marks: 6 },
-        { paper: 'May 2024', questionNo: 'Q8(c)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q7(a)', marks: 8 },
-        { paper: 'Nov 2023', questionNo: 'Q7(c)', marks: 8 },
-        { paper: 'April 2023', questionNo: 'Q7(b)', marks: 6 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q7(b)', marks: 6, notes: 'Recurrent Neural Network (RNN) with Example' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q7(b)', marks: 6, notes: 'Recurrent Neural Network with Example' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q7(a)', marks: 6, notes: 'Recurrent Neural Networks with an Example' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q8(c)', marks: 6, notes: 'Recurrent Neural Networks with an Example' }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
       subtopic: 'Recurrent Neural Networks (RNN)',
@@ -643,9 +663,9 @@ export const unit6Data: Unit = {
       shortTitle: 'RNN Applications, Limitations & LSTMs',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q7(c)', marks: 6 }
+
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
       subtopic: 'RNN Limitations & LSTMs',
@@ -697,11 +717,11 @@ export const unit6Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q7(c)', marks: 6 },
-        { paper: 'May 2024', questionNo: 'Q7(c)', marks: 8 },
-        { paper: 'April 2024', questionNo: 'Q8(c)', marks: 8 },
-        { paper: 'April 2023', questionNo: 'Q7(c)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q8(c)', marks: 6 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q8(b)', marks: 6, notes: 'Convolution Neural Network (CNN) with Example' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q7(c)', marks: 6, notes: 'Draw & Explain CNN Architecture' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q8(c)', marks: 6, notes: 'Layers Used in CNN: Convolutional & Pooling' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q8(c)', marks: 6, notes: 'Convolution Neural Network (CNN) with Example' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q7(c)', marks: 6, notes: 'Convolution Neural Network (CNN) with Example' }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
       subtopic: 'Convolutional Neural Networks (CNN)',
@@ -761,11 +781,11 @@ export const unit6Data: Unit = {
       title: 'Provide a Detailed Comparative Analysis Between Recurrent Neural Networks (RNN) and Convolutional Neural Networks (CNN)',
       shortTitle: 'CNN vs RNN Comparative Analysis',
       marks: 6,
-      importance: 'Important',
+      importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q7(c)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q7(b)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q7(b)', marks: 8, notes: 'Similarities & Differences Between RNN & CNN' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q7(b)', marks: 6, notes: 'Compare RNN with Simple CNN' }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
       subtopic: 'CNN vs RNN Comparison',
@@ -841,7 +861,7 @@ export const unit6Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q8(b)', marks: 6 }
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q8(b)', marks: 6, notes: 'Different Types of Padding Used in CNN' }
       ],
       topicCategory: 'Deep Learning: RNN & CNN',
       subtopic: 'Padding in CNN',
@@ -969,11 +989,11 @@ export const unit6Data: Unit = {
       title: 'Explain Recommendation Systems: Differentiate Between Content-Based and Personalized (Collaborative Filtering) Recommendation',
       shortTitle: 'Recommendation Systems: Content-Based vs Collaborative',
       marks: 6,
-      importance: 'Important',
+      importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q8(b)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q8(b)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q8(b)', marks: 6, notes: 'Personalized Recommendation vs Content-Based Recommendation' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q8(b)', marks: 6, notes: 'Personalized Recommendation vs Content-Based Recommendation' }
       ],
       topicCategory: 'Exemplar Case Study',
       subtopic: 'Movie Recommendation System Exemplar',

@@ -115,11 +115,13 @@ export const unit3Data: Unit = {
       "In Integration Testing, draw clear diagrams showing Stubs (subordinate modules) and Drivers (calling harnesses)."
     ]
   },
-  "questions": [
+  questions: [
     {
       "id": "stqa-u3-q1",
       "unitId": "unit-3",
       "subjectId": "stqa",
+      topicCategory: 'Testing Methodologies & Levels of Testing',
+      subtopic: 'White Box, Black Box & Grey Box Methodologies',
       "qNumber": 1,
       "title": "Differentiate Between Black Box and White Box Testing",
       "shortTitle": "Black Box vs White Box Testing",
@@ -214,10 +216,13 @@ export const unit3Data: Unit = {
         "Complementary: Both are required for complete software quality verification."
       ]
     },
+
     {
       "id": "stqa-u3-q2",
       "unitId": "unit-3",
       "subjectId": "stqa",
+      topicCategory: 'Testing Methodologies & Levels of Testing',
+      subtopic: 'White Box and Grey Box Testing',
       "qNumber": 2,
       "title": "Explain White Box Testing and Grey Box Testing in Detail",
       "shortTitle": "White Box and Grey Box Testing",
@@ -301,10 +306,13 @@ export const unit3Data: Unit = {
         "Grey box improves test coverage efficiency without full source code maintenance overhead."
       ]
     },
+
     {
       "id": "stqa-u3-q3",
       "unitId": "unit-3",
       "subjectId": "stqa",
+      topicCategory: 'Testing Methodologies & Levels of Testing',
+      subtopic: 'Unit & Integration Testing Levels',
       "qNumber": 3,
       "title": "What Do You Mean by Unit and Integration Testing? What Are the Approaches Used in Integration Testing?",
       "shortTitle": "Unit and Integration Testing Approaches",
@@ -402,10 +410,13 @@ export const unit3Data: Unit = {
         "Stub = dummy called routine (Top-Down); Driver = dummy calling routine (Bottom-Up)."
       ]
     },
+
     {
       "id": "stqa-u3-q4",
       "unitId": "unit-3",
       "subjectId": "stqa",
+      topicCategory: 'Testing Methodologies & Levels of Testing',
+      subtopic: 'System & User Acceptance Testing',
       "qNumber": 4,
       "title": "How Would You Explain System Testing and Acceptance Testing?",
       "shortTitle": "System Testing vs Acceptance Testing",
@@ -490,11 +501,70 @@ export const unit3Data: Unit = {
         "Alpha = internal/controlled; Beta = external/real-world."
       ]
     },
+
+    {
+      "id": "stqa-u3-q13",
+      "unitId": "unit-3",
+      "subjectId": "stqa",
+      topicCategory: 'Testing Methodologies & Levels of Testing',
+      subtopic: 'Regression Testing & Retesting',
+      "qNumber": 5,
+      "title": "State in Your Own Words Why Regression Testing Is Important",
+      "shortTitle": "Importance of Regression Testing",
+      "marks": 6,
+      "importance": "Important",
+      "occurrenceCount": 1,
+      "papersAsked": [
+        {
+          "paper": "Nov 2023",
+          "questionNo": "Q2(c)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Levels of Testing",
+        "Regression Testing",
+        "CI/CD Automation"
+      ],
+      "definition": "Regression testing verifies that recent code fixes, enhancements, or configuration changes have not caused side effects or broken existing, previously working functionality.",
+      "sections": [
+        {
+          "title": "1. Core Reasons for Importance",
+          "content": [
+            "Prevents Ripple Effects: Fixing a bug in one component often introduces subtle bugs in dependent modules.",
+            "Continuous Integration Confidence: Automated regression suites run on every commit in CI/CD pipelines to catch bugs instantly.",
+            "Protects Core Business Workflows: Ensures revenue-critical features remain stable across agile sprints.",
+            "Validates Defect Resolution: Verifies that bug fixes completely solve the problem without regressions."
+          ]
+        },
+        {
+          "title": "2. Selection Strategies",
+          "content": [
+            "Retest All: Runs every test case in the regression suite (safest but resource-intensive).",
+            "Regression Test Selection: Uses impact analysis to run only tests covering modified code modules.",
+            "Test Case Prioritization: Prioritizes tests based on business criticality and failure history."
+          ]
+        }
+      ],
+      "summary": [
+        "Regression testing ensures bug fixes and new code do not break existing working features.",
+        "Primary candidate for automated CI/CD pipelines.",
+        "Strategies include Retest-All, Selective Regression, and Priority-based execution."
+      ],
+      "keyPoints": [
+        "Regression = side effect prevention.",
+        "Critical for agile, continuous integration, and frequent deployments.",
+        "Automated regression suites provide rapid feedback."
+      ]
+    },
+
     {
       "id": "stqa-u3-q5",
       "unitId": "unit-3",
       "subjectId": "stqa",
-      "qNumber": 5,
+      topicCategory: 'Functional & Non-Functional Testing Types',
+      subtopic: 'Functional vs Non-Functional Testing',
+      "qNumber": 6,
       "title": "Differentiate Between Functional Testing and Non-Functional Testing",
       "shortTitle": "Functional vs Non-Functional Testing",
       "marks": 6,
@@ -570,11 +640,14 @@ export const unit3Data: Unit = {
         "Both are mandatory for software release approval."
       ]
     },
+
     {
       "id": "stqa-u3-q6",
       "unitId": "unit-3",
       "subjectId": "stqa",
-      "qNumber": 6,
+      topicCategory: 'Functional & Non-Functional Testing Types',
+      subtopic: 'Performance & Non-Functional Testing',
+      "qNumber": 7,
       "title": "Illustrate Non-Functional Testing. Explain Performance Testing with Examples",
       "shortTitle": "Non-Functional & Performance Testing",
       "marks": 6,
@@ -630,11 +703,194 @@ export const unit3Data: Unit = {
         "Load (expected), Stress (breaking point), Spike (surge), Endurance (leak detection)."
       ]
     },
+
+    {
+      "id": "stqa-u3-q14",
+      "unitId": "unit-3",
+      "subjectId": "stqa",
+      topicCategory: 'Functional & Non-Functional Testing Types',
+      subtopic: 'Cookies & Session Testing',
+      "qNumber": 8,
+      "title": "What Is Cookies Testing? Explain Cookies Testing with an Example",
+      "shortTitle": "Cookies Testing with Example",
+      "marks": 6,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 2,
+      "papersAsked": [
+        {
+          "paper": "May 2024",
+          "questionNo": "Q2(b)",
+          "marks": 6
+        },
+        {
+          "paper": "Nov 2025",
+          "questionNo": "Q2(b)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Non-Functional Testing",
+        "Cookies Testing",
+        "Web Security"
+      ],
+      "definition": "Cookies testing validates that small client-side data files (cookies) stored by web browsers manage session state, user preferences, and authentication accurately and securely without vulnerability to tampering or data leakage.",
+      "sections": [
+        {
+          "title": "1. Scope of Cookies Testing",
+          "content": [
+            "Session vs Persistent Cookies: Verify session cookies delete upon browser closing; verify persistent cookies expire at designated timestamps.",
+            "Security Flags: Ensure sensitive authentication tokens carry HttpOnly (blocks XSS theft) and Secure (HTTPS only) flags.",
+            "Cookie Disabling: Verify application displays clear warning and degrades gracefully when cookies are disabled in browser settings.",
+            "Cookie Tampering: Manually modify cookie parameters (e.g. role=user to role=admin) to ensure server cryptographic signature validates and denies privilege escalation."
+          ]
+        },
+        {
+          "title": "2. E-Commerce Cart Example",
+          "content": [
+            "User adds items to shopping cart as a guest. Application writes encrypted cookie: cart_id=abc123xyz; Secure; HttpOnly.",
+            "Closing and reopening browser restores cart items.",
+            "Tampering with cart_id causes server to discard invalid token and generate fresh session without leaking other users carts."
+          ]
+        }
+      ],
+      "summary": [
+        "Cookies testing verifies session persistence, state retention, security flags, and expiration.",
+        "Authentication cookies must have HttpOnly and Secure flags enabled.",
+        "Applications must handle cookie corruption and disabled cookies gracefully."
+      ],
+      "keyPoints": [
+        "Session cookies (temporary) vs Persistent cookies (disk).",
+        "Security: HttpOnly, Secure flags, encryption, anti-tampering.",
+        "Graceful degradation when cookies are disabled."
+      ]
+    },
+
+    {
+      "id": "stqa-u3-q15",
+      "unitId": "unit-3",
+      "subjectId": "stqa",
+      topicCategory: 'Functional & Non-Functional Testing Types',
+      subtopic: 'Compatibility & Security Testing',
+      "qNumber": 9,
+      "title": "Explain Compatibility Testing and Security Testing in Detail",
+      "shortTitle": "Compatibility and Security Testing",
+      "marks": 6,
+      "importance": "Important",
+      "occurrenceCount": 1,
+      "papersAsked": [
+        {
+          "paper": "May 2025",
+          "questionNo": "Q1(b) & Q2(b)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Non-Functional Testing",
+        "Compatibility Testing",
+        "Security Testing"
+      ],
+      "definition": "Compatibility testing verifies that software operates across diverse hardware, operating systems, browsers, and networks. Security testing discovers vulnerabilities, authentication flaws, and data leakage risks.",
+      "sections": [
+        {
+          "title": "1. Compatibility Testing Dimensions",
+          "content": [
+            "Cross-Browser: Verifies layout and JS execution across Chrome, Firefox, Safari, Edge.",
+            "Cross-Platform: Verifies execution across Windows, macOS, Linux, iOS, Android.",
+            "Hardware & Screen: Verifies responsive behavior across resolutions and device form factors.",
+            "Backward & Forward: Verifies interoperability with older and upcoming OS/browser versions."
+          ]
+        },
+        {
+          "title": "2. Security Testing Core Principles",
+          "content": [
+            "Confidentiality: Protecting sensitive data from unauthorized disclosure.",
+            "Integrity: Preventing unauthorized data alteration in transit or storage.",
+            "Authentication & Authorization: Confirming user identity and restricting access to authorized roles.",
+            "Vulnerability Testing: Probing for OWASP Top 10 flaws (SQL Injection, XSS, CSRF, broken access control)."
+          ]
+        }
+      ],
+      "summary": [
+        "Compatibility testing ensures uniform functionality across browsers, OS, and devices.",
+        "Security testing verifies confidentiality, integrity, authentication, and authorization.",
+        "Protects against OWASP Top 10 vulnerabilities (SQLi, XSS, CSRF)."
+      ],
+      "keyPoints": [
+        "Compatibility = Cross-browser, cross-OS, hardware, backward/forward.",
+        "Security = Confidentiality, Integrity, Availability, Authentication, Authorization.",
+        "OWASP Top 10 compliance."
+      ]
+    },
+
+    {
+      "id": "stqa-u3-q16",
+      "unitId": "unit-3",
+      "subjectId": "stqa",
+      topicCategory: 'Functional & Non-Functional Testing Types',
+      subtopic: 'Risk-Based & Compliance Testing',
+      "qNumber": 10,
+      "title": "Explain Risk-Based Testing (RBT) in Detail",
+      "shortTitle": "Risk-Based Testing (RBT)",
+      "marks": 6,
+      "importance": "Important",
+      "occurrenceCount": 1,
+      "papersAsked": [
+        {
+          "paper": "May 2025",
+          "questionNo": "Q1(c)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Testing Strategy",
+        "Risk-Based Testing",
+        "Quality Management"
+      ],
+      "definition": "Risk-Based Testing (RBT) is a testing strategy that prioritizes test design and execution based on product risk: Risk Exposure = Probability of Failure × Impact of Failure.",
+      "sections": [
+        {
+          "title": "1. Risk-Based Testing Concept & Formula",
+          "content": [
+            "Exhaustive testing is impossible; RBT focuses effort where failure consequences are highest.",
+            "Risk Exposure = Probability of Failure (Likelihood) × Impact of Failure (Severity)."
+          ],
+          "formulas": [
+            {
+              "name": "Risk Exposure Formula",
+              "latex": "\\text{Risk Exposure} = \\text{Likelihood of Failure} \\times \\text{Impact (Severity)}"
+            }
+          ]
+        },
+        {
+          "title": "2. RBT Process Steps",
+          "content": [
+            "1. Risk Identification: Catalog potential failure modes with stakeholders.",
+            "2. Risk Analysis & Scoring: Assign probability and impact scores (1-5 scale).",
+            "3. Prioritization: Classify modules into High, Medium, and Low risk tiers.",
+            "4. Test Allocation: High-risk areas receive exhaustive test design (BVA, decision tables, automation); low-risk areas receive light sampling.",
+            "5. Monitoring: Re-score risks continuously as defects are resolved."
+          ]
+        }
+      ],
+      "summary": [
+        "RBT prioritizes testing based on Risk = Probability × Impact.",
+        "Directs QA resources to high-risk, mission-critical modules first.",
+        "Ensures critical defects are caught early under tight release deadlines."
+      ],
+      "keyPoints": [
+        "Risk = Likelihood × Severity.",
+        "High-risk features = rigorous testing, early execution, full automation.",
+        "Maximizes testing return on investment (ROI)."
+      ]
+    },
+
     {
       "id": "stqa-u3-q7",
       "unitId": "unit-3",
       "subjectId": "stqa",
-      "qNumber": 7,
+      topicCategory: 'Static & Dynamic Test Case Design Techniques',
+      subtopic: 'Static Techniques: Reviews, Walkthroughs & Inspection',
+      "qNumber": 11,
       "title": "Explain Static Test Case Design Techniques: Informal Reviews, Walkthroughs, and Inspections",
       "shortTitle": "Static Reviews, Walkthroughs & Inspections",
       "marks": 6,
@@ -735,11 +991,14 @@ export const unit3Data: Unit = {
         "Moderator leads inspections, author corrects rework."
       ]
     },
+
     {
       "id": "stqa-u3-q8",
       "unitId": "unit-3",
       "subjectId": "stqa",
-      "qNumber": 8,
+      topicCategory: 'Static & Dynamic Test Case Design Techniques',
+      subtopic: 'Static vs Dynamic Testing Techniques',
+      "qNumber": 12,
       "title": "Interpret Dynamic Test Design Techniques and Differentiate Between Static and Dynamic Testing",
       "shortTitle": "Static vs Dynamic Testing",
       "marks": 6,
@@ -812,108 +1071,129 @@ export const unit3Data: Unit = {
         "Static prevents defects; dynamic detects runtime failures."
       ]
     },
+
     {
-      "id": "stqa-u3-q9",
+      "id": "stqa-u3-q11",
       "unitId": "unit-3",
       "subjectId": "stqa",
-      "qNumber": 9,
-      "title": "Explain Experience-Based Techniques. Illustrate Adhoc Testing and Exploratory Testing with Examples",
-      "shortTitle": "Adhoc and Exploratory Testing",
+      topicCategory: 'Static & Dynamic Test Case Design Techniques',
+      subtopic: 'Structural Techniques: Statement & Branch Coverage',
+      "qNumber": 13,
+      "title": "Explain Statement Coverage Testing and Branch Coverage Testing with Examples",
+      "shortTitle": "Statement and Branch Coverage",
       "marks": 6,
       "importance": "Frequently Asked",
-      "occurrenceCount": 3,
+      "occurrenceCount": 1,
       "papersAsked": [
         {
           "paper": "May 2023",
-          "questionNo": "Q2(a)",
+          "questionNo": "Q2(b)",
           "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Structural Testing",
+        "Statement Coverage",
+        "Branch Coverage",
+        "White Box Testing"
+      ],
+      "definition": "Statement coverage measures the percentage of executable lines executed by test cases, while Branch coverage measures the percentage of decision outcomes (both True and False) traversed.",
+      "sections": [
+        {
+          "title": "1. Mathematical Formulas",
+          "content": [
+            "Statement Coverage measures whether all executable statements are exercised at least once.",
+            "Branch Coverage ensures every conditional branch (True/False edge) is evaluated at least once."
+          ],
+          "formulas": [
+            {
+              "name": "Statement Coverage",
+              "latex": "\\text{Statement Coverage} = \\frac{\\text{Executed Statements}}{\\text{Total Executable Statements}} \\times 100\\%"
+            },
+            {
+              "name": "Branch Coverage",
+              "latex": "\\text{Branch Coverage} = \\frac{\\text{Exercised Decision Branches}}{\\text{Total Decision Branches}} \\times 100\\%"
+            }
+          ]
         },
         {
-          "paper": "Nov 2023",
-          "questionNo": "Q2(a)",
-          "marks": 6
-        },
+          "title": "2. Code Analysis and Comparison Example",
+          "content": [
+            "Logic: if (age > 60) { discount = bill * 0.10; } print(bill);",
+            "Test Case 1 (age = 65): Executes if condition (True). Statements executed = 100%, but Branch Coverage = 50% (False branch never evaluated!).",
+            "Test Case 2 (age = 25): Evaluates if condition to False. Now both True and False branches are tested -> Branch Coverage = 100%.",
+            "Rule: 100% Branch Coverage guarantees 100% Statement Coverage, but 100% Statement Coverage does NOT guarantee 100% Branch Coverage."
+          ]
+        }
+      ],
+      "summary": [
+        "Statement coverage ensures all executable lines run at least once.",
+        "Branch coverage ensures both True and False paths are evaluated at every decision point.",
+        "Branch coverage is strictly stronger than statement coverage."
+      ],
+      "keyPoints": [
+        "Statement coverage = line coverage.",
+        "Branch coverage = decision outcome coverage (True/False).",
+        "100% Branch Coverage -> 100% Statement Coverage (Hierarchy of coverage)."
+      ]
+    },
+
+    {
+      "id": "stqa-u3-q12",
+      "unitId": "unit-3",
+      "subjectId": "stqa",
+      topicCategory: 'Static & Dynamic Test Case Design Techniques',
+      subtopic: 'Structural Techniques: Loop & Path Coverage',
+      "qNumber": 14,
+      "title": "Discuss Loop Coverage Testing and Explain Its Types in Detail",
+      "shortTitle": "Loop Coverage Testing and Loop Types",
+      "marks": 6,
+      "importance": "Important",
+      "occurrenceCount": 1,
+      "papersAsked": [
         {
-          "paper": "May 2025",
+          "paper": "May 2024",
           "questionNo": "Q2(c)",
           "marks": 6
         }
       ],
       "syllabusTopics": [
-        "Experience-Based Techniques",
-        "Adhoc Testing",
-        "Exploratory Testing",
-        "Buddy Testing"
+        "Structural Testing",
+        "Loop Testing",
+        "Simple Loops",
+        "Nested Loops"
       ],
-      "definition": "Experience-based techniques leverage tester intuition, domain knowledge, and past defect history to design tests where specifications are missing or incomplete.",
+      "definition": "Loop coverage is a white-box testing technique that targets loop structures (for, while, do-while) to detect off-by-one errors, infinite loops, and boundary limit faults.",
       "sections": [
         {
-          "title": "1. Adhoc Testing",
+          "title": "1. Classes of Loops and Testing Guidelines",
           "content": [
-            "Informal, unplanned, and unstructured testing performed without test cases or formal documentation.",
-            "Tester uses random trial-and-error to expose hidden bugs and edge-case exceptions.",
-            "Buddy Testing: One developer and one tester work together on a module.",
-            "Pair Testing: Two testers share one machine to test workflows collaboratively."
+            "Simple Loops (maximum n passes): Tested at 0 passes (skip loop), 1 pass, 2 passes, typical m passes, n-1 passes, n passes (maximum boundary), and n+1 passes (bounds violation test).",
+            "Nested Loops: To prevent exponential test explosion (n^k), set all outer loops to minimum values, test the innermost loop as a simple loop, work outward keeping inner loops at typical values, and repeat.",
+            "Concatenated Loops: If independent, test each as an independent simple loop. If dependent (loop 1 counter sets loop 2 limit), treat as nested loops.",
+            "Unstructured Loops: Loops with arbitrary goto jumps should be refactored into structured loops before testing."
           ]
-        },
-        {
-          "title": "2. Exploratory Testing",
-          "content": [
-            "Simultaneous learning, test design, and test execution.",
-            "Charter-Driven: Uses a time-boxed Test Charter (60-90 mins) specifying test mission and scope.",
-            "Dynamic Adaptation: Each test outcome informs and shapes the next test scenario.",
-            "Example: Testing shopping cart coupon codes, dynamically testing boundary expirations, stacking codes, and applying coupons to negative balances."
-          ]
-        },
-        {
-          "title": "3. Comparison: Adhoc vs Exploratory",
-          "content": [
-            "In Simple Words:",
-            "Adhoc testing is random unplanned poking around like an impatient child playing with buttons (monkey testing).",
-            "Exploratory testing is an experienced detective exploring a crime scene without a fixed script, simultaneously learning, designing, and executing intelligent tests."
-          ],
-          "table": {
-            "headers": [
-              "Adhoc Testing (Unplanned & Random)",
-              "Exploratory Testing (Charter-Guided & Simultaneous Learning)"
-            ],
-            "rows": [
-              {
-                "parameter": "Planning & Structure: Completely unplanned, spontaneous, and unstructured; tester pokes around randomly without a goal.",
-                "col1": "Planning & Structure: Guided by structured time-boxed Test Charters defining specific missions, focus areas, and boundary tactics."
-              },
-              {
-                "parameter": "Documentation: Zero formal documentation or recorded test design before, during, or after testing.",
-                "col1": "Documentation: Lightweight session logs, test notes, defect captures, and coverage metrics recorded during the session."
-              },
-              {
-                "parameter": "Tester Skill Level: Can be performed by anyone without deep domain knowledge (often called monkey testing).",
-                "col1": "Tester Skill Level: Requires highly skilled test detectives who simultaneously learn, design tests, and execute them in real time."
-              },
-              {
-                "parameter": "Reproducibility: Very low; when a defect is found, tracing the exact sequence of chaotic actions can be difficult.",
-                "col1": "Reproducibility: High; session notes and screen captures document the precise path taken to trigger the bug."
-              }
-            ]
-          }
         }
       ],
       "summary": [
-        "Adhoc testing is unstructured, unplanned testing to break software (Buddy and Pair testing).",
-        "Exploratory testing is disciplined, charter-driven simultaneous learning and test execution.",
-        "Both leverage tester experience to detect edge bugs missed by scripted test cases."
+        "Simple loops are tested at: 0, 1, 2, typical, n-1, n, and n+1 passes.",
+        "Nested loops hold outer loops at minimum while testing innermost loops first.",
+        "Concatenated loops are tested independently unless variable dependencies exist."
       ],
       "keyPoints": [
-        "Experience-based = tester intuition + defect patterns.",
-        "Adhoc = random, unstructured, no documentation.",
-        "Exploratory = charter-driven, time-boxed, simultaneous learning."
+        "Loop testing targets boundary and initialization bugs.",
+        "Test points: 0, 1, 2, typical, max-1, max, max+1.",
+        "Nested loops are tested from innermost outward."
       ]
     },
+
     {
       "id": "stqa-u3-q10",
       "unitId": "unit-3",
       "subjectId": "stqa",
-      "qNumber": 10,
+      topicCategory: 'Static & Dynamic Test Case Design Techniques',
+      subtopic: 'Black Box Techniques: BVA & ECP',
+      "qNumber": 15,
       "title": "Discuss Boundary Value Analysis (BVA) and Equivalence Class Partitioning (ECP) with Examples",
       "shortTitle": "BVA and Equivalence Class Partitioning",
       "marks": 6,
@@ -1025,337 +1305,104 @@ export const unit3Data: Unit = {
         "Robustness BVA = tests invalid extremes (min-1, max+1)."
       ]
     },
+
     {
-      "id": "stqa-u3-q11",
+      "id": "stqa-u3-q9",
       "unitId": "unit-3",
       "subjectId": "stqa",
-      "qNumber": 11,
-      "title": "Explain Statement Coverage Testing and Branch Coverage Testing with Examples",
-      "shortTitle": "Statement and Branch Coverage",
+      topicCategory: 'Static & Dynamic Test Case Design Techniques',
+      subtopic: 'Experience-Based Techniques: Adhoc & Exploratory',
+      "qNumber": 16,
+      "title": "Explain Experience-Based Techniques. Illustrate Adhoc Testing and Exploratory Testing with Examples",
+      "shortTitle": "Adhoc and Exploratory Testing",
       "marks": 6,
       "importance": "Frequently Asked",
-      "occurrenceCount": 1,
+      "occurrenceCount": 3,
       "papersAsked": [
         {
           "paper": "May 2023",
-          "questionNo": "Q2(b)",
+          "questionNo": "Q2(a)",
           "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Structural Testing",
-        "Statement Coverage",
-        "Branch Coverage",
-        "White Box Testing"
-      ],
-      "definition": "Statement coverage measures the percentage of executable lines executed by test cases, while Branch coverage measures the percentage of decision outcomes (both True and False) traversed.",
-      "sections": [
-        {
-          "title": "1. Mathematical Formulas",
-          "content": [
-            "Statement Coverage measures whether all executable statements are exercised at least once.",
-            "Branch Coverage ensures every conditional branch (True/False edge) is evaluated at least once."
-          ],
-          "formulas": [
-            {
-              "name": "Statement Coverage",
-              "latex": "\\text{Statement Coverage} = \\frac{\\text{Executed Statements}}{\\text{Total Executable Statements}} \\times 100\\%"
-            },
-            {
-              "name": "Branch Coverage",
-              "latex": "\\text{Branch Coverage} = \\frac{\\text{Exercised Decision Branches}}{\\text{Total Decision Branches}} \\times 100\\%"
-            }
-          ]
         },
-        {
-          "title": "2. Code Analysis and Comparison Example",
-          "content": [
-            "Logic: if (age > 60) { discount = bill * 0.10; } print(bill);",
-            "Test Case 1 (age = 65): Executes if condition (True). Statements executed = 100%, but Branch Coverage = 50% (False branch never evaluated!).",
-            "Test Case 2 (age = 25): Evaluates if condition to False. Now both True and False branches are tested -> Branch Coverage = 100%.",
-            "Rule: 100% Branch Coverage guarantees 100% Statement Coverage, but 100% Statement Coverage does NOT guarantee 100% Branch Coverage."
-          ]
-        }
-      ],
-      "summary": [
-        "Statement coverage ensures all executable lines run at least once.",
-        "Branch coverage ensures both True and False paths are evaluated at every decision point.",
-        "Branch coverage is strictly stronger than statement coverage."
-      ],
-      "keyPoints": [
-        "Statement coverage = line coverage.",
-        "Branch coverage = decision outcome coverage (True/False).",
-        "100% Branch Coverage -> 100% Statement Coverage (Hierarchy of coverage)."
-      ]
-    },
-    {
-      "id": "stqa-u3-q12",
-      "unitId": "unit-3",
-      "subjectId": "stqa",
-      "qNumber": 12,
-      "title": "Discuss Loop Coverage Testing and Explain Its Types in Detail",
-      "shortTitle": "Loop Coverage Testing and Loop Types",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
-        {
-          "paper": "May 2024",
-          "questionNo": "Q2(c)",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Structural Testing",
-        "Loop Testing",
-        "Simple Loops",
-        "Nested Loops"
-      ],
-      "definition": "Loop coverage is a white-box testing technique that targets loop structures (for, while, do-while) to detect off-by-one errors, infinite loops, and boundary limit faults.",
-      "sections": [
-        {
-          "title": "1. Classes of Loops and Testing Guidelines",
-          "content": [
-            "Simple Loops (maximum n passes): Tested at 0 passes (skip loop), 1 pass, 2 passes, typical m passes, n-1 passes, n passes (maximum boundary), and n+1 passes (bounds violation test).",
-            "Nested Loops: To prevent exponential test explosion (n^k), set all outer loops to minimum values, test the innermost loop as a simple loop, work outward keeping inner loops at typical values, and repeat.",
-            "Concatenated Loops: If independent, test each as an independent simple loop. If dependent (loop 1 counter sets loop 2 limit), treat as nested loops.",
-            "Unstructured Loops: Loops with arbitrary goto jumps should be refactored into structured loops before testing."
-          ]
-        }
-      ],
-      "summary": [
-        "Simple loops are tested at: 0, 1, 2, typical, n-1, n, and n+1 passes.",
-        "Nested loops hold outer loops at minimum while testing innermost loops first.",
-        "Concatenated loops are tested independently unless variable dependencies exist."
-      ],
-      "keyPoints": [
-        "Loop testing targets boundary and initialization bugs.",
-        "Test points: 0, 1, 2, typical, max-1, max, max+1.",
-        "Nested loops are tested from innermost outward."
-      ]
-    },
-    {
-      "id": "stqa-u3-q13",
-      "unitId": "unit-3",
-      "subjectId": "stqa",
-      "qNumber": 13,
-      "title": "State in Your Own Words Why Regression Testing Is Important",
-      "shortTitle": "Importance of Regression Testing",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
         {
           "paper": "Nov 2023",
+          "questionNo": "Q2(a)",
+          "marks": 6
+        },
+        {
+          "paper": "May 2025",
           "questionNo": "Q2(c)",
           "marks": 6
         }
       ],
       "syllabusTopics": [
-        "Levels of Testing",
-        "Regression Testing",
-        "CI/CD Automation"
+        "Experience-Based Techniques",
+        "Adhoc Testing",
+        "Exploratory Testing",
+        "Buddy Testing"
       ],
-      "definition": "Regression testing verifies that recent code fixes, enhancements, or configuration changes have not caused side effects or broken existing, previously working functionality.",
+      "definition": "Experience-based techniques leverage tester intuition, domain knowledge, and past defect history to design tests where specifications are missing or incomplete.",
       "sections": [
         {
-          "title": "1. Core Reasons for Importance",
+          "title": "1. Adhoc Testing",
           "content": [
-            "Prevents Ripple Effects: Fixing a bug in one component often introduces subtle bugs in dependent modules.",
-            "Continuous Integration Confidence: Automated regression suites run on every commit in CI/CD pipelines to catch bugs instantly.",
-            "Protects Core Business Workflows: Ensures revenue-critical features remain stable across agile sprints.",
-            "Validates Defect Resolution: Verifies that bug fixes completely solve the problem without regressions."
+            "Informal, unplanned, and unstructured testing performed without test cases or formal documentation.",
+            "Tester uses random trial-and-error to expose hidden bugs and edge-case exceptions.",
+            "Buddy Testing: One developer and one tester work together on a module.",
+            "Pair Testing: Two testers share one machine to test workflows collaboratively."
           ]
         },
         {
-          "title": "2. Selection Strategies",
+          "title": "2. Exploratory Testing",
           "content": [
-            "Retest All: Runs every test case in the regression suite (safest but resource-intensive).",
-            "Regression Test Selection: Uses impact analysis to run only tests covering modified code modules.",
-            "Test Case Prioritization: Prioritizes tests based on business criticality and failure history."
-          ]
-        }
-      ],
-      "summary": [
-        "Regression testing ensures bug fixes and new code do not break existing working features.",
-        "Primary candidate for automated CI/CD pipelines.",
-        "Strategies include Retest-All, Selective Regression, and Priority-based execution."
-      ],
-      "keyPoints": [
-        "Regression = side effect prevention.",
-        "Critical for agile, continuous integration, and frequent deployments.",
-        "Automated regression suites provide rapid feedback."
-      ]
-    },
-    {
-      "id": "stqa-u3-q14",
-      "unitId": "unit-3",
-      "subjectId": "stqa",
-      "qNumber": 14,
-      "title": "What Is Cookies Testing? Explain Cookies Testing with an Example",
-      "shortTitle": "Cookies Testing with Example",
-      "marks": 6,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 2,
-      "papersAsked": [
-        {
-          "paper": "May 2024",
-          "questionNo": "Q2(b)",
-          "marks": 6
-        },
-        {
-          "paper": "Nov 2025",
-          "questionNo": "Q2(b)",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Non-Functional Testing",
-        "Cookies Testing",
-        "Web Security"
-      ],
-      "definition": "Cookies testing validates that small client-side data files (cookies) stored by web browsers manage session state, user preferences, and authentication accurately and securely without vulnerability to tampering or data leakage.",
-      "sections": [
-        {
-          "title": "1. Scope of Cookies Testing",
-          "content": [
-            "Session vs Persistent Cookies: Verify session cookies delete upon browser closing; verify persistent cookies expire at designated timestamps.",
-            "Security Flags: Ensure sensitive authentication tokens carry HttpOnly (blocks XSS theft) and Secure (HTTPS only) flags.",
-            "Cookie Disabling: Verify application displays clear warning and degrades gracefully when cookies are disabled in browser settings.",
-            "Cookie Tampering: Manually modify cookie parameters (e.g. role=user to role=admin) to ensure server cryptographic signature validates and denies privilege escalation."
+            "Simultaneous learning, test design, and test execution.",
+            "Charter-Driven: Uses a time-boxed Test Charter (60-90 mins) specifying test mission and scope.",
+            "Dynamic Adaptation: Each test outcome informs and shapes the next test scenario.",
+            "Example: Testing shopping cart coupon codes, dynamically testing boundary expirations, stacking codes, and applying coupons to negative balances."
           ]
         },
         {
-          "title": "2. E-Commerce Cart Example",
+          "title": "3. Comparison: Adhoc vs Exploratory",
           "content": [
-            "User adds items to shopping cart as a guest. Application writes encrypted cookie: cart_id=abc123xyz; Secure; HttpOnly.",
-            "Closing and reopening browser restores cart items.",
-            "Tampering with cart_id causes server to discard invalid token and generate fresh session without leaking other users carts."
-          ]
-        }
-      ],
-      "summary": [
-        "Cookies testing verifies session persistence, state retention, security flags, and expiration.",
-        "Authentication cookies must have HttpOnly and Secure flags enabled.",
-        "Applications must handle cookie corruption and disabled cookies gracefully."
-      ],
-      "keyPoints": [
-        "Session cookies (temporary) vs Persistent cookies (disk).",
-        "Security: HttpOnly, Secure flags, encryption, anti-tampering.",
-        "Graceful degradation when cookies are disabled."
-      ]
-    },
-    {
-      "id": "stqa-u3-q15",
-      "unitId": "unit-3",
-      "subjectId": "stqa",
-      "qNumber": 15,
-      "title": "Explain Compatibility Testing and Security Testing in Detail",
-      "shortTitle": "Compatibility and Security Testing",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
-        {
-          "paper": "May 2025",
-          "questionNo": "Q1(b) & Q2(b)",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Non-Functional Testing",
-        "Compatibility Testing",
-        "Security Testing"
-      ],
-      "definition": "Compatibility testing verifies that software operates across diverse hardware, operating systems, browsers, and networks. Security testing discovers vulnerabilities, authentication flaws, and data leakage risks.",
-      "sections": [
-        {
-          "title": "1. Compatibility Testing Dimensions",
-          "content": [
-            "Cross-Browser: Verifies layout and JS execution across Chrome, Firefox, Safari, Edge.",
-            "Cross-Platform: Verifies execution across Windows, macOS, Linux, iOS, Android.",
-            "Hardware & Screen: Verifies responsive behavior across resolutions and device form factors.",
-            "Backward & Forward: Verifies interoperability with older and upcoming OS/browser versions."
-          ]
-        },
-        {
-          "title": "2. Security Testing Core Principles",
-          "content": [
-            "Confidentiality: Protecting sensitive data from unauthorized disclosure.",
-            "Integrity: Preventing unauthorized data alteration in transit or storage.",
-            "Authentication & Authorization: Confirming user identity and restricting access to authorized roles.",
-            "Vulnerability Testing: Probing for OWASP Top 10 flaws (SQL Injection, XSS, CSRF, broken access control)."
-          ]
-        }
-      ],
-      "summary": [
-        "Compatibility testing ensures uniform functionality across browsers, OS, and devices.",
-        "Security testing verifies confidentiality, integrity, authentication, and authorization.",
-        "Protects against OWASP Top 10 vulnerabilities (SQLi, XSS, CSRF)."
-      ],
-      "keyPoints": [
-        "Compatibility = Cross-browser, cross-OS, hardware, backward/forward.",
-        "Security = Confidentiality, Integrity, Availability, Authentication, Authorization.",
-        "OWASP Top 10 compliance."
-      ]
-    },
-    {
-      "id": "stqa-u3-q16",
-      "unitId": "unit-3",
-      "subjectId": "stqa",
-      "qNumber": 16,
-      "title": "Explain Risk-Based Testing (RBT) in Detail",
-      "shortTitle": "Risk-Based Testing (RBT)",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
-        {
-          "paper": "May 2025",
-          "questionNo": "Q1(c)",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Testing Strategy",
-        "Risk-Based Testing",
-        "Quality Management"
-      ],
-      "definition": "Risk-Based Testing (RBT) is a testing strategy that prioritizes test design and execution based on product risk: Risk Exposure = Probability of Failure × Impact of Failure.",
-      "sections": [
-        {
-          "title": "1. Risk-Based Testing Concept & Formula",
-          "content": [
-            "Exhaustive testing is impossible; RBT focuses effort where failure consequences are highest.",
-            "Risk Exposure = Probability of Failure (Likelihood) × Impact of Failure (Severity)."
+            "In Simple Words:",
+            "Adhoc testing is random unplanned poking around like an impatient child playing with buttons (monkey testing).",
+            "Exploratory testing is an experienced detective exploring a crime scene without a fixed script, simultaneously learning, designing, and executing intelligent tests."
           ],
-          "formulas": [
-            {
-              "name": "Risk Exposure Formula",
-              "latex": "\\text{Risk Exposure} = \\text{Likelihood of Failure} \\times \\text{Impact (Severity)}"
-            }
-          ]
-        },
-        {
-          "title": "2. RBT Process Steps",
-          "content": [
-            "1. Risk Identification: Catalog potential failure modes with stakeholders.",
-            "2. Risk Analysis & Scoring: Assign probability and impact scores (1-5 scale).",
-            "3. Prioritization: Classify modules into High, Medium, and Low risk tiers.",
-            "4. Test Allocation: High-risk areas receive exhaustive test design (BVA, decision tables, automation); low-risk areas receive light sampling.",
-            "5. Monitoring: Re-score risks continuously as defects are resolved."
-          ]
+          "table": {
+            "headers": [
+              "Adhoc Testing (Unplanned & Random)",
+              "Exploratory Testing (Charter-Guided & Simultaneous Learning)"
+            ],
+            "rows": [
+              {
+                "parameter": "Planning & Structure: Completely unplanned, spontaneous, and unstructured; tester pokes around randomly without a goal.",
+                "col1": "Planning & Structure: Guided by structured time-boxed Test Charters defining specific missions, focus areas, and boundary tactics."
+              },
+              {
+                "parameter": "Documentation: Zero formal documentation or recorded test design before, during, or after testing.",
+                "col1": "Documentation: Lightweight session logs, test notes, defect captures, and coverage metrics recorded during the session."
+              },
+              {
+                "parameter": "Tester Skill Level: Can be performed by anyone without deep domain knowledge (often called monkey testing).",
+                "col1": "Tester Skill Level: Requires highly skilled test detectives who simultaneously learn, design tests, and execute them in real time."
+              },
+              {
+                "parameter": "Reproducibility: Very low; when a defect is found, tracing the exact sequence of chaotic actions can be difficult.",
+                "col1": "Reproducibility: High; session notes and screen captures document the precise path taken to trigger the bug."
+              }
+            ]
+          }
         }
       ],
       "summary": [
-        "RBT prioritizes testing based on Risk = Probability × Impact.",
-        "Directs QA resources to high-risk, mission-critical modules first.",
-        "Ensures critical defects are caught early under tight release deadlines."
+        "Adhoc testing is unstructured, unplanned testing to break software (Buddy and Pair testing).",
+        "Exploratory testing is disciplined, charter-driven simultaneous learning and test execution.",
+        "Both leverage tester experience to detect edge bugs missed by scripted test cases."
       ],
       "keyPoints": [
-        "Risk = Likelihood × Severity.",
-        "High-risk features = rigorous testing, early execution, full automation.",
-        "Maximizes testing return on investment (ROI)."
+        "Experience-based = tester intuition + defect patterns.",
+        "Adhoc = random, unstructured, no documentation.",
+        "Exploratory = charter-driven, time-boxed, simultaneous learning."
       ]
     }
   ]

@@ -14,12 +14,33 @@ export const unit5Data: Unit = {
     '#Exemplar / Case Studies: Market basket analysis / Customer Segmentation'
   ],
   questionPaperIndex: [
-    { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q1, (b) → Q8, (c) → Q12', qOr: '(a) → Q4, (b) → Q10, (c) → Q16' },
-    { paper: 'May 2024 ([6404]-82)', qMain: '(a) → Q4, (b) → Q7, (c) → Q9', qOr: '(a) → Q1, (b) → Q14, (c) → Q12' },
-    { paper: 'April 2024 ([6263]-82)', qMain: '(a) → Q4, (b) → Q7, (c) → Q2', qOr: '(a) → Q11, (b) → Q5, (c) → Q19' },
-    { paper: 'Nov 2023 ([6181]-102)', qMain: '(a) → Q2, (b) → Q6, (c) → Q11', qOr: '(a) → Q8, (b) → Q15, (c) → Q17' },
-    { paper: 'April 2023 ([6004]-481)', qMain: '(a) → Q5, (b) → Q9, (c) → Q15', qOr: '(a) → Q18, (b) → Q1, (c) → (i) Q13, (ii) Q7' }
-  ],
+  {
+    paper: "June 2026 ([6627]-82)",
+    qMain: "Q5(a) Hierarchical & Density Clustering (8M), Q5(b) Cluster Optimization (4M), Q5(c) Clustering Evaluation (6M)",
+    qOr: "Q6(a) K-Means Clustering (9M), Q6(b) Outliers, K-Medoids, Spectral (9M)"
+  },
+  {
+    paper: "Nov 2025 ([6584]-92)",
+    qMain: "Q5(a) K-Means Principles & Applications (5M), Q5(b) K-Medoids PAM (6M), Q5(c) DBSCAN Core, Border & Noise (6M)",
+    qOr: "Q6(a) Isolation Forest Model (5M), Q6(b) Hierarchical Agglomerative & Dendrogram (6M), Q6(c) Intrinsic vs Extrinsic Quality (6M)"
+  },
+  {
+    paper: "May 2025 ([6404]-82)",
+    qMain: "Q5(a) Hierarchical Clustering (6M), Q5(b) Outlier Analysis (6M), Q5(c) Elbow Method in K-Means (6M)",
+    qOr: "Q6(a) Intrinsic vs Extrinsic Evaluation (6M), Q6(b) K-Means Steps (6M), Q6(c) Graph & Density Clustering (6M)"
+  },
+  {
+    paper: "Nov 2024 ([6354]-486)",
+    qMain: "Q5(a) K-Medoids PAM (5M), Q5(b) Density Based Clustering (6M), Q5(c) K-Means 8-Point Numerical (6M)",
+    qOr: "Q6(a) Isolation Forest (5M), Q6(b) Hierarchical Clustering (6M), Q6(c) Micro-Average Precision, Recall & F-score (6M)"
+  },
+  {
+    paper: "May 2024 ([6263]-82)",
+    qMain: "Q5(a) K-Medoids PAM (5M), Q5(b) Density Based Clustering (6M), Q5(c) Outlier Analysis (6M)",
+    qOr: "Q6(a) Isolation Factor Model (5M), Q6(b) K-Means Algorithm (6M), Q6(c) Hierarchical Clustering (6M)"
+  }
+],
+  
   quickRevision: {
     keyDefinitions: [
       { term: 'Unsupervised Learning', definition: 'Machine learning paradigms operating on unlabelled data to discover inherent natural groupings, latent structures, or anomalous patterns.' },
@@ -66,10 +87,10 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 4,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q6(b)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q6(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q5(b)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q6(a)', marks: 9, notes: 'K-Means Clustering with a Suitable Example' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q5(a)', marks: 5, notes: 'K-Means Clustering Principles, Working & Applications' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q6(b)', marks: 6, notes: 'K-Means Clustering with Essential Steps' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q6(b)', marks: 6, notes: 'Explain K-Means Algorithm' }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
       subtopic: 'K-Means Algorithm',
@@ -159,7 +180,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'April 2024', questionNo: 'Q5(c)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q5(c)', marks: 6, notes: 'K-Means 8-Point Clustering Numerical into 3 Clusters' }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
       subtopic: 'K-Means 9-Point Numerical',
@@ -258,11 +279,10 @@ export const unit5Data: Unit = {
       title: '"Optimization of Clusters" in Clustering',
       shortTitle: 'Cluster Optimization & Objective Minimization',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Important',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q6(b)(i)', marks: 4 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q5(b)', marks: 4, notes: 'Issue of Optimization of Clusters in Clustering' }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
       subtopic: 'Cluster Optimization',
@@ -313,11 +333,12 @@ export const unit5Data: Unit = {
       shortTitle: 'K-Medoids (PAM) Algorithm & Robustness',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 3,
+      occurrenceCount: 4,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q6(b)(ii)', marks: 4 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q6(b)(ii)', marks: 3, notes: 'K-Medoids Short Note' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q5(b)', marks: 6, notes: 'Why K-Medoid is Used? Explain K-Medoid Algorithm' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q5(a)', marks: 5, notes: 'Why K-Medoid is Used? Explain K-Medoid Algorithm' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q5(a)', marks: 5, notes: 'Why K-Medoid is Used? Explain K-Medoid Algorithm' }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
       subtopic: 'K-Medoids (PAM) Algorithm',
@@ -394,11 +415,11 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q6(c)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q6(b)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q6(a)', notes: 'Hierarchical part' },
-        { paper: 'April 2023', questionNo: 'Q5(a)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q5(c)', notes: '(i) Agglomerative, (ii) Dendrogram' }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q5(a)', marks: 4, notes: 'Hierarchical Clustering Approach in Detail' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q6(b)', marks: 6, notes: 'Hierarchical Clustering: Agglomerative & Dendrogram' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q5(a)', marks: 6, notes: 'Hierarchical Clustering with Example' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q6(b)', marks: 6, notes: 'Hierarchical Clustering with an Example' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q6(c)', marks: 6, notes: 'Hierarchical Clustering with Example' }
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
       subtopic: 'Hierarchical Clustering',
@@ -501,9 +522,9 @@ export const unit5Data: Unit = {
       shortTitle: 'Hierarchical vs K-Means Comparison',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q5(b)', marks: 6 }
+
       ],
       topicCategory: 'Partitioning & Hierarchical Clustering',
       subtopic: 'Hierarchical vs K-Means',
@@ -571,11 +592,11 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 5,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q5(c)', marks: 6 },
-        { paper: 'May 2024', questionNo: 'Q5(b)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q5(b)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q6(a)', notes: 'Density-based part' },
-        { paper: 'April 2023', questionNo: 'Q6(c)(ii)', marks: 4 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q5(a)', marks: 4, notes: 'Density-Based Clustering Approaches in Detail' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q5(c)', marks: 6, notes: 'DBSCAN: Core Point, Border Point, Noise, Eps, MinPts, Reachability' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q6(c)(ii)', marks: 3, notes: 'Density-Based Clustering' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q5(b)', marks: 6, notes: 'Why Density-Based Clustering is Used? Explain Any One' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q5(b)', marks: 6, notes: 'Why Density-Based Clustering is Used? Explain Any One' }
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
       subtopic: 'DBSCAN Core Points & Clustering',
@@ -652,9 +673,9 @@ export const unit5Data: Unit = {
       shortTitle: 'DBSCAN vs OPTICS vs DENCLUE In-Depth',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'In-Sem Exam', questionNo: 'Q5(a)', marks: 6 }
+
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
       subtopic: 'DBSCAN vs OPTICS vs DENCLUE',
@@ -742,7 +763,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q5(c)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q6(b)(iii)', marks: 3, notes: 'Spectral Clustering Short Note' }
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
       subtopic: 'Spectral Clustering & Graph Laplacian',
@@ -820,11 +841,10 @@ export const unit5Data: Unit = {
       title: 'Graph-Based Clustering',
       shortTitle: 'Graph-Based Clustering & Minimum Spanning Trees',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Important',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q6(c)(i)', marks: 4 },
-        { paper: 'In-Sem Exam', questionNo: 'Q6(b)', marks: 6 }
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q6(c)(i)', marks: 3, notes: 'Graph-Based Clustering' }
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
       subtopic: 'Graph-Based MST Clustering',
@@ -872,9 +892,9 @@ export const unit5Data: Unit = {
       shortTitle: 'K-Means vs Spectral Clustering Comparison',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q6(c)', marks: 6 }
+
       ],
       topicCategory: 'Density-Based & Spectral Clustering',
       subtopic: 'K-Means vs Spectral Comparison',
@@ -932,12 +952,11 @@ export const unit5Data: Unit = {
       shortTitle: 'Outlier Analysis: Importance, Pros & Cons',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q6(b)', notes: 'In relation to clustering' },
-        { paper: 'May 2024', questionNo: 'Q5(c)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q5(b)', notes: 'First part' },
-        { paper: 'April 2023', questionNo: 'Q5(b)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q6(b)(i)', marks: 3, notes: 'Outliers Short Note' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q5(b)', marks: 6, notes: 'Outlier Analysis: Importance, Advantages & Disadvantages' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q5(c)', marks: 6, notes: 'What is Outlier Analysis?' }
       ],
       topicCategory: 'Outlier Analysis',
       subtopic: 'Outlier Analysis Principles',
@@ -1017,11 +1036,10 @@ export const unit5Data: Unit = {
       title: 'Local Outlier Factor (LOF): What is it and How is it Calculated?',
       shortTitle: 'Local Outlier Factor (LOF) Algorithm & Formula',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Important',
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q5(b)', notes: 'Second part' },
-        { paper: 'In-Sem Exam', questionNo: 'Q6(a)', marks: 6 }
+
       ],
       topicCategory: 'Outlier Analysis',
       subtopic: 'Local Outlier Factor (LOF)',
@@ -1107,10 +1125,11 @@ export const unit5Data: Unit = {
       shortTitle: 'Isolation Forest (iForest) Anomaly Detection',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q6(a)', marks: 6 },
-        { paper: 'April 2024', questionNo: 'Q6(a)', marks: 6 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q6(a)', marks: 5, notes: 'What is Isolation Factor Model?' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q6(a)', marks: 5, notes: 'What is Isolation Factor Model?' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q6(a)', marks: 5, notes: 'What is Isolation Factor Model?' }
       ],
       topicCategory: 'Outlier Analysis',
       subtopic: 'Isolation Forest Model',
@@ -1201,11 +1220,10 @@ export const unit5Data: Unit = {
       title: 'Elbow Method for Finding the Optimal Number of Clusters (K-Means)',
       shortTitle: 'The Elbow Method & WCSS Curve Analysis',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Important',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q5(c)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q6(c)(i)', marks: 4 }
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q5(c)', marks: 6, notes: 'Elbow Method Used in K-Means Clustering' }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
       subtopic: 'The Elbow Method (WCSS)',
@@ -1270,9 +1288,9 @@ export const unit5Data: Unit = {
       shortTitle: 'Choosing Optimal K in K-Medoids (PAM)',
       marks: 4,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q6(a)', marks: 4 }
+
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
       subtopic: 'Choosing Optimal K in PAM',
@@ -1313,7 +1331,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q6(b)(iii)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q5(c)', marks: 6, notes: 'Different Evaluation Methods of Clustering Algorithms' }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
       subtopic: 'Clustering Metrics Suite',
@@ -1389,8 +1407,8 @@ export const unit5Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q6(a)', notes: 'Compare intrinsic vs extrinsic motivation / methods' },
-        { paper: 'In-Sem Exam', questionNo: 'Q6(c)(ii)', marks: 4 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q6(c)', marks: 6, notes: 'Intrinsic and Extrinsic Methods for Measuring Clustering Quality' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q6(a)', marks: 6, notes: 'Compare Intrinsic with Extrinsic Evaluation (Motivation)' }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
       subtopic: 'Intrinsic vs Extrinsic Evaluation',
@@ -1454,7 +1472,7 @@ export const unit5Data: Unit = {
       importance: 'Important',
       occurrenceCount: 1,
       papersAsked: [
-        { paper: 'April 2024', questionNo: 'Q6(c)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q6(c)', marks: 6, notes: 'Micro-Average Precision and Recall, Micro-Average F-score' }
       ],
       topicCategory: 'Clustering Evaluation & Exemplar',
       subtopic: 'Micro Metrics & Customer Segmentation Exemplar',

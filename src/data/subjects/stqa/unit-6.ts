@@ -99,12 +99,88 @@ export const unit6Data: Unit = {
       "For Six Sigma, highlight the target metric: 3.4 DPMO and explain all 5 DMAIC steps."
     ]
   },
-  "questions": [
+  questions: [
+    {
+      "id": "stqa-u6-q4",
+      "unitId": "unit-6",
+      "subjectId": "stqa",
+      topicCategory: 'SQA Tasks, Goals, Metrics & Defect Removal',
+      subtopic: 'Achieving Software Quality & Quality Dilemma',
+      "qNumber": 1,
+      "title": "What Parameters and Activities Are Required for Achieving Good Software Quality?",
+      "shortTitle": "Parameters for Achieving Good Software Quality",
+      "marks": 8,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 4,
+      "papersAsked": [
+        {
+          "paper": "May 2023",
+          "questionNo": "Q7(c)",
+          "marks": 5
+        },
+        {
+          "paper": "Nov 2023",
+          "questionNo": "Q8(b)",
+          "marks": 6
+        },
+        {
+          "paper": "May 2024",
+          "questionNo": "Q7(a)",
+          "marks": 8
+        },
+        {
+          "paper": "Nov 2025",
+          "questionNo": "Q8(c)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Achieving Software Quality",
+        "Quality Parameters",
+        "SQA Activities"
+      ],
+      "definition": "Achieving good software quality is the outcome of disciplined software engineering, solid project management, early static reviews, rigorous dynamic testing, and executive leadership commitment.",
+      "sections": [
+        {
+          "title": "1. Core Parameters Required for Good Software Quality",
+          "content": [
+            "1. Functional Correctness: Complete conformance with all stated and implied user requirements.",
+            "2. Reliability & Fault Tolerance: High Mean Time Between Failures (MTBF) and graceful recovery from exceptions.",
+            "3. Usability & User Experience: Intuitive navigation, clear error prompts, and low user cognitive load.",
+            "4. Efficiency & Performance: Optimal response times, high throughput, and lean CPU/memory utilization.",
+            "5. Maintainability & Clean Architecture: High cohesion, loose coupling, thorough documentation, and clean modular code.",
+            "6. Portability & Compatibility: Seamless execution across operating systems, browsers, and hardware devices."
+          ]
+        },
+        {
+          "title": "2. Key Activities Required to Achieve Quality",
+          "content": [
+            "Solid Engineering Upfront: Eliminating architectural and design flaws during early modeling phases.",
+            "Formal Technical Reviews: Mandatory walkthroughs and Fagan inspections catching defects before compilation.",
+            "Disciplined Change & Configuration Control: Strictly controlling requirements churn and code branching.",
+            "Realistic Project Estimation: Avoiding unrealistic deadlines that force developers to cut corners on testing."
+          ]
+        }
+      ],
+      "summary": [
+        "Quality is built into software through upfront engineering discipline, not tested in at the end.",
+        "Key parameters: Correctness, reliability, efficiency, maintainability, and usability.",
+        "Essential activities: Early static reviews, formal change control, realistic scheduling, and multi-tier testing."
+      ],
+      "keyPoints": [
+        "Quality parameters: Correctness, Reliability, Usability, Efficiency, Maintainability, Portability.",
+        "Upfront defect prevention beats late defect detection.",
+        "Requires leadership commitment and realistic scheduling."
+      ]
+    },
+
     {
       "id": "stqa-u6-q1",
       "unitId": "unit-6",
       "subjectId": "stqa",
-      "qNumber": 1,
+      topicCategory: 'SQA Tasks, Goals, Metrics & Defect Removal',
+      subtopic: 'SQA Elements, Infrastructure & SQA Plan',
+      "qNumber": 2,
       "title": "Can You Explain How to Maintain SQA? Detail Organizational Activities and Infrastructure",
       "shortTitle": "Maintaining SQA in an Organization",
       "marks": 6,
@@ -164,11 +240,14 @@ export const unit6Data: Unit = {
         "Independence: SQA reports directly to executive leadership."
       ]
     },
+
     {
       "id": "stqa-u6-q2",
       "unitId": "unit-6",
       "subjectId": "stqa",
-      "qNumber": 2,
+      topicCategory: 'SQA Tasks, Goals, Metrics & Defect Removal',
+      subtopic: 'SQA Tasks, Goals and Metrics',
+      "qNumber": 3,
       "title": "Illustrate Different Tasks, Goals, and Metrics in Software Quality Assurance (SQA)",
       "shortTitle": "SQA Tasks, Goals, and Metrics",
       "marks": 6,
@@ -238,11 +317,14 @@ export const unit6Data: Unit = {
         "Metrics: Defect density (Defects/KLOC), DRE, pass rates."
       ]
     },
+
     {
       "id": "stqa-u6-q3",
       "unitId": "unit-6",
       "subjectId": "stqa",
-      "qNumber": 3,
+      topicCategory: 'SQA Tasks, Goals, Metrics & Defect Removal',
+      subtopic: 'Defect Removal Effectiveness (DRE) & Process',
+      "qNumber": 4,
       "title": "Explain Defect Removal Effectiveness (DRE) in Detail: Concept, Mathematical Formula, and Injection vs Removal",
       "shortTitle": "Defect Removal Effectiveness (DRE)",
       "marks": 6,
@@ -312,82 +394,136 @@ export const unit6Data: Unit = {
         "Target for mature organizations is DRE >= 95%."
       ]
     },
+
     {
-      "id": "stqa-u6-q4",
+      "id": "stqa-u6-q12",
       "unitId": "unit-6",
       "subjectId": "stqa",
-      "qNumber": 4,
-      "title": "What Parameters and Activities Are Required for Achieving Good Software Quality?",
-      "shortTitle": "Parameters for Achieving Good Software Quality",
-      "marks": 8,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 4,
+      topicCategory: 'SQA Tasks, Goals, Metrics & Defect Removal',
+      subtopic: 'Product Quality & In-Process Quality Metrics',
+      "qNumber": 5,
+      "title": "Explain Software Quality Metrics: Process Metrics, Product Metrics, and In-Process Metrics",
+      "shortTitle": "Software Quality Metrics in Detail",
+      "marks": 6,
+      "importance": "Important",
+      "occurrenceCount": 1,
       "papersAsked": [
         {
-          "paper": "May 2023",
-          "questionNo": "Q7(c)",
-          "marks": 5
-        },
-        {
-          "paper": "Nov 2023",
-          "questionNo": "Q8(b)",
-          "marks": 6
-        },
-        {
-          "paper": "May 2024",
-          "questionNo": "Q7(a)",
-          "marks": 8
-        },
-        {
-          "paper": "Nov 2025",
-          "questionNo": "Q8(c)",
+          "paper": "Textbook 6.8 & 6.9",
+          "questionNo": "Q7/Q8 Related",
           "marks": 6
         }
       ],
       "syllabusTopics": [
-        "Achieving Software Quality",
-        "Quality Parameters",
-        "SQA Activities"
+        "Software Metrics",
+        "Product Metrics",
+        "Process Metrics",
+        "In-Process Quality"
       ],
-      "definition": "Achieving good software quality is the outcome of disciplined software engineering, solid project management, early static reviews, rigorous dynamic testing, and executive leadership commitment.",
+      "definition": "Software quality metrics are quantitative measurements enabling organizations to monitor, assess, and improve software development processes, product stability, and maintenance performance.",
       "sections": [
         {
-          "title": "1. Core Parameters Required for Good Software Quality",
+          "title": "1. Classification of Quality Metrics",
           "content": [
-            "1. Functional Correctness: Complete conformance with all stated and implied user requirements.",
-            "2. Reliability & Fault Tolerance: High Mean Time Between Failures (MTBF) and graceful recovery from exceptions.",
-            "3. Usability & User Experience: Intuitive navigation, clear error prompts, and low user cognitive load.",
-            "4. Efficiency & Performance: Optimal response times, high throughput, and lean CPU/memory utilization.",
-            "5. Maintainability & Clean Architecture: High cohesion, loose coupling, thorough documentation, and clean modular code.",
-            "6. Portability & Compatibility: Seamless execution across operating systems, browsers, and hardware devices."
+            "Process Quality Metrics: Measure the efficiency and defect detection of the development process (e.g. Code Error Density = Errors / KLOC, Defect Removal Effectiveness = E / (E + D)).",
+            "Product Quality Metrics: Measure operational attributes of the software deliverable (e.g. Mean Time Between Failures [MTBF], Customer Help Desk call rate, Response latency).",
+            "Maintenance Quality Metrics: Measure post-release support efficiency (e.g. Mean Time To Repair [MTTR], Repeat failure call rate)."
           ]
         },
         {
-          "title": "2. Key Activities Required to Achieve Quality",
+          "title": "2. Metric Formulas",
           "content": [
-            "Solid Engineering Upfront: Eliminating architectural and design flaws during early modeling phases.",
-            "Formal Technical Reviews: Mandatory walkthroughs and Fagan inspections catching defects before compilation.",
-            "Disciplined Change & Configuration Control: Strictly controlling requirements churn and code branching.",
-            "Realistic Project Estimation: Avoiding unrealistic deadlines that force developers to cut corners on testing."
+            "Code Error Density (CED) = Number of code errors detected / KLOC.",
+            "Mean Time to Repair (MTTR) = Total maintenance downtime / Number of repair actions."
+          ],
+          "formulas": [
+            {
+              "name": "Code Error Density",
+              "latex": "\\text{CED} = \\frac{\\text{Errors Detected}}{\\text{KLOC}}"
+            },
+            {
+              "name": "Mean Time to Repair (MTTR)",
+              "latex": "\\text{MTTR} = \\frac{\\text{Total Downtime}}{\\text{Total Breakdowns}}"
+            }
           ]
         }
       ],
       "summary": [
-        "Quality is built into software through upfront engineering discipline, not tested in at the end.",
-        "Key parameters: Correctness, reliability, efficiency, maintainability, and usability.",
-        "Essential activities: Early static reviews, formal change control, realistic scheduling, and multi-tier testing."
+        "Quality metrics provide objective quantitative data to drive process improvements.",
+        "Process metrics evaluate development efficiency (CED, DRE).",
+        "Product metrics evaluate operational reliability and customer call volume (MTBF, MTTR)."
       ],
       "keyPoints": [
-        "Quality parameters: Correctness, Reliability, Usability, Efficiency, Maintainability, Portability.",
-        "Upfront defect prevention beats late defect detection.",
-        "Requires leadership commitment and realistic scheduling."
+        "Process metrics: Defect density (Errors/KLOC), DRE, timetable observance.",
+        "Product metrics: MTBF, response times, defect severity weights.",
+        "Maintenance metrics: MTTR, repeat failure rate, customer ticket volume."
       ]
     },
+
+    {
+      "id": "stqa-u6-q11",
+      "unitId": "unit-6",
+      "subjectId": "stqa",
+      topicCategory: 'SQA Tasks, Goals, Metrics & Defect Removal',
+      subtopic: 'Software Maintenance & Quality Assurance',
+      "qNumber": 6,
+      "title": "What Do You Understand by Software Maintenance? Explain Its Four Types and SQA Components",
+      "shortTitle": "Software Maintenance & SQA Components",
+      "marks": 6,
+      "importance": "Important",
+      "occurrenceCount": 1,
+      "papersAsked": [
+        {
+          "paper": "Nov 2023",
+          "questionNo": "Q7(c)",
+          "marks": 5
+        }
+      ],
+      "syllabusTopics": [
+        "Software Maintenance",
+        "Maintenance Types",
+        "Maintenance SQA"
+      ],
+      "definition": "Software maintenance encompasses technical and managerial activities executed after software delivery to correct latent defects, improve performance, adapt to environmental changes, and implement new requirements.",
+      "sections": [
+        {
+          "title": "1. The Four Types of Software Maintenance",
+          "content": [
+            "1. Corrective Maintenance: Reactive repair of discovered bugs and defects deviating from specifications (e.g. fixing a tax calculation glitch).",
+            "2. Adaptive Maintenance: Modifying software to adapt to environmental changes in OS, database versions, cloud infrastructure, or third-party APIs (e.g. migrating from Python 2 to 3).",
+            "3. Perfective Maintenance: Enhancing existing features, improving performance, and refining user interface based on user feedback (e.g. optimizing SQL queries).",
+            "4. Preventive Maintenance: Proactive refactoring, code restructuring, and updating libraries to prevent future failures before they manifest (software re-engineering)."
+          ]
+        },
+        {
+          "title": "2. SQA Maintenance Components",
+          "content": [
+            "Maintenance Contract Review: Defining SLA response times, service scope, and user populations.",
+            "Maintenance Plan: Documenting maintenance team organization, infrastructure, procedures, and budgets.",
+            "Regression Test Suites: Maintaining automated regression test suites verifying that patches do not break existing features."
+          ]
+        }
+      ],
+      "summary": [
+        "Software maintenance accounts for up to 60-80% of total software lifecycle cost.",
+        "Four types: Corrective (bugs), Adaptive (environment), Perfective (enhancements), Preventive (refactoring).",
+        "Requires rigorous change control, regression test suites, and SQA maintenance plans."
+      ],
+      "keyPoints": [
+        "Corrective = Bug fixing.",
+        "Adaptive = Environmental changes (OS/DB/APIs).",
+        "Perfective = Performance tuning and feature polish.",
+        "Preventive = Proactive refactoring to avoid future failures."
+      ]
+    },
+
     {
       "id": "stqa-u6-q5",
       "unitId": "unit-6",
       "subjectId": "stqa",
-      "qNumber": 5,
+      topicCategory: 'Six Sigma, TQM & ISO 9000 Standards',
+      subtopic: 'Six Sigma for Software Engineering',
+      "qNumber": 7,
       "title": "Explain Six Sigma Strategy for Software Engineering: Characteristics, 3.4 DPMO Target, DMAIC, and DMADV",
       "shortTitle": "Six Sigma Strategy for Software",
       "marks": 6,
@@ -467,11 +603,141 @@ export const unit6Data: Unit = {
         "DMADV = Define, Measure, Analyze, Design, Verify (new architectures)."
       ]
     },
+
+    {
+      "id": "stqa-u6-q9",
+      "unitId": "unit-6",
+      "subjectId": "stqa",
+      topicCategory: 'Six Sigma, TQM & ISO 9000 Standards',
+      subtopic: 'Total Quality Management (TQM)',
+      "qNumber": 8,
+      "title": "Explain Total Quality Management (TQM) in Detail: Principles, Management Elements, and Core Pillars",
+      "shortTitle": "Total Quality Management (TQM)",
+      "marks": 6,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 2,
+      "papersAsked": [
+        {
+          "paper": "Nov 2023",
+          "questionNo": "Q7(a)",
+          "marks": 6
+        },
+        {
+          "paper": "May 2025",
+          "questionNo": "Q8(b)",
+          "marks": 6
+        }
+      ],
+      "syllabusTopics": [
+        "Total Quality Management",
+        "TQM Principles",
+        "Customer Focus",
+        "Kaizen"
+      ],
+      "definition": "Total Quality Management (TQM) is an organization-wide management philosophy seeking continuous, long-term improvement in product quality, process efficiency, and customer satisfaction through total employee involvement.",
+      "sections": [
+        {
+          "title": "1. The Six Core Concepts of TQM",
+          "content": [
+            "1. Top Management Leadership: Quality is a strategic business policy initiated and sustained by executive management.",
+            "2. Total Customer Satisfaction: Quality is defined by customer expectations; exceeding expectations drives retention.",
+            "3. Total Employee Empowerment: Quality is everyone's responsibility, supported by cross-functional quality circles.",
+            "4. Continuous Process Improvement (Kaizen): Continual refinement using PDCA (Plan-Do-Check-Act) cycles.",
+            "5. Supplier Partnership: Collaborative, long-term relationships ensuring quality incoming third-party software and tools.",
+            "6. Fact-Based Performance Measurement: Managing by concrete statistical data rather than intuition."
+          ]
+        },
+        {
+          "title": "2. TQM Phases and Associated Tools",
+          "content": [
+            "Customer Focus Phase: Surveys, CSAT, Net Promoter Score, customer complaint analysis.",
+            "Planning Phase: Quality policy declaration, corporate quality councils, cross-functional teams.",
+            "Process Improvement Phase: PDCA cycle, 7 QC tools, SPC control charts, root cause analysis."
+          ]
+        }
+      ],
+      "summary": [
+        "TQM is an organization-wide culture of continuous quality improvement.",
+        "Anchored on 6 concepts: Leadership, Customer focus, Employee empowerment, Kaizen, Supplier partnerships, and Metrics.",
+        "Emphasizes proactive process improvement across all departments, not just QA."
+      ],
+      "keyPoints": [
+        "TQM = Total Quality Management (organization-wide philosophy).",
+        "Customer satisfaction is the primary compass.",
+        "PDCA continuous improvement cycle drives operational refinement."
+      ]
+    },
+
+    {
+      "id": "stqa-u6-q10",
+      "unitId": "unit-6",
+      "subjectId": "stqa",
+      topicCategory: 'Six Sigma, TQM & ISO 9000 Standards',
+      subtopic: 'ISO 9000 Quality Standards',
+      "qNumber": 9,
+      "title": "Explain ISO 9000 Standard Series in Detail: Standards Structure, Certification Process, and Benefits",
+      "shortTitle": "ISO 9000 Standards Series in Detail",
+      "marks": 6,
+      "importance": "Frequently Asked",
+      "occurrenceCount": 2,
+      "papersAsked": [
+        {
+          "paper": "May 2024",
+          "questionNo": "Q8(a)",
+          "marks": 6
+        },
+        {
+          "paper": "Nov 2025",
+          "questionNo": "Q8(a)",
+          "marks": 5
+        }
+      ],
+      "syllabusTopics": [
+        "ISO 9000",
+        "ISO 9001",
+        "ISO Certification",
+        "Quality Standards"
+      ],
+      "definition": "The ISO 9000 series is an internationally recognized framework of quality management standards established by the International Organization for Standardization (ISO) to ensure organizations consistently deliver products satisfying customer and regulatory standards.",
+      "sections": [
+        {
+          "title": "1. The ISO 9000 Family of Standards",
+          "content": [
+            "ISO 9000: Fundamentals, concepts, and vocabulary of quality management systems.",
+            "ISO 9001: The core certification standard specifying requirements for a QMS across design, development, production, and servicing.",
+            "ISO 9000-3: Specific guidelines for implementing ISO 9001 in software development, maintenance, and testing.",
+            "ISO 9004: Guidance for achieving sustained organizational success and continuous performance improvement."
+          ]
+        },
+        {
+          "title": "2. The 4-Step ISO Certification Process",
+          "content": [
+            "1. Preparation & Implementation: Company adopts standard operating procedures and creates 4-tier QMS documentation.",
+            "2. Internal Quality Audits: Internal audit teams evaluate compliance and remediate identified non-conformances.",
+            "3. Formal Third-Party Audit: Accredited independent registrar conducts Stage 1 (Documentation review) and Stage 2 (Onsite certification audit).",
+            "4. Surveillance Audits: Registrar conducts periodic surveillance audits every year with full recertification every 3 years."
+          ]
+        }
+      ],
+      "summary": [
+        "The ISO 9000 series provides a globally recognized baseline for quality management systems.",
+        "ISO 9001 is the certification standard; ISO 9000-3 tailors it specifically to computer software.",
+        "Certification requires documented QMS procedures, internal audits, and third-party registrar assessments."
+      ],
+      "keyPoints": [
+        "ISO 9001 = generic certification standard; ISO 9000-3 = software guideline.",
+        "Requires 4-tier documentation: Policy -> Objectives -> Manual -> Instructions.",
+        "Independent external registrar audits every 3 years for recertification."
+      ]
+    },
+
     {
       "id": "stqa-u6-q6",
       "unitId": "unit-6",
       "subjectId": "stqa",
-      "qNumber": 6,
+      topicCategory: 'Ishikawas 7 Basic Quality Tools',
+      subtopic: 'Ishikawas 7 Basic Quality Tools Overview',
+      "qNumber": 10,
       "title": "Illustrate Ishikawa's 7 Basic Quality Tools (7 QC Tools) in Detail",
       "shortTitle": "Ishikawa's 7 Basic Quality Tools",
       "marks": 6,
@@ -520,11 +786,14 @@ export const unit6Data: Unit = {
         "Control chart = monitoring process stability against UCL/LCL limits."
       ]
     },
+
     {
       "id": "stqa-u6-q7",
       "unitId": "unit-6",
       "subjectId": "stqa",
-      "qNumber": 7,
+      topicCategory: 'Ishikawas 7 Basic Quality Tools',
+      subtopic: 'Pareto Diagrams, Histograms & Cause-Effect',
+      "qNumber": 11,
       "title": "Compare Ishikawa's Flowchart and Histogram Tools in Detail",
       "shortTitle": "Flowchart vs Histogram Comparison",
       "marks": 6,
@@ -611,11 +880,14 @@ export const unit6Data: Unit = {
         "Qualitative workflow mapping vs Quantitative variance analysis."
       ]
     },
+
     {
       "id": "stqa-u6-q8",
       "unitId": "unit-6",
       "subjectId": "stqa",
-      "qNumber": 8,
+      topicCategory: 'Ishikawas 7 Basic Quality Tools',
+      subtopic: 'Flowcharts, Run Charts & Control Charts',
+      "qNumber": 12,
       "title": "Clarify Flowcharts, Run Charts, and Control Charts with Diagrams and Control Limits",
       "shortTitle": "Flowcharts, Run Charts & Control Charts",
       "marks": 6,
@@ -720,243 +992,6 @@ export const unit6Data: Unit = {
         "Run Chart = Time series plot + median line (identifies trends).",
         "Control Chart = Time series + Mean + UCL ($\\mu+3\\sigma$) + LCL ($\\mu-3\\sigma$).",
         "Out of control = points beyond UCL/LCL or non-random streaks."
-      ]
-    },
-    {
-      "id": "stqa-u6-q9",
-      "unitId": "unit-6",
-      "subjectId": "stqa",
-      "qNumber": 9,
-      "title": "Explain Total Quality Management (TQM) in Detail: Principles, Management Elements, and Core Pillars",
-      "shortTitle": "Total Quality Management (TQM)",
-      "marks": 6,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 2,
-      "papersAsked": [
-        {
-          "paper": "Nov 2023",
-          "questionNo": "Q7(a)",
-          "marks": 6
-        },
-        {
-          "paper": "May 2025",
-          "questionNo": "Q8(b)",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Total Quality Management",
-        "TQM Principles",
-        "Customer Focus",
-        "Kaizen"
-      ],
-      "definition": "Total Quality Management (TQM) is an organization-wide management philosophy seeking continuous, long-term improvement in product quality, process efficiency, and customer satisfaction through total employee involvement.",
-      "sections": [
-        {
-          "title": "1. The Six Core Concepts of TQM",
-          "content": [
-            "1. Top Management Leadership: Quality is a strategic business policy initiated and sustained by executive management.",
-            "2. Total Customer Satisfaction: Quality is defined by customer expectations; exceeding expectations drives retention.",
-            "3. Total Employee Empowerment: Quality is everyone's responsibility, supported by cross-functional quality circles.",
-            "4. Continuous Process Improvement (Kaizen): Continual refinement using PDCA (Plan-Do-Check-Act) cycles.",
-            "5. Supplier Partnership: Collaborative, long-term relationships ensuring quality incoming third-party software and tools.",
-            "6. Fact-Based Performance Measurement: Managing by concrete statistical data rather than intuition."
-          ]
-        },
-        {
-          "title": "2. TQM Phases and Associated Tools",
-          "content": [
-            "Customer Focus Phase: Surveys, CSAT, Net Promoter Score, customer complaint analysis.",
-            "Planning Phase: Quality policy declaration, corporate quality councils, cross-functional teams.",
-            "Process Improvement Phase: PDCA cycle, 7 QC tools, SPC control charts, root cause analysis."
-          ]
-        }
-      ],
-      "summary": [
-        "TQM is an organization-wide culture of continuous quality improvement.",
-        "Anchored on 6 concepts: Leadership, Customer focus, Employee empowerment, Kaizen, Supplier partnerships, and Metrics.",
-        "Emphasizes proactive process improvement across all departments, not just QA."
-      ],
-      "keyPoints": [
-        "TQM = Total Quality Management (organization-wide philosophy).",
-        "Customer satisfaction is the primary compass.",
-        "PDCA continuous improvement cycle drives operational refinement."
-      ]
-    },
-    {
-      "id": "stqa-u6-q10",
-      "unitId": "unit-6",
-      "subjectId": "stqa",
-      "qNumber": 10,
-      "title": "Explain ISO 9000 Standard Series in Detail: Standards Structure, Certification Process, and Benefits",
-      "shortTitle": "ISO 9000 Standards Series in Detail",
-      "marks": 6,
-      "importance": "Frequently Asked",
-      "occurrenceCount": 2,
-      "papersAsked": [
-        {
-          "paper": "May 2024",
-          "questionNo": "Q8(a)",
-          "marks": 6
-        },
-        {
-          "paper": "Nov 2025",
-          "questionNo": "Q8(a)",
-          "marks": 5
-        }
-      ],
-      "syllabusTopics": [
-        "ISO 9000",
-        "ISO 9001",
-        "ISO Certification",
-        "Quality Standards"
-      ],
-      "definition": "The ISO 9000 series is an internationally recognized framework of quality management standards established by the International Organization for Standardization (ISO) to ensure organizations consistently deliver products satisfying customer and regulatory standards.",
-      "sections": [
-        {
-          "title": "1. The ISO 9000 Family of Standards",
-          "content": [
-            "ISO 9000: Fundamentals, concepts, and vocabulary of quality management systems.",
-            "ISO 9001: The core certification standard specifying requirements for a QMS across design, development, production, and servicing.",
-            "ISO 9000-3: Specific guidelines for implementing ISO 9001 in software development, maintenance, and testing.",
-            "ISO 9004: Guidance for achieving sustained organizational success and continuous performance improvement."
-          ]
-        },
-        {
-          "title": "2. The 4-Step ISO Certification Process",
-          "content": [
-            "1. Preparation & Implementation: Company adopts standard operating procedures and creates 4-tier QMS documentation.",
-            "2. Internal Quality Audits: Internal audit teams evaluate compliance and remediate identified non-conformances.",
-            "3. Formal Third-Party Audit: Accredited independent registrar conducts Stage 1 (Documentation review) and Stage 2 (Onsite certification audit).",
-            "4. Surveillance Audits: Registrar conducts periodic surveillance audits every year with full recertification every 3 years."
-          ]
-        }
-      ],
-      "summary": [
-        "The ISO 9000 series provides a globally recognized baseline for quality management systems.",
-        "ISO 9001 is the certification standard; ISO 9000-3 tailors it specifically to computer software.",
-        "Certification requires documented QMS procedures, internal audits, and third-party registrar assessments."
-      ],
-      "keyPoints": [
-        "ISO 9001 = generic certification standard; ISO 9000-3 = software guideline.",
-        "Requires 4-tier documentation: Policy -> Objectives -> Manual -> Instructions.",
-        "Independent external registrar audits every 3 years for recertification."
-      ]
-    },
-    {
-      "id": "stqa-u6-q11",
-      "unitId": "unit-6",
-      "subjectId": "stqa",
-      "qNumber": 11,
-      "title": "What Do You Understand by Software Maintenance? Explain Its Four Types and SQA Components",
-      "shortTitle": "Software Maintenance & SQA Components",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
-        {
-          "paper": "Nov 2023",
-          "questionNo": "Q7(c)",
-          "marks": 5
-        }
-      ],
-      "syllabusTopics": [
-        "Software Maintenance",
-        "Maintenance Types",
-        "Maintenance SQA"
-      ],
-      "definition": "Software maintenance encompasses technical and managerial activities executed after software delivery to correct latent defects, improve performance, adapt to environmental changes, and implement new requirements.",
-      "sections": [
-        {
-          "title": "1. The Four Types of Software Maintenance",
-          "content": [
-            "1. Corrective Maintenance: Reactive repair of discovered bugs and defects deviating from specifications (e.g. fixing a tax calculation glitch).",
-            "2. Adaptive Maintenance: Modifying software to adapt to environmental changes in OS, database versions, cloud infrastructure, or third-party APIs (e.g. migrating from Python 2 to 3).",
-            "3. Perfective Maintenance: Enhancing existing features, improving performance, and refining user interface based on user feedback (e.g. optimizing SQL queries).",
-            "4. Preventive Maintenance: Proactive refactoring, code restructuring, and updating libraries to prevent future failures before they manifest (software re-engineering)."
-          ]
-        },
-        {
-          "title": "2. SQA Maintenance Components",
-          "content": [
-            "Maintenance Contract Review: Defining SLA response times, service scope, and user populations.",
-            "Maintenance Plan: Documenting maintenance team organization, infrastructure, procedures, and budgets.",
-            "Regression Test Suites: Maintaining automated regression test suites verifying that patches do not break existing features."
-          ]
-        }
-      ],
-      "summary": [
-        "Software maintenance accounts for up to 60-80% of total software lifecycle cost.",
-        "Four types: Corrective (bugs), Adaptive (environment), Perfective (enhancements), Preventive (refactoring).",
-        "Requires rigorous change control, regression test suites, and SQA maintenance plans."
-      ],
-      "keyPoints": [
-        "Corrective = Bug fixing.",
-        "Adaptive = Environmental changes (OS/DB/APIs).",
-        "Perfective = Performance tuning and feature polish.",
-        "Preventive = Proactive refactoring to avoid future failures."
-      ]
-    },
-    {
-      "id": "stqa-u6-q12",
-      "unitId": "unit-6",
-      "subjectId": "stqa",
-      "qNumber": 12,
-      "title": "Explain Software Quality Metrics: Process Metrics, Product Metrics, and In-Process Metrics",
-      "shortTitle": "Software Quality Metrics in Detail",
-      "marks": 6,
-      "importance": "Important",
-      "occurrenceCount": 1,
-      "papersAsked": [
-        {
-          "paper": "Textbook 6.8 & 6.9",
-          "questionNo": "Q7/Q8 Related",
-          "marks": 6
-        }
-      ],
-      "syllabusTopics": [
-        "Software Metrics",
-        "Product Metrics",
-        "Process Metrics",
-        "In-Process Quality"
-      ],
-      "definition": "Software quality metrics are quantitative measurements enabling organizations to monitor, assess, and improve software development processes, product stability, and maintenance performance.",
-      "sections": [
-        {
-          "title": "1. Classification of Quality Metrics",
-          "content": [
-            "Process Quality Metrics: Measure the efficiency and defect detection of the development process (e.g. Code Error Density = Errors / KLOC, Defect Removal Effectiveness = E / (E + D)).",
-            "Product Quality Metrics: Measure operational attributes of the software deliverable (e.g. Mean Time Between Failures [MTBF], Customer Help Desk call rate, Response latency).",
-            "Maintenance Quality Metrics: Measure post-release support efficiency (e.g. Mean Time To Repair [MTTR], Repeat failure call rate)."
-          ]
-        },
-        {
-          "title": "2. Metric Formulas",
-          "content": [
-            "Code Error Density (CED) = Number of code errors detected / KLOC.",
-            "Mean Time to Repair (MTTR) = Total maintenance downtime / Number of repair actions."
-          ],
-          "formulas": [
-            {
-              "name": "Code Error Density",
-              "latex": "\\text{CED} = \\frac{\\text{Errors Detected}}{\\text{KLOC}}"
-            },
-            {
-              "name": "Mean Time to Repair (MTTR)",
-              "latex": "\\text{MTTR} = \\frac{\\text{Total Downtime}}{\\text{Total Breakdowns}}"
-            }
-          ]
-        }
-      ],
-      "summary": [
-        "Quality metrics provide objective quantitative data to drive process improvements.",
-        "Process metrics evaluate development efficiency (CED, DRE).",
-        "Product metrics evaluate operational reliability and customer call volume (MTBF, MTTR)."
-      ],
-      "keyPoints": [
-        "Process metrics: Defect density (Errors/KLOC), DRE, timetable observance.",
-        "Product metrics: MTBF, response times, defect severity weights.",
-        "Maintenance metrics: MTTR, repeat failure rate, customer ticket volume."
       ]
     }
   ]

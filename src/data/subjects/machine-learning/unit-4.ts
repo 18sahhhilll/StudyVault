@@ -16,12 +16,33 @@ export const unit4Data: Unit = {
     '#Exemplar / Case Studies: Prediction of Thyroid disorders such as Hyperthyroid, Hypothyroid, Euthyroid-sick, and Euthyroid using multiclass classifier'
   ],
   questionPaperIndex: [
-    { paper: 'Nov 2024 ([6354]-486)', qMain: '(a) → Q1, (b) → Q5, (c) → Q6', qOr: '(a) → Q2, (b) → Q3, (c) → Q8' },
-    { paper: 'May 2024 ([6404]-82)', qMain: '(a) → Q13, (b) → Q8, (c) → Q17', qOr: '(a) → Q15, (b) → Q20, (c) → Q6' },
-    { paper: 'April 2024 ([6263]-82)', qMain: '(a) → Q17, (b) → Q4, (c) → Q9', qOr: '(a) → Q11, (b) → Q18, (c) → Q5' },
-    { paper: 'Nov 2023 ([6181]-102)', qMain: '(a) → Q1, (b) → Q3, (c) → Q4', qOr: '(a) → Q7, (b) → Q12, (c) → Q19' },
-    { paper: 'April 2023 ([6004]-481)', qMain: '(a) → Q7, (b) → Q8 + Q10, (c) → Q14', qOr: '(a) → Q22, (b) → Q11, Q12, (c) → Q1' }
-  ],
+  {
+    paper: "June 2026 ([6627]-82)",
+    qMain: "Q3(a) SVM Working & Applications (7M), Q3(b) KNN Classifier (6M), Q3(c) Binary vs Multiclass (4M)",
+    qOr: "Q4(a) Bagging & Boosting (7M), Q4(b) Accuracy, Precision, F-score (6M), Q4(c) Imbalanced Multiclass (4M)"
+  },
+  {
+    paper: "Nov 2025 ([6584]-92)",
+    qMain: "Q3(a) SVM Hyperplane & Support Vectors (5M), Q3(b) Multiclass Classification (6M), Q3(c) Binary Confusion Matrix Numerical (6M)",
+    qOr: "Q4(a) Random Forest Algorithm (5M), Q4(b) KNN Distance Metrics (6M), Q4(c) Ensemble Learning (6M)"
+  },
+  {
+    paper: "May 2025 ([6404]-82)",
+    qMain: "Q3(a) Binary vs Multiclass (5M), Q3(b) Ensemble Learning (6M), Q3(c) Classifier Evaluation Metrics (6M)",
+    qOr: "Q4(a) KNN Algorithm (5M), Q4(b) Imbalanced Data Handling (6M), Q4(c) Bagging vs Boosting (6M)"
+  },
+  {
+    paper: "Nov 2024 ([6354]-486)",
+    qMain: "Q3(a) SVM Kernel Methods (6M), Q3(b) KNN Pros & Cons (6M), Q3(c) KNN Distance Metrics (5M)",
+    qOr: "Q4(a) Multiclass Variants OvA vs OvO (5M), Q4(b) Outlier Handling (6M), Q4(c) Random Forest (6M)"
+  },
+  {
+    paper: "May 2024 ([6263]-82)",
+    qMain: "Q3(a) Ensemble Learning (5M), Q3(b) KNN Advantages & Disadvantages (6M), Q3(c) KNN Distance Metrics (6M)",
+    qOr: "Q4(a) Multiclass Classification (5M), Q4(b) SVM Kernel Methods (6M), Q4(c) Outlier Handling (6M)"
+  }
+],
+  
   quickRevision: {
     keyDefinitions: [
       { term: 'K-Nearest Neighbour (KNN)', definition: 'Lazy, instance-based, non-parametric classifier assigning a query point to the majority class among its K closest training points.' },
@@ -70,8 +91,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q4(a)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q4(c)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q3(b)', marks: 6, notes: 'KNN Classifier & Applications in Detail' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q4(a)', marks: 5, notes: 'Explain KNN with Example' }
       ],
       topicCategory: 'K-Nearest Neighbour (KNN)',
       subtopic: 'KNN Working Principle',
@@ -160,8 +181,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q4(c)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q4(c)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q3(b)', marks: 6, notes: 'Advantages and Disadvantages of K-NN' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q3(b)', marks: 6, notes: 'Advantages and Disadvantages of K-NN' }
       ],
       topicCategory: 'K-Nearest Neighbour (KNN)',
       subtopic: 'KNN Advantages & Disadvantages',
@@ -209,10 +230,11 @@ export const unit4Data: Unit = {
       shortTitle: 'Distance Metrics in KNN (Euclidean, Manhattan, Minkowski, Hamming)',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q3(c)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q3(c)', marks: 6 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q4(b)', marks: 6, notes: 'Distance Metrics Used in K-NN' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q3(c)', marks: 5, notes: 'Distance Metrics Used in K-NN' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q3(c)', marks: 6, notes: 'Distance Metrics Used in K-NN' }
       ],
       topicCategory: 'K-Nearest Neighbour (KNN)',
       subtopic: 'Distance Metrics (Euclidean, Manhattan)',
@@ -286,9 +308,9 @@ export const unit4Data: Unit = {
       shortTitle: 'Solved Numerical: KNN Pass/Fail Classification',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'April 2024', questionNo: 'Q3(b)', marks: 6 }
+
       ],
       topicCategory: 'K-Nearest Neighbour (KNN)',
       subtopic: 'KNN Pass/Fail Numerical',
@@ -431,8 +453,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q4(b)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q3(a)', marks: 7, notes: 'SVM in Detail with Steps & Applications' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q3(a)', marks: 5, notes: 'Basic Principles of SVM, Support Vectors & Optimal Hyperplane' }
       ],
       topicCategory: 'Support Vector Machines (SVM)',
       subtopic: 'Hyperplane & Margin',
@@ -494,11 +516,11 @@ export const unit4Data: Unit = {
       title: 'Kernel Methods Suitable for SVM',
       shortTitle: 'Kernel Methods in SVM',
       marks: 6,
-      importance: 'Important',
+      importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q4(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q3(a)', marks: 6, notes: 'Kernel Methods Suitable for SVM' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q4(b)', marks: 6, notes: 'Kernel Methods Suitable for SVM' }
       ],
       topicCategory: 'Support Vector Machines (SVM)',
       subtopic: 'Kernel Methods in SVM',
@@ -560,10 +582,9 @@ export const unit4Data: Unit = {
       shortTitle: 'Support Vector Regression (SVR)',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 2,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q3(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q3(b)', marks: 6 }
+
       ],
       topicCategory: 'Support Vector Machines (SVM)',
       subtopic: 'Support Vector Regression (SVR)',
@@ -642,12 +663,11 @@ export const unit4Data: Unit = {
       shortTitle: 'Ensemble Learning & Applications',
       marks: 6,
       importance: 'Frequently Asked',
-      occurrenceCount: 4,
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q3(b)', marks: 6 },
-        { paper: 'Nov 2023', questionNo: 'Q3(a)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q3(b)', notes: 'First part' },
-        { paper: 'In-Sem Exam', questionNo: 'Q3(b)', notes: 'First part' }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q4(c)', marks: 6, notes: 'Why Ensemble Learning is Used for ML?' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q3(b)', marks: 6, notes: 'Ensemble Learning in ML with Example' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q3(a)', marks: 5, notes: 'Why Ensemble Learning is Used for ML?' }
       ],
       topicCategory: 'Ensemble Learning',
       subtopic: 'Ensemble Learning Principles',
@@ -725,9 +745,9 @@ export const unit4Data: Unit = {
       shortTitle: 'Simple vs Advanced Ensemble Learning Methods',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'April 2024', questionNo: 'Q3(c)', marks: 6 }
+
       ],
       topicCategory: 'Ensemble Learning',
       subtopic: 'Simple vs Advanced Ensembles',
@@ -784,8 +804,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q3(a)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q3(a)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q4(a)', marks: 7, notes: 'Concept of Bagging & Boosting in Classification' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q4(c)', marks: 6, notes: 'Bagging and Boosting in Ensemble Learning' }
       ],
       topicCategory: 'Ensemble Learning',
       subtopic: 'Bagging vs Boosting',
@@ -862,8 +882,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q3(a)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q3(a)', marks: 6 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q4(a)', marks: 5, notes: 'Random Forest Algorithm with Example and Diagram' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q4(c)', marks: 6, notes: 'Random Forest Algorithm with Example and Diagram' }
       ],
       topicCategory: 'Ensemble Learning',
       subtopic: 'Random Forest Algorithm',
@@ -935,9 +955,9 @@ export const unit4Data: Unit = {
       shortTitle: 'AdaBoost (Adaptive Boosting) Algorithm',
       marks: 4,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q4(b)(ii)', marks: 4 }
+
       ],
       topicCategory: 'Ensemble Learning',
       subtopic: 'AdaBoost Algorithm',
@@ -1003,11 +1023,11 @@ export const unit4Data: Unit = {
       title: 'Differentiate between Binary Classification and Multiclass Classification (with example)',
       shortTitle: 'Binary vs Multiclass Classification',
       marks: 6,
-      importance: 'Important',
+      importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q4(a)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q3(c)', marks: 4, notes: 'Binary & Multi-Class Classification Commentary' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q3(a)', marks: 5, notes: 'Differentiate Binary Classification with Multiclass with Example' }
       ],
       topicCategory: 'Multiclass & Imbalanced Classification',
       subtopic: 'Binary vs Multiclass',
@@ -1073,11 +1093,12 @@ export const unit4Data: Unit = {
       title: 'What is Multiclass Classification? Explain the Variants of Multiclass Classification',
       shortTitle: 'Multiclass Classification Variants (OvA vs OvO)',
       marks: 6,
-      importance: 'Important',
-      occurrenceCount: 2,
+      importance: 'Frequently Asked',
+      occurrenceCount: 3,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q4(a)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q4(a)', marks: 6 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q3(b)', marks: 6, notes: 'Multiclass Classification & Variants (OvA / OvO)' },
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q4(a)', marks: 5, notes: 'Multiclass Classification & Variants (OvA / OvO)' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q4(a)', marks: 5, notes: 'Multiclass Classification & Variants (OvA / OvO)' }
       ],
       topicCategory: 'Multiclass & Imbalanced Classification',
       subtopic: 'One-vs-All vs One-vs-One',
@@ -1155,11 +1176,11 @@ export const unit4Data: Unit = {
       title: 'Handling Imbalanced Data in Multiclass Classification',
       shortTitle: 'Handling Imbalanced Data',
       marks: 6,
-      importance: 'Important',
+      importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q4(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q4(c)', marks: 4, notes: 'Differentiate Balanced & Imbalanced Multiclass Classification' },
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q4(b)', marks: 6, notes: 'Handling Imbalance Data in Multiclass Classification' }
       ],
       topicCategory: 'Multiclass & Imbalanced Classification',
       subtopic: 'Handling Imbalanced Data',
@@ -1221,10 +1242,11 @@ export const unit4Data: Unit = {
       title: 'Techniques Used for Outlier Handling',
       shortTitle: 'Outlier Detection & Handling Methodologies',
       marks: 6,
-      importance: 'Important',
-      occurrenceCount: 1,
+      importance: 'Frequently Asked',
+      occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2024', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'Nov 2024 ([6354]-486)', questionNo: 'Q4(b)', marks: 6, notes: 'Different Techniques Used for Outlier Handling' },
+        { paper: 'May 2024 ([6263]-82)', questionNo: 'Q4(c)', marks: 6, notes: 'Different Techniques Used for Outlier Handling' }
       ],
       topicCategory: 'Multiclass & Imbalanced Classification',
       subtopic: 'Outlier Detection & Handling',
@@ -1275,11 +1297,10 @@ export const unit4Data: Unit = {
       title: 'Methods for Evaluating Classification Models / Metrics for Evaluating Classifier Performance',
       shortTitle: 'Classifier Evaluation Metrics',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Important',
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q3(c)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q3(c)', marks: 6 }
+        { paper: 'May 2025 ([6404]-82)', questionNo: 'Q3(c)', marks: 6, notes: 'Metrics for Evaluating Classifier Performance' }
       ],
       topicCategory: 'Evaluation Metrics & Validation',
       subtopic: 'Classifier Evaluation Suite',
@@ -1343,10 +1364,9 @@ export const unit4Data: Unit = {
       shortTitle: 'Importance of Confusion Matrix',
       marks: 4,
       importance: 'Important',
-      occurrenceCount: 2,
+      occurrenceCount: 1,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q3(c)', marks: 4 },
-        { paper: 'In-Sem Exam', questionNo: 'Q3(c)', marks: 4 }
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q3(c)', marks: 6, notes: 'Confusion Matrix Formulation (TP, TN, FP, FN)' }
       ],
       topicCategory: 'Evaluation Metrics & Validation',
       subtopic: 'Confusion Matrix Architecture',
@@ -1404,8 +1424,8 @@ export const unit4Data: Unit = {
       importance: 'Frequently Asked',
       occurrenceCount: 2,
       papersAsked: [
-        { paper: 'Nov 2023', questionNo: 'Q4(b)', marks: 6 },
-        { paper: 'In-Sem Exam', questionNo: 'Q4(b)', marks: 6 }
+        { paper: 'June 2026 ([6627]-82)', questionNo: 'Q4(b)', marks: 6, notes: 'Evaluation Measures: Accuracy, Precision, F-score' },
+        { paper: 'Nov 2025 ([6584]-92)', questionNo: 'Q3(c)', marks: 6, notes: 'Calculate Accuracy, Precision, Recall, and F1-score' }
       ],
       topicCategory: 'Evaluation Metrics & Validation',
       subtopic: 'Accuracy, Precision, Recall, F-Score',
@@ -1463,10 +1483,9 @@ export const unit4Data: Unit = {
       shortTitle: 'Precision-Recall Relationship',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 2,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q4(a)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q4(a)', marks: 6 }
+
       ],
       topicCategory: 'Evaluation Metrics & Validation',
       subtopic: 'Precision-Recall Trade-off',
@@ -1527,11 +1546,10 @@ export const unit4Data: Unit = {
       title: 'K-Fold Cross-Validation: Effect of Large and Small K; How to Choose K',
       shortTitle: 'K-Fold Cross-Validation & K Selection',
       marks: 6,
-      importance: 'Frequently Asked',
-      occurrenceCount: 2,
+      importance: 'Important',
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'May 2024', questionNo: 'Q3(c)', marks: 6 },
-        { paper: 'April 2023', questionNo: 'Q3(c)', marks: 6 }
+
       ],
       topicCategory: 'Evaluation Metrics & Validation',
       subtopic: 'K-Fold Cross-Validation',
@@ -1613,9 +1631,9 @@ export const unit4Data: Unit = {
       shortTitle: 'Solved Numerical: 4-Class Confusion Matrix & Macro Metrics',
       marks: 6,
       importance: 'Important',
-      occurrenceCount: 1,
+      occurrenceCount: 0,
       papersAsked: [
-        { paper: 'April 2023', questionNo: 'Q4(a)', marks: 6 }
+
       ],
       topicCategory: 'Evaluation Metrics & Exemplar',
       subtopic: 'Macro Metrics & Thyroid Disorder Exemplar',
